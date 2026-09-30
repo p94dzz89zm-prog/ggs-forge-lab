@@ -1,0 +1,80 @@
+{
+  "forge_release_source_commit": "4ec5f1a2c32fa90ecb983a72b9eb47aa5c5d7676",
+  "attempts": 84,
+  "completed_games": 64,
+  "game_exposure": {
+    "Goro-Goro and Satoru": {
+      "cast": 63,
+      "activated": 12,
+      "triggered": 34
+    },
+    "War Cadence": {
+      "cast": 7,
+      "activated": 1,
+      "triggered": 0
+    },
+    "Aggravated Assault": {
+      "cast": 9,
+      "activated": 4,
+      "triggered": 0
+    },
+    "Breath of Fury": {
+      "cast": 0,
+      "activated": 0,
+      "triggered": 0
+    },
+    "Higure, the Still Wind": {
+      "cast": 0,
+      "activated": 1,
+      "triggered": 1
+    },
+    "Port Razer": {
+      "cast": 7,
+      "activated": 0,
+      "triggered": 2
+    }
+  },
+  "script_matches": [
+    {
+      "card": "Goro-Goro and Satoru",
+      "source_sha256": "43c2aa203e07d47af7f863f643f1ef06e30cd634da75b21cfc32f03a17593556",
+      "matches_recorded_installed_script": true
+    },
+    {
+      "card": "War Cadence",
+      "source_sha256": "c6888f195b9eebfc61ddf36a0630f5d2716dbc54c1e88605045b221a9740e51f",
+      "matches_recorded_installed_script": true
+    },
+    {
+      "card": "Aggravated Assault",
+      "source_sha256": "336375eb27ac1a76724a880172d1be836f72d033597cac47fc7243d63f2dbc4c",
+      "matches_recorded_installed_script": true
+    },
+    {
+      "card": "Breath of Fury",
+      "source_sha256": "cfd9d20f2279e2c53b8413651265ea6317dc8efb0e2c64431f71a387bfacfccd",
+      "matches_recorded_installed_script": true
+    },
+    {
+      "card": "Arcane Adaptation",
+      "source_sha256": "1bf2e6822250b4b5f780a0f2f68880b5d67f088692a5858e298f8f97a57e6023",
+      "matches_recorded_installed_script": true
+    },
+    {
+      "card": "Roaming Throne",
+      "source_sha256": "bca1c1c8a22a969535de4a40b82b6a65269412e5e8ba08bf2831c013a5348d3d",
+      "matches_recorded_installed_script": true
+    },
+    {
+      "card": "Kindred Discovery",
+      "source_sha256": "505c3d63f748053f113f42e8cda4710327519d89e2648f32615b814d4f566c4d",
+      "matches_recorded_installed_script": true
+    },
+    {
+      "card": "Higure, the Still Wind",
+      "source_sha256": "aca36de6120a19d6c3329ecce8f6e30ff954a78bc730001e949f231287252a74",
+      "matches_recorded_installed_script": true
+    }
+  ],
+  "limitations": "Exposure counts are not missed-opportunity counts. Source inspection is not binary verification of compiled AI classes. No new games were run."
+}
