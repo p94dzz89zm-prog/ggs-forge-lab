@@ -1,0 +1,513 @@
+diff --git a/forge-ai/pom.xml b/forge-ai/pom.xml
+index 2b3fa1c9..fbf35a83 100644
+--- a/forge-ai/pom.xml
++++ b/forge-ai/pom.xml
+@@ -13,6 +13,11 @@
+     <name>Forge AI</name>
+ 
+     <dependencies>
++        <dependency>
++            <groupId>com.google.code.gson</groupId>
++            <artifactId>gson</artifactId>
++            <version>2.13.2</version>
++        </dependency>
+         <dependency>
+             <groupId>forge</groupId>
+             <artifactId>forge-core</artifactId>
+diff --git a/forge-ai/src/main/java/forge/ai/AiController.java b/forge-ai/src/main/java/forge/ai/AiController.java
+index 4908a2b8..2c329f6f 100644
+--- a/forge-ai/src/main/java/forge/ai/AiController.java
++++ b/forge-ai/src/main/java/forge/ai/AiController.java
+@@ -1663,6 +1663,7 @@ public class AiController {
+                 }
+                 //override decision for living end player
+                 AiPlayDecision opinion = useLivingEnd && AiPlayDecision.WillPlay.equals(aiPlayDecision) ? aiPlayDecision : canPlayAndPayFor(sa);
++                forge.ai.bridge.BridgeAudit.evaluation(player, sa, opinion.toString());
+ 
+                 // reset LastStateBattlefield
+                 sa.clearLastState();
+diff --git a/forge-ai/src/main/java/forge/ai/LobbyPlayerAi.java b/forge-ai/src/main/java/forge/ai/LobbyPlayerAi.java
+index 09d9ad01..3cef5a60 100644
+--- a/forge-ai/src/main/java/forge/ai/LobbyPlayerAi.java
++++ b/forge-ai/src/main/java/forge/ai/LobbyPlayerAi.java
+@@ -35,7 +35,9 @@ public class LobbyPlayerAi extends LobbyPlayer implements IGameEntitiesFactory {
+     }
+ 
+     private PlayerControllerAi createControllerFor(Player ai) {
+-        PlayerControllerAi result = new PlayerControllerAi(ai.getGame(), ai, this);
++        PlayerControllerAi result = System.getProperty("forge.bridge.player") != null || System.getProperty("forge.audit.directory") != null
++                ? new forge.ai.bridge.PlayerControllerBridge(ai.getGame(), ai, this)
++                : new PlayerControllerAi(ai.getGame(), ai, this);
+         result.getAi().setUseSimulation(option);
+         return result;
+     }
+@@ -58,4 +60,4 @@ public class LobbyPlayerAi extends LobbyPlayer implements IGameEntitiesFactory {
+ 
+     @Override
+     public void hear(LobbyPlayer player, String message) { /* Local AI is deaf. */ }
+-}
+\ No newline at end of file
++}
+diff --git a/forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java b/forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java
+index 73676766..7b7dc61c 100644
+--- a/forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java
++++ b/forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java
+@@ -289,6 +289,7 @@ public class ChangeZoneAi extends SpellAbilityAi {
+                 return new AiAbilityDecision(0, AiPlayDecision.WouldDestroyLegend);
+             }
+             if (ai.getGame().getPhaseHandler().getPhase().isAfter(PhaseType.COMBAT_DAMAGE)) {
++                forge.ai.bridge.BridgeAudit.evaluation(ai, sa, "NinjutsuAfterDamagePhasePolicy");
+                 return new AiAbilityDecision(0, AiPlayDecision.WaitForCombat);
+             }
+ 
+@@ -304,6 +305,7 @@ public class ChangeZoneAi extends SpellAbilityAi {
+                 }
+             }
+             if (!lowerCMC) {
++                forge.ai.bridge.BridgeAudit.evaluation(ai, sa, "NinjutsuNeedsLowerManaValuePolicy");
+                 return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
+             }
+         }
+diff --git a/forge-ai/src/main/java/forge/ai/bridge/BridgeAudit.java b/forge-ai/src/main/java/forge/ai/bridge/BridgeAudit.java
+new file mode 100644
+index 00000000..ca918014
+--- /dev/null
++++ b/forge-ai/src/main/java/forge/ai/bridge/BridgeAudit.java
+@@ -0,0 +1,22 @@
++package forge.ai.bridge;
++
++import com.google.gson.JsonObject;
++import forge.game.player.Player;
++import forge.game.spellability.SpellAbility;
++import java.nio.file.Path;
++
++/** Offline audit stream; never a source of information for the remote seat. */
++public final class BridgeAudit {
++    private BridgeAudit() {}
++    public static void evaluation(Player player,SpellAbility ability,String decision) {
++        String dir=System.getProperty("forge.audit.directory");if(dir==null)return;
++        JsonObject row=new JsonObject();row.addProperty("kind","ai_evaluation");
++        row.addProperty("offline_private",true);row.addProperty("ability",ability.toString());row.addProperty("decision",decision);
++        // Full state is recorded at priority selection, not for every candidate:
++        // duplicating snapshots in the timed evaluator would distort its budget.
++        row.addProperty("player_id",player.getId());row.addProperty("turn",player.getGame().getPhaseHandler().getTurn());
++        row.addProperty("phase",String.valueOf(player.getGame().getPhaseHandler().getPhase()));
++        try {BridgeChannel.append(Path.of(dir,"evaluation-seat-"+player.getId()+".jsonl"),row.toString());}
++        catch(java.io.IOException e){throw new IllegalStateException("Decision audit failure",e);}
++    }
++}
+diff --git a/forge-ai/src/main/java/forge/ai/bridge/BridgeChannel.java b/forge-ai/src/main/java/forge/ai/bridge/BridgeChannel.java
+new file mode 100644
+index 00000000..38d437fe
+--- /dev/null
++++ b/forge-ai/src/main/java/forge/ai/bridge/BridgeChannel.java
+@@ -0,0 +1,57 @@
++package forge.ai.bridge;
++
++import com.google.gson.*;
++import java.io.IOException;
++import java.nio.charset.StandardCharsets;
++import java.nio.file.*;
++import java.time.Instant;
++import java.util.UUID;
++
++/** Local, request-bound channel. No network listener or credentials. */
++public final class BridgeChannel {
++    private final Path directory;
++    private final String session = UUID.randomUUID().toString();
++    private long sequence;
++    public BridgeChannel(Path directory) { this.directory = directory; }
++
++    public synchronized JsonObject ask(JsonObject request) {
++        String id = session + ":" + (++sequence);
++        request.addProperty("request_id", id);
++        request.addProperty("issued_at", Instant.now().toString());
++        Path response = directory.resolve("response.json");
++        try {
++            Files.createDirectories(directory);
++            Files.deleteIfExists(response);
++            writeAtomic(directory.resolve("request.json"), request.toString());
++            long limit = System.nanoTime() + Long.getLong("forge.bridge.timeoutSeconds", 600L) * 1_000_000_000L;
++            while (System.nanoTime() < limit) {
++                if (Files.exists(response)) {
++                    JsonObject answer;
++                    try { answer = JsonParser.parseString(Files.readString(response)).getAsJsonObject(); }
++                    catch (JsonParseException | IllegalStateException e) { throw new IllegalArgumentException("Malformed bridge response", e); }
++                    Files.delete(response);
++                    if (!answer.has("request_id") || !id.equals(answer.get("request_id").getAsString())) {
++                        throw new IllegalArgumentException("Stale or mismatched bridge response");
++                    }
++                    append(directory.resolve("transcript.jsonl"), new Gson().toJson(java.util.Map.of("request", request,"response", answer)));
++                    return answer;
++                }
++                Thread.sleep(50);
++            }
++            throw new IllegalStateException("Bridge response timed out; no automatic substitute move");
++        } catch (InterruptedException e) {
++            Thread.currentThread().interrupt(); throw new IllegalStateException("Bridge interrupted",e);
++        } catch (IOException e) { throw new IllegalStateException("Bridge file failure", e); }
++    }
++
++    public static void writeAtomic(Path target, String content) throws IOException {
++        Path temporary = target.resolveSibling(target.getFileName()+".tmp");
++        Files.writeString(temporary,content,StandardCharsets.UTF_8);
++        try { Files.move(temporary,target,StandardCopyOption.ATOMIC_MOVE,StandardCopyOption.REPLACE_EXISTING); }
++        catch (AtomicMoveNotSupportedException e) { Files.move(temporary,target,StandardCopyOption.REPLACE_EXISTING); }
++    }
++    public static synchronized void append(Path path, String line) throws IOException {
++        Files.createDirectories(path.getParent());
++        Files.writeString(path,line+"\n",StandardCharsets.UTF_8,StandardOpenOption.CREATE,StandardOpenOption.APPEND);
++    }
++}
+diff --git a/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java b/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java
+new file mode 100644
+index 00000000..c2615137
+--- /dev/null
++++ b/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java
+@@ -0,0 +1,58 @@
++package forge.ai.bridge;
++
++import com.google.gson.*;
++import forge.game.*;
++import forge.game.card.Card;
++import forge.game.player.Player;
++import forge.game.spellability.SpellAbilityStackInstance;
++import forge.game.zone.ZoneType;
++
++/** Conservative player view: never exports library order or opponents' hands. */
++public final class BridgeSnapshot {
++    private BridgeSnapshot() {}
++    public static JsonObject entity(GameEntity entity, Player viewer) {
++        JsonObject out=new JsonObject(); out.addProperty("id",entity.getId());
++        if(entity instanceof Card c) {
++            boolean privateZone=c.isInZone(ZoneType.Library) || (c.isInZone(ZoneType.Hand) && c.getOwner()!=viewer);
++            boolean hidden=privateZone || (c.isFaceDown() && c.getController()!=viewer);
++            out.addProperty("name",hidden ? "Face-down card" : c.getName());
++            out.addProperty("face_down",c.isFaceDown());
++            out.addProperty("controller_id",c.getController().getId());
++            out.addProperty("tapped",c.isTapped());
++            if(!hidden) { out.addProperty("type",c.getType().toString());out.addProperty("mana_cost",c.getManaCost().toString()); }
++            // Printed characteristics of an opponent's face-down card remain hidden.
++            if(!privateZone) {out.addProperty("power",c.getNetPower());out.addProperty("toughness",c.getNetToughness());out.addProperty("summoning_sick",c.hasSickness());}
++        } else { out.addProperty("name",entity.getName()); }
++        return out;
++    }
++    public static JsonObject forPlayer(Player viewer) {
++        Game game=viewer.getGame(); JsonObject out=new JsonObject();
++        out.addProperty("viewer_id",viewer.getId());out.addProperty("viewer",viewer.getName());
++        out.addProperty("turn",game.getPhaseHandler().getTurn());
++        out.addProperty("phase",String.valueOf(game.getPhaseHandler().getPhase()));
++        if(game.getPhaseHandler().getPlayerTurn()!=null)out.addProperty("active_player_id",game.getPhaseHandler().getPlayerTurn().getId());
++        JsonArray players=new JsonArray();
++        for(Player p:game.getPlayers()) {
++            JsonObject po=new JsonObject();po.addProperty("id",p.getId());po.addProperty("name",p.getName());po.addProperty("life",p.getLife());
++            po.addProperty("hand_count",p.getCardsIn(ZoneType.Hand).size());po.addProperty("library_count",p.getCardsIn(ZoneType.Library).size());
++            for(ZoneType z:new ZoneType[]{ZoneType.Battlefield,ZoneType.Graveyard,ZoneType.Command}) {
++                JsonArray cs=new JsonArray();for(Card c:p.getCardsIn(z))cs.add(entity(c,viewer));po.add(z.name().toLowerCase(),cs);
++            }
++            JsonArray exile=new JsonArray();
++            for(Card c:p.getCardsIn(ZoneType.Exile)) {
++                if(c.isFaceDown()) {JsonObject unknown=new JsonObject();unknown.addProperty("id",c.getId());unknown.addProperty("name","Face-down exiled card");exile.add(unknown);}
++                else exile.add(entity(c,viewer));
++            }
++            po.add("exile",exile);
++            if(p==viewer) {JsonArray hand=new JsonArray();for(Card c:p.getCardsIn(ZoneType.Hand))hand.add(entity(c,viewer));po.add("hand",hand);}
++            players.add(po);
++        }
++        out.add("players",players);
++        JsonArray stack=new JsonArray();
++        for(SpellAbilityStackInstance instance:game.getStack()) {
++            var sa=instance.getSpellAbility();JsonObject so=entity(sa.getHostCard(),viewer);
++            if(!sa.getHostCard().isFaceDown())so.addProperty("description",sa.toString());stack.add(so);
++        }
++        out.add("stack",stack);return out;
++    }
++}
+diff --git a/forge-ai/src/main/java/forge/ai/bridge/PlayerControllerBridge.java b/forge-ai/src/main/java/forge/ai/bridge/PlayerControllerBridge.java
+new file mode 100644
+index 00000000..0e6abf7b
+--- /dev/null
++++ b/forge-ai/src/main/java/forge/ai/bridge/PlayerControllerBridge.java
+@@ -0,0 +1,146 @@
++package forge.ai.bridge;
++
++import com.google.gson.*;
++import forge.LobbyPlayer;
++import forge.ai.*;
++import forge.game.*;
++import forge.game.card.*;
++import forge.game.combat.*;
++import forge.game.player.*;
++import forge.game.spellability.*;
++import forge.game.zone.ZoneType;
++import forge.util.collect.FCollectionView;
++import java.nio.file.*;
++import java.util.*;
++
++/** Assisted remote seat: external strategic choices, stock automatic mana/cost payment.
++ * Unoverridden controller hooks remain stock AI; this is not a fully manual controller.
++ */
++public class PlayerControllerBridge extends PlayerControllerAi {
++    private final BridgeChannel channel;
++    private final boolean remote;
++    public PlayerControllerBridge(Game game,Player player,LobbyPlayer lobby) {
++        super(game,player,lobby);
++        remote=player.getName().equals(System.getProperty("forge.bridge.player",""));
++        channel=remote?new BridgeChannel(Path.of(System.getProperty("forge.bridge.directory","bridge"))):null;
++    }
++    private JsonObject request(String kind,JsonArray options) {
++        JsonObject q=new JsonObject();q.addProperty("kind",kind);q.add("state",BridgeSnapshot.forPlayer(player));q.add("options",options);
++        q.addProperty("assistance","Stock automatic mana, costs, mulligans, damage assignment and unoverridden hooks; use auto only explicitly.");
++        return q;
++    }
++    private void audit(String kind,JsonObject detail) {
++        String dir=System.getProperty("forge.audit.directory");if(dir==null)return;
++        JsonObject row=request(kind,new JsonArray());row.add("decision",detail);
++        try {BridgeChannel.append(Path.of(dir, "seat-"+player.getId()+".jsonl"),row.toString());}
++        catch(java.io.IOException e){throw new IllegalStateException("Audit write failed",e);}
++    }
++    private boolean auto(JsonObject r){return r.has("auto") && r.get("auto").getAsBoolean();}
++    private JsonArray options(Collection<? extends GameEntity> choices) {
++        JsonArray result=new JsonArray();int i=0;
++        for(GameEntity e:choices){JsonObject o=BridgeSnapshot.entity(e,player);
++            // An engine-issued search prompt permits the chooser to inspect its own library options.
++            if(e instanceof Card c && c.getOwner()==player && c.isInZone(ZoneType.Library))o.addProperty("name",c.getName());
++            o.addProperty("index",i++);result.add(o);}
++        return result;
++    }
++    private int index(JsonObject r,int size,boolean optional){
++        int i=r.get("index").getAsInt();if(i==-1 && optional)return i;
++        if(i<0 || i>=size)throw new IllegalArgumentException("Choice index outside engine options");return i;
++    }
++    @Override public String chooseSomeType(String type,SpellAbility sa,Collection<String> valid,boolean optional){
++        String chosen;
++        if(remote){JsonArray os=new JsonArray();for(String s:valid)os.add(s);JsonObject q=request("type",os);q.addProperty("card",sa.getHostCard().getName());JsonObject r=channel.ask(q);
++            chosen=auto(r)?super.chooseSomeType(type,sa,valid,optional):r.get("type").getAsString();
++            if(!valid.contains(chosen))throw new IllegalArgumentException("Type not offered by engine");
++        }else chosen=super.chooseSomeType(type,sa,valid,optional);
++        JsonObject d=new JsonObject();d.addProperty("card",sa.getHostCard().getName());d.addProperty("chosen_type",chosen);audit("type",d);return chosen;
++    }
++    @Override public List<SpellAbility> chooseSpellAbilityToPlay(){
++        if(!remote){List<SpellAbility> picked=super.chooseSpellAbilityToPlay();JsonObject d=new JsonObject();d.addProperty("action",picked==null?"pass":picked.toString());audit("priority",d);return picked;}
++        CardCollection cards=new CardCollection(player.getCardsIn(ZoneType.Hand,ZoneType.Graveyard,ZoneType.Command));
++        cards.addAll(getGame().getCardsIn(ZoneType.Battlefield));
++        for(Card c:getGame().getCardsIn(ZoneType.Exile))if(!c.isFaceDown())cards.add(c);
++        List<SpellAbility> available=new ArrayList<>();
++        CardCollection lands=ComputerUtilAbility.getAvailableLandsToPlay(getGame(),player);
++        if(lands!=null)for(Card c:lands) {
++            if(c.isInZone(ZoneType.Library))continue;
++            LandAbility land=new LandAbility(c,c.getCurrentState());land.setActivatingPlayer(player);if(land.canPlay())available.add(land);
++        }
++        for(SpellAbility sa:ComputerUtilAbility.getSpellAbilities(cards,player)) {
++            sa.setActivatingPlayer(player);
++            if(!sa.isManaAbility() && sa.canPlay())available.add(sa);
++        }
++        JsonArray os=new JsonArray();for(int i=0;i<available.size();i++){SpellAbility sa=available.get(i);JsonObject o=BridgeSnapshot.entity(sa.getHostCard(),player);o.addProperty("index",i);o.addProperty("description",sa.toString());o.addProperty("cost",String.valueOf(sa.getPayCosts()));os.add(o);}
++        JsonObject q=request("priority",os);q.addProperty("options_are","Timing-eligible engine candidates; payment and targets are rechecked after selection.");
++        JsonObject r=channel.ask(q);if(auto(r))return super.chooseSpellAbilityToPlay();
++        int i=index(r,available.size(),true);if(i==-1)return null;
++        SpellAbility selected=available.get(i);
++        if(r.has("x")){int x=r.get("x").getAsInt();if(x<0)throw new IllegalArgumentException("Negative X");selected.setXManaCostPaid(x);}
++        if(!selected.canPlay())throw new IllegalArgumentException("Ability timing changed");
++        for(SpellAbility part=selected;part!=null;part=part.getSubAbility())if(part.usesTargeting() && !chooseTargetsFor(part))throw new IllegalArgumentException("Invalid targets");
++        if(!selected.isLandAbility() && !ComputerUtilCost.canPayCost(selected,player,false))throw new IllegalArgumentException("Selected ability is not payable");
++        return Collections.singletonList(selected);
++    }
++    @Override public boolean playChosenSpellAbility(SpellAbility sa){
++        if(!remote)return super.playChosenSpellAbility(sa);
++        if(sa.isLandAbility()){if(!sa.canPlay())return false;sa.resolve();return true;}
++        // Unlike stock implementation, preserve the payment routine's actual success result.
++        return ComputerUtil.handlePlayingSpellAbility(player,sa,null);
++    }
++    @Override public boolean chooseTargetsFor(SpellAbility sa){
++        if(!remote)return super.chooseTargetsFor(sa);
++        sa.resetTargets();
++        List<GameEntity> candidates=sa.getTargetRestrictions().getAllCandidates(sa);
++        JsonObject q=request("targets",options(candidates));q.addProperty("description",sa.toString());q.addProperty("min",sa.getMinTargets());q.addProperty("max",sa.getMaxTargets());
++        JsonObject r=channel.ask(q);if(auto(r))return super.chooseTargetsFor(sa);
++        Set<Integer> seen=new HashSet<>();
++        for(JsonElement e:r.getAsJsonArray("indices")){int i=e.getAsInt();if(i<0||i>=candidates.size()||!seen.add(i))throw new IllegalArgumentException("Invalid target index");GameEntity target=candidates.get(i);if(!sa.canTarget(target))throw new IllegalArgumentException("Target no longer valid");sa.getTargets().add(target);}
++        return sa.isTargetNumberValid();
++    }
++    @Override public <T extends GameEntity>T chooseSingleEntityForEffect(FCollectionView<T> choices,DelayedReveal reveal,SpellAbility sa,String title,boolean optional,Player target,Map<String,Object> params){
++        if(!remote)return super.chooseSingleEntityForEffect(choices,reveal,sa,title,optional,target,params);
++        if(reveal!=null)reveal(reveal);
++        List<T> list=new ArrayList<>();for(T e:choices)list.add(e);
++        JsonObject q=request("entity",options(list));q.addProperty("title",title);q.addProperty("optional",optional);
++        JsonObject r=channel.ask(q);if(auto(r))return super.chooseSingleEntityForEffect(choices,null,sa,title,optional,target,params);
++        int i=index(r,list.size(),optional);return i==-1?null:list.get(i);
++    }
++    @Override public CardCollectionView chooseCardsForEffect(CardCollectionView choices,SpellAbility sa,String title,int min,int max,boolean optional,Map<String,Object> params){
++        if(!remote)return super.chooseCardsForEffect(choices,sa,title,min,max,optional,params);
++        List<Card> list=new ArrayList<>();for(Card c:choices)list.add(c);
++        JsonObject q=request("cards",options(list));q.addProperty("title",title);q.addProperty("min",min);q.addProperty("max",max);
++        JsonObject r=channel.ask(q);if(auto(r))return super.chooseCardsForEffect(choices,sa,title,min,max,optional,params);
++        CardCollection selected=new CardCollection();Set<Integer> seen=new HashSet<>();
++        for(JsonElement e:r.getAsJsonArray("indices")){int i=e.getAsInt();if(i<0||i>=list.size()||!seen.add(i))throw new IllegalArgumentException("Invalid card index");selected.add(list.get(i));}
++        if(selected.size()>max || (selected.size()<min && !(optional && selected.isEmpty())))throw new IllegalArgumentException("Wrong number of cards");return selected;
++    }
++    @Override public boolean confirmAction(SpellAbility sa,PlayerActionConfirmMode mode,String message,List<String> opts,Card card,Map<String,Object> params){
++        if(!remote)return super.confirmAction(sa,mode,message,opts,card,params);
++        JsonObject q=request("confirm",new JsonArray());q.addProperty("message",message);JsonObject r=channel.ask(q);
++        return auto(r)?super.confirmAction(sa,mode,message,opts,card,params):r.get("yes").getAsBoolean();
++    }
++    @Override public int chooseNumber(SpellAbility sa,String title,int min,int max){
++        if(!remote)return super.chooseNumber(sa,title,min,max);
++        JsonObject q=request("number",new JsonArray());q.addProperty("title",title);q.addProperty("min",min);q.addProperty("max",max);JsonObject r=channel.ask(q);
++        int n=auto(r)?super.chooseNumber(sa,title,min,max):r.get("number").getAsInt();if(n<min||n>max)throw new IllegalArgumentException("Number outside bounds");return n;
++    }
++    @Override public void declareAttackers(Player attacker,Combat combat){
++        if(!remote){super.declareAttackers(attacker,combat);return;}
++        JsonArray os=new JsonArray();Map<String,Map.Entry<Card,GameEntity>> pairs=new HashMap<>();
++        for(Card c:player.getCreaturesInPlay())for(GameEntity defender:combat.getDefenders())if(CombatUtil.canAttack(c,defender)){
++            String key=c.getId()+":"+defender.getId();JsonObject o=new JsonObject();o.addProperty("key",key);o.add("attacker",BridgeSnapshot.entity(c,player));o.add("defender",BridgeSnapshot.entity(defender,player));os.add(o);pairs.put(key,Map.entry(c,defender));}
++        JsonObject r=channel.ask(request("attack",os));if(auto(r)){super.declareAttackers(attacker,combat);return;}
++        Set<Card> seen=new HashSet<>();for(JsonElement e:r.getAsJsonArray("pairs")){var pair=pairs.get(e.getAsString());if(pair==null||!seen.add(pair.getKey()))throw new IllegalArgumentException("Invalid attack");combat.addAttacker(pair.getKey(),pair.getValue());}
++        if(!CombatUtil.validateAttackers(combat))throw new IllegalArgumentException("Attack violates engine constraints");
++    }
++    @Override public void declareBlockers(Player defender,Combat combat){
++        if(!remote){super.declareBlockers(defender,combat);return;}
++        JsonArray os=new JsonArray();Map<String,Map.Entry<Card,Card>> pairs=new HashMap<>();
++        for(Card attacker:combat.getAttackers())for(Card blocker:player.getCreaturesInPlay())if(CombatUtil.canBlock(attacker,blocker,combat)){
++            String key=attacker.getId()+":"+blocker.getId();JsonObject o=new JsonObject();o.addProperty("key",key);o.add("attacker",BridgeSnapshot.entity(attacker,player));o.add("blocker",BridgeSnapshot.entity(blocker,player));os.add(o);pairs.put(key,Map.entry(attacker,blocker));}
++        JsonObject r=channel.ask(request("block",os));if(auto(r)){super.declareBlockers(defender,combat);return;}
++        Set<String> seen=new HashSet<>();for(JsonElement e:r.getAsJsonArray("pairs")){String key=e.getAsString();var pair=pairs.get(key);if(pair==null||!seen.add(key))throw new IllegalArgumentException("Invalid block");combat.addBlocker(pair.getKey(),pair.getValue());}
++        String error=CombatUtil.validateBlocks(combat,defender);if(error!=null)throw new IllegalArgumentException(error);
++    }
++}
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java b/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
+new file mode 100644
+index 00000000..1d14311f
+--- /dev/null
++++ b/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
+@@ -0,0 +1,130 @@
++package forge.ai.bridge;
++
++import com.google.gson.*;
++import forge.ai.AITest;
++import forge.game.Game;
++import forge.game.card.Card;
++import forge.game.combat.Combat;
++import forge.game.phase.PhaseType;
++import forge.game.player.Player;
++import forge.game.spellability.SpellAbility;
++import forge.game.zone.ZoneType;
++import org.testng.Assert;
++import org.testng.annotations.*;
++import java.nio.file.*;
++import java.util.*;
++import java.util.concurrent.*;
++import java.util.function.Function;
++
++public class BridgeEngineTest extends AITest {
++    private final ExecutorService clients=Executors.newCachedThreadPool();
++    @AfterMethod(alwaysRun=true) public void clearProperties(){
++        for(String key:new String[]{"forge.bridge.player","forge.bridge.directory","forge.audit.directory","forge.bridge.timeoutSeconds"})System.clearProperty(key);
++    }
++    @AfterClass(alwaysRun=true) public void closeClients(){clients.shutdownNow();}
++    private PlayerControllerBridge remote(Player p,Path dir){
++        System.setProperty("forge.bridge.player",p.getName());System.setProperty("forge.bridge.directory",dir.toString());
++        System.setProperty("forge.bridge.timeoutSeconds","5");
++        PlayerControllerBridge bridge=new PlayerControllerBridge(p.getGame(),p,p.getLobbyPlayer());p.dangerouslySetController(bridge);return bridge;
++    }
++    private Future<?> reply(Path dir,Function<JsonObject,JsonObject> responder,int requests){
++        return clients.submit(()->{
++            String last="";long deadline=System.nanoTime()+TimeUnit.SECONDS.toNanos(15);
++            try{
++                int done=0;
++                while(done<requests && System.nanoTime()<deadline){
++                    Path file=dir.resolve("request.json");
++                    if(Files.exists(file)){
++                        JsonObject q=JsonParser.parseString(Files.readString(file)).getAsJsonObject();String id=q.get("request_id").getAsString();
++                        if(!id.equals(last)){JsonObject r=responder.apply(q);r.addProperty("request_id",id);BridgeChannel.writeAtomic(dir.resolve("response.json"),r.toString());last=id;done++;}
++                    }
++                    Thread.sleep(10);
++                }
++                if(done!=requests)throw new AssertionError("Missing bridge requests");
++            }catch(Exception e){throw new RuntimeException(e);}
++        });
++    }
++    @Test public void snapshotDoesNotRevealOpponentHandOrLibrary(){
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1),opp=game.getPlayers().get(0);
++        addCardToZone("Lightning Bolt",me,ZoneType.Hand);addCardToZone("Demonic Tutor",me,ZoneType.Library);
++        addCardToZone("Thassa's Oracle",opp,ZoneType.Hand);addCardToZone("Force of Will",opp,ZoneType.Library);
++        String state=BridgeSnapshot.forPlayer(me).toString();Assert.assertTrue(state.contains("Lightning Bolt"));
++        for(String secret:new String[]{"Demonic Tutor","Thassa's Oracle","Force of Will"})Assert.assertFalse(state.contains(secret),secret);
++    }
++    @Test public void snapshotHidesOpponentFaceDownIdentity(){
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1),opp=game.getPlayers().get(0);
++        Card c=addCard("Fallen Shinobi",opp);c.turnFaceDown(true);
++        String state=BridgeSnapshot.forPlayer(me).toString();Assert.assertFalse(state.contains("Fallen Shinobi"));Assert.assertTrue(state.contains("Face-down card"));
++    }
++    @Test public void externalChoiceCastsAndResolvesRealLightningBolt()throws Exception{
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1),opp=game.getPlayers().get(0);
++        addCard("Mountain",me);Card bolt=addCardToZone("Lightning Bolt",me,ZoneType.Hand);
++        Path dir=Files.createTempDirectory("forge-bridge-bolt");PlayerControllerBridge bridge=remote(me,dir);
++        Future<?> client=reply(dir,q->{
++            JsonObject r=new JsonObject();String kind=q.get("kind").getAsString();
++            if(kind.equals("priority")){
++                for(JsonElement e:q.getAsJsonArray("options")){JsonObject o=e.getAsJsonObject();if(o.get("name").getAsString().equals("Lightning Bolt")){r.addProperty("index",o.get("index").getAsInt());return r;}}
++                throw new AssertionError("Bolt not offered");
++            }
++            if(kind.equals("targets")){
++                JsonArray indices=new JsonArray();for(JsonElement e:q.getAsJsonArray("options")){JsonObject o=e.getAsJsonObject();if(o.get("id").getAsInt()==opp.getId())indices.add(o.get("index").getAsInt());}
++                r.add("indices",indices);return r;
++            }throw new AssertionError("Unexpected request "+kind);
++        },2);
++        List<SpellAbility> selected=bridge.chooseSpellAbilityToPlay();Assert.assertEquals(selected.size(),1);
++        Assert.assertTrue(bridge.playChosenSpellAbility(selected.get(0)));game.getStack().resolveStack();
++        client.get(15,TimeUnit.SECONDS);Assert.assertEquals(opp.getLife(),17);Assert.assertTrue(game.getCardState(bolt).isInZone(ZoneType.Graveyard));
++        Assert.assertTrue(Files.readString(dir.resolve("transcript.jsonl")).contains("targets"));
++    }
++    @Test public void externalTypeChoiceIsValidatedAndAudited()throws Exception{
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1);Card c=addCardToZone("Arcane Adaptation",me,ZoneType.Hand);
++        Path dir=Files.createTempDirectory("forge-bridge-type");System.setProperty("forge.audit.directory",dir.resolve("audit").toString());
++        PlayerControllerBridge bridge=remote(me,dir);Future<?> client=reply(dir,q->{JsonObject r=new JsonObject();r.addProperty("type","Ninja");return r;},1);
++        String type=bridge.chooseSomeType("Creature",c.getSpellAbilities().get(0),List.of("Human","Ninja","Dragon"),false);
++        client.get(15,TimeUnit.SECONDS);Assert.assertEquals(type,"Ninja");
++        Assert.assertTrue(Files.readString(dir.resolve("audit/seat-"+me.getId()+".jsonl")).contains("chosen_type"));
++    }
++    @Test public void invalidPriorityIndexDoesNotCastAnything()throws Exception{
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1);addCard("Mountain",me);Card bolt=addCardToZone("Lightning Bolt",me,ZoneType.Hand);
++        Path dir=Files.createTempDirectory("forge-bridge-invalid");PlayerControllerBridge bridge=remote(me,dir);
++        Future<?> client=reply(dir,q->{JsonObject r=new JsonObject();r.addProperty("index",1000000);return r;},1);
++        Assert.expectThrows(IllegalArgumentException.class,bridge::chooseSpellAbilityToPlay);
++        client.get(15,TimeUnit.SECONDS);Assert.assertTrue(bolt.isInZone(ZoneType.Hand));Assert.assertTrue(game.getStack().isEmpty());
++    }
++    @Test public void externalAttackPassesEngineConstraints()throws Exception{
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1),opp=game.getPlayers().get(0);
++        Card bear=addCard("Runeclaw Bear",me);bear.setSickness(false);
++        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_ATTACKERS,me);Combat combat=new Combat(me);game.getPhaseHandler().setCombat(combat);
++        Path dir=Files.createTempDirectory("forge-bridge-attack");PlayerControllerBridge bridge=remote(me,dir);
++        Future<?> client=reply(dir,q->{JsonObject r=new JsonObject();JsonArray pairs=new JsonArray();pairs.add(bear.getId()+":"+opp.getId());r.add("pairs",pairs);return r;},1);
++        bridge.declareAttackers(me,combat);client.get(15,TimeUnit.SECONDS);Assert.assertTrue(combat.isAttacking(bear));Assert.assertEquals(combat.getDefenderByAttacker(bear),opp);
++    }
++    @Test public void staleResponseIsRejected()throws Exception{
++        Path dir=Files.createTempDirectory("forge-bridge-stale");System.setProperty("forge.bridge.timeoutSeconds","5");BridgeChannel channel=new BridgeChannel(dir);
++        Future<?> client=clients.submit(()->{try{
++            long deadline=System.nanoTime()+TimeUnit.SECONDS.toNanos(5);while(!Files.exists(dir.resolve("request.json"))&&System.nanoTime()<deadline)Thread.sleep(10);
++            BridgeChannel.writeAtomic(dir.resolve("response.json"),"{\"request_id\":\"stale\",\"index\":-1}");
++        }catch(Exception e){throw new RuntimeException(e);}});
++        Assert.expectThrows(IllegalArgumentException.class,()->channel.ask(new JsonObject()));client.get(10,TimeUnit.SECONDS);
++    }
++    @Test public void rulesAllowEqualValueNinjutsuWhileStockPilotRejectsIt(){
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1),opp=game.getPlayers().get(0);
++        addCard("Island",me);Card bear=addCard("Runeclaw Bear",me);bear.setSickness(false);
++        Card hacker=addCardToZone("Moon-Circuit Hacker",me,ZoneType.Hand);
++        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_ATTACKERS,me);
++        Combat combat=new Combat(me);combat.addAttacker(bear,opp);combat.setBlocked(bear,false);game.getPhaseHandler().setCombat(combat);
++        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_BLOCKERS,me,false);
++        SpellAbility sa=forge.ai.ComputerUtilAbility.getSpellAbilities(new forge.game.card.CardCollection(hacker),me).stream().filter(SpellAbility::isNinjutsu).findFirst().orElseThrow();
++        sa.setActivatingPlayer(me);Assert.assertEquals(bear.getCMC(),hacker.getCMC());
++        Assert.assertTrue(sa.canPlay(),"Rules engine must allow the equal-value activation");
++        Assert.assertEquals(((forge.ai.PlayerControllerAi)me.getController()).getAi().canPlaySa(sa),forge.ai.AiPlayDecision.CantPlayAi);
++    }
++    @Test public void upkeepWithoutLandCandidatesCanPass()throws Exception{
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1);
++        game.getPhaseHandler().devModeSet(PhaseType.UPKEEP,me);
++        Path dir=Files.createTempDirectory("forge-bridge-upkeep");PlayerControllerBridge bridge=remote(me,dir);
++        Future<?> client=reply(dir,q->{JsonObject r=new JsonObject();r.addProperty("index",-1);return r;},1);
++        Assert.assertNull(bridge.chooseSpellAbilityToPlay());client.get(15,TimeUnit.SECONDS);
++    }
++
++}

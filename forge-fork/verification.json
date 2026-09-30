@@ -1,0 +1,73 @@
+{
+  "upstream_commit": "4ec5f1a2c32fa90ecb983a72b9eb47aa5c5d7676",
+  "java": "17.0.20",
+  "maven": "3.9.9",
+  "engine_tests": {
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      "externalAttackPassesEngineConstraints",
+      "externalChoiceCastsAndResolvesRealLightningBolt",
+      "externalTypeChoiceIsValidatedAndAudited",
+      "invalidPriorityIndexDoesNotCastAnything",
+      "rulesAllowEqualValueNinjutsuWhileStockPilotRejectsIt",
+      "snapshotDoesNotRevealOpponentHandOrLibrary",
+      "snapshotHidesOpponentFaceDownIdentity",
+      "staleResponseIsRejected",
+      "upkeepWithoutLandCandidatesCanPass"
+    ]
+  },
+  "python_client_tests": {
+    "tests": 2,
+    "failures": 0
+  },
+  "commander_smoke": {
+    "seed": 20301001,
+    "seats": [
+      "Jaymie_Ezio",
+      "GGS_Current"
+    ],
+    "profiles": [
+      "Default",
+      "Default"
+    ],
+    "external_decisions": 20,
+    "delegated_decisions": 161,
+    "completed": true,
+    "process_exit": 0,
+    "winner": "Jaymie_Ezio",
+    "timeout": false,
+    "engine_exception": false,
+    "interpretation": "Integration test. Mostly delegated; not a fully externally piloted game or comparative deck evaluation."
+  },
+  "invalid_attempts": [
+    {
+      "log": "evidence/invalid-initial-run.log",
+      "reason": "Bridge null land list at upkeep; repaired and regression-tested"
+    },
+    {
+      "log": "evidence/invalid-concurrent-build-run.log",
+      "reason": "Development classpath changed during concurrent Maven packaging; retested with frozen class files"
+    }
+  ],
+  "patch_sha256": "f73c74bace5bc6844050a107b0881c91506f221edfc6e0e010d291a7ae3d2e69",
+  "strategy_changes": false,
+  "desktop_package": {
+    "maven_exit": 0,
+    "jar": "forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "commander_smoke_execution": "Frozen compiled reactor classpath; same compiled source as desktop package",
+    "jar_boot_and_deck_load_exit": 0,
+    "working_directory": "forge-gui (contains res)"
+  },
+  "publication": {
+    "offline_seat_audits": "Omitted from public commit. Automatic approval review rejected two compressed files because private hand information was not considered covered by full-game-log approval. All seat-private audit files omitted.",
+    "public_evidence": [
+      "evidence/game.log",
+      "evidence/bridge-transcript.jsonl.gz",
+      "evidence/invalid-initial-run.log",
+      "evidence/invalid-concurrent-build-run.log"
+    ]
+  }
+}

@@ -1,0 +1,427 @@
+Error handling registered!
+01:17:28 [INFO ] GuiBase: ##########################################
+01:17:28 [INFO ] GuiBase: APP: Forge v.GIT
+01:17:28 [INFO ] GuiBase: Java: 17.0.20 (Ubuntu)
+01:17:28 [INFO ] GuiBase: OS: Linux 6.18.44 amd64
+01:17:28 [INFO ] GuiBase: RAM: 2048 MB max, 8 CPUs
+01:17:28 [INFO ] GuiBase: ##########################################
+Language 'en-US' loaded successfully.
+(ThreadUtil first call): Running with priority 5
+Read cards: 33980 files in 0 ms (25 parts) using thread pool
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+The card A-Alrund's Epiphany was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Baba Lysaga, Night Witch was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Divide by Zero was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Esika's Chariot was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Faceless Haven was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Fires of Invention was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Goldspan Dragon was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Hullbreaker Horror was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Kumano Faces Kakkazan was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Luminarch Aspirant was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Monster Manual was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Omnath, Locus of Creation was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-The Meathook Massacre was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Unholy Heat was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Blinding Radiance was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Goblin Bruiser was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Ogre Painbringer was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Titanic Pelagosaur was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Treetop Recluse was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+Read cards: 854 files in 0 ms (8 parts) using thread pool
+Simulation mode
+Ai(1)-Jaymie_Ezio [Default] vs Ai(2)-GGS_Current [Default] - one game of Commander seed 20301001
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Mulligan: Ai(1)-Jaymie_Ezio has kept a hand of 7 cards
+Mulligan: Ai(2)-GGS_Current has kept a hand of 7 cards
+Turn: Turn 1 (Ai(1)-Jaymie_Ezio)
+Phase: Ai(1)-Jaymie_Ezio's Untap step
+Phase: Ai(1)-Jaymie_Ezio's Upkeep step
+Phase: Ai(1)-Jaymie_Ezio's Draw step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(1)-Jaymie_Ezio played Swamp (60)
+Phase: Ai(1)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(1)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(1)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(1)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(1)-Jaymie_Ezio's End step
+Phase: Ai(1)-Jaymie_Ezio's Cleanup step
+Turn: Turn 2 (Ai(2)-GGS_Current)
+Phase: Ai(2)-GGS_Current's Untap step
+Phase: Ai(2)-GGS_Current's Upkeep step
+Phase: Ai(2)-GGS_Current's Draw step
+Phase: Ai(2)-GGS_Current's Main phase, precombat
+Land: Ai(2)-GGS_Current played Blazemire Verge (108)
+Phase: Ai(2)-GGS_Current's Beginning of Combat Step
+Phase: Ai(2)-GGS_Current's Declare Attackers Step
+Phase: Ai(2)-GGS_Current's Declare Blockers Step
+Phase: Ai(2)-GGS_Current's First Strike Damage Step
+Phase: Ai(2)-GGS_Current's Combat Damage Step
+Phase: Ai(2)-GGS_Current's End of Combat Step
+Phase: Ai(2)-GGS_Current's Main phase, postcombat
+Phase: Ai(2)-GGS_Current's End step
+Phase: Ai(2)-GGS_Current's Cleanup step
+Turn: Turn 3 (Ai(1)-Jaymie_Ezio)
+Phase: Ai(1)-Jaymie_Ezio's Untap step
+Phase: Ai(1)-Jaymie_Ezio's Upkeep step
+Phase: Ai(1)-Jaymie_Ezio's Draw step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(1)-Jaymie_Ezio played Eiganjo, Seat of the Empire (16)
+Mana: Swamp (60) - {T}: Add {B}.
+Mana: Eiganjo, Seat of the Empire (16) - {T}: Add {W}.
+Add To Stack: Ai(1)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Resolve Stack: Ezio Auditore da Firenze - Creature 3 / 2
+Phase: Ai(1)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(1)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(1)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(1)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(1)-Jaymie_Ezio's End step
+Phase: Ai(1)-Jaymie_Ezio's Cleanup step
+Turn: Turn 4 (Ai(2)-GGS_Current)
+Phase: Ai(2)-GGS_Current's Untap step
+Phase: Ai(2)-GGS_Current's Upkeep step
+Phase: Ai(2)-GGS_Current's Draw step
+Phase: Ai(2)-GGS_Current's Main phase, precombat
+Land: Ai(2)-GGS_Current played Island (175)
+Phase: Ai(2)-GGS_Current's Beginning of Combat Step
+Phase: Ai(2)-GGS_Current's Declare Attackers Step
+Phase: Ai(2)-GGS_Current's Declare Blockers Step
+Phase: Ai(2)-GGS_Current's First Strike Damage Step
+Phase: Ai(2)-GGS_Current's Combat Damage Step
+Phase: Ai(2)-GGS_Current's End of Combat Step
+Phase: Ai(2)-GGS_Current's Main phase, postcombat
+Mana: Island (175) - {T}: Add {U}.
+Mana: Blazemire Verge (108) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Current cast Talisman of Indulgence
+Resolve Stack: Talisman of Indulgence
+Phase: Ai(2)-GGS_Current's End step
+Phase: Ai(2)-GGS_Current's Cleanup step
+Turn: Turn 5 (Ai(1)-Jaymie_Ezio)
+Phase: Ai(1)-Jaymie_Ezio's Untap step
+Phase: Ai(1)-Jaymie_Ezio's Upkeep step
+Phase: Ai(1)-Jaymie_Ezio's Draw step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, precombat
+Mana: Swamp (60) - {T}: Add {B}.
+Mana: Eiganjo, Seat of the Empire (16) - {T}: Add {W}.
+Add To Stack: Ai(1)-Jaymie_Ezio cast Brotherhood Regalia
+Resolve Stack: Brotherhood Regalia
+Phase: Ai(1)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(1)-Jaymie_Ezio assigned Ezio Auditore da Firenze (100) to attack Ai(2)-GGS_Current.
+Phase: Ai(1)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Current didn't block Ezio Auditore da Firenze (100).
+Phase: Ai(1)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(1)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (100) deals 3 combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 40 > 37
+Add To Stack: Ai(1)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (100), Damaged: Ai(2)-GGS_Current, Amount: 3]
+Phase: Ai(1)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(1)-Jaymie_Ezio's End step
+Phase: Ai(1)-Jaymie_Ezio's Cleanup step
+Turn: Turn 6 (Ai(2)-GGS_Current)
+Phase: Ai(2)-GGS_Current's Untap step
+Phase: Ai(2)-GGS_Current's Upkeep step
+Phase: Ai(2)-GGS_Current's Draw step
+Phase: Ai(2)-GGS_Current's Main phase, precombat
+Damage: Talisman of Indulgence (114) deals 1 non-combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 37 > 36
+Mana: Talisman of Indulgence (114) - {T}: Add {B} or {R}. Talisman of Indulgence deals 1 damage to you. 
+Add To Stack: Ai(2)-GGS_Current cast Vandalblast targeting [Brotherhood Regalia (93)]
+Zone Change: Brotherhood Regalia (93) was put into Graveyard from Battlefield.
+Resolve Stack: Vandalblast (144) - Destroy Brotherhood Regalia (93).
+Phase: Ai(2)-GGS_Current's Beginning of Combat Step
+Phase: Ai(2)-GGS_Current's Declare Attackers Step
+Phase: Ai(2)-GGS_Current's Declare Blockers Step
+Phase: Ai(2)-GGS_Current's First Strike Damage Step
+Phase: Ai(2)-GGS_Current's Combat Damage Step
+Phase: Ai(2)-GGS_Current's End of Combat Step
+Phase: Ai(2)-GGS_Current's Main phase, postcombat
+Mana: Island (175) - {T}: Add {U}.
+Mana: Blazemire Verge (108) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Current cast Talisman of Creativity
+Resolve Stack: Talisman of Creativity
+Phase: Ai(2)-GGS_Current's End step
+Phase: Ai(2)-GGS_Current's Cleanup step
+Turn: Turn 7 (Ai(1)-Jaymie_Ezio)
+Phase: Ai(1)-Jaymie_Ezio's Untap step
+Phase: Ai(1)-Jaymie_Ezio's Upkeep step
+Phase: Ai(1)-Jaymie_Ezio's Draw step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(1)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(1)-Jaymie_Ezio assigned Ezio Auditore da Firenze (100) to attack Ai(2)-GGS_Current.
+Phase: Ai(1)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Current didn't block Ezio Auditore da Firenze (100).
+Phase: Ai(1)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(1)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (100) deals 3 combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 36 > 33
+Add To Stack: Ai(1)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (100), Damaged: Ai(2)-GGS_Current, Amount: 3]
+Phase: Ai(1)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, postcombat
+Mana: Swamp (60) - {T}: Add {B}.
+Mana: Eiganjo, Seat of the Empire (16) - {T}: Add {W}.
+Add To Stack: Ai(1)-Jaymie_Ezio cast Fellwar Stone
+Resolve Stack: Fellwar Stone
+Mana: Fellwar Stone (76) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Add To Stack: Ai(1)-Jaymie_Ezio cast Changeling Outcast
+Resolve Stack: Changeling Outcast - Creature 1 / 1
+Phase: Ai(1)-Jaymie_Ezio's End step
+Phase: Ai(1)-Jaymie_Ezio's Cleanup step
+Turn: Turn 8 (Ai(2)-GGS_Current)
+Phase: Ai(2)-GGS_Current's Untap step
+Phase: Ai(2)-GGS_Current's Upkeep step
+Phase: Ai(2)-GGS_Current's Draw step
+Phase: Ai(2)-GGS_Current's Main phase, precombat
+Land: Ai(2)-GGS_Current played Command Beacon (162)
+Phase: Ai(2)-GGS_Current's Beginning of Combat Step
+Phase: Ai(2)-GGS_Current's Declare Attackers Step
+Phase: Ai(2)-GGS_Current's Declare Blockers Step
+Phase: Ai(2)-GGS_Current's First Strike Damage Step
+Phase: Ai(2)-GGS_Current's Combat Damage Step
+Phase: Ai(2)-GGS_Current's End of Combat Step
+Phase: Ai(2)-GGS_Current's Main phase, postcombat
+Damage: Talisman of Creativity (150) deals 1 non-combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 33 > 32
+Mana: Talisman of Creativity (150) - {T}: Add {U} or {R}. Talisman of Creativity deals 1 damage to you. 
+Mana: Island (175) - {T}: Add {U}.
+Mana: Blazemire Verge (108) - {T}: Add {B}.
+Mana: Command Beacon (162) - {T}: Add {C}.
+Add To Stack: Ai(2)-GGS_Current cast Purphoros, God of the Forge
+Resolve Stack: Purphoros, God of the Forge - Creature 6 / 5
+Phase: Ai(2)-GGS_Current's End step
+Phase: Ai(2)-GGS_Current's Cleanup step
+Turn: Turn 9 (Ai(1)-Jaymie_Ezio)
+Phase: Ai(1)-Jaymie_Ezio's Untap step
+Phase: Ai(1)-Jaymie_Ezio's Upkeep step
+Phase: Ai(1)-Jaymie_Ezio's Draw step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(1)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(1)-Jaymie_Ezio assigned Ezio Auditore da Firenze (100) and Changeling Outcast (14) to attack Ai(2)-GGS_Current.
+Phase: Ai(1)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Current didn't block Ezio Auditore da Firenze (100).
+Ai(2)-GGS_Current didn't block Changeling Outcast (14).
+Phase: Ai(1)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(1)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (100) deals 3 combat damage to Ai(2)-GGS_Current.
+Damage: Changeling Outcast (14) deals 1 combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 32 > 28
+Add To Stack: Ai(1)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (100), Damaged: Ai(2)-GGS_Current, Amount: 3]
+Phase: Ai(1)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, postcombat
+Mana: Swamp (60) - {T}: Add {B}.
+Mana: Fellwar Stone (76) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Add To Stack: Ai(1)-Jaymie_Ezio cast Unstoppable Slasher
+Resolve Stack: Unstoppable Slasher - Creature 2 / 3
+Phase: Ai(1)-Jaymie_Ezio's End step
+Phase: Ai(1)-Jaymie_Ezio's Cleanup step
+Turn: Turn 10 (Ai(2)-GGS_Current)
+Phase: Ai(2)-GGS_Current's Untap step
+Phase: Ai(2)-GGS_Current's Upkeep step
+Phase: Ai(2)-GGS_Current's Draw step
+Phase: Ai(2)-GGS_Current's Main phase, precombat
+Mana: Island (175) - {T}: Add {U}.
+Mana: Blazemire Verge (108) - {T}: Add {B}.
+Damage: Talisman of Creativity (150) deals 1 non-combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 28 > 27
+Mana: Talisman of Creativity (150) - {T}: Add {U} or {R}. Talisman of Creativity deals 1 damage to you. 
+Add To Stack: Ai(2)-GGS_Current cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Add To Stack: Ai(2)-GGS_Current triggered Purphoros, God of the Forge
+Damage: Purphoros, God of the Forge (164) deals 2 non-combat damage to Ai(1)-Jaymie_Ezio.
+Life: Life: Ai(1)-Jaymie_Ezio 40 > 38
+Resolve Stack: Whenever another creature you control enters, Purphoros, God of the Forge deals 2 damage to each opponent. [Zone Changer: Goro-Goro and Satoru (201)]
+Damage: Talisman of Indulgence (114) deals 1 non-combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 27 > 26
+Mana: Talisman of Indulgence (114) - {T}: Add {B} or {R}. Talisman of Indulgence deals 1 damage to you. 
+Mana: Command Beacon (162) - {T}: Add {C}.
+Add To Stack: Ai(2)-GGS_Current cast Dragon Tempest
+Resolve Stack: Dragon Tempest
+Phase: Ai(2)-GGS_Current's Beginning of Combat Step
+Phase: Ai(2)-GGS_Current's Declare Attackers Step
+Phase: Ai(2)-GGS_Current's Declare Blockers Step
+Phase: Ai(2)-GGS_Current's First Strike Damage Step
+Phase: Ai(2)-GGS_Current's Combat Damage Step
+Phase: Ai(2)-GGS_Current's End of Combat Step
+Phase: Ai(2)-GGS_Current's Main phase, postcombat
+Replacement Effect: Undercity Sewers enters tapped.
+Land: Ai(2)-GGS_Current played Undercity Sewers (104)
+Add To Stack: Ai(2)-GGS_Current triggered Undercity Sewers
+Resolve Stack: Ai(2)-GGS_Current surveiled 1 card(s) to the top of the library
+Resolve Stack: When Undercity Sewers enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) [Zone Changer: Undercity Sewers (104)]
+Phase: Ai(2)-GGS_Current's End step
+Phase: Ai(2)-GGS_Current's Cleanup step
+Turn: Turn 11 (Ai(1)-Jaymie_Ezio)
+Phase: Ai(1)-Jaymie_Ezio's Untap step
+Phase: Ai(1)-Jaymie_Ezio's Upkeep step
+Phase: Ai(1)-Jaymie_Ezio's Draw step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, precombat
+Mana: Swamp (60) - {T}: Add {B}.
+Add To Stack: Ai(1)-Jaymie_Ezio cast Vorpal Sword
+Resolve Stack: Vorpal Sword
+Phase: Ai(1)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(1)-Jaymie_Ezio assigned Changeling Outcast (14), Ezio Auditore da Firenze (100) and Unstoppable Slasher (75) to attack Ai(2)-GGS_Current.
+Phase: Ai(1)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Current didn't block Changeling Outcast (14).
+Ai(2)-GGS_Current didn't block Ezio Auditore da Firenze (100).
+Ai(2)-GGS_Current didn't block Unstoppable Slasher (75).
+Phase: Ai(1)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(1)-Jaymie_Ezio's Combat Damage Step
+Damage: Changeling Outcast (14) deals 1 combat damage to Ai(2)-GGS_Current.
+Damage: Ezio Auditore da Firenze (100) deals 3 combat damage to Ai(2)-GGS_Current.
+Damage: Unstoppable Slasher (75) deals 2 combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 26 > 20
+Add To Stack: Ai(1)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(1)-Jaymie_Ezio triggered Unstoppable Slasher
+Life: Life: Ai(2)-GGS_Current 20 > 10
+Resolve Stack: Whenever Unstoppable Slasher deals combat damage to a player, that player loses half their life, rounded up. [Damage Source: Unstoppable Slasher (75), Damaged: Ai(2)-GGS_Current, Amount: 2]
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (100), Damaged: Ai(2)-GGS_Current, Amount: 3]
+Phase: Ai(1)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(1)-Jaymie_Ezio's End step
+Phase: Ai(1)-Jaymie_Ezio's Cleanup step
+Turn: Turn 12 (Ai(2)-GGS_Current)
+Phase: Ai(2)-GGS_Current's Untap step
+Phase: Ai(2)-GGS_Current's Upkeep step
+Mana: Blazemire Verge (108) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Island (175) - {T}: Add {U}.
+Mana: Undercity Sewers (104) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Current cast Chaos Warp targeting [Unstoppable Slasher (75)]
+Resolve Stack: Chaos Warp (152) - Shuffle Unstoppable Slasher (75) into its owner's library. Ai(2)-GGS_Current reveals the top card of Ai(1)-Jaymie_Ezio's library.
+Phase: Ai(2)-GGS_Current's Draw step
+Phase: Ai(2)-GGS_Current's Main phase, precombat
+Mana: Command Beacon (162) - {T}: Add {C}.
+Mana: Talisman of Indulgence (114) - {T}: Add {C}.
+Add To Stack: Ai(2)-GGS_Current cast Lightning Greaves
+Resolve Stack: Lightning Greaves
+Add To Stack: Ai(2)-GGS_Current activated Lightning Greaves targeting [Goro-Goro and Satoru (201)]
+Resolve Stack: Lightning Greaves (159) -  Attach to Goro-Goro and Satoru (201)
+Phase: Ai(2)-GGS_Current's Beginning of Combat Step
+Phase: Ai(2)-GGS_Current's Declare Attackers Step
+Combat: Ai(2)-GGS_Current assigned Goro-Goro and Satoru (201) to attack Ai(1)-Jaymie_Ezio.
+Phase: Ai(2)-GGS_Current's Declare Blockers Step
+Combat: Ai(1)-Jaymie_Ezio didn't block Goro-Goro and Satoru (201).
+Phase: Ai(2)-GGS_Current's First Strike Damage Step
+Phase: Ai(2)-GGS_Current's Combat Damage Step
+Damage: Goro-Goro and Satoru (201) deals 3 combat damage to Ai(1)-Jaymie_Ezio.
+Life: Life: Ai(1)-Jaymie_Ezio 38 > 35
+Phase: Ai(2)-GGS_Current's End of Combat Step
+Phase: Ai(2)-GGS_Current's Main phase, postcombat
+Phase: Ai(2)-GGS_Current's End step
+Phase: Ai(2)-GGS_Current's Cleanup step
+Turn: Turn 13 (Ai(1)-Jaymie_Ezio)
+Phase: Ai(1)-Jaymie_Ezio's Untap step
+Phase: Ai(1)-Jaymie_Ezio's Upkeep step
+Phase: Ai(1)-Jaymie_Ezio's Draw step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, precombat
+Mana: Swamp (60) - {T}: Add {B}.
+Mana: Fellwar Stone (76) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Add To Stack: Ai(1)-Jaymie_Ezio activated Vorpal Sword targeting [Altaïr Ibn-La'Ahad (48)]
+Resolve Stack: Vorpal Sword (10) -  Attach to Altaïr Ibn-La'Ahad (48)
+Phase: Ai(1)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(1)-Jaymie_Ezio assigned Altaïr Ibn-La'Ahad (48), Changeling Outcast (14) and Ezio Auditore da Firenze (100) to attack Ai(2)-GGS_Current.
+Add To Stack: Ai(1)-Jaymie_Ezio triggered Altaïr Ibn-La'Ahad targeting []
+Resolve Stack: Whenever Altaïr Ibn-La'Ahad attacks, exile up to one target Assassin creature card from your graveyard with a memory counter on it. Then for each creature card you own in exile with a memory counter on it, create a tapped and attacking token that's a copy of it. Exile those tokens at end of combat. (Targeting: [[]]) [Attacker: Altaïr Ibn-La'Ahad (48)]
+Phase: Ai(1)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Current didn't block Altaïr Ibn-La'Ahad (48).
+Ai(2)-GGS_Current didn't block Changeling Outcast (14).
+Ai(2)-GGS_Current didn't block Ezio Auditore da Firenze (100).
+Phase: Ai(1)-Jaymie_Ezio's First Strike Damage Step
+Damage: Altaïr Ibn-La'Ahad (48) deals 5 combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 10 > 5
+Phase: Ai(1)-Jaymie_Ezio's Combat Damage Step
+Damage: Changeling Outcast (14) deals 1 combat damage to Ai(2)-GGS_Current.
+Damage: Ezio Auditore da Firenze (100) deals 3 combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 5 > 1
+Add To Stack: Ai(1)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (100), Damaged: Ai(2)-GGS_Current, Amount: 3]
+Phase: Ai(1)-Jaymie_Ezio's End of Combat Step
+Add To Stack: Ai(1)-Jaymie_Ezio triggered Altaïr Ibn-La'Ahad
+Resolve Stack: Exile  at the end of combat. [Phase: Ai(1)-Jaymie_Ezio]
+Phase: Ai(1)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(1)-Jaymie_Ezio's End step
+Phase: Ai(1)-Jaymie_Ezio's Cleanup step
+Turn: Turn 14 (Ai(2)-GGS_Current)
+Phase: Ai(2)-GGS_Current's Untap step
+Phase: Ai(2)-GGS_Current's Upkeep step
+Phase: Ai(2)-GGS_Current's Draw step
+Phase: Ai(2)-GGS_Current's Main phase, precombat
+Mana: Island (175) - {T}: Add {U}.
+Add To Stack: Ai(2)-GGS_Current cast Thousand-Faced Shadow
+Resolve Stack: Thousand-Faced Shadow - Creature 1 / 1
+Add To Stack: Ai(2)-GGS_Current triggered Purphoros, God of the Forge
+Add To Stack: Ai(2)-GGS_Current triggered Dragon Tempest
+Resolve Stack: Whenever a creature you control with flying enters, it gains haste until end of turn. [Zone Changer: Thousand-Faced Shadow (123)]
+Damage: Purphoros, God of the Forge (164) deals 2 non-combat damage to Ai(1)-Jaymie_Ezio.
+Life: Life: Ai(1)-Jaymie_Ezio 35 > 33
+Resolve Stack: Whenever another creature you control enters, Purphoros, God of the Forge deals 2 damage to each opponent. [Zone Changer: Thousand-Faced Shadow (123)]
+Phase: Ai(2)-GGS_Current's Beginning of Combat Step
+Phase: Ai(2)-GGS_Current's Declare Attackers Step
+Phase: Ai(2)-GGS_Current's Declare Blockers Step
+Phase: Ai(2)-GGS_Current's First Strike Damage Step
+Phase: Ai(2)-GGS_Current's Combat Damage Step
+Phase: Ai(2)-GGS_Current's End of Combat Step
+Phase: Ai(2)-GGS_Current's Main phase, postcombat
+Phase: Ai(2)-GGS_Current's End step
+Phase: Ai(2)-GGS_Current's Cleanup step
+Turn: Turn 15 (Ai(1)-Jaymie_Ezio)
+Phase: Ai(1)-Jaymie_Ezio's Untap step
+Phase: Ai(1)-Jaymie_Ezio's Upkeep step
+Phase: Ai(1)-Jaymie_Ezio's Draw step
+Phase: Ai(1)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(1)-Jaymie_Ezio played Perilous Landscape (26)
+Zone Change: Perilous Landscape (26) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Jaymie_Ezio activated Perilous Landscape
+Resolve Stack: Perilous Landscape (26) - Ai(1)-Jaymie_Ezio searches their library for a basic Island, Mountain, or Plains card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(1)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(1)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(1)-Jaymie_Ezio assigned Altaïr Ibn-La'Ahad (48), Ezio Auditore da Firenze (100) and Changeling Outcast (14) to attack Ai(2)-GGS_Current.
+Add To Stack: Ai(1)-Jaymie_Ezio triggered Altaïr Ibn-La'Ahad targeting []
+Resolve Stack: Whenever Altaïr Ibn-La'Ahad attacks, exile up to one target Assassin creature card from your graveyard with a memory counter on it. Then for each creature card you own in exile with a memory counter on it, create a tapped and attacking token that's a copy of it. Exile those tokens at end of combat. (Targeting: [[]]) [Attacker: Altaïr Ibn-La'Ahad (48)]
+Phase: Ai(1)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Current assigned Thousand-Faced Shadow (123) to block Altaïr Ibn-La'Ahad (48).
+Ai(2)-GGS_Current didn't block Ezio Auditore da Firenze (100).
+Ai(2)-GGS_Current didn't block Changeling Outcast (14).
+Phase: Ai(1)-Jaymie_Ezio's First Strike Damage Step
+Damage: Altaïr Ibn-La'Ahad (48) deals 5 damage (Deathtouch) to Thousand-Faced Shadow (123).
+Zone Change: Thousand-Faced Shadow (123) was put into Graveyard from Battlefield.
+Phase: Ai(1)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (100) deals 3 combat damage to Ai(2)-GGS_Current.
+Damage: Changeling Outcast (14) deals 1 combat damage to Ai(2)-GGS_Current.
+Life: Life: Ai(2)-GGS_Current 1 > -3
+Player Control: Ai(1)-Jaymie_Ezio has restored control over themself
+Player Control: Ai(2)-GGS_Current has restored control over themself
+Game Outcome: Match Duration 2m : 00s
+Game Outcome: Turn 8
+Game Outcome: Ai(1)-Jaymie_Ezio has won because all opponents have lost
+Game Outcome: Ai(2)-GGS_Current has lost because life total reached 0
+Match Result: Ai(1)-Jaymie_Ezio: 1 Ai(2)-GGS_Current: 0 
+
+Game Result: Game 1 ended in 121004 ms. Ai(1)-Jaymie_Ezio has won!
+
