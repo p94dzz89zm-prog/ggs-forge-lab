@@ -1,0 +1,53 @@
+{
+  "status": "completed",
+  "winner": "Ai(4)-Destyn_Turtles",
+  "engine_ms": 9,
+  "last_logged_turn": 48,
+  "variant": "GGS_Naga_diagnostic",
+  "seat_rotation": 0,
+  "seed": 20260930,
+  "seats": [
+    "GGS_Naga_diagnostic",
+    "Jaymie_Ezio",
+    "Gabe_Food",
+    "Destyn_Turtles"
+  ],
+  "wall_seconds": 98.473,
+  "log": "results/logs/GGS_Naga_diagnostic__seat0__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "GGS_Naga_diagnostic.dck",
+    "Jaymie_Ezio.dck",
+    "Gabe_Food.dck",
+    "Destyn_Turtles.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Loyal Apprentice",
+    "Loyal Apprentice",
+    "Goro-Goro and Satoru",
+    "Fellwar Stone",
+    "Sol Ring",
+    "Mana Drain targeting [Rocksteady, Mutant Marauder - Creature 3 / 3]",
+    "Draconic Visitor",
+    "Fallen Shinobi",
+    "Talisman of Indulgence"
+  ],
+  "log_sha256": "626e94151fdbbaeafa0fea441973b81708e300998d8646a7bb8308eb76a587d2"
+}

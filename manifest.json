@@ -1,0 +1,212 @@
+{
+  "decks": {
+    "GGS_Current": {
+      "file": "decks/GGS_Current.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {}
+    },
+    "GGS_Orochi_only": {
+      "file": "decks/GGS_Orochi_only.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Goldspan Dragon": "Orochi Soul-Reaver"
+      }
+    },
+    "GGS_Throne_only": {
+      "file": "decks/GGS_Throne_only.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Determined Iteration": "Roaming Throne"
+      }
+    },
+    "GGS_Two_card_trial": {
+      "file": "decks/GGS_Two_card_trial.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Goldspan Dragon": "Orochi Soul-Reaver",
+        "Determined Iteration": "Roaming Throne"
+      }
+    },
+    "GGS_Higure_only": {
+      "file": "decks/GGS_Higure_only.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Krenko, Tin Street Kingpin": "Higure, the Still Wind"
+      }
+    },
+    "GGS_Higure_Adaptation": {
+      "file": "decks/GGS_Higure_Adaptation.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Krenko, Tin Street Kingpin": "Higure, the Still Wind",
+        "Determined Iteration": "Arcane Adaptation"
+      }
+    },
+    "GGS_Four_card_package": {
+      "file": "decks/GGS_Four_card_package.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Goldspan Dragon": "Orochi Soul-Reaver",
+        "Determined Iteration": "Roaming Throne",
+        "Krenko, Tin Street Kingpin": "Higure, the Still Wind",
+        "Grazilaxx, Illithid Scholar": "Arcane Adaptation"
+      }
+    },
+    "GGS_Naga_diagnostic": {
+      "file": "decks/GGS_Naga_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Krenko, Tin Street Kingpin": "Mist-Syndicate Naga"
+      }
+    },
+    "GGS_Biting_Palm_diagnostic": {
+      "file": "decks/GGS_Biting_Palm_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Prosperous Thief": "Biting-Palm Ninja"
+      }
+    },
+    "GGS_Cover_diagnostic": {
+      "file": "decks/GGS_Cover_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "War Cadence": "Cover of Darkness"
+      }
+    },
+    "GGS_Herald_diagnostic": {
+      "file": "decks/GGS_Herald_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Gingerbrute": "Mist-Cloaked Herald"
+      }
+    },
+    "GGS_Reality_Shift_diagnostic": {
+      "file": "decks/GGS_Reality_Shift_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Chaos Warp": "Reality Shift"
+      }
+    },
+    "GGS_Mission_diagnostic": {
+      "file": "decks/GGS_Mission_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Frostcliff Siege": "Reconnaissance Mission"
+      }
+    },
+    "GGS_Oni_diagnostic": {
+      "file": "decks/GGS_Oni_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Fallen Shinobi": "Silent-Blade Oni"
+      }
+    },
+    "GGS_Slitter_diagnostic": {
+      "file": "decks/GGS_Slitter_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Feed the Swarm": "Throat Slitter"
+      }
+    },
+    "GGS_Cruise_diagnostic": {
+      "file": "decks/GGS_Cruise_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Grazilaxx, Illithid Scholar": "Treasure Cruise"
+      }
+    },
+    "GGS_Ink_Eyes_diagnostic": {
+      "file": "decks/GGS_Ink_Eyes_diagnostic.dck",
+      "commander": [
+        "Goro-Goro and Satoru"
+      ],
+      "library_size": 99,
+      "swaps": {
+        "Balefire Dragon": "Ink-Eyes, Servant of Oni"
+      }
+    },
+    "Jaymie_Ezio": {
+      "file": "decks/Jaymie_Ezio.dck",
+      "commander": [
+        "Ezio Auditore da Firenze"
+      ],
+      "library_size": 99
+    },
+    "Gabe_Food": {
+      "file": "decks/Gabe_Food.dck",
+      "commander": [
+        "Frodo, Adventurous Hobbit",
+        "Sam, Loyal Attendant"
+      ],
+      "library_size": 98
+    },
+    "Destyn_Turtles": {
+      "file": "decks/Destyn_Turtles.dck",
+      "commander": [
+        "Leonardo, the Balance",
+        "Michelangelo, the Heart"
+      ],
+      "library_size": 98
+    }
+  },
+  "import_typography_aliases": {
+    "Ratonhnhak\u00e9\ua789ton": "Ratonhnhak\u00e9:ton",
+    "Bebop, Skull and Crossbones": "Bebop, Skull & Crossbones",
+    "Tokka and Rahzar, Unsupervised": "Tokka & Rahzar, Unsupervised",
+    "Double Jump // Flying Kick": "Double Jump"
+  },
+  "deck_validation": {
+    "total_cards_including_commanders": 100,
+    "ggs_dedicated_lands": 31,
+    "ggs_land_capable_including_mdfc": 34,
+    "ggs_mana_rocks": 6
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "status": "timeout",
+  "winner": null,
+  "variant": "GGS_Mission_diagnostic",
+  "seat_rotation": 3,
+  "seed": 20260930,
+  "seats": [
+    "Destyn_Turtles",
+    "GGS_Mission_diagnostic",
+    "Jaymie_Ezio",
+    "Gabe_Food"
+  ],
+  "wall_seconds": 248.724,
+  "log": "results/logs/GGS_Mission_diagnostic__seat3__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "Destyn_Turtles.dck",
+    "GGS_Mission_diagnostic.dck",
+    "Jaymie_Ezio.dck",
+    "Gabe_Food.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Ragavan, Nimble Pilferer",
+    "Loyal Apprentice",
+    "Goro-Goro and Satoru",
+    "Deadly Rollick targeting [Irma, Part-Time Mutant (7)]",
+    "Goro-Goro and Satoru",
+    "Talisman of Creativity",
+    "Mana Drain targeting [Sword of Feast and Famine]",
+    "Talisman of Dominance"
+  ],
+  "log_sha256": "4e194245f2fe8165d2c95bb46555a01a0c0fadc40933e711eebe02fe25bbd869"
+}

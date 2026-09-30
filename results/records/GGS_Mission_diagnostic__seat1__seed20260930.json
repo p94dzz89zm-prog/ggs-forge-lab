@@ -1,0 +1,53 @@
+{
+  "status": "completed",
+  "winner": "Ai(4)-GGS_Mission_diagnostic",
+  "engine_ms": 7,
+  "last_logged_turn": 38,
+  "variant": "GGS_Mission_diagnostic",
+  "seat_rotation": 1,
+  "seed": 20260930,
+  "seats": [
+    "Jaymie_Ezio",
+    "Gabe_Food",
+    "Destyn_Turtles",
+    "GGS_Mission_diagnostic"
+  ],
+  "wall_seconds": 80.051,
+  "log": "results/logs/GGS_Mission_diagnostic__seat1__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "Jaymie_Ezio.dck",
+    "Gabe_Food.dck",
+    "Destyn_Turtles.dck",
+    "GGS_Mission_diagnostic.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Dauthi Voidwalker",
+    "Demonic Tutor",
+    "Mithril Coat",
+    "Purphoros, God of the Forge",
+    "Goro-Goro and Satoru",
+    "Dragon Tempest",
+    "Talisman of Indulgence",
+    "Phoenix Chick",
+    "Karlach, Fury of Avernus"
+  ],
+  "log_sha256": "1dc757398189caad74447f92dad3fc44fddbe98654b0a169b832f7bd6d90629d"
+}

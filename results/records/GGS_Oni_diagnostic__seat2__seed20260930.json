@@ -1,0 +1,53 @@
+{
+  "status": "completed",
+  "winner": "Ai(4)-Jaymie_Ezio",
+  "engine_ms": 7,
+  "last_logged_turn": 46,
+  "variant": "GGS_Oni_diagnostic",
+  "seat_rotation": 2,
+  "seed": 20260930,
+  "seats": [
+    "Gabe_Food",
+    "Destyn_Turtles",
+    "GGS_Oni_diagnostic",
+    "Jaymie_Ezio"
+  ],
+  "wall_seconds": 78.436,
+  "log": "results/logs/GGS_Oni_diagnostic__seat2__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "Gabe_Food.dck",
+    "Destyn_Turtles.dck",
+    "GGS_Oni_diagnostic.dck",
+    "Jaymie_Ezio.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Changeling Outcast",
+    "Phoenix Chick",
+    "Changeling Outcast",
+    "An Offer You Can't Refuse targeting [Destroy all creatures with power greater than target creature's power.]",
+    "Goro-Goro and Satoru",
+    "Professional Face-Breaker",
+    "Talisman of Dominance",
+    "Changeling Outcast",
+    "Purphoros, God of the Forge"
+  ],
+  "log_sha256": "d28124365d9162da42bf1fb112b5383b1cbf106934736410adf9e0e4249911da"
+}

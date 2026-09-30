@@ -1,0 +1,1330 @@
+Error handling registered!
+20:50:05 [INFO ] GuiBase: ##########################################
+20:50:05 [INFO ] GuiBase: APP: Forge v.2.0.15-SNAPSHOT-09.28
+20:50:05 [INFO ] GuiBase: Java: 17.0.20 (Ubuntu)
+20:50:05 [INFO ] GuiBase: OS: Linux 6.18.44 amd64
+20:50:05 [INFO ] GuiBase: RAM: 1536 MB max, 8 CPUs
+20:50:05 [INFO ] GuiBase: ##########################################
+Language 'en-US' loaded successfully.
+(ThreadUtil first call): Running with priority 5
+Read cards: 34010 archived files in 1 ms (25 parts) using thread pool
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+The card A-Alrund's Epiphany was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Baba Lysaga, Night Witch was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Divide by Zero was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Esika's Chariot was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Faceless Haven was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Fires of Invention was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Goldspan Dragon was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Hullbreaker Horror was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Kumano Faces Kakkazan was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Luminarch Aspirant was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Monster Manual was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Omnath, Locus of Creation was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-The Meathook Massacre was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Unholy Heat was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Blinding Radiance was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Goblin Bruiser was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Ogre Painbringer was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Titanic Pelagosaur was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Treetop Recluse was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+Read cards: 854 files in 0 ms (8 parts) using thread pool
+Simulation mode
+Ai(1)-GGS_Orochi_only vs Ai(2)-Jaymie_Ezio vs Ai(3)-Gabe_Food vs Ai(4)-Destyn_Turtles - one game of Commander seed 20261030
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Ezio Auditore da Firenze for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Sam, Loyal Attendant for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Frodo, Adventurous Hobbit for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Sam, Loyal Attendant for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Mulligan: Ai(1)-GGS_Orochi_only has mulliganed down to 7 cards.
+Mulligan: Ai(3)-Gabe_Food has mulliganed down to 7 cards.
+Mulligan: Ai(1)-GGS_Orochi_only has mulliganed down to 6 cards.
+Mulligan: Ai(4)-Destyn_Turtles has kept a hand of 7 cards
+Mulligan: Ai(1)-GGS_Orochi_only has kept a hand of 6 cards
+Mulligan: Ai(2)-Jaymie_Ezio has kept a hand of 7 cards
+Mulligan: Ai(3)-Gabe_Food has kept a hand of 7 cards
+Turn: Turn 1 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Ash Barrens (373)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 2 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Land: Ai(1)-GGS_Orochi_only played Blazemire Verge (6)
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Phase: Ai(1)-GGS_Orochi_only's End step
+Phase: Ai(1)-GGS_Orochi_only's Cleanup step
+Turn: Turn 3 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Kessig Wolf Run (105)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 4 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Forest (241)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Forest (241) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food cast Essence Warden
+Resolve Stack: Essence Warden - Creature 1 / 1
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 5 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Grand Coliseum enters tapped.
+Land: Ai(4)-Destyn_Turtles played Grand Coliseum (305)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Sol Ring
+Resolve Stack: Sol Ring
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 6 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Land: Ai(1)-GGS_Orochi_only played Mountain (94)
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Phase: Ai(1)-GGS_Orochi_only's End step
+Phase: Ai(1)-GGS_Orochi_only's Cleanup step
+Turn: Turn 7 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Island (134)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Island (134) - {T}: Add {U}.
+Mana: Kessig Wolf Run (105) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Fellwar Stone
+Resolve Stack: Fellwar Stone
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 8 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Essence Warden (210) to attack Ai(2)-Jaymie_Ezio.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Essence Warden (210).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Essence Warden (210) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 40 > 39
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Replacement Effect: As Murmuring Bosk enters, you may reveal a Treefolk card from your hand. If you don't, Murmuring Bosk enters tapped.
+Land: Ai(3)-Gabe_Food played Murmuring Bosk (226)
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 9 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 40 > 39
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Tokka & Rahzar, Unsupervised
+Resolve Stack: Tokka & Rahzar, Unsupervised - Creature 3 / 3
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 40 > 41
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Tokka & Rahzar, Unsupervised (306)]
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 10 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Land: Ai(1)-GGS_Orochi_only played Island (74)
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Island (74) - {T}: Add {U}.
+Mana: Blazemire Verge (6) - {T}: Add {B}.
+Mana: Mountain (94) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Orochi_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 41 > 42
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Goro-Goro and Satoru (100)]
+Phase: Ai(1)-GGS_Orochi_only's End step
+Phase: Ai(1)-GGS_Orochi_only's Cleanup step
+Turn: Turn 11 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Brotherhood Headquarters (126)
+Mana: Island (134) - {T}: Add {U}.
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast 
+Resolve Stack: Disguise - Creature 2/2
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 42 > 43
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Face-down card (H4)]
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 12 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Ash Barrens (274)
+Damage: Murmuring Bosk (226) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 43 > 42
+Mana: Murmuring Bosk (226) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Mana: Forest (241) - {T}: Add {G}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (303)]
+Life: Life: Ai(3)-Gabe_Food 42 > 43
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Sam, Loyal Attendant (303)]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 13 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 39 > 38
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Irma, Part-Time Mutant
+Resolve Stack: Irma, Part-Time Mutant - Creature 1 / 1
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 43 > 44
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Irma, Part-Time Mutant (310)]
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Add To Stack: Ai(4)-Destyn_Turtles triggered Irma, Part-Time Mutant targeting [Tokka & Rahzar, Unsupervised (306)]
+Resolve Stack: At the beginning of combat on your turn, Irma becomes a copy of up to one other target creature you control, except her name is Irma, Part-Time Mutant and she has this ability. Then put a +1/+1 counter on her. (Targeting: [[Tokka & Rahzar, Unsupervised (306)]]) [Phase: Ai(4)-Destyn_Turtles]
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 14 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Island (74) - {T}: Add {U}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Add To Stack: Ai(1)-GGS_Orochi_only cast Sword of Feast and Famine
+Resolve Stack: Sword of Feast and Famine
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Replacement Effect: Xander's Lounge enters tapped.
+Land: Ai(1)-GGS_Orochi_only played Xander's Lounge (86)
+Phase: Ai(1)-GGS_Orochi_only's End step
+Phase: Ai(1)-GGS_Orochi_only's Cleanup step
+Turn: Turn 15 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Mana: Island (134) - {T}: Add {U}.
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Brotherhood Regalia
+Resolve Stack: Brotherhood Regalia
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Mana: Kessig Wolf Run (105) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Resolve Stack: Ezio Auditore da Firenze - Creature 3 / 2
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 44 > 45
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Ezio Auditore da Firenze (201)]
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 16 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Replacement Effect: Isolated Chapel enters tapped unless you control a Plains or a Swamp.
+Land: Ai(3)-Gabe_Food played Isolated Chapel (245)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Forest (241) - {T}: Add {G}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Murmuring Bosk (226) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food cast Tireless Provisioner
+Resolve Stack: Tireless Provisioner - Creature 3 / 2
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 45 > 46
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Tireless Provisioner (221)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 17 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Fabled Passage (379)
+Zone Change: Fabled Passage (379) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Destyn_Turtles activated Fabled Passage
+Resolve Stack: Fabled Passage (379) - Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.  
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 38 > 37
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Level Up targeting [Irma, Part-Time Mutant (310)]
+Resolve Stack: Level Up (393) -  Attach to Irma, Part-Time Mutant (310)
+Add To Stack: Ai(4)-Destyn_Turtles triggered Level Up
+Resolve Stack: When this Aura enters, put a +1/+1 counter on enchanted creature. [Zone Changer: Level Up (393)]
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Add To Stack: Ai(4)-Destyn_Turtles triggered Irma, Part-Time Mutant targeting [Tokka & Rahzar, Unsupervised (306)]
+Resolve Stack: At the beginning of combat on your turn, Irma becomes a copy of up to one other target creature you control, except her name is Irma, Part-Time Mutant and she has this ability. Then put a +1/+1 counter on her. (Targeting: [[Tokka & Rahzar, Unsupervised (306)]]) [Phase: Ai(4)-Destyn_Turtles]
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Irma, Part-Time Mutant (310) and Tokka & Rahzar, Unsupervised (306) to attack Ai(2)-Jaymie_Ezio.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Irma, Part-Time Mutant
+Resolve Stack: Whenever this creature attacks, double the number of +1/+1 counters on it. Then if it has power 10 or greater, draw a card. [Attacker: Irma, Part-Time Mutant (310)]
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Irma, Part-Time Mutant (310).
+Ai(2)-Jaymie_Ezio didn't block Tokka & Rahzar, Unsupervised (306).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Damage: Irma, Part-Time Mutant (310) deals 9 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Tokka & Rahzar, Unsupervised (306) deals 3 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 39 > 27
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 18 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Replacement Effect: Malakir Mire enters tapped.
+Land: Ai(1)-GGS_Orochi_only played Malakir Mire (4)
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Island (74) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Sword of Feast and Famine targeting [Goro-Goro and Satoru (100)]
+Resolve Stack: Sword of Feast and Famine (97) -  Attach to Goro-Goro and Satoru (100)
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Goro-Goro and Satoru (100) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Goro-Goro and Satoru (100).
+Mana: Xander's Lounge (86) - {T}: Add {U}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Sakashima's Student
+Replacement Effect: You may have Irma, Part-Time Mutant enter as a copy of any creature on the battlefield, except it's a Ninja in addition to its other creature types.
+Resolve Stack: Irma, Part-Time Mutant (49) - Ai(1)-GGS_Orochi_only puts Irma, Part-Time Mutant (49) from their hand onto the battlefield tapped and attacking.
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 46 > 47
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Irma, Part-Time Mutant (49)]
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Damage: Irma, Part-Time Mutant (49) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 37 > 34
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Phase: Ai(1)-GGS_Orochi_only's End step
+Phase: Ai(1)-GGS_Orochi_only's Cleanup step
+Turn: Turn 19 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Mana: Island (134) - {T}: Add {U}.
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio activated Brotherhood Regalia targeting [Ezio Auditore da Firenze (201)]
+Resolve Stack: Brotherhood Regalia (194) -  Attach to Ezio Auditore da Firenze (201)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Ezio Auditore da Firenze (201) and Face-down card (H4) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Ezio Auditore da Firenze (201).
+Ai(4)-Destyn_Turtles didn't block Face-down card (H4).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Face-down card (H4) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 34 > 29
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(4)-Destyn_Turtles, Amount: 3]
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 20 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Plains (289)
+Add To Stack: Ai(3)-Gabe_Food triggered Tireless Provisioner
+Resolve Stack: Landfall — Whenever a land you control enters, create a Food token or a Treasure token. (Food is an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life." Treasure is an artifact with "{T}, Sacrifice this token: Add one mana of any color.") [Zone Changer: Plains (289)]
+Mana: Plains (289) - {T}: Add {W}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Forest (241) - {T}: Add {G}.
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Murmuring Bosk (226) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food cast Fell the Mighty targeting [Essence Warden (210)]
+Zone Change: Sam, Loyal Attendant (303) was put into Graveyard from Battlefield.
+Zone Change: Tireless Provisioner (221) was put into Graveyard from Battlefield.
+Zone Change: Tokka & Rahzar, Unsupervised (306) was put into Graveyard from Battlefield.
+Zone Change: Irma, Part-Time Mutant (310) was put into Graveyard from Battlefield.
+Zone Change: Irma, Part-Time Mutant (49) was put into Graveyard from Battlefield.
+Zone Change: Face-down card (H4) was put into Graveyard from Battlefield.
+Zone Change: Ezio Auditore da Firenze (201) was put into Graveyard from Battlefield.
+Resolve Stack: Fell the Mighty (224) - Destroy all creatures with power greater than target creature's power.
+Zone Change: Level Up (393) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Irma, Part-Time Mutant
+Add To Stack: Ai(4)-Destyn_Turtles triggered Tokka & Rahzar, Unsupervised
+Resolve Stack: Whenever another nontoken creature you control leaves the battlefield, put a +1/+1 counter on Tokka & Rahzar and create a Treasure token. This ability triggers only once each turn. [Zone Changer: Irma, Part-Time Mutant (310)]
+Resolve Stack: Whenever another nontoken creature you control leaves the battlefield, put a +1/+1 counter on Irma and create a Treasure token. This ability triggers only once each turn. [Zone Changer: Tokka & Rahzar, Unsupervised (306)]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Essence Warden (210) to attack Ai(2)-Jaymie_Ezio.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Essence Warden (210).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Essence Warden (210) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 27 > 26
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 21 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 29 > 28
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Mana: Plains (391) - {T}: Add {W}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Fast Forward
+Resolve Stack: Fast Forward (334) - Ai(4)-Destyn_Turtles goads Essence Warden (210).
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Zone Change: Treasure Token (500) was put into Graveyard from Battlefield.
+Mana: Treasure Token (500) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Treasure Token (498) was put into Graveyard from Battlefield.
+Mana: Treasure Token (498) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles cast Michelangelo, the Heart
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 47 > 48
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Michelangelo, the Heart (402)]
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 22 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Land: Ai(1)-GGS_Orochi_only played Marsh Flats (81)
+Life: Life: Ai(1)-GGS_Orochi_only 40 > 39
+Zone Change: Marsh Flats (81) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Marsh Flats
+Replacement Effect: As Watery Grave enters, you may pay 2 life. If you don't, it enters tapped.
+Resolve Stack: Marsh Flats (81) - Ai(1)-GGS_Orochi_only searches their library for a Plains or Swamp card, puts it onto the battlefield, then shuffles.
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Island (74) - {T}: Add {U}.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Mountain (94) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Orochi_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 48 > 49
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Goro-Goro and Satoru (100)]
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Xander's Lounge (86) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Orochi_only cast Kari Zev, Skyship Raider
+Resolve Stack: Kari Zev, Skyship Raider - Creature 1 / 3
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 49 > 50
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Kari Zev, Skyship Raider (93)]
+Phase: Ai(1)-GGS_Orochi_only's End step
+Phase: Ai(1)-GGS_Orochi_only's Cleanup step
+Turn: Turn 23 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Island (134) - {T}: Add {U}.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Mana: Kessig Wolf Run (105) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Resolve Stack: Ezio Auditore da Firenze - Creature 3 / 2
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 50 > 51
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Ezio Auditore da Firenze (201)]
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 24 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Ghost Quarter (215)
+Zone Change: Ghost Quarter (215) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Ghost Quarter targeting [Kessig Wolf Run (105)]
+Zone Change: Kessig Wolf Run (105) was put into Graveyard from Battlefield.
+Resolve Stack: Ghost Quarter (215) - Destroy Kessig Wolf Run (105). (OPTIONAL) Ai(3)-Gabe_Food searches Ai(2)-Jaymie_Ezio library for a basic land card, puts it onto the battlefield, then shuffles.
+Mana: Forest (241) - {T}: Add {G}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Plains (289) - {T}: Add {W}.
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Murmuring Bosk (226) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food cast Motivated Pony
+Resolve Stack: Motivated Pony - Creature 3 / 3
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 51 > 52
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Motivated Pony (276)]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Essence Warden (210) to attack Ai(1)-GGS_Orochi_only.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Kari Zev, Skyship Raider (93) to block Essence Warden (210).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Damage: Kari Zev, Skyship Raider (93) deals 1 damage to Essence Warden (210).
+Zone Change: Essence Warden (210) was put into Graveyard from Battlefield.
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 25 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 26 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Mountain (94) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Sword of Feast and Famine targeting [Goro-Goro and Satoru (100)]
+Resolve Stack: Sword of Feast and Famine (97) -  Attach to Goro-Goro and Satoru (100)
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Goro-Goro and Satoru (100) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Goro-Goro and Satoru (100).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 28 > 23
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Discard: Ai(4)-Destyn_Turtles discards Blasphemous Act (320).
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(4)-Destyn_Turtles, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Island (74) - {T}: Add {U}.
+Mana: Watery Grave (72) - {T}: Add {U}.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only cast Grazilaxx, Illithid Scholar
+Resolve Stack: Grazilaxx, Illithid Scholar - Creature 3 / 2
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Xander's Lounge (86) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Orochi_only cast Aggravated Assault
+Resolve Stack: Aggravated Assault
+Phase: Ai(1)-GGS_Orochi_only's End step
+Phase: Ai(1)-GGS_Orochi_only's Cleanup step
+Turn: Turn 27 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Island (134) - {T}: Add {U}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Mortify targeting [Grazilaxx, Illithid Scholar (3)]
+Zone Change: Grazilaxx, Illithid Scholar (3) was put into Graveyard from Battlefield.
+Resolve Stack: Mortify (164) - Destroy Grazilaxx, Illithid Scholar (3).
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio activated Brotherhood Regalia targeting [Ezio Auditore da Firenze (201)]
+Resolve Stack: Brotherhood Regalia (194) -  Attach to Ezio Auditore da Firenze (201)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 28 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Plains (291)
+Mana: Forest (241) - {T}: Add {G}.
+Mana: Plains (289) - {T}: Add {W}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Plains (291) - {T}: Add {W}.
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (303)]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Damage: Murmuring Bosk (226) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 52 > 51
+Mana: Murmuring Bosk (226) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Zone Change: Treasure Token (496) was put into Graveyard from Battlefield.
+Mana: Treasure Token (496) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(3)-Gabe_Food cast Frodo, Adventurous Hobbit
+Resolve Stack: Frodo, Adventurous Hobbit - Creature 1 / 3
+Add To Stack: Ai(3)-Gabe_Food triggered Frodo, Adventurous Hobbit targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Sam, Loyal Attendant (When this creature enters, target player may put Sam into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Frodo, Adventurous Hobbit (301)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 29 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Vibrant Cityscape (377)
+Zone Change: Vibrant Cityscape (377) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Destyn_Turtles activated Vibrant Cityscape
+Resolve Stack: Vibrant Cityscape (377) - Ai(4)-Destyn_Turtles searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 23 > 22
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Donatello, the Brains
+Resolve Stack: Donatello, the Brains - Creature 2 / 4
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 30 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Goro-Goro and Satoru (100) to attack Ai(3)-Gabe_Food.
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Goro-Goro and Satoru (100).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 51 > 46
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Discard: Ai(3)-Gabe_Food discards Rosie Cotton of South Lane (259).
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(3)-Gabe_Food, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Mana: Watery Grave (72) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (77) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Goro-Goro and Satoru (100) to attack Ai(3)-Gabe_Food.
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Goro-Goro and Satoru (100).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 46 > 41
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Discard: Ai(3)-Gabe_Food discards Mirkwood Bats (247).
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(3)-Gabe_Food, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Mana: Watery Grave (72) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (77) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Goro-Goro and Satoru (100) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles assigned Donatello, the Brains (383) to block Goro-Goro and Satoru (100).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 damage to Donatello, the Brains (383).
+Damage: Donatello, the Brains (383) deals 2 damage to Goro-Goro and Satoru (100).
+Zone Change: Donatello, the Brains (383) was put into Graveyard from Battlefield.
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Phase: Ai(1)-GGS_Orochi_only's End step
+Phase: Ai(1)-GGS_Orochi_only's Cleanup step
+Turn: Turn 31 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Exotic Orchard (146)
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Island (134) - {T}: Add {U}.
+Mana: Plains (191) - {T}: Add {W}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Caduceus, Staff of Hermes
+Mana: Xander's Lounge (86) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Orochi_only cast An Offer You Can't Refuse targeting [Caduceus, Staff of Hermes]
+Zone Change: Send countered spell to Graveyard
+Resolve Stack: An Offer You Can't Refuse (63) - Counter Caduceus, Staff of Hermes (118). Its controller creates two Treasure tokens.
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Exotic Orchard (146) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Zone Change: Treasure Token (509) was put into Graveyard from Battlefield.
+Mana: Treasure Token (509) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Altaïr Ibn-La'Ahad
+Resolve Stack: Altaïr Ibn-La'Ahad - Creature 3 / 3
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 32 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 33 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Mana: Island (333) - {T}: Add {U}.
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 22 > 21
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Wave Goodbye
+Resolve Stack: Wave Goodbye (304) - Return each creature without a +1/+1 counter on it to its owner's hand.
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 34 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Land: Ai(1)-GGS_Orochi_only played Takenuma, Abandoned Mire (84)
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Island (74) - {T}: Add {U}.
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Takenuma, Abandoned Mire (84) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only cast Kari Zev, Skyship Raider
+Resolve Stack: Kari Zev, Skyship Raider - Creature 1 / 3
+Mana: Watery Grave (72) - {T}: Add {B}.
+Mana: Xander's Lounge (86) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Sword of Feast and Famine targeting [Goro-Goro and Satoru (100)]
+Resolve Stack: Sword of Feast and Famine (97) -  Attach to Goro-Goro and Satoru (100)
+Phase: Ai(1)-GGS_Orochi_only's End step
+Phase: Ai(1)-GGS_Orochi_only's Cleanup step
+Turn: Turn 35 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Island (134) - {T}: Add {U}.
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Exotic Orchard (146) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Ezio, Blade of Vengeance
+Resolve Stack: Ezio, Blade of Vengeance - Creature 5 / 5
+Zone Change: Treasure Token (508) was put into Graveyard from Battlefield.
+Mana: Treasure Token (508) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(2)-Jaymie_Ezio activated Brotherhood Regalia targeting [Ezio, Blade of Vengeance (141)]
+Resolve Stack: Brotherhood Regalia (194) -  Attach to Ezio, Blade of Vengeance (141)
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 36 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Evolving Wilds (233)
+Zone Change: Evolving Wilds (233) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Evolving Wilds
+Resolve Stack: Evolving Wilds (233) - Ai(3)-Gabe_Food searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Mana: Forest (241) - {T}: Add {G}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Plains (289) - {T}: Add {W}.
+Mana: Plains (291) - {T}: Add {W}.
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Add To Stack: Ai(3)-Gabe_Food cast Motivated Pony
+Resolve Stack: Motivated Pony - Creature 3 / 3
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Murmuring Bosk (226) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food cast Sol Ring
+Resolve Stack: Sol Ring
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 37 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Replacement Effect: Rain-Slicked Copse enters tapped.
+Land: Ai(4)-Destyn_Turtles played Rain-Slicked Copse (360)
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 21 > 20
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Island (333) - {T}: Add {U}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Michelangelo, the Heart
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 38 (Ai(1)-GGS_Orochi_only)
+Phase: Ai(1)-GGS_Orochi_only's Untap step
+Phase: Ai(1)-GGS_Orochi_only's Upkeep step
+Phase: Ai(1)-GGS_Orochi_only's Draw step
+Phase: Ai(1)-GGS_Orochi_only's Main phase, precombat
+Phase: Ai(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Kari Zev, Skyship Raider (93) and Goro-Goro and Satoru (100) to attack Ai(2)-Jaymie_Ezio.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Whenever Kari Zev, Skyship Raider attacks, create Ragavan, a legendary 2/1 red Monkey creature token. Ragavan enters tapped and attacking. Exile that token at end of combat. [Attacker: Kari Zev, Skyship Raider (93)]
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Kari Zev, Skyship Raider (93).
+Ai(2)-Jaymie_Ezio didn't block Goro-Goro and Satoru (100).
+Ai(2)-Jaymie_Ezio assigned Ezio, Blade of Vengeance (141) to block Ragavan (515).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Damage: Kari Zev, Skyship Raider (93) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 26 > 25
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Ragavan (515) deals 2 damage to Ezio, Blade of Vengeance (141).
+Damage: Ezio, Blade of Vengeance (141) deals 5 damage (Deathtouch) to Ragavan (515).
+Life: Life: Ai(2)-Jaymie_Ezio 25 > 20
+Zone Change: Ragavan (515) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Discard: Ai(2)-Jaymie_Ezio discards Vraska Joins Up (112).
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(2)-Jaymie_Ezio, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Exile Ragavan (515) at the end of combat. ([Ragavan (515)]) [Phase: Ai(1)-GGS_Orochi_only]
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Takenuma, Abandoned Mire (84) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (77) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Kari Zev, Skyship Raider (93) and Goro-Goro and Satoru (100) to attack Ai(2)-Jaymie_Ezio.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Whenever Kari Zev, Skyship Raider attacks, create Ragavan, a legendary 2/1 red Monkey creature token. Ragavan enters tapped and attacking. Exile that token at end of combat. [Attacker: Kari Zev, Skyship Raider (93)]
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Kari Zev, Skyship Raider (93).
+Ai(2)-Jaymie_Ezio didn't block Goro-Goro and Satoru (100).
+Ai(2)-Jaymie_Ezio assigned Ezio, Blade of Vengeance (141) to block Ragavan (518).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Damage: Kari Zev, Skyship Raider (93) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 20 > 19
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Ragavan (518) deals 2 damage to Ezio, Blade of Vengeance (141).
+Damage: Ezio, Blade of Vengeance (141) deals 5 damage (Deathtouch) to Ragavan (518).
+Life: Life: Ai(2)-Jaymie_Ezio 19 > 14
+Zone Change: Ragavan (518) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Discard: Ai(2)-Jaymie_Ezio discards Arbaaz Mir (165).
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(2)-Jaymie_Ezio, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Exile Ragavan (518) at the end of combat. ([Ragavan (518)]) [Phase: Ai(1)-GGS_Orochi_only]
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Takenuma, Abandoned Mire (84) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (77) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(1)-GGS_Orochi_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Kari Zev, Skyship Raider (93) and Goro-Goro and Satoru (100) to attack Ai(2)-Jaymie_Ezio.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Whenever Kari Zev, Skyship Raider attacks, create Ragavan, a legendary 2/1 red Monkey creature token. Ragavan enters tapped and attacking. Exile that token at end of combat. [Attacker: Kari Zev, Skyship Raider (93)]
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Kari Zev, Skyship Raider (93).
+Ai(2)-Jaymie_Ezio didn't block Goro-Goro and Satoru (100).
+Ai(2)-Jaymie_Ezio didn't block Ragavan (521).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Damage: Kari Zev, Skyship Raider (93) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 14 > 13
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Ragavan (521) deals 2 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 13 > 6
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Goro-Goro and Satoru
+Resolve Stack: Whenever one or more creatures you control that entered this turn deal combat damage to a player, create a 5/5 red Dragon Spirit creature token with flying. [Damaged: Ai(2)-Jaymie_Ezio, Amount: 2]
+Discard: Ai(2)-Jaymie_Ezio discards Lydia Frye (186).
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(2)-Jaymie_Ezio, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Zone Change: Ragavan (521) was put into Exile from Battlefield.
+Resolve Stack: Exile Ragavan (521) at the end of combat. ([Ragavan (521)]) [Phase: Ai(1)-GGS_Orochi_only]
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Takenuma, Abandoned Mire (84) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (77) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(1)-GGS_Orochi_only's Beginning of Combat Step
+Mana: Xander's Lounge (86) - {T}: Add {R}.
+Mana: Watery Grave (72) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru (100) - Creatures you control gain haste until end of turn.
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Goro-Goro and Satoru (100), Dragon Spirit Token (524) and Kari Zev, Skyship Raider (93) to attack Ai(2)-Jaymie_Ezio.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Whenever Kari Zev, Skyship Raider attacks, create Ragavan, a legendary 2/1 red Monkey creature token. Ragavan enters tapped and attacking. Exile that token at end of combat. [Attacker: Kari Zev, Skyship Raider (93)]
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Goro-Goro and Satoru (100).
+Ai(2)-Jaymie_Ezio didn't block Dragon Spirit Token (524).
+Ai(2)-Jaymie_Ezio didn't block Kari Zev, Skyship Raider (93).
+Ai(2)-Jaymie_Ezio assigned Ezio, Blade of Vengeance (141) to block Ragavan (527).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Damage: Kari Zev, Skyship Raider (93) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 6 > 5
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Dragon Spirit Token (524) deals 5 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Ragavan (527) deals 2 damage to Ezio, Blade of Vengeance (141).
+Damage: Ezio, Blade of Vengeance (141) deals 5 damage (Deathtouch) to Ragavan (527).
+Life: Life: Ai(2)-Jaymie_Ezio 5 > -5
+Zone Change: Ragavan (527) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Goro-Goro and Satoru
+Resolve Stack: Whenever one or more creatures you control that entered this turn deal combat damage to a player, create a 5/5 red Dragon Spirit creature token with flying. [Damaged: Ai(2)-Jaymie_Ezio, Amount: 5]
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(2)-Jaymie_Ezio, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Exile Ragavan (527) at the end of combat. ([Ragavan (527)]) [Phase: Ai(1)-GGS_Orochi_only]
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Takenuma, Abandoned Mire (84) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (77) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(1)-GGS_Orochi_only's Beginning of Combat Step
+Mana: Xander's Lounge (86) - {T}: Add {R}.
+Mana: Watery Grave (72) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru (100) - Creatures you control gain haste until end of turn.
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Kari Zev, Skyship Raider (93), Goro-Goro and Satoru (100), Dragon Spirit Token (524) and Dragon Spirit Token (530) to attack Ai(3)-Gabe_Food.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Whenever Kari Zev, Skyship Raider attacks, create Ragavan, a legendary 2/1 red Monkey creature token. Ragavan enters tapped and attacking. Exile that token at end of combat. [Attacker: Kari Zev, Skyship Raider (93)]
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Kari Zev, Skyship Raider (93).
+Ai(3)-Gabe_Food didn't block Goro-Goro and Satoru (100).
+Ai(3)-Gabe_Food didn't block Dragon Spirit Token (524).
+Ai(3)-Gabe_Food didn't block Dragon Spirit Token (530).
+Ai(3)-Gabe_Food assigned Motivated Pony (276) to block Ragavan (533).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Damage: Kari Zev, Skyship Raider (93) deals 1 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 41 > 40
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Dragon Spirit Token (524) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Dragon Spirit Token (530) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Ragavan (533) deals 2 damage to Motivated Pony (276).
+Damage: Motivated Pony (276) deals 3 damage to Ragavan (533).
+Life: Life: Ai(3)-Gabe_Food 40 > 25
+Zone Change: Ragavan (533) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Goro-Goro and Satoru
+Resolve Stack: Whenever one or more creatures you control that entered this turn deal combat damage to a player, create a 5/5 red Dragon Spirit creature token with flying. [Damaged: Ai(3)-Gabe_Food, Amount: 10]
+Discard: Ai(3)-Gabe_Food discards Frodo, Adventurous Hobbit (301).
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(3)-Gabe_Food, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Exile Ragavan (533) at the end of combat. ([Ragavan (533)]) [Phase: Ai(1)-GGS_Orochi_only]
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Takenuma, Abandoned Mire (84) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (77) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(1)-GGS_Orochi_only's Beginning of Combat Step
+Mana: Xander's Lounge (86) - {T}: Add {R}.
+Mana: Watery Grave (72) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru (100) - Creatures you control gain haste until end of turn.
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Kari Zev, Skyship Raider (93), Goro-Goro and Satoru (100), Dragon Spirit Token (524), Dragon Spirit Token (530) and Dragon Spirit Token (536) to attack Ai(3)-Gabe_Food.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Whenever Kari Zev, Skyship Raider attacks, create Ragavan, a legendary 2/1 red Monkey creature token. Ragavan enters tapped and attacking. Exile that token at end of combat. [Attacker: Kari Zev, Skyship Raider (93)]
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Zone Change: Food Token (424) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 25 > 28
+Resolve Stack: Food Token (424) - Ai(3)-Gabe_Food gains 3 life.
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Kari Zev, Skyship Raider (93).
+Ai(3)-Gabe_Food didn't block Goro-Goro and Satoru (100).
+Ai(3)-Gabe_Food didn't block Dragon Spirit Token (524).
+Ai(3)-Gabe_Food didn't block Dragon Spirit Token (530).
+Ai(3)-Gabe_Food didn't block Dragon Spirit Token (536).
+Ai(3)-Gabe_Food didn't block Ragavan (539).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Damage: Kari Zev, Skyship Raider (93) deals 1 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 28 > 27
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Dragon Spirit Token (524) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Dragon Spirit Token (530) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Dragon Spirit Token (536) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Ragavan (539) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 27 > 5
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Goro-Goro and Satoru
+Resolve Stack: Whenever one or more creatures you control that entered this turn deal combat damage to a player, create a 5/5 red Dragon Spirit creature token with flying. [Damaged: Ai(3)-Gabe_Food, Amount: 17]
+Discard: Ai(3)-Gabe_Food discards Sam, Loyal Attendant (303).
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(3)-Gabe_Food, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Zone Change: Ragavan (539) was put into Exile from Battlefield.
+Resolve Stack: Exile Ragavan (539) at the end of combat. ([Ragavan (539)]) [Phase: Ai(1)-GGS_Orochi_only]
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Takenuma, Abandoned Mire (84) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (77) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(1)-GGS_Orochi_only's Beginning of Combat Step
+Mana: Xander's Lounge (86) - {T}: Add {R}.
+Mana: Watery Grave (72) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru (100) - Creatures you control gain haste until end of turn.
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Goro-Goro and Satoru (100), Dragon Spirit Token (524), Dragon Spirit Token (530), Dragon Spirit Token (536), Dragon Spirit Token (542) and Kari Zev, Skyship Raider (93) to attack Ai(3)-Gabe_Food.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Whenever Kari Zev, Skyship Raider attacks, create Ragavan, a legendary 2/1 red Monkey creature token. Ragavan enters tapped and attacking. Exile that token at end of combat. [Attacker: Kari Zev, Skyship Raider (93)]
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Goro-Goro and Satoru (100).
+Ai(3)-Gabe_Food didn't block Dragon Spirit Token (524).
+Ai(3)-Gabe_Food didn't block Dragon Spirit Token (530).
+Ai(3)-Gabe_Food didn't block Dragon Spirit Token (536).
+Ai(3)-Gabe_Food didn't block Dragon Spirit Token (542).
+Ai(3)-Gabe_Food didn't block Kari Zev, Skyship Raider (93).
+Ai(3)-Gabe_Food assigned Motivated Pony (276) to block Ragavan (545).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Damage: Kari Zev, Skyship Raider (93) deals 1 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 5 > 4
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Dragon Spirit Token (524) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Dragon Spirit Token (530) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Dragon Spirit Token (536) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Dragon Spirit Token (542) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Ragavan (545) deals 2 damage to Motivated Pony (276).
+Damage: Motivated Pony (276) deals 3 damage to Ragavan (545).
+Life: Life: Ai(3)-Gabe_Food 4 > -21
+Zone Change: Ragavan (545) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Sword of Feast and Famine
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Goro-Goro and Satoru
+Resolve Stack: Whenever one or more creatures you control that entered this turn deal combat damage to a player, create a 5/5 red Dragon Spirit creature token with flying. [Damaged: Ai(3)-Gabe_Food, Amount: 20]
+Resolve Stack: Whenever equipped creature deals combat damage to a player, that player discards a card and you untap all lands you control. [Damage Source: Goro-Goro and Satoru (100), Damaged: Ai(3)-Gabe_Food, Amount: 5]
+Phase: Ai(1)-GGS_Orochi_only's End of Combat Step
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Exile Ragavan (545) at the end of combat. ([Ragavan (545)]) [Phase: Ai(1)-GGS_Orochi_only]
+Phase: Ai(1)-GGS_Orochi_only's Main phase, postcombat
+Mana: Mountain (94) - {T}: Add {R}.
+Mana: Blazemire Verge (6) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Malakir Mire (4) - {T}: Add {B}.
+Mana: Takenuma, Abandoned Mire (84) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (77) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(1)-GGS_Orochi_only's Beginning of Combat Step
+Mana: Xander's Lounge (86) - {T}: Add {R}.
+Mana: Watery Grave (72) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Orochi_only activated Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru (100) - Creatures you control gain haste until end of turn.
+Phase: Ai(1)-GGS_Orochi_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Orochi_only assigned Goro-Goro and Satoru (100), Dragon Spirit Token (524), Dragon Spirit Token (530), Dragon Spirit Token (536), Dragon Spirit Token (542), Dragon Spirit Token (548) and Kari Zev, Skyship Raider (93) to attack Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(1)-GGS_Orochi_only triggered Kari Zev, Skyship Raider
+Resolve Stack: Whenever Kari Zev, Skyship Raider attacks, create Ragavan, a legendary 2/1 red Monkey creature token. Ragavan enters tapped and attacking. Exile that token at end of combat. [Attacker: Kari Zev, Skyship Raider (93)]
+Phase: Ai(1)-GGS_Orochi_only's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles assigned Leonardo, the Balance (404) to block Goro-Goro and Satoru (100).
+Ai(4)-Destyn_Turtles didn't block Dragon Spirit Token (524).
+Ai(4)-Destyn_Turtles didn't block Dragon Spirit Token (530).
+Ai(4)-Destyn_Turtles didn't block Dragon Spirit Token (536).
+Ai(4)-Destyn_Turtles didn't block Dragon Spirit Token (542).
+Ai(4)-Destyn_Turtles didn't block Dragon Spirit Token (548).
+Ai(4)-Destyn_Turtles didn't block Kari Zev, Skyship Raider (93).
+Ai(4)-Destyn_Turtles assigned Michelangelo, the Heart (402) to block Ragavan (551).
+Phase: Ai(1)-GGS_Orochi_only's First Strike Damage Step
+Damage: Kari Zev, Skyship Raider (93) deals 1 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 20 > 19
+Phase: Ai(1)-GGS_Orochi_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (100) deals 5 damage to Leonardo, the Balance (404).
+Damage: Dragon Spirit Token (524) deals 5 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Dragon Spirit Token (530) deals 5 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Dragon Spirit Token (536) deals 5 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Dragon Spirit Token (542) deals 5 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Dragon Spirit Token (548) deals 5 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Ragavan (551) deals 2 damage to Michelangelo, the Heart (402).
+Damage: Leonardo, the Balance (404) deals 3 damage to Goro-Goro and Satoru (100).
+Damage: Michelangelo, the Heart (402) deals 2 damage to Ragavan (551).
+Life: Life: Ai(4)-Destyn_Turtles 19 > -6
+Player Control: Ai(1)-GGS_Orochi_only has restored control over themself
+Player Control: Ai(2)-Jaymie_Ezio has restored control over themself
+Player Control: Ai(3)-Gabe_Food has restored control over themself
+Player Control: Ai(4)-Destyn_Turtles has restored control over themself
+Game Outcome: Match Duration 1m : 25s
+Game Outcome: Turn 19
+Game Outcome: Ai(1)-GGS_Orochi_only has won because all opponents have lost
+Game Outcome: Ai(2)-Jaymie_Ezio has lost because life total reached 0
+Game Outcome: Ai(3)-Gabe_Food has lost because life total reached 0
+Game Outcome: Ai(4)-Destyn_Turtles has lost because life total reached 0
+Match Result: Ai(1)-GGS_Orochi_only: 1 Ai(2)-Jaymie_Ezio: 0 Ai(3)-Gabe_Food: 0 Ai(4)-Destyn_Turtles: 0 
+
+Game Result: Game 1 ended in 88135 ms. Ai(1)-GGS_Orochi_only has won!
+

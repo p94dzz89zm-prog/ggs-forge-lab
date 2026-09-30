@@ -1,0 +1,51 @@
+{
+  "status": "completed",
+  "winner": "Ai(1)-Destyn_Turtles",
+  "engine_ms": 1,
+  "last_logged_turn": 31,
+  "variant": "GGS_Four_card_package",
+  "seat_rotation": 3,
+  "seed": 20260930,
+  "seats": [
+    "Destyn_Turtles",
+    "GGS_Four_card_package",
+    "Jaymie_Ezio",
+    "Gabe_Food"
+  ],
+  "wall_seconds": 128.129,
+  "log": "results/logs/GGS_Four_card_package__seat3__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "Destyn_Turtles.dck",
+    "GGS_Four_card_package.dck",
+    "Jaymie_Ezio.dck",
+    "Gabe_Food.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Ragavan, Nimble Pilferer",
+    "Loyal Apprentice",
+    "Fell the Profane targeting [Ezio Auditore da Firenze (302)]",
+    "Goro-Goro and Satoru",
+    "An Offer You Can't Refuse targeting [Security Bypass]",
+    "Terror of the Peaks",
+    "Goro-Goro and Satoru"
+  ],
+  "log_sha256": "e5ac9e8b271482383e6427e03d900f1ee55b5abcb8c8d901d22975a0482abd8d"
+}

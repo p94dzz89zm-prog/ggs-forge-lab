@@ -1,0 +1,49 @@
+{
+  "status": "timeout",
+  "winner": null,
+  "variant": "GGS_Cruise_diagnostic",
+  "seat_rotation": 3,
+  "seed": 20260930,
+  "seats": [
+    "Destyn_Turtles",
+    "GGS_Cruise_diagnostic",
+    "Jaymie_Ezio",
+    "Gabe_Food"
+  ],
+  "wall_seconds": 247.521,
+  "log": "results/logs/GGS_Cruise_diagnostic__seat3__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "Destyn_Turtles.dck",
+    "GGS_Cruise_diagnostic.dck",
+    "Jaymie_Ezio.dck",
+    "Gabe_Food.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Mana Drain targeting [Frodo, Adventurous Hobbit - Creature 1 / 3]",
+    "Goro-Goro and Satoru",
+    "Yuriko, the Tiger's Shadow",
+    "Arcane Signet",
+    "Goldspan Dragon",
+    "Goro-Goro and Satoru",
+    "An Offer You Can't Refuse targeting [Destroy all creatures with power 3 or greater.]"
+  ],
+  "log_sha256": "5b27dccd2996ae0e5b0e4547c37aaeb6ec41ea46250c3e721522f5007b0f94ef"
+}

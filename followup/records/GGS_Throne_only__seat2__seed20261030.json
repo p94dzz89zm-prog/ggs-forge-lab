@@ -1,0 +1,53 @@
+{
+  "status": "completed",
+  "winner": "Ai(2)-Destyn_Turtles",
+  "engine_ms": 1,
+  "last_logged_turn": 40,
+  "variant": "GGS_Throne_only",
+  "seat_rotation": 2,
+  "seed": 20261030,
+  "seats": [
+    "Gabe_Food",
+    "Destyn_Turtles",
+    "GGS_Throne_only",
+    "Jaymie_Ezio"
+  ],
+  "wall_seconds": 180.203,
+  "log": "followup/logs/GGS_Throne_only__seat2__seed20261030.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "Gabe_Food.dck",
+    "Destyn_Turtles.dck",
+    "GGS_Throne_only.dck",
+    "Jaymie_Ezio.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20261030",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Goro-Goro and Satoru",
+    "Fierce Guardianship targeting [Assemble the Entmoot]",
+    "Cyclonic Rift targeting [Casey Jones, Back Alley Brute (107)]",
+    "Sol Ring",
+    "Sink into Stupor targeting [Corpsejack Menace (151)]",
+    "Grim Hireling",
+    "Aggravated Assault",
+    "Urabrask's Forge",
+    "Satoru Umezawa"
+  ],
+  "log_sha256": "263d318afa59a114d575ecc4db9e08bc6f3165798e5f039e190964ada1b04718"
+}

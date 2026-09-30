@@ -1,0 +1,52 @@
+{
+  "status": "completed",
+  "winner": "Ai(4)-Destyn_Turtles",
+  "engine_ms": 5,
+  "last_logged_turn": 34,
+  "variant": "GGS_Orochi_only",
+  "seat_rotation": 0,
+  "seed": 20260930,
+  "seats": [
+    "GGS_Orochi_only",
+    "Jaymie_Ezio",
+    "Gabe_Food",
+    "Destyn_Turtles"
+  ],
+  "wall_seconds": 63.774,
+  "log": "results/logs/GGS_Orochi_only__seat0__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "GGS_Orochi_only.dck",
+    "Jaymie_Ezio.dck",
+    "Gabe_Food.dck",
+    "Destyn_Turtles.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Goro-Goro and Satoru",
+    "Professional Face-Breaker",
+    "Sakashima's Student",
+    "Fierce Guardianship targeting [Assemble the Entmoot]",
+    "Moon-Circuit Hacker",
+    "Talisman of Dominance",
+    "Orochi Soul-Reaver",
+    "Kindred Discovery"
+  ],
+  "log_sha256": "765878412ae2bdc53881c3757f02497a084acd5f2390f15495268c742f8c62bb"
+}

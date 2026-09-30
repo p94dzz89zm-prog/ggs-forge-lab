@@ -1,0 +1,1767 @@
+Error handling registered!
+20:54:21 [INFO ] GuiBase: ##########################################
+20:54:21 [INFO ] GuiBase: APP: Forge v.2.0.15-SNAPSHOT-09.28
+20:54:21 [INFO ] GuiBase: Java: 17.0.20 (Ubuntu)
+20:54:21 [INFO ] GuiBase: OS: Linux 6.18.44 amd64
+20:54:21 [INFO ] GuiBase: RAM: 1536 MB max, 8 CPUs
+20:54:21 [INFO ] GuiBase: ##########################################
+Language 'en-US' loaded successfully.
+(ThreadUtil first call): Running with priority 5
+Read cards: 34010 archived files in 1 ms (25 parts) using thread pool
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+The card A-Alrund's Epiphany was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Baba Lysaga, Night Witch was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Divide by Zero was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Esika's Chariot was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Faceless Haven was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Fires of Invention was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Goldspan Dragon was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Hullbreaker Horror was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Kumano Faces Kakkazan was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Luminarch Aspirant was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Monster Manual was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Omnath, Locus of Creation was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-The Meathook Massacre was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Unholy Heat was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Blinding Radiance was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Goblin Bruiser was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Ogre Painbringer was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Titanic Pelagosaur was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Treetop Recluse was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+Read cards: 854 files in 0 ms (8 parts) using thread pool
+Simulation mode
+Ai(1)-GGS_Throne_only vs Ai(2)-Jaymie_Ezio vs Ai(3)-Gabe_Food vs Ai(4)-Destyn_Turtles - one game of Commander seed 20261030
+Fell Mire Did not have activator set in SpellAbility_Condition.checkConditions()
+Fell Mire Did not have activator set in SpellAbility_Condition.checkConditions()
+Fell Mire Did not have activator set in SpellAbility_Condition.checkConditions()
+Fell Mire Did not have activator set in SpellAbility_Condition.checkConditions()
+Fell Mire Did not have activator set in SpellAbility_Condition.checkConditions()
+Fell Mire Did not have activator set in SpellAbility_Condition.checkConditions()
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Ezio Auditore da Firenze for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Sam, Loyal Attendant for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Goro-Goro and Satoru for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Sam, Loyal Attendant for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Correcting zone for Caduceus, Staff of Hermes (118)
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Sam, Loyal Attendant for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Ezio Auditore da Firenze for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Frodo, Adventurous Hobbit for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Sam, Loyal Attendant for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Mulligan: Ai(3)-Gabe_Food has mulliganed down to 7 cards.
+Mulligan: Ai(4)-Destyn_Turtles has kept a hand of 7 cards
+Mulligan: Ai(1)-GGS_Throne_only has kept a hand of 7 cards
+Mulligan: Ai(2)-Jaymie_Ezio has kept a hand of 7 cards
+Mulligan: Ai(3)-Gabe_Food has kept a hand of 7 cards
+Turn: Turn 1 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Ash Barrens (373)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 2 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Replacement Effect: Luxury Suite enters tapped unless you have two or more opponents.
+Land: Ai(1)-GGS_Throne_only played Luxury Suite (76)
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 3 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Kessig Wolf Run (105)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 4 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Replacement Effect: Path of Ancestry enters tapped.
+Land: Ai(3)-Gabe_Food played Path of Ancestry (213)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 5 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Grand Coliseum enters tapped.
+Land: Ai(4)-Destyn_Turtles played Grand Coliseum (305)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Sol Ring
+Resolve Stack: Sol Ring
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 6 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Replacement Effect: As Fell Mire enters, you may pay 3 life. If you don't, it enters tapped.
+Land: Ai(1)-GGS_Throne_only played Fell Mire (69)
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 7 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Island (134)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Island (134) - {T}: Add {U}.
+Mana: Kessig Wolf Run (105) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Fellwar Stone
+Resolve Stack: Fellwar Stone
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 8 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Replacement Effect: Scoured Barrens enters tapped.
+Land: Ai(3)-Gabe_Food played Scoured Barrens (243)
+Add To Stack: Ai(3)-Gabe_Food triggered Scoured Barrens
+Life: Life: Ai(3)-Gabe_Food 40 > 41
+Resolve Stack: When Scoured Barrens enters, you gain 1 life. [Zone Changer: Scoured Barrens (243)]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Add To Stack: Ai(3)-Gabe_Food cast Essence Warden
+Resolve Stack: Essence Warden - Creature 1 / 1
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 9 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 40 > 39
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Tokka & Rahzar, Unsupervised
+Resolve Stack: Tokka & Rahzar, Unsupervised - Creature 3 / 3
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 41 > 42
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Tokka & Rahzar, Unsupervised (306)]
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 10 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Land: Ai(1)-GGS_Throne_only played Island (74)
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Mana: Island (74) - {T}: Add {U}.
+Mana: Luxury Suite (76) - {T}: Add {B} or {R}.
+Mana: Fell Mire (69) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Throne_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 42 > 43
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Goro-Goro and Satoru (100)]
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 11 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Brotherhood Headquarters (126)
+Mana: Island (134) - {T}: Add {U}.
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast 
+Resolve Stack: Disguise - Creature 2/2
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 43 > 44
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Face-down card (H4)]
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 12 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Mana: Scoured Barrens (243) - {T}: Add {W} or {B}.
+Add To Stack: Ai(3)-Gabe_Food cast Path to Exile targeting [Tokka & Rahzar, Unsupervised (306)]
+Add To Stack: Ai(1)-GGS_Throne_only cast Fierce Guardianship targeting [Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle. ]
+Zone Change: Send countered spell to Graveyard
+Resolve Stack: Fierce Guardianship (24) - Counter Path to Exile (209).
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Add To Stack: Ai(3)-Gabe_Food cast Sol Ring
+Resolve Stack: Sol Ring
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Add To Stack: Ai(3)-Gabe_Food cast Arcane Signet
+Resolve Stack: Arcane Signet
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 13 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 39 > 38
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Irma, Part-Time Mutant
+Resolve Stack: Irma, Part-Time Mutant - Creature 1 / 1
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 44 > 45
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Irma, Part-Time Mutant (310)]
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Add To Stack: Ai(4)-Destyn_Turtles triggered Irma, Part-Time Mutant targeting [Tokka & Rahzar, Unsupervised (306)]
+Resolve Stack: At the beginning of combat on your turn, Irma becomes a copy of up to one other target creature you control, except her name is Irma, Part-Time Mutant and she has this ability. Then put a +1/+1 counter on her. (Targeting: [[Tokka & Rahzar, Unsupervised (306)]]) [Phase: Ai(4)-Destyn_Turtles]
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 14 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Land: Ai(1)-GGS_Throne_only played Command Tower (73)
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Mana: Fell Mire (69) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Mana: Luxury Suite (76) - {T}: Add {B} or {R}.
+Mana: Command Tower (73) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(1)-GGS_Throne_only cast Roaming Throne
+Replacement Effect: As Roaming Throne enters, choose a creature type.
+Resolve Stack: Roaming Throne - Creature 4 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 45 > 46
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Roaming Throne (9)]
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 15 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Mana: Island (134) - {T}: Add {U}.
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Brotherhood Regalia
+Resolve Stack: Brotherhood Regalia
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Mana: Kessig Wolf Run (105) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Resolve Stack: Ezio Auditore da Firenze - Creature 3 / 2
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 46 > 47
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Ezio Auditore da Firenze (201)]
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 16 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Mana: Scoured Barrens (243) - {T}: Add {W} or {B}.
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Add To Stack: Ai(3)-Gabe_Food cast Anguished Unmaking targeting [Irma, Part-Time Mutant (310)]
+Zone Change: Irma, Part-Time Mutant (310) was put into Exile from Battlefield.
+Life: Life: Ai(3)-Gabe_Food 47 > 44
+Resolve Stack: Anguished Unmaking (299) - Exile Irma, Part-Time Mutant (310). Ai(3)-Gabe_Food loses 3 life.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Tokka & Rahzar, Unsupervised
+Resolve Stack: Whenever another nontoken creature you control leaves the battlefield, put a +1/+1 counter on Tokka & Rahzar and create a Treasure token. This ability triggers only once each turn. [Zone Changer: Irma, Part-Time Mutant (310)]
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 17 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Fabled Passage (379)
+Zone Change: Fabled Passage (379) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Destyn_Turtles activated Fabled Passage
+Resolve Stack: Fabled Passage (379) - Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.  
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 38 > 37
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Zone Change: Treasure Token (465) was put into Graveyard from Battlefield.
+Mana: Treasure Token (465) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles cast Fast Forward
+Resolve Stack: Fast Forward (334) - Ai(4)-Destyn_Turtles goads Goro-Goro and Satoru (100), Roaming Throne (9), Face-down card (H4), Ezio Auditore da Firenze (201) and Essence Warden (210).
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Tokka & Rahzar, Unsupervised (306) to attack Ai(2)-Jaymie_Ezio.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Tokka & Rahzar, Unsupervised (306).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Damage: Tokka & Rahzar, Unsupervised (306) deals 4 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 40 > 36
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 18 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Land: Ai(1)-GGS_Throne_only played Reflecting Pool (59)
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Throne_only assigned Roaming Throne (9) and Goro-Goro and Satoru (100) to attack Ai(2)-Jaymie_Ezio.
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Roaming Throne (9).
+Ai(2)-Jaymie_Ezio didn't block Goro-Goro and Satoru (100).
+Mana: Island (74) - {T}: Add {U}.
+Mana: Reflecting Pool (59) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Fell Mire (69) - {T}: Add {B}.
+Mana: Luxury Suite (76) - {T}: Add {B} or {R}.
+Add To Stack: Ai(1)-GGS_Throne_only activated Fallen Shinobi
+Resolve Stack: Fallen Shinobi (25) - Ai(1)-GGS_Throne_only puts Fallen Shinobi (25) from their hand onto the battlefield tapped and attacking.
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 44 > 45
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Fallen Shinobi (25)]
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Damage: Roaming Throne (9) deals 4 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Fallen Shinobi (25) deals 5 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 36 > 27
+Add To Stack: Ai(1)-GGS_Throne_only triggered Fallen Shinobi
+Resolve Stack: Whenever Fallen Shinobi deals combat damage to a player, that player exiles the top two cards of their library. Until end of turn, you may play those cards without paying their mana costs. [Damage Source: Fallen Shinobi (25), Damaged: Ai(2)-Jaymie_Ezio, Amount: 5]
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Add To Stack: Ai(1)-GGS_Throne_only cast Altaïr Ibn-La'Ahad
+Resolve Stack: Altaïr Ibn-La'Ahad - Creature 3 / 3
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Life: Life: Ai(3)-Gabe_Food 45 > 46
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Altaïr Ibn-La'Ahad (149)]
+Add To Stack: Ai(1)-GGS_Throne_only cast Caduceus, Staff of Hermes
+Resolve Stack: Caduceus, Staff of Hermes
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 19 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Twilight Mire (170)
+Mana: Island (134) - {T}: Add {U}.
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio activated Brotherhood Regalia targeting [Ezio Auditore da Firenze (201)]
+Resolve Stack: Brotherhood Regalia (194) -  Attach to Ezio Auditore da Firenze (201)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Ezio Auditore da Firenze (201) and Face-down card (H4) to attack Ai(1)-GGS_Throne_only.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(1)-GGS_Throne_only didn't block Ezio Auditore da Firenze (201).
+Ai(1)-GGS_Throne_only assigned Altaïr Ibn-La'Ahad (149) to block Face-down card (H4).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Damage: Altaïr Ibn-La'Ahad (149) deals 3 damage to Face-down card (H4).
+Zone Change: Face-down card (H4) was put into Graveyard from Battlefield.
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(1)-GGS_Throne_only.
+Life: Life: Ai(1)-GGS_Throne_only 40 > 37
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(1)-GGS_Throne_only, Amount: 3]
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 20 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Mana: Scoured Barrens (243) - {T}: Add {W} or {B}.
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Add To Stack: Ai(3)-Gabe_Food cast Crypt Incursion targeting [Ai(2)-Jaymie_Ezio]
+Life: Life: Ai(3)-Gabe_Food 46 > 49
+Resolve Stack: Crypt Incursion (260) - Exile all creature cards from target player's graveyard. You gain 3 life for each card exiled this way. Ai(3)-Gabe_Food gains 0 life. 
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Plains (290)
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Plains (290) - {T}: Add {W}.
+Mana: Arcane Signet (253) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Add To Stack: Ai(3)-Gabe_Food triggered Path of Ancestry
+Resolve Stack: Ai(3)-Gabe_Food scried 1 card(s) to the bottom of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Sam, Loyal Attendant - Creature 2 / 4]) [Card: Sam, Loyal Attendant (303), Activator: Ai(3)-Gabe_Food, SpellAbility: Sam, Loyal Attendant - Creature 2 / 4]
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Essence Warden
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (303)]
+Life: Life: Ai(3)-Gabe_Food 49 > 50
+Resolve Stack: Whenever another creature enters, you gain 1 life. [Zone Changer: Sam, Loyal Attendant (303)]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Essence Warden (210) to attack Ai(1)-GGS_Throne_only.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(1)-GGS_Throne_only assigned Altaïr Ibn-La'Ahad (149) to block Essence Warden (210).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Damage: Altaïr Ibn-La'Ahad (149) deals 3 damage to Essence Warden (210).
+Zone Change: Essence Warden (210) was put into Graveyard from Battlefield.
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 21 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 37 > 36
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Level Up targeting [Tokka & Rahzar, Unsupervised (306)]
+Resolve Stack: Level Up (393) -  Attach to Tokka & Rahzar, Unsupervised (306)
+Add To Stack: Ai(4)-Destyn_Turtles triggered Level Up
+Resolve Stack: When this Aura enters, put a +1/+1 counter on enchanted creature. [Zone Changer: Level Up (393)]
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Tokka & Rahzar, Unsupervised (306) to attack Ai(1)-GGS_Throne_only.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Tokka & Rahzar, Unsupervised
+Resolve Stack: Whenever this creature attacks, double the number of +1/+1 counters on it. Then if it has power 10 or greater, draw a card. [Attacker: Tokka & Rahzar, Unsupervised (306)]
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(1)-GGS_Throne_only didn't block Tokka & Rahzar, Unsupervised (306).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Damage: Tokka & Rahzar, Unsupervised (306) deals 7 combat damage to Ai(1)-GGS_Throne_only.
+Life: Life: Ai(1)-GGS_Throne_only 37 > 30
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Everything Pizza
+Resolve Stack: Everything Pizza
+Add To Stack: Ai(4)-Destyn_Turtles triggered Everything Pizza
+Resolve Stack: When this artifact enters, search your library for a basic land card, reveal it, put it into your hand, then shuffle. [Zone Changer: Everything Pizza (369)]
+Land: Ai(4)-Destyn_Turtles played Island (333)
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 22 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Land: Ai(1)-GGS_Throne_only played Flooded Strand (8)
+Life: Life: Ai(1)-GGS_Throne_only 30 > 29
+Zone Change: Flooded Strand (8) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-GGS_Throne_only activated Flooded Strand
+Replacement Effect: Undercity Sewers enters tapped.
+Resolve Stack: Flooded Strand (8) - Ai(1)-GGS_Throne_only searches their library for a Plains or Island card, puts it onto the battlefield, then shuffles.
+Add To Stack: Ai(1)-GGS_Throne_only triggered Undercity Sewers
+Resolve Stack: Ai(1)-GGS_Throne_only surveiled 1 card(s) to the top of the library
+Resolve Stack: When Undercity Sewers enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) [Zone Changer: Undercity Sewers (3)]
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Throne_only assigned Altaïr Ibn-La'Ahad (149), Fallen Shinobi (25) and Roaming Throne (9) to attack Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(1)-GGS_Throne_only triggered Altaïr Ibn-La'Ahad targeting []
+Add To Stack: Ai(1)-GGS_Throne_only triggered Altaïr Ibn-La'Ahad targeting []
+Resolve Stack: Whenever Altaïr Ibn-La'Ahad attacks, exile up to one target Assassin creature card from your graveyard with a memory counter on it. Then for each creature card you own in exile with a memory counter on it, create a tapped and attacking token that's a copy of it. Exile those tokens at end of combat. (Targeting: [[]]) [Attacker: Altaïr Ibn-La'Ahad (149)]
+Resolve Stack: Whenever Altaïr Ibn-La'Ahad attacks, exile up to one target Assassin creature card from your graveyard with a memory counter on it. Then for each creature card you own in exile with a memory counter on it, create a tapped and attacking token that's a copy of it. Exile those tokens at end of combat. (Targeting: [[]]) [Attacker: Altaïr Ibn-La'Ahad (149)]
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Altaïr Ibn-La'Ahad (149).
+Ai(4)-Destyn_Turtles didn't block Fallen Shinobi (25).
+Ai(4)-Destyn_Turtles didn't block Roaming Throne (9).
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Damage: Altaïr Ibn-La'Ahad (149) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 36 > 33
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Damage: Fallen Shinobi (25) deals 5 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Roaming Throne (9) deals 4 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 33 > 24
+Add To Stack: Ai(1)-GGS_Throne_only triggered Fallen Shinobi
+Resolve Stack: Whenever Fallen Shinobi deals combat damage to a player, that player exiles the top two cards of their library. Until end of turn, you may play those cards without paying their mana costs. [Damage Source: Fallen Shinobi (25), Damaged: Ai(4)-Destyn_Turtles, Amount: 5]
+Add To Stack: Ai(1)-GGS_Throne_only cast Double Jump targeting [Fallen Shinobi (25)]
+Resolve Stack: Double Jump (329) - Put a flying counter on target creature you control. Until end of turn, it has base power and toughness 5/5. (Targeting: Fallen Shinobi (25)) 
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Add To Stack: Ai(1)-GGS_Throne_only triggered Altaïr Ibn-La'Ahad
+Add To Stack: Ai(1)-GGS_Throne_only triggered Altaïr Ibn-La'Ahad
+Resolve Stack: Exile  at the end of combat. [Phase: Ai(1)-GGS_Throne_only]
+Resolve Stack: Exile  at the end of combat. [Phase: Ai(1)-GGS_Throne_only]
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Add To Stack: Ai(1)-GGS_Throne_only cast Exploding Barrel
+Resolve Stack: Exploding Barrel
+Mana: Reflecting Pool (59) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Luxury Suite (76) - {T}: Add {B} or {R}.
+Mana: Island (74) - {T}: Add {U}.
+Mana: Fell Mire (69) - {T}: Add {B}.
+Mana: Command Tower (73) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(1)-GGS_Throne_only cast Draconic Visitor
+Resolve Stack: Draconic Visitor - Creature 5 / 5
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 23 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Mana: Island (134) - {T}: Add {U}.
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Mana: Twilight Mire (170) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Coastal Piracy
+Resolve Stack: Coastal Piracy
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Ezio Auditore da Firenze (201) to attack Ai(1)-GGS_Throne_only.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(1)-GGS_Throne_only didn't block Ezio Auditore da Firenze (201).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(1)-GGS_Throne_only.
+Life: Life: Ai(1)-GGS_Throne_only 29 > 26
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(1)-GGS_Throne_only, Amount: 3]
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(1)-GGS_Throne_only, Amount: 3]
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Land: Ai(2)-Jaymie_Ezio played Twisted Landscape (110)
+Zone Change: Twisted Landscape (110) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Jaymie_Ezio activated Twisted Landscape
+Resolve Stack: Twisted Landscape (110) - Ai(2)-Jaymie_Ezio searches their library for a basic Swamp, Mountain, or Forest card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 24 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Mana: Plains (290) - {T}: Add {W}.
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Mana: Scoured Barrens (243) - {T}: Add {W} or {B}.
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Add To Stack: Ai(3)-Gabe_Food cast Landroval, Horizon Witness
+Resolve Stack: Landroval, Horizon Witness - Creature 3 / 4
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 25 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Smoldering Marsh enters tapped unless you control two or more basic lands.
+Land: Ai(4)-Destyn_Turtles played Smoldering Marsh (371)
+Mana: Smoldering Marsh (371) - {T}: Add {R}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Blasphemous Act
+Damage: Blasphemous Act (320) deals 13 damage to Roaming Throne (9).
+Damage: Blasphemous Act (320) deals 13 damage to Fallen Shinobi (25).
+Damage: Blasphemous Act (320) deals 13 damage to Altaïr Ibn-La'Ahad (149).
+Damage: Blasphemous Act (320) deals 13 damage to Draconic Visitor (15).
+Damage: Blasphemous Act (320) deals 13 damage to Ezio Auditore da Firenze (201).
+Damage: Blasphemous Act (320) deals 13 damage to Sam, Loyal Attendant (303).
+Damage: Blasphemous Act (320) deals 13 damage to Landroval, Horizon Witness (283).
+Damage: Blasphemous Act (320) deals 13 damage to Tokka & Rahzar, Unsupervised (306).
+Resolve Stack: Blasphemous Act (320) - Deals 13 damage to each creature.
+Zone Change: Tokka & Rahzar, Unsupervised (306) was put into Graveyard from Battlefield.
+Zone Change: Roaming Throne (9) was put into Graveyard from Battlefield.
+Zone Change: Fallen Shinobi (25) was put into Graveyard from Battlefield.
+Zone Change: Draconic Visitor (15) was put into Graveyard from Battlefield.
+Zone Change: Altaïr Ibn-La'Ahad (149) was put into Graveyard from Battlefield.
+Zone Change: Ezio Auditore da Firenze (201) was put into Graveyard from Battlefield.
+Zone Change: Sam, Loyal Attendant (303) was put into Graveyard from Battlefield.
+Zone Change: Landroval, Horizon Witness (283) was put into Graveyard from Battlefield.
+Zone Change: Level Up (393) was put into Graveyard from Battlefield.
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Mana: Plains (390) - {T}: Add {W}.
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 24 > 23
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Island (333) - {T}: Add {U}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Michelangelo, the Heart
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 26 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Land: Ai(1)-GGS_Throne_only played Blazemire Verge (7)
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Mana: Island (74) - {T}: Add {U}.
+Mana: Reflecting Pool (59) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Fell Mire (69) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Throne_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Mana: Luxury Suite (76) - {T}: Add {B} or {R}.
+Mana: Undercity Sewers (3) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Throne_only cast Dauthi Voidwalker
+Resolve Stack: Dauthi Voidwalker - Creature 3 / 2
+Mana: Command Tower (73) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Blazemire Verge (7) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Add To Stack: Ai(1)-GGS_Throne_only cast Tetsuko Umezawa, Fugitive
+Resolve Stack: Tetsuko Umezawa, Fugitive - Creature 1 / 3
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 27 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Island (134) - {T}: Add {U}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Mortify targeting [Goro-Goro and Satoru (100)]
+Zone Change: Goro-Goro and Satoru (100) was put into Graveyard from Battlefield.
+Resolve Stack: Mortify (164) - Destroy Goro-Goro and Satoru (100).
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Swamp (161)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Swamp (161) - {T}: Add {B}.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Mana: Twilight Mire (170) - {T}: Add {C}.
+Mana: Kessig Wolf Run (105) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Resolve Stack: Ezio Auditore da Firenze - Creature 3 / 2
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 28 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Brushland (298)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Plains (290) - {T}: Add {W}.
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Mana: Scoured Barrens (243) - {T}: Add {W} or {B}.
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Add To Stack: Ai(3)-Gabe_Food triggered Path of Ancestry
+Resolve Stack: Ai(3)-Gabe_Food scried 1 card(s) to the top of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Sam, Loyal Attendant - Creature 2 / 4]) [Card: Sam, Loyal Attendant (303), Activator: Ai(3)-Gabe_Food, SpellAbility: Sam, Loyal Attendant - Creature 2 / 4]
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (303)]
+Mana: Arcane Signet (253) - {T}: Add one mana of any color in your commander's color identity.
+Damage: Brushland (298) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 50 > 49
+Mana: Brushland (298) - {T}: Add {G} or {W}. Brushland deals 1 damage to you. 
+Add To Stack: Ai(3)-Gabe_Food cast Frodo, Adventurous Hobbit
+Resolve Stack: Frodo, Adventurous Hobbit - Creature 1 / 3
+Add To Stack: Ai(3)-Gabe_Food triggered Frodo, Adventurous Hobbit targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Sam, Loyal Attendant (When this creature enters, target player may put Sam into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Frodo, Adventurous Hobbit (301)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 29 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Mana: Island (333) - {T}: Add {U}.
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Donatello, the Brains
+Resolve Stack: Donatello, the Brains - Creature 2 / 4
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 30 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Throne_only assigned Dauthi Voidwalker (55) and Tetsuko Umezawa, Fugitive (75) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Dauthi Voidwalker (55).
+Ai(4)-Destyn_Turtles didn't block Tetsuko Umezawa, Fugitive (75).
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Damage: Dauthi Voidwalker (55) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Tetsuko Umezawa, Fugitive (75) deals 1 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 23 > 19
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Mana: Island (74) - {T}: Add {U}.
+Mana: Reflecting Pool (59) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Fell Mire (69) - {T}: Add {B}.
+Mana: Luxury Suite (76) - {T}: Add {B} or {R}.
+Mana: Undercity Sewers (3) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Throne_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Mana: Blazemire Verge (7) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Throne_only cast Changeling Outcast
+Resolve Stack: Changeling Outcast - Creature 1 / 1
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 31 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Swamp (161) - {T}: Add {B}.
+Mana: Island (134) - {T}: Add {U}.
+Add To Stack: Ai(2)-Jaymie_Ezio activated Brotherhood Regalia targeting [Ezio Auditore da Firenze (201)]
+Resolve Stack: Brotherhood Regalia (194) -  Attach to Ezio Auditore da Firenze (201)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Ezio Auditore da Firenze (201) to attack Ai(1)-GGS_Throne_only.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(1)-GGS_Throne_only didn't block Ezio Auditore da Firenze (201).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(1)-GGS_Throne_only.
+Life: Life: Ai(1)-GGS_Throne_only 26 > 23
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(1)-GGS_Throne_only, Amount: 3]
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(1)-GGS_Throne_only, Amount: 3]
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Land: Ai(2)-Jaymie_Ezio played Plains (191)
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Unstoppable Slasher
+Resolve Stack: Unstoppable Slasher - Creature 2 / 3
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 32 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Plains (290) - {T}: Add {W}.
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Add To Stack: Ai(3)-Gabe_Food cast Merry, Warden of Isengard
+Add To Stack: Ai(3)-Gabe_Food triggered Path of Ancestry
+Resolve Stack: Ai(3)-Gabe_Food scried 1 card(s) to the top of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Merry, Warden of Isengard - Creature 1 / 4]) [Card: Merry, Warden of Isengard (208), Activator: Ai(3)-Gabe_Food, SpellAbility: Merry, Warden of Isengard - Creature 1 / 4]
+Resolve Stack: Merry, Warden of Isengard - Creature 1 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Merry, Warden of Isengard targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Pippin, Warden of Isengard (When this creature enters, target player may put Pippin into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Merry, Warden of Isengard (208)]
+Mana: Scoured Barrens (243) - {T}: Add {W} or {B}.
+Mana: Arcane Signet (253) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(3)-Gabe_Food cast Pippin, Warden of Isengard
+Resolve Stack: Pippin, Warden of Isengard - Creature 2 / 2
+Add To Stack: Ai(3)-Gabe_Food triggered Pippin, Warden of Isengard targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Merry, Warden of Isengard (When this creature enters, target player may put Merry into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Pippin, Warden of Isengard (242)]
+Damage: Brushland (298) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 49 > 48
+Mana: Brushland (298) - {T}: Add {G} or {W}. Brushland deals 1 damage to you. 
+Add To Stack: Ai(3)-Gabe_Food cast Prosperous Innkeeper
+Resolve Stack: Prosperous Innkeeper - Creature 1 / 1
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Resolve Stack: When Prosperous Innkeeper enters, create a Treasure token. (It's an artifact with "{T}, Sacrifice this token: Add one mana of any color.") [Zone Changer: Prosperous Innkeeper (271)]
+Add To Stack: Ai(3)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(3)-Gabe_Food 48 > 49
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Soldier Token (547)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 33 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Evolving Wilds (335)
+Zone Change: Evolving Wilds (335) was put into Exile from Battlefield.
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Add To Stack: Ai(4)-Destyn_Turtles activated Evolving Wilds
+Resolve Stack: Evolving Wilds (335) - Ai(4)-Destyn_Turtles searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Mana: Smoldering Marsh (371) - {T}: Add {B}.
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Dimension X Pizzasaur
+Resolve Stack: Dimension X Pizzasaur - Creature 2 / 1
+Add To Stack: Ai(4)-Destyn_Turtles triggered Dimension X Pizzasaur targeting [Leonardo, the Balance (404)]
+Resolve Stack: When this creature enters, put two +1/+1 counters on target creature. When you do, destroy up to one target creature with mana value less than or equal to the number of counters among permanents you control. (Targeting: [[Leonardo, the Balance (404)]]) [Zone Changer: Dimension X Pizzasaur (342)]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Dimension X Pizzasaur targeting [Pippin, Warden of Isengard (242)]
+Zone Change: Pippin, Warden of Isengard (242) was put into Exile from Battlefield.
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Resolve Stack: When you do, destroy up to one target creature with mana value less than or equal to the number of counters among permanents you control. (Targeting: [[Pippin, Warden of Isengard (242)]])
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 34 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Throne_only assigned Dauthi Voidwalker (55), Changeling Outcast (17) and Tetsuko Umezawa, Fugitive (75) to attack Ai(3)-Gabe_Food.
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Dauthi Voidwalker (55).
+Ai(3)-Gabe_Food didn't block Changeling Outcast (17).
+Ai(3)-Gabe_Food didn't block Tetsuko Umezawa, Fugitive (75).
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Damage: Dauthi Voidwalker (55) deals 3 combat damage to Ai(3)-Gabe_Food.
+Damage: Changeling Outcast (17) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Tetsuko Umezawa, Fugitive (75) deals 1 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 49 > 44
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Mana: Reflecting Pool (59) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Island (74) - {T}: Add {U}.
+Mana: Fell Mire (69) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Throne_only cast Krenko, Tin Street Kingpin
+Resolve Stack: Krenko, Tin Street Kingpin - Creature 1 / 2
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 35 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Ezio Auditore da Firenze (201) and Unstoppable Slasher (176) to attack Ai(3)-Gabe_Food.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Ezio Auditore da Firenze (201).
+Ai(3)-Gabe_Food didn't block Unstoppable Slasher (176).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(3)-Gabe_Food.
+Damage: Unstoppable Slasher (176) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 44 > 39
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Unstoppable Slasher
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Unstoppable Slasher (176), Damaged: Ai(3)-Gabe_Food, Amount: 2]
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(3)-Gabe_Food, Amount: 3]
+Life: Life: Ai(3)-Gabe_Food 39 > 19
+Resolve Stack: Whenever Unstoppable Slasher deals combat damage to a player, that player loses half their life, rounded up. [Damage Source: Unstoppable Slasher (176), Damaged: Ai(3)-Gabe_Food, Amount: 2]
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(3)-Gabe_Food, Amount: 3]
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Replacement Effect: Smoldering Marsh enters tapped unless you control two or more basic lands.
+Land: Ai(2)-Jaymie_Ezio played Smoldering Marsh (172)
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Swamp (160) - {T}: Add {B}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Lydia Frye
+Resolve Stack: Lydia Frye - Creature 3 / 2
+Mana: Swamp (161) - {T}: Add {B}.
+Mana: Smoldering Marsh (172) - {T}: Add {B}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Jacob Frye
+Resolve Stack: Jacob Frye - Creature 3 / 2
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Jacob Frye targeting [Ai(2)-Jaymie_Ezio]
+Resolve Stack: Partner with Evie Frye (When this creature enters, target player may put Evie Frye into their hand from their library, then shuffle.) (Targeting: [[Ai(2)-Jaymie_Ezio]]) [Zone Changer: Jacob Frye (163)]
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Mana: Plains (191) - {T}: Add {W}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Arbaaz Mir
+Resolve Stack: Arbaaz Mir - Creature 2 / 2
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Arbaaz Mir
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(1)-GGS_Throne_only.
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(1)-GGS_Throne_only 23 > 22
+Life: Life: Ai(3)-Gabe_Food 19 > 18
+Life: Life: Ai(4)-Destyn_Turtles 19 > 18
+Life: Life: Ai(2)-Jaymie_Ezio 27 > 28
+Resolve Stack: Whenever Arbaaz Mir or another nontoken historic permanent you control enters, Arbaaz Mir deals 1 damage to each opponent and you gain 1 life. (Artifacts, legendaries, and Sagas are historic.) [Zone Changer: Arbaaz Mir (165)]
+Mana: Island (134) - {T}: Add {U}.
+Mana: Twilight Mire (170) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Evie Frye
+Resolve Stack: Evie Frye - Creature 2 / 1
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Arbaaz Mir
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Evie Frye targeting [Ai(2)-Jaymie_Ezio]
+Resolve Stack: Partner with Jacob Frye (When this creature enters, target player may put Jacob Frye into their hand from their library, then shuffle.) (Targeting: [[Ai(2)-Jaymie_Ezio]]) [Zone Changer: Evie Frye (123)]
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(1)-GGS_Throne_only.
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(1)-GGS_Throne_only 22 > 21
+Life: Life: Ai(3)-Gabe_Food 18 > 17
+Life: Life: Ai(4)-Destyn_Turtles 18 > 17
+Life: Life: Ai(2)-Jaymie_Ezio 28 > 29
+Resolve Stack: Whenever Arbaaz Mir or another nontoken historic permanent you control enters, Arbaaz Mir deals 1 damage to each opponent and you gain 1 life. (Artifacts, legendaries, and Sagas are historic.) [Zone Changer: Evie Frye (123)]
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 1 card(s) to the top of the library and 1 card(s) to the graveyard
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 36 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Swamp (263)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Add To Stack: Ai(3)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(3)-Gabe_Food 17 > 18
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Soldier Token (553)]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Sam, Loyal Attendant (303) to attack Ai(2)-Jaymie_Ezio.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Evie Frye (123) and Arbaaz Mir (165) to block Sam, Loyal Attendant (303).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (303) deals 1 damage to Arbaaz Mir (165).
+Damage: Sam, Loyal Attendant (303) deals 1 damage to Evie Frye (123).
+Damage: Evie Frye (123) deals 2 damage to Sam, Loyal Attendant (303).
+Damage: Arbaaz Mir (165) deals 2 damage to Sam, Loyal Attendant (303).
+Zone Change: Sam, Loyal Attendant (303) was put into Exile from Battlefield.
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Zone Change: Evie Frye (123) was put into Exile from Battlefield.
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Plains (290) - {T}: Add {W}.
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Mana: Swamp (263) - {T}: Add {B}.
+Mana: Scoured Barrens (243) - {T}: Add {W} or {B}.
+Mana: Arcane Signet (253) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Add To Stack: Ai(3)-Gabe_Food triggered Path of Ancestry
+Resolve Stack: Ai(3)-Gabe_Food scried 1 card(s) to the top of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Sam, Loyal Attendant - Creature 2 / 4]) [Card: Sam, Loyal Attendant (303), Activator: Ai(3)-Gabe_Food, SpellAbility: Sam, Loyal Attendant - Creature 2 / 4]
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (303)]
+Life: Life: Ai(3)-Gabe_Food 18 > 19
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Sam, Loyal Attendant (303)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 37 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Mana: Plains (390) - {T}: Add {W}.
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 17 > 16
+Mana: Grand Coliseum (305) - {T}: Add one mana of any color. Grand Coliseum deals 1 damage to you. 
+Mana: Ash Barrens (373) - {T}: Add {C}.
+Mana: Sol Ring (356) - {T}: Add {C}{C}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Endless Foot Assault
+Resolve Stack: Endless Foot Assault
+Add To Stack: Ai(4)-Destyn_Turtles triggered Endless Foot Assault
+Replacement Effect: If one or more tokens would be created under your control, those tokens plus an additional Mutagen token are created instead.
+Resolve Stack: When this creature enters, create that many tokens that are copies of it. [Zone Changer: Endless Foot Assault (397)]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Mutagen Token (557)]
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Endless Foot Assault (556)]
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Leonardo, the Balance (404) and Donatello, the Brains (383) to attack Ai(2)-Jaymie_Ezio.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Endless Foot Assault
+Add To Stack: Ai(4)-Destyn_Turtles triggered Endless Foot Assault
+Replacement Effect: If one or more tokens would be created under your control, those tokens plus an additional Mutagen token are created instead.
+Replacement Effect: If one or more tokens would be created under your control, those tokens plus an additional Mutagen token are created instead.
+Replacement Effect: If one or more tokens would be created under your control, those tokens plus an additional Mutagen token are created instead.
+Resolve Stack: Whenever you attack, for each opponent, create a 1/1 black Ninja creature token that's tapped and attacking that player. [Number Attackers: [Leonardo, the Balance (404), Donatello, the Brains (383)]]
+Replacement Effect: If one or more tokens would be created under your control, those tokens plus an additional Mutagen token are created instead.
+Replacement Effect: If one or more tokens would be created under your control, those tokens plus an additional Mutagen token are created instead.
+Replacement Effect: If one or more tokens would be created under your control, those tokens plus an additional Mutagen token are created instead.
+Resolve Stack: Whenever you attack, for each opponent, create a 1/1 black Ninja creature token that's tapped and attacking that player. [Number Attackers: [Leonardo, the Balance (404), Donatello, the Brains (383)]]
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(1)-GGS_Throne_only assigned Krenko, Tin Street Kingpin (34) to block Ninja Token (560).
+Ai(1)-GGS_Throne_only assigned Goro-Goro and Satoru (100) to block Ninja Token (572).
+Combat: Ai(2)-Jaymie_Ezio didn't block Leonardo, the Balance (404).
+Ai(2)-Jaymie_Ezio didn't block Donatello, the Brains (383).
+Ai(2)-Jaymie_Ezio assigned Arbaaz Mir (165) to block Ninja Token (564).
+Ai(2)-Jaymie_Ezio assigned Lydia Frye (186) to block Ninja Token (576).
+Combat: Ai(3)-Gabe_Food assigned Merry, Warden of Isengard (208) to block Ninja Token (568).
+Ai(3)-Gabe_Food assigned Frodo, Adventurous Hobbit (301) to block Ninja Token (580).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Leonardo, the Balance (404) deals 6 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Donatello, the Brains (383) deals 3 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Ninja Token (564) deals 1 damage to Arbaaz Mir (165).
+Damage: Ninja Token (576) deals 1 damage to Lydia Frye (186).
+Damage: Ninja Token (560) deals 1 damage to Krenko, Tin Street Kingpin (34).
+Damage: Ninja Token (572) deals 1 damage to Goro-Goro and Satoru (100).
+Damage: Ninja Token (568) deals 1 damage to Merry, Warden of Isengard (208).
+Damage: Ninja Token (580) deals 1 damage to Frodo, Adventurous Hobbit (301).
+Damage: Krenko, Tin Street Kingpin (34) deals 1 damage to Ninja Token (560).
+Damage: Goro-Goro and Satoru (100) deals 3 damage to Ninja Token (572).
+Damage: Arbaaz Mir (165) deals 2 damage to Ninja Token (564).
+Damage: Lydia Frye (186) deals 3 damage to Ninja Token (576).
+Damage: Merry, Warden of Isengard (208) deals 1 damage to Ninja Token (568).
+Damage: Frodo, Adventurous Hobbit (301) deals 1 damage to Ninja Token (580).
+Life: Life: Ai(2)-Jaymie_Ezio 29 > 20
+Zone Change: Ninja Token (560) was put into Graveyard from Battlefield.
+Zone Change: Ninja Token (564) was put into Graveyard from Battlefield.
+Zone Change: Ninja Token (568) was put into Graveyard from Battlefield.
+Zone Change: Ninja Token (572) was put into Graveyard from Battlefield.
+Zone Change: Ninja Token (576) was put into Graveyard from Battlefield.
+Zone Change: Ninja Token (580) was put into Graveyard from Battlefield.
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Leonardo, the Balance (404)]
+Replacement Effect: If one or more tokens would be created under your control, those tokens plus an additional Mutagen token are created instead.
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Leonardo, the Balance (404)]]) [Phase: Ai(4)-Destyn_Turtles]
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 38 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Throne_only assigned Krenko, Tin Street Kingpin (34), Dauthi Voidwalker (55), Changeling Outcast (17), Goro-Goro and Satoru (100) and Tetsuko Umezawa, Fugitive (75) to attack Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(1)-GGS_Throne_only triggered Krenko, Tin Street Kingpin
+Resolve Stack: Whenever Krenko, Tin Street Kingpin attacks, put a +1/+1 counter on it, then create a number of 1/1 red Goblin creature tokens equal to Krenko's power. [Attacker: Krenko, Tin Street Kingpin (34)]
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Krenko, Tin Street Kingpin (34).
+Ai(4)-Destyn_Turtles didn't block Dauthi Voidwalker (55).
+Ai(4)-Destyn_Turtles didn't block Changeling Outcast (17).
+Ai(4)-Destyn_Turtles didn't block Goro-Goro and Satoru (100).
+Ai(4)-Destyn_Turtles didn't block Tetsuko Umezawa, Fugitive (75).
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Damage: Krenko, Tin Street Kingpin (34) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Dauthi Voidwalker (55) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Changeling Outcast (17) deals 1 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Goro-Goro and Satoru (100) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Tetsuko Umezawa, Fugitive (75) deals 1 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 16 > 6
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Mana: Fell Mire (69) - {T}: Add {B}.
+Mana: Island (74) - {T}: Add {U}.
+Mana: Reflecting Pool (59) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Luxury Suite (76) - {T}: Add {B} or {R}.
+Add To Stack: Ai(1)-GGS_Throne_only cast Grim Hireling
+Resolve Stack: Grim Hireling - Creature 3 / 2
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 39 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Mana: Island (134) - {T}: Add {U}.
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Swamp (161) - {T}: Add {B}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Smoke Bomb
+Resolve Stack: Smoke Bomb
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Arbaaz Mir
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(1)-GGS_Throne_only.
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(1)-GGS_Throne_only 21 > 20
+Life: Life: Ai(3)-Gabe_Food 19 > 18
+Life: Life: Ai(4)-Destyn_Turtles 6 > 5
+Life: Life: Ai(2)-Jaymie_Ezio 20 > 21
+Resolve Stack: Whenever Arbaaz Mir or another nontoken historic permanent you control enters, Arbaaz Mir deals 1 damage to each opponent and you gain 1 life. (Artifacts, legendaries, and Sagas are historic.) [Zone Changer: Smoke Bomb (153)]
+Mana: Island (333) - {T}: Add {U}.
+Mana: Forest (341) - {T}: Add {G}.
+Zone Change: Food Token (584) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Destyn_Turtles activated Food Token
+Life: Life: Ai(4)-Destyn_Turtles 5 > 8
+Resolve Stack: Food Token (584) - Ai(4)-Destyn_Turtles gains 3 life.
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Ezio Auditore da Firenze (201), Lydia Frye (186), Jacob Frye (163), Unstoppable Slasher (176) and Arbaaz Mir (165) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Ezio Auditore da Firenze (201).
+Ai(4)-Destyn_Turtles didn't block Lydia Frye (186).
+Ai(4)-Destyn_Turtles assigned Dimension X Pizzasaur (342) to block Jacob Frye (163).
+Ai(4)-Destyn_Turtles assigned Michelangelo, the Heart (402) to block Unstoppable Slasher (176).
+Ai(4)-Destyn_Turtles didn't block Arbaaz Mir (165).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Lydia Frye (186) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Jacob Frye (163) deals 3 damage to Dimension X Pizzasaur (342).
+Damage: Unstoppable Slasher (176) deals 2 damage (Deathtouch) to Michelangelo, the Heart (402).
+Damage: Arbaaz Mir (165) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Dimension X Pizzasaur (342) deals 3 damage to Jacob Frye (163).
+Damage: Michelangelo, the Heart (402) deals 3 damage to Unstoppable Slasher (176).
+Life: Life: Ai(4)-Destyn_Turtles 8 > 0
+Zone Change: Unstoppable Slasher (176) was put into Exile from Battlefield.
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Zone Change: Jacob Frye (163) was put into Exile from Battlefield.
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Jacob Frye targeting []
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Arbaaz Mir (165), Damaged: Ai(4)-Destyn_Turtles, Amount: 2]
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Lydia Frye (186), Damaged: Ai(4)-Destyn_Turtles, Amount: 3]
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(4)-Destyn_Turtles, Amount: 3]
+Resolve Stack: Whenever one or more Assassins you control deal combat damage to a player, exile up to one target Assassin card or card with freerunning from your graveyard. If you do, copy it. You may cast the copy. (Targeting: [[]]) [Damaged: Ai(4)-Destyn_Turtles, Amount: 8]
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(4)-Destyn_Turtles, Amount: 3]
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Land: Ai(2)-Jaymie_Ezio played Abstergo Entertainment (121)
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Arbaaz Mir
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(1)-GGS_Throne_only.
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(1)-GGS_Throne_only 20 > 19
+Life: Life: Ai(3)-Gabe_Food 18 > 17
+Life: Life: Ai(2)-Jaymie_Ezio 21 > 22
+Resolve Stack: Whenever Arbaaz Mir or another nontoken historic permanent you control enters, Arbaaz Mir deals 1 damage to each opponent and you gain 1 life. (Artifacts, legendaries, and Sagas are historic.) [Zone Changer: Abstergo Entertainment (121)]
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Smoldering Marsh (172) - {T}: Add {B}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast The Lord of Pain
+Resolve Stack: The Lord of Pain - Creature 5 / 5
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Arbaaz Mir
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(1)-GGS_Throne_only.
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(1)-GGS_Throne_only 19 > 18
+Life: Life: Ai(3)-Gabe_Food 17 > 16
+Life: Life: Ai(2)-Jaymie_Ezio 22 > 23
+Resolve Stack: Whenever Arbaaz Mir or another nontoken historic permanent you control enters, Arbaaz Mir deals 1 damage to each opponent and you gain 1 life. (Artifacts, legendaries, and Sagas are historic.) [Zone Changer: The Lord of Pain (142)]
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Twilight Mire (170) - {T}: Add {C}.
+Mana: Kessig Wolf Run (105) - {T}: Add {C}.
+Mana: Abstergo Entertainment (121) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Eagle Vision
+Resolve Stack: Eagle Vision (158) - Ai(2)-Jaymie_Ezio draws three cards.
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 2 card(s) to the top of the library and 1 card(s) to the graveyard
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 40 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Evolving Wilds (233)
+Zone Change: Evolving Wilds (233) was put into Exile from Battlefield.
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Add To Stack: Ai(3)-Gabe_Food activated Evolving Wilds
+Resolve Stack: Evolving Wilds (233) - Ai(3)-Gabe_Food searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Add To Stack: Ai(3)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Soldier Token (594)]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Sam, Loyal Attendant (303) to attack Ai(1)-GGS_Throne_only.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(1)-GGS_Throne_only didn't block Sam, Loyal Attendant (303).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (303) deals 2 combat damage to Ai(1)-GGS_Throne_only.
+Life: Life: Ai(1)-GGS_Throne_only 18 > 16
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Plains (290) - {T}: Add {W}.
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Add To Stack: Ai(3)-Gabe_Food cast Of Herbs and Stewed Rabbit
+Add To Stack: Ai(2)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(1)-GGS_Throne_only]
+Damage: The Lord of Pain (142) deals 3 non-combat damage to Ai(1)-GGS_Throne_only.
+Life: Life: Ai(1)-GGS_Throne_only 16 > 13
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(1)-GGS_Throne_only]]) [Card: Of Herbs and Stewed Rabbit (228), Activator: Ai(3)-Gabe_Food, SpellAbility: Of Herbs and Stewed Rabbit]
+Replacement Effect: Of Herbs and Stewed Rabbit enters with a lore counter on it.
+Resolve Stack: Of Herbs and Stewed Rabbit
+Add To Stack: Ai(3)-Gabe_Food triggered Of Herbs and Stewed Rabbit targeting []
+Resolve Stack: I — Put a +1/+1 counter on up to one target creature. Create a Food token. (Targeting: [[]]) [Added once: Of Herbs and Stewed Rabbit (228)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 41 (Ai(1)-GGS_Throne_only)
+Phase: Ai(1)-GGS_Throne_only's Untap step
+Phase: Ai(1)-GGS_Throne_only's Upkeep step
+Phase: Ai(1)-GGS_Throne_only's Draw step
+Phase: Ai(1)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(1)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(1)-GGS_Throne_only assigned Krenko, Tin Street Kingpin (34), Dauthi Voidwalker (55), Changeling Outcast (17), Tetsuko Umezawa, Fugitive (75) and Goblin Token (587) to attack Ai(3)-Gabe_Food.
+Add To Stack: Ai(1)-GGS_Throne_only triggered Krenko, Tin Street Kingpin
+Resolve Stack: Whenever Krenko, Tin Street Kingpin attacks, put a +1/+1 counter on it, then create a number of 1/1 red Goblin creature tokens equal to Krenko's power. [Attacker: Krenko, Tin Street Kingpin (34)]
+Phase: Ai(1)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food assigned Merry, Warden of Isengard (208) to block Krenko, Tin Street Kingpin (34).
+Ai(3)-Gabe_Food didn't block Dauthi Voidwalker (55).
+Ai(3)-Gabe_Food didn't block Changeling Outcast (17).
+Ai(3)-Gabe_Food didn't block Tetsuko Umezawa, Fugitive (75).
+Ai(3)-Gabe_Food didn't block Goblin Token (587).
+Phase: Ai(1)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(1)-GGS_Throne_only's Combat Damage Step
+Damage: Krenko, Tin Street Kingpin (34) deals 3 damage to Merry, Warden of Isengard (208).
+Damage: Dauthi Voidwalker (55) deals 3 combat damage to Ai(3)-Gabe_Food.
+Damage: Changeling Outcast (17) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Tetsuko Umezawa, Fugitive (75) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Goblin Token (587) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Merry, Warden of Isengard (208) deals 1 damage to Krenko, Tin Street Kingpin (34).
+Life: Life: Ai(3)-Gabe_Food 16 > 10
+Add To Stack: Ai(1)-GGS_Throne_only triggered Grim Hireling
+Resolve Stack: Whenever one or more creatures you control deal combat damage to a player, create two Treasure tokens. [Damaged: Ai(3)-Gabe_Food, Amount: 6]
+Phase: Ai(1)-GGS_Throne_only's End of Combat Step
+Phase: Ai(1)-GGS_Throne_only's Main phase, postcombat
+Mana: Reflecting Pool (59) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Luxury Suite (76) - {T}: Add {B} or {R}.
+Mana: Island (74) - {T}: Add {U}.
+Mana: Fell Mire (69) - {T}: Add {B}.
+Mana: Blazemire Verge (7) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Add To Stack: Ai(1)-GGS_Throne_only cast Port Razer
+Add To Stack: Ai(2)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(3)-Gabe_Food]
+Damage: The Lord of Pain (142) deals 5 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 10 > 5
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(3)-Gabe_Food]]) [Card: Port Razer (36), Activator: Ai(1)-GGS_Throne_only, SpellAbility: Port Razer - Creature 4 / 4]
+Resolve Stack: Port Razer - Creature 4 / 4
+Phase: Ai(1)-GGS_Throne_only's End step
+Phase: Ai(1)-GGS_Throne_only's Cleanup step
+Turn: Turn 42 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Smoke Bomb
+Zone Change: Smoke Bomb (153) was put into Exile from Battlefield.
+Replacement Effect: If a card would be put into an opponent's graveyard from anywhere, instead exile it with a void counter on it.
+Resolve Stack: At the beginning of your upkeep, sacrifice Smoke Bomb. When you do, target creature you control can't be blocked this turn. [Phase: Ai(2)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Smoke Bomb targeting [Arbaaz Mir (165)]
+Resolve Stack: When you do, target creature you control can't be blocked this turn. (Targeting: [[Arbaaz Mir (165)]])
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Eiganjo, Seat of the Empire (117)
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Arbaaz Mir
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(1)-GGS_Throne_only.
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(1)-GGS_Throne_only 13 > 12
+Life: Life: Ai(3)-Gabe_Food 5 > 4
+Life: Life: Ai(2)-Jaymie_Ezio 23 > 24
+Resolve Stack: Whenever Arbaaz Mir or another nontoken historic permanent you control enters, Arbaaz Mir deals 1 damage to each opponent and you gain 1 life. (Artifacts, legendaries, and Sagas are historic.) [Zone Changer: Eiganjo, Seat of the Empire (117)]
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned The Lord of Pain (142), Ezio Auditore da Firenze (201), Lydia Frye (186) and Arbaaz Mir (165) to attack Ai(1)-GGS_Throne_only.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(1)-GGS_Throne_only assigned Goro-Goro and Satoru (100) and Port Razer (36) to block The Lord of Pain (142).
+Ai(1)-GGS_Throne_only didn't block Ezio Auditore da Firenze (201).
+Ai(1)-GGS_Throne_only didn't block Lydia Frye (186).
+Ai(1)-GGS_Throne_only didn't block Arbaaz Mir (165).
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Smoldering Marsh (172) - {T}: Add {R}.
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Swamp (161) - {T}: Add {B}.
+Mana: Island (134) - {T}: Add {U}.
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Eiganjo, Seat of the Empire (117) - {T}: Add {W}.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Mana: Twilight Mire (170) - {T}: Add {C}.
+Mana: Abstergo Entertainment (121) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio activated Kessig Wolf Run targeting [The Lord of Pain (142)]
+Resolve Stack: Kessig Wolf Run (105) - The Lord of Pain (142) gets +8/+0 and gains trample until end of turn. (X=8)
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: The Lord of Pain (142) deals 5 combat damage to Ai(1)-GGS_Throne_only.
+Damage: The Lord of Pain (142) deals 4 damage to Port Razer (36).
+Damage: The Lord of Pain (142) deals 4 damage to Goro-Goro and Satoru (100).
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(1)-GGS_Throne_only.
+Damage: Lydia Frye (186) deals 3 combat damage to Ai(1)-GGS_Throne_only.
+Damage: Arbaaz Mir (165) deals 2 combat damage to Ai(1)-GGS_Throne_only.
+Damage: Goro-Goro and Satoru (100) deals 3 damage to The Lord of Pain (142).
+Damage: Port Razer (36) deals 4 damage to The Lord of Pain (142).
+Life: Life: Ai(1)-GGS_Throne_only 12 > -1
+Zone Change: Caduceus, Staff of Hermes (118) was put into Exile from Battlefield.
+Zone Change: The Lord of Pain (142) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Mana: Swamp (263) - {T}: Add {B}.
+Zone Change: Food Token (530) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 4 > 7
+Resolve Stack: Food Token (530) - Ai(3)-Gabe_Food gains 3 life.
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Arbaaz Mir (165), Damaged: Ai(1)-GGS_Throne_only, Amount: 2]
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Lydia Frye (186), Damaged: Ai(1)-GGS_Throne_only, Amount: 3]
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(1)-GGS_Throne_only, Amount: 3]
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: The Lord of Pain (142), Damaged: Ai(1)-GGS_Throne_only, Amount: 5]
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(1)-GGS_Throne_only, Amount: 3]
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 2 card(s) to the top of the library and 1 card(s) to the graveyard
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Discard: Ai(2)-Jaymie_Ezio discards Boros Garrison (181).
+Turn: Turn 43 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Add To Stack: Ai(3)-Gabe_Food triggered Of Herbs and Stewed Rabbit
+Resolve Stack: II — Draw a card. Create a Food token. [Added once: Of Herbs and Stewed Rabbit (228)]
+Add To Stack: Ai(3)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(3)-Gabe_Food 7 > 8
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Soldier Token (610)]
+Land: Ai(3)-Gabe_Food played Ash Barrens (274)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Frodo, Adventurous Hobbit (301), Sam, Loyal Attendant (303), Merry, Warden of Isengard (208), Prosperous Innkeeper (271), Soldier Token (547), Soldier Token (553) and Soldier Token (594) to attack Ai(2)-Jaymie_Ezio.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Frodo, Adventurous Hobbit (301).
+Ai(2)-Jaymie_Ezio didn't block Sam, Loyal Attendant (303).
+Ai(2)-Jaymie_Ezio didn't block Merry, Warden of Isengard (208).
+Ai(2)-Jaymie_Ezio didn't block Prosperous Innkeeper (271).
+Ai(2)-Jaymie_Ezio didn't block Soldier Token (547).
+Ai(2)-Jaymie_Ezio didn't block Soldier Token (553).
+Ai(2)-Jaymie_Ezio didn't block Soldier Token (594).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Frodo, Adventurous Hobbit (301) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Sam, Loyal Attendant (303) deals 2 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Merry, Warden of Isengard (208) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Prosperous Innkeeper (271) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Soldier Token (547) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(3)-Gabe_Food 8 > 9
+Damage: Soldier Token (553) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(3)-Gabe_Food 9 > 10
+Damage: Soldier Token (594) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(3)-Gabe_Food 10 > 11
+Life: Life: Ai(2)-Jaymie_Ezio 24 > 16
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 44 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Swords to Plowshares targeting [Sam, Loyal Attendant (303)]
+Zone Change: Sam, Loyal Attendant (303) was put into Exile from Battlefield.
+Life: Life: Ai(3)-Gabe_Food 11 > 13
+Resolve Stack: Swords to Plowshares (184) - Exile Sam, Loyal Attendant (303). Ai(3)-Gabe_Food gains life equal to its power.
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Ezio Auditore da Firenze (201) and Lydia Frye (186) to attack Ai(3)-Gabe_Food.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Ezio Auditore da Firenze (201).
+Ai(3)-Gabe_Food didn't block Lydia Frye (186).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(3)-Gabe_Food.
+Damage: Lydia Frye (186) deals 3 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 13 > 7
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Coastal Piracy
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Lydia Frye (186), Damaged: Ai(3)-Gabe_Food, Amount: 3]
+Resolve Stack: Whenever a creature you control deals combat damage to an opponent, you may draw a card. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(3)-Gabe_Food, Amount: 3]
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (201), Damaged: Ai(3)-Gabe_Food, Amount: 3]
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Swamp (161) - {T}: Add {B}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Edward Kenway
+Resolve Stack: Edward Kenway - Creature 5 / 5
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Arbaaz Mir
+Damage: Arbaaz Mir (165) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 7 > 6
+Life: Life: Ai(2)-Jaymie_Ezio 16 > 17
+Resolve Stack: Whenever Arbaaz Mir or another nontoken historic permanent you control enters, Arbaaz Mir deals 1 damage to each opponent and you gain 1 life. (Artifacts, legendaries, and Sagas are historic.) [Zone Changer: Edward Kenway (106)]
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Mana: Island (134) - {T}: Add {U}.
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Eiganjo, Seat of the Empire (117) - {T}: Add {W}.
+Mana: Smoldering Marsh (172) - {T}: Add {R}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Viewpoint Synchronization
+Resolve Stack: Viewpoint Synchronization (175) - Search your library for up to three basic land cards and reveal them. Put two of them onto the battlefield tapped and the other into your hand, then shuffle.   
+Land: Ai(2)-Jaymie_Ezio played Mountain (188)
+Mana: Mountain (188) - {T}: Add {R}.
+Mana: Twilight Mire (170) - {T}: Add {C}.
+Mana: Kessig Wolf Run (105) - {T}: Add {C}.
+Zone Change: Abstergo Entertainment (121) was put into Exile from Battlefield.
+Add To Stack: Ai(2)-Jaymie_Ezio activated Abstergo Entertainment targeting [The Lord of Pain (142)]
+Resolve Stack: Abstergo Entertainment (121) - Return The Lord of Pain (142) from the graveyard to its owner's hand. 
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Edward Kenway
+Resolve Stack: At the beginning of your end step, create a Treasure token for each tapped Assassin, Pirate, and/or Vehicle you control. [Phase: Ai(2)-Jaymie_Ezio]
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 1 card(s) to the top of the library and 1 card(s) to the graveyard
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 45 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Add To Stack: Ai(3)-Gabe_Food triggered Of Herbs and Stewed Rabbit
+Resolve Stack: III — Create a 1/1 white Halfling creature token for each Food you control. [Added once: Of Herbs and Stewed Rabbit (228)]
+Zone Change: Of Herbs and Stewed Rabbit (228) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(3)-Gabe_Food 6 > 7
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Halfling Token (626)]
+Life: Life: Ai(3)-Gabe_Food 7 > 8
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Halfling Token (625)]
+Life: Life: Ai(3)-Gabe_Food 8 > 9
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Halfling Token (624)]
+Life: Life: Ai(3)-Gabe_Food 9 > 10
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Halfling Token (623)]
+Life: Life: Ai(3)-Gabe_Food 10 > 11
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Halfling Token (622)]
+Life: Life: Ai(3)-Gabe_Food 11 > 12
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Halfling Token (621)]
+Life: Life: Ai(3)-Gabe_Food 12 > 13
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Halfling Token (620)]
+Mana: Forest (239) - {T}: Add {G}.
+Mana: Plains (290) - {T}: Add {W}.
+Mana: Sol Ring (261) - {T}: Add {C}{C}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Swamp (263) - {T}: Add {B}.
+Mana: Scoured Barrens (243) - {T}: Add {W} or {B}.
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Arcane Signet (253) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Add To Stack: Ai(3)-Gabe_Food triggered Path of Ancestry
+Resolve Stack: Ai(3)-Gabe_Food scried 1 card(s) to the bottom of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Sam, Loyal Attendant - Creature 2 / 4]) [Card: Sam, Loyal Attendant (303), Activator: Ai(3)-Gabe_Food, SpellAbility: Sam, Loyal Attendant - Creature 2 / 4]
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (303)]
+Life: Life: Ai(3)-Gabe_Food 13 > 14
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Sam, Loyal Attendant (303)]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Add To Stack: Ai(3)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Add To Stack: Ai(3)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(3)-Gabe_Food 14 > 15
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Soldier Token (632)]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 46 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Mana: Fellwar Stone (177) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Island (134) - {T}: Add {U}.
+Mana: Island (135) - {T}: Add {U}.
+Mana: Mountain (188) - {T}: Add {R}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast What Must Be Done
+Zone Change: Fellwar Stone (177) was put into Graveyard from Battlefield.
+Zone Change: Brotherhood Regalia (194) was put into Graveyard from Battlefield.
+Zone Change: Ezio Auditore da Firenze (201) was put into Graveyard from Battlefield.
+Zone Change: Lydia Frye (186) was put into Graveyard from Battlefield.
+Zone Change: Arbaaz Mir (165) was put into Graveyard from Battlefield.
+Zone Change: Edward Kenway (106) was put into Graveyard from Battlefield.
+Zone Change: Treasure Token (616) was put into Graveyard from Battlefield.
+Zone Change: Treasure Token (617) was put into Graveyard from Battlefield.
+Zone Change: Sol Ring (261) was put into Graveyard from Battlefield.
+Zone Change: Arcane Signet (253) was put into Graveyard from Battlefield.
+Zone Change: Food Token (535) was put into Graveyard from Battlefield.
+Zone Change: Frodo, Adventurous Hobbit (301) was put into Graveyard from Battlefield.
+Zone Change: Food Token (540) was put into Graveyard from Battlefield.
+Zone Change: Merry, Warden of Isengard (208) was put into Graveyard from Battlefield.
+Zone Change: Prosperous Innkeeper (271) was put into Graveyard from Battlefield.
+Zone Change: Treasure Token (544) was put into Graveyard from Battlefield.
+Zone Change: Soldier Token (547) was put into Graveyard from Battlefield.
+Zone Change: Food Token (550) was put into Graveyard from Battlefield.
+Zone Change: Soldier Token (553) was put into Graveyard from Battlefield.
+Zone Change: Food Token (591) was put into Graveyard from Battlefield.
+Zone Change: Soldier Token (594) was put into Graveyard from Battlefield.
+Zone Change: Food Token (596) was put into Graveyard from Battlefield.
+Zone Change: Food Token (607) was put into Graveyard from Battlefield.
+Zone Change: Soldier Token (610) was put into Graveyard from Battlefield.
+Zone Change: Food Token (613) was put into Graveyard from Battlefield.
+Zone Change: Halfling Token (620) was put into Graveyard from Battlefield.
+Zone Change: Halfling Token (621) was put into Graveyard from Battlefield.
+Zone Change: Halfling Token (622) was put into Graveyard from Battlefield.
+Zone Change: Halfling Token (623) was put into Graveyard from Battlefield.
+Zone Change: Halfling Token (624) was put into Graveyard from Battlefield.
+Zone Change: Halfling Token (625) was put into Graveyard from Battlefield.
+Zone Change: Halfling Token (626) was put into Graveyard from Battlefield.
+Zone Change: Sam, Loyal Attendant (303) was put into Graveyard from Battlefield.
+Zone Change: Food Token (629) was put into Graveyard from Battlefield.
+Zone Change: Soldier Token (632) was put into Graveyard from Battlefield.
+Resolve Stack: What Must Be Done (197) -  Let the World Burn — Destroy all artifacts and creatures.
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Smoldering Marsh (172) - {T}: Add {R}.
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Swamp (161) - {T}: Add {B}.
+Mana: Eiganjo, Seat of the Empire (117) - {T}: Add {W}.
+Mana: Plains (190) - {T}: Add {W}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast The Lord of Pain
+Resolve Stack: The Lord of Pain - Creature 5 / 5
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Mana: Twilight Mire (170) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Arcane Signet
+Resolve Stack: Arcane Signet
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 47 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Plains (291)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Forest (239) - {T}: Add {G}.
+Mana: Path of Ancestry (213) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Swamp (263) - {T}: Add {B}.
+Add To Stack: Ai(3)-Gabe_Food cast Harmonize
+Add To Stack: Ai(2)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(2)-Jaymie_Ezio]
+Damage: The Lord of Pain (142) deals 4 non-combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 17 > 13
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(2)-Jaymie_Ezio]]) [Card: Harmonize (270), Activator: Ai(3)-Gabe_Food, SpellAbility: Draw three cards.]
+Resolve Stack: Harmonize (270) - Ai(3)-Gabe_Food draws three cards.
+Damage: Brushland (298) deals 1 non-combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 15 > 14
+Mana: Brushland (298) - {T}: Add {G} or {W}. Brushland deals 1 damage to you. 
+Mana: Plains (290) - {T}: Add {W}.
+Mana: Plains (291) - {T}: Add {W}.
+Add To Stack: Ai(3)-Gabe_Food cast Tireless Provisioner
+Resolve Stack: Tireless Provisioner - Creature 3 / 2
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 48 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned The Lord of Pain (142) to attack Ai(3)-Gabe_Food.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block The Lord of Pain (142).
+Mana: Arcane Signet (151) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Mountain (188) - {T}: Add {R}.
+Mana: Island (134) - {T}: Add {U}.
+Mana: Island (135) - {T}: Add {U}.
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Swamp (161) - {T}: Add {B}.
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Eiganjo, Seat of the Empire (117) - {T}: Add {W}.
+Mana: Plains (190) - {T}: Add {W}.
+Mana: Smoldering Marsh (172) - {T}: Add {R}.
+Mana: Brotherhood Headquarters (126) - {T}: Add {C}.
+Mana: Twilight Mire (170) - {T}: Add {C}.
+Add To Stack: Ai(2)-Jaymie_Ezio activated Kessig Wolf Run targeting [The Lord of Pain (142)]
+Resolve Stack: Kessig Wolf Run (105) - The Lord of Pain (142) gets +10/+0 and gains trample until end of turn. (X=10)
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: The Lord of Pain (142) deals 15 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(3)-Gabe_Food 14 > -1
+Player Control: Ai(1)-GGS_Throne_only has restored control over themself
+Player Control: Ai(2)-Jaymie_Ezio has restored control over themself
+Player Control: Ai(3)-Gabe_Food has restored control over themself
+Player Control: Ai(4)-Destyn_Turtles has restored control over themself
+Game Outcome: Match Duration 3m : 39s
+Game Outcome: Turn 24
+Game Outcome: Ai(1)-GGS_Throne_only has lost because life total reached 0
+Game Outcome: Ai(2)-Jaymie_Ezio has won because all opponents have lost
+Game Outcome: Ai(3)-Gabe_Food has lost because life total reached 0
+Game Outcome: Ai(4)-Destyn_Turtles has lost because life total reached 0
+Match Result: Ai(1)-GGS_Throne_only: 0 Ai(2)-Jaymie_Ezio: 1 Ai(3)-Gabe_Food: 0 Ai(4)-Destyn_Turtles: 0 
+
+Game Result: Game 1 ended in 221140 ms. Ai(2)-Jaymie_Ezio has won!
+

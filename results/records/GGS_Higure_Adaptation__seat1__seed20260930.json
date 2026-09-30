@@ -1,0 +1,52 @@
+{
+  "status": "completed",
+  "winner": "Ai(3)-Destyn_Turtles",
+  "engine_ms": 4,
+  "last_logged_turn": 32,
+  "variant": "GGS_Higure_Adaptation",
+  "seat_rotation": 1,
+  "seed": 20260930,
+  "seats": [
+    "Jaymie_Ezio",
+    "Gabe_Food",
+    "Destyn_Turtles",
+    "GGS_Higure_Adaptation"
+  ],
+  "wall_seconds": 56.531,
+  "log": "results/logs/GGS_Higure_Adaptation__seat1__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "Jaymie_Ezio.dck",
+    "Gabe_Food.dck",
+    "Destyn_Turtles.dck",
+    "GGS_Higure_Adaptation.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Moon-Circuit Hacker",
+    "Purphoros, God of the Forge",
+    "Goro-Goro and Satoru",
+    "Ingenious Infiltrator",
+    "Satoru Umezawa",
+    "Deadly Rollick targeting [Edward Kenway (5)]",
+    "Swan Song targeting [Put a flying counter on target creature you control. Until end of turn, it has base power and toughness 5/5. ]",
+    "Mana Drain targeting [Destroy all creatures.]"
+  ],
+  "log_sha256": "fa46a1a02290b1c5d514ba57172961ac3e8818f570fe6e39cf24a3c6d05a1468"
+}

@@ -1,0 +1,2162 @@
+Error handling registered!
+20:58:10 [INFO ] GuiBase: ##########################################
+20:58:10 [INFO ] GuiBase: APP: Forge v.2.0.15-SNAPSHOT-09.28
+20:58:10 [INFO ] GuiBase: Java: 17.0.20 (Ubuntu)
+20:58:10 [INFO ] GuiBase: OS: Linux 6.18.44 amd64
+20:58:10 [INFO ] GuiBase: RAM: 1536 MB max, 8 CPUs
+20:58:10 [INFO ] GuiBase: ##########################################
+Language 'en-US' loaded successfully.
+(ThreadUtil first call): Running with priority 5
+Read cards: 34010 archived files in 1 ms (25 parts) using thread pool
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+The card A-Alrund's Epiphany was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Baba Lysaga, Night Witch was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Divide by Zero was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Esika's Chariot was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Faceless Haven was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Fires of Invention was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Goldspan Dragon was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Hullbreaker Horror was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Kumano Faces Kakkazan was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Luminarch Aspirant was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Monster Manual was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Omnath, Locus of Creation was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-The Meathook Massacre was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Unholy Heat was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Blinding Radiance was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Goblin Bruiser was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Ogre Painbringer was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Titanic Pelagosaur was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Treetop Recluse was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+Read cards: 854 files in 0 ms (8 parts) using thread pool
+Simulation mode
+Ai(1)-Destyn_Turtles vs Ai(2)-GGS_Throne_only vs Ai(3)-Jaymie_Ezio vs Ai(4)-Gabe_Food - one game of Commander seed 20261030
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Ezio Auditore da Firenze for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Michelangelo, the Heart for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Goro-Goro and Satoru for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Goro-Goro and Satoru for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Correcting zone for Hithlain Rope (328)
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at forge.ai.AiController.chooseSpellAbilityToPlayFromList(AiController.java:1686)
+	at forge.ai.AiController.getSpellAbilityToPlay(AiController.java:1577)
+	at forge.ai.AiController.chooseSpellAbilityToPlay(AiController.java:1397)
+	at forge.ai.PlayerControllerAi.chooseSpellAbilityToPlay(PlayerControllerAi.java:833)
+	at forge.game.phase.PhaseHandler.mainLoopStep(PhaseHandler.java:1056)
+	at forge.game.phase.PhaseHandler.mainGameLoop(PhaseHandler.java:1035)
+	at forge.game.phase.PhaseHandler.startFirstTurn(PhaseHandler.java:1029)
+	at forge.game.GameAction.startGame(GameAction.java:2373)
+	at forge.game.Match.startGame(Match.java:92)
+	at forge.game.Match.startGame(Match.java:77)
+	at forge.view.SimulateMatch.lambda$simulateSingleMatch$0(SimulateMatch.java:219)
+	at forge.view.TimeLimitedCodeBlock.lambda$runWithTimeout$0(TimeLimitedCodeBlock.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+AI eval thread at timeout:
+	at app//com.google.common.collect.TransformedIterator.hasNext(TransformedIterator.java:46)
+	at app//forge.game.card.Card.getName(Card.java:975)
+	at app//forge.game.card.Card.getName(Card.java:971)
+	at app//forge.game.player.Player.staticReplaceDamage(Player.java:772)
+	at app//forge.ai.ComputerUtilCombat.predictDamageTo(ComputerUtilCombat.java:2237)
+	at app//forge.ai.ComputerUtilCombat.predictDamageTo(ComputerUtilCombat.java:2214)
+	at app//forge.ai.ComputerUtilCombat.damageIfUnblocked(ComputerUtilCombat.java:185)
+	at app//forge.ai.ComputerUtilCombat.getLifeThreateningCommanders(ComputerUtilCombat.java:372)
+	at app//forge.ai.ComputerUtilCombat.lifeInSeriousDanger(ComputerUtilCombat.java:474)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3227)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3186)
+	at app//forge.ai.AiAttackController.notNeededAsBlockers(AiAttackController.java:424)
+	at app//forge.ai.AiAttackController.declareAttackers(AiAttackController.java:1286)
+	at app//forge.ai.ComputerUtilCard.doesSpecifiedCreatureAttackAI(ComputerUtilCard.java:846)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1583)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1472)
+	at app//forge.ai.ability.PumpAllAi.lambda$checkApiLogic$2(PumpAllAi.java:132)
+	at app//forge.ai.ability.PumpAllAi$$Lambda$666/0x00007f2bb42d2c48.test(Unknown Source)
+	at java.base@17.0.20/java.util.stream.MatchOps$1MatchSink.accept(MatchOps.java:90)
+	at java.base@17.0.20/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)
+	at java.base@17.0.20/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base@17.0.20/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:230)
+	at java.base@17.0.20/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:196)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base@17.0.20/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:632)
+	at app//forge.util.collect.FCollection.anyMatch(FCollection.java:622)
+	at app//forge.ai.ability.PumpAllAi.checkApiLogic(PumpAllAi.java:131)
+Correcting zone for Hithlain Rope (328)
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at forge.ai.AiController.chooseSpellAbilityToPlayFromList(AiController.java:1686)
+	at forge.ai.AiController.getSpellAbilityToPlay(AiController.java:1577)
+	at forge.ai.AiController.chooseSpellAbilityToPlay(AiController.java:1397)
+	at forge.ai.PlayerControllerAi.chooseSpellAbilityToPlay(PlayerControllerAi.java:833)
+	at forge.game.phase.PhaseHandler.mainLoopStep(PhaseHandler.java:1056)
+	at forge.game.phase.PhaseHandler.mainGameLoop(PhaseHandler.java:1035)
+	at forge.game.phase.PhaseHandler.startFirstTurn(PhaseHandler.java:1029)
+	at forge.game.GameAction.startGame(GameAction.java:2373)
+	at forge.game.Match.startGame(Match.java:92)
+	at forge.game.Match.startGame(Match.java:77)
+	at forge.view.SimulateMatch.lambda$simulateSingleMatch$0(SimulateMatch.java:219)
+	at forge.view.TimeLimitedCodeBlock.lambda$runWithTimeout$0(TimeLimitedCodeBlock.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+AI eval thread at timeout:
+	at java.base@17.0.20/java.util.ArrayList.addAll(ArrayList.java:670)
+	at app//forge.util.collect.FCollection.<init>(FCollection.java:100)
+	at app//forge.game.card.CardState.getStaticAbilities(CardState.java:718)
+	at app//forge.game.card.Card.getStaticAbilities(Card.java:6949)
+	at app//forge.game.staticability.StaticAbilityMustBlock.blocksEachCombatIfAble(StaticAbilityMustBlock.java:12)
+	at app//forge.ai.AiBlockController.makeRequiredBlocks(AiBlockController.java:951)
+	at app//forge.ai.AiBlockController.assignBlockers(AiBlockController.java:1145)
+	at app//forge.ai.AiBlockController.assignBlockersForCombat(AiBlockController.java:1000)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3221)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3186)
+	at app//forge.ai.AiAttackController.notNeededAsBlockers(AiAttackController.java:424)
+	at app//forge.ai.AiAttackController.declareAttackers(AiAttackController.java:1286)
+	at app//forge.ai.ComputerUtilCard.doesSpecifiedCreatureAttackAI(ComputerUtilCard.java:846)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1583)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1472)
+	at app//forge.ai.ability.PumpAllAi.lambda$checkApiLogic$2(PumpAllAi.java:132)
+	at app//forge.ai.ability.PumpAllAi$$Lambda$666/0x00007f2bb42d2c48.test(Unknown Source)
+	at java.base@17.0.20/java.util.stream.MatchOps$1MatchSink.accept(MatchOps.java:90)
+	at java.base@17.0.20/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)
+	at java.base@17.0.20/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base@17.0.20/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:230)
+	at java.base@17.0.20/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:196)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base@17.0.20/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:632)
+	at app//forge.util.collect.FCollection.anyMatch(FCollection.java:622)
+	at app//forge.ai.ability.PumpAllAi.checkApiLogic(PumpAllAi.java:131)
+	at app//forge.ai.SpellAbilityAi.canPlayWithoutRestrict(SpellAbilityAi.java:100)
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at forge.ai.AiController.chooseSpellAbilityToPlayFromList(AiController.java:1686)
+	at forge.ai.AiController.getSpellAbilityToPlay(AiController.java:1577)
+	at forge.ai.AiController.chooseSpellAbilityToPlay(AiController.java:1397)
+	at forge.ai.PlayerControllerAi.chooseSpellAbilityToPlay(PlayerControllerAi.java:833)
+	at forge.game.phase.PhaseHandler.mainLoopStep(PhaseHandler.java:1056)
+	at forge.game.phase.PhaseHandler.mainGameLoop(PhaseHandler.java:1035)
+	at forge.game.phase.PhaseHandler.startFirstTurn(PhaseHandler.java:1029)
+	at forge.game.GameAction.startGame(GameAction.java:2373)
+	at forge.game.Match.startGame(Match.java:92)
+	at forge.game.Match.startGame(Match.java:77)
+	at forge.view.SimulateMatch.lambda$simulateSingleMatch$0(SimulateMatch.java:219)
+	at forge.view.TimeLimitedCodeBlock.lambda$runWithTimeout$0(TimeLimitedCodeBlock.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+AI eval thread at timeout:
+	at app//forge.util.collect.FCollection.<init>(FCollection.java:75)
+	at app//forge.game.card.CardCollection.<init>(CardCollection.java:107)
+	at app//forge.game.staticability.StaticAbilityCantAttackBlock.cantBlockBy(StaticAbilityCantAttackBlock.java:209)
+	at app//forge.game.combat.CombatUtil.canBeBlocked(CombatUtil.java:533)
+	at app//forge.game.combat.CombatUtil.canBlock(CombatUtil.java:913)
+	at app//forge.ai.AiBlockController.getPossibleBlockers(AiBlockController.java:88)
+	at app//forge.ai.AiBlockController.makeGoodBlocks(AiBlockController.java:195)
+	at app//forge.ai.AiBlockController.assignBlockers(AiBlockController.java:1069)
+	at app//forge.ai.AiBlockController.assignBlockersForCombat(AiBlockController.java:1000)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3221)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3186)
+	at app//forge.ai.AiAttackController.notNeededAsBlockers(AiAttackController.java:424)
+	at app//forge.ai.AiAttackController.declareAttackers(AiAttackController.java:1286)
+	at app//forge.ai.ComputerUtilCard.doesSpecifiedCreatureAttackAI(ComputerUtilCard.java:846)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1583)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1472)
+	at app//forge.ai.ability.PumpAllAi.lambda$checkApiLogic$2(PumpAllAi.java:132)
+	at app//forge.ai.ability.PumpAllAi$$Lambda$666/0x00007f2bb42d2c48.test(Unknown Source)
+	at java.base@17.0.20/java.util.stream.MatchOps$1MatchSink.accept(MatchOps.java:90)
+	at java.base@17.0.20/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)
+	at java.base@17.0.20/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base@17.0.20/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:230)
+	at java.base@17.0.20/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:196)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base@17.0.20/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:632)
+	at app//forge.util.collect.FCollection.anyMatch(FCollection.java:622)
+	at app//forge.ai.ability.PumpAllAi.checkApiLogic(PumpAllAi.java:131)
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at forge.ai.AiController.chooseSpellAbilityToPlayFromList(AiController.java:1686)
+	at forge.ai.AiController.getSpellAbilityToPlay(AiController.java:1577)
+	at forge.ai.AiController.chooseSpellAbilityToPlay(AiController.java:1397)
+	at forge.ai.PlayerControllerAi.chooseSpellAbilityToPlay(PlayerControllerAi.java:833)
+	at forge.game.phase.PhaseHandler.mainLoopStep(PhaseHandler.java:1056)
+	at forge.game.phase.PhaseHandler.mainGameLoop(PhaseHandler.java:1035)
+	at forge.game.phase.PhaseHandler.startFirstTurn(PhaseHandler.java:1029)
+	at forge.game.GameAction.startGame(GameAction.java:2373)
+	at forge.game.Match.startGame(Match.java:92)
+	at forge.game.Match.startGame(Match.java:77)
+	at forge.view.SimulateMatch.lambda$simulateSingleMatch$0(SimulateMatch.java:219)
+	at forge.view.TimeLimitedCodeBlock.lambda$runWithTimeout$0(TimeLimitedCodeBlock.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+AI eval thread at timeout:
+	at app//forge.util.collect.FCollection.addAll(FCollection.java:343)
+	at app//forge.util.collect.FCollection.addAll(FCollection.java:325)
+	at app//forge.game.keyword.KeywordInstance.applyReplacementEffect(KeywordInstance.java:251)
+	at app//forge.game.keyword.KeywordCollection.applyReplacementEffect(KeywordCollection.java:210)
+	at app//forge.game.card.Card.updateReplacementEffects(Card.java:7025)
+	at app//forge.game.card.CardState.getReplacementEffects(CardState.java:748)
+	at app//forge.game.card.CardState.getReplacementEffects(CardState.java:736)
+	at app//forge.game.card.Card.getReplacementEffects(Card.java:7011)
+	at app//forge.game.replacement.ReplacementHandler.lambda$getReplacementList$0(ReplacementHandler.java:136)
+	at app//forge.game.replacement.ReplacementHandler$$Lambda$425/0x00007f2bb425a868.visit(Unknown Source)
+	at app//forge.util.Visitor.visitAll(Visitor.java:16)
+	at app//forge.game.Game.forEachCardInGame(Game.java:763)
+	at app//forge.game.replacement.ReplacementHandler.getReplacementList(ReplacementHandler.java:104)
+	at app//forge.ai.ComputerUtilCombat.isCombatDamagePrevented(ComputerUtilCombat.java:2364)
+	at app//forge.ai.ComputerUtilCombat.canDestroyBlocker(ComputerUtilCombat.java:1934)
+	at app//forge.ai.AiBlockController.getSafeBlockers(AiBlockController.java:107)
+	at app//forge.ai.AiBlockController.makeGoodBlocks(AiBlockController.java:197)
+	at app//forge.ai.AiBlockController.assignBlockers(AiBlockController.java:1069)
+	at app//forge.ai.AiBlockController.assignBlockersForCombat(AiBlockController.java:1000)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3221)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3186)
+	at app//forge.ai.AiAttackController.notNeededAsBlockers(AiAttackController.java:424)
+	at app//forge.ai.AiAttackController.declareAttackers(AiAttackController.java:1286)
+	at app//forge.ai.ComputerUtilCard.doesSpecifiedCreatureAttackAI(ComputerUtilCard.java:846)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1583)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1472)
+	at app//forge.ai.ability.PumpAllAi.lambda$checkApiLogic$2(PumpAllAi.java:132)
+	at app//forge.ai.ability.PumpAllAi$$Lambda$666/0x00007f2bb42d2c48.test(Unknown Source)
+	at java.base@17.0.20/java.util.stream.MatchOps$1MatchSink.accept(MatchOps.java:90)
+	at java.base@17.0.20/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at forge.ai.AiController.chooseSpellAbilityToPlayFromList(AiController.java:1686)
+	at forge.ai.AiController.getSpellAbilityToPlay(AiController.java:1577)
+	at forge.ai.AiController.chooseSpellAbilityToPlay(AiController.java:1397)
+	at forge.ai.PlayerControllerAi.chooseSpellAbilityToPlay(PlayerControllerAi.java:833)
+	at forge.game.phase.PhaseHandler.mainLoopStep(PhaseHandler.java:1056)
+	at forge.game.phase.PhaseHandler.mainGameLoop(PhaseHandler.java:1035)
+	at forge.game.phase.PhaseHandler.startFirstTurn(PhaseHandler.java:1029)
+	at forge.game.GameAction.startGame(GameAction.java:2373)
+	at forge.game.Match.startGame(Match.java:92)
+	at forge.game.Match.startGame(Match.java:77)
+	at forge.view.SimulateMatch.lambda$simulateSingleMatch$0(SimulateMatch.java:219)
+	at forge.view.TimeLimitedCodeBlock.lambda$runWithTimeout$0(TimeLimitedCodeBlock.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+AI eval thread at timeout:
+	at app//forge.game.zone.PlayerZoneBattlefield.getCards(PlayerZoneBattlefield.java:89)
+	at app//forge.game.player.Player.getCardsIn(Player.java:1335)
+	at app//forge.game.player.Player.getCardsIn(Player.java:1314)
+	at app//forge.game.Game.getCardsIn(Game.java:639)
+	at app//forge.game.staticability.StaticAbilityAssignCombatDamageAsUnblocked.assignCombatDamageAsUnblocked(StaticAbilityAssignCombatDamageAsUnblocked.java:15)
+	at app//forge.ai.CreatureEvaluator.evaluateCreature(CreatureEvaluator.java:81)
+	at app//forge.ai.CreatureEvaluator.evaluateCreature(CreatureEvaluator.java:32)
+	at app//forge.ai.ComputerUtilCard.evaluateCreature(ComputerUtilCard.java:785)
+	at app//forge.ai.AiBlockController.makeGoodBlocks(AiBlockController.java:265)
+	at app//forge.ai.AiBlockController.assignBlockers(AiBlockController.java:1069)
+	at app//forge.ai.AiBlockController.assignBlockersForCombat(AiBlockController.java:1000)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3221)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3186)
+	at app//forge.ai.AiAttackController.notNeededAsBlockers(AiAttackController.java:424)
+	at app//forge.ai.AiAttackController.declareAttackers(AiAttackController.java:1286)
+	at app//forge.ai.ComputerUtilCard.doesSpecifiedCreatureAttackAI(ComputerUtilCard.java:846)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1583)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1472)
+	at app//forge.ai.ability.PumpAllAi.lambda$checkApiLogic$2(PumpAllAi.java:132)
+	at app//forge.ai.ability.PumpAllAi$$Lambda$666/0x00007f2bb42d2c48.test(Unknown Source)
+	at java.base@17.0.20/java.util.stream.MatchOps$1MatchSink.accept(MatchOps.java:90)
+	at java.base@17.0.20/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1602)
+	at java.base@17.0.20/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base@17.0.20/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:230)
+	at java.base@17.0.20/java.util.stream.MatchOps$MatchOp.evaluateSequential(MatchOps.java:196)
+	at java.base@17.0.20/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base@17.0.20/java.util.stream.ReferencePipeline.anyMatch(ReferencePipeline.java:632)
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Goro-Goro and Satoru for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Mulligan: Ai(2)-GGS_Throne_only has mulliganed down to 7 cards.
+Mulligan: Ai(4)-Gabe_Food has kept a hand of 7 cards
+Mulligan: Ai(1)-Destyn_Turtles has kept a hand of 7 cards
+Mulligan: Ai(2)-GGS_Throne_only has kept a hand of 7 cards
+Mulligan: Ai(3)-Jaymie_Ezio has kept a hand of 7 cards
+Turn: Turn 1 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Replacement Effect: Sandsteppe Citadel enters tapped.
+Land: Ai(4)-Gabe_Food played Sandsteppe Citadel (320)
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 2 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Land: Ai(1)-Destyn_Turtles played Forest (36)
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 3 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Life: Life: Ai(2)-GGS_Throne_only 40 > 38
+Replacement Effect: As Watery Grave enters, you may pay 2 life. If you don't, it enters tapped.
+Land: Ai(2)-GGS_Throne_only played Watery Grave (173)
+Mana: Watery Grave (173) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Gingerbrute
+Resolve Stack: Gingerbrute - Creature 1 / 1
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(2)-GGS_Throne_only assigned Gingerbrute (166) to attack Ai(1)-Destyn_Turtles.
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Gingerbrute (166).
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Damage: Gingerbrute (166) deals 1 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(1)-Destyn_Turtles 40 > 39
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 4 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(3)-Jaymie_Ezio played Twisted Landscape (211)
+Zone Change: Twisted Landscape (211) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Jaymie_Ezio activated Twisted Landscape
+Resolve Stack: Twisted Landscape (211) - Ai(3)-Jaymie_Ezio searches their library for a basic Swamp, Mountain, or Forest card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 5 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Land: Ai(4)-Gabe_Food played Access Tunnel (356)
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 6 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Land: Ai(1)-Destyn_Turtles played Ash Barrens (70)
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Michelangelo, the Heart
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 7 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Replacement Effect: As Steam Vents enters, you may pay 2 life. If you don't, it enters tapped.
+Land: Ai(2)-GGS_Throne_only played Steam Vents (145)
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Mana: Sandsteppe Citadel (320) - {T}: Add {W}, {B}, or {G}.
+Mana: Access Tunnel (356) - {T}: Add {C}.
+Add To Stack: Ai(4)-Gabe_Food cast Go for the Throat targeting [Michelangelo, the Heart (99)]
+Mana: Watery Grave (173) - {T}: Add {U}.
+Add To Stack: Ai(2)-GGS_Throne_only cast An Offer You Can't Refuse targeting [Destroy target nonartifact creature.]
+Zone Change: Send countered spell to Graveyard
+Resolve Stack: An Offer You Can't Refuse (165) - Counter Go for the Throat (305). Its controller creates two Treasure tokens.
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 8 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Replacement Effect: As Foreboding Ruins enters, you may reveal a Swamp or Mountain card from your hand. If you don't, Foreboding Ruins enters tapped.
+Land: Ai(3)-Jaymie_Ezio played Foreboding Ruins (270)
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Mana: Swamp (261) - {T}: Add {B}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Changeling Outcast
+Resolve Stack: Changeling Outcast - Creature 1 / 1
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 9 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Land: Ai(4)-Gabe_Food played Forest (342)
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Mana: Sandsteppe Citadel (320) - {T}: Add {W}, {B}, or {G}.
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Access Tunnel (356) - {T}: Add {C}.
+Zone Change: Treasure Token (407) was put into Graveyard from Battlefield.
+Mana: Treasure Token (407) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Treasure Token (406) was put into Graveyard from Battlefield.
+Mana: Treasure Token (406) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(4)-Gabe_Food cast Gwaihir, Greatest of the Eagles
+Resolve Stack: Gwaihir, Greatest of the Eagles - Creature 5 / 5
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 10 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Dragonskull Summit enters tapped unless you control a Swamp or a Mountain.
+Land: Ai(1)-Destyn_Turtles played Dragonskull Summit (47)
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Super Combo targeting [Michelangelo, the Heart (99)] [Gingerbrute (166)]
+Damage: Michelangelo, the Heart (99) deals 2 damage to Gingerbrute (166).
+Resolve Stack: Super Combo (44) -  Michelangelo, the Heart (99) deals 2 damage to Gingerbrute (166).
+Zone Change: Gingerbrute (166) was put into Graveyard from Battlefield.
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 11 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Land: Ai(2)-GGS_Throne_only played Marsh Flats (182)
+Life: Life: Ai(2)-GGS_Throne_only 38 > 37
+Zone Change: Marsh Flats (182) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-GGS_Throne_only activated Marsh Flats
+Replacement Effect: Xander's Lounge enters tapped.
+Resolve Stack: Marsh Flats (182) - Ai(2)-GGS_Throne_only searches their library for a Plains or Swamp card, puts it onto the battlefield, then shuffles.
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Mana: Watery Grave (173) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Hope of Ghirapur
+Resolve Stack: Hope of Ghirapur - Creature 1 / 1
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 12 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(3)-Jaymie_Ezio assigned Changeling Outcast (216) to attack Ai(4)-Gabe_Food.
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Gabe_Food didn't block Changeling Outcast (216).
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Damage: Changeling Outcast (216) deals 1 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(4)-Gabe_Food 40 > 39
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Mana: Swamp (261) - {T}: Add {B}.
+Mana: Foreboding Ruins (270) - {T}: Add {B} or {R}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Resolve Stack: Ezio Auditore da Firenze - Creature 3 / 2
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 13 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Mana: Sandsteppe Citadel (320) - {T}: Add {W}, {B}, or {G}.
+Add To Stack: Ai(4)-Gabe_Food cast Path to Exile targeting [Ezio Auditore da Firenze (302)]
+Zone Change: Ezio Auditore da Firenze (302) was put into Exile from Battlefield.
+Resolve Stack: Path to Exile (310) - Exile Ezio Auditore da Firenze (302). Ai(3)-Jaymie_Ezio may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle their library. 
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Land: Ai(4)-Gabe_Food played Forest (337)
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Combat: Ai(4)-Gabe_Food assigned Gwaihir, Greatest of the Eagles (393) to attack Ai(3)-Jaymie_Ezio.
+Add To Stack: Ai(4)-Gabe_Food triggered Gwaihir, Greatest of the Eagles targeting [Gwaihir, Greatest of the Eagles (393)]
+Resolve Stack: Whenever Gwaihir attacks, target attacking creature gains flying until end of turn. (Targeting: [[Gwaihir, Greatest of the Eagles (393)]]) [Attacker: Gwaihir, Greatest of the Eagles (393)]
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Combat: Ai(3)-Jaymie_Ezio didn't block Gwaihir, Greatest of the Eagles (393).
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Damage: Gwaihir, Greatest of the Eagles (393) deals 5 combat damage to Ai(3)-Jaymie_Ezio.
+Life: Life: Ai(3)-Jaymie_Ezio 40 > 35
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Access Tunnel (356) - {T}: Add {C}.
+Add To Stack: Ai(4)-Gabe_Food cast Cultivate
+Resolve Stack: Cultivate (306) - Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.   
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 14 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(1)-Destyn_Turtles assigned Michelangelo, the Heart (99) to attack Ai(4)-Gabe_Food.
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(4)-Gabe_Food didn't block Michelangelo, the Heart (99).
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Damage: Michelangelo, the Heart (99) deals 2 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(4)-Gabe_Food 39 > 37
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(1)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Michelangelo, the Heart (99)]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Michelangelo, the Heart (99)]]) [Phase: Ai(1)-Destyn_Turtles]
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Exploding Barrel
+Resolve Stack: Exploding Barrel
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 15 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Land: Ai(2)-GGS_Throne_only played Scalding Tarn (155)
+Life: Life: Ai(2)-GGS_Throne_only 37 > 36
+Zone Change: Scalding Tarn (155) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-GGS_Throne_only activated Scalding Tarn
+Replacement Effect: Undercity Sewers enters tapped.
+Resolve Stack: Scalding Tarn (155) - Ai(2)-GGS_Throne_only searches their library for an Island or Mountain card, puts it onto the battlefield, then shuffles.
+Add To Stack: Ai(2)-GGS_Throne_only triggered Undercity Sewers
+Resolve Stack: Ai(2)-GGS_Throne_only surveiled 1 card(s) to the top of the library
+Resolve Stack: When Undercity Sewers enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) [Zone Changer: Undercity Sewers (104)]
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(2)-GGS_Throne_only assigned Hope of Ghirapur (149) to attack Ai(1)-Destyn_Turtles.
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Hope of Ghirapur (149).
+Mana: Watery Grave (173) - {T}: Add {U}.
+Mana: Steam Vents (145) - {T}: Add {R}.
+Add To Stack: Ai(2)-GGS_Throne_only activated Prosperous Thief
+Resolve Stack: Prosperous Thief (129) - Ai(2)-GGS_Throne_only puts Prosperous Thief (129) from their hand onto the battlefield tapped and attacking.
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Damage: Prosperous Thief (129) deals 3 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(1)-Destyn_Turtles 39 > 36
+Add To Stack: Ai(2)-GGS_Throne_only triggered Prosperous Thief
+Resolve Stack: Whenever one or more Ninja or Rogue creatures you control deal combat damage to a player, create a Treasure token. (It's an artifact with "{T}, Sacrifice this token: Add one mana of any color.") [Damaged: Ai(1)-Destyn_Turtles, Amount: 3]
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Mana: Xander's Lounge (187) - {T}: Add {R}.
+Zone Change: Treasure Token (414) was put into Graveyard from Battlefield.
+Mana: Treasure Token (414) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(2)-GGS_Throne_only cast Talisman of Indulgence
+Resolve Stack: Talisman of Indulgence
+Mana: Talisman of Indulgence (115) - {T}: Add {C}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Hope of Ghirapur
+Resolve Stack: Hope of Ghirapur - Creature 1 / 1
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 16 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Mana: Plains (292) - {T}: Add {W}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Swords to Plowshares targeting [Gwaihir, Greatest of the Eagles (393)]
+Zone Change: Gwaihir, Greatest of the Eagles (393) was put into Exile from Battlefield.
+Life: Life: Ai(4)-Gabe_Food 37 > 42
+Resolve Stack: Swords to Plowshares (285) - Exile Gwaihir, Greatest of the Eagles (393). Ai(4)-Gabe_Food gains life equal to its power.
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(3)-Jaymie_Ezio assigned Changeling Outcast (216) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only didn't block Changeling Outcast (216).
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Damage: Changeling Outcast (216) deals 1 combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(2)-GGS_Throne_only 36 > 35
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 17 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Replacement Effect: Canopy Vista enters tapped unless you control two or more basic lands.
+Land: Ai(4)-Gabe_Food played Canopy Vista (373)
+Mana: Sandsteppe Citadel (320) - {T}: Add {W}, {B}, or {G}.
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Forest (337) - {T}: Add {G}.
+Add To Stack: Ai(4)-Gabe_Food cast Crypt Incursion targeting [Ai(2)-GGS_Throne_only]
+Life: Life: Ai(4)-Gabe_Food 42 > 45
+Resolve Stack: Crypt Incursion (361) - Exile all creature cards from target player's graveyard. You gain 3 life for each card exiled this way. Ai(4)-Gabe_Food gains 0 life. 
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Mana: Canopy Vista (373) - {T}: Add {G}.
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Access Tunnel (356) - {T}: Add {C}.
+Add To Stack: Ai(4)-Gabe_Food cast Sam, Loyal Attendant
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(4)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(4)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (404)]
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 18 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Level Up targeting [Michelangelo, the Heart (99)]
+Resolve Stack: Level Up (90) -  Attach to Michelangelo, the Heart (99)
+Add To Stack: Ai(1)-Destyn_Turtles triggered Level Up
+Resolve Stack: When this Aura enters, put a +1/+1 counter on enchanted creature. [Zone Changer: Level Up (90)]
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(1)-Destyn_Turtles assigned Michelangelo, the Heart (99) to attack Ai(2)-GGS_Throne_only.
+Add To Stack: Ai(1)-Destyn_Turtles triggered Michelangelo, the Heart
+Resolve Stack: Whenever this creature attacks, double the number of +1/+1 counters on it. Then if it has power 10 or greater, draw a card. [Attacker: Michelangelo, the Heart (99)]
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only didn't block Michelangelo, the Heart (99).
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Damage: Michelangelo, the Heart (99) deals 6 combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(2)-GGS_Throne_only 35 > 29
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(1)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Michelangelo, the Heart (99)]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Michelangelo, the Heart (99)]]) [Phase: Ai(1)-Destyn_Turtles]
+Mana: Exploding Barrel (19) - {T}: Add one mana of any color. Put a pressure counter on this artifact. 
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Add To Stack: Ai(1)-Destyn_Turtles cast April O'Neil, Live on the Scene
+Resolve Stack: April O'Neil, Live on the Scene - Creature 2 / 1
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 19 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Replacement Effect: Malakir Mire enters tapped.
+Land: Ai(2)-GGS_Throne_only played Malakir Mire (106)
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Xander's Lounge (187) - {T}: Add {R}.
+Mana: Watery Grave (173) - {T}: Add {B}.
+Mana: Undercity Sewers (104) - {T}: Add {B}.
+Mana: Talisman of Indulgence (115) - {T}: Add {C}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Goldspan Dragon
+Resolve Stack: Goldspan Dragon - Creature 4 / 4
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(2)-GGS_Throne_only assigned Goldspan Dragon (103) and Hope of Ghirapur (149) to attack Ai(1)-Destyn_Turtles.
+Add To Stack: Ai(2)-GGS_Throne_only triggered Goldspan Dragon
+Resolve Stack: Whenever Goldspan Dragon attacks or becomes the target of a spell, create a Treasure token. [Attacker: Goldspan Dragon (103)]
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Goldspan Dragon (103).
+Ai(1)-Destyn_Turtles didn't block Hope of Ghirapur (149).
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Damage: Goldspan Dragon (103) deals 4 combat damage to Ai(1)-Destyn_Turtles.
+Damage: Hope of Ghirapur (149) deals 1 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(1)-Destyn_Turtles 36 > 31
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 20 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Mana: Plains (292) - {T}: Add {W}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Path to Exile targeting [Michelangelo, the Heart (99)]
+Zone Change: Michelangelo, the Heart (99) was put into Exile from Battlefield.
+Resolve Stack: Path to Exile (208) - Exile Michelangelo, the Heart (99). Ai(1)-Destyn_Turtles may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle their library. 
+Zone Change: Level Up (90) was put into Graveyard from Battlefield.
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(3)-Jaymie_Ezio assigned Changeling Outcast (216) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only didn't block Changeling Outcast (216).
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Damage: Changeling Outcast (216) deals 1 combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(2)-GGS_Throne_only 29 > 28
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 21 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Land: Ai(4)-Gabe_Food played Plains (390)
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Gabe_Food]
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Combat: Ai(4)-Gabe_Food assigned Sam, Loyal Attendant (404) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only didn't block Sam, Loyal Attendant (404).
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (404) deals 2 combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(2)-GGS_Throne_only 28 > 26
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Mana: Sandsteppe Citadel (320) - {T}: Add {W}, {B}, or {G}.
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Forest (342) - {T}: Add {G}.
+Add To Stack: Ai(4)-Gabe_Food cast Bilbo, Birthday Celebrant
+Resolve Stack: Bilbo, Birthday Celebrant - Creature 2 / 3
+Mana: Plains (390) - {T}: Add {W}.
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Canopy Vista (373) - {T}: Add {G}.
+Add To Stack: Ai(4)-Gabe_Food cast The Gaffer
+Resolve Stack: The Gaffer - Creature 2 / 3
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 22 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Land: Ai(1)-Destyn_Turtles played Command Tower (28)
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Command Tower (28) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Acidic Slime
+Resolve Stack: Acidic Slime - Creature 2 / 2
+Add To Stack: Ai(1)-Destyn_Turtles triggered Acidic Slime targeting [Hope of Ghirapur (149)]
+Zone Change: Hope of Ghirapur (149) was put into Graveyard from Battlefield.
+Resolve Stack: When Acidic Slime enters, destroy target artifact, enchantment, or land. (Targeting: [[Hope of Ghirapur (149)]]) [Zone Changer: Acidic Slime (62)]
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 23 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(2)-GGS_Throne_only assigned Goldspan Dragon (103) to attack Ai(4)-Gabe_Food.
+Add To Stack: Ai(2)-GGS_Throne_only triggered Goldspan Dragon
+Resolve Stack: Whenever Goldspan Dragon attacks or becomes the target of a spell, create a Treasure token. [Attacker: Goldspan Dragon (103)]
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(4)-Gabe_Food didn't block Goldspan Dragon (103).
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Damage: Goldspan Dragon (103) deals 4 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(4)-Gabe_Food 45 > 41
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Watery Grave (173) - {T}: Add {U}.
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Mana: Undercity Sewers (104) - {T}: Add {U}.
+Mana: Xander's Lounge (187) - {T}: Add {B}.
+Mana: Talisman of Indulgence (115) - {T}: Add {C}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Satoru Umezawa
+Resolve Stack: Satoru Umezawa - Creature 2 / 4
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 24 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Mana: Plains (292) - {T}: Add {W}.
+Mana: Swamp (261) - {T}: Add {B}.
+Mana: Foreboding Ruins (270) - {T}: Add {B} or {R}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast 
+Resolve Stack: Disguise - Creature 2/2
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(3)-Jaymie_Ezio assigned Changeling Outcast (216) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only didn't block Changeling Outcast (216).
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Damage: Changeling Outcast (216) deals 1 combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(2)-GGS_Throne_only 26 > 25
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 25 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Land: Ai(4)-Gabe_Food played Ghost Quarter (316)
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Plains (391) - {T}: Add {W}.
+Add To Stack: Ai(4)-Gabe_Food activated Access Tunnel targeting [Sam, Loyal Attendant (404)]
+Resolve Stack: Access Tunnel (356) - Sam, Loyal Attendant (404) can't be blocked this turn.
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Gabe_Food]
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Combat: Ai(4)-Gabe_Food assigned Sam, Loyal Attendant (404) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only didn't block Sam, Loyal Attendant (404).
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (404) deals 2 combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(2)-GGS_Throne_only 25 > 23
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Mana: Sandsteppe Citadel (320) - {T}: Add {W}, {B}, or {G}.
+Mana: Plains (390) - {T}: Add {W}.
+Add To Stack: Ai(4)-Gabe_Food cast Frodo, Adventurous Hobbit
+Resolve Stack: Frodo, Adventurous Hobbit - Creature 1 / 3
+Add To Stack: Ai(4)-Gabe_Food triggered Frodo, Adventurous Hobbit targeting [Ai(4)-Gabe_Food]
+Resolve Stack: Partner with Sam, Loyal Attendant (When this creature enters, target player may put Sam into their hand from their library, then shuffle.) (Targeting: [[Ai(4)-Gabe_Food]]) [Zone Changer: Frodo, Adventurous Hobbit (402)]
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 26 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Command Tower (28) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(1)-Destyn_Turtles cast Raphael, the Muscle
+Resolve Stack: Raphael, the Muscle - Creature 4 / 4
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(1)-Destyn_Turtles triggered Raphael, the Muscle
+Resolve Stack: When Raphael enters, create a Mutagen token. [Zone Changer: Raphael, the Muscle (75)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Raphael, the Muscle (75)]
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 27 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(2)-GGS_Throne_only assigned Goldspan Dragon (103) to attack Ai(1)-Destyn_Turtles.
+Add To Stack: Ai(2)-GGS_Throne_only triggered Goldspan Dragon
+Resolve Stack: Whenever Goldspan Dragon attacks or becomes the target of a spell, create a Treasure token. [Attacker: Goldspan Dragon (103)]
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Goldspan Dragon (103).
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Damage: Goldspan Dragon (103) deals 4 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(1)-Destyn_Turtles 31 > 27
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Mana: Watery Grave (173) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Aggravated Assault
+Resolve Stack: Aggravated Assault
+Mana: Xander's Lounge (187) - {T}: Add {R}.
+Damage: Talisman of Indulgence (115) deals 1 non-combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(2)-GGS_Throne_only 23 > 22
+Mana: Talisman of Indulgence (115) - {T}: Add {B} or {R}. Talisman of Indulgence deals 1 damage to you. 
+Mana: Undercity Sewers (104) - {T}: Add {B}.
+Zone Change: Treasure Token (456) was put into Graveyard from Battlefield.
+Mana: Treasure Token (456) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Treasure Token (428) was put into Graveyard from Battlefield.
+Mana: Treasure Token (428) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(2)-GGS_Throne_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (178) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Phase: AdditionalAi(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(2)-GGS_Throne_only assigned Goldspan Dragon (103) to attack Ai(1)-Destyn_Turtles.
+Add To Stack: Ai(2)-GGS_Throne_only triggered Goldspan Dragon
+Resolve Stack: Whenever Goldspan Dragon attacks or becomes the target of a spell, create a Treasure token. [Attacker: Goldspan Dragon (103)]
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Goldspan Dragon (103).
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Damage: Goldspan Dragon (103) deals 4 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(1)-Destyn_Turtles 27 > 23
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 28 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Mana: Foreboding Ruins (270) - {T}: Add {B} or {R}.
+Mana: Swamp (261) - {T}: Add {B}.
+Resolve Stack: Ai(3)-Jaymie_Ezio has undisguised Arno Dorian
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(3)-Jaymie_Ezio assigned Changeling Outcast (216) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only didn't block Changeling Outcast (216).
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Damage: Changeling Outcast (216) deals 3 combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(2)-GGS_Throne_only 22 > 19
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Replacement Effect: Tranquil Cove enters tapped.
+Land: Ai(3)-Jaymie_Ezio played Tranquil Cove (279)
+Add To Stack: Ai(3)-Jaymie_Ezio triggered Tranquil Cove
+Life: Life: Ai(3)-Jaymie_Ezio 35 > 36
+Resolve Stack: When Tranquil Cove enters, you gain 1 life. [Zone Changer: Tranquil Cove (279)]
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 29 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Land: Ai(4)-Gabe_Food played Evolving Wilds (334)
+Zone Change: Evolving Wilds (334) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Gabe_Food activated Evolving Wilds
+Resolve Stack: Evolving Wilds (334) - Ai(4)-Gabe_Food searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Plains (390) - {T}: Add {W}.
+Mana: Canopy Vista (373) - {T}: Add {G}.
+Mana: Sandsteppe Citadel (320) - {T}: Add {W}, {B}, or {G}.
+Add To Stack: Ai(4)-Gabe_Food cast Great Oak Guardian
+Resolve Stack: Great Oak Guardian - Creature 4 / 5
+Add To Stack: Ai(4)-Gabe_Food triggered Great Oak Guardian targeting [Ai(4)-Gabe_Food]
+Resolve Stack: When Great Oak Guardian enters, creatures target player controls get +2/+2 until end of turn. Untap them. (Targeting: [[Ai(4)-Gabe_Food]]) [Zone Changer: Great Oak Guardian (324)]
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Gabe_Food]
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Combat: Ai(4)-Gabe_Food assigned Sam, Loyal Attendant (404), Bilbo, Birthday Celebrant (383) and The Gaffer (308) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only didn't block Sam, Loyal Attendant (404).
+Ai(2)-GGS_Throne_only assigned Satoru Umezawa (123) and Prosperous Thief (129) to block Bilbo, Birthday Celebrant (383).
+Ai(2)-GGS_Throne_only didn't block The Gaffer (308).
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (404) deals 4 combat damage to Ai(2)-GGS_Throne_only.
+Damage: Bilbo, Birthday Celebrant (383) deals 2 damage to Prosperous Thief (129).
+Damage: Bilbo, Birthday Celebrant (383) deals 2 damage to Satoru Umezawa (123).
+Damage: The Gaffer (308) deals 4 combat damage to Ai(2)-GGS_Throne_only.
+Damage: Satoru Umezawa (123) deals 2 damage to Bilbo, Birthday Celebrant (383).
+Damage: Prosperous Thief (129) deals 3 damage to Bilbo, Birthday Celebrant (383).
+Life: Life: Ai(2)-GGS_Throne_only 19 > 11
+Zone Change: Bilbo, Birthday Celebrant (383) was put into Graveyard from Battlefield.
+Zone Change: Prosperous Thief (129) was put into Graveyard from Battlefield.
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 30 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(1)-Destyn_Turtles assigned Raphael, the Muscle (75) and Acidic Slime (62) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only assigned Satoru Umezawa (123) and Goro-Goro and Satoru (201) to block Raphael, the Muscle (75).
+Ai(2)-GGS_Throne_only didn't block Acidic Slime (62).
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Damage: Raphael, the Muscle (75) deals 4 damage to Goro-Goro and Satoru (201).
+Damage: Acidic Slime (62) deals 2 combat damage to Ai(2)-GGS_Throne_only.
+Damage: Satoru Umezawa (123) deals 2 damage to Raphael, the Muscle (75).
+Damage: Goro-Goro and Satoru (201) deals 3 damage to Raphael, the Muscle (75).
+Life: Life: Ai(2)-GGS_Throne_only 11 > 9
+Zone Change: Raphael, the Muscle (75) was put into Graveyard from Battlefield.
+Zone Change: Goro-Goro and Satoru (201) was put into Graveyard from Battlefield.
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Mana: Command Tower (28) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(1)-Destyn_Turtles cast Mole Module
+Resolve Stack: Mole Module
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 31 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(2)-GGS_Throne_only assigned Goldspan Dragon (103) to attack Ai(1)-Destyn_Turtles.
+Add To Stack: Ai(2)-GGS_Throne_only triggered Goldspan Dragon
+Resolve Stack: Whenever Goldspan Dragon attacks or becomes the target of a spell, create a Treasure token. [Attacker: Goldspan Dragon (103)]
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Goldspan Dragon (103).
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Damage: Goldspan Dragon (103) deals 4 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(1)-Destyn_Turtles 23 > 19
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Xander's Lounge (187) - {T}: Add {R}.
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Mana: Watery Grave (173) - {T}: Add {B}.
+Mana: Undercity Sewers (104) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Throne_only activated Aggravated Assault
+Resolve Stack: Aggravated Assault (178) - Untap all creatures you control. After this main phase, there is an additional combat phase followed by an additional main phase. Activate only as a sorcery. 
+Zone Change: Treasure Token (465) was put into Graveyard from Battlefield.
+Mana: Treasure Token (465) - {T}, Sacrifice this token: Add one mana of any color.
+Damage: Talisman of Indulgence (115) deals 1 non-combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(2)-GGS_Throne_only 9 > 8
+Mana: Talisman of Indulgence (115) - {T}: Add {B} or {R}. Talisman of Indulgence deals 1 damage to you. 
+Add To Stack: Ai(2)-GGS_Throne_only cast Satoru, the Infiltrator
+Resolve Stack: Satoru, the Infiltrator - Creature 2 / 3
+Phase: AdditionalAi(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 32 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Mana: Tranquil Cove (279) - {T}: Add {W} or {U}.
+Mana: Plains (292) - {T}: Add {W}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Security Bypass targeting [Arno Dorian (226)]
+Resolve Stack: Security Bypass (294) -  Attach to Arno Dorian (226)
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(3)-Jaymie_Ezio assigned Changeling Outcast (216) and Arno Dorian (226) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only didn't block Changeling Outcast (216).
+Ai(2)-GGS_Throne_only assigned Goldspan Dragon (103) to block Arno Dorian (226).
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Damage: Changeling Outcast (216) deals 3 combat damage to Ai(2)-GGS_Throne_only.
+Damage: Arno Dorian (226) deals 3 damage (Deathtouch) to Goldspan Dragon (103).
+Damage: Goldspan Dragon (103) deals 4 damage to Arno Dorian (226).
+Life: Life: Ai(2)-GGS_Throne_only 8 > 5
+Zone Change: Arno Dorian (226) was put into Graveyard from Battlefield.
+Zone Change: Goldspan Dragon (103) was put into Graveyard from Battlefield.
+Zone Change: Security Bypass (294) was put into Graveyard from Battlefield.
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 33 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Plains (390) - {T}: Add {W}.
+Mana: Forest (342) - {T}: Add {G}.
+Add To Stack: Ai(4)-Gabe_Food cast Field-Tested Frying Pan
+Resolve Stack: Field-Tested Frying Pan
+Add To Stack: Ai(4)-Gabe_Food triggered Field-Tested Frying Pan
+Resolve Stack: When Field-Tested Frying Pan enters, create a Food token, then create a 1/1 white Halfling creature token and attach Field-Tested Frying Pan to it. [Zone Changer: Field-Tested Frying Pan (376)]
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Swamp (365) - {T}: Add {B}.
+Mana: Canopy Vista (373) - {T}: Add {G}.
+Add To Stack: Ai(4)-Gabe_Food activated Access Tunnel targeting [Sam, Loyal Attendant (404)]
+Resolve Stack: Access Tunnel (356) - Sam, Loyal Attendant (404) can't be blocked this turn.
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Gabe_Food]
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Combat: Ai(4)-Gabe_Food assigned Great Oak Guardian (324) and Sam, Loyal Attendant (404) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only assigned Satoru, the Infiltrator (154) to block Great Oak Guardian (324).
+Ai(2)-GGS_Throne_only didn't block Sam, Loyal Attendant (404).
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Damage: Great Oak Guardian (324) deals 4 damage to Satoru, the Infiltrator (154).
+Damage: Sam, Loyal Attendant (404) deals 2 combat damage to Ai(2)-GGS_Throne_only.
+Damage: Satoru, the Infiltrator (154) deals 2 damage to Great Oak Guardian (324).
+Life: Life: Ai(2)-GGS_Throne_only 5 > 3
+Zone Change: Satoru, the Infiltrator (154) was put into Graveyard from Battlefield.
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 34 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Add To Stack: Ai(1)-Destyn_Turtles activated Mole Module
+Resolve Stack: Mole Module (64) - Mole Module (64) becomes an artifact creature until end of turn.
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(1)-Destyn_Turtles assigned Mole Module (64) to attack Ai(4)-Gabe_Food.
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(4)-Gabe_Food didn't block Mole Module (64).
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Damage: Mole Module (64) deals 6 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(4)-Gabe_Food 41 > 35
+Add To Stack: Ai(1)-Destyn_Turtles triggered Mole Module
+Zone Change: Ai(1)-Destyn_Turtles milled Cultivate (5), Path of Ancestry (12), Exotic Orchard (41) and Big Mother Mouser (40).
+Replacement Effect: Big Mother Mouser enters with two +1/+1 counters on it.
+Resolve Stack: Whenever this Vehicle deals combat damage to a player, mill four cards. You may put a permanent card from among them onto the battlefield. [Damage Source: Mole Module (64), Damaged: Ai(4)-Gabe_Food, Amount: 6]
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Leonardo, the Balance (101)]
+Add To Stack: Ai(1)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Clue Token (477)]
+Mana: Command Tower (28) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Exploding Barrel (19) - {T}: Add one mana of any color. Put a pressure counter on this artifact. 
+Add To Stack: Ai(1)-Destyn_Turtles cast Bebop, Skull & Crossbones
+Resolve Stack: Bebop, Skull & Crossbones - Creature 2 / 1
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(1)-Destyn_Turtles triggered Bebop, Skull & Crossbones targeting [Ai(1)-Destyn_Turtles]
+Resolve Stack: Partner with Rocksteady, Mutant Marauder (When this creature enters, target player may put Rocksteady into their hand from their library, then shuffle.) (Targeting: [[Ai(1)-Destyn_Turtles]]) [Zone Changer: Bebop, Skull & Crossbones (15)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Bebop, Skull & Crossbones (15)]
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 35 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Mana: Watery Grave (173) - {T}: Add {B}.
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Undercity Sewers (104) - {T}: Add {B}.
+Mana: Xander's Lounge (187) - {T}: Add {R}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Crux of Fate
+Zone Change: Changeling Outcast (216) was put into Graveyard from Battlefield.
+Resolve Stack: Crux of Fate (119) -  Destroy all Dragon creatures.
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Zone Change: Treasure Token (459) was put into Graveyard from Battlefield.
+Mana: Treasure Token (459) - {T}, Sacrifice this token: Add one mana of any color.
+Mana: Talisman of Indulgence (115) - {T}: Add {C}.
+Zone Change: Treasure Token (421) was put into Graveyard from Battlefield.
+Mana: Treasure Token (421) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(2)-GGS_Throne_only cast Fire Navy Trebuchet
+Resolve Stack: Fire Navy Trebuchet - Creature 0 / 4
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 36 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Mana: Tranquil Cove (279) - {T}: Add {W} or {U}.
+Mana: Swamp (261) - {T}: Add {B}.
+Mana: Plains (292) - {T}: Add {W}.
+Mana: Foreboding Ruins (270) - {T}: Add {B} or {R}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Ramses, Assassin Lord
+Resolve Stack: Ramses, Assassin Lord - Creature 4 / 4
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 37 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Plains (390) - {T}: Add {W}.
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Swamp (365) - {T}: Add {B}.
+Add To Stack: Ai(4)-Gabe_Food cast Landroval, Horizon Witness
+Resolve Stack: Landroval, Horizon Witness - Creature 3 / 4
+Mana: Canopy Vista (373) - {T}: Add {G}.
+Mana: Sandsteppe Citadel (320) - {T}: Add {W}, {B}, or {G}.
+Mana: Ghost Quarter (316) - {T}: Add {C}.
+Add To Stack: Ai(4)-Gabe_Food activated Access Tunnel targeting [Sam, Loyal Attendant (404)]
+Resolve Stack: Access Tunnel (356) - Sam, Loyal Attendant (404) can't be blocked this turn.
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Gabe_Food]
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Combat: Ai(4)-Gabe_Food assigned Sam, Loyal Attendant (404) to attack Ai(1)-Destyn_Turtles.
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Sam, Loyal Attendant (404).
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (404) deals 2 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(1)-Destyn_Turtles 19 > 17
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 38 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Mana: Command Tower (28) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Double Jump targeting [Leonardo, the Balance (101)]
+Resolve Stack: Double Jump (26) - Put a flying counter on target creature you control. Until end of turn, it has base power and toughness 5/5. (Targeting: Leonardo, the Balance (101)) 
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Exploding Barrel (19) - {T}: Add one mana of any color. Put a pressure counter on this artifact. 
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Harmonize
+Resolve Stack: Harmonize (63) - Ai(1)-Destyn_Turtles draws three cards.
+Replacement Effect: This land enters tapped.
+Land: Ai(1)-Destyn_Turtles played Hidden Hideout (54)
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 39 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Loyal Apprentice
+Resolve Stack: Loyal Apprentice - Creature 2 / 1
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 40 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Mana: Plains (292) - {T}: Add {W}.
+Mana: Swamp (261) - {T}: Add {B}.
+Mana: Foreboding Ruins (270) - {T}: Add {B} or {R}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Caduceus, Staff of Hermes
+Resolve Stack: Caduceus, Staff of Hermes
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 41 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Zone Change: Ghost Quarter (316) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Gabe_Food activated Ghost Quarter targeting [Hidden Hideout (54)]
+Zone Change: Hidden Hideout (54) was put into Graveyard from Battlefield.
+Resolve Stack: Ghost Quarter (316) - Destroy Hidden Hideout (54). (OPTIONAL) Ai(4)-Gabe_Food searches Ai(1)-Destyn_Turtles library for a basic land card, puts it onto the battlefield, then shuffles.
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Replacement Effect: Isolated Chapel enters tapped unless you control a Plains or a Swamp.
+Land: Ai(4)-Gabe_Food played Isolated Chapel (346)
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Plains (391) - {T}: Add {W}.
+Add To Stack: Ai(4)-Gabe_Food activated Access Tunnel targeting [Landroval, Horizon Witness (384)]
+Resolve Stack: Access Tunnel (356) - Landroval, Horizon Witness (384) can't be blocked this turn.
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Gabe_Food]
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Combat: Ai(4)-Gabe_Food assigned Landroval, Horizon Witness (384) to attack Ai(1)-Destyn_Turtles.
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Landroval, Horizon Witness (384).
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Damage: Landroval, Horizon Witness (384) deals 3 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(1)-Destyn_Turtles 17 > 14
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 42 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Island (30) - {T}: Add {U}.
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Mana: Command Tower (28) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Forest (36) - {T}: Add {G}.
+Add To Stack: Ai(1)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (101) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Smoldering Marsh enters tapped unless you control two or more basic lands.
+Land: Ai(1)-Destyn_Turtles played Smoldering Marsh (68)
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(1)-Destyn_Turtles assigned Leonardo, the Balance (101) to attack Ai(4)-Gabe_Food.
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(4)-Gabe_Food didn't block Leonardo, the Balance (101).
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Damage: Leonardo, the Balance (101) deals 4 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 14 > 18
+Life: Life: Ai(4)-Gabe_Food 35 > 31
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Mana: Exploding Barrel (19) - {T}: Add one mana of any color. Put a pressure counter on this artifact. 
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Mana: Smoldering Marsh (68) - {T}: Add {R}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Rocksteady, Mutant Marauder
+Resolve Stack: Rocksteady, Mutant Marauder - Creature 3 / 3
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(1)-Destyn_Turtles triggered Rocksteady, Mutant Marauder targeting [Ai(1)-Destyn_Turtles]
+Resolve Stack: Partner with Bebop, Skull & Crossbones (When this creature enters, target player may put Bebop into their hand from their library, then shuffle.) (Targeting: [[Ai(1)-Destyn_Turtles]]) [Zone Changer: Rocksteady, Mutant Marauder (82)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Rocksteady, Mutant Marauder (82)]
+Add To Stack: Ai(1)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Clue Token (489)]
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 43 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Land: Ai(2)-GGS_Throne_only played Reflecting Pool (160)
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Mana: Reflecting Pool (160) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Watery Grave (173) - {T}: Add {U}.
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Undercity Sewers (104) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 44 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Mana: Plains (292) - {T}: Add {W}.
+Mana: Tranquil Cove (279) - {T}: Add {W} or {U}.
+Add To Stack: Ai(3)-Jaymie_Ezio activated Caduceus, Staff of Hermes targeting [Ramses, Assassin Lord (215)]
+Resolve Stack: Caduceus, Staff of Hermes (219) -  Attach to Ramses, Assassin Lord (215)
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(3)-Jaymie_Ezio assigned Ramses, Assassin Lord (215) to attack Ai(1)-Destyn_Turtles.
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Ramses, Assassin Lord (215).
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Damage: Ramses, Assassin Lord (215) deals 9 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(3)-Jaymie_Ezio 36 > 45
+Life: Life: Ai(1)-Destyn_Turtles 18 > 9
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Replacement Effect: Thriving Moor enters tapped.
+Replacement Effect: As Thriving Moor enters, choose a color other than black.
+Land: Ai(3)-Jaymie_Ezio played Thriving Moor (301)
+Phase: Ai(3)-Jaymie_Ezio's End step
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 45 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Plains (390) - {T}: Add {W}.
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Swamp (365) - {T}: Add {B}.
+Mana: Isolated Chapel (346) - {T}: Add {W} or {B}.
+Add To Stack: Ai(4)-Gabe_Food cast Eagles of the North
+Resolve Stack: Eagles of the North - Creature 3 / 3
+Add To Stack: Ai(4)-Gabe_Food triggered Eagles of the North
+Resolve Stack: When Eagles of the North enters, creatures you control get +1/+0 and gain first strike until end of turn. [Zone Changer: Eagles of the North (381)]
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Gabe_Food]
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Combat: Ai(4)-Gabe_Food assigned Landroval, Horizon Witness (384) to attack Ai(1)-Destyn_Turtles.
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Landroval, Horizon Witness (384).
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Damage: Landroval, Horizon Witness (384) deals 4 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(1)-Destyn_Turtles 9 > 5
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 46 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Mana: Forest (36) - {T}: Add {G}.
+Zone Change: Food Token (409) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Destyn_Turtles activated Food Token
+Life: Life: Ai(1)-Destyn_Turtles 5 > 8
+Resolve Stack: Food Token (409) - Ai(1)-Destyn_Turtles gains 3 life.
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Land: Ai(1)-Destyn_Turtles played Forest (37)
+Mana: Forest (37) - {T}: Add {G}.
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Island (30) - {T}: Add {U}.
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Zone Change: Exploding Barrel (19) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Destyn_Turtles activated Exploding Barrel targeting [Goro-Goro and Satoru (201)]
+Damage: Exploding Barrel (19) deals 20 damage to Goro-Goro and Satoru (201).
+Resolve Stack: Exploding Barrel (19) - Exploding Barrel deals 20 damage to Goro-Goro and Satoru (201).
+Zone Change: Goro-Goro and Satoru (201) was put into Graveyard from Battlefield.
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Mana: Command Tower (28) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Smoldering Marsh (68) - {T}: Add {R}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Lita, Little Orphan Amphibian
+Resolve Stack: Lita, Little Orphan Amphibian - Creature 2 / 1
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(1)-Destyn_Turtles triggered Rocksteady, Mutant Marauder targeting [Leonardo, the Balance (101)]
+Resolve Stack: Whenever another nontoken creature you control enters, put a +1/+1 counter on target creature. (Targeting: [[Leonardo, the Balance (101)]]) [Zone Changer: Lita, Little Orphan Amphibian (46)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Lita, Little Orphan Amphibian (46)]
+Add To Stack: Ai(1)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Clue Token (494)]
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 47 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Mana: Reflecting Pool (160) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Mana: Watery Grave (173) - {T}: Add {B}.
+Mana: Undercity Sewers (104) - {T}: Add {B}.
+Mana: Xander's Lounge (187) - {T}: Add {R}.
+Mana: Talisman of Indulgence (115) - {T}: Add {C}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Balefire Dragon
+Resolve Stack: Balefire Dragon - Creature 6 / 6
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 48 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Replacement Effect: Thriving Grove enters tapped.
+Replacement Effect: As Thriving Grove enters, choose a color other than green.
+Land: Ai(3)-Jaymie_Ezio played Thriving Grove (229)
+Mana: Tranquil Cove (279) - {T}: Add {W} or {U}.
+Mana: Foreboding Ruins (270) - {T}: Add {B} or {R}.
+Mana: Swamp (261) - {T}: Add {B}.
+Mana: Plains (292) - {T}: Add {W}.
+Mana: Thriving Moor (301) - {T}: Add {B} or one mana of the chosen color.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Edward Kenway
+Resolve Stack: Edward Kenway - Creature 5 / 5
+Phase: Ai(3)-Jaymie_Ezio's End step
+Add To Stack: Ai(3)-Jaymie_Ezio triggered Edward Kenway
+Resolve Stack: At the beginning of your end step, create a Treasure token for each tapped Assassin, Pirate, and/or Vehicle you control. [Phase: Ai(3)-Jaymie_Ezio]
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 49 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Plains (391) - {T}: Add {W}.
+Add To Stack: Ai(4)-Gabe_Food activated Access Tunnel targeting [Eagles of the North (381)]
+Resolve Stack: Access Tunnel (356) - Eagles of the North (381) can't be blocked this turn.
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Gabe_Food]
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Mana: Plains (390) - {T}: Add {W}.
+Mana: Swamp (365) - {T}: Add {B}.
+Add To Stack: Ai(4)-Gabe_Food cast Hithlain Rope
+Resolve Stack: Hithlain Rope
+Mana: Isolated Chapel (346) - {T}: Add {W} or {B}.
+Mana: Canopy Vista (373) - {T}: Add {G}.
+Add To Stack: Ai(4)-Gabe_Food activated Hithlain Rope
+Resolve Stack: Hithlain Rope (328) - Ai(4)-Gabe_Food draws a card. Ai(3)-Jaymie_Ezio gains control of Hithlain Rope (328).
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 50 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Island (30) - {T}: Add {U}.
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Mana: Smoldering Marsh (68) - {T}: Add {R}.
+Mana: Forest (36) - {T}: Add {G}.
+Add To Stack: Ai(1)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (101) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Land: Ai(1)-Destyn_Turtles played Forest (38)
+Mana: Forest (37) - {T}: Add {G}.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Mana: Forest (38) - {T}: Add {G}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Mona Lisa, Science Geek
+Resolve Stack: Mona Lisa, Science Geek - Creature 1 / 3
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(1)-Destyn_Turtles triggered Lita, Little Orphan Amphibian
+Add To Stack: Ai(1)-Destyn_Turtles triggered Rocksteady, Mutant Marauder targeting [Leonardo, the Balance (101)]
+Resolve Stack: Whenever another nontoken creature you control enters, put a +1/+1 counter on target creature. (Targeting: [[Leonardo, the Balance (101)]]) [Zone Changer: Mona Lisa, Science Geek (61)]
+Resolve Stack: Ai(1)-Destyn_Turtles scried 1 card(s) to the bottom of the library
+Resolve Stack: Alliance — Whenever another creature you control enters, scry 1. [Zone Changer: Mona Lisa, Science Geek (61)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Mona Lisa, Science Geek (61)]
+Add To Stack: Ai(1)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Clue Token (502)]
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(1)-Destyn_Turtles assigned Leonardo, the Balance (101) and Acidic Slime (62) to attack Ai(4)-Gabe_Food.
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(4)-Gabe_Food didn't block Leonardo, the Balance (101).
+Ai(4)-Gabe_Food didn't block Acidic Slime (62).
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Damage: Leonardo, the Balance (101) deals 9 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 8 > 17
+Damage: Acidic Slime (62) deals 6 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 17 > 23
+Life: Life: Ai(4)-Gabe_Food 31 > 16
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 51 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Mana: Reflecting Pool (160) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Watery Grave (173) - {T}: Add {U}.
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Undercity Sewers (104) - {T}: Add {B}.
+Mana: Xander's Lounge (187) - {T}: Add {R}.
+Mana: Talisman of Indulgence (115) - {T}: Add {C}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 52 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Mana: Swamp (261) - {T}: Add {B}.
+Add To Stack: Ai(3)-Jaymie_Ezio activated Hithlain Rope
+Resolve Stack: Hithlain Rope (328) - Ai(3)-Jaymie_Ezio searches Ai(2)-GGS_Throne_only library for a basic land card, puts it onto the battlefield tapped, then shuffles. Ai(2)-GGS_Throne_only gains control of Hithlain Rope (328).
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Replacement Effect: Cinder Glade enters tapped unless you control two or more basic lands.
+Land: Ai(3)-Jaymie_Ezio played Cinder Glade (220)
+Mana: Thriving Grove (229) - {T}: Add {G} or one mana of the chosen color.
+Mana: Plains (292) - {T}: Add {W}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Rampant Growth
+Resolve Stack: Rampant Growth (280) - Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.
+Mana: Cinder Glade (220) - {T}: Add {G}.
+Mana: Foreboding Ruins (270) - {T}: Add {B} or {R}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Farseek
+Resolve Stack: Farseek (230) - Ai(3)-Jaymie_Ezio searches their library for a Plains, Island, Swamp or Mountain card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(3)-Jaymie_Ezio's End step
+Add To Stack: Ai(3)-Jaymie_Ezio triggered Edward Kenway
+Resolve Stack: At the beginning of your end step, create a Treasure token for each tapped Assassin, Pirate, and/or Vehicle you control. [Phase: Ai(3)-Jaymie_Ezio]
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 53 (Ai(4)-Gabe_Food)
+Phase: Ai(4)-Gabe_Food's Untap step
+Phase: Ai(4)-Gabe_Food's Upkeep step
+Phase: Ai(4)-Gabe_Food's Draw step
+Phase: Ai(4)-Gabe_Food's Main phase, precombat
+Mana: Forest (342) - {T}: Add {G}.
+Mana: Forest (337) - {T}: Add {G}.
+Mana: Swamp (365) - {T}: Add {B}.
+Add To Stack: Ai(4)-Gabe_Food activated Access Tunnel targeting [Eagles of the North (381)]
+Resolve Stack: Access Tunnel (356) - Eagles of the North (381) can't be blocked this turn.
+Phase: Ai(4)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(4)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Gabe_Food]
+Phase: Ai(4)-Gabe_Food's Declare Attackers Step
+Phase: Ai(4)-Gabe_Food's Declare Blockers Step
+Phase: Ai(4)-Gabe_Food's First Strike Damage Step
+Phase: Ai(4)-Gabe_Food's Combat Damage Step
+Phase: Ai(4)-Gabe_Food's End of Combat Step
+Phase: Ai(4)-Gabe_Food's Main phase, postcombat
+Mana: Isolated Chapel (346) - {T}: Add {W} or {B}.
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Plains (390) - {T}: Add {W}.
+Add To Stack: Ai(4)-Gabe_Food cast Lobelia, Defender of Bag End
+Resolve Stack: Lobelia, Defender of Bag End - Creature 2 / 2
+Add To Stack: Ai(4)-Gabe_Food triggered Lobelia, Defender of Bag End
+Resolve Stack: When Lobelia enters, look at the top card of each opponent's library and exile those cards face down. [Zone Changer: Lobelia, Defender of Bag End (307)]
+Phase: Ai(4)-Gabe_Food's End step
+Phase: Ai(4)-Gabe_Food's Cleanup step
+Turn: Turn 54 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Land: Ai(1)-Destyn_Turtles played Forest (35)
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Foot Chopper
+Resolve Stack: Foot Chopper
+Add To Stack: Ai(1)-Destyn_Turtles triggered Foot Chopper
+Resolve Stack: When this Equipment enters, create a 1/1 black Ninja creature token, then attach this Equipment to it. [Zone Changer: Foot Chopper (92)]
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(1)-Destyn_Turtles triggered Lita, Little Orphan Amphibian
+Add To Stack: Ai(1)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Ninja Token (511)]
+Resolve Stack: Ai(1)-Destyn_Turtles scried 1 card(s) to the bottom of the library
+Resolve Stack: Alliance — Whenever another creature you control enters, scry 1. [Zone Changer: Ninja Token (511)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Ninja Token (511)]
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(1)-Destyn_Turtles assigned Big Mother Mouser (40), Leonardo, the Balance (101), April O'Neil, Live on the Scene (91), Acidic Slime (62), Rocksteady, Mutant Marauder (82), Bebop, Skull & Crossbones (15) and Lita, Little Orphan Amphibian (46) to attack Ai(4)-Gabe_Food.
+Add To Stack: Ai(1)-Destyn_Turtles triggered Big Mother Mouser
+Mana: Canopy Vista (373) - {T}: Add {G}.
+Zone Change: Food Token (424) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Gabe_Food activated Food Token
+Life: Life: Ai(4)-Gabe_Food 16 > 19
+Resolve Stack: Food Token (424) - Ai(4)-Gabe_Food gains 3 life.
+Add To Stack: Ai(4)-Gabe_Food triggered Halfling Token
+Resolve Stack: Whenever you gain life, Halfling Token gets +X/+X until end of turn, where X is the amount of life you gained. [Player: Ai(4)-Gabe_Food, Gained Amount: 3]
+Mana: Sandsteppe Citadel (320) - {T}: Add {W}, {B}, or {G}.
+Zone Change: Food Token (447) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Gabe_Food activated Food Token
+Life: Life: Ai(4)-Gabe_Food 19 > 22
+Resolve Stack: Food Token (447) - Ai(4)-Gabe_Food gains 3 life.
+Add To Stack: Ai(4)-Gabe_Food triggered Halfling Token
+Resolve Stack: Whenever you gain life, Halfling Token gets +X/+X until end of turn, where X is the amount of life you gained. [Player: Ai(4)-Gabe_Food, Gained Amount: 3]
+Resolve Stack: Whenever this creature attacks, double the number of +1/+1 counters on it. [Attacker: Big Mother Mouser (40)]
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(4)-Gabe_Food didn't block Big Mother Mouser (40).
+Ai(4)-Gabe_Food didn't block Leonardo, the Balance (101).
+Ai(4)-Gabe_Food didn't block April O'Neil, Live on the Scene (91).
+Ai(4)-Gabe_Food didn't block Acidic Slime (62).
+Ai(4)-Gabe_Food didn't block Rocksteady, Mutant Marauder (82).
+Ai(4)-Gabe_Food didn't block Bebop, Skull & Crossbones (15).
+Ai(4)-Gabe_Food didn't block Lita, Little Orphan Amphibian (46).
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Island (30) - {T}: Add {U}.
+Mana: Smoldering Marsh (68) - {T}: Add {B}.
+Mana: Command Tower (28) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Forest (36) - {T}: Add {G}.
+Add To Stack: Ai(1)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (101) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Damage: Big Mother Mouser (40) deals 14 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 23 > 37
+Damage: Leonardo, the Balance (101) deals 10 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 37 > 47
+Damage: April O'Neil, Live on the Scene (91) deals 7 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 47 > 54
+Damage: Acidic Slime (62) deals 7 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 54 > 61
+Damage: Rocksteady, Mutant Marauder (82) deals 7 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 61 > 68
+Damage: Bebop, Skull & Crossbones (15) deals 6 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 68 > 74
+Damage: Lita, Little Orphan Amphibian (46) deals 5 combat damage to Ai(4)-Gabe_Food.
+Life: Life: Ai(1)-Destyn_Turtles 74 > 79
+Life: Life: Ai(4)-Gabe_Food 22 > -34
+Add To Stack: Ai(1)-Destyn_Turtles triggered Bebop, Skull & Crossbones
+Life: Life: Ai(1)-Destyn_Turtles 79 > 75
+Resolve Stack: Whenever Bebop deals combat damage to a player, you may draw X cards, where X is the number of counters on Bebop. If you do, you lose X life. [Damage Source: Bebop, Skull & Crossbones (15), Damaged: Ai(4)-Gabe_Food, Amount: 6]
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Mana: Forest (37) - {T}: Add {G}.
+Mana: Forest (38) - {T}: Add {G}.
+Mana: Forest (35) - {T}: Add {G}.
+Mana: Mona Lisa, Science Geek (61) - {T}: Add X mana of any one color, where X is Mona Lisa's power.
+Add To Stack: Ai(1)-Destyn_Turtles cast Coin of Mastery
+Resolve Stack: Coin of Mastery
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Turn: Turn 55 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Mana: Reflecting Pool (160) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Cyclonic Rift targeting [Leonardo, the Balance (101)]
+Resolve Stack: Cyclonic Rift (111) - Return Leonardo, the Balance (101) to its owner's hand.
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Add To Stack: Ai(2)-GGS_Throne_only triggered Loyal Apprentice
+Resolve Stack: Lieutenant — At the beginning of combat on your turn, if you control your commander, create a 1/1 colorless Thopter artifact creature token with flying. That token gains haste until end of turn. [Phase: Ai(2)-GGS_Throne_only]
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Add To Stack: Ai(1)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (21) - Ai(1)-Destyn_Turtles creates a Treasure token.
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 56 (Ai(3)-Jaymie_Ezio)
+Phase: Ai(3)-Jaymie_Ezio's Untap step
+Phase: Ai(3)-Jaymie_Ezio's Upkeep step
+Phase: Ai(3)-Jaymie_Ezio's Draw step
+Mana: Plains (292) - {T}: Add {W}.
+Mana: Swamp (261) - {T}: Add {B}.
+Mana: Island (236) - {T}: Add {U}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Mortify targeting [Balefire Dragon (169)]
+Zone Change: Balefire Dragon (169) was put into Graveyard from Battlefield.
+Resolve Stack: Mortify (265) - Destroy Balefire Dragon (169).
+Phase: Ai(3)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(3)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(3)-Jaymie_Ezio assigned Ramses, Assassin Lord (215) to attack Ai(1)-Destyn_Turtles.
+Phase: Ai(3)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(1)-Destyn_Turtles didn't block Ramses, Assassin Lord (215).
+Phase: Ai(3)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(3)-Jaymie_Ezio's Combat Damage Step
+Damage: Ramses, Assassin Lord (215) deals 9 combat damage to Ai(1)-Destyn_Turtles.
+Life: Life: Ai(3)-Jaymie_Ezio 45 > 54
+Life: Life: Ai(1)-Destyn_Turtles 75 > 66
+Phase: Ai(3)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(3)-Jaymie_Ezio's Main phase, postcombat
+Mana: Island (235) - {T}: Add {U}.
+Mana: Plains (291) - {T}: Add {W}.
+Mana: Thriving Moor (301) - {T}: Add {B} or one mana of the chosen color.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Ratonhnhaké:ton
+Resolve Stack: Ratonhnhaké:ton - Creature 3 / 3
+Mana: Tranquil Cove (279) - {T}: Add {W} or {U}.
+Mana: Foreboding Ruins (270) - {T}: Add {B} or {R}.
+Mana: Thriving Grove (229) - {T}: Add {G} or one mana of the chosen color.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Chromatic Lantern
+Resolve Stack: Chromatic Lantern
+Mana: Chromatic Lantern (299) - {T}: Add one mana of any color.
+Mana: Cinder Glade (220) - {T}: Add {G}.
+Add To Stack: Ai(3)-Jaymie_Ezio cast Vraska Joins Up
+Resolve Stack: Vraska Joins Up
+Add To Stack: Ai(3)-Jaymie_Ezio triggered Vraska Joins Up
+Resolve Stack: When Vraska Joins Up enters, put a deathtouch counter on each creature you control. [Zone Changer: Vraska Joins Up (213)]
+Phase: Ai(3)-Jaymie_Ezio's End step
+Add To Stack: Ai(3)-Jaymie_Ezio triggered Edward Kenway
+Resolve Stack: At the beginning of your end step, create a Treasure token for each tapped Assassin, Pirate, and/or Vehicle you control. [Phase: Ai(3)-Jaymie_Ezio]
+Phase: Ai(3)-Jaymie_Ezio's Cleanup step
+Turn: Turn 57 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Rootbound Crag enters tapped unless you control a Mountain or a Forest.
+Land: Ai(1)-Destyn_Turtles played Rootbound Crag (93)
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Ash Barrens (70) - {T}: Add {C}.
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Forest (37) - {T}: Add {G}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Leonardo, the Balance
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(1)-Destyn_Turtles triggered Lita, Little Orphan Amphibian
+Add To Stack: Ai(1)-Destyn_Turtles triggered Rocksteady, Mutant Marauder targeting [Big Mother Mouser (40)]
+Resolve Stack: Whenever another nontoken creature you control enters, put a +1/+1 counter on target creature. (Targeting: [[Big Mother Mouser (40)]]) [Zone Changer: Leonardo, the Balance (101)]
+Resolve Stack: Alliance — Whenever another creature you control enters, put a +1/+1 counter on Lita. [Zone Changer: Leonardo, the Balance (101)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Leonardo, the Balance (101)]
+Add To Stack: Ai(1)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Clue Token (540)]
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(1)-Destyn_Turtles assigned Big Mother Mouser (40), April O'Neil, Live on the Scene (91), Acidic Slime (62), Rocksteady, Mutant Marauder (82), Bebop, Skull & Crossbones (15), Lita, Little Orphan Amphibian (46) and Ninja Token (511) to attack Ai(3)-Jaymie_Ezio.
+Add To Stack: Ai(1)-Destyn_Turtles triggered Big Mother Mouser
+Resolve Stack: Whenever this creature attacks, double the number of +1/+1 counters on it. [Attacker: Big Mother Mouser (40)]
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(3)-Jaymie_Ezio assigned Ratonhnhaké:ton (239) to block Big Mother Mouser (40).
+Ai(3)-Jaymie_Ezio didn't block April O'Neil, Live on the Scene (91).
+Ai(3)-Jaymie_Ezio didn't block Acidic Slime (62).
+Ai(3)-Jaymie_Ezio didn't block Rocksteady, Mutant Marauder (82).
+Ai(3)-Jaymie_Ezio didn't block Bebop, Skull & Crossbones (15).
+Ai(3)-Jaymie_Ezio didn't block Lita, Little Orphan Amphibian (46).
+Ai(3)-Jaymie_Ezio didn't block Ninja Token (511).
+Mana: Command Tower (28) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Island (30) - {T}: Add {U}.
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Mana: Rootbound Crag (93) - {T}: Add {R} or {G}.
+Mana: Forest (38) - {T}: Add {G}.
+Add To Stack: Ai(1)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (101) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(1)-Destyn_Turtles' Combat Damage Step
+Damage: Big Mother Mouser (40) deals 28 combat damage to Ai(3)-Jaymie_Ezio.
+Damage: Big Mother Mouser (40) deals 4 damage to Ratonhnhaké:ton (239).
+Life: Life: Ai(1)-Destyn_Turtles 66 > 98
+Damage: April O'Neil, Live on the Scene (91) deals 8 combat damage to Ai(3)-Jaymie_Ezio.
+Life: Life: Ai(1)-Destyn_Turtles 98 > 106
+Damage: Acidic Slime (62) deals 8 combat damage to Ai(3)-Jaymie_Ezio.
+Life: Life: Ai(1)-Destyn_Turtles 106 > 114
+Damage: Rocksteady, Mutant Marauder (82) deals 8 combat damage to Ai(3)-Jaymie_Ezio.
+Life: Life: Ai(1)-Destyn_Turtles 114 > 122
+Damage: Bebop, Skull & Crossbones (15) deals 7 combat damage to Ai(3)-Jaymie_Ezio.
+Life: Life: Ai(1)-Destyn_Turtles 122 > 129
+Damage: Lita, Little Orphan Amphibian (46) deals 7 combat damage to Ai(3)-Jaymie_Ezio.
+Life: Life: Ai(1)-Destyn_Turtles 129 > 136
+Damage: Ninja Token (511) deals 3 combat damage to Ai(3)-Jaymie_Ezio.
+Life: Life: Ai(1)-Destyn_Turtles 136 > 139
+Damage: Ratonhnhaké:ton (239) deals 4 damage (Deathtouch) to Big Mother Mouser (40).
+Life: Life: Ai(3)-Jaymie_Ezio 54 > -15
+Zone Change: Big Mother Mouser (40) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Destyn_Turtles triggered Bebop, Skull & Crossbones
+Add To Stack: Ai(1)-Destyn_Turtles triggered Foot Chopper
+Add To Stack: Ai(1)-Destyn_Turtles triggered Big Mother Mouser
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: When this creature dies, create a number of 1/1 colorless Robot artifact creature tokens equal to the number of +1/+1 counters on this creature. [Zone Changer: Big Mother Mouser (40)]
+Add To Stack: Ai(1)-Destyn_Turtles triggered Lita, Little Orphan Amphibian
+Add To Stack: Ai(1)-Destyn_Turtles triggered Lita, Little Orphan Amphibian
+Resolve Stack: Ai(1)-Destyn_Turtles scried 1 card(s) to the top of the library
+Resolve Stack: Alliance — Whenever another creature you control enters, scry 1. [Zone Changer: Robot Token (549)]
+Resolve Stack: Alliance — Whenever another creature you control enters, create a Food token. [Zone Changer: Robot Token (548)]
+Resolve Stack: Whenever equipped creature deals combat damage to a player, you may sacrifice it. If you do, draw cards equal to its power. [Damage Source: Ninja Token (511), Damaged: Ai(3)-Jaymie_Ezio, Amount: 3]
+Life: Life: Ai(1)-Destyn_Turtles 139 > 134
+Resolve Stack: Whenever Bebop deals combat damage to a player, you may draw X cards, where X is the number of counters on Bebop. If you do, you lose X life. [Damage Source: Bebop, Skull & Crossbones (15), Damaged: Ai(3)-Jaymie_Ezio, Amount: 7]
+Phase: Ai(1)-Destyn_Turtles' End of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Main phase, postcombat
+Mana: Smoldering Marsh (68) - {T}: Add {R}.
+Mana: Forest (35) - {T}: Add {G}.
+Zone Change: Treasure Token (531) was put into Graveyard from Battlefield.
+Mana: Treasure Token (531) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(1)-Destyn_Turtles cast Tokka & Rahzar, Unsupervised
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Tokka & Rahzar, Unsupervised - Creature 3 / 3
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(1)-Destyn_Turtles triggered Rocksteady, Mutant Marauder targeting [Acidic Slime (62)]
+Resolve Stack: Whenever another nontoken creature you control enters, put a +1/+1 counter on target creature. (Targeting: [[Acidic Slime (62)]]) [Zone Changer: Tokka & Rahzar, Unsupervised (3)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Tokka & Rahzar, Unsupervised (3)]
+Mana: Mona Lisa, Science Geek (61) - {T}: Add X mana of any one color, where X is Mona Lisa's power.
+Add To Stack: Ai(1)-Destyn_Turtles cast Michelangelo, the Heart
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Add To Stack: Ai(1)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(1)-Destyn_Turtles triggered Rocksteady, Mutant Marauder targeting [Acidic Slime (62)]
+Resolve Stack: Whenever another nontoken creature you control enters, put a +1/+1 counter on target creature. (Targeting: [[Acidic Slime (62)]]) [Zone Changer: Michelangelo, the Heart (99)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Michelangelo, the Heart (99)]
+Phase: Ai(1)-Destyn_Turtles' End step
+Phase: Ai(1)-Destyn_Turtles' Cleanup step
+Discard: Ai(1)-Destyn_Turtles discards Mountain (85).
+Discard: Ai(1)-Destyn_Turtles discards Thriving Moor (96).
+Turn: Turn 58 (Ai(2)-GGS_Throne_only)
+Phase: Ai(2)-GGS_Throne_only's Untap step
+Phase: Ai(2)-GGS_Throne_only's Upkeep step
+Phase: Ai(2)-GGS_Throne_only's Draw step
+Phase: Ai(2)-GGS_Throne_only's Main phase, precombat
+Mana: Reflecting Pool (160) - {T}: Add one mana of any type that a land you control could produce.
+Mana: Malakir Mire (106) - {T}: Add {B}.
+Mana: Steam Vents (145) - {T}: Add {R}.
+Mana: Watery Grave (173) - {T}: Add {B}.
+Mana: Undercity Sewers (104) - {T}: Add {B}.
+Add To Stack: Ai(2)-GGS_Throne_only cast Vandalblast
+Zone Change: Food Token (416) was put into Graveyard from Battlefield.
+Zone Change: Mutagen Token (451) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (453) was put into Graveyard from Battlefield.
+Zone Change: Mole Module (64) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (477) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (479) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (489) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (494) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (502) was put into Graveyard from Battlefield.
+Zone Change: Foot Chopper (92) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (514) was put into Graveyard from Battlefield.
+Zone Change: Coin of Mastery (21) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (540) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (548) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (549) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (550) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (551) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (552) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (553) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (554) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (555) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (556) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (557) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (558) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (559) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (560) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (561) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (562) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (563) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (564) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (565) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (566) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (567) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (568) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (569) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (570) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (571) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (572) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (573) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (574) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (575) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (576) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (577) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (578) was put into Graveyard from Battlefield.
+Zone Change: Robot Token (579) was put into Graveyard from Battlefield.
+Zone Change: Food Token (583) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (588) was put into Graveyard from Battlefield.
+Zone Change: Clue Token (591) was put into Graveyard from Battlefield.
+Resolve Stack: Vandalblast (144) - Destroy each artifact you don't control.
+Phase: Ai(2)-GGS_Throne_only's Beginning of Combat Step
+Add To Stack: Ai(2)-GGS_Throne_only triggered Loyal Apprentice
+Resolve Stack: Lieutenant — At the beginning of combat on your turn, if you control your commander, create a 1/1 colorless Thopter artifact creature token with flying. That token gains haste until end of turn. [Phase: Ai(2)-GGS_Throne_only]
+Phase: Ai(2)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(2)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(2)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(2)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(2)-GGS_Throne_only's End of Combat Step
+Phase: Ai(2)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(2)-GGS_Throne_only's End step
+Phase: Ai(2)-GGS_Throne_only's Cleanup step
+Turn: Turn 59 (Ai(1)-Destyn_Turtles)
+Phase: Ai(1)-Destyn_Turtles' Untap step
+Phase: Ai(1)-Destyn_Turtles' Upkeep step
+Mana: Dragonskull Summit (47) - {T}: Add {B} or {R}.
+Mana: Forest (36) - {T}: Add {G}.
+Add To Stack: Ai(1)-Destyn_Turtles cast Assassin's Trophy targeting [Goro-Goro and Satoru (201)]
+Zone Change: Goro-Goro and Satoru (201) was put into Graveyard from Battlefield.
+Resolve Stack: Assassin's Trophy (42) - Destroy Goro-Goro and Satoru (201). (OPTIONAL) Ai(1)-Destyn_Turtles searches Ai(2)-GGS_Throne_only library for a basic land card, puts it onto the battlefield, then shuffles.
+Phase: Ai(1)-Destyn_Turtles' Draw step
+Phase: Ai(1)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Hinterland Harbor enters tapped unless you control a Forest or an Island.
+Land: Ai(1)-Destyn_Turtles played Hinterland Harbor (23)
+Phase: Ai(1)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(1)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(1)-Destyn_Turtles assigned Acidic Slime (62), April O'Neil, Live on the Scene (91), Rocksteady, Mutant Marauder (82), Bebop, Skull & Crossbones (15), Lita, Little Orphan Amphibian (46), Mona Lisa, Science Geek (61), Leonardo, the Balance (101), Tokka & Rahzar, Unsupervised (3), Ninja Token (511) and Michelangelo, the Heart (99) to attack Ai(2)-GGS_Throne_only.
+Phase: Ai(1)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(2)-GGS_Throne_only assigned Thopter Token (524) to block Acidic Slime (62).
+Ai(2)-GGS_Throne_only assigned Thopter Token (599) to block April O'Neil, Live on the Scene (91).
+Ai(2)-GGS_Throne_only didn't block Rocksteady, Mutant Marauder (82).
+Ai(2)-GGS_Throne_only assigned Fire Navy Trebuchet (158) to block Bebop, Skull & Crossbones (15).
+Ai(2)-GGS_Throne_only assigned Loyal Apprentice (102) to block Lita, Little Orphan Amphibian (46).
+Ai(2)-GGS_Throne_only assigned Satoru Umezawa (123) to block Mona Lisa, Science Geek (61).
+Ai(2)-GGS_Throne_only didn't block Leonardo, the Balance (101).
+Ai(2)-GGS_Throne_only didn't block Tokka & Rahzar, Unsupervised (3).
+Ai(2)-GGS_Throne_only didn't block Ninja Token (511).
+Ai(2)-GGS_Throne_only didn't block Michelangelo, the Heart (99).
+Mana: Plains (87) - {T}: Add {W}.
+Mana: Smoldering Marsh (68) - {T}: Add {B}.
+Mana: Rootbound Crag (93) - {T}: Add {R} or {G}.
+Mana: Island (30) - {T}: Add {U}.
+Mana: Forest (37) - {T}: Add {G}.
+Add To Stack: Ai(1)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (101) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(1)-Destyn_Turtles' First Strike Damage Step
+Damage: Tokka & Rahzar, Unsupervised (3) deals 4 combat damage to Ai(2)-GGS_Throne_only.
+Life: Life: Ai(1)-Destyn_Turtles 134 > 138
+Life: Life: Ai(2)-GGS_Throne_only 3 > -1
+Player Control: Ai(1)-Destyn_Turtles has restored control over themself
+Player Control: Ai(2)-GGS_Throne_only has restored control over themself
+Player Control: Ai(3)-Jaymie_Ezio has restored control over themself
+Player Control: Ai(4)-Gabe_Food has restored control over themself
+Game Outcome: Match Duration 3m : 36s
+Game Outcome: Turn 30
+Game Outcome: Ai(1)-Destyn_Turtles has won because all opponents have lost
+Game Outcome: Ai(2)-GGS_Throne_only has lost because life total reached 0
+Game Outcome: Ai(3)-Jaymie_Ezio has lost because life total reached 0
+Game Outcome: Ai(4)-Gabe_Food has lost because life total reached 0
+Match Result: Ai(1)-Destyn_Turtles: 1 Ai(2)-GGS_Throne_only: 0 Ai(3)-Jaymie_Ezio: 0 Ai(4)-Gabe_Food: 0 
+
+Game Result: Game 1 ended in 218348 ms. Ai(1)-Destyn_Turtles has won!
+

@@ -1,0 +1,53 @@
+{
+  "status": "completed",
+  "winner": "Ai(4)-Destyn_Turtles",
+  "engine_ms": 5,
+  "last_logged_turn": 38,
+  "variant": "GGS_Cover_diagnostic",
+  "seat_rotation": 0,
+  "seed": 20260930,
+  "seats": [
+    "GGS_Cover_diagnostic",
+    "Jaymie_Ezio",
+    "Gabe_Food",
+    "Destyn_Turtles"
+  ],
+  "wall_seconds": 64.564,
+  "log": "results/logs/GGS_Cover_diagnostic__seat0__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "GGS_Cover_diagnostic.dck",
+    "Jaymie_Ezio.dck",
+    "Gabe_Food.dck",
+    "Destyn_Turtles.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Loyal Apprentice",
+    "Chaos Warp targeting [Acidic Slime (365)]",
+    "Loyal Apprentice",
+    "Goro-Goro and Satoru",
+    "Rat King, Pale Piper",
+    "Arcane Signet",
+    "Draconic Visitor",
+    "Goro-Goro and Satoru",
+    "Balefire Dragon"
+  ],
+  "log_sha256": "36db4597fe28c0238ead97746cb69794bbfa3f035c9a8b1cef94ad7c8f60af39"
+}

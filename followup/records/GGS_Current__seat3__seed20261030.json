@@ -1,0 +1,53 @@
+{
+  "status": "completed",
+  "winner": "Ai(1)-Destyn_Turtles",
+  "engine_ms": 1,
+  "last_logged_turn": 47,
+  "variant": "GGS_Current",
+  "seat_rotation": 3,
+  "seed": 20261030,
+  "seats": [
+    "Destyn_Turtles",
+    "GGS_Current",
+    "Jaymie_Ezio",
+    "Gabe_Food"
+  ],
+  "wall_seconds": 187.802,
+  "log": "followup/logs/GGS_Current__seat3__seed20261030.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "Destyn_Turtles.dck",
+    "GGS_Current.dck",
+    "Jaymie_Ezio.dck",
+    "Gabe_Food.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20261030",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Phoenix Chick",
+    "Phoenix Chick",
+    "Goro-Goro and Satoru",
+    "Dauthi Voidwalker",
+    "Demonic Tutor",
+    "Goldspan Dragon",
+    "Loyal Apprentice",
+    "Mithril Coat",
+    "Feed the Swarm targeting [Edward Kenway (207)]"
+  ],
+  "log_sha256": "3323770babb29298a9849f90412e952fde03669ce4b6c72effebb0e162dec5d4"
+}

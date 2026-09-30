@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "winner": "Ai(4)-Jaymie_Ezio",
+  "engine_ms": 3,
+  "last_logged_turn": 36,
+  "variant": "GGS_Two_card_trial",
+  "seat_rotation": 2,
+  "seed": 20260930,
+  "seats": [
+    "Gabe_Food",
+    "Destyn_Turtles",
+    "GGS_Two_card_trial",
+    "Jaymie_Ezio"
+  ],
+  "wall_seconds": 43.847,
+  "log": "results/logs/GGS_Two_card_trial__seat2__seed20260930.log",
+  "command": [
+    "java",
+    "-Xmx1536m",
+    "-Djava.awt.headless=true",
+    "-Dfile.encoding=UTF-8",
+    "-jar",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed/forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "sim",
+    "-D",
+    "/workspace/scratch/872734602a8c/ggs-evaluation/ggs-forge-lab/decks",
+    "-d",
+    "Gabe_Food.dck",
+    "Destyn_Turtles.dck",
+    "GGS_Two_card_trial.dck",
+    "Jaymie_Ezio.dck",
+    "-f",
+    "Commander",
+    "-n",
+    "1",
+    "-s",
+    "20260930",
+    "-c",
+    "240"
+  ],
+  "ggs_casts": [
+    "Changeling Outcast",
+    "Goro-Goro and Satoru",
+    "Professional Face-Breaker",
+    "Loyal Apprentice",
+    "Changeling Outcast"
+  ],
+  "log_sha256": "2a8c96fb907afae7d87cab9712bad715e6e4bb36747e050ec17ac0d491ab38ee"
+}

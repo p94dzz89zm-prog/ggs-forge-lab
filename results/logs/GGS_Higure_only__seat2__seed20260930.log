@@ -1,0 +1,1665 @@
+Error handling registered!
+20:33:28 [INFO ] GuiBase: ##########################################
+20:33:28 [INFO ] GuiBase: APP: Forge v.2.0.15-SNAPSHOT-09.28
+20:33:28 [INFO ] GuiBase: Java: 17.0.20 (Ubuntu)
+20:33:28 [INFO ] GuiBase: OS: Linux 6.18.44 amd64
+20:33:28 [INFO ] GuiBase: RAM: 1536 MB max, 8 CPUs
+20:33:28 [INFO ] GuiBase: ##########################################
+Language 'en-US' loaded successfully.
+(ThreadUtil first call): Running with priority 5
+Read cards: 34010 archived files in 1 ms (25 parts) using thread pool
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+The card A-Alrund's Epiphany was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Baba Lysaga, Night Witch was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Divide by Zero was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Esika's Chariot was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Faceless Haven was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Fires of Invention was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Goldspan Dragon was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Hullbreaker Horror was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Kumano Faces Kakkazan was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Luminarch Aspirant was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Monster Manual was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Omnath, Locus of Creation was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-The Meathook Massacre was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Unholy Heat was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Blinding Radiance was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Goblin Bruiser was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Ogre Painbringer was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Titanic Pelagosaur was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Treetop Recluse was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+Read cards: 854 files in 0 ms (8 parts) using thread pool
+Simulation mode
+Ai(1)-Gabe_Food vs Ai(2)-Destyn_Turtles vs Ai(3)-GGS_Higure_only vs Ai(4)-Jaymie_Ezio - one game of Commander seed 20260930
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Leonardo, the Balance for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Michelangelo, the Heart for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at forge.ai.AiController.chooseSpellAbilityToPlayFromList(AiController.java:1686)
+	at forge.ai.AiController.getSpellAbilityToPlay(AiController.java:1577)
+	at forge.ai.AiController.chooseSpellAbilityToPlay(AiController.java:1397)
+	at forge.ai.PlayerControllerAi.chooseSpellAbilityToPlay(PlayerControllerAi.java:833)
+	at forge.game.phase.PhaseHandler.mainLoopStep(PhaseHandler.java:1056)
+	at forge.game.phase.PhaseHandler.mainGameLoop(PhaseHandler.java:1035)
+	at forge.game.phase.PhaseHandler.startFirstTurn(PhaseHandler.java:1029)
+	at forge.game.GameAction.startGame(GameAction.java:2373)
+	at forge.game.Match.startGame(Match.java:92)
+	at forge.game.Match.startGame(Match.java:77)
+	at forge.view.SimulateMatch.lambda$simulateSingleMatch$0(SimulateMatch.java:219)
+	at forge.view.TimeLimitedCodeBlock.lambda$runWithTimeout$0(TimeLimitedCodeBlock.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+AI eval thread at timeout:
+	at java.base@17.0.20/java.util.HashMap.hash(HashMap.java:338)
+	at java.base@17.0.20/java.util.HashMap.put(HashMap.java:610)
+	at java.base@17.0.20/java.util.HashSet.add(HashSet.java:221)
+	at java.base@17.0.20/java.util.AbstractCollection.addAll(AbstractCollection.java:336)
+	at java.base@17.0.20/java.util.HashSet.<init>(HashSet.java:121)
+	at app//forge.util.collect.FCollection.hashed(FCollection.java:58)
+	at app//forge.util.collect.FCollection.add(FCollection.java:269)
+	at app//forge.util.collect.FCollection.addAll(FCollection.java:346)
+	at app//forge.util.collect.FCollection.addAll(FCollection.java:325)
+	at app//forge.game.Game.getCardsIn(Game.java:639)
+	at app//forge.game.staticability.StaticAbilityCombatDamageToughness.combatDamageToughness(StaticAbilityCombatDamageToughness.java:11)
+	at app//forge.game.card.Card.toughnessAssignsDamage(Card.java:4525)
+	at app//forge.game.card.Card.getNetCombatDamage(Card.java:4540)
+	at app//forge.ai.CreatureEvaluator.evaluateCreature(CreatureEvaluator.java:42)
+	at app//forge.ai.CreatureEvaluator.evaluateCreature(CreatureEvaluator.java:32)
+	at app//forge.ai.CreatureEvaluator.apply(CreatureEvaluator.java:28)
+	at app//forge.ai.CreatureEvaluator.apply(CreatureEvaluator.java:25)
+	at app//forge.util.Aggregates.itemWithMax(Aggregates.java:66)
+	at app//forge.ai.ComputerUtilCard.getBestCreatureAI(ComputerUtilCard.java:626)
+	at app//forge.ai.AiBlockController.makeGangBlocks(AiBlockController.java:447)
+	at app//forge.ai.AiBlockController.assignBlockers(AiBlockController.java:1070)
+	at app//forge.ai.AiBlockController.assignBlockersForCombat(AiBlockController.java:1000)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3221)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3186)
+	at app//forge.ai.AiAttackController.notNeededAsBlockers(AiAttackController.java:424)
+	at app//forge.ai.AiAttackController.declareAttackers(AiAttackController.java:1286)
+	at app//forge.ai.ComputerUtilCard.doesSpecifiedCreatureAttackAI(ComputerUtilCard.java:846)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1583)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1472)
+	at app//forge.ai.ability.PumpAllAi.lambda$checkApiLogic$2(PumpAllAi.java:132)
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:204)
+	at forge.ai.AiController.chooseSpellAbilityToPlayFromList(AiController.java:1686)
+	at forge.ai.AiController.getSpellAbilityToPlay(AiController.java:1577)
+	at forge.ai.AiController.chooseSpellAbilityToPlay(AiController.java:1397)
+	at forge.ai.PlayerControllerAi.chooseSpellAbilityToPlay(PlayerControllerAi.java:833)
+	at forge.game.phase.PhaseHandler.mainLoopStep(PhaseHandler.java:1056)
+	at forge.game.phase.PhaseHandler.mainGameLoop(PhaseHandler.java:1035)
+	at forge.game.phase.PhaseHandler.startFirstTurn(PhaseHandler.java:1029)
+	at forge.game.GameAction.startGame(GameAction.java:2373)
+	at forge.game.Match.startGame(Match.java:92)
+	at forge.game.Match.startGame(Match.java:77)
+	at forge.view.SimulateMatch.lambda$simulateSingleMatch$0(SimulateMatch.java:219)
+	at forge.view.TimeLimitedCodeBlock.lambda$runWithTimeout$0(TimeLimitedCodeBlock.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+AI eval thread at timeout:
+	at java.base@17.0.20/java.util.ArrayList.addAll(ArrayList.java:670)
+	at app//forge.util.collect.FCollection.<init>(FCollection.java:100)
+	at app//forge.game.card.CardState.getReplacementEffects(CardState.java:739)
+	at app//forge.game.card.CardState.getReplacementEffects(CardState.java:736)
+	at app//forge.game.card.Card.getReplacementEffects(Card.java:7011)
+	at app//forge.game.replacement.ReplacementHandler.lambda$getReplacementList$0(ReplacementHandler.java:136)
+	at app//forge.game.replacement.ReplacementHandler$$Lambda$424/0x00007f0c6c25a3f0.visit(Unknown Source)
+	at app//forge.util.Visitor.visitAll(Visitor.java:16)
+	at app//forge.game.Game.forEachCardInGame(Game.java:763)
+	at app//forge.game.replacement.ReplacementHandler.getReplacementList(ReplacementHandler.java:104)
+	at app//forge.game.replacement.ReplacementHandler.cantHappenCheck(ReplacementHandler.java:176)
+	at app//forge.game.card.Card.canUntap(Card.java:4704)
+	at app//forge.ai.CreatureEvaluator.evaluateCreature(CreatureEvaluator.java:224)
+	at app//forge.ai.CreatureEvaluator.evaluateCreature(CreatureEvaluator.java:32)
+	at app//forge.ai.CreatureEvaluator.apply(CreatureEvaluator.java:28)
+	at app//forge.ai.CreatureEvaluator.apply(CreatureEvaluator.java:25)
+	at app//forge.util.Aggregates.itemWithMin(Aggregates.java:208)
+	at app//forge.ai.ComputerUtilCard.getWorstCreatureAI(ComputerUtilCard.java:654)
+	at app//forge.ai.AiBlockController.makeTradeBlocks(AiBlockController.java:611)
+	at app//forge.ai.AiBlockController.assignBlockers(AiBlockController.java:1101)
+	at app//forge.ai.AiBlockController.assignBlockersForCombat(AiBlockController.java:1000)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3221)
+	at app//forge.ai.ComputerUtil.predictNextCombatsRemainingLife(ComputerUtil.java:3186)
+	at app//forge.ai.AiAttackController.notNeededAsBlockers(AiAttackController.java:424)
+	at app//forge.ai.AiAttackController.declareAttackers(AiAttackController.java:1286)
+	at app//forge.ai.ComputerUtilCard.doesSpecifiedCreatureAttackAI(ComputerUtilCard.java:846)
+	at app//forge.ai.ComputerUtilCard.shouldPumpCard(ComputerUtilCard.java:1583)
+	at app//forge.ai.ability.PumpAi.checkApiLogic(PumpAi.java:323)
+	at app//forge.ai.SpellAbilityAi.canPlayWithoutRestrict(SpellAbilityAi.java:100)
+	at app//forge.ai.SpellAbilityAi.canPlay(SpellAbilityAi.java:78)
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Leonardo, the Balance for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Michelangelo, the Heart for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Goro-Goro and Satoru for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Ezio Auditore da Firenze for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Evie Frye for forge.ai.ability.EffectAi. Consider declaring an overloaded method
+Stopping slow match as draw
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.FutureTask.awaitDone(FutureTask.java:418)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:203)
+	at forge.ai.AiController.chooseSpellAbilityToPlayFromList(AiController.java:1686)
+	at forge.ai.AiController.getSpellAbilityToPlay(AiController.java:1577)
+	at forge.ai.AiController.chooseSpellAbilityToPlay(AiController.java:1397)
+	at forge.ai.PlayerControllerAi.chooseSpellAbilityToPlay(PlayerControllerAi.java:833)
+	at forge.game.phase.PhaseHandler.mainLoopStep(PhaseHandler.java:1056)
+	at forge.game.phase.PhaseHandler.mainGameLoop(PhaseHandler.java:1035)
+	at forge.game.phase.PhaseHandler.startFirstTurn(PhaseHandler.java:1029)
+	at forge.game.GameAction.startGame(GameAction.java:2373)
+	at forge.game.Match.startGame(Match.java:92)
+	at forge.game.Match.startGame(Match.java:77)
+	at forge.view.SimulateMatch.lambda$simulateSingleMatch$0(SimulateMatch.java:219)
+	at forge.view.TimeLimitedCodeBlock.lambda$runWithTimeout$0(TimeLimitedCodeBlock.java:18)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Mulligan: Ai(2)-Destyn_Turtles has mulliganed down to 7 cards.
+Mulligan: Ai(4)-Jaymie_Ezio has kept a hand of 7 cards
+Mulligan: Ai(1)-Gabe_Food has kept a hand of 7 cards
+Mulligan: Ai(2)-Destyn_Turtles has kept a hand of 7 cards
+Mulligan: Ai(3)-GGS_Higure_only has kept a hand of 7 cards
+Turn: Turn 1 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Replacement Effect: Cinder Glade enters tapped unless you control two or more basic lands.
+Land: Ai(4)-Jaymie_Ezio played Cinder Glade (321)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 2 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Forest (32)
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 3 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: This land enters tapped unless you control two or more basic lands.
+Land: Ai(2)-Destyn_Turtles played Vernal Fen (159)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 4 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Replacement Effect: As Blood Crypt enters, you may pay 2 life. If you don't, it enters tapped.
+Land: Ai(3)-GGS_Higure_only played Blood Crypt (268)
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Phase: Ai(3)-GGS_Higure_only's End step
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 5 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Foreboding Landscape (324)
+Zone Change: Foreboding Landscape (324) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Jaymie_Ezio activated Foreboding Landscape
+Resolve Stack: Foreboding Landscape (324) - Ai(4)-Jaymie_Ezio searches their library for a basic Swamp, Forest, or Island card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 6 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Replacement Effect: As Murmuring Bosk enters, you may reveal a Treefolk card from your hand. If you don't, Murmuring Bosk enters tapped.
+Land: Ai(1)-Gabe_Food played Murmuring Bosk (24)
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 7 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Land: Ai(2)-Destyn_Turtles played Swamp (157)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Vernal Fen (159) - {T}: Add {G}.
+Mana: Swamp (157) - {T}: Add {B}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Michelangelo, the Heart
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 8 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Land: Ai(3)-GGS_Higure_only played Mana Confluence (247)
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Mana: Blood Crypt (268) - {T}: Add {B}.
+Add To Stack: Ai(3)-GGS_Higure_only cast Changeling Outcast
+Resolve Stack: Changeling Outcast - Creature 1 / 1
+Phase: Ai(3)-GGS_Higure_only's End step
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 9 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Plains (392)
+Mana: Cinder Glade (321) - {T}: Add {G}.
+Mana: Island (336) - {T}: Add {U}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Farseek
+Replacement Effect: Smoldering Marsh enters tapped unless you control two or more basic lands.
+Resolve Stack: Farseek (331) - Ai(4)-Jaymie_Ezio searches their library for a Plains, Island, Swamp or Mountain card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 10 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Swamp (61)
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Mana: Swamp (61) - {T}: Add {B}.
+Mana: Forest (32) - {T}: Add {G}.
+Mana: Murmuring Bosk (24) - {T}: Add {G}.
+Add To Stack: Ai(1)-Gabe_Food cast Savvy Hunter
+Resolve Stack: Savvy Hunter - Creature 3 / 3
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 11 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Land: Ai(2)-Destyn_Turtles played Forest (138)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Forest (138) - {T}: Add {G}.
+Mana: Swamp (157) - {T}: Add {B}.
+Mana: Vernal Fen (159) - {T}: Add {G}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Mona Lisa, Science Geek
+Resolve Stack: Mona Lisa, Science Geek - Creature 1 / 3
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 12 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Land: Ai(3)-GGS_Higure_only played Marsh Flats (283)
+Life: Life: Ai(3)-GGS_Higure_only 40 > 39
+Zone Change: Marsh Flats (283) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-GGS_Higure_only activated Marsh Flats
+Replacement Effect: As Watery Grave enters, you may pay 2 life. If you don't, it enters tapped.
+Resolve Stack: Marsh Flats (283) - Ai(3)-GGS_Higure_only searches their library for a Plains or Swamp card, puts it onto the battlefield, then shuffles.
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Higure_only assigned Changeling Outcast (218) to attack Ai(2)-Destyn_Turtles.
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles didn't block Changeling Outcast (218).
+Life: Life: Ai(3)-GGS_Higure_only 39 > 38
+Mana: Mana Confluence (247) - {T}, Pay 1 life: Add one mana of any color.
+Mana: Blood Crypt (268) - {T}: Add {R}.
+Add To Stack: Ai(3)-GGS_Higure_only activated Sakashima's Student
+Replacement Effect: You may have Savvy Hunter enter as a copy of any creature on the battlefield, except it's a Ninja in addition to its other creature types.
+Resolve Stack: Savvy Hunter (251) - Ai(3)-GGS_Higure_only puts Savvy Hunter (251) from their hand onto the battlefield tapped and attacking.
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Damage: Savvy Hunter (251) deals 3 combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(2)-Destyn_Turtles 40 > 37
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Phase: Ai(3)-GGS_Higure_only's End step
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 13 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Replacement Effect: Boros Garrison enters tapped.
+Land: Ai(4)-Jaymie_Ezio played Boros Garrison (383)
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Boros Garrison
+Resolve Stack: When Boros Garrison enters, return a land you control to its owner's hand. [Zone Changer: Boros Garrison (383)]
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Mana: Plains (392) - {T}: Add {W}.
+Mana: Cinder Glade (321) - {T}: Add {G}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Unstoppable Slasher
+Resolve Stack: Unstoppable Slasher - Creature 2 / 3
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 14 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Damage: Murmuring Bosk (24) deals 1 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 40 > 39
+Mana: Murmuring Bosk (24) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Add To Stack: Ai(1)-Gabe_Food cast Path to Exile targeting [Mona Lisa, Science Geek (162)]
+Zone Change: Mona Lisa, Science Geek (162) was put into Exile from Battlefield.
+Resolve Stack: Path to Exile (7) - Exile Mona Lisa, Science Geek (162). Ai(2)-Destyn_Turtles may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle their library. 
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Swamp (63)
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Mana: Forest (32) - {T}: Add {G}.
+Mana: Swamp (61) - {T}: Add {B}.
+Mana: Swamp (63) - {T}: Add {B}.
+Add To Stack: Ai(1)-Gabe_Food cast Pristine Talisman
+Resolve Stack: Pristine Talisman
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 15 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Land: Ai(2)-Destyn_Turtles played Evolving Wilds (133)
+Zone Change: Evolving Wilds (133) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles activated Evolving Wilds
+Resolve Stack: Evolving Wilds (133) - Ai(2)-Destyn_Turtles searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Swamp (157) - {T}: Add {B}.
+Mana: Forest (138) - {T}: Add {G}.
+Mana: Plains (189) - {T}: Add {W}.
+Mana: Vernal Fen (159) - {T}: Add {G}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Rat King, Pale Piper
+Resolve Stack: Rat King, Pale Piper - Creature 3 / 3
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 16 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Mana: Blood Crypt (268) - {T}: Add {R}.
+Add To Stack: Ai(3)-GGS_Higure_only cast Gingerbrute
+Resolve Stack: Gingerbrute - Creature 1 / 1
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Mana: Watery Grave (274) - {T}: Add {B}.
+Add To Stack: Ai(3)-GGS_Higure_only cast Changeling Outcast
+Resolve Stack: Changeling Outcast - Creature 1 / 1
+Phase: Ai(3)-GGS_Higure_only's End step
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 17 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Twilight Mire (372)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Plains (392) - {T}: Add {W}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Mana: Cinder Glade (321) - {T}: Add {G}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Aya of Alexandria
+Resolve Stack: Aya of Alexandria - Creature 4 / 3
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Mana: Twilight Mire (372) - {T}: Add {C}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Resolve Stack: Ezio Auditore da Firenze - Creature 3 / 2
+Phase: Ai(4)-Jaymie_Ezio's End step
+Life: Life: Ai(1)-Gabe_Food 39 > 40
+Mana: Pristine Talisman (91) - {T}: Add {C}. You gain 1 life. 
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 18 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Forest (39)
+Damage: Murmuring Bosk (24) deals 1 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 40 > 39
+Mana: Murmuring Bosk (24) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Mana: Forest (32) - {T}: Add {G}.
+Mana: Swamp (61) - {T}: Add {B}.
+Mana: Swamp (63) - {T}: Add {B}.
+Mana: Forest (39) - {T}: Add {G}.
+Add To Stack: Ai(1)-Gabe_Food cast Fell the Mighty targeting [Savvy Hunter (23)]
+Zone Change: Aya of Alexandria (315) was put into Graveyard from Battlefield.
+Resolve Stack: Fell the Mighty (22) - Destroy all creatures with power greater than target creature's power.
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 19 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Hinterland Harbor enters tapped unless you control a Forest or an Island.
+Land: Ai(2)-Destyn_Turtles played Hinterland Harbor (124)
+Mana: Island (131) - {T}: Add {U}.
+Mana: Swamp (157) - {T}: Add {B}.
+Mana: Forest (138) - {T}: Add {G}.
+Mana: Plains (189) - {T}: Add {W}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Baxter, Fly in the Ointment
+Resolve Stack: Baxter, Fly in the Ointment - Creature 2 / 2
+Add To Stack: Ai(2)-Destyn_Turtles triggered Baxter, Fly in the Ointment
+Resolve Stack: Whenever Baxter enters or attacks, each creature you control with a counter on it gains flying until end of turn. [Zone Changer: Baxter, Fly in the Ointment (128)]
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(2)-Destyn_Turtles assigned Rat King, Pale Piper (144) to attack Ai(4)-Jaymie_Ezio.
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Ezio Auditore da Firenze (403) and Unstoppable Slasher (378) to block Rat King, Pale Piper (144).
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Damage: Rat King, Pale Piper (144) deals 3 damage to Unstoppable Slasher (378).
+Damage: Ezio Auditore da Firenze (403) deals 3 damage to Rat King, Pale Piper (144).
+Damage: Unstoppable Slasher (378) deals 2 damage (Deathtouch) to Rat King, Pale Piper (144).
+Zone Change: Rat King, Pale Piper (144) was put into Graveyard from Battlefield.
+Zone Change: Unstoppable Slasher (378) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles triggered Rat King, Pale Piper
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Unstoppable Slasher
+Resolve Stack: When Unstoppable Slasher dies, if it had no counters on it, return it to the battlefield tapped under its owner's control with two stun counters on it. [Zone Changer: Unstoppable Slasher (378)]
+Resolve Stack: Whenever Rat King or another nontoken creature you control leaves the battlefield, create a 1/1 black Rat creature token. [Zone Changer: Rat King, Pale Piper (144)]
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(2)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Baxter, Fly in the Ointment (128)]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Baxter, Fly in the Ointment (128)]]) [Phase: Ai(2)-Destyn_Turtles]
+Mana: Hinterland Harbor (124) - {T}: Add {G} or {U}.
+Mana: Vernal Fen (159) - {T}: Add {G}.
+Add To Stack: Ai(2)-Destyn_Turtles cast April O'Neil, Live on the Scene
+Resolve Stack: April O'Neil, Live on the Scene - Creature 2 / 1
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 20 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Higure_only assigned Changeling Outcast (218) to attack Ai(2)-Destyn_Turtles.
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles didn't block Changeling Outcast (218).
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Damage: Changeling Outcast (218) deals 1 combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(2)-Destyn_Turtles 37 > 36
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Mana: Watery Grave (274) - {T}: Add {U}.
+Mana: Blood Crypt (268) - {T}: Add {B}.
+Life: Life: Ai(3)-GGS_Higure_only 38 > 37
+Mana: Mana Confluence (247) - {T}, Pay 1 life: Add one mana of any color.
+Add To Stack: Ai(3)-GGS_Higure_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Phase: Ai(3)-GGS_Higure_only's End step
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 21 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Replacement Effect: If this permanent would become untapped, instead remove a stun counter from it.
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Island (336)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Island (336) - {T}: Add {U}.
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Mana: Plains (392) - {T}: Add {W}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Ezio, Blade of Vengeance
+Resolve Stack: Ezio, Blade of Vengeance - Creature 5 / 5
+Phase: Ai(4)-Jaymie_Ezio's End step
+Life: Life: Ai(1)-Gabe_Food 39 > 40
+Mana: Pristine Talisman (91) - {T}: Add {C}. You gain 1 life. 
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 22 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Replacement Effect: As Necroblossom Snarl enters, you may reveal a Swamp or Forest card from your hand. If you don't, Necroblossom Snarl enters tapped.
+Land: Ai(1)-Gabe_Food played Necroblossom Snarl (64)
+Damage: Murmuring Bosk (24) deals 1 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 40 > 39
+Mana: Murmuring Bosk (24) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Mana: Forest (32) - {T}: Add {G}.
+Mana: Swamp (61) - {T}: Add {B}.
+Add To Stack: Ai(1)-Gabe_Food cast Sam, Loyal Attendant
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(1)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(1)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (101)]
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 23 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Add To Stack: Ai(2)-Destyn_Turtles triggered Baxter, Fly in the Ointment
+Resolve Stack: Whenever you draw a card, put a +1/+1 counter on Baxter. [Player: Ai(2)-Destyn_Turtles]
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(2)-Destyn_Turtles assigned Baxter, Fly in the Ointment (128) to attack Ai(3)-GGS_Higure_only.
+Add To Stack: Ai(2)-Destyn_Turtles triggered Baxter, Fly in the Ointment
+Resolve Stack: Whenever Baxter enters or attacks, each creature you control with a counter on it gains flying until end of turn. [Attacker: Baxter, Fly in the Ointment (128)]
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(3)-GGS_Higure_only didn't block Baxter, Fly in the Ointment (128).
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Damage: Baxter, Fly in the Ointment (128) deals 4 combat damage to Ai(3)-GGS_Higure_only.
+Life: Life: Ai(3)-GGS_Higure_only 37 > 33
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(2)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Baxter, Fly in the Ointment (128)]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Baxter, Fly in the Ointment (128)]]) [Phase: Ai(2)-Destyn_Turtles]
+Mana: Plains (189) - {T}: Add {W}.
+Mana: Swamp (157) - {T}: Add {B}.
+Mana: Forest (138) - {T}: Add {G}.
+Mana: Island (131) - {T}: Add {U}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Add To Stack: Ai(2)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Leonardo, the Balance (202)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Clue Token (427)]
+Mana: Hinterland Harbor (124) - {T}: Add {G} or {U}.
+Mana: Vernal Fen (159) - {T}: Add {G}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Arcane Signet
+Resolve Stack: Arcane Signet
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 24 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Higure_only assigned Changeling Outcast (218) to attack Ai(2)-Destyn_Turtles.
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles didn't block Changeling Outcast (218).
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Damage: Changeling Outcast (218) deals 1 combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(2)-Destyn_Turtles 36 > 35
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Mana: Blood Crypt (268) - {T}: Add {R}.
+Mana: Watery Grave (274) - {T}: Add {B}.
+Life: Life: Ai(3)-GGS_Higure_only 33 > 32
+Mana: Mana Confluence (247) - {T}, Pay 1 life: Add one mana of any color.
+Add To Stack: Ai(3)-GGS_Higure_only cast Professional Face-Breaker
+Resolve Stack: Professional Face-Breaker - Creature 2 / 3
+Phase: Ai(3)-GGS_Higure_only's End step
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 25 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Replacement Effect: If this permanent would become untapped, instead remove a stun counter from it.
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Forest (339)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Ezio, Blade of Vengeance (343) to attack Ai(2)-Destyn_Turtles.
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles didn't block Ezio, Blade of Vengeance (343).
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio, Blade of Vengeance (343) deals 5 combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(2)-Destyn_Turtles 35 > 30
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Ezio, Blade of Vengeance
+Resolve Stack: Whenever an Assassin you control deals combat damage to a player, draw a card. [Damage Source: Ezio, Blade of Vengeance (343), Damaged: Ai(2)-Destyn_Turtles, Amount: 5]
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Mana: Plains (392) - {T}: Add {W}.
+Mana: Forest (339) - {T}: Add {G}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast The Lord of Pain
+Resolve Stack: The Lord of Pain - Creature 5 / 5
+Phase: Ai(4)-Jaymie_Ezio's End step
+Mana: Pristine Talisman (91) - {T}: Add {C}. You gain 1 life. 
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 26 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Mana: Swamp (61) - {T}: Add {B}.
+Mana: Swamp (63) - {T}: Add {B}.
+Add To Stack: Ai(1)-Gabe_Food cast Go for the Throat targeting [Baxter, Fly in the Ointment (128)]
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(2)-Destyn_Turtles]
+Damage: The Lord of Pain (344) deals 2 non-combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(2)-Destyn_Turtles 30 > 28
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(2)-Destyn_Turtles]]) [Card: Go for the Throat (2), Activator: Ai(1)-Gabe_Food, SpellAbility: Destroy target nonartifact creature.]
+Zone Change: Baxter, Fly in the Ointment (128) was put into Graveyard from Battlefield.
+Resolve Stack: Go for the Throat (2) - Destroy Baxter, Fly in the Ointment (128).
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Damage: Murmuring Bosk (24) deals 1 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 39 > 38
+Mana: Murmuring Bosk (24) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Mana: Forest (32) - {T}: Add {G}.
+Mana: Forest (39) - {T}: Add {G}.
+Mana: Necroblossom Snarl (64) - {T}: Add {B} or {G}.
+Mana: Pristine Talisman (91) - {T}: Add {C}. You gain 1 life. 
+Add To Stack: Ai(1)-Gabe_Food cast Gwaihir, Greatest of the Eagles
+Resolve Stack: Gwaihir, Greatest of the Eagles - Creature 5 / 5
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 27 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Land: Ai(2)-Destyn_Turtles played Ash Barrens (171)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Arcane Signet (149) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Mana: Swamp (157) - {T}: Add {B}.
+Mana: Forest (138) - {T}: Add {G}.
+Mana: Island (131) - {T}: Add {U}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Raphael, the Muscle
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(3)-GGS_Higure_only]
+Damage: The Lord of Pain (344) deals 5 non-combat damage to Ai(3)-GGS_Higure_only.
+Life: Life: Ai(3)-GGS_Higure_only 32 > 27
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(3)-GGS_Higure_only]]) [Card: Raphael, the Muscle (176), Activator: Ai(2)-Destyn_Turtles, SpellAbility: Raphael, the Muscle - Creature 4 / 4]
+Resolve Stack: Raphael, the Muscle - Creature 4 / 4
+Add To Stack: Ai(2)-Destyn_Turtles triggered April O'Neil, Live on the Scene
+Add To Stack: Ai(2)-Destyn_Turtles triggered Raphael, the Muscle
+Resolve Stack: When Raphael enters, create a Mutagen token. [Zone Changer: Raphael, the Muscle (176)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Mutagen Token (437)]
+Resolve Stack: Whenever a Mutant, Ninja, or Turtle you control enters, investigate. (Create a Clue token. It's an artifact with "{2}, Sacrifice this token: Draw a card.") [Zone Changer: Raphael, the Muscle (176)]
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 28 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Higure_only assigned Changeling Outcast (218) to attack Ai(2)-Destyn_Turtles.
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles didn't block Changeling Outcast (218).
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Damage: Changeling Outcast (218) deals 1 combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(2)-Destyn_Turtles 28 > 27
+Add To Stack: Ai(3)-GGS_Higure_only triggered Professional Face-Breaker
+Resolve Stack: Whenever one or more creatures you control deal combat damage to a player, create a Treasure token. [Damaged: Ai(2)-Destyn_Turtles, Amount: 1]
+Mana: Watery Grave (274) - {T}: Add {U}.
+Mana: Blood Crypt (268) - {T}: Add {B}.
+Zone Change: Treasure Token (442) was put into Graveyard from Battlefield.
+Mana: Treasure Token (442) - {T}, Sacrifice this token: Add one mana of any color.
+Life: Life: Ai(3)-GGS_Higure_only 27 > 26
+Mana: Mana Confluence (247) - {T}, Pay 1 life: Add one mana of any color.
+Add To Stack: Ai(3)-GGS_Higure_only activated Fallen Shinobi
+Resolve Stack: Fallen Shinobi (226) - Ai(3)-GGS_Higure_only puts Fallen Shinobi (226) from their hand onto the battlefield tapped and attacking.
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Phase: Ai(3)-GGS_Higure_only's End step
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 29 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Command Tower (335)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Island (336) - {T}: Add {U}.
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Mana: Plains (392) - {T}: Add {W}.
+Mana: Forest (339) - {T}: Add {G}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Ramses, Assassin Lord
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(3)-GGS_Higure_only]
+Damage: The Lord of Pain (344) deals 4 non-combat damage to Ai(3)-GGS_Higure_only.
+Life: Life: Ai(3)-GGS_Higure_only 26 > 22
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(3)-GGS_Higure_only]]) [Card: Ramses, Assassin Lord (316), Activator: Ai(4)-Jaymie_Ezio, SpellAbility: Ramses, Assassin Lord - Creature 4 / 4]
+Resolve Stack: Ramses, Assassin Lord - Creature 4 / 4
+Mana: Command Tower (335) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Jacob Frye
+Resolve Stack: Jacob Frye - Creature 3 / 2
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Jacob Frye targeting [Ai(4)-Jaymie_Ezio]
+Resolve Stack: Partner with Evie Frye (When this creature enters, target player may put Evie Frye into their hand from their library, then shuffle.) (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Zone Changer: Jacob Frye (365)]
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 30 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Combat: Ai(1)-Gabe_Food assigned Gwaihir, Greatest of the Eagles (90) to attack Ai(4)-Jaymie_Ezio.
+Add To Stack: Ai(1)-Gabe_Food triggered Gwaihir, Greatest of the Eagles targeting [Gwaihir, Greatest of the Eagles (90)]
+Resolve Stack: Whenever Gwaihir attacks, target attacking creature gains flying until end of turn. (Targeting: [[Gwaihir, Greatest of the Eagles (90)]]) [Attacker: Gwaihir, Greatest of the Eagles (90)]
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio didn't block Gwaihir, Greatest of the Eagles (90).
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Damage: Gwaihir, Greatest of the Eagles (90) deals 5 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 40 > 35
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Damage: Murmuring Bosk (24) deals 1 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 38 > 37
+Mana: Murmuring Bosk (24) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Mana: Forest (32) - {T}: Add {G}.
+Mana: Swamp (61) - {T}: Add {B}.
+Mana: Swamp (63) - {T}: Add {B}.
+Add To Stack: Ai(1)-Gabe_Food cast Treebeard, Gracious Host
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(3)-GGS_Higure_only]
+Damage: The Lord of Pain (344) deals 4 non-combat damage to Ai(3)-GGS_Higure_only.
+Life: Life: Ai(3)-GGS_Higure_only 22 > 18
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(3)-GGS_Higure_only]]) [Card: Treebeard, Gracious Host (79), Activator: Ai(1)-Gabe_Food, SpellAbility: Treebeard, Gracious Host - Creature 0 / 5]
+Resolve Stack: Treebeard, Gracious Host - Creature 0 / 5
+Add To Stack: Ai(1)-Gabe_Food triggered Treebeard, Gracious Host
+Resolve Stack: When Treebeard, Gracious Host enters, create two Food tokens. [Zone Changer: Treebeard, Gracious Host (79)]
+Phase: Ai(1)-Gabe_Food's End step
+Mana: Plains (189) - {T}: Add {W}.
+Mana: Hinterland Harbor (124) - {T}: Add {G} or {U}.
+Zone Change: Clue Token (427) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles activated Clue Token
+Resolve Stack: Clue Token (427) - Ai(2)-Destyn_Turtles draws a card.
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 31 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Mana: Arcane Signet (149) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Mana: Swamp (157) - {T}: Add {B}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Special Move
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(3)-GGS_Higure_only]
+Damage: The Lord of Pain (344) deals 3 non-combat damage to Ai(3)-GGS_Higure_only.
+Life: Life: Ai(3)-GGS_Higure_only 18 > 15
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(3)-GGS_Higure_only]]) [Card: Special Move (185), Activator: Ai(2)-Destyn_Turtles, SpellAbility: Choose two —
+• Jump Kick — Destroy target artifact.
+• Dash Attack — Put two +1/+1 counters on target attacking or blocking creature you control.
+• Foot Toss — Target creature you control deals damage equal to its power to any other target. Then sacrifice it.
+
+ Jump Kick — Destroy target artifact. Foot Toss — Target creature you control deals damage equal to its power to any other target. Then sacrifice it.   ]
+Zone Change: Pristine Talisman (91) was put into Graveyard from Battlefield.
+Replacement Effect: Double all damage that creatures you control with counters on them would deal.
+Damage: Leonardo, the Balance (202) deals 10 damage to Gwaihir, Greatest of the Eagles (90).
+Zone Change: Leonardo, the Balance (202) was put into Graveyard from Battlefield.
+Resolve Stack: Special Move (185) -  Jump Kick — Destroy Pristine Talisman (91). Foot Toss — Leonardo, the Balance (202) deals damage equal to its power to Gwaihir, Greatest of the Eagles (90). Then sacrifice it. 
+Zone Change: Gwaihir, Greatest of the Eagles (90) was put into Graveyard from Battlefield.
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Island (131) - {T}: Add {U}.
+Mana: Forest (138) - {T}: Add {G}.
+Mana: Plains (189) - {T}: Add {W}.
+Mana: Hinterland Harbor (124) - {T}: Add {G} or {U}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Coin of Mastery
+Resolve Stack: Coin of Mastery
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 32 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Land: Ai(3)-GGS_Higure_only played Blazemire Verge (209)
+Mana: Blood Crypt (268) - {T}: Add {R}.
+Mana: Blazemire Verge (209) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Watery Grave (274) - {T}: Add {B}.
+Life: Life: Ai(3)-GGS_Higure_only 15 > 14
+Mana: Mana Confluence (247) - {T}, Pay 1 life: Add one mana of any color.
+Add To Stack: Ai(3)-GGS_Higure_only cast Purphoros, God of the Forge
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(2)-Destyn_Turtles]
+Damage: The Lord of Pain (344) deals 4 non-combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(2)-Destyn_Turtles 27 > 23
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(2)-Destyn_Turtles]]) [Card: Purphoros, God of the Forge (265), Activator: Ai(3)-GGS_Higure_only, SpellAbility: Purphoros, God of the Forge - Creature 6 / 5]
+Resolve Stack: Purphoros, God of the Forge - Creature 6 / 5
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Add To Stack: Ai(2)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (122) - Ai(2)-Destyn_Turtles creates a Treasure token.
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Phase: Ai(3)-GGS_Higure_only's End step
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 33 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Mana: Forest (339) - {T}: Add {G}.
+Mana: Plains (392) - {T}: Add {W}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Rampant Growth
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Lord of Pain targeting [Ai(3)-GGS_Higure_only]
+Damage: The Lord of Pain (344) deals 2 non-combat damage to Ai(3)-GGS_Higure_only.
+Life: Life: Ai(3)-GGS_Higure_only 14 > 12
+Resolve Stack: Whenever a player casts their first spell each turn, choose another target player. The Lord of Pain deals damage equal to that spell's mana value to the chosen player. (Targeting: [[Ai(3)-GGS_Higure_only]]) [Card: Rampant Growth (381), Activator: Ai(4)-Jaymie_Ezio, SpellAbility: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.]
+Resolve Stack: Rampant Growth (381) - Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Ezio, Blade of Vengeance (343), The Lord of Pain (344), Ramses, Assassin Lord (316) and Unstoppable Slasher (378) to attack Ai(2)-Destyn_Turtles.
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles didn't block Ezio, Blade of Vengeance (343).
+Ai(2)-Destyn_Turtles assigned Rat Token (414) and Raphael, the Muscle (176) to block The Lord of Pain (344).
+Ai(2)-Destyn_Turtles assigned April O'Neil, Live on the Scene (192) to block Ramses, Assassin Lord (316).
+Ai(2)-Destyn_Turtles assigned Michelangelo, the Heart (200) to block Unstoppable Slasher (378).
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Replacement Effect: Double all damage that creatures you control with counters on them would deal.
+Replacement Effect: Double all damage that creatures you control with counters on them would deal.
+Replacement Effect: Double all damage that creatures you control with counters on them would deal.
+Replacement Effect: Double all damage that creatures you control with counters on them would deal.
+Damage: Ezio, Blade of Vengeance (343) deals 6 combat damage to Ai(2)-Destyn_Turtles.
+Damage: The Lord of Pain (344) deals 5 damage to Raphael, the Muscle (176).
+Damage: The Lord of Pain (344) deals 1 damage to Rat Token (414).
+Damage: Ramses, Assassin Lord (316) deals 4 damage (Deathtouch) to April O'Neil, Live on the Scene (192).
+Damage: Unstoppable Slasher (378) deals 3 damage (Deathtouch) to Michelangelo, the Heart (200).
+Damage: April O'Neil, Live on the Scene (192) deals 8 damage to Ramses, Assassin Lord (316).
+Damage: Michelangelo, the Heart (200) deals 8 damage to Unstoppable Slasher (378).
+Damage: Rat Token (414) deals 6 damage to The Lord of Pain (344).
+Damage: Raphael, the Muscle (176) deals 10 damage to The Lord of Pain (344).
+Life: Life: Ai(2)-Destyn_Turtles 23 > 17
+Zone Change: Unstoppable Slasher (378) was put into Graveyard from Battlefield.
+Zone Change: The Lord of Pain (344) was put into Graveyard from Battlefield.
+Zone Change: Ramses, Assassin Lord (316) was put into Graveyard from Battlefield.
+Zone Change: Michelangelo, the Heart (200) was put into Graveyard from Battlefield.
+Zone Change: April O'Neil, Live on the Scene (192) was put into Graveyard from Battlefield.
+Zone Change: Raphael, the Muscle (176) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Jacob Frye targeting []
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Unstoppable Slasher
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Ezio, Blade of Vengeance
+Resolve Stack: Whenever an Assassin you control deals combat damage to a player, draw a card. [Damage Source: Ezio, Blade of Vengeance (343), Damaged: Ai(2)-Destyn_Turtles, Amount: 6]
+Resolve Stack: When Unstoppable Slasher dies, if it had no counters on it, return it to the battlefield tapped under its owner's control with two stun counters on it. [Zone Changer: Unstoppable Slasher (378)]
+Resolve Stack: Whenever one or more Assassins you control deal combat damage to a player, exile up to one target Assassin card or card with freerunning from your graveyard. If you do, copy it. You may cast the copy. (Targeting: [[]]) [Damaged: Ai(2)-Destyn_Turtles, Amount: 6]
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Island (336) - {T}: Add {U}.
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Rooftop Bypass
+Resolve Stack: Rooftop Bypass
+Mana: Command Tower (335) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Evie Frye
+Resolve Stack: Evie Frye - Creature 2 / 1
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Evie Frye targeting [Ai(4)-Jaymie_Ezio]
+Resolve Stack: Partner with Jacob Frye (When this creature enters, target player may put Jacob Frye into their hand from their library, then shuffle.) (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Zone Changer: Evie Frye (325)]
+Mana: Cinder Glade (321) - {T}: Add {G}.
+Mana: Twilight Mire (372) - {T}: Add {C}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Brotherhood Regalia
+Resolve Stack: Brotherhood Regalia
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 34 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Damage: Murmuring Bosk (24) deals 1 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 37 > 36
+Mana: Murmuring Bosk (24) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Mana: Forest (32) - {T}: Add {G}.
+Mana: Swamp (61) - {T}: Add {B}.
+Add To Stack: Ai(1)-Gabe_Food cast Merry, Warden of Isengard
+Resolve Stack: Merry, Warden of Isengard - Creature 1 / 4
+Add To Stack: Ai(1)-Gabe_Food triggered Merry, Warden of Isengard targeting [Ai(1)-Gabe_Food]
+Resolve Stack: Partner with Pippin, Warden of Isengard (When this creature enters, target player may put Pippin into their hand from their library, then shuffle.) (Targeting: [[Ai(1)-Gabe_Food]]) [Zone Changer: Merry, Warden of Isengard (6)]
+Mana: Swamp (63) - {T}: Add {B}.
+Mana: Forest (39) - {T}: Add {G}.
+Add To Stack: Ai(1)-Gabe_Food cast Pippin, Warden of Isengard
+Resolve Stack: Pippin, Warden of Isengard - Creature 2 / 2
+Add To Stack: Ai(1)-Gabe_Food triggered Pippin, Warden of Isengard targeting [Ai(1)-Gabe_Food]
+Resolve Stack: Partner with Merry, Warden of Isengard (When this creature enters, target player may put Merry into their hand from their library, then shuffle.) (Targeting: [[Ai(1)-Gabe_Food]]) [Zone Changer: Pippin, Warden of Isengard (40)]
+Phase: Ai(1)-Gabe_Food's End step
+Mana: Vernal Fen (159) - {T}: Add {G}.
+Zone Change: Treasure Token (464) was put into Graveyard from Battlefield.
+Mana: Treasure Token (464) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Clue Token (439) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles activated Clue Token
+Resolve Stack: Clue Token (439) - Ai(2)-Destyn_Turtles draws a card.
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 35 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Mana: Swamp (157) - {T}: Add {B}.
+Mana: Forest (138) - {T}: Add {G}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Assassin's Trophy targeting [Ezio, Blade of Vengeance (343)]
+Zone Change: Ezio, Blade of Vengeance (343) was put into Graveyard from Battlefield.
+Resolve Stack: Assassin's Trophy (143) - Destroy Ezio, Blade of Vengeance (343). (OPTIONAL) Ai(2)-Destyn_Turtles searches Ai(4)-Jaymie_Ezio library for a basic land card, puts it onto the battlefield, then shuffles.
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Plains (189) - {T}: Add {W}.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Mana: Island (131) - {T}: Add {U}.
+Mana: Hinterland Harbor (124) - {T}: Add {G} or {U}.
+Mana: Vernal Fen (159) - {T}: Add {G}.
+Mana: Arcane Signet (149) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(2)-Destyn_Turtles cast Leonardo, the Balance
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 36 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Land: Ai(3)-GGS_Higure_only played Sokenzan, Crucible of Defiance (234)
+Mana: Sokenzan, Crucible of Defiance (234) - {T}: Add {R}.
+Mana: Blood Crypt (268) - {T}: Add {R}.
+Mana: Blazemire Verge (209) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Add To Stack: Ai(3)-GGS_Higure_only cast Urabrask's Forge
+Resolve Stack: Urabrask's Forge
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Add To Stack: Ai(3)-GGS_Higure_only triggered Urabrask's Forge
+Resolve Stack: At the beginning of combat on your turn, put an oil counter on Urabrask's Forge, then create an X/1 red Phyrexian Horror creature token with trample and haste, where X is the number of oil counters on Urabrask's Forge. Sacrifice that token at the beginning of the next end step. [Phase: Ai(3)-GGS_Higure_only]
+Add To Stack: Ai(3)-GGS_Higure_only triggered Purphoros, God of the Forge
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(2)-Destyn_Turtles.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(1)-Gabe_Food 36 > 34
+Life: Life: Ai(2)-Destyn_Turtles 17 > 15
+Life: Life: Ai(4)-Jaymie_Ezio 35 > 33
+Resolve Stack: Whenever another creature you control enters, Purphoros, God of the Forge deals 2 damage to each opponent. [Zone Changer: Phyrexian Horror Token (486)]
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Higure_only assigned Phyrexian Horror Token (486) to attack Ai(1)-Gabe_Food.
+Add To Stack: Ai(2)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (122) - Ai(2)-Destyn_Turtles creates a Treasure token.
+Add To Stack: Ai(2)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Treasure Token (492)]
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Combat: Ai(1)-Gabe_Food assigned Merry, Warden of Isengard (6) to block Phyrexian Horror Token (486).
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Damage: Phyrexian Horror Token (486) deals 1 damage to Merry, Warden of Isengard (6).
+Damage: Merry, Warden of Isengard (6) deals 1 damage to Phyrexian Horror Token (486).
+Zone Change: Phyrexian Horror Token (486) was put into Graveyard from Battlefield.
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Mana: Watery Grave (274) - {T}: Add {B}.
+Life: Life: Ai(3)-GGS_Higure_only 12 > 11
+Mana: Mana Confluence (247) - {T}, Pay 1 life: Add one mana of any color.
+Add To Stack: Ai(3)-GGS_Higure_only cast Demonic Tutor
+Resolve Stack: Demonic Tutor (301) - Search your library for a card, put that card into your hand, then shuffle.
+Phase: Ai(3)-GGS_Higure_only's End step
+Add To Stack: Ai(3)-GGS_Higure_only triggered Urabrask's Forge
+Resolve Stack: Sacrifice Phyrexian Horror Token (486) at the beginning of the next end step. ([Phyrexian Horror Token (486)]) [Phase: Ai(3)-GGS_Higure_only]
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 37 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Replacement Effect: If this permanent would become untapped, instead remove a stun counter from it.
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Mana: Plains (392) - {T}: Add {W}.
+Mana: Forest (339) - {T}: Add {G}.
+Mana: Plains (393) - {T}: Add {W}.
+Add To Stack: Ai(4)-Jaymie_Ezio activated Brotherhood Regalia targeting [Unstoppable Slasher (378)]
+Resolve Stack: Brotherhood Regalia (396) -  Attach to Unstoppable Slasher (378)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Island (336) - {T}: Add {U}.
+Mana: Island (337) - {T}: Add {U}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Mana: Cinder Glade (321) - {T}: Add {G}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Eagle Vision
+Resolve Stack: Eagle Vision (360) - Ai(4)-Jaymie_Ezio draws three cards.
+Replacement Effect: As Foreboding Ruins enters, you may reveal a Swamp or Mountain card from your hand. If you don't, Foreboding Ruins enters tapped.
+Land: Ai(4)-Jaymie_Ezio played Foreboding Ruins (371)
+Mana: Smoldering Marsh (374) - {T}: Add {R}.
+Mana: Twilight Mire (372) - {T}: Add {C}.
+Mana: Command Tower (335) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Sword of Feast and Famine
+Resolve Stack: Sword of Feast and Famine
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 38 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Add To Stack: Ai(1)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Damage: Murmuring Bosk (24) deals 1 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 34 > 33
+Mana: Murmuring Bosk (24) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Mana: Swamp (61) - {T}: Add {B}.
+Add To Stack: Ai(1)-Gabe_Food cast Frodo, Adventurous Hobbit
+Resolve Stack: Frodo, Adventurous Hobbit - Creature 1 / 3
+Add To Stack: Ai(1)-Gabe_Food triggered Frodo, Adventurous Hobbit targeting [Ai(1)-Gabe_Food]
+Resolve Stack: Partner with Sam, Loyal Attendant (When this creature enters, target player may put Sam into their hand from their library, then shuffle.) (Targeting: [[Ai(1)-Gabe_Food]]) [Zone Changer: Frodo, Adventurous Hobbit (99)]
+Mana: Forest (32) - {T}: Add {G}.
+Mana: Swamp (63) - {T}: Add {B}.
+Add To Stack: Ai(1)-Gabe_Food cast Prosperous Innkeeper
+Resolve Stack: Prosperous Innkeeper - Creature 1 / 1
+Add To Stack: Ai(1)-Gabe_Food triggered Prosperous Innkeeper
+Resolve Stack: When Prosperous Innkeeper enters, create a Treasure token. (It's an artifact with "{T}, Sacrifice this token: Add one mana of any color.") [Zone Changer: Prosperous Innkeeper (69)]
+Zone Change: Treasure Token (508) was put into Graveyard from Battlefield.
+Mana: Treasure Token (508) - {T}, Sacrifice this token: Add one mana of any color.
+Mana: Forest (39) - {T}: Add {G}.
+Mana: Necroblossom Snarl (64) - {T}: Add {B} or {G}.
+Add To Stack: Ai(1)-Gabe_Food cast Banquet Guests
+Replacement Effect: Banquet Guests enters with twice X +1/+1 counters on it.
+Resolve Stack: Banquet Guests - Creature 0 / 0 (X=8)
+Add To Stack: Ai(1)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(1)-Gabe_Food 33 > 34
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Banquet Guests (75)]
+Add To Stack: Ai(1)-Gabe_Food triggered Treebeard, Gracious Host targeting [Banquet Guests (75)]
+Resolve Stack: Whenever you gain life, put that many +1/+1 counters on target Halfling or Treefolk. (Targeting: [[Banquet Guests (75)]]) [Player: Ai(1)-Gabe_Food, Gained Amount: 1]
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 39 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Sunken Hollow enters tapped unless you control two or more basic lands.
+Land: Ai(2)-Destyn_Turtles played Sunken Hollow (125)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Forest (138) - {T}: Add {G}.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Mana: Swamp (157) - {T}: Add {B}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Cultivate
+Resolve Stack: Cultivate (106) - Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.   
+Mana: Arcane Signet (149) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Island (131) - {T}: Add {U}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Tempestra, Dame of Games
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Tempestra, Dame of Games - Creature 1 / 3
+Mana: Hinterland Harbor (124) - {T}: Add {G} or {U}.
+Mana: Plains (189) - {T}: Add {W}.
+Mana: Vernal Fen (159) - {T}: Add {G}.
+Mana: Sunken Hollow (125) - {T}: Add {B}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Michelangelo, the Heart
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 40 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Add To Stack: Ai(3)-GGS_Higure_only triggered Urabrask's Forge
+Resolve Stack: At the beginning of combat on your turn, put an oil counter on Urabrask's Forge, then create an X/1 red Phyrexian Horror creature token with trample and haste, where X is the number of oil counters on Urabrask's Forge. Sacrifice that token at the beginning of the next end step. [Phase: Ai(3)-GGS_Higure_only]
+Add To Stack: Ai(3)-GGS_Higure_only triggered Purphoros, God of the Forge
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(2)-Destyn_Turtles.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(1)-Gabe_Food 34 > 32
+Life: Life: Ai(2)-Destyn_Turtles 15 > 13
+Life: Life: Ai(4)-Jaymie_Ezio 33 > 31
+Resolve Stack: Whenever another creature you control enters, Purphoros, God of the Forge deals 2 damage to each opponent. [Zone Changer: Phyrexian Horror Token (549)]
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Higure_only assigned Phyrexian Horror Token (549) to attack Ai(1)-Gabe_Food.
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Combat: Ai(1)-Gabe_Food assigned Merry, Warden of Isengard (6) to block Phyrexian Horror Token (549).
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Damage: Phyrexian Horror Token (549) deals 2 damage to Merry, Warden of Isengard (6).
+Damage: Merry, Warden of Isengard (6) deals 1 damage to Phyrexian Horror Token (549).
+Zone Change: Phyrexian Horror Token (549) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (122) - Ai(2)-Destyn_Turtles creates a Treasure token.
+Add To Stack: Ai(2)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Treasure Token (569)]
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Replacement Effect: Undercity Sewers enters tapped.
+Land: Ai(3)-GGS_Higure_only played Undercity Sewers (205)
+Add To Stack: Ai(3)-GGS_Higure_only triggered Undercity Sewers
+Resolve Stack: Ai(3)-GGS_Higure_only surveiled 1 card(s) to the top of the library
+Resolve Stack: When Undercity Sewers enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) [Zone Changer: Undercity Sewers (205)]
+Mana: Blood Crypt (268) - {T}: Add {B}.
+Add To Stack: Ai(3)-GGS_Higure_only cast Changeling Outcast
+Resolve Stack: Changeling Outcast - Creature 1 / 1
+Add To Stack: Ai(3)-GGS_Higure_only triggered Purphoros, God of the Forge
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(2)-Destyn_Turtles.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(1)-Gabe_Food 32 > 30
+Life: Life: Ai(2)-Destyn_Turtles 13 > 11
+Life: Life: Ai(4)-Jaymie_Ezio 31 > 29
+Resolve Stack: Whenever another creature you control enters, Purphoros, God of the Forge deals 2 damage to each opponent. [Zone Changer: Changeling Outcast (218)]
+Phase: Ai(3)-GGS_Higure_only's End step
+Add To Stack: Ai(3)-GGS_Higure_only triggered Urabrask's Forge
+Resolve Stack: Sacrifice Phyrexian Horror Token (549) at the beginning of the next end step. ([Phyrexian Horror Token (549)]) [Phase: Ai(3)-GGS_Higure_only]
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 41 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Replacement Effect: If this permanent would become untapped, instead remove a stun counter from it.
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Mana: Forest (339) - {T}: Add {G}.
+Mana: Island (336) - {T}: Add {U}.
+Add To Stack: Ai(4)-Jaymie_Ezio activated Sword of Feast and Famine targeting [Unstoppable Slasher (378)]
+Resolve Stack: Sword of Feast and Famine (397) -  Attach to Unstoppable Slasher (378)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Foreboding Ruins (371) - {T}: Add {B} or {R}.
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Mana: Command Tower (335) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Island (337) - {T}: Add {U}.
+Mana: Plains (392) - {T}: Add {W}.
+Mana: Plains (393) - {T}: Add {W}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Sorin Markov
+Replacement Effect: Sorin Markov enters with four loyalty counters on it.
+Resolve Stack: Sorin Markov
+Add To Stack: Ai(4)-Jaymie_Ezio activated Sorin Markov targeting [Ai(1)-Gabe_Food]
+Life: Life: Ai(1)-Gabe_Food 30 > 10
+Resolve Stack: Sorin Markov (332) - Ai(1)-Gabe_Food life total becomes 10.
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 42 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Replacement Effect: Isolated Chapel enters tapped unless you control a Plains or a Swamp.
+Land: Ai(1)-Gabe_Food played Isolated Chapel (43)
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Add To Stack: Ai(1)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Add To Stack: Ai(1)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(1)-Gabe_Food 10 > 11
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Soldier Token (613)]
+Add To Stack: Ai(1)-Gabe_Food triggered Treebeard, Gracious Host targeting [Banquet Guests (75)]
+Resolve Stack: Whenever you gain life, put that many +1/+1 counters on target Halfling or Treefolk. (Targeting: [[Banquet Guests (75)]]) [Player: Ai(1)-Gabe_Food, Gained Amount: 1]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 43 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Mana: Forest (32) - {T}: Add {G}.
+Add To Stack: Ai(1)-Gabe_Food activated Pippin, Warden of Isengard
+Resolve Stack: Pippin, Warden of Isengard (40) - Ai(1)-Gabe_Food creates a Food Token.
+Add To Stack: Ai(1)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Add To Stack: Ai(1)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(1)-Gabe_Food 11 > 12
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Soldier Token (636)]
+Add To Stack: Ai(1)-Gabe_Food triggered Treebeard, Gracious Host targeting [Banquet Guests (75)]
+Resolve Stack: Whenever you gain life, put that many +1/+1 counters on target Halfling or Treefolk. (Targeting: [[Banquet Guests (75)]]) [Player: Ai(1)-Gabe_Food, Gained Amount: 1]
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Island (131) - {T}: Add {U}.
+Mana: Hinterland Harbor (124) - {T}: Add {G} or {U}.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Mana: Swamp (157) - {T}: Add {B}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Wave Goodbye
+Mana: Watery Grave (274) - {T}: Add {U}.
+Add To Stack: Ai(3)-GGS_Higure_only cast Swan Song targeting [Return each creature without a +1/+1 counter on it to its owner's hand.]
+Zone Change: Send countered spell to Graveyard
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Swan Song (241) - Counter Wave Goodbye (102). 
+Add To Stack: Ai(2)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Bird Token (644)]
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 44 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Land: Ai(3)-GGS_Higure_only played Command Beacon (263)
+Mana: Sokenzan, Crucible of Defiance (234) - {T}: Add {R}.
+Mana: Blood Crypt (268) - {T}: Add {R}.
+Mana: Blazemire Verge (209) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Mana: Watery Grave (274) - {T}: Add {B}.
+Mana: Undercity Sewers (205) - {T}: Add {B}.
+Mana: Command Beacon (263) - {T}: Add {C}.
+Life: Life: Ai(3)-GGS_Higure_only 11 > 10
+Mana: Mana Confluence (247) - {T}, Pay 1 life: Add one mana of any color.
+Add To Stack: Ai(3)-GGS_Higure_only cast Balefire Dragon
+Resolve Stack: Balefire Dragon - Creature 6 / 6
+Add To Stack: Ai(3)-GGS_Higure_only triggered Purphoros, God of the Forge
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(2)-Destyn_Turtles.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(1)-Gabe_Food 12 > 10
+Life: Life: Ai(2)-Destyn_Turtles 11 > 9
+Life: Life: Ai(4)-Jaymie_Ezio 29 > 27
+Resolve Stack: Whenever another creature you control enters, Purphoros, God of the Forge deals 2 damage to each opponent. [Zone Changer: Balefire Dragon (270)]
+Phase: Ai(3)-GGS_Higure_only's Beginning of Combat Step
+Add To Stack: Ai(3)-GGS_Higure_only triggered Urabrask's Forge
+Resolve Stack: At the beginning of combat on your turn, put an oil counter on Urabrask's Forge, then create an X/1 red Phyrexian Horror creature token with trample and haste, where X is the number of oil counters on Urabrask's Forge. Sacrifice that token at the beginning of the next end step. [Phase: Ai(3)-GGS_Higure_only]
+Add To Stack: Ai(3)-GGS_Higure_only triggered Purphoros, God of the Forge
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(2)-Destyn_Turtles.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(1)-Gabe_Food 10 > 8
+Life: Life: Ai(2)-Destyn_Turtles 9 > 7
+Life: Life: Ai(4)-Jaymie_Ezio 27 > 25
+Resolve Stack: Whenever another creature you control enters, Purphoros, God of the Forge deals 2 damage to each opponent. [Zone Changer: Phyrexian Horror Token (654)]
+Phase: Ai(3)-GGS_Higure_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Higure_only assigned Phyrexian Horror Token (654) and Changeling Outcast (218) to attack Sorin Markov (332).
+Add To Stack: Ai(2)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (122) - Ai(2)-Destyn_Turtles creates a Treasure token.
+Add To Stack: Ai(2)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Treasure Token (660)]
+Phase: Ai(3)-GGS_Higure_only's Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio didn't block Phyrexian Horror Token (654).
+Ai(4)-Jaymie_Ezio didn't block Changeling Outcast (218).
+Phase: Ai(3)-GGS_Higure_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Higure_only's Combat Damage Step
+Zone Change: Sorin Markov (332) was put into Graveyard from Battlefield.
+Phase: Ai(3)-GGS_Higure_only's End of Combat Step
+Phase: Ai(3)-GGS_Higure_only's Main phase, postcombat
+Phase: Ai(3)-GGS_Higure_only's End step
+Add To Stack: Ai(3)-GGS_Higure_only triggered Urabrask's Forge
+Zone Change: Phyrexian Horror Token (654) was put into Graveyard from Battlefield.
+Resolve Stack: Sacrifice Phyrexian Horror Token (654) at the beginning of the next end step. ([Phyrexian Horror Token (654)]) [Phase: Ai(3)-GGS_Higure_only]
+Phase: Ai(3)-GGS_Higure_only's Cleanup step
+Turn: Turn 45 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 46 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Add To Stack: Ai(1)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Add To Stack: Ai(1)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(1)-Gabe_Food 8 > 9
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Soldier Token (668)]
+Add To Stack: Ai(1)-Gabe_Food triggered Treebeard, Gracious Host targeting [Banquet Guests (75)]
+Resolve Stack: Whenever you gain life, put that many +1/+1 counters on target Halfling or Treefolk. (Targeting: [[Banquet Guests (75)]]) [Player: Ai(1)-Gabe_Food, Gained Amount: 1]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Mana: Isolated Chapel (43) - {T}: Add {W} or {B}.
+Damage: Murmuring Bosk (24) deals 1 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 9 > 8
+Mana: Murmuring Bosk (24) - {T}: Add {W} or {B}. Murmuring Bosk deals 1 damage to you. 
+Mana: Swamp (61) - {T}: Add {B}.
+Mana: Swamp (63) - {T}: Add {B}.
+Add To Stack: Ai(1)-Gabe_Food cast Dusk
+Zone Change: Savvy Hunter (23) was put into Graveyard from Battlefield.
+Zone Change: Banquet Guests (75) was put into Graveyard from Battlefield.
+Zone Change: Rat Token (414) was put into Graveyard from Battlefield.
+Zone Change: Leonardo, the Balance (202) was put into Graveyard from Battlefield.
+Zone Change: Tempestra, Dame of Games (180) was put into Graveyard from Battlefield.
+Zone Change: Michelangelo, the Heart (200) was put into Graveyard from Battlefield.
+Zone Change: Bird Token (644) was put into Graveyard from Battlefield.
+Zone Change: Savvy Hunter (251) was put into Graveyard from Battlefield.
+Zone Change: Goro-Goro and Satoru (302) was put into Graveyard from Battlefield.
+Zone Change: Fallen Shinobi (226) was put into Graveyard from Battlefield.
+Zone Change: Balefire Dragon (270) was put into Graveyard from Battlefield.
+Zone Change: Ezio Auditore da Firenze (403) was put into Graveyard from Battlefield.
+Zone Change: Jacob Frye (365) was put into Graveyard from Battlefield.
+Zone Change: Unstoppable Slasher (378) was put into Graveyard from Battlefield.
+Resolve Stack: Dusk (12) - Destroy all creatures with power 3 or greater.
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Unstoppable Slasher
+Mana: Plains (189) - {T}: Add {W}.
+Mana: Forest (138) - {T}: Add {G}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Continue? targeting [Tempestra, Dame of Games (180)]
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Continue? (178) - Return Tempestra, Dame of Games (180) from the graveyard to the battlefield.
+Resolve Stack: When Unstoppable Slasher dies, if it had no counters on it, return it to the battlefield tapped under its owner's control with two stun counters on it. [Zone Changer: Unstoppable Slasher (378)]
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 47 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Mana: Forest (32) - {T}: Add {G}.
+Add To Stack: Ai(1)-Gabe_Food activated Pippin, Warden of Isengard
+Resolve Stack: Pippin, Warden of Isengard (40) - Ai(1)-Gabe_Food creates a Food Token.
+Add To Stack: Ai(1)-Gabe_Food triggered Merry, Warden of Isengard
+Resolve Stack: Whenever one or more artifacts you control enter, create a 1/1 white Soldier creature token with lifelink. This ability triggers only once each turn. [Amount: 1]
+Add To Stack: Ai(1)-Gabe_Food triggered Prosperous Innkeeper
+Life: Life: Ai(1)-Gabe_Food 8 > 9
+Resolve Stack: Whenever another creature you control enters, you gain 1 life. [Zone Changer: Soldier Token (694)]
+Add To Stack: Ai(1)-Gabe_Food triggered Treebeard, Gracious Host targeting [Sam, Loyal Attendant (101)]
+Resolve Stack: Whenever you gain life, put that many +1/+1 counters on target Halfling or Treefolk. (Targeting: [[Sam, Loyal Attendant (101)]]) [Player: Ai(1)-Gabe_Food, Gained Amount: 1]
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Mountain (186) - {T}: Add {R}.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Mana: Swamp (157) - {T}: Add {B}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Tokka & Rahzar, Unsupervised
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Tokka & Rahzar, Unsupervised - Creature 3 / 3
+Mana: Plains (189) - {T}: Add {W}.
+Mana: Forest (138) - {T}: Add {G}.
+Mana: Island (131) - {T}: Add {U}.
+Mana: Hinterland Harbor (124) - {T}: Add {G} or {U}.
+Mana: Vernal Fen (159) - {T}: Add {G}.
+Mana: Sunken Hollow (125) - {T}: Add {B}.
+Mana: Arcane Signet (149) - {T}: Add one mana of any color in your commander's color identity.
+Zone Change: Treasure Token (660) was put into Graveyard from Battlefield.
+Mana: Treasure Token (660) - {T}, Sacrifice this token: Add one mana of any color.
+Add To Stack: Ai(2)-Destyn_Turtles cast Leonardo, the Balance
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 48 (Ai(3)-GGS_Higure_only)
+Phase: Ai(3)-GGS_Higure_only's Untap step
+Phase: Ai(3)-GGS_Higure_only's Upkeep step
+Phase: Ai(3)-GGS_Higure_only's Draw step
+Phase: Ai(3)-GGS_Higure_only's Main phase, precombat
+Mana: Watery Grave (274) - {T}: Add {U}.
+Mana: Undercity Sewers (205) - {T}: Add {B}.
+Mana: Sokenzan, Crucible of Defiance (234) - {T}: Add {R}.
+Mana: Blood Crypt (268) - {T}: Add {R}.
+Mana: Blazemire Verge (209) - {T}: Add {R}. Activate only if you control a Swamp or a Mountain.
+Add To Stack: Ai(3)-GGS_Higure_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Add To Stack: Ai(3)-GGS_Higure_only triggered Purphoros, God of the Forge
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(2)-Destyn_Turtles.
+Damage: Purphoros, God of the Forge (265) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(1)-Gabe_Food 9 > 7
+Life: Life: Ai(2)-Destyn_Turtles 7 > 5
+Life: Life: Ai(4)-Jaymie_Ezio 25 > 23
+Resolve Stack: Whenever another creature you control enters, Purphoros, God of the Forge deals 2 damage to each opponent. [Zone Changer: Goro-Goro and Satoru (302)]
+Zone Change: Treasure Token (569) was put into Graveyard from Battlefield.
+Mana: Treasure Token (569) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Treasure Token (492) was put into Graveyard from Battlefield.
+Mana: Treasure Token (492) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Food Token (416) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles activated Food Token
+Life: Life: Ai(2)-Destyn_Turtles 5 > 8
+Resolve Stack: Food Token (416) - Ai(2)-Destyn_Turtles gains 3 life.
+Player Control: Ai(1)-Gabe_Food has restored control over themself
+Player Control: Ai(2)-Destyn_Turtles has restored control over themself
+Player Control: Ai(3)-GGS_Higure_only has restored control over themself
+Player Control: Ai(4)-Jaymie_Ezio has restored control over themself
+Game Outcome: Match Duration 3m : 59s
+Game Outcome: Turn 24
+Game Outcome: Ai(1)-Gabe_Food has won because all opponents have lost
+Game Outcome: Ai(2)-Destyn_Turtles has won because all opponents have lost
+Game Outcome: Ai(3)-GGS_Higure_only has won because all opponents have lost
+Game Outcome: Ai(4)-Jaymie_Ezio has won because all opponents have lost
+Match Result: Ai(1)-Gabe_Food: 0 Ai(2)-Destyn_Turtles: 0 Ai(3)-GGS_Higure_only: 0 Ai(4)-Jaymie_Ezio: 1 
+
+Game Result: Game 1 ended in 240101 ms. Ai(4)-Jaymie_Ezio has won!
+

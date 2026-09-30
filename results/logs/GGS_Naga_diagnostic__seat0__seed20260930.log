@@ -1,0 +1,1794 @@
+Error handling registered!
+20:41:07 [INFO ] GuiBase: ##########################################
+20:41:07 [INFO ] GuiBase: APP: Forge v.2.0.15-SNAPSHOT-09.28
+20:41:07 [INFO ] GuiBase: Java: 17.0.20 (Ubuntu)
+20:41:07 [INFO ] GuiBase: OS: Linux 6.18.44 amd64
+20:41:07 [INFO ] GuiBase: RAM: 1536 MB max, 8 CPUs
+20:41:07 [INFO ] GuiBase: ##########################################
+Language 'en-US' loaded successfully.
+(ThreadUtil first call): Running with priority 5
+Read cards: 34010 archived files in 1 ms (25 parts) using thread pool
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+The card A-Alrund's Epiphany was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Baba Lysaga, Night Witch was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Divide by Zero was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Esika's Chariot was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Faceless Haven was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Fires of Invention was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Goldspan Dragon was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Hullbreaker Horror was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Kumano Faces Kakkazan was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Luminarch Aspirant was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Monster Manual was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Omnath, Locus of Creation was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-The Meathook Massacre was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Unholy Heat was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Blinding Radiance was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Goblin Bruiser was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Ogre Painbringer was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Titanic Pelagosaur was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Treetop Recluse was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+Read cards: 854 files in 0 ms (8 parts) using thread pool
+Simulation mode
+Ai(1)-GGS_Naga_diagnostic vs Ai(2)-Jaymie_Ezio vs Ai(3)-Gabe_Food vs Ai(4)-Destyn_Turtles - one game of Commander seed 20260930
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Goro-Goro and Satoru for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Michelangelo, the Heart for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Sam, Loyal Attendant for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Frodo, Adventurous Hobbit for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Leonardo, the Balance for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Michelangelo, the Heart for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Sam, Loyal Attendant for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Frodo, Adventurous Hobbit for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Mulligan: Ai(3)-Gabe_Food has mulliganed down to 7 cards.
+Mulligan: Ai(4)-Destyn_Turtles has kept a hand of 7 cards
+Mulligan: Ai(1)-GGS_Naga_diagnostic has kept a hand of 7 cards
+Mulligan: Ai(2)-Jaymie_Ezio has kept a hand of 7 cards
+Mulligan: Ai(3)-Gabe_Food has kept a hand of 7 cards
+Turn: Turn 1 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Path of Ancestry enters tapped.
+Land: Ai(4)-Destyn_Turtles played Path of Ancestry (315)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 2 (Ai(1)-GGS_Naga_diagnostic)
+Phase: Ai(1)-GGS_Naga_diagnostic's Untap step
+Phase: Ai(1)-GGS_Naga_diagnostic's Upkeep step
+Phase: Ai(1)-GGS_Naga_diagnostic's Draw step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, precombat
+Land: Ai(1)-GGS_Naga_diagnostic played Sokenzan, Crucible of Defiance (32)
+Phase: Ai(1)-GGS_Naga_diagnostic's Beginning of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Attackers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Blockers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's First Strike Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Combat Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's End of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, postcombat
+Phase: Ai(1)-GGS_Naga_diagnostic's End step
+Phase: Ai(1)-GGS_Naga_diagnostic's Cleanup step
+Turn: Turn 3 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Abstergo Entertainment (121)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 4 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Replacement Effect: Isolated Chapel enters tapped unless you control a Plains or a Swamp.
+Land: Ai(3)-Gabe_Food played Isolated Chapel (245)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 5 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Command Tower (331)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(4)-Destyn_Turtles cast Michelangelo, the Heart
+Add To Stack: Ai(4)-Destyn_Turtles triggered Path of Ancestry
+Resolve Stack: Ai(4)-Destyn_Turtles scried 1 card(s) to the top of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Michelangelo, the Heart - Creature 2 / 1]) [Card: Michelangelo, the Heart (402), Activator: Ai(4)-Destyn_Turtles, SpellAbility: Michelangelo, the Heart - Creature 2 / 1]
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 6 (Ai(1)-GGS_Naga_diagnostic)
+Phase: Ai(1)-GGS_Naga_diagnostic's Untap step
+Phase: Ai(1)-GGS_Naga_diagnostic's Upkeep step
+Phase: Ai(1)-GGS_Naga_diagnostic's Draw step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, precombat
+Life: Life: Ai(1)-GGS_Naga_diagnostic 40 > 38
+Replacement Effect: As Watery Grave enters, you may pay 2 life. If you don't, it enters tapped.
+Land: Ai(1)-GGS_Naga_diagnostic played Watery Grave (71)
+Mana: Sokenzan, Crucible of Defiance (32) - {T}: Add {R}.
+Mana: Watery Grave (71) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic cast Loyal Apprentice
+Resolve Stack: Loyal Apprentice - Creature 2 / 1
+Phase: Ai(1)-GGS_Naga_diagnostic's Beginning of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Attackers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Blockers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's First Strike Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Combat Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's End of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, postcombat
+Phase: Ai(1)-GGS_Naga_diagnostic's End step
+Phase: Ai(1)-GGS_Naga_diagnostic's Cleanup step
+Turn: Turn 7 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Plains (191)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 8 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Forest (238)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Forest (238) - {T}: Add {G}.
+Discard: Ai(3)-Gabe_Food discards Eagles of the North (280).
+Add To Stack: Ai(3)-Gabe_Food activated Eagles of the North
+Resolve Stack: Eagles of the North (280) - Ai(3)-Gabe_Food searches their library for a Plains card, reveals it, puts it into their hand, then shuffles.
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 9 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Island (332)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Michelangelo, the Heart (402) to attack Ai(1)-GGS_Naga_diagnostic.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(1)-GGS_Naga_diagnostic didn't block Michelangelo, the Heart (402).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Michelangelo, the Heart (402) deals 2 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Life: Life: Ai(1)-GGS_Naga_diagnostic 38 > 36
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Michelangelo, the Heart (402)]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Michelangelo, the Heart (402)]]) [Phase: Ai(4)-Destyn_Turtles]
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Island (332) - {T}: Add {U}.
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(4)-Destyn_Turtles cast Ninja Pizza
+Resolve Stack: Ninja Pizza
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 10 (Ai(1)-GGS_Naga_diagnostic)
+Phase: Ai(1)-GGS_Naga_diagnostic's Untap step
+Phase: Ai(1)-GGS_Naga_diagnostic's Upkeep step
+Phase: Ai(1)-GGS_Naga_diagnostic's Draw step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, precombat
+Replacement Effect: Malakir Mire enters tapped.
+Land: Ai(1)-GGS_Naga_diagnostic played Malakir Mire (5)
+Phase: Ai(1)-GGS_Naga_diagnostic's Beginning of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Attackers Step
+Combat: Ai(1)-GGS_Naga_diagnostic assigned Loyal Apprentice (1) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Loyal Apprentice (1).
+Mana: Watery Grave (71) - {T}: Add {U}.
+Mana: Sokenzan, Crucible of Defiance (32) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic activated Prosperous Thief
+Resolve Stack: Prosperous Thief (27) - Ai(1)-GGS_Naga_diagnostic puts Prosperous Thief (27) from their hand onto the battlefield tapped and attacking.
+Phase: Ai(1)-GGS_Naga_diagnostic's First Strike Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Combat Damage Step
+Damage: Prosperous Thief (27) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 40 > 37
+Add To Stack: Ai(1)-GGS_Naga_diagnostic triggered Prosperous Thief
+Resolve Stack: Whenever one or more Ninja or Rogue creatures you control deal combat damage to a player, create a Treasure token. (It's an artifact with "{T}, Sacrifice this token: Add one mana of any color.") [Damaged: Ai(4)-Destyn_Turtles, Amount: 3]
+Phase: Ai(1)-GGS_Naga_diagnostic's End of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, postcombat
+Phase: Ai(1)-GGS_Naga_diagnostic's End step
+Phase: Ai(1)-GGS_Naga_diagnostic's Cleanup step
+Turn: Turn 11 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Mountain (189)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 12 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Replacement Effect: Scattered Groves enters tapped.
+Land: Ai(3)-Gabe_Food played Scattered Groves (248)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 13 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Spire Garden enters tapped unless you have two or more opponents.
+Land: Ai(4)-Destyn_Turtles played Spire Garden (392)
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Island (332) - {T}: Add {U}.
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Zone Change: Food Token (425) was put into Graveyard from Battlefield.
+Mana: Food Token (425) - {T}, Sacrifice this artifact: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles cast Acidic Slime
+Resolve Stack: Acidic Slime - Creature 2 / 2
+Add To Stack: Ai(4)-Destyn_Turtles triggered Acidic Slime targeting [Treasure Token (430)]
+Zone Change: Treasure Token (430) was put into Graveyard from Battlefield.
+Resolve Stack: When Acidic Slime enters, destroy target artifact, enchantment, or land. (Targeting: [[Treasure Token (430)]]) [Zone Changer: Acidic Slime (365)]
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Michelangelo, the Heart (402) to attack Ai(1)-GGS_Naga_diagnostic.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(1)-GGS_Naga_diagnostic didn't block Michelangelo, the Heart (402).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Michelangelo, the Heart (402) deals 3 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Life: Life: Ai(1)-GGS_Naga_diagnostic 36 > 33
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Acidic Slime (365)]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Acidic Slime (365)]]) [Phase: Ai(4)-Destyn_Turtles]
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 14 (Ai(1)-GGS_Naga_diagnostic)
+Phase: Ai(1)-GGS_Naga_diagnostic's Untap step
+Phase: Ai(1)-GGS_Naga_diagnostic's Upkeep step
+Phase: Ai(1)-GGS_Naga_diagnostic's Draw step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, precombat
+Land: Ai(1)-GGS_Naga_diagnostic played Flooded Strand (8)
+Life: Life: Ai(1)-GGS_Naga_diagnostic 33 > 32
+Zone Change: Flooded Strand (8) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic activated Flooded Strand
+Replacement Effect: As Steam Vents enters, you may pay 2 life. If you don't, it enters tapped.
+Resolve Stack: Flooded Strand (8) - Ai(1)-GGS_Naga_diagnostic searches their library for a Plains or Island card, puts it onto the battlefield, then shuffles.
+Mana: Sokenzan, Crucible of Defiance (32) - {T}: Add {R}.
+Mana: Malakir Mire (5) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic cast Loyal Apprentice
+Resolve Stack: Loyal Apprentice - Creature 2 / 1
+Phase: Ai(1)-GGS_Naga_diagnostic's Beginning of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Attackers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Blockers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's First Strike Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Combat Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's End of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, postcombat
+Phase: Ai(1)-GGS_Naga_diagnostic's End step
+Phase: Ai(1)-GGS_Naga_diagnostic's Cleanup step
+Turn: Turn 15 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Island (134)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Island (134) - {T}: Add {U}.
+Mana: Mountain (189) - {T}: Add {R}.
+Mana: Plains (191) - {T}: Add {W}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Shao Jun
+Resolve Stack: Shao Jun - Creature 3 / 3
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 16 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Brushland (298)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Forest (238) - {T}: Add {G}.
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (303)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 17 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Mana: Island (332) - {T}: Add {U}.
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Zone Change: Food Token (441) was put into Graveyard from Battlefield.
+Mana: Food Token (441) - {T}, Sacrifice this artifact: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles cast Raphael, the Muscle
+Add To Stack: Ai(4)-Destyn_Turtles triggered Path of Ancestry
+Resolve Stack: Ai(4)-Destyn_Turtles scried 1 card(s) to the top of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Raphael, the Muscle - Creature 4 / 4]) [Card: Raphael, the Muscle (378), Activator: Ai(4)-Destyn_Turtles, SpellAbility: Raphael, the Muscle - Creature 4 / 4]
+Resolve Stack: Raphael, the Muscle - Creature 4 / 4
+Add To Stack: Ai(4)-Destyn_Turtles triggered Raphael, the Muscle
+Resolve Stack: When Raphael enters, create a Mutagen token. [Zone Changer: Raphael, the Muscle (378)]
+Zone Change: Food Token (436) was put into Graveyard from Battlefield.
+Mana: Food Token (436) - {T}, Sacrifice this artifact: Add one mana of any color.
+Zone Change: Food Token (434) was put into Graveyard from Battlefield.
+Mana: Food Token (434) - {T}, Sacrifice this artifact: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles cast Tempestra, Dame of Games
+Resolve Stack: Tempestra, Dame of Games - Creature 1 / 3
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 18 (Ai(1)-GGS_Naga_diagnostic)
+Phase: Ai(1)-GGS_Naga_diagnostic's Untap step
+Phase: Ai(1)-GGS_Naga_diagnostic's Upkeep step
+Phase: Ai(1)-GGS_Naga_diagnostic's Draw step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, precombat
+Phase: Ai(1)-GGS_Naga_diagnostic's Beginning of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Attackers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Blockers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's First Strike Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Combat Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's End of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, postcombat
+Mana: Watery Grave (71) - {T}: Add {U}.
+Mana: Malakir Mire (5) - {T}: Add {B}.
+Mana: Sokenzan, Crucible of Defiance (32) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Phase: Ai(1)-GGS_Naga_diagnostic's End step
+Phase: Ai(1)-GGS_Naga_diagnostic's Cleanup step
+Turn: Turn 19 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Forest (137)
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Shao Jun (183) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Shao Jun (183).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Damage: Shao Jun (183) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 37 > 34
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Island (134) - {T}: Add {U}.
+Mana: Forest (137) - {T}: Add {G}.
+Mana: Plains (191) - {T}: Add {W}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Lydia Frye
+Resolve Stack: Lydia Frye - Creature 3 / 2
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 1 card(s) to the top of the library
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 20 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Shire Terrace (273)
+Mana: Forest (238) - {T}: Add {G}.
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Mana: Shire Terrace (273) - {T}: Add {C}.
+Add To Stack: Ai(3)-Gabe_Food cast Assemble the Entmoot
+Resolve Stack: Assemble the Entmoot
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 21 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Raphael, the Muscle (378) and Acidic Slime (365) to attack Ai(1)-GGS_Naga_diagnostic.
+Zone Change: Assemble the Entmoot (203) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Assemble the Entmoot
+Resolve Stack: Assemble the Entmoot (203) - Ai(3)-Gabe_Food creates three tapped X/X green Treefolk creature tokens, where X is the amount of life you gained this turn. Put a reach counter on each of them. Ai(3)-Gabe_Food puts a reach counter on . 
+Zone Change: Treefolk Token (463) was put into Graveyard from Battlefield.
+Zone Change: Treefolk Token (464) was put into Graveyard from Battlefield.
+Zone Change: Treefolk Token (465) was put into Graveyard from Battlefield.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(1)-GGS_Naga_diagnostic assigned Loyal Apprentice (1) and Goro-Goro and Satoru (100) to block Raphael, the Muscle (378).
+Ai(1)-GGS_Naga_diagnostic didn't block Acidic Slime (365).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Replacement Effect: Double all damage that creatures you control with counters on them would deal.
+Damage: Raphael, the Muscle (378) deals 4 damage to Goro-Goro and Satoru (100).
+Damage: Acidic Slime (365) deals 6 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Damage: Loyal Apprentice (1) deals 2 damage to Raphael, the Muscle (378).
+Damage: Goro-Goro and Satoru (100) deals 3 damage to Raphael, the Muscle (378).
+Life: Life: Ai(1)-GGS_Naga_diagnostic 32 > 26
+Zone Change: Raphael, the Muscle (378) was put into Graveyard from Battlefield.
+Zone Change: Goro-Goro and Satoru (100) was put into Graveyard from Battlefield.
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Acidic Slime (365)]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Acidic Slime (365)]]) [Phase: Ai(4)-Destyn_Turtles]
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Island (332) - {T}: Add {U}.
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(4)-Destyn_Turtles cast Leonardo, the Balance
+Add To Stack: Ai(4)-Destyn_Turtles triggered Path of Ancestry
+Resolve Stack: Ai(4)-Destyn_Turtles scried 1 card(s) to the top of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Leonardo, the Balance - Creature 3 / 3]) [Card: Leonardo, the Balance (404), Activator: Ai(4)-Destyn_Turtles, SpellAbility: Leonardo, the Balance - Creature 3 / 3]
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 22 (Ai(1)-GGS_Naga_diagnostic)
+Phase: Ai(1)-GGS_Naga_diagnostic's Untap step
+Phase: Ai(1)-GGS_Naga_diagnostic's Upkeep step
+Phase: Ai(1)-GGS_Naga_diagnostic's Draw step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, precombat
+Phase: Ai(1)-GGS_Naga_diagnostic's Beginning of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Attackers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Blockers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's First Strike Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Combat Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's End of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, postcombat
+Mana: Malakir Mire (5) - {T}: Add {B}.
+Mana: Sokenzan, Crucible of Defiance (32) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic cast Fellwar Stone
+Resolve Stack: Fellwar Stone
+Mana: Fellwar Stone (92) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic cast Sol Ring
+Resolve Stack: Sol Ring
+Phase: Ai(1)-GGS_Naga_diagnostic's End step
+Phase: Ai(1)-GGS_Naga_diagnostic's Cleanup step
+Turn: Turn 23 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Shao Jun (183) and Lydia Frye (186) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Shao Jun (183).
+Ai(4)-Destyn_Turtles didn't block Lydia Frye (186).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Damage: Shao Jun (183) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 34 > 31
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Lydia Frye (186) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 31 > 28
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Island (134) - {T}: Add {U}.
+Mana: Mountain (189) - {T}: Add {R}.
+Discard: Ai(2)-Jaymie_Ezio discards Perilous Landscape (127).
+Add To Stack: Ai(2)-Jaymie_Ezio activated Perilous Landscape
+Resolve Stack: Perilous Landscape (127) - Ai(2)-Jaymie_Ezio draws a card.
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 2 card(s) to the top of the library
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 24 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Mana: Forest (238) - {T}: Add {G}.
+Zone Change: Shire Terrace (273) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Shire Terrace
+Resolve Stack: Shire Terrace (273) - Ai(3)-Gabe_Food searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Access Tunnel (255)
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Mana: Brushland (298) - {T}: Add {C}.
+Add To Stack: Ai(3)-Gabe_Food activated Access Tunnel targeting [Sam, Loyal Attendant (303)]
+Resolve Stack: Access Tunnel (255) - Sam, Loyal Attendant (303) can't be blocked this turn.
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Sam, Loyal Attendant (303) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Sam, Loyal Attendant (303).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (303) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 28 > 26
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 25 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Acidic Slime (365), Michelangelo, the Heart (402) and Leonardo, the Balance (404) to attack Ai(1)-GGS_Naga_diagnostic.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(1)-GGS_Naga_diagnostic didn't block Acidic Slime (365).
+Ai(1)-GGS_Naga_diagnostic didn't block Michelangelo, the Heart (402).
+Ai(1)-GGS_Naga_diagnostic didn't block Leonardo, the Balance (404).
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Island (332) - {T}: Add {U}.
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Zone Change: Food Token (470) was put into Graveyard from Battlefield.
+Mana: Food Token (470) - {T}, Sacrifice this artifact: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (404) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Acidic Slime (365) deals 4 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Life: Life: Ai(4)-Destyn_Turtles 26 > 30
+Damage: Michelangelo, the Heart (402) deals 3 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Life: Life: Ai(4)-Destyn_Turtles 30 > 33
+Damage: Leonardo, the Balance (404) deals 3 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Life: Life: Ai(4)-Destyn_Turtles 33 > 36
+Life: Life: Ai(1)-GGS_Naga_diagnostic 26 > 16
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Acidic Slime (365)]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Food Token (478)]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Acidic Slime (365)]]) [Phase: Ai(4)-Destyn_Turtles]
+Replacement Effect: Thriving Moor enters tapped.
+Replacement Effect: As Thriving Moor enters, choose a color other than black.
+Land: Ai(4)-Destyn_Turtles played Thriving Moor (399)
+Zone Change: Food Token (480) was put into Graveyard from Battlefield.
+Mana: Food Token (480) - {T}, Sacrifice this artifact: Add one mana of any color.
+Zone Change: Food Token (478) was put into Graveyard from Battlefield.
+Mana: Food Token (478) - {T}, Sacrifice this artifact: Add one mana of any color.
+Zone Change: Food Token (468) was put into Graveyard from Battlefield.
+Mana: Food Token (468) - {T}, Sacrifice this artifact: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles cast Rocksteady, Mutant Marauder
+Mana: Watery Grave (71) - {T}: Add {U}.
+Mana: Steam Vents (43) - {T}: Add {U}.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic cast Mana Drain targeting [Rocksteady, Mutant Marauder - Creature 3 / 3]
+Zone Change: Send countered spell to Graveyard
+Resolve Stack: Mana Drain (51) - Counter Rocksteady, Mutant Marauder (385). At the beginning of your next main phase, add an amount of {C} equal to that spell's mana value. 
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 26 (Ai(1)-GGS_Naga_diagnostic)
+Phase: Ai(1)-GGS_Naga_diagnostic's Untap step
+Phase: Ai(1)-GGS_Naga_diagnostic's Upkeep step
+Phase: Ai(1)-GGS_Naga_diagnostic's Draw step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, precombat
+Add To Stack: Ai(1)-GGS_Naga_diagnostic triggered Mana Drain
+Resolve Stack: At the beginning of your next main phase, add an amount of {C} equal to that spell's mana value. ([3]) [Phase: Ai(1)-GGS_Naga_diagnostic]
+Phase: Ai(1)-GGS_Naga_diagnostic's Beginning of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Attackers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Blockers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's First Strike Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Combat Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's End of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, postcombat
+Mana: Sokenzan, Crucible of Defiance (32) - {T}: Add {R}.
+Mana: Fellwar Stone (92) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Sol Ring (40) - {T}: Add {C}{C}.
+Mana: Malakir Mire (5) - {T}: Add {B}.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic cast Draconic Visitor
+Resolve Stack: Draconic Visitor - Creature 5 / 5
+Phase: Ai(1)-GGS_Naga_diagnostic's End step
+Phase: Ai(1)-GGS_Naga_diagnostic's Cleanup step
+Turn: Turn 27 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Mana: Island (134) - {T}: Add {U}.
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Forest (137) - {T}: Add {G}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Smoke Bomb
+Resolve Stack: Smoke Bomb
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Shao Jun (183) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Shao Jun (183).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Damage: Shao Jun (183) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 36 > 33
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 1 card(s) to the top of the library
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 28 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Ghost Quarter (215)
+Zone Change: Ghost Quarter (215) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Ghost Quarter targeting [Abstergo Entertainment (121)]
+Zone Change: Abstergo Entertainment (121) was put into Graveyard from Battlefield.
+Resolve Stack: Ghost Quarter (215) - Destroy Abstergo Entertainment (121). (OPTIONAL) Ai(3)-Gabe_Food searches Ai(2)-Jaymie_Ezio library for a basic land card, puts it onto the battlefield, then shuffles.
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Swamp (263) - {T}: Add {B}.
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Forest (238) - {T}: Add {G}.
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Mana: Access Tunnel (255) - {T}: Add {C}.
+Add To Stack: Ai(3)-Gabe_Food cast Sanguine Bond
+Resolve Stack: Sanguine Bond
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 29 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Dragonskull Summit enters tapped unless you control a Swamp or a Mountain.
+Land: Ai(4)-Destyn_Turtles played Dragonskull Summit (350)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Acidic Slime (365) to attack Ai(1)-GGS_Naga_diagnostic.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(1)-GGS_Naga_diagnostic didn't block Acidic Slime (365).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Acidic Slime (365) deals 6 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Life: Life: Ai(1)-GGS_Naga_diagnostic 16 > 10
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Food Token (487)]
+Mana: Island (332) - {T}: Add {U}.
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Mana: Thriving Moor (399) - {T}: Add {B} or one mana of the chosen color.
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Add To Stack: Ai(4)-Destyn_Turtles cast Big Mother Mouser
+Replacement Effect: Big Mother Mouser enters with two +1/+1 counters on it.
+Resolve Stack: Big Mother Mouser - Creature 0 / 0
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 30 (Ai(1)-GGS_Naga_diagnostic)
+Phase: Ai(1)-GGS_Naga_diagnostic's Untap step
+Phase: Ai(1)-GGS_Naga_diagnostic's Upkeep step
+Phase: Ai(1)-GGS_Naga_diagnostic's Draw step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, precombat
+Phase: Ai(1)-GGS_Naga_diagnostic's Beginning of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Attackers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Declare Blockers Step
+Phase: Ai(1)-GGS_Naga_diagnostic's First Strike Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Combat Damage Step
+Phase: Ai(1)-GGS_Naga_diagnostic's End of Combat Step
+Phase: Ai(1)-GGS_Naga_diagnostic's Main phase, postcombat
+Mana: Fellwar Stone (92) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Malakir Mire (5) - {T}: Add {B}.
+Mana: Sol Ring (40) - {T}: Add {C}{C}.
+Mana: Sokenzan, Crucible of Defiance (32) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic cast Fallen Shinobi
+Resolve Stack: Fallen Shinobi - Creature 5 / 4
+Mana: Watery Grave (71) - {T}: Add {B}.
+Mana: Steam Vents (43) - {T}: Add {R}.
+Add To Stack: Ai(1)-GGS_Naga_diagnostic cast Talisman of Indulgence
+Resolve Stack: Talisman of Indulgence
+Phase: Ai(1)-GGS_Naga_diagnostic's End step
+Phase: Ai(1)-GGS_Naga_diagnostic's Cleanup step
+Turn: Turn 31 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Smoke Bomb
+Zone Change: Smoke Bomb (153) was put into Graveyard from Battlefield.
+Resolve Stack: At the beginning of your upkeep, sacrifice Smoke Bomb. When you do, target creature you control can't be blocked this turn. [Phase: Ai(2)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Smoke Bomb targeting [Lydia Frye (186)]
+Resolve Stack: When you do, target creature you control can't be blocked this turn. (Targeting: [[Lydia Frye (186)]])
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(2)-Jaymie_Ezio played Brotherhood Headquarters (126)
+Mana: Forest (137) - {T}: Add {G}.
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Island (134) - {T}: Add {U}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast 
+Resolve Stack: Disguise - Creature 2/2
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Shao Jun (183) and Lydia Frye (186) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Shao Jun (183).
+Ai(4)-Destyn_Turtles didn't block Lydia Frye (186).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Damage: Shao Jun (183) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 33 > 30
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Lydia Frye (186) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 30 > 27
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Mana: Plains (191) - {T}: Add {W}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Resolve Stack: Ezio Auditore da Firenze - Creature 3 / 2
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 2 card(s) to the top of the library
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 32 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Forest (234)
+Mana: Swamp (263) - {T}: Add {B}.
+Mana: Forest (238) - {T}: Add {G}.
+Mana: Forest (234) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food activated Access Tunnel targeting [Sam, Loyal Attendant (303)]
+Resolve Stack: Access Tunnel (255) - Sam, Loyal Attendant (303) can't be blocked this turn.
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Sam, Loyal Attendant (303) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Sam, Loyal Attendant (303).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (303) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 27 > 25
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Mana: Brushland (298) - {T}: Add {C}.
+Add To Stack: Ai(3)-Gabe_Food cast Commander's Sphere
+Resolve Stack: Commander's Sphere
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 33 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Mana: Thriving Moor (399) - {T}: Add {B} or one mana of the chosen color.
+Mana: Island (332) - {T}: Add {U}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Foot Chopper
+Resolve Stack: Foot Chopper
+Add To Stack: Ai(4)-Destyn_Turtles triggered Foot Chopper
+Resolve Stack: When this Equipment enters, create a 1/1 black Ninja creature token, then attach this Equipment to it. [Zone Changer: Foot Chopper (395)]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Ninja Token (511)]
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Acidic Slime (365), Michelangelo, the Heart (402) and Leonardo, the Balance (404) to attack Ai(1)-GGS_Naga_diagnostic.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(1)-GGS_Naga_diagnostic assigned Loyal Apprentice (1) to block Acidic Slime (365).
+Ai(1)-GGS_Naga_diagnostic assigned Fallen Shinobi (24) to block Michelangelo, the Heart (402).
+Ai(1)-GGS_Naga_diagnostic assigned Prosperous Thief (27) to block Leonardo, the Balance (404).
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Dragonskull Summit (350) - {T}: Add {B} or {R}.
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Zone Change: Food Token (487) was put into Graveyard from Battlefield.
+Mana: Food Token (487) - {T}, Sacrifice this artifact: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (404) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Acidic Slime (365) deals 7 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Damage: Acidic Slime (365) deals 1 damage (Deathtouch) to Loyal Apprentice (1).
+Life: Life: Ai(4)-Destyn_Turtles 25 > 33
+Damage: Michelangelo, the Heart (402) deals 2 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Damage: Michelangelo, the Heart (402) deals 4 damage to Fallen Shinobi (24).
+Life: Life: Ai(4)-Destyn_Turtles 33 > 39
+Damage: Leonardo, the Balance (404) deals 4 combat damage to Ai(1)-GGS_Naga_diagnostic.
+Damage: Leonardo, the Balance (404) deals 2 damage to Prosperous Thief (27).
+Life: Life: Ai(4)-Destyn_Turtles 39 > 45
+Damage: Fallen Shinobi (24) deals 5 damage to Michelangelo, the Heart (402).
+Damage: Loyal Apprentice (1) deals 2 damage to Acidic Slime (365).
+Damage: Prosperous Thief (27) deals 3 damage to Leonardo, the Balance (404).
+Life: Life: Ai(1)-GGS_Naga_diagnostic 10 > -3
+Zone Change: Michelangelo, the Heart (402) was put into Graveyard from Battlefield.
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 34 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Forest (137) - {T}: Add {G}.
+Resolve Stack: Ai(2)-Jaymie_Ezio has undisguised Aveline de Grandpré
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Shao Jun (183) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Shao Jun (183).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Damage: Shao Jun (183) deals 3 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 45 > 42
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Mana: Island (134) - {T}: Add {U}.
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Mountain (189) - {T}: Add {R}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Achilles Davenport
+Resolve Stack: Achilles Davenport - Creature 3 / 3
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Zone Change: Commander's Sphere (220) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Commander's Sphere
+Resolve Stack: Commander's Sphere (220) - Ai(3)-Gabe_Food draws a card.
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 1 card(s) to the top of the library
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 35 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Replacement Effect: Sunpetal Grove enters tapped unless you control a Forest or a Plains.
+Land: Ai(3)-Gabe_Food played Sunpetal Grove (268)
+Mana: Swamp (263) - {T}: Add {B}.
+Mana: Forest (238) - {T}: Add {G}.
+Mana: Forest (234) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food activated Access Tunnel targeting [Sam, Loyal Attendant (303)]
+Resolve Stack: Access Tunnel (255) - Sam, Loyal Attendant (303) can't be blocked this turn.
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Sam, Loyal Attendant (303) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Sam, Loyal Attendant (303).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (303) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 42 > 40
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Sunpetal Grove (268) - {T}: Add {G} or {W}.
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Mana: Brushland (298) - {T}: Add {C}.
+Add To Stack: Ai(3)-Gabe_Food cast Treebeard, Gracious Host
+Resolve Stack: Treebeard, Gracious Host - Creature 0 / 5
+Add To Stack: Ai(3)-Gabe_Food triggered Treebeard, Gracious Host
+Resolve Stack: When Treebeard, Gracious Host enters, create two Food tokens. [Zone Changer: Treebeard, Gracious Host (281)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 36 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Mana: Island (332) - {T}: Add {U}.
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Mana: Thriving Moor (399) - {T}: Add {B} or one mana of the chosen color.
+Mana: Dragonskull Summit (350) - {T}: Add {B} or {R}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Baxter, Fly in the Ointment
+Resolve Stack: Baxter, Fly in the Ointment - Creature 2 / 2
+Add To Stack: Ai(4)-Destyn_Turtles triggered Baxter, Fly in the Ointment
+Resolve Stack: Whenever Baxter enters or attacks, each creature you control with a counter on it gains flying until end of turn. [Zone Changer: Baxter, Fly in the Ointment (330)]
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Big Mother Mouser (343), Acidic Slime (365), Leonardo, the Balance (404), Tempestra, Dame of Games (382) and Ninja Token (511) to attack Ai(2)-Jaymie_Ezio.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Big Mother Mouser
+Resolve Stack: Whenever this creature attacks, double the number of +1/+1 counters on it. [Attacker: Big Mother Mouser (343)]
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Big Mother Mouser (343).
+Ai(2)-Jaymie_Ezio didn't block Acidic Slime (365).
+Ai(2)-Jaymie_Ezio didn't block Leonardo, the Balance (404).
+Ai(2)-Jaymie_Ezio didn't block Tempestra, Dame of Games (382).
+Ai(2)-Jaymie_Ezio didn't block Ninja Token (511).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Big Mother Mouser (343) deals 6 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Acidic Slime (365) deals 8 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Leonardo, the Balance (404) deals 6 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Tempestra, Dame of Games (382) deals 4 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Ninja Token (511) deals 2 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 40 > 14
+Add To Stack: Ai(4)-Destyn_Turtles triggered Foot Chopper
+Resolve Stack: Whenever equipped creature deals combat damage to a player, you may sacrifice it. If you do, draw cards equal to its power. [Damage Source: Ninja Token (511), Damaged: Ai(2)-Jaymie_Ezio, Amount: 2]
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Food Token (526)]
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Zone Change: Food Token (526) was put into Graveyard from Battlefield.
+Mana: Food Token (526) - {T}, Sacrifice this artifact: Add one mana of any color.
+Zone Change: Food Token (514) was put into Graveyard from Battlefield.
+Mana: Food Token (514) - {T}, Sacrifice this artifact: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles cast Coin of Mastery
+Resolve Stack: Coin of Mastery
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 37 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Shao Jun (183) and Lydia Frye (186) to attack Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(4)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (324) - Ai(4)-Destyn_Turtles creates a Treasure token.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Treasure Token (536)]
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Shao Jun (183).
+Ai(4)-Destyn_Turtles didn't block Lydia Frye (186).
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Damage: Shao Jun (183) deals 4 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 40 > 36
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Lydia Frye (186) deals 4 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 36 > 32
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Replacement Effect: Path of Ancestry enters tapped.
+Land: Ai(2)-Jaymie_Ezio played Path of Ancestry (109)
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Ezio, Blade of Vengeance
+Resolve Stack: Ezio, Blade of Vengeance - Creature 5 / 5
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 2 card(s) to the graveyard
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 38 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Ash Barrens (274)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Swamp (263) - {T}: Add {B}.
+Mana: Forest (238) - {T}: Add {G}.
+Mana: Forest (234) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food cast Gwaihir, Greatest of the Eagles
+Resolve Stack: Gwaihir, Greatest of the Eagles - Creature 5 / 5
+Mana: Sunpetal Grove (268) - {T}: Add {G} or {W}.
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Mana: Access Tunnel (255) - {T}: Add {C}.
+Add To Stack: Ai(3)-Gabe_Food cast Cultivate
+Resolve Stack: Cultivate (205) - Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.   
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 39 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Add To Stack: Ai(4)-Destyn_Turtles triggered Baxter, Fly in the Ointment
+Resolve Stack: Whenever you draw a card, put a +1/+1 counter on Baxter. [Player: Ai(4)-Destyn_Turtles]
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Vibrant Cityscape (377)
+Zone Change: Vibrant Cityscape (377) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Destyn_Turtles activated Vibrant Cityscape
+Resolve Stack: Vibrant Cityscape (377) - Ai(4)-Destyn_Turtles searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Ninja Token (511) to attack Ai(2)-Jaymie_Ezio.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Ninja Token (511).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Ninja Token (511) deals 4 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(2)-Jaymie_Ezio 14 > 10
+Add To Stack: Ai(4)-Destyn_Turtles triggered Foot Chopper
+Resolve Stack: Whenever equipped creature deals combat damage to a player, you may sacrifice it. If you do, draw cards equal to its power. [Damage Source: Ninja Token (511), Damaged: Ai(2)-Jaymie_Ezio, Amount: 4]
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Food Token (551)]
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Mana: Island (332) - {T}: Add {U}.
+Mana: Thriving Moor (399) - {T}: Add {B} or one mana of the chosen color.
+Mana: Dragonskull Summit (350) - {T}: Add {B} or {R}.
+Add To Stack: Ai(4)-Destyn_Turtles cast Michelangelo, the Heart
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 40 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Mana: Plains (191) - {T}: Add {W}.
+Mana: Swamp (160) - {T}: Add {B}.
+Mana: Forest (137) - {T}: Add {G}.
+Add To Stack: Ai(2)-Jaymie_Ezio cast Mortify targeting [Acidic Slime (365)]
+Zone Change: Acidic Slime (365) was put into Graveyard from Battlefield.
+Resolve Stack: Mortify (164) - Destroy Acidic Slime (365).
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(2)-Jaymie_Ezio assigned Shao Jun (183) to attack Ai(4)-Destyn_Turtles.
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Shao Jun (183).
+Add To Stack: Ai(4)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (324) - Ai(4)-Destyn_Turtles creates a Treasure token.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Treasure Token (565)]
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Damage: Shao Jun (183) deals 4 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 32 > 28
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio, Blade of Vengeance
+Resolve Stack: Whenever an Assassin you control deals combat damage to a player, draw a card. [Damage Source: Shao Jun (183), Damaged: Ai(4)-Destyn_Turtles, Amount: 4]
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Mana: Brotherhood Headquarters (126) - {T}: Add one mana of any color. Spend this mana only to cast an Assassin spell or a spell that has freerunning, or to activate an ability of an Assassin source.
+Mana: Path of Ancestry (109) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Add To Stack: Ai(2)-Jaymie_Ezio cast Bayek of Siwa
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Path of Ancestry
+Resolve Stack: Ai(2)-Jaymie_Ezio scried 1 card(s) to the bottom of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Freerunning  {B}{B} (You may cast this spell for its freerunning cost if you dealt combat damage to a player this turn with an Assassin or commander.)]) [Card: Bayek of Siwa (150), Activator: Ai(2)-Jaymie_Ezio, SpellAbility: Freerunning  {B}{B} (You may cast this spell for its freerunning cost if you dealt combat damage to a player this turn with an Assassin or commander.)]
+Resolve Stack: Bayek of Siwa - Creature 3 / 4
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Lydia Frye
+Resolve Stack: Ai(2)-Jaymie_Ezio surveiled 1 card(s) to the top of the library
+Resolve Stack: At the beginning of your end step, surveil X, where X is the number of tapped Assassins you control. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.) [Phase: Ai(2)-Jaymie_Ezio]
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 41 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Plains (288)
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Forest (238) - {T}: Add {G}.
+Mana: Swamp (263) - {T}: Add {B}.
+Add To Stack: Ai(3)-Gabe_Food activated Access Tunnel targeting [Sam, Loyal Attendant (303)]
+Resolve Stack: Access Tunnel (255) - Sam, Loyal Attendant (303) can't be blocked this turn.
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Combat: Ai(3)-Gabe_Food assigned Gwaihir, Greatest of the Eagles (292) and Sam, Loyal Attendant (303) to attack Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(3)-Gabe_Food triggered Gwaihir, Greatest of the Eagles targeting [Gwaihir, Greatest of the Eagles (292)]
+Resolve Stack: Whenever Gwaihir attacks, target attacking creature gains flying until end of turn. (Targeting: [[Gwaihir, Greatest of the Eagles (292)]]) [Attacker: Gwaihir, Greatest of the Eagles (292)]
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Combat: Ai(4)-Destyn_Turtles didn't block Gwaihir, Greatest of the Eagles (292).
+Ai(4)-Destyn_Turtles didn't block Sam, Loyal Attendant (303).
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Gwaihir, Greatest of the Eagles (292) deals 5 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Sam, Loyal Attendant (303) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Life: Life: Ai(4)-Destyn_Turtles 28 > 21
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Plains (291) - {T}: Add {W}.
+Add To Stack: Ai(3)-Gabe_Food cast Frodo, Adventurous Hobbit
+Resolve Stack: Frodo, Adventurous Hobbit - Creature 1 / 3
+Add To Stack: Ai(3)-Gabe_Food triggered Frodo, Adventurous Hobbit targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Sam, Loyal Attendant (When this creature enters, target player may put Sam into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Frodo, Adventurous Hobbit (301)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 42 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Island (332) - {T}: Add {U}.
+Mana: Thriving Moor (399) - {T}: Add {B} or one mana of the chosen color.
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Mana: Dragonskull Summit (350) - {T}: Add {B} or {R}.
+Add To Stack: Ai(4)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (404) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Add To Stack: Ai(4)-Destyn_Turtles triggered Baxter, Fly in the Ointment
+Resolve Stack: Whenever you draw a card, put a +1/+1 counter on Baxter. [Player: Ai(4)-Destyn_Turtles]
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Hinterland Harbor enters tapped unless you control a Forest or an Island.
+Land: Ai(4)-Destyn_Turtles played Hinterland Harbor (326)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Leonardo, the Balance (404), Big Mother Mouser (343), Tempestra, Dame of Games (382), Baxter, Fly in the Ointment (330), Ninja Token (511) and Michelangelo, the Heart (402) to attack Ai(2)-Jaymie_Ezio.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Big Mother Mouser
+Add To Stack: Ai(4)-Destyn_Turtles triggered Baxter, Fly in the Ointment
+Resolve Stack: Whenever Baxter enters or attacks, each creature you control with a counter on it gains flying until end of turn. [Attacker: Baxter, Fly in the Ointment (330)]
+Resolve Stack: Whenever this creature attacks, double the number of +1/+1 counters on it. [Attacker: Big Mother Mouser (343)]
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(2)-Jaymie_Ezio didn't block Leonardo, the Balance (404).
+Ai(2)-Jaymie_Ezio didn't block Big Mother Mouser (343).
+Ai(2)-Jaymie_Ezio didn't block Tempestra, Dame of Games (382).
+Ai(2)-Jaymie_Ezio didn't block Baxter, Fly in the Ointment (330).
+Ai(2)-Jaymie_Ezio didn't block Ninja Token (511).
+Ai(2)-Jaymie_Ezio didn't block Michelangelo, the Heart (402).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Leonardo, the Balance (404) deals 10 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(4)-Destyn_Turtles 21 > 31
+Damage: Big Mother Mouser (343) deals 20 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(4)-Destyn_Turtles 31 > 51
+Damage: Tempestra, Dame of Games (382) deals 8 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(4)-Destyn_Turtles 51 > 59
+Damage: Baxter, Fly in the Ointment (330) deals 8 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(4)-Destyn_Turtles 59 > 67
+Damage: Ninja Token (511) deals 6 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(4)-Destyn_Turtles 67 > 73
+Damage: Michelangelo, the Heart (402) deals 3 combat damage to Ai(2)-Jaymie_Ezio.
+Life: Life: Ai(4)-Destyn_Turtles 73 > 76
+Life: Life: Ai(2)-Jaymie_Ezio 10 > -45
+Add To Stack: Ai(4)-Destyn_Turtles triggered Foot Chopper
+Resolve Stack: Whenever equipped creature deals combat damage to a player, you may sacrifice it. If you do, draw cards equal to its power. [Damage Source: Ninja Token (511), Damaged: Ai(2)-Jaymie_Ezio, Amount: 6]
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Big Mother Mouser (343)]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Food Token (581)]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Big Mother Mouser (343)]]) [Phase: Ai(4)-Destyn_Turtles]
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 43 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Evolving Wilds (233)
+Zone Change: Evolving Wilds (233) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Evolving Wilds
+Resolve Stack: Evolving Wilds (233) - Ai(3)-Gabe_Food searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Mana: Plains (291) - {T}: Add {W}.
+Mana: Plains (288) - {T}: Add {W}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Forest (238) - {T}: Add {G}.
+Mana: Swamp (263) - {T}: Add {B}.
+Add To Stack: Ai(3)-Gabe_Food cast Fumigate
+Zone Change: Sam, Loyal Attendant (303) was put into Graveyard from Battlefield.
+Zone Change: Treebeard, Gracious Host (281) was put into Graveyard from Battlefield.
+Zone Change: Gwaihir, Greatest of the Eagles (292) was put into Graveyard from Battlefield.
+Zone Change: Frodo, Adventurous Hobbit (301) was put into Graveyard from Battlefield.
+Zone Change: Tempestra, Dame of Games (382) was put into Graveyard from Battlefield.
+Zone Change: Leonardo, the Balance (404) was put into Graveyard from Battlefield.
+Zone Change: Big Mother Mouser (343) was put into Graveyard from Battlefield.
+Zone Change: Ninja Token (511) was put into Graveyard from Battlefield.
+Zone Change: Baxter, Fly in the Ointment (330) was put into Graveyard from Battlefield.
+Zone Change: Michelangelo, the Heart (402) was put into Graveyard from Battlefield.
+Life: Life: Ai(3)-Gabe_Food 40 > 50
+Resolve Stack: Fumigate (258) - Destroy all creatures. You gain 1 life for each creature destroyed this way. Ai(3)-Gabe_Food gains 0 life. 
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Big Mother Mouser
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: When this creature dies, create a number of 1/1 colorless Robot artifact creature tokens equal to the number of +1/+1 counters on this creature. [Zone Changer: Big Mother Mouser (343)]
+Life: Life: Ai(4)-Destyn_Turtles 76 > 66
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 10]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Add To Stack: Ai(4)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (324) - Ai(4)-Destyn_Turtles creates a Treasure token.
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Forest (234) - {T}: Add {G}.
+Mana: Sunpetal Grove (268) - {T}: Add {G} or {W}.
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Mana: Access Tunnel (255) - {T}: Add {C}.
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (303)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 44 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Mana: Island (332) - {T}: Add {U}.
+Mana: Plains (391) - {T}: Add {W}.
+Add To Stack: Ai(4)-Destyn_Turtles activated Foot Chopper targeting [Robot Token (592)]
+Resolve Stack: Foot Chopper (395) -  Attach to Robot Token (592)
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Robot Token (592), Robot Token (593), Robot Token (594), Robot Token (595), Robot Token (596), Robot Token (597), Robot Token (598), Robot Token (599), Robot Token (600), Robot Token (601), Robot Token (602), Robot Token (603), Robot Token (604), Robot Token (605), Robot Token (606), Robot Token (607), Robot Token (608), Robot Token (609), Robot Token (610), Robot Token (611), Robot Token (612) and Robot Token (613) to attack Ai(3)-Gabe_Food.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Robot Token (592).
+Ai(3)-Gabe_Food assigned Sam, Loyal Attendant (303) to block Robot Token (593).
+Ai(3)-Gabe_Food didn't block Robot Token (594).
+Ai(3)-Gabe_Food didn't block Robot Token (595).
+Ai(3)-Gabe_Food didn't block Robot Token (596).
+Ai(3)-Gabe_Food didn't block Robot Token (597).
+Ai(3)-Gabe_Food didn't block Robot Token (598).
+Ai(3)-Gabe_Food didn't block Robot Token (599).
+Ai(3)-Gabe_Food didn't block Robot Token (600).
+Ai(3)-Gabe_Food didn't block Robot Token (601).
+Ai(3)-Gabe_Food didn't block Robot Token (602).
+Ai(3)-Gabe_Food didn't block Robot Token (603).
+Ai(3)-Gabe_Food didn't block Robot Token (604).
+Ai(3)-Gabe_Food didn't block Robot Token (605).
+Ai(3)-Gabe_Food didn't block Robot Token (606).
+Ai(3)-Gabe_Food didn't block Robot Token (607).
+Ai(3)-Gabe_Food didn't block Robot Token (608).
+Ai(3)-Gabe_Food didn't block Robot Token (609).
+Ai(3)-Gabe_Food didn't block Robot Token (610).
+Ai(3)-Gabe_Food didn't block Robot Token (611).
+Ai(3)-Gabe_Food didn't block Robot Token (612).
+Ai(3)-Gabe_Food didn't block Robot Token (613).
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Robot Token (592) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (593) deals 1 damage to Sam, Loyal Attendant (303).
+Damage: Robot Token (594) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (595) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (596) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (597) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (598) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (599) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (600) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (601) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (602) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (603) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (604) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (605) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (606) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (607) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (608) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (609) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (610) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (611) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (612) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Robot Token (613) deals 1 combat damage to Ai(3)-Gabe_Food.
+Damage: Sam, Loyal Attendant (303) deals 2 damage to Robot Token (593).
+Life: Life: Ai(3)-Gabe_Food 50 > 29
+Zone Change: Robot Token (593) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Foot Chopper
+Resolve Stack: Whenever equipped creature deals combat damage to a player, you may sacrifice it. If you do, draw cards equal to its power. [Damage Source: Robot Token (592), Damaged: Ai(3)-Gabe_Food, Amount: 1]
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Mana: Thriving Moor (399) - {T}: Add {B} or one mana of the chosen color.
+Mana: Dragonskull Summit (350) - {T}: Add {B} or {R}.
+Mana: Hinterland Harbor (326) - {T}: Add {G} or {U}.
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(4)-Destyn_Turtles cast Leonardo, the Balance
+Add To Stack: Ai(4)-Destyn_Turtles triggered Path of Ancestry
+Resolve Stack: Ai(4)-Destyn_Turtles scried 1 card(s) to the bottom of the library
+Resolve Stack: When mana produced by Path of Ancestry is spent to cast a creature spell that shares a creature type with your commander, scry 1. ([Leonardo, the Balance - Creature 3 / 3]) [Card: Leonardo, the Balance (404), Activator: Ai(4)-Destyn_Turtles, SpellAbility: Leonardo, the Balance - Creature 3 / 3]
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Zone Change: Treasure Token (620) was put into Graveyard from Battlefield.
+Mana: Treasure Token (620) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Treasure Token (565) was put into Graveyard from Battlefield.
+Mana: Treasure Token (565) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Treasure Token (536) was put into Graveyard from Battlefield.
+Mana: Treasure Token (536) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Food Token (632) was put into Graveyard from Battlefield.
+Mana: Food Token (632) - {T}, Sacrifice this artifact: Add one mana of any color.
+Zone Change: Food Token (583) was put into Graveyard from Battlefield.
+Mana: Food Token (583) - {T}, Sacrifice this artifact: Add one mana of any color.
+Zone Change: Food Token (581) was put into Graveyard from Battlefield.
+Mana: Food Token (581) - {T}, Sacrifice this artifact: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles cast Michelangelo, the Heart
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 45 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Add To Stack: Ai(4)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (324) - Ai(4)-Destyn_Turtles creates a Treasure token.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Treasure Token (648)]
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Replacement Effect: Path of Ancestry enters tapped.
+Land: Ai(3)-Gabe_Food played Path of Ancestry (213)
+Mana: Swamp (263) - {T}: Add {B}.
+Mana: Plains (291) - {T}: Add {W}.
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Plains (288) - {T}: Add {W}.
+Add To Stack: Ai(3)-Gabe_Food cast Frodo, Adventurous Hobbit
+Resolve Stack: Frodo, Adventurous Hobbit - Creature 1 / 3
+Add To Stack: Ai(3)-Gabe_Food triggered Frodo, Adventurous Hobbit targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Sam, Loyal Attendant (When this creature enters, target player may put Sam into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Frodo, Adventurous Hobbit (301)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 46 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Land: Ai(4)-Destyn_Turtles played Escape Tunnel (312)
+Zone Change: Escape Tunnel (312) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Destyn_Turtles activated Escape Tunnel
+Resolve Stack: Escape Tunnel (312) - Ai(4)-Destyn_Turtles searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Michelangelo, the Heart (402), Leonardo, the Balance (404), Robot Token (592), Robot Token (594), Robot Token (595), Robot Token (596), Robot Token (597), Robot Token (598), Robot Token (599), Robot Token (600), Robot Token (601), Robot Token (602), Robot Token (603), Robot Token (604), Robot Token (605), Robot Token (606), Robot Token (607), Robot Token (608), Robot Token (609), Robot Token (610), Robot Token (611), Robot Token (612) and Robot Token (613) to attack Ai(3)-Gabe_Food.
+Mana: Forest (238) - {T}: Add {G}.
+Zone Change: Food Token (449) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 29 > 32
+Resolve Stack: Food Token (449) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 66 > 63
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Mana: Forest (234) - {T}: Add {G}.
+Zone Change: Food Token (474) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 32 > 35
+Resolve Stack: Food Token (474) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 63 > 60
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Mana: Swamp (265) - {T}: Add {B}.
+Zone Change: Food Token (483) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 35 > 38
+Resolve Stack: Food Token (483) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 60 > 57
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Zone Change: Food Token (505) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 38 > 41
+Resolve Stack: Food Token (505) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 57 > 54
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Mana: Sunpetal Grove (268) - {T}: Add {G} or {W}.
+Zone Change: Food Token (518) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 41 > 44
+Resolve Stack: Food Token (518) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 54 > 51
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Zone Change: Food Token (522) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 44 > 47
+Resolve Stack: Food Token (522) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 51 > 48
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Mana: Access Tunnel (255) - {T}: Add {C}.
+Zone Change: Food Token (523) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 47 > 50
+Resolve Stack: Food Token (523) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 48 > 45
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Mana: Brushland (298) - {T}: Add {C}.
+Zone Change: Food Token (539) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 50 > 53
+Resolve Stack: Food Token (539) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 45 > 42
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Michelangelo, the Heart (402).
+Ai(3)-Gabe_Food didn't block Leonardo, the Balance (404).
+Ai(3)-Gabe_Food didn't block Robot Token (592).
+Ai(3)-Gabe_Food assigned Sam, Loyal Attendant (303) to block Robot Token (594).
+Ai(3)-Gabe_Food assigned Frodo, Adventurous Hobbit (301) to block Robot Token (595).
+Ai(3)-Gabe_Food didn't block Robot Token (596).
+Ai(3)-Gabe_Food didn't block Robot Token (597).
+Ai(3)-Gabe_Food didn't block Robot Token (598).
+Ai(3)-Gabe_Food didn't block Robot Token (599).
+Ai(3)-Gabe_Food didn't block Robot Token (600).
+Ai(3)-Gabe_Food didn't block Robot Token (601).
+Ai(3)-Gabe_Food didn't block Robot Token (602).
+Ai(3)-Gabe_Food didn't block Robot Token (603).
+Ai(3)-Gabe_Food didn't block Robot Token (604).
+Ai(3)-Gabe_Food didn't block Robot Token (605).
+Ai(3)-Gabe_Food didn't block Robot Token (606).
+Ai(3)-Gabe_Food didn't block Robot Token (607).
+Ai(3)-Gabe_Food didn't block Robot Token (608).
+Ai(3)-Gabe_Food didn't block Robot Token (609).
+Ai(3)-Gabe_Food didn't block Robot Token (610).
+Ai(3)-Gabe_Food didn't block Robot Token (611).
+Ai(3)-Gabe_Food didn't block Robot Token (612).
+Ai(3)-Gabe_Food didn't block Robot Token (613).
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Island (332) - {T}: Add {U}.
+Mana: Thriving Moor (399) - {T}: Add {B} or one mana of the chosen color.
+Mana: Dragonskull Summit (350) - {T}: Add {B} or {R}.
+Mana: Hinterland Harbor (326) - {T}: Add {G} or {U}.
+Add To Stack: Ai(4)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (404) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Michelangelo, the Heart (402) deals 9 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 42 > 51
+Damage: Leonardo, the Balance (404) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 51 > 55
+Damage: Robot Token (592) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 55 > 57
+Damage: Robot Token (594) deals 2 damage to Sam, Loyal Attendant (303).
+Life: Life: Ai(4)-Destyn_Turtles 57 > 59
+Damage: Robot Token (595) deals 2 damage to Frodo, Adventurous Hobbit (301).
+Life: Life: Ai(4)-Destyn_Turtles 59 > 61
+Damage: Robot Token (596) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 61 > 63
+Damage: Robot Token (597) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 63 > 65
+Damage: Robot Token (598) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 65 > 67
+Damage: Robot Token (599) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 67 > 69
+Damage: Robot Token (600) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 69 > 71
+Damage: Robot Token (601) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 71 > 73
+Damage: Robot Token (602) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 73 > 75
+Damage: Robot Token (603) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 75 > 77
+Damage: Robot Token (604) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 77 > 79
+Damage: Robot Token (605) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 79 > 81
+Damage: Robot Token (606) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 81 > 83
+Damage: Robot Token (607) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 83 > 85
+Damage: Robot Token (608) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 85 > 87
+Damage: Robot Token (609) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 87 > 89
+Damage: Robot Token (610) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 89 > 91
+Damage: Robot Token (611) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 91 > 93
+Damage: Robot Token (612) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 93 > 95
+Damage: Robot Token (613) deals 2 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 95 > 97
+Damage: Sam, Loyal Attendant (303) deals 2 damage to Robot Token (594).
+Damage: Frodo, Adventurous Hobbit (301) deals 1 damage to Robot Token (595).
+Life: Life: Ai(3)-Gabe_Food 53 > 2
+Zone Change: Robot Token (594) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Foot Chopper
+Resolve Stack: Whenever equipped creature deals combat damage to a player, you may sacrifice it. If you do, draw cards equal to its power. [Damage Source: Robot Token (592), Damaged: Ai(3)-Gabe_Food, Amount: 2]
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Michelangelo, the Heart (402)]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Ninja Pizza
+Resolve Stack: At the beginning of your second main phase, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(4)-Destyn_Turtles]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Food Token (685)]
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Michelangelo, the Heart (402)]]) [Phase: Ai(4)-Destyn_Turtles]
+Mana: Path of Ancestry (315) - {T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)
+Mana: Spire Garden (392) - {T}: Add {R} or {G}.
+Mana: Command Tower (331) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(4)-Destyn_Turtles cast Swift Demise targeting [Frodo, Adventurous Hobbit (301)]
+Damage: Swift Demise (400) deals 1 damage to Frodo, Adventurous Hobbit (301).
+Zone Change: Sam, Loyal Attendant (303) was put into Graveyard from Battlefield.
+Zone Change: Frodo, Adventurous Hobbit (301) was put into Graveyard from Battlefield.
+Resolve Stack: Swift Demise (400) - Swift Demise (400) deals 1 damage to Frodo, Adventurous Hobbit (301). Swift Demise - Destroy permanents.
+Zone Change: Treasure Token (648) was put into Graveyard from Battlefield.
+Mana: Treasure Token (648) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Food Token (687) was put into Graveyard from Battlefield.
+Mana: Food Token (687) - {T}, Sacrifice this artifact: Add one mana of any color.
+Add To Stack: Ai(4)-Destyn_Turtles cast April O'Neil, Live on the Scene
+Replacement Effect: Each creature you control enters with an additional +1/+1 counter on it for each mana from an artifact source spent to cast it.
+Resolve Stack: April O'Neil, Live on the Scene - Creature 2 / 1
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 47 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Mana: Ash Barrens (274) - {T}: Add {C}.
+Mana: Forest (238) - {T}: Add {G}.
+Zone Change: Food Token (569) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 2 > 5
+Resolve Stack: Food Token (569) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 97 > 94
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Mana: Swamp (263) - {T}: Add {B}.
+Mana: Forest (234) - {T}: Add {G}.
+Zone Change: Food Token (643) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-Gabe_Food activated Food Token
+Life: Life: Ai(3)-Gabe_Food 5 > 8
+Resolve Stack: Food Token (643) - Ai(3)-Gabe_Food gains 3 life.
+Add To Stack: Ai(3)-Gabe_Food triggered Sanguine Bond targeting [Ai(4)-Destyn_Turtles]
+Life: Life: Ai(4)-Destyn_Turtles 94 > 91
+Resolve Stack: Whenever you gain life, target opponent loses that much life. (Targeting: [[Ai(4)-Destyn_Turtles]]) [Player: Ai(3)-Gabe_Food, Gained Amount: 3]
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Land: Ai(3)-Gabe_Food played Forest (237)
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Mana: Forest (237) - {T}: Add {G}.
+Mana: Plains (291) - {T}: Add {W}.
+Mana: Plains (288) - {T}: Add {W}.
+Mana: Swamp (265) - {T}: Add {B}.
+Mana: Isolated Chapel (245) - {T}: Add {W} or {B}.
+Mana: Sunpetal Grove (268) - {T}: Add {G} or {W}.
+Mana: Scattered Groves (248) - {T}: Add {G}.
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(3)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (303)]
+Add To Stack: Ai(4)-Destyn_Turtles activated Coin of Mastery
+Resolve Stack: Coin of Mastery (324) - Ai(4)-Destyn_Turtles creates a Treasure token.
+Add To Stack: Ai(4)-Destyn_Turtles triggered Leonardo, the Balance
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Treasure Token (711)]
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 48 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(4)-Destyn_Turtles assigned Michelangelo, the Heart (402), Leonardo, the Balance (404), April O'Neil, Live on the Scene (394), Robot Token (592), Robot Token (595), Robot Token (596), Robot Token (597), Robot Token (598), Robot Token (599), Robot Token (600), Robot Token (601), Robot Token (602), Robot Token (603), Robot Token (604), Robot Token (605), Robot Token (606), Robot Token (607), Robot Token (608), Robot Token (609), Robot Token (610), Robot Token (611), Robot Token (612) and Robot Token (613) to attack Ai(3)-Gabe_Food.
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(3)-Gabe_Food didn't block Michelangelo, the Heart (402).
+Ai(3)-Gabe_Food assigned Sam, Loyal Attendant (303) to block Leonardo, the Balance (404).
+Ai(3)-Gabe_Food didn't block April O'Neil, Live on the Scene (394).
+Ai(3)-Gabe_Food didn't block Robot Token (592).
+Ai(3)-Gabe_Food didn't block Robot Token (595).
+Ai(3)-Gabe_Food didn't block Robot Token (596).
+Ai(3)-Gabe_Food didn't block Robot Token (597).
+Ai(3)-Gabe_Food didn't block Robot Token (598).
+Ai(3)-Gabe_Food didn't block Robot Token (599).
+Ai(3)-Gabe_Food didn't block Robot Token (600).
+Ai(3)-Gabe_Food didn't block Robot Token (601).
+Ai(3)-Gabe_Food didn't block Robot Token (602).
+Ai(3)-Gabe_Food didn't block Robot Token (603).
+Ai(3)-Gabe_Food didn't block Robot Token (604).
+Ai(3)-Gabe_Food didn't block Robot Token (605).
+Ai(3)-Gabe_Food didn't block Robot Token (606).
+Ai(3)-Gabe_Food didn't block Robot Token (607).
+Ai(3)-Gabe_Food didn't block Robot Token (608).
+Ai(3)-Gabe_Food didn't block Robot Token (609).
+Ai(3)-Gabe_Food didn't block Robot Token (610).
+Ai(3)-Gabe_Food didn't block Robot Token (611).
+Ai(3)-Gabe_Food didn't block Robot Token (612).
+Ai(3)-Gabe_Food didn't block Robot Token (613).
+Mana: Plains (391) - {T}: Add {W}.
+Mana: Island (332) - {T}: Add {U}.
+Mana: Dragonskull Summit (350) - {T}: Add {B} or {R}.
+Mana: Swamp (358) - {T}: Add {B}.
+Mana: Hinterland Harbor (326) - {T}: Add {G} or {U}.
+Add To Stack: Ai(4)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (404) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Michelangelo, the Heart (402) deals 12 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 91 > 103
+Damage: Leonardo, the Balance (404) deals 2 combat damage to Ai(3)-Gabe_Food.
+Damage: Leonardo, the Balance (404) deals 4 damage to Sam, Loyal Attendant (303).
+Life: Life: Ai(4)-Destyn_Turtles 103 > 109
+Damage: April O'Neil, Live on the Scene (394) deals 5 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 109 > 114
+Damage: Robot Token (592) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 114 > 118
+Damage: Robot Token (595) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 118 > 122
+Damage: Robot Token (596) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 122 > 126
+Damage: Robot Token (597) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 126 > 130
+Damage: Robot Token (598) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 130 > 134
+Damage: Robot Token (599) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 134 > 138
+Damage: Robot Token (600) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 138 > 142
+Damage: Robot Token (601) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 142 > 146
+Damage: Robot Token (602) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 146 > 150
+Damage: Robot Token (603) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 150 > 154
+Damage: Robot Token (604) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 154 > 158
+Damage: Robot Token (605) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 158 > 162
+Damage: Robot Token (606) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 162 > 166
+Damage: Robot Token (607) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 166 > 170
+Damage: Robot Token (608) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 170 > 174
+Damage: Robot Token (609) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 174 > 178
+Damage: Robot Token (610) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 178 > 182
+Damage: Robot Token (611) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 182 > 186
+Damage: Robot Token (612) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 186 > 190
+Damage: Robot Token (613) deals 4 combat damage to Ai(3)-Gabe_Food.
+Life: Life: Ai(4)-Destyn_Turtles 190 > 194
+Damage: Sam, Loyal Attendant (303) deals 2 damage to Leonardo, the Balance (404).
+Life: Life: Ai(3)-Gabe_Food 8 > -91
+Player Control: Ai(1)-GGS_Naga_diagnostic has restored control over themself
+Player Control: Ai(2)-Jaymie_Ezio has restored control over themself
+Player Control: Ai(3)-Gabe_Food has restored control over themself
+Player Control: Ai(4)-Destyn_Turtles has restored control over themself
+Game Outcome: Match Duration 1m : 29s
+Game Outcome: Turn 24
+Game Outcome: Ai(1)-GGS_Naga_diagnostic has lost because life total reached 0
+Game Outcome: Ai(2)-Jaymie_Ezio has lost because life total reached 0
+Game Outcome: Ai(3)-Gabe_Food has lost because life total reached 0
+Game Outcome: Ai(4)-Destyn_Turtles has won because all opponents have lost
+Match Result: Ai(1)-GGS_Naga_diagnostic: 0 Ai(2)-Jaymie_Ezio: 0 Ai(3)-Gabe_Food: 0 Ai(4)-Destyn_Turtles: 1 
+
+Game Result: Game 1 ended in 90790 ms. Ai(4)-Destyn_Turtles has won!
+

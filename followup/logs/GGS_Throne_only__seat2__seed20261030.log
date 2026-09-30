@@ -1,0 +1,1525 @@
+Error handling registered!
+20:57:15 [INFO ] GuiBase: ##########################################
+20:57:15 [INFO ] GuiBase: APP: Forge v.2.0.15-SNAPSHOT-09.28
+20:57:15 [INFO ] GuiBase: Java: 17.0.20 (Ubuntu)
+20:57:15 [INFO ] GuiBase: OS: Linux 6.18.44 amd64
+20:57:15 [INFO ] GuiBase: RAM: 1536 MB max, 8 CPUs
+20:57:15 [INFO ] GuiBase: ##########################################
+Language 'en-US' loaded successfully.
+(ThreadUtil first call): Running with priority 5
+Read cards: 34010 archived files in 1 ms (25 parts) using thread pool
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+The card A-Alrund's Epiphany was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Baba Lysaga, Night Witch was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Divide by Zero was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Esika's Chariot was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Faceless Haven was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Fires of Invention was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Goldspan Dragon was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Hullbreaker Horror was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Kumano Faces Kakkazan was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Luminarch Aspirant was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Monster Manual was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Omnath, Locus of Creation was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-The Meathook Massacre was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card A-Unholy Heat was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Blinding Radiance was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Goblin Bruiser was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Ogre Painbringer was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Titanic Pelagosaur was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+The card Treetop Recluse was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. 
+Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.
+Read cards: 854 files in 0 ms (8 parts) using thread pool
+Simulation mode
+Ai(1)-Gabe_Food vs Ai(2)-Destyn_Turtles vs Ai(3)-GGS_Throne_only vs Ai(4)-Jaymie_Ezio - one game of Commander seed 20261030
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Frodo, Adventurous Hobbit for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of confirmAction is used by Sam, Loyal Attendant for forge.ai.ability.PermanentCreatureAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Warning: default (ie. inherited from base class) implementation of chkAIDrawback is used by Assassin Gauntlet for forge.ai.ability.TapAllAi. Consider declaring an overloaded method
+Mulligan: Ai(4)-Jaymie_Ezio has kept a hand of 7 cards
+Mulligan: Ai(1)-Gabe_Food has kept a hand of 7 cards
+Mulligan: Ai(2)-Destyn_Turtles has kept a hand of 7 cards
+Mulligan: Ai(3)-GGS_Throne_only has kept a hand of 7 cards
+Turn: Turn 1 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Island (337)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 2 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Replacement Effect: Canopy Vista enters tapped unless you control two or more basic lands.
+Land: Ai(1)-Gabe_Food played Canopy Vista (70)
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 3 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Land: Ai(2)-Destyn_Turtles played Mountain (187)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Mountain (187) - {T}: Add {R}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Sol Ring
+Resolve Stack: Sol Ring
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 4 (Ai(3)-GGS_Throne_only)
+Phase: Ai(3)-GGS_Throne_only's Untap step
+Phase: Ai(3)-GGS_Throne_only's Upkeep step
+Phase: Ai(3)-GGS_Throne_only's Draw step
+Phase: Ai(3)-GGS_Throne_only's Main phase, precombat
+Land: Ai(3)-GGS_Throne_only played Command Tower (275)
+Phase: Ai(3)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(3)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(3)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(3)-GGS_Throne_only's End of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(3)-GGS_Throne_only's End step
+Phase: Ai(3)-GGS_Throne_only's Cleanup step
+Turn: Turn 5 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Plains (393)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Plains (393) - {T}: Add {W}.
+Mana: Island (337) - {T}: Add {U}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Haystack
+Resolve Stack: Haystack
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 6 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Replacement Effect: As Necroblossom Snarl enters, you may reveal a Swamp or Forest card from your hand. If you don't, Necroblossom Snarl enters tapped.
+Land: Ai(1)-Gabe_Food played Necroblossom Snarl (64)
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Mana: Canopy Vista (70) - {T}: Add {W}.
+Mana: Necroblossom Snarl (64) - {T}: Add {B} or {G}.
+Add To Stack: Ai(1)-Gabe_Food cast Frodo, Adventurous Hobbit
+Resolve Stack: Frodo, Adventurous Hobbit - Creature 1 / 3
+Add To Stack: Ai(1)-Gabe_Food triggered Frodo, Adventurous Hobbit targeting [Ai(1)-Gabe_Food]
+Resolve Stack: Partner with Sam, Loyal Attendant (When this creature enters, target player may put Sam into their hand from their library, then shuffle.) (Targeting: [[Ai(1)-Gabe_Food]]) [Zone Changer: Frodo, Adventurous Hobbit (99)]
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 7 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Dragonskull Summit enters tapped unless you control a Swamp or a Mountain.
+Land: Ai(2)-Destyn_Turtles played Dragonskull Summit (148)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Mountain (187) - {T}: Add {R}.
+Mana: Sol Ring (154) - {T}: Add {C}{C}.
+Mana: Dragonskull Summit (148) - {T}: Add {B} or {R}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Casey Jones, Back Alley Brute
+Resolve Stack: Casey Jones, Back Alley Brute - Creature 4 / 2
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 8 (Ai(3)-GGS_Throne_only)
+Phase: Ai(3)-GGS_Throne_only's Untap step
+Phase: Ai(3)-GGS_Throne_only's Upkeep step
+Phase: Ai(3)-GGS_Throne_only's Draw step
+Phase: Ai(3)-GGS_Throne_only's Main phase, precombat
+Land: Ai(3)-GGS_Throne_only played Gloomlake Verge (228)
+Phase: Ai(3)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(3)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(3)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(3)-GGS_Throne_only's End of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(3)-GGS_Throne_only's End step
+Phase: Ai(3)-GGS_Throne_only's Cleanup step
+Turn: Turn 9 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Replacement Effect: Boros Garrison enters tapped.
+Land: Ai(4)-Jaymie_Ezio played Boros Garrison (383)
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Boros Garrison
+Resolve Stack: When Boros Garrison enters, return a land you control to its owner's hand. [Zone Changer: Boros Garrison (383)]
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 10 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Command Tower (30)
+Mana: Canopy Vista (70) - {T}: Add {W}.
+Mana: Necroblossom Snarl (64) - {T}: Add {B} or {G}.
+Mana: Command Tower (30) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(1)-Gabe_Food cast Sam, Loyal Attendant
+Resolve Stack: Sam, Loyal Attendant - Creature 2 / 4
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(1)-Gabe_Food]
+Resolve Stack: Partner with Frodo, Adventurous Hobbit (When this creature enters, target player may put Frodo into their hand from their library, then shuffle.) (Targeting: [[Ai(1)-Gabe_Food]]) [Zone Changer: Sam, Loyal Attendant (101)]
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 11 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: This land enters tapped unless you control two or more basic lands.
+Land: Ai(2)-Destyn_Turtles played Sodden Verdure (182)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 12 (Ai(3)-GGS_Throne_only)
+Phase: Ai(3)-GGS_Throne_only's Untap step
+Phase: Ai(3)-GGS_Throne_only's Upkeep step
+Phase: Ai(3)-GGS_Throne_only's Draw step
+Phase: Ai(3)-GGS_Throne_only's Main phase, precombat
+Land: Ai(3)-GGS_Throne_only played Mountain (296)
+Phase: Ai(3)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(3)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(3)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(3)-GGS_Throne_only's End of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Main phase, postcombat
+Mana: Command Tower (275) - {T}: Add one mana of any color in your commander's color identity.
+Mana: Gloomlake Verge (228) - {T}: Add {U}.
+Mana: Mountain (296) - {T}: Add {R}.
+Add To Stack: Ai(3)-GGS_Throne_only cast Goro-Goro and Satoru
+Resolve Stack: Goro-Goro and Satoru - Creature 3 / 4
+Phase: Ai(3)-GGS_Throne_only's End step
+Phase: Ai(3)-GGS_Throne_only's Cleanup step
+Turn: Turn 13 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Plains (393)
+Mana: Island (337) - {T}: Add {U}.
+Mana: Plains (393) - {T}: Add {W}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast 
+Resolve Stack: Disguise - Creature 2/2
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 14 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Swamp (62)
+Mana: Necroblossom Snarl (64) - {T}: Add {B} or {G}.
+Mana: Swamp (62) - {T}: Add {B}.
+Mana: Canopy Vista (70) - {T}: Add {G}.
+Mana: Command Tower (30) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(1)-Gabe_Food cast Assemble the Entmoot
+Add To Stack: Ai(3)-GGS_Throne_only cast Fierce Guardianship targeting [Assemble the Entmoot]
+Zone Change: Send countered spell to Graveyard
+Resolve Stack: Fierce Guardianship (226) - Counter Assemble the Entmoot (1).
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 15 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Land: Ai(2)-Destyn_Turtles played Ash Barrens (171)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Sol Ring (154) - {T}: Add {C}{C}.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Mana: Mountain (187) - {T}: Add {R}.
+Mana: Dragonskull Summit (148) - {T}: Add {B} or {R}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Mole Module
+Resolve Stack: Mole Module
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 16 (Ai(3)-GGS_Throne_only)
+Phase: Ai(3)-GGS_Throne_only's Untap step
+Phase: Ai(3)-GGS_Throne_only's Upkeep step
+Mana: Gloomlake Verge (228) - {T}: Add {U}.
+Mana: Mountain (296) - {T}: Add {R}.
+Add To Stack: Ai(3)-GGS_Throne_only cast Cyclonic Rift targeting [Casey Jones, Back Alley Brute (107)]
+Resolve Stack: Cyclonic Rift (212) - Return Casey Jones, Back Alley Brute (107) to its owner's hand.
+Phase: Ai(3)-GGS_Throne_only's Draw step
+Phase: Ai(3)-GGS_Throne_only's Main phase, precombat
+Land: Ai(3)-GGS_Throne_only played Otawara, Soaring City (214)
+Phase: Ai(3)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(3)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(3)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(3)-GGS_Throne_only's End of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Main phase, postcombat
+Mana: Otawara, Soaring City (214) - {T}: Add {U}.
+Add To Stack: Ai(3)-GGS_Throne_only cast Sol Ring
+Resolve Stack: Sol Ring
+Phase: Ai(3)-GGS_Throne_only's End step
+Phase: Ai(3)-GGS_Throne_only's Cleanup step
+Turn: Turn 17 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Mana: Plains (393) - {T}: Add {W}.
+Mana: Island (337) - {T}: Add {U}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Caduceus, Staff of Hermes
+Resolve Stack: Caduceus, Staff of Hermes
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 18 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Plains (89)
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Combat: Ai(1)-Gabe_Food assigned Sam, Loyal Attendant (101) to attack Ai(4)-Jaymie_Ezio.
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio didn't block Sam, Loyal Attendant (101).
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (101) deals 2 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 40 > 38
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Mana: Necroblossom Snarl (64) - {T}: Add {B} or {G}.
+Mana: Swamp (62) - {T}: Add {B}.
+Mana: Plains (89) - {T}: Add {W}.
+Add To Stack: Ai(1)-Gabe_Food cast Tireless Provisioner
+Resolve Stack: Tireless Provisioner - Creature 3 / 2
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 19 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Smoldering Marsh enters tapped unless you control two or more basic lands.
+Land: Ai(2)-Destyn_Turtles played Smoldering Marsh (169)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Dragonskull Summit (148) - {T}: Add {B} or {R}.
+Mana: Sodden Verdure (182) - {T}: Add {G}.
+Mana: Sol Ring (154) - {T}: Add {C}{C}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Corpsejack Menace
+Resolve Stack: Corpsejack Menace - Creature 4 / 4
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 20 (Ai(3)-GGS_Throne_only)
+Phase: Ai(3)-GGS_Throne_only's Untap step
+Phase: Ai(3)-GGS_Throne_only's Upkeep step
+Mana: Otawara, Soaring City (214) - {T}: Add {U}.
+Mana: Gloomlake Verge (228) - {T}: Add {U}.
+Mana: Sol Ring (243) - {T}: Add {C}{C}.
+Add To Stack: Ai(3)-GGS_Throne_only cast Sink into Stupor targeting [Corpsejack Menace (151)]
+Resolve Stack: Sink into Stupor (289) - Return Corpsejack Menace (151) to its owner's hand.
+Phase: Ai(3)-GGS_Throne_only's Draw step
+Phase: Ai(3)-GGS_Throne_only's Main phase, precombat
+Replacement Effect: As Fell Mire enters, you may pay 3 life. If you don't, it enters tapped.
+Land: Ai(3)-GGS_Throne_only played Fell Mire (271)
+Phase: Ai(3)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Throne_only assigned Goro-Goro and Satoru (302) to attack Ai(1)-Gabe_Food.
+Phase: Ai(3)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(1)-Gabe_Food didn't block Goro-Goro and Satoru (302).
+Phase: Ai(3)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Throne_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (302) deals 3 combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 40 > 37
+Phase: Ai(3)-GGS_Throne_only's End of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(3)-GGS_Throne_only's End step
+Phase: Ai(3)-GGS_Throne_only's Cleanup step
+Turn: Turn 21 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Island (336)
+Mana: Plains (393) - {T}: Add {W}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Add To Stack: Ai(4)-Jaymie_Ezio activated Caduceus, Staff of Hermes targeting [Face-down card (H4)]
+Resolve Stack: Caduceus, Staff of Hermes (320) -  Attach to Face-down card (H4)
+Mana: Island (337) - {T}: Add {U}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Fellwar Stone
+Resolve Stack: Fellwar Stone
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Face-down card (H4) to attack Ai(1)-Gabe_Food.
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(1)-Gabe_Food didn't block Face-down card (H4).
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Damage: Face-down card (H4) deals 7 combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(4)-Jaymie_Ezio 38 > 45
+Life: Life: Ai(1)-Gabe_Food 37 > 30
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Fellwar Stone (379) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Island (336) - {T}: Add {U}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Resolve Stack: Ezio Auditore da Firenze - Creature 3 / 2
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 22 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Forest (36)
+Add To Stack: Ai(1)-Gabe_Food triggered Tireless Provisioner
+Resolve Stack: Landfall — Whenever a land you control enters, create a Food token or a Treasure token. (Food is an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life." Treasure is an artifact with "{T}, Sacrifice this token: Add one mana of any color.") [Zone Changer: Forest (36)]
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Combat: Ai(1)-Gabe_Food assigned Sam, Loyal Attendant (101) to attack Ai(4)-Jaymie_Ezio.
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio didn't block Sam, Loyal Attendant (101).
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (101) deals 2 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 45 > 43
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 23 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Rootbound Crag enters tapped unless you control a Mountain or a Forest.
+Land: Ai(2)-Destyn_Turtles played Rootbound Crag (194)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Mountain (187) - {T}: Add {R}.
+Mana: Sol Ring (154) - {T}: Add {C}{C}.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Casey Jones, Back Alley Brute
+Resolve Stack: Casey Jones, Back Alley Brute - Creature 4 / 2
+Mana: Dragonskull Summit (148) - {T}: Add {B} or {R}.
+Mana: Rootbound Crag (194) - {T}: Add {R} or {G}.
+Mana: Smoldering Marsh (169) - {T}: Add {R}.
+Mana: Sodden Verdure (182) - {T}: Add {G}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Corpsejack Menace
+Resolve Stack: Corpsejack Menace - Creature 4 / 4
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 24 (Ai(3)-GGS_Throne_only)
+Phase: Ai(3)-GGS_Throne_only's Untap step
+Phase: Ai(3)-GGS_Throne_only's Upkeep step
+Phase: Ai(3)-GGS_Throne_only's Draw step
+Phase: Ai(3)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(3)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Throne_only assigned Goro-Goro and Satoru (302) to attack Ai(4)-Jaymie_Ezio.
+Phase: Ai(3)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio didn't block Goro-Goro and Satoru (302).
+Phase: Ai(3)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Throne_only's Combat Damage Step
+Damage: Goro-Goro and Satoru (302) deals 3 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 43 > 40
+Phase: Ai(3)-GGS_Throne_only's End of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Main phase, postcombat
+Mana: Fell Mire (271) - {T}: Add {B}.
+Mana: Sol Ring (243) - {T}: Add {C}{C}.
+Mana: Otawara, Soaring City (214) - {T}: Add {U}.
+Add To Stack: Ai(3)-GGS_Throne_only cast Grim Hireling
+Resolve Stack: Grim Hireling - Creature 3 / 2
+Mana: Mountain (296) - {T}: Add {R}.
+Mana: Gloomlake Verge (228) - {T}: Add {U}.
+Mana: Command Tower (275) - {T}: Add one mana of any color in your commander's color identity.
+Add To Stack: Ai(3)-GGS_Throne_only cast Aggravated Assault
+Resolve Stack: Aggravated Assault
+Phase: Ai(3)-GGS_Throne_only's End step
+Phase: Ai(3)-GGS_Throne_only's Cleanup step
+Turn: Turn 25 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Replacement Effect: Smoldering Marsh enters tapped unless you control two or more basic lands.
+Land: Ai(4)-Jaymie_Ezio played Smoldering Marsh (374)
+Mana: Fellwar Stone (379) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Plains (393) - {T}: Add {W}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Queen Marchesa
+Resolve Stack: Queen Marchesa - Creature 3 / 3
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Queen Marchesa
+Resolve Stack: When Queen Marchesa enters, you become the monarch. [Zone Changer: Queen Marchesa (334)]
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Add To Stack: Ai(4)-Jaymie_Ezio cast Flawless Maneuver
+Resolve Stack: Flawless Maneuver (305) - Creatures you control gain indestructible until end of turn.
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Face-down card (H4), Ezio Auditore da Firenze (403) and Queen Marchesa (334) to attack Ai(1)-Gabe_Food.
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(1)-Gabe_Food didn't block Face-down card (H4).
+Ai(1)-Gabe_Food didn't block Ezio Auditore da Firenze (403).
+Ai(1)-Gabe_Food didn't block Queen Marchesa (334).
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Damage: Face-down card (H4) deals 7 combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(4)-Jaymie_Ezio 40 > 47
+Damage: Ezio Auditore da Firenze (403) deals 3 combat damage to Ai(1)-Gabe_Food.
+Damage: Queen Marchesa (334) deals 3 combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 30 > 17
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (403), Damaged: Ai(1)-Gabe_Food, Amount: 3]
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Mana: Island (337) - {T}: Add {U}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Basim Ibn Ishaq
+Resolve Stack: Basim Ibn Ishaq - Creature 2 / 2
+Phase: Ai(4)-Jaymie_Ezio's End step
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Monarch
+Resolve Stack: At the beginning of your end step, draw a card. [Phase: Ai(4)-Jaymie_Ezio]
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 26 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Swamp (63)
+Add To Stack: Ai(1)-Gabe_Food triggered Tireless Provisioner
+Resolve Stack: Landfall — Whenever a land you control enters, create a Food token or a Treasure token. (Food is an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life." Treasure is an artifact with "{T}, Sacrifice this token: Add one mana of any color.") [Zone Changer: Swamp (63)]
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Combat: Ai(1)-Gabe_Food assigned Sam, Loyal Attendant (101) to attack Ai(4)-Jaymie_Ezio.
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio didn't block Sam, Loyal Attendant (101).
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (101) deals 2 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 47 > 45
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Monarch
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Sam, Loyal Attendant (101), Damaged: Ai(4)-Jaymie_Ezio, Amount: 2]
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Add To Stack: Ai(1)-Gabe_Food triggered The Monarch
+Resolve Stack: At the beginning of your end step, draw a card. [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 27 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Land: Ai(2)-Destyn_Turtles played Exotic Orchard (142)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Add To Stack: Ai(2)-Destyn_Turtles activated Mole Module
+Resolve Stack: Mole Module (165) - Mole Module (165) becomes an artifact creature until end of turn.
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(2)-Destyn_Turtles assigned Mole Module (165) and Corpsejack Menace (151) to attack Ai(4)-Jaymie_Ezio.
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio didn't block Mole Module (165).
+Ai(4)-Jaymie_Ezio didn't block Corpsejack Menace (151).
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Damage: Mole Module (165) deals 6 combat damage to Ai(4)-Jaymie_Ezio.
+Damage: Corpsejack Menace (151) deals 4 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 45 > 35
+Add To Stack: Ai(2)-Destyn_Turtles triggered Mole Module
+Zone Change: Ai(2)-Destyn_Turtles milled Krang, the All-Powerful (123), Lessons from Life (174), Forest (137) and Rat King, Pale Piper (144).
+Resolve Stack: Whenever this Vehicle deals combat damage to a player, mill four cards. You may put a permanent card from among them onto the battlefield. [Damage Source: Mole Module (165), Damaged: Ai(4)-Jaymie_Ezio, Amount: 6]
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Mana: Exotic Orchard (142) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Sol Ring (154) - {T}: Add {C}{C}.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance - Creature 3 / 3
+Mana: Mountain (187) - {T}: Add {R}.
+Mana: Dragonskull Summit (148) - {T}: Add {B} or {R}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Tempestra, Dame of Games
+Resolve Stack: Tempestra, Dame of Games - Creature 1 / 3
+Mana: Rootbound Crag (194) - {T}: Add {R} or {G}.
+Mana: Sodden Verdure (182) - {T}: Add {G}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Michelangelo, the Heart
+Resolve Stack: Michelangelo, the Heart - Creature 2 / 1
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 28 (Ai(3)-GGS_Throne_only)
+Phase: Ai(3)-GGS_Throne_only's Untap step
+Phase: Ai(3)-GGS_Throne_only's Upkeep step
+Phase: Ai(3)-GGS_Throne_only's Draw step
+Phase: Ai(3)-GGS_Throne_only's Main phase, precombat
+Land: Ai(3)-GGS_Throne_only played Scalding Tarn (256)
+Life: Life: Ai(3)-GGS_Throne_only 40 > 39
+Zone Change: Scalding Tarn (256) was put into Graveyard from Battlefield.
+Add To Stack: Ai(3)-GGS_Throne_only activated Scalding Tarn
+Replacement Effect: Undercity Sewers enters tapped.
+Resolve Stack: Scalding Tarn (256) - Ai(3)-GGS_Throne_only searches their library for an Island or Mountain card, puts it onto the battlefield, then shuffles.
+Add To Stack: Ai(3)-GGS_Throne_only triggered Undercity Sewers
+Resolve Stack: Ai(3)-GGS_Throne_only surveiled 1 card(s) to the top of the library
+Resolve Stack: When Undercity Sewers enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.) [Zone Changer: Undercity Sewers (205)]
+Phase: Ai(3)-GGS_Throne_only's Beginning of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Declare Attackers Step
+Phase: Ai(3)-GGS_Throne_only's Declare Blockers Step
+Phase: Ai(3)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Throne_only's Combat Damage Step
+Phase: Ai(3)-GGS_Throne_only's End of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Main phase, postcombat
+Mana: Mountain (296) - {T}: Add {R}.
+Mana: Sol Ring (243) - {T}: Add {C}{C}.
+Add To Stack: Ai(3)-GGS_Throne_only cast Urabrask's Forge
+Resolve Stack: Urabrask's Forge
+Phase: Ai(3)-GGS_Throne_only's End step
+Phase: Ai(3)-GGS_Throne_only's Cleanup step
+Turn: Turn 29 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Queen Marchesa
+Resolve Stack: At the beginning of your upkeep, if an opponent is the monarch, create a 1/1 black Assassin creature token with deathtouch and haste. [Phase: Ai(4)-Jaymie_Ezio]
+Mana: Fellwar Stone (379) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Resolve Stack: Ai(4)-Jaymie_Ezio has undisguised Aveline de Grandpré
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Replacement Effect: As Foreboding Ruins enters, you may reveal a Swamp or Mountain card from your hand. If you don't, Foreboding Ruins enters tapped.
+Land: Ai(4)-Jaymie_Ezio played Foreboding Ruins (371)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Aveline de Grandpré (356) to attack Ai(2)-Destyn_Turtles.
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles didn't block Aveline de Grandpré (356).
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Damage: Aveline de Grandpré (356) deals 8 combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(4)-Jaymie_Ezio 35 > 43
+Life: Life: Ai(2)-Destyn_Turtles 40 > 32
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Aveline de Grandpré
+Resolve Stack: Whenever a creature you control with deathtouch deals combat damage to a player, put that many +1/+1 counters on that creature. [Damage Source: Aveline de Grandpré (356), Damaged: Ai(2)-Destyn_Turtles, Amount: 8]
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 30 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Mana: Plains (89) - {T}: Add {W}.
+Mana: Swamp (62) - {T}: Add {B}.
+Mana: Forest (36) - {T}: Add {G}.
+Add To Stack: Ai(1)-Gabe_Food cast Mortify targeting [Queen Marchesa (334)]
+Zone Change: Queen Marchesa (334) was put into Graveyard from Battlefield.
+Resolve Stack: Mortify (65) - Destroy Queen Marchesa (334).
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Shire Terrace (71)
+Add To Stack: Ai(1)-Gabe_Food triggered Tireless Provisioner
+Resolve Stack: Landfall — Whenever a land you control enters, create a Food token or a Treasure token. (Food is an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life." Treasure is an artifact with "{T}, Sacrifice this token: Add one mana of any color.") [Zone Changer: Shire Terrace (71)]
+Mana: Swamp (63) - {T}: Add {B}.
+Zone Change: Shire Terrace (71) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Gabe_Food activated Shire Terrace
+Resolve Stack: Shire Terrace (71) - Ai(1)-Gabe_Food searches their library for a basic land card, puts it onto the battlefield tapped, then shuffles.
+Add To Stack: Ai(1)-Gabe_Food triggered Tireless Provisioner
+Resolve Stack: Landfall — Whenever a land you control enters, create a Food token or a Treasure token. (Food is an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life." Treasure is an artifact with "{T}, Sacrifice this token: Add one mana of any color.") [Zone Changer: Plains (88)]
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Phase: Ai(1)-Gabe_Food's End step
+Add To Stack: Ai(1)-Gabe_Food triggered The Monarch
+Resolve Stack: At the beginning of your end step, draw a card. [Phase: Ai(1)-Gabe_Food]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(1)-Gabe_Food]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 17 > 15
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(1)-Gabe_Food]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 15 > 13
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 31 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(2)-Destyn_Turtles' End step
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 32 (Ai(3)-GGS_Throne_only)
+Phase: Ai(3)-GGS_Throne_only's Untap step
+Phase: Ai(3)-GGS_Throne_only's Upkeep step
+Phase: Ai(3)-GGS_Throne_only's Draw step
+Phase: Ai(3)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(3)-GGS_Throne_only's Beginning of Combat Step
+Add To Stack: Ai(3)-GGS_Throne_only triggered Urabrask's Forge
+Resolve Stack: At the beginning of combat on your turn, put an oil counter on Urabrask's Forge, then create an X/1 red Phyrexian Horror creature token with trample and haste, where X is the number of oil counters on Urabrask's Forge. Sacrifice that token at the beginning of the next end step. [Phase: Ai(3)-GGS_Throne_only]
+Phase: Ai(3)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Throne_only assigned Phyrexian Horror Token (453) to attack Ai(4)-Jaymie_Ezio.
+Phase: Ai(3)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Basim Ibn Ishaq (342) to block Phyrexian Horror Token (453).
+Phase: Ai(3)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Throne_only's Combat Damage Step
+Damage: Phyrexian Horror Token (453) deals 1 damage to Basim Ibn Ishaq (342).
+Damage: Basim Ibn Ishaq (342) deals 2 damage to Phyrexian Horror Token (453).
+Zone Change: Phyrexian Horror Token (453) was put into Graveyard from Battlefield.
+Phase: Ai(3)-GGS_Throne_only's End of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Main phase, postcombat
+Phase: Ai(3)-GGS_Throne_only's End step
+Add To Stack: Ai(3)-GGS_Throne_only triggered Urabrask's Forge
+Resolve Stack: Sacrifice Phyrexian Horror Token (453) at the beginning of the next end step. ([Phyrexian Horror Token (453)]) [Phase: Ai(3)-GGS_Throne_only]
+Phase: Ai(3)-GGS_Throne_only's Cleanup step
+Turn: Turn 33 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Land: Ai(4)-Jaymie_Ezio played Eiganjo, Seat of the Empire (319)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Aveline de Grandpré (356) and Assassin Token (444) to attack Ai(2)-Destyn_Turtles.
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles didn't block Aveline de Grandpré (356).
+Ai(2)-Destyn_Turtles didn't block Assassin Token (444).
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Damage: Aveline de Grandpré (356) deals 16 combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(4)-Jaymie_Ezio 43 > 59
+Damage: Assassin Token (444) deals 1 combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(2)-Destyn_Turtles 32 > 15
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Aveline de Grandpré
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Aveline de Grandpré
+Resolve Stack: Whenever a creature you control with deathtouch deals combat damage to a player, put that many +1/+1 counters on that creature. [Damage Source: Assassin Token (444), Damaged: Ai(2)-Destyn_Turtles, Amount: 1]
+Resolve Stack: Whenever a creature you control with deathtouch deals combat damage to a player, put that many +1/+1 counters on that creature. [Damage Source: Aveline de Grandpré (356), Damaged: Ai(2)-Destyn_Turtles, Amount: 16]
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Mana: Fellwar Stone (379) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Foreboding Ruins (371) - {T}: Add {B} or {R}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Mari, the Killing Quill
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Basim Ibn Ishaq
+Resolve Stack: Whenever you cast a historic spell, draw a card. Basim Ibn Ishaq can't be blocked this turn. This ability triggers only once each turn. (Artifacts, legendaries, and Sagas are historic.) [Card: Mari, the Killing Quill (373), Activator: Ai(4)-Jaymie_Ezio, SpellAbility: Freerunning  {B}{B} (You may cast this spell for its freerunning cost if you dealt combat damage to a player this turn with an Assassin or commander.)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 13 > 11
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 11 > 9
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Resolve Stack: Mari, the Killing Quill - Creature 3 / 2
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Mana: Plains (393) - {T}: Add {W}.
+Mana: Eiganjo, Seat of the Empire (319) - {T}: Add {W}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Origin of the Hidden Ones
+Replacement Effect: Origin of the Hidden Ones enters with a lore counter on it.
+Resolve Stack: Origin of the Hidden Ones
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Origin of the Hidden Ones targeting [Tireless Provisioner (19)]
+Damage: Origin of the Hidden Ones (389) deals 4 damage to Tireless Provisioner (19).
+Resolve Stack: I — Origin of the Hidden Ones deals 4 damage to any target. (Targeting: [[Tireless Provisioner (19)]]) [Added once: Origin of the Hidden Ones (389)]
+Zone Change: Tireless Provisioner (19) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Mari, the Killing Quill
+Resolve Stack: Whenever a creature an opponent controls dies, exile it with a hit counter on it. [Zone Changer: Tireless Provisioner (19)]
+Mana: Smoldering Marsh (374) - {T}: Add {B}.
+Mana: Island (337) - {T}: Add {U}.
+Mana: Island (336) - {T}: Add {U}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Rooftop Bypass
+Resolve Stack: Rooftop Bypass
+Phase: Ai(4)-Jaymie_Ezio's End step
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 34 (Ai(1)-Gabe_Food)
+Phase: Ai(1)-Gabe_Food's Untap step
+Phase: Ai(1)-Gabe_Food's Upkeep step
+Phase: Ai(1)-Gabe_Food's Draw step
+Phase: Ai(1)-Gabe_Food's Main phase, precombat
+Land: Ai(1)-Gabe_Food played Forest (34)
+Phase: Ai(1)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(1)-Gabe_Food triggered Sam, Loyal Attendant
+Resolve Stack: At the beginning of combat on your turn, create a Food token. (It's an artifact with "{2}, {T}, Sacrifice this token: You gain 3 life.") [Phase: Ai(1)-Gabe_Food]
+Phase: Ai(1)-Gabe_Food's Declare Attackers Step
+Phase: Ai(1)-Gabe_Food's Declare Blockers Step
+Phase: Ai(1)-Gabe_Food's First Strike Damage Step
+Phase: Ai(1)-Gabe_Food's Combat Damage Step
+Phase: Ai(1)-Gabe_Food's End of Combat Step
+Phase: Ai(1)-Gabe_Food's Main phase, postcombat
+Mana: Plains (89) - {T}: Add {W}.
+Mana: Forest (36) - {T}: Add {G}.
+Mana: Plains (88) - {T}: Add {W}.
+Add To Stack: Ai(1)-Gabe_Food cast Commander's Sphere
+Resolve Stack: Commander's Sphere
+Phase: Ai(1)-Gabe_Food's End step
+Add To Stack: Ai(1)-Gabe_Food triggered The Monarch
+Resolve Stack: At the beginning of your end step, draw a card. [Phase: Ai(1)-Gabe_Food]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Mana: Canopy Vista (70) - {T}: Add {W}.
+Add To Stack: Ai(1)-Gabe_Food cast Swords to Plowshares targeting [Aveline de Grandpré (356)]
+Zone Change: Aveline de Grandpré (356) was put into Exile from Battlefield.
+Life: Life: Ai(4)-Jaymie_Ezio 59 > 91
+Resolve Stack: Swords to Plowshares (84) - Exile Aveline de Grandpré (356). Ai(4)-Jaymie_Ezio gains life equal to its power.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(1)-Gabe_Food]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 9 > 7
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(1)-Gabe_Food]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 7 > 5
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Mana: Forest (34) - {T}: Add {G}.
+Zone Change: Food Token (407) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Gabe_Food activated Food Token
+Life: Life: Ai(1)-Gabe_Food 5 > 8
+Resolve Stack: Food Token (407) - Ai(1)-Gabe_Food gains 3 life.
+Phase: Ai(1)-Gabe_Food's Cleanup step
+Turn: Turn 35 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Mana: Exotic Orchard (142) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Sodden Verdure (182) - {T}: Add {U}.
+Mana: Rootbound Crag (194) - {T}: Add {R} or {G}.
+Mana: Dragonskull Summit (148) - {T}: Add {B} or {R}.
+Mana: Mountain (187) - {T}: Add {R}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Heroes in a Half Shell
+Resolve Stack: Heroes in a Half Shell - Creature 5 / 5
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Add To Stack: Ai(2)-Destyn_Turtles activated Mole Module
+Resolve Stack: Mole Module (165) - Mole Module (165) becomes an artifact creature until end of turn.
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(2)-Destyn_Turtles assigned Krang, the All-Powerful (123), Mole Module (165), Heroes in a Half Shell (173), Casey Jones, Back Alley Brute (107), Corpsejack Menace (151), Leonardo, the Balance (202) and Tempestra, Dame of Games (180) to attack Ai(1)-Gabe_Food.
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Krang, the All-Powerful (123)]
+Mana: Swamp (62) - {T}: Add {B}.
+Zone Change: Food Token (414) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Gabe_Food activated Food Token
+Life: Life: Ai(1)-Gabe_Food 8 > 11
+Resolve Stack: Food Token (414) - Ai(1)-Gabe_Food gains 3 life.
+Mana: Swamp (63) - {T}: Add {B}.
+Zone Change: Food Token (423) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Gabe_Food activated Food Token
+Life: Life: Ai(1)-Gabe_Food 11 > 14
+Resolve Stack: Food Token (423) - Ai(1)-Gabe_Food gains 3 life.
+Mana: Necroblossom Snarl (64) - {T}: Add {B} or {G}.
+Zone Change: Food Token (433) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Gabe_Food activated Food Token
+Life: Life: Ai(1)-Gabe_Food 14 > 17
+Resolve Stack: Food Token (433) - Ai(1)-Gabe_Food gains 3 life.
+Mana: Command Tower (30) - {T}: Add one mana of any color in your commander's color identity.
+Zone Change: Food Token (440) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Gabe_Food activated Food Token
+Life: Life: Ai(1)-Gabe_Food 17 > 20
+Resolve Stack: Food Token (440) - Ai(1)-Gabe_Food gains 3 life.
+Mana: Commander's Sphere (18) - {T}: Add one mana of any color in your commander's color identity.
+Zone Change: Food Token (451) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Gabe_Food activated Food Token
+Life: Life: Ai(1)-Gabe_Food 20 > 23
+Resolve Stack: Food Token (451) - Ai(1)-Gabe_Food gains 3 life.
+Zone Change: Treasure Token (448) was put into Graveyard from Battlefield.
+Mana: Treasure Token (448) - {T}, Sacrifice this token: Add one mana of any color.
+Zone Change: Food Token (457) was put into Graveyard from Battlefield.
+Add To Stack: Ai(1)-Gabe_Food activated Food Token
+Life: Life: Ai(1)-Gabe_Food 23 > 26
+Resolve Stack: Food Token (457) - Ai(1)-Gabe_Food gains 3 life.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever Casey Jones attacks, put a +1/+1 counter on target attacking creature. (Targeting: [[Krang, the All-Powerful (123)]]) [Attacker: Casey Jones, Back Alley Brute (107)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 26 > 24
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(1)-Gabe_Food assigned Frodo, Adventurous Hobbit (99) to block Krang, the All-Powerful (123).
+Ai(1)-Gabe_Food didn't block Mole Module (165).
+Ai(1)-Gabe_Food didn't block Heroes in a Half Shell (173).
+Ai(1)-Gabe_Food didn't block Casey Jones, Back Alley Brute (107).
+Ai(1)-Gabe_Food assigned Sam, Loyal Attendant (101) to block Corpsejack Menace (151).
+Ai(1)-Gabe_Food didn't block Leonardo, the Balance (202).
+Ai(1)-Gabe_Food didn't block Tempestra, Dame of Games (180).
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Damage: Krang, the All-Powerful (123) deals 17 damage to Frodo, Adventurous Hobbit (99).
+Damage: Mole Module (165) deals 6 combat damage to Ai(1)-Gabe_Food.
+Damage: Heroes in a Half Shell (173) deals 5 combat damage to Ai(1)-Gabe_Food.
+Damage: Casey Jones, Back Alley Brute (107) deals 4 combat damage to Ai(1)-Gabe_Food.
+Damage: Corpsejack Menace (151) deals 4 damage to Sam, Loyal Attendant (101).
+Damage: Leonardo, the Balance (202) deals 3 combat damage to Ai(1)-Gabe_Food.
+Damage: Tempestra, Dame of Games (180) deals 1 combat damage to Ai(1)-Gabe_Food.
+Damage: Frodo, Adventurous Hobbit (99) deals 1 damage to Krang, the All-Powerful (123).
+Damage: Sam, Loyal Attendant (101) deals 2 damage to Corpsejack Menace (151).
+Life: Life: Ai(1)-Gabe_Food 24 > 5
+Zone Change: Frodo, Adventurous Hobbit (99) was put into Graveyard from Battlefield.
+Zone Change: Sam, Loyal Attendant (101) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles triggered Mole Module
+Add To Stack: Ai(2)-Destyn_Turtles triggered Heroes in a Half Shell
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Mari, the Killing Quill
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Mari, the Killing Quill
+Add To Stack: Ai(1)-Gabe_Food triggered The Monarch
+Add To Stack: Ai(1)-Gabe_Food triggered The Monarch
+Add To Stack: Ai(1)-Gabe_Food triggered The Monarch
+Add To Stack: Ai(1)-Gabe_Food triggered The Monarch
+Add To Stack: Ai(1)-Gabe_Food triggered The Monarch
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Tempestra, Dame of Games (180), Damaged: Ai(1)-Gabe_Food, Amount: 1]
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Leonardo, the Balance (202), Damaged: Ai(1)-Gabe_Food, Amount: 3]
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Casey Jones, Back Alley Brute (107), Damaged: Ai(1)-Gabe_Food, Amount: 4]
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Heroes in a Half Shell (173), Damaged: Ai(1)-Gabe_Food, Amount: 5]
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Mole Module (165), Damaged: Ai(1)-Gabe_Food, Amount: 6]
+Resolve Stack: Whenever a creature an opponent controls dies, exile it with a hit counter on it. [Zone Changer: Sam, Loyal Attendant (101)]
+Resolve Stack: Whenever a creature an opponent controls dies, exile it with a hit counter on it. [Zone Changer: Frodo, Adventurous Hobbit (99)]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever one or more Mutants, Ninjas, and/or Turtles you control deal combat damage to a player, put a +1/+1 counter on each of those creatures and draw a card. [Damaged: Ai(1)-Gabe_Food, Amount: 8]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(2)-Destyn_Turtles]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 5 > 3
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(2)-Destyn_Turtles]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(1)-Gabe_Food]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 3 > 1
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(1)-Gabe_Food.
+Life: Life: Ai(1)-Gabe_Food 1 > -1
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(1)-Gabe_Food]]) [Added once: Heroes in a Half Shell (173) Amount: 2]
+Resolve Stack: Casey Jones, Back Alley Brute ability fizzles.
+Zone Change: Ai(2)-Destyn_Turtles milled Thriving Moor (197), Thriving Isle (153), Path of Ancestry (113) and Plains (188).
+Replacement Effect: Thriving Moor enters tapped.
+Replacement Effect: As Thriving Moor enters, choose a color other than black.
+Resolve Stack: Whenever this Vehicle deals combat damage to a player, mill four cards. You may put a permanent card from among them onto the battlefield. [Damage Source: Mole Module (165), Damaged: Ai(1)-Gabe_Food, Amount: 6]
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(2)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Krang, the All-Powerful (123)]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Krang, the All-Powerful (123)]]) [Phase: Ai(2)-Destyn_Turtles]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Leonardo, the Balance
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Food Token (460)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 39 > 37
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Heroes in a Half Shell (173) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 37 > 35
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Michelangelo, the Heart (200) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 35 > 33
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Tempestra, Dame of Games (180) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 33 > 31
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Leonardo, the Balance (202) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 31 > 29
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 29 > 27
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Corpsejack Menace (151) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 27 > 25
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Casey Jones, Back Alley Brute (107) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 25 > 23
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Mole Module (165) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 23 > 21
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Phase: Ai(2)-Destyn_Turtles' End step
+Add To Stack: Ai(2)-Destyn_Turtles triggered The Monarch
+Resolve Stack: At the beginning of your end step, draw a card. [Phase: Ai(2)-Destyn_Turtles]
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 36 (Ai(3)-GGS_Throne_only)
+Phase: Ai(3)-GGS_Throne_only's Untap step
+Phase: Ai(3)-GGS_Throne_only's Upkeep step
+Phase: Ai(3)-GGS_Throne_only's Draw step
+Phase: Ai(3)-GGS_Throne_only's Main phase, precombat
+Phase: Ai(3)-GGS_Throne_only's Beginning of Combat Step
+Add To Stack: Ai(3)-GGS_Throne_only triggered Urabrask's Forge
+Resolve Stack: At the beginning of combat on your turn, put an oil counter on Urabrask's Forge, then create an X/1 red Phyrexian Horror creature token with trample and haste, where X is the number of oil counters on Urabrask's Forge. Sacrifice that token at the beginning of the next end step. [Phase: Ai(3)-GGS_Throne_only]
+Phase: Ai(3)-GGS_Throne_only's Declare Attackers Step
+Combat: Ai(3)-GGS_Throne_only assigned Phyrexian Horror Token (462) to attack Ai(2)-Destyn_Turtles.
+Phase: Ai(3)-GGS_Throne_only's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles assigned Heroes in a Half Shell (173) to block Phyrexian Horror Token (462).
+Phase: Ai(3)-GGS_Throne_only's First Strike Damage Step
+Phase: Ai(3)-GGS_Throne_only's Combat Damage Step
+Damage: Phyrexian Horror Token (462) deals 2 damage to Heroes in a Half Shell (173).
+Damage: Heroes in a Half Shell (173) deals 9 damage to Phyrexian Horror Token (462).
+Zone Change: Phyrexian Horror Token (462) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Mari, the Killing Quill
+Resolve Stack: Whenever a creature an opponent controls dies, exile it with a hit counter on it. [Zone Changer: Phyrexian Horror Token (462)]
+Phase: Ai(3)-GGS_Throne_only's End of Combat Step
+Phase: Ai(3)-GGS_Throne_only's Main phase, postcombat
+Mana: Otawara, Soaring City (214) - {T}: Add {U}.
+Mana: Fell Mire (271) - {T}: Add {B}.
+Mana: Sol Ring (243) - {T}: Add {C}{C}.
+Add To Stack: Ai(3)-GGS_Throne_only cast Satoru Umezawa
+Resolve Stack: Satoru Umezawa - Creature 2 / 4
+Phase: Ai(3)-GGS_Throne_only's End step
+Add To Stack: Ai(3)-GGS_Throne_only triggered Urabrask's Forge
+Resolve Stack: Sacrifice Phyrexian Horror Token (462) at the beginning of the next end step. ([Phyrexian Horror Token (462)]) [Phase: Ai(3)-GGS_Throne_only]
+Phase: Ai(3)-GGS_Throne_only's Cleanup step
+Turn: Turn 37 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Origin of the Hidden Ones
+Resolve Stack: II — Create two 1/1 black Assassin creature tokens with menace. [Added once: Origin of the Hidden Ones (389)]
+Mana: Plains (393) - {T}: Add {W}.
+Mana: Fellwar Stone (379) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Add To Stack: Ai(4)-Jaymie_Ezio activated Caduceus, Staff of Hermes targeting [Ezio Auditore da Firenze (403)]
+Resolve Stack: Caduceus, Staff of Hermes (320) -  Attach to Ezio Auditore da Firenze (403)
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Ezio Auditore da Firenze (403), Mari, the Killing Quill (373), Basim Ibn Ishaq (342) and Assassin Token (444) to attack Ai(2)-Destyn_Turtles.
+Mana: Sol Ring (154) - {T}: Add {C}{C}.
+Zone Change: Food Token (460) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles activated Food Token
+Life: Life: Ai(2)-Destyn_Turtles 15 > 18
+Resolve Stack: Food Token (460) - Ai(2)-Destyn_Turtles gains 3 life.
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles didn't block Ezio Auditore da Firenze (403).
+Ai(2)-Destyn_Turtles assigned Heroes in a Half Shell (173) to block Mari, the Killing Quill (373).
+Ai(2)-Destyn_Turtles didn't block Basim Ibn Ishaq (342).
+Ai(2)-Destyn_Turtles didn't block Assassin Token (444).
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (403) deals 8 combat damage to Ai(2)-Destyn_Turtles.
+Life: Life: Ai(4)-Jaymie_Ezio 91 > 99
+Damage: Mari, the Killing Quill (373) deals 3 damage (Deathtouch) to Heroes in a Half Shell (173).
+Damage: Basim Ibn Ishaq (342) deals 2 combat damage to Ai(2)-Destyn_Turtles.
+Damage: Assassin Token (444) deals 2 combat damage to Ai(2)-Destyn_Turtles.
+Damage: Heroes in a Half Shell (173) deals 9 damage to Mari, the Killing Quill (373).
+Life: Life: Ai(2)-Destyn_Turtles 18 > 6
+Zone Change: Mari, the Killing Quill (373) was put into Graveyard from Battlefield.
+Zone Change: Heroes in a Half Shell (173) was put into Graveyard from Battlefield.
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Basim Ibn Ishaq
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Assassin Token
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Mari, the Killing Quill
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Basim Ibn Ishaq
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Rooftop Bypass
+Add To Stack: Ai(2)-Destyn_Turtles triggered The Monarch
+Add To Stack: Ai(2)-Destyn_Turtles triggered The Monarch
+Add To Stack: Ai(2)-Destyn_Turtles triggered The Monarch
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Assassin Token (444), Damaged: Ai(2)-Destyn_Turtles, Amount: 2]
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Basim Ibn Ishaq (342), Damaged: Ai(2)-Destyn_Turtles, Amount: 2]
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Ezio Auditore da Firenze (403), Damaged: Ai(2)-Destyn_Turtles, Amount: 8]
+Resolve Stack: Whenever one or more nontoken creatures you control deal combat damage to a player, create a 1/1 black Assassin creature token with menace. (It can't be blocked except by two or more creatures.) [Damaged: Ai(2)-Destyn_Turtles, Amount: 10]
+Resolve Stack: Whenever Basim Ibn Ishaq deals combat damage to a player, put a +1/+1 counter on it. [Damage Source: Basim Ibn Ishaq (342), Damaged: Ai(2)-Destyn_Turtles, Amount: 2]
+Resolve Stack: Whenever a creature an opponent controls dies, exile it with a hit counter on it. [Zone Changer: Heroes in a Half Shell (173)]
+Resolve Stack: Whenever this creature deals combat damage to a player, you may remove a hit counter from a card that player owns in exile. If you do, draw a card and create two Treasure tokens. [Damage Source: Assassin Token (444), Damaged: Ai(2)-Destyn_Turtles, Amount: 2]
+Resolve Stack: Whenever this creature deals combat damage to a player, you may remove a hit counter from a card that player owns in exile. If you do, draw a card and create two Treasure tokens. [Damage Source: Basim Ibn Ishaq (342), Damaged: Ai(2)-Destyn_Turtles, Amount: 2]
+Resolve Stack: Whenever this creature deals combat damage to a player, you may remove a hit counter from a card that player owns in exile. If you do, draw a card and create two Treasure tokens. [Damage Source: Ezio Auditore da Firenze (403), Damaged: Ai(2)-Destyn_Turtles, Amount: 8]
+Resolve Stack: Whenever Ezio deals combat damage to a player, you may pay {W}{U}{B}{R}{G} if that player has 10 or less life. When you do, that player loses the game. [Damage Source: Ezio Auditore da Firenze (403), Damaged: Ai(2)-Destyn_Turtles, Amount: 8]
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(4)-Jaymie_Ezio's End step
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Monarch
+Resolve Stack: At the beginning of your end step, draw a card. [Phase: Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 21 > 19
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 19 > 17
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 38 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Mana: Thriving Moor (197) - {T}: Add {B} or one mana of the chosen color.
+Mana: Exotic Orchard (142) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Add To Stack: Ai(2)-Destyn_Turtles cast Assassin's Trophy targeting [Basim Ibn Ishaq (342)]
+Zone Change: Basim Ibn Ishaq (342) was put into Graveyard from Battlefield.
+Resolve Stack: Assassin's Trophy (143) - Destroy Basim Ibn Ishaq (342). (OPTIONAL) Ai(2)-Destyn_Turtles searches Ai(4)-Jaymie_Ezio library for a basic land card, puts it onto the battlefield, then shuffles.
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Replacement Effect: Sunken Hollow enters tapped unless you control two or more basic lands.
+Land: Ai(2)-Destyn_Turtles played Sunken Hollow (125)
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Add To Stack: Ai(2)-Destyn_Turtles activated Mole Module
+Resolve Stack: Mole Module (165) - Mole Module (165) becomes an artifact creature until end of turn.
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(2)-Destyn_Turtles assigned Krang, the All-Powerful (123), Mole Module (165) and Leonardo, the Balance (202) to attack Ai(4)-Jaymie_Ezio.
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio didn't block Krang, the All-Powerful (123).
+Ai(4)-Jaymie_Ezio didn't block Mole Module (165).
+Ai(4)-Jaymie_Ezio didn't block Leonardo, the Balance (202).
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Damage: Krang, the All-Powerful (123) deals 29 combat damage to Ai(4)-Jaymie_Ezio.
+Damage: Mole Module (165) deals 8 combat damage to Ai(4)-Jaymie_Ezio.
+Damage: Leonardo, the Balance (202) deals 7 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 99 > 55
+Add To Stack: Ai(2)-Destyn_Turtles triggered Mole Module
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Monarch
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Monarch
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Monarch
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Leonardo, the Balance (202), Damaged: Ai(4)-Jaymie_Ezio, Amount: 7]
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Mole Module (165), Damaged: Ai(4)-Jaymie_Ezio, Amount: 8]
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Krang, the All-Powerful (123), Damaged: Ai(4)-Jaymie_Ezio, Amount: 29]
+Zone Change: Ai(2)-Destyn_Turtles milled Biogenic Ooze (166), Blasphemous Act (118), Vernal Fen (159) and Chromatic Lantern (196).
+Resolve Stack: Whenever this Vehicle deals combat damage to a player, mill four cards. You may put a permanent card from among them onto the battlefield. [Damage Source: Mole Module (165), Damaged: Ai(4)-Jaymie_Ezio, Amount: 8]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Biogenic Ooze
+Resolve Stack: When Biogenic Ooze enters, create a 2/2 green Ooze creature token. [Zone Changer: Biogenic Ooze (166)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Leonardo, the Balance
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Ooze Token (472)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(3)-GGS_Throne_only]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 17 > 15
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Ooze Token (472) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 15 > 13
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Biogenic Ooze (166) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 13 > 11
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Michelangelo, the Heart (200) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 11 > 9
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Tempestra, Dame of Games (180) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 9 > 7
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Leonardo, the Balance (202) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 7 > 5
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 5 > 3
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Corpsejack Menace (151) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 3 > 1
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Casey Jones, Back Alley Brute (107) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(3)-GGS_Throne_only.
+Life: Life: Ai(3)-GGS_Throne_only 1 > -1
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(3)-GGS_Throne_only]]) [Added once: Mole Module (165) Amount: 2]
+Phase: Ai(2)-Destyn_Turtles' End of Combat Step
+Phase: Ai(2)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(2)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Krang, the All-Powerful (123)]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Raid (the Fridge) — At the beginning of your second main phase, if you attacked this turn, put a +1/+1 counter on target creature and create a Food token. (Targeting: [[Krang, the All-Powerful (123)]]) [Phase: Ai(2)-Destyn_Turtles]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 55 > 53
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Phase: Ai(2)-Destyn_Turtles' End step
+Add To Stack: Ai(2)-Destyn_Turtles triggered The Monarch
+Add To Stack: Ai(2)-Destyn_Turtles triggered Biogenic Ooze
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: At the beginning of your end step, put a +1/+1 counter on each Ooze you control. [Phase: Ai(2)-Destyn_Turtles]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 53 > 51
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Ooze Token (472) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 51 > 49
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Biogenic Ooze (166) Amount: 2]
+Resolve Stack: At the beginning of your end step, draw a card. [Phase: Ai(2)-Destyn_Turtles]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(2)-Destyn_Turtles]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 49 > 47
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(2)-Destyn_Turtles]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 47 > 45
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Phase: Ai(2)-Destyn_Turtles' Cleanup step
+Turn: Turn 39 (Ai(4)-Jaymie_Ezio)
+Phase: Ai(4)-Jaymie_Ezio's Untap step
+Phase: Ai(4)-Jaymie_Ezio's Upkeep step
+Phase: Ai(4)-Jaymie_Ezio's Draw step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, precombat
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Origin of the Hidden Ones
+Resolve Stack: III — Whenever an Assassin you control attacks this turn, create a 1/1 black Assassin creature token with menace that's tapped and attacking. [Added once: Origin of the Hidden Ones (389)]
+Zone Change: Origin of the Hidden Ones (389) was put into Graveyard from Battlefield.
+Phase: Ai(4)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Declare Attackers Step
+Combat: Ai(4)-Jaymie_Ezio assigned Ezio Auditore da Firenze (403) and Assassin Token (444) to attack Ai(2)-Destyn_Turtles.
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Origin of the Hidden Ones (389)'s Effect
+Add To Stack: Ai(4)-Jaymie_Ezio triggered Origin of the Hidden Ones (389)'s Effect
+Mana: Sol Ring (154) - {T}: Add {C}{C}.
+Zone Change: Food Token (476) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles activated Food Token
+Life: Life: Ai(2)-Destyn_Turtles 6 > 9
+Resolve Stack: Food Token (476) - Ai(2)-Destyn_Turtles gains 3 life.
+Resolve Stack: Whenever an Assassin you control attacks this turn, create a 1/1 black Assassin creature token with menace that's tapped and attacking. [Attacker: Assassin Token (444)]
+Resolve Stack: Whenever an Assassin you control attacks this turn, create a 1/1 black Assassin creature token with menace that's tapped and attacking. [Attacker: Ezio Auditore da Firenze (403)]
+Phase: Ai(4)-Jaymie_Ezio's Declare Blockers Step
+Combat: Ai(2)-Destyn_Turtles assigned Tempestra, Dame of Games (180) and Biogenic Ooze (166) to block Ezio Auditore da Firenze (403).
+Ai(2)-Destyn_Turtles assigned Ooze Token (472) to block Assassin Token (444).
+Ai(2)-Destyn_Turtles assigned Casey Jones, Back Alley Brute (107) and Corpsejack Menace (151) to block Assassin Token (492).
+Ai(2)-Destyn_Turtles didn't block Assassin Token (496).
+Phase: Ai(4)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(4)-Jaymie_Ezio's Combat Damage Step
+Replacement Effect: Prevent all damage that would be dealt to Ezio Auditore da Firenze.
+Replacement Effect: Prevent all damage that would be dealt to Ezio Auditore da Firenze.
+Damage: Ezio Auditore da Firenze (403) deals 2 damage to Tempestra, Dame of Games (180).
+Damage: Ezio Auditore da Firenze (403) deals 6 damage to Biogenic Ooze (166).
+Life: Life: Ai(4)-Jaymie_Ezio 45 > 53
+Damage: Assassin Token (444) deals 2 damage (Deathtouch) to Ooze Token (472).
+Damage: Assassin Token (492) deals 1 damage to Casey Jones, Back Alley Brute (107).
+Damage: Assassin Token (496) deals 1 combat damage to Ai(2)-Destyn_Turtles.
+Damage: Ooze Token (472) deals 6 damage to Assassin Token (444).
+Damage: Casey Jones, Back Alley Brute (107) deals 8 damage to Assassin Token (492).
+Damage: Corpsejack Menace (151) deals 8 damage to Assassin Token (492).
+Life: Life: Ai(2)-Destyn_Turtles 9 > 8
+Zone Change: Assassin Token (444) was put into Graveyard from Battlefield.
+Zone Change: Assassin Token (492) was put into Graveyard from Battlefield.
+Zone Change: Biogenic Ooze (166) was put into Graveyard from Battlefield.
+Zone Change: Ooze Token (472) was put into Graveyard from Battlefield.
+Add To Stack: Ai(2)-Destyn_Turtles triggered The Monarch
+Resolve Stack: Whenever a creature deals combat damage to you, its controller becomes the monarch. [Damage Source: Assassin Token (496), Damaged: Ai(2)-Destyn_Turtles, Amount: 1]
+Phase: Ai(4)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(4)-Jaymie_Ezio's Main phase, postcombat
+Replacement Effect: Thriving Grove enters tapped.
+Replacement Effect: As Thriving Grove enters, choose a color other than green.
+Land: Ai(4)-Jaymie_Ezio played Thriving Grove (330)
+Mana: Fellwar Stone (379) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Plains (393) - {T}: Add {W}.
+Mana: Boros Garrison (383) - {T}: Add {R}{W}.
+Discard: Ai(4)-Jaymie_Ezio discards Perilous Landscape (329).
+Add To Stack: Ai(4)-Jaymie_Ezio activated Perilous Landscape
+Resolve Stack: Perilous Landscape (329) - Ai(4)-Jaymie_Ezio draws a card.
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Add To Stack: Ai(2)-Destyn_Turtles triggered Krang, the All-Powerful
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 53 > 51
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a player draws their second card each turn, put a +1/+1 counter on Krang. [Player: Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(4)-Jaymie_Ezio 51 > 49
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Mana: Forest (339) - {T}: Add {G}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Sphere Grid
+Resolve Stack: Sphere Grid
+Mana: Foreboding Ruins (371) - {T}: Add {B} or {R}.
+Add To Stack: Ai(4)-Jaymie_Ezio cast Changeling Outcast
+Resolve Stack: Changeling Outcast - Creature 1 / 1
+Phase: Ai(4)-Jaymie_Ezio's End step
+Add To Stack: Ai(4)-Jaymie_Ezio triggered The Monarch
+Resolve Stack: At the beginning of your end step, draw a card. [Phase: Ai(4)-Jaymie_Ezio]
+Phase: Ai(4)-Jaymie_Ezio's Cleanup step
+Turn: Turn 40 (Ai(2)-Destyn_Turtles)
+Phase: Ai(2)-Destyn_Turtles' Untap step
+Phase: Ai(2)-Destyn_Turtles' Upkeep step
+Mana: Exotic Orchard (142) - {T}: Add one mana of any color that a land an opponent controls could produce.
+Mana: Sodden Verdure (182) - {T}: Add {U}.
+Mana: Thriving Moor (197) - {T}: Add {B} or one mana of the chosen color.
+Mana: Dragonskull Summit (148) - {T}: Add {B} or {R}.
+Mana: Mountain (187) - {T}: Add {R}.
+Add To Stack: Ai(2)-Destyn_Turtles activated Leonardo, the Balance
+Resolve Stack: Leonardo, the Balance (202) - Creatures you control gain menace, trample, and lifelink until end of turn.
+Phase: Ai(2)-Destyn_Turtles' Draw step
+Phase: Ai(2)-Destyn_Turtles' Main phase, precombat
+Mana: Sunken Hollow (125) - {T}: Add {U}.
+Mana: Sol Ring (154) - {T}: Add {C}{C}.
+Mana: Ash Barrens (171) - {T}: Add {C}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Baxter, Fly in the Ointment
+Resolve Stack: Baxter, Fly in the Ointment - Creature 2 / 2
+Add To Stack: Ai(2)-Destyn_Turtles triggered Baxter, Fly in the Ointment
+Resolve Stack: Whenever Baxter enters or attacks, each creature you control with a counter on it gains flying until end of turn. [Zone Changer: Baxter, Fly in the Ointment (128)]
+Mana: Smoldering Marsh (169) - {T}: Add {B}.
+Mana: Rootbound Crag (194) - {T}: Add {R} or {G}.
+Add To Stack: Ai(2)-Destyn_Turtles cast Foot Chopper
+Resolve Stack: Foot Chopper
+Add To Stack: Ai(2)-Destyn_Turtles triggered Foot Chopper
+Resolve Stack: When this Equipment enters, create a 1/1 black Ninja creature token, then attach this Equipment to it. [Zone Changer: Foot Chopper (193)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Leonardo, the Balance
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever a token you control enters, you may put a +1/+1 counter on each creature you control. Do this only once each turn. [Zone Changer: Ninja Token (504)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 8 > 10
+Life: Life: Ai(4)-Jaymie_Ezio 49 > 47
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Ninja Token (504) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 10 > 12
+Life: Life: Ai(4)-Jaymie_Ezio 47 > 45
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Baxter, Fly in the Ointment (128) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 12 > 14
+Life: Life: Ai(4)-Jaymie_Ezio 45 > 43
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Michelangelo, the Heart (200) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 14 > 16
+Life: Life: Ai(4)-Jaymie_Ezio 43 > 41
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Tempestra, Dame of Games (180) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 16 > 18
+Life: Life: Ai(4)-Jaymie_Ezio 41 > 39
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Leonardo, the Balance (202) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 18 > 20
+Life: Life: Ai(4)-Jaymie_Ezio 39 > 37
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 20 > 22
+Life: Life: Ai(4)-Jaymie_Ezio 37 > 35
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Corpsejack Menace (151) Amount: 2]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 22 > 24
+Life: Life: Ai(4)-Jaymie_Ezio 35 > 33
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Casey Jones, Back Alley Brute (107) Amount: 2]
+Phase: Ai(2)-Destyn_Turtles' Beginning of Combat Step
+Add To Stack: Ai(2)-Destyn_Turtles activated Mole Module
+Resolve Stack: Mole Module (165) - Mole Module (165) becomes an artifact creature until end of turn.
+Phase: Ai(2)-Destyn_Turtles' Declare Attackers Step
+Combat: Ai(2)-Destyn_Turtles assigned Krang, the All-Powerful (123), Leonardo, the Balance (202), Mole Module (165), Casey Jones, Back Alley Brute (107), Corpsejack Menace (151), Michelangelo, the Heart (200) and Tempestra, Dame of Games (180) to attack Ai(4)-Jaymie_Ezio.
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Krang, the All-Powerful (123)]
+Replacement Effect: If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on it instead.
+Resolve Stack: Whenever Casey Jones attacks, put a +1/+1 counter on target attacking creature. (Targeting: [[Krang, the All-Powerful (123)]]) [Attacker: Casey Jones, Back Alley Brute (107)]
+Add To Stack: Ai(2)-Destyn_Turtles triggered Casey Jones, Back Alley Brute targeting [Ai(4)-Jaymie_Ezio]
+Damage: Casey Jones, Back Alley Brute (107) deals 2 non-combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 24 > 26
+Life: Life: Ai(4)-Jaymie_Ezio 33 > 31
+Resolve Stack: Whenever you put one or more +1/+1 counters on a creature you control, Casey Jones deals that much damage to target opponent. (Targeting: [[Ai(4)-Jaymie_Ezio]]) [Added once: Krang, the All-Powerful (123) Amount: 2]
+Phase: Ai(2)-Destyn_Turtles' Declare Blockers Step
+Combat: Ai(4)-Jaymie_Ezio didn't block Krang, the All-Powerful (123).
+Ai(4)-Jaymie_Ezio didn't block Leonardo, the Balance (202).
+Ai(4)-Jaymie_Ezio assigned Assassin Token (465) and Assassin Token (466) to block Mole Module (165).
+Ai(4)-Jaymie_Ezio didn't block Casey Jones, Back Alley Brute (107).
+Ai(4)-Jaymie_Ezio didn't block Corpsejack Menace (151).
+Ai(4)-Jaymie_Ezio didn't block Michelangelo, the Heart (200).
+Ai(4)-Jaymie_Ezio didn't block Tempestra, Dame of Games (180).
+Phase: Ai(2)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(2)-Destyn_Turtles' Combat Damage Step
+Damage: Krang, the All-Powerful (123) deals 45 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 26 > 71
+Damage: Leonardo, the Balance (202) deals 11 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 71 > 82
+Damage: Mole Module (165) deals 1 damage to Assassin Token (465).
+Damage: Mole Module (165) deals 9 damage to Assassin Token (466).
+Damage: Casey Jones, Back Alley Brute (107) deals 10 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 82 > 92
+Damage: Corpsejack Menace (151) deals 10 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 92 > 102
+Damage: Michelangelo, the Heart (200) deals 8 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 102 > 110
+Damage: Tempestra, Dame of Games (180) deals 7 combat damage to Ai(4)-Jaymie_Ezio.
+Life: Life: Ai(2)-Destyn_Turtles 110 > 117
+Damage: Assassin Token (465) deals 1 damage to Mole Module (165).
+Damage: Assassin Token (466) deals 1 damage to Mole Module (165).
+Life: Life: Ai(4)-Jaymie_Ezio 31 > -60
+Player Control: Ai(1)-Gabe_Food has restored control over themself
+Player Control: Ai(2)-Destyn_Turtles has restored control over themself
+Player Control: Ai(3)-GGS_Throne_only has restored control over themself
+Player Control: Ai(4)-Jaymie_Ezio has restored control over themself
+Game Outcome: Match Duration 2m : 48s
+Game Outcome: Turn 20
+Game Outcome: Ai(1)-Gabe_Food has lost because life total reached 0
+Game Outcome: Ai(2)-Destyn_Turtles has won because all opponents have lost
+Game Outcome: Ai(3)-GGS_Throne_only has lost because life total reached 0
+Game Outcome: Ai(4)-Jaymie_Ezio has lost because life total reached 0
+Match Result: Ai(1)-Gabe_Food: 0 Ai(2)-Destyn_Turtles: 1 Ai(3)-GGS_Throne_only: 0 Ai(4)-Jaymie_Ezio: 0 
+
+Game Result: Game 1 ended in 170891 ms. Ai(2)-Destyn_Turtles has won!
+
