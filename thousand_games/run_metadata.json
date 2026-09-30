@@ -1,0 +1,38 @@
+{
+  "deck_sha256": {
+    "GGS_Four_card_package.dck": "06e582e21e7ea6766e4d8d994a8add0a3d1473c7290f9fbc699fa87a07ca64d5",
+    "GGS_Cover_diagnostic.dck": "795b38e98a0aa4773878ee4b6c79f9ecf47daa5c0862fd152f8c258b7a5646dc",
+    "GGS_Biting_Palm_diagnostic.dck": "d6ba5293f5e6af11b32e32076e1039ec41de93070615db02c69ed7ebd6ceda2b",
+    "Destyn_Turtles.dck": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a",
+    "GGS_Current.dck": "edbc8cf49caf0cdbb5afa06677f09f50d776e08b2c24d9a0c7cd442d28abce5c",
+    "GGS_Oni_diagnostic.dck": "1a7f661494511b343babd37f9d682f271ea9081d0cbf8a92abcba38990d31a26",
+    "GGS_Ink_Eyes_diagnostic.dck": "8788448b6c26b2b8ed5c9ac935447937e34e1e463cc3f1e1f970187b5d4e4831",
+    "GGS_Two_card_trial.dck": "c1831dc40563722aced248a62ed680d43183ef0a7be4f620dd04fb2427fb0a2a",
+    "GGS_Cruise_diagnostic.dck": "5cabc96fc310f093591290f3829a39a0304cb418cf56ac8e6ddc86c2ec616b02",
+    "GGS_Herald_diagnostic.dck": "2fef50f655d2dba9cfe04f486f5a8ca3f46ccebaf6dd52c08733b021b0df3428",
+    "GGS_Reality_Shift_diagnostic.dck": "f4180066fc68af6f12efddadad2b34e544a7960db85038f420805aea4dce2739",
+    "GGS_Mission_diagnostic.dck": "94ee16657c4fcf0f29fdd7e41086fc034aebfbcf19dbe1c34313d9d2905be6bd",
+    "GGS_Higure_Adaptation.dck": "a6dbea87c724939f00640040be617b63392e6987a67f176ce0bf90b8fc3dd983",
+    "GGS_Naga_diagnostic.dck": "0a731808eb486559150d69193c88b3aa8a0f7c4c4f5c65c138bc1d5e5d319fd1",
+    "Gabe_Food.dck": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+    "GGS_Orochi_only.dck": "eba286b30d3a04323923534812698c2db0ebb014669313fbdb546f2db2821613",
+    "Jaymie_Ezio.dck": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+    "GGS_Slitter_diagnostic.dck": "80af7a530e9c87a69cded074477287e2496dfd11e31b42915420d26cf0c0eded",
+    "GGS_Throne_only.dck": "dac99a455b6beb0f44797dd3afeadaa4fc96a009c6739feab0d5d0374d9e506c",
+    "GGS_Higure_only.dck": "88c5d3d94c64b89dbad2425494f403137d91730234c0a53d844e03647aee3f0f"
+  },
+  "engine_jar_sha256": "85a4c31e07d4d5621a84bb03b6d75fd08e9f4ba289e575c870579b49c0033766",
+  "arguments": {
+    "engine": "/workspace/scratch/872734602a8c/ggs-evaluation/forge-installed",
+    "output": "thousand_games",
+    "games_per_variant": 48,
+    "baseline_games": 232,
+    "workers": 4,
+    "timeout": 240,
+    "seed": 20300930,
+    "variants": null,
+    "resume": false
+  },
+  "opponents": "Jaymie supplied main deck; stock Food and Fellowship; stock Turtle Power with Leonardo/Michelangelo",
+  "limitations": "Forge AI decisions; stock proxies for two decks; upcoming Visitor script; no human pod win-rate inference."
+}

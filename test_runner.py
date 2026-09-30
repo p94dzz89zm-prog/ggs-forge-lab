@@ -1,5 +1,5 @@
 import unittest
-from run_games import classify,validate_deck,ROOT
+from run_games import classify,validate_deck,ROOT,make_jobs
 class RunnerTests(unittest.TestCase):
     def test_timeout_false_winner_rejected(self):
         text='Stopping slow match as draw\nGame Outcome: A has won because all opponents have lost\nGame Result: Game 1 ended in 120000 ms. A has won!'
@@ -13,6 +13,18 @@ class RunnerTests(unittest.TestCase):
     def test_real_completion(self):
         text='Turn: Turn 24 (A)\nGame Outcome: A has won because all opponents have lost\nGame Outcome: B has lost because life total reached 0\nGame Outcome: C has lost because life total reached 0\nGame Outcome: D has lost because life total reached 0\nGame Result: Game 1 ended in 22369 ms. A has won!'
         self.assertEqual(classify(text)['winner'],'A')
+        self.assertEqual(classify(text)['engine_ms'],22369)
+    def test_thousand_game_schedule_matches_seed_and_seat(self):
+        variants=['GGS_Current']+[f'GGS_Trial_{i}' for i in range(16)]
+        jobs=make_jobs(variants,48,20300000,232)
+        self.assertEqual(len(jobs),1000)
+        self.assertEqual(len(set(jobs)),1000)
+        baseline={(seat,seed) for v,seat,seed in jobs if v=='GGS_Current'}
+        for v in variants[1:]:
+            trials=[(seat,seed) for x,seat,seed in jobs if x==v]
+            self.assertEqual(len(trials),48)
+            self.assertTrue(set(trials)<=baseline)
+            self.assertEqual([sum(s==i for s,z in trials) for i in range(4)],[12]*4)
     def test_three_player_output_rejected(self):
         text="Game Outcome: A has won because x\nGame Outcome: B has lost because x\nGame Outcome: C has lost because x\nGame Result: Game 1 ended in 2 ms. A has won!"
         self.assertEqual(classify(text)["status"],"unresolved")

@@ -20,7 +20,7 @@ def classify(log, returncode=0):
     if len(winners)!=1 or len(results)!=1 or winners[0]!=results[0][1]:
         return {'status':'unresolved','winner':None}
     turns=re.findall(r'^Turn: Turn (\d+) \(',log,re.M)
-    return {'status':'completed','winner':winners[0],'engine_ms':int(results[0][0][0]),
+    return {'status':'completed','winner':winners[0],'engine_ms':int(results[0][0]),
             'last_logged_turn':int(turns[-1]) if turns else None}
 
 def validate_deck(path):
@@ -62,11 +62,17 @@ def play(engine,out,variant,seat,seed,timeout):
     (out/'records'/f'{stem}.json').write_text(json.dumps(result,indent=2)+'\n')
     return result
 
+def make_jobs(variants, games_per_variant, seed, baseline_games=None):
+    counts={v:baseline_games if v=='GGS_Current' and baseline_games is not None else games_per_variant for v in variants}
+    if any(n<=0 for n in counts.values()): raise ValueError('Game counts must be positive')
+    return [(v,i%4,seed+i//4) for i in range(max(counts.values())) for v in variants if i<counts[v]]
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--engine',type=pathlib.Path,required=True)
     p.add_argument('--output',default='results')
     p.add_argument('--games-per-variant',type=int,default=4)
+    p.add_argument('--baseline-games',type=int,help='Optional separate attempt count for GGS_Current')
     p.add_argument('--workers',type=int,default=4)
     p.add_argument('--timeout',type=int,default=240)
     p.add_argument('--seed',type=int,default=20260930)
@@ -91,10 +97,10 @@ def main():
         old=json.loads(metadata_path.read_text())
         if old.get('engine_jar_sha256')!=metadata['engine_jar_sha256'] or old.get('deck_sha256')!=metadata['deck_sha256']:
             p.error('Cannot resume: engine or deck hashes differ or were not recorded')
-        for key in ('seed','timeout','games_per_variant','variants'):
+        for key in ('seed','timeout','games_per_variant','variants','baseline_games'):
             if old['arguments'].get(key)!=metadata['arguments'].get(key):p.error(f'Cannot resume: {key} differs')
     metadata_path.write_text(json.dumps(metadata,indent=2)+'\n')
-    jobs=[(v,i%4,a.seed+i//4) for v in variants for i in range(a.games_per_variant)]
+    jobs=make_jobs(variants,a.games_per_variant,a.seed,a.baseline_games)
     results=[]
     if a.resume:
         pending=[]
