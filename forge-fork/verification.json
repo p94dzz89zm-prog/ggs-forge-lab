@@ -62,12 +62,15 @@
     "working_directory": "forge-gui (contains res)"
   },
   "publication": {
-    "offline_seat_audits": "Omitted from public commit. Automatic approval review rejected two compressed files because private hand information was not considered covered by full-game-log approval. All seat-private audit files omitted.",
+    "offline_seat_audits": "Published with explicit user authorization after initial automatic-review rejection: internal audit files including hidden-hand information are approved for public publication.",
     "public_evidence": [
       "evidence/game.log",
       "evidence/bridge-transcript.jsonl.gz",
       "evidence/invalid-initial-run.log",
-      "evidence/invalid-concurrent-build-run.log"
+      "evidence/invalid-concurrent-build-run.log",
+      "evidence/offline-audit/evaluation-seat-0.jsonl.gz",
+      "evidence/offline-audit/evaluation-seat-1.jsonl.gz",
+      "evidence/offline-audit/seat-1.jsonl.gz"
     ]
   }
 }

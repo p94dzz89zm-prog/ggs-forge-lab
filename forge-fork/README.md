@@ -111,6 +111,7 @@ Forge's license. The independent Python helper scripts remain under the lab MIT
 license. No upstream ownership or universal AI improvement is claimed.
 
 The public request/response transcript is gzip compressed (`*.jsonl.gz`).
-Seat-private post-game audit files are omitted from the public commit: automatic
-approval review rejected publication of private-hand audit data. The bridge still
-generates those files locally for post-game inspection.
+Seat-private post-game audit files are published under `evidence/offline-audit`
+with explicit user authorization to publish the internal audits, including hidden
+hand information. Keep these files away from the external pilot during matches;
+they are for post-game inspection.
