@@ -76,7 +76,7 @@ if __name__=='__main__':
             ('predictDamageTo','predict-damage',5),('lifeInDanger','life-danger',3)]
         files['forge-ai/src/main/java/forge/ai/ComputerUtilCard.java'] = [
             ('evaluateCreature','evaluate-creature',1)]
-    static_internals = any(flag in sys.argv[4:] for flag in ('--static-internals', '--affected-internals'))
+    static_internals = any(flag in sys.argv[4:] for flag in ('--static-internals', '--affected-internals', '--validity-internals'))
     if static_internals:
         files['forge-game/src/main/java/forge/game/GameAction.java'] += [
             ('findStaticAbilityToApply','static-dependencies',5)]
@@ -87,6 +87,8 @@ if __name__=='__main__':
         files['forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java'] = [
             ('getAffectedCards','static-affected-cards',2),('getAffectedPlayers','static-affected-players',1),
             ('applyContinuousAbility','static-effect-body',3)]
+    if '--validity-internals' in sys.argv[4:]:
+        files['forge-game/src/main/java/forge/game/card/CardLists.java'] = []
     sources=[]
     for path,methods in files.items():
         text=(src/path).read_text()
@@ -100,7 +102,7 @@ if __name__=='__main__':
             assert text.count(begin)==1
             start=text.index(begin);end=text.index('        }, true);',start)+len('        }, true);')
             text=text[:start]+'        try(var dmCollect=forge.diagnostics.DecisionProfiler.enter("static-collect")) {\n'+text[start:end]+'\n        }'+text[end:]
-        if '--affected-internals' in sys.argv[4:] and Path(path).name=='StaticAbilityContinuous.java':
+        if any(flag in sys.argv[4:] for flag in ('--affected-internals', '--validity-internals')) and Path(path).name=='StaticAbilityContinuous.java':
             start=text.index('    public static CardCollectionView getAffectedCards(')
             opening=text.index('{',start);end=end_brace(text,opening)
             body=text[opening+1:end]
@@ -122,6 +124,35 @@ if __name__=='__main__':
                 assert body.count(original)==1
                 body=body.replace(original,'        try(var dmPart=forge.diagnostics.DecisionProfiler.enter("'+label+'")) {\n'+original+'\n        }')
             text=text[:opening+1]+body+text[end:]
+        if '--validity-internals' in sys.argv[4:] and Path(path).name=='CardLists.java':
+            original='        return CardLists.filter(cardList, Card.validityPredicate(restriction, sourceController, source, sa));'
+            prepare='Card.validityPredicate(restriction, sourceController, source, sa)'
+            if text.count(original)==0:
+                prepare='CardPredicates.restriction(restriction.split(","), sourceController, source, sa)'
+                original='        return CardLists.filter(cardList, '+prepare+');'
+            assert text.count(original)==1
+            text=text.replace(original, '\n'.join([
+                '        try(var dmSample=forge.diagnostics.DecisionProfiler.beginValiditySample()) {',
+                '            final java.util.function.Predicate<Card> predicate;',
+                '            try(var dmPrepare=forge.diagnostics.DecisionProfiler.enter("validity-query-preparation")) {',
+                '                predicate='+prepare+';',
+                '            }',
+                '            try(var dmFilter=forge.diagnostics.DecisionProfiler.enter("validity-query-filter")) {',
+                '                return CardLists.filter(cardList, predicate);',
+                '            }',
+                '        }']))
+        if '--validity-internals' in sys.argv[4:] and Path(path).name=='Card.java':
+            lookup='        ParsedValidity parsed = VALIDITY_SYNTAX.getUnchecked(restriction);'
+            if lookup in text:
+                text=text.replace(lookup, '        final ParsedValidity parsed;\n        try(var dmSyntax=forge.diagnostics.DecisionProfiler.inValiditySample() ? forge.diagnostics.DecisionProfiler.enter("validity-syntax-lookup") : null) {\n            parsed = VALIDITY_SYNTAX.getUnchecked(restriction);\n        }')
+            begin='        // need to filter out prepared spells for other cards'
+            finish='        if (parsed.properties() != null) {'
+            a=text.index(begin);b=text.index(finish,a)
+            text=text[:a]+'        try(var dmType=forge.diagnostics.DecisionProfiler.inValiditySample() ? forge.diagnostics.DecisionProfiler.enter("validity-type") : null) {\n'+text[a:b]+'        }\n'+text[b:]
+            start=text.index('    public boolean hasProperty(final String property,')
+            opening=text.index('{',start);end=end_brace(text,opening)
+            text=text[:end]+'\n        }\n    '+text[end:]
+            text=text[:opening+1]+'\n        try(var dmProperty=forge.diagnostics.DecisionProfiler.inValiditySample() ? forge.diagnostics.DecisionProfiler.enter("validity-property-"+property.replace(",", ";")) : null) {'+text[opening+1:]
         if Path(path).name=='GameActionUtil.java':
             statements={
               'game.getAction().checkStaticAbilities(false, Sets.newHashSet(source), preList);':'alternate-face-rebuild',

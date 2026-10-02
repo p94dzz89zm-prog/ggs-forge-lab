@@ -191,5 +191,7 @@
       "inclusive_ns": 1802265409,
       "exclusive_ns": 749317426
     }
-  }
+  },
+  "implementation": "unfinished per-query validity candidate over v12",
+  "correction": "The overlay was built from a source tree containing three unaccepted validity-candidate source files. The active jar remained v12. Accepted v12 was subsequently reconstructed from the 14-patch chain and profiled separately; see validity-internals-v12-summary.json."
 }

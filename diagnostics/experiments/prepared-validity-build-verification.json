@@ -1,0 +1,27 @@
+{
+  "accepted_patches": 14,
+  "experimental_patches": 1,
+  "managed_source_files": 47,
+  "candidate_changed_source_files": 3,
+  "candidate_classes": [
+    "forge/game/card/Card$1.class",
+    "forge/game/card/Card$2.class",
+    "forge/game/card/Card$CardChangedName.class",
+    "forge/game/card/Card$CardColor.class",
+    "forge/game/card/Card$CardManaCost.class",
+    "forge/game/card/Card$CountKeywordVisitor.class",
+    "forge/game/card/Card$HasKeywordVisitor.class",
+    "forge/game/card/Card$ListKeywordVisitor.class",
+    "forge/game/card/Card$ParsedValidity.class",
+    "forge/game/card/Card$SplitCMCMode.class",
+    "forge/game/card/Card$StatBreakdown.class",
+    "forge/game/card/Card.class",
+    "forge/game/card/CardLists.class"
+  ],
+  "candidate_patch_reproduces_changed_sources": true,
+  "candidate_zip_integrity": "passed",
+  "active_jar_unchanged_sha256": "a1a6d6a2571c2146b65d811d607a4ac10430812c8ec1e1882e4ee28878355e5b",
+  "full_maven_build_rerun": false,
+  "working_sources_restored_to_accepted_v12": true,
+  "all_47_managed_sources_match_accepted_patch_chain": true
+}

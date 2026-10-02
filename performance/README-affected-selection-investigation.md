@@ -2,6 +2,12 @@
 
 2026-10-02. Diagnostic investigation; production remains v12.
 
+**Source-attribution correction:** this overlay used an unfinished per-query
+validity candidate from the source tree. The stable jar was v12, but the overlay
+replaced its Card and CardLists classes with candidate classes. The timings below
+belong to that candidate, not accepted v12. The corrected accepted-v12 profile
+is recorded in `diagnostics/validity-internals-v12-summary.json`.
+
 ## Result
 
 The isolated diagnostic game for seed 20261012 completed in 63.538 engine
@@ -37,7 +43,8 @@ Profiling adds overhead, including almost one million scopes per general
 substage. Durations are diagnostic, not unprofiled speed comparisons.
 Inclusive parent/child timings and cross-thread roots overlap.
 
-No production source or jar changed. Full engine regression tests were not
+This profiling step did not edit production source or the stable jar; unaccepted
+candidate source changes already existed. Full engine regression tests were not
 rerun for this diagnostic-only change. The earlier v12 validation remains the
 production evidence; sampled trace equality is not exhaustive rules certification.
 

@@ -1,0 +1,81 @@
+{
+  "run_order": [
+    "control-1",
+    "candidate-1",
+    "candidate-2",
+    "control-2"
+  ],
+  "runs": {
+    "control-1": [
+      {
+        "seed": 20261011,
+        "engine_ms": 28618,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 48788,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "candidate-1": [
+      {
+        "seed": 20261011,
+        "engine_ms": 27770,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 49741,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "candidate-2": [
+      {
+        "seed": 20261011,
+        "engine_ms": 25879,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 48884,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "control-2": [
+      {
+        "seed": 20261011,
+        "engine_ms": 26192,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 49315,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ]
+  },
+  "total_control_seconds": 152.913,
+  "total_candidate_seconds": 152.274,
+  "combined_reduction_percent": 0.41788467952366126,
+  "matching_tracked_events_per_pair": 2146,
+  "matching_tracked_events_all_pairs": 4292,
+  "decision": "Reject candidate as a production successor: no convincing whole-game speedup. Keep v12.",
+  "timing_limitation": "Patch/file reproduction, jar-entry verification and hashing took approximately 0.62 seconds during control-2. That small verification workload could bias these sub-second combined differences. No concurrent games, profilers, compilations or Java/Python regression runs occurred during benchmark games. These repeated observations do not establish general throughput gains."
+}

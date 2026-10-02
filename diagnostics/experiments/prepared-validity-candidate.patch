@@ -1,0 +1,118 @@
+diff --git a/forge-game/src/main/java/forge/game/card/Card.java b/forge-game/src/main/java/forge/game/card/Card.java
+index d9ee238..65d7d28 100644
+--- a/forge-game/src/main/java/forge/game/card/Card.java
++++ b/forge-game/src/main/java/forge/game/card/Card.java
+@@ -5756,7 +5756,28 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+     // Takes one argument like Permanent.Blue+withFlying
+     @Override
+     public final boolean isValid(final String restriction, final Player sourceController, final Card source, CardTraitBase spellAbility) {
+-        ParsedValidity parsed = VALIDITY_SYNTAX.getUnchecked(restriction);
++        return matchesParsedValidity(VALIDITY_SYNTAX.getUnchecked(restriction), sourceController, source, spellAbility);
++    }
++
++    /** Prepare immutable syntax once per list query; all card properties remain live. */
++    public static java.util.function.Predicate<Card> validityPredicate(final String restrictions,
++            final Player sourceController, final Card source, final CardTraitBase spellAbility) {
++        final String[] clauses = restrictions.split(",");
++        final ParsedValidity[] parsed = new ParsedValidity[clauses.length];
++        for (int i = 0; i < clauses.length; i++) {
++            parsed[i] = VALIDITY_SYNTAX.getUnchecked(clauses[i]);
++        }
++        return card -> {
++            if (card == null) return false;
++            for (ParsedValidity clause : parsed) {
++                if (card.matchesParsedValidity(clause, sourceController, source, spellAbility)) return true;
++            }
++            return false;
++        };
++    }
++
++    private boolean matchesParsedValidity(final ParsedValidity parsed, final Player sourceController,
++            final Card source, final CardTraitBase spellAbility) {
+         final String inclusive = parsed.inclusive();
+         final boolean testFailed = parsed.negated();
+ 
+diff --git a/forge-game/src/main/java/forge/game/card/CardLists.java b/forge-game/src/main/java/forge/game/card/CardLists.java
+index b5a7a37..5f1c3b5 100644
+--- a/forge-game/src/main/java/forge/game/card/CardLists.java
++++ b/forge-game/src/main/java/forge/game/card/CardLists.java
+@@ -186,7 +186,7 @@ public class CardLists {
+     }
+ 
+     public static CardCollection getValidCards(Iterable<Card> cardList, String restriction, Player sourceController, Card source, CardTraitBase sa) {
+-        return CardLists.filter(cardList, CardPredicates.restriction(restriction.split(","), sourceController, source, sa));
++        return CardLists.filter(cardList, Card.validityPredicate(restriction, sourceController, source, sa));
+     }
+ 
+     public static List<Card> getValidCardsAsList(Iterable<Card> cardList, String restriction, Player sourceController, Card source, CardTraitBase sa) {
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+index a8d3c89..b1353c4 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -652,4 +652,66 @@ public class DragonMindPerformanceTest extends AITest {
+         Assert.assertEquals(new ArrayList<>(StaticAbilityContinuous.getAffectedCards(ability,forge.game.card.CardCollection.EMPTY)),List.of(own));
+     }
+ 
++    @Test public void preparedValidityPredicatesKeepLiveControllerTypesAndKeywords() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        Card host=addCard("Grizzly Bears",player);
++        var owned=Card.validityPredicate("Creature.YouCtrl",player,host,null);
++        var flying=Card.validityPredicate("Creature.withFlying",player,host,null);
++        Assert.assertTrue(owned.test(host));Assert.assertFalse(flying.test(host));Assert.assertFalse(owned.test(null));
++        host.setController(other,game.getNextTimestamp());Assert.assertFalse(owned.test(host));
++        host.setController(player,game.getNextTimestamp());Assert.assertTrue(owned.test(host));
++        host.addIntrinsicKeyword("Flying");Assert.assertTrue(flying.test(host));host.removeIntrinsicKeyword(forge.game.keyword.Keyword.FLYING);Assert.assertFalse(flying.test(host));
++        var type=new forge.card.CardType(List.of("Artifact"),false);host.getCurrentState().setType(type);Assert.assertFalse(owned.test(host));
++    }
++    @Test public void preparedValidityPreservesAlternativesNegationAndEmptyClauses() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        var cards=List.of(addCard("Grizzly Bears",player),addCard("Sol Ring",player),addCard("Island",player));
++        for(String expression:List.of("Creature,Artifact", "!Creature.YouCtrl", "Card.Self", "Creature.YouCtrl+withFlying,Land", "", ",", "Creature,", "Creature,,Artifact")) {
++            var predicate=Card.validityPredicate(expression,player,cards.get(0),null);
++            var expected=new ArrayList<Card>();
++            for(Card card:cards) {
++                boolean valid=card.isValid(expression.split(","),player,cards.get(0),null);
++                Assert.assertEquals(predicate.test(card),valid,expression);if(valid)expected.add(card);
++            }
++            Assert.assertEquals(new ArrayList<>(forge.game.card.CardLists.getValidCards(cards,expression,player,cards.get(0),null)),expected,expression);
++        }
++    }
++    @Test public void preparedValidityKeepsCommanderAndCounterPropertiesLive() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);Card host=addCard("Grizzly Bears",player);
++        var commander=Card.validityPredicate("Card.IsCommander",player,host,null);
++        var counters=Card.validityPredicate("Card.counters_GE1_P1P1",player,host,null);
++        Assert.assertFalse(commander.test(host));host.setCommander(true);Assert.assertTrue(commander.test(host));host.setCommander(false);Assert.assertFalse(commander.test(host));
++        Assert.assertFalse(counters.test(host));host.setCounters(CounterEnumType.P1P1,1);Assert.assertTrue(counters.test(host));host.setCounters(CounterEnumType.P1P1,0);Assert.assertFalse(counters.test(host));
++    }
++
++    @Test public void preparedValidityKeepsPhasingAndPreparedSpellZonesLive() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCard("Grizzly Bears",player);
++        var self=Card.validityPredicate("Card.Self",player,host,null);
++        var phased=Card.validityPredicate("Card.phasedOutSelf",player,host,null);
++        Assert.assertTrue(self.test(host));Assert.assertFalse(phased.test(host));
++        host.setPhasedOut(player);Assert.assertFalse(self.test(host));Assert.assertTrue(phased.test(host));
++        host.setPhasedOut(null);Assert.assertTrue(self.test(host));Assert.assertFalse(phased.test(host));
++        var anyCard=Card.validityPredicate("Card",player,host,null);
++        var notCard=Card.validityPredicate("!Card",player,host,null);
++        host.addAlternateState(CardStateName.PreparedSpell,false);host.setState(CardStateName.PreparedSpell,false);
++        player.getZone(ZoneType.Battlefield).remove(host);player.getZone(ZoneType.Exile).add(host);host.setZone(player.getZone(ZoneType.Exile));
++        Assert.assertFalse(anyCard.test(host));Assert.assertTrue(notCard.test(host));
++        player.getZone(ZoneType.Exile).remove(host);player.getZone(ZoneType.Command).add(host);host.setZone(player.getZone(ZoneType.Command));
++        Assert.assertTrue(anyCard.test(host));Assert.assertFalse(notCard.test(host));
++    }
++    @Test public void preparedValidityPreservesLastKnownControllerAndOwnedResultMembership() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        Card host=addCard("Grizzly Bears",player),body=addCard("Grizzly Bears",player);
++        var owned=Card.validityPredicate("Creature.YouCtrl",player,host,null);
++        var old=forge.game.card.CardCopyService.getLKICopy(body);game.addChangeZoneLKIInfo(old);
++        body.setController(other,game.getNextTimestamp());Assert.assertTrue(owned.test(body));
++        game.clearChangeZoneLKIInfo();Assert.assertFalse(owned.test(body));
++        body.setController(player,game.getNextTimestamp());Assert.assertTrue(owned.test(body));
++        var source=new forge.game.card.CardCollection(List.of(host,body));
++        var result=forge.game.card.CardLists.getValidCards(source,"Creature.YouCtrl",player,host,null);
++        Assert.assertEquals(new ArrayList<>(result),List.of(host,body));result.remove(host);
++        Assert.assertEquals(new ArrayList<>(source),List.of(host,body));
++    }
++
+ }

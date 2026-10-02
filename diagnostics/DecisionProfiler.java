@@ -15,9 +15,11 @@ public final class DecisionProfiler {
     static { Runtime.getRuntime().addShutdownHook(new Thread(DecisionProfiler::dump)); }
     public static final class Scope implements AutoCloseable {
         final Scope parent; final Stats stats; final long started; final String path;
+        final boolean validitySample;
         long children;
         Scope(String label) {
             parent=active.get();
+            validitySample=label.equals("validity-sample") || (parent!=null && parent.validitySample);
             path=parent==null ? Thread.currentThread().getName()+" :: "+label : parent.path+" > "+label;
             stats=totals.computeIfAbsent(path,k->new Stats());
             active.set(this); started=System.nanoTime();
@@ -30,6 +32,18 @@ public final class DecisionProfiler {
         }
     }
     public static Scope enter(String label) { return new Scope(label); }
+    private static final ThreadLocal<long[]> validitySequence=ThreadLocal.withInitial(() -> new long[1]);
+    /** Independent deterministic sample; never touches the engine RNG. */
+    public static Scope beginValiditySample() {
+        Scope current=active.get();
+        if (current==null || !current.path.endsWith("affected-validity") || current.validitySample) return null;
+        long value=++validitySequence.get()[0];
+        value=(value^(value>>>30))*0xbf58476d1ce4e5b9L;
+        value=(value^(value>>>27))*0x94d049bb133111ebL;
+        value=value^(value>>>31);
+        return (value & 63L)==0 ? enter("validity-sample") : null;
+    }
+    public static boolean inValiditySample() { Scope s=active.get(); return s!=null && s.validitySample; }
     private static void dump() {
         String filename=System.getProperty("dragonmind.decisionProfile"); if(filename==null)return;
         StringBuilder out=new StringBuilder("path,calls,inclusive_ns,exclusive_ns\n");
