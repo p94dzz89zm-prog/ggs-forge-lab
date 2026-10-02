@@ -1,0 +1,165 @@
+{
+  "date": "2026-10-02",
+  "control": "v13 exact commander-property dispatch",
+  "candidate": "v14 scoped stack-grant eligibility",
+  "run_order": [
+    "control-1",
+    "candidate-1",
+    "candidate-2",
+    "control-2"
+  ],
+  "runs": {
+    "control-1": [
+      {
+        "seed": 20261011,
+        "engine_ms": 25733,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 51303,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "candidate-1": [
+      {
+        "seed": 20261011,
+        "engine_ms": 24771,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 43538,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "candidate-2": [
+      {
+        "seed": 20261011,
+        "engine_ms": 25828,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 45810,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "control-2": [
+      {
+        "seed": 20261011,
+        "engine_ms": 25382,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 48081,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ]
+  },
+  "total_control_seconds": 150.499,
+  "total_candidate_seconds": 139.947,
+  "combined_reduction_percent": 7.011342268054937,
+  "paired_matching_events": 4292,
+  "trace_sha256": "8a5326f812c98b9aa53898a38af1781d1c30214621583f98deb3f376862cdebc",
+  "run_hashes": {
+    "control-1": {
+      "log_sha256": "ac02e05a3c2d014228d6f731e3a995dd5b6eebeb19ecc767193d9c47e3aed632",
+      "matching_events": 2146
+    },
+    "candidate-1": {
+      "log_sha256": "39cd1bc823f55b90b2dd8f1809ddb9c016f68d95402b4384ad186cf22b0bd699",
+      "matching_events": 2146
+    },
+    "candidate-2": {
+      "log_sha256": "4f761a04302ad932d22c645b593f819213166eb0976ccc6b7098745cb39141a6",
+      "matching_events": 2146
+    },
+    "control-2": {
+      "log_sha256": "122934feda98dae349b3bac3b5687449e7b3f6ff82ccc5e8c3b20c456adb6e59",
+      "matching_events": 2146
+    }
+  },
+  "shadow": {
+    "queries": 48580,
+    "predicted_skips": 17633,
+    "missed_productive_rebuilds": 0,
+    "incomplete": 0,
+    "matching_events": 2146,
+    "focused_checks": 23,
+    "rows": [
+      {
+        "reason": "borrowed-candidate",
+        "queries": 29775,
+        "predicted_skips": 0,
+        "actual_empty": 28781,
+        "missed_productive_rebuilds": 0,
+        "shadow_body_ns": 7591796045,
+        "incomplete": 0
+      },
+      {
+        "reason": "candidate-self-type",
+        "queries": 34,
+        "predicted_skips": 0,
+        "actual_empty": 34,
+        "missed_productive_rebuilds": 0,
+        "shadow_body_ns": 10306201,
+        "incomplete": 0
+      },
+      {
+        "reason": "excluded-by-controller-or-subtype",
+        "queries": 17633,
+        "predicted_skips": 17633,
+        "actual_empty": 17633,
+        "missed_productive_rebuilds": 0,
+        "shadow_body_ns": 6678394373,
+        "incomplete": 0
+      },
+      {
+        "reason": "lki-candidate",
+        "queries": 110,
+        "predicted_skips": 0,
+        "actual_empty": 110,
+        "missed_productive_rebuilds": 0,
+        "shadow_body_ns": 19010919,
+        "incomplete": 0
+      },
+      {
+        "reason": "possible-assassin-grant",
+        "queries": 1028,
+        "predicted_skips": 0,
+        "actual_empty": 0,
+        "missed_productive_rebuilds": 0,
+        "shadow_body_ns": 464863658,
+        "incomplete": 0
+      }
+    ]
+  },
+  "candidate_engine_checks": 103,
+  "python_checks": 31,
+  "source_proof": {
+    "patches": 16,
+    "managed_files": 51
+  },
+  "timing_conditions": "No concurrent games, profiling, compilation, regression suites or archive/source verification during the eight benchmark games; light source reads and report/test preparation occurred.",
+  "full_maven_build_rerun": false,
+  "activation_pending_packaged_runner": false,
+  "decision": "Retain as v14 after source-chain, differential/scope lifecycle and packaged-runner verification. The two-seed repeated gain is limited evidence, not a general speed guarantee."
+}

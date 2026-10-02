@@ -1,0 +1,442 @@
+diff --git a/forge-game/src/main/java/forge/game/staticability/StackCandidateEligibility.java b/forge-game/src/main/java/forge/game/staticability/StackCandidateEligibility.java
+new file mode 100644
+--- /dev/null
++++ b/forge-game/src/main/java/forge/game/staticability/StackCandidateEligibility.java
+@@ -0,0 +1,163 @@
++package forge.game.staticability;
++
++import forge.game.card.Card;
++import forge.game.player.Player;
++import forge.game.staticability.*;
++import forge.game.ability.AbilityUtils;
++import forge.game.zone.ZoneType;
++import forge.util.FileSection;
++import java.util.*;
++
++/** Experimental conservative stack-grant exclusion; callers retain full rebuilds on uncertainty. */
++public final class StackCandidateEligibility {
++    public record Prediction(boolean skip, String reason) {}
++    private record Plan(Map<String,String> params, Set<StaticAbilityLayer> layers,
++                        boolean continuous, boolean cda, String kind) {}
++    private static final ThreadLocal<IdentityHashMap<StaticAbility,Plan>> plans=new ThreadLocal<>();
++    public static final class Scope implements AutoCloseable {
++        private final boolean root=plans.get()==null;
++        Scope(){if(root)plans.set(new IdentityHashMap<>());}
++        public void close(){if(root)plans.remove();}
++    }
++    public static Scope search(){return new Scope();}
++    private static Plan compile(StaticAbility ability) {
++        var params=Map.copyOf(ability.getMapParams());var layers=Set.copyOf(ability.getLayers());
++        boolean continuous=ability.checkMode(StaticAbilityMode.Continuous), cda=ability.isCharacteristicDefining();
++        var cache=plans.get();Plan old=cache==null?null:cache.get(ability);
++        // Referenced SVars are read anew; their values can change without changing the parameter map.
++        boolean generated=params.containsKey("AddStaticAbility")||params.containsKey("AddSVar")||params.containsKey("AddTrigger");
++        if(!generated&&old!=null&&old.params.equals(params)&&old.layers.equals(layers)&&old.continuous==continuous&&old.cda==cda){return old;}
++        String kind=classify(ability,params,layers,continuous,cda);
++        Plan result=new Plan(params,layers,continuous,cda,kind);
++        if(cache!=null)cache.put(ability,result);return result;
++    }
++    private static String classify(StaticAbility ability,Map<String,String> params,Set<StaticAbilityLayer> layers,boolean continuous,boolean cda) {
++        if(!continuous)return "irrelevant";
++        if(layers.contains(StaticAbilityLayer.COPY))return "copy-layer";
++        if(layers.contains(StaticAbilityLayer.CONTROL))return "control-layer";
++        if(layers.contains(StaticAbilityLayer.TEXT))return "text-layer";
++        if(pureLocalEffect(ability,params))return "local-defined";
++        if(layers.contains(StaticAbilityLayer.TYPE))return cda&&layers.equals(Set.of(StaticAbilityLayer.TYPE))?"self-type-layer":"type-layer";
++        for(String param:List.of("RemoveAllAbilities","RemoveNonManaAbilities","GainsAbilitiesOf","GainsAbilitiesOfDefined","GainsTriggerAbsOf","ShareRememberedKeywords"))
++            if(params.containsKey(param))return "ability-rewrite";
++        if(params.containsKey("AddStaticAbility")&&!benignGeneratedStatics(ability))return "generated-static";
++        if(params.containsKey("AddSVar")&&!benignBlockingSVar(ability))return "generated-variable";
++        boolean stack=ZoneType.listValueOf(params.getOrDefault("AffectedZone","Battlefield")).contains(ZoneType.Stack);
++        if(layers.contains(StaticAbilityLayer.ABILITIES)&&(stack||cda||params.containsKey("AffectedDefined"))){
++            if(isFreerunningGrant(params,layers,cda))return "assassin-grant";
++            return "unknown-stack-grant";
++        }
++        // Unknown keywords may themselves generate continuous traits, even on another host.
++        if(params.containsKey("AddKeyword")&&!benignKeywords(params.get("AddKeyword")))return "generated-keyword";
++        if(params.containsKey("AddAbility")||params.containsKey("AddReplacementEffect"))return "generated-ability";
++        if(params.containsKey("AddTrigger")&&!benignGeneratedTriggers(ability))return "generated-trigger";
++        return "irrelevant";
++    }
++    private static boolean benignKeywords(String value){
++        for(String keyword:value.split(" & "))
++            if(!Set.of("Haste","Trample","Hexproof","Indestructible","Flying","First strike","Double strike","Menace","Vigilance","Lifelink","Deathtouch","Shroud","Reach","Skulk","Fear","Intimidate","Prevent all damage that would be dealt to CARDNAME.").contains(keyword)
++                &&!keyword.startsWith("Protection:")&&!keyword.startsWith("Protection from "))return false;
++        return true;
++    }
++    private static boolean pureLocalEffect(StaticAbility ability,Map<String,String> p){
++        if(!Set.of("Self","Equipped","Enchanted").contains(p.getOrDefault("AffectedDefined","")))return false;
++        if(!Set.of("Mode","Affected","AffectedDefined","AffectedZone","EffectZone","Description","Condition","CheckSVar","SVarCompare","AddPower","AddToughness","SetPower","SetToughness","AddType","RemoveType","RemoveCardTypes","RemoveSubTypes","RemoveSuperTypes","RemoveLandTypes","RemoveCreatureTypes","RemoveArtifactTypes","RemoveEnchantmentTypes","AddAllCreatureTypes","AddKeyword","AddTrigger","AddSVar").containsAll(p.keySet()))return false;
++        if(p.containsKey("AddKeyword")&&!benignKeywords(p.get("AddKeyword")))return false;
++        if(p.containsKey("AddTrigger")&&!benignGeneratedTriggers(ability))return false;
++        return !p.containsKey("AddSVar")||benignBlockingSVar(ability);
++    }
++    private static Card definedTarget(StaticAbility ability){
++        Card host=ability.getHostCard();
++        if(ability.isCharacteristicDefining())return host;
++        return switch(ability.getParam("AffectedDefined")){
++            case "Self"->host;
++            case "Equipped"->host.getEquipping();
++            case "Enchanted"->host.getEnchantingCard();
++            default->throw new IllegalStateException("Unknown local selector");
++        };
++    }
++    private static boolean isFreerunningGrant(Map<String,String> p,Set<StaticAbilityLayer> layers,boolean cda){
++        return !cda&&layers.equals(Set.of(StaticAbilityLayer.ABILITIES))
++            &&Set.of("Mode","Affected","AffectedZone","AddKeyword","Description").containsAll(p.keySet())
++            &&"Continuous".equals(p.get("Mode"))&&"Stack".equals(p.get("AffectedZone"))
++            &&"Card.Assassin+YouCtrl+wasCast".equals(p.get("Affected"))
++            &&"Freerunning:B B".equals(p.get("AddKeyword"));
++    }
++    private static boolean benignGeneratedStatics(StaticAbility ability){
++        try{
++            for(String name:ability.getParam("AddStaticAbility").split(" & ")){
++                Map<String,String> p=FileSection.parseToMap(AbilityUtils.getSVar(ability,name),FileSection.DOLLAR_SIGN_KV_SEPARATOR);
++                if(!"Continuous".equals(p.get("Mode"))||!"Battlefield".equals(p.getOrDefault("AffectedZone","Battlefield")))return false;
++                if(!Set.of("Mode","Affected","AffectedZone","AddPower","AddToughness","SetPower","SetToughness","AddKeyword","Description","Condition","CheckSVar","SVarCompare").containsAll(p.keySet()))return false;
++                if(p.containsKey("AddKeyword"))for(String keyword:p.get("AddKeyword").split(" & "))if(!Set.of("Haste","Trample").contains(keyword))return false;
++            }
++            return true;
++        }catch(RuntimeException unknown){return false;}
++    }
++    private static boolean benignGeneratedTriggers(StaticAbility ability){
++        try{
++            for(String name:ability.getParam("AddTrigger").split(" & ")){
++                Map<String,String> p=FileSection.parseToMap(AbilityUtils.getSVar(ability,name),FileSection.DOLLAR_SIGN_KV_SEPARATOR);
++                String mode=p.get("Mode");
++                if(mode==null||mode.equals("Always")||mode.equals("Immediate"))return false;
++            }
++            return true;
++        }catch(RuntimeException unknown){return false;}
++    }
++    private static boolean benignBlockingSVar(StaticAbility ability){
++        for(String name:ability.getParam("AddSVar").split(" & "))if(!"SVar:MustBeBlocked:AttackingPlayerConservative".equals(AbilityUtils.getSVar(ability,name)))return false;
++        return true;
++    }
++    private static boolean potentialSource(StaticAbility ability,Card candidate){
++        if(ability.isCharacteristicDefining())return true;
++        Card host=ability.getHostCard();
++        Set<ZoneType> active=ability.getActiveZone();
++        if(active==null)active=Set.of(ZoneType.Battlefield);
++        var zone=host.getGame().getZoneOf(host);
++        if(zone!=null&&active.contains(zone.getZoneType()))return true;
++        // The candidate is the only card whose zone changes in this hypothetical rebuild.
++        // Ignore suppression and conditions, which may change while static effects are reset.
++        return host.equals(candidate)&&active.contains(ZoneType.Stack);
++    }
++    public static Prediction predict(Card candidate,Player activator){
++        if(Boolean.getBoolean("dragonmind.disableStackCandidateEligibility"))return new Prediction(false,"disabled");
++        return inspect(candidate,activator);
++    }
++    private static Prediction inspect(Card candidate,Player activator){
++        if(candidate.isLKI())return new Prediction(false,"lki-candidate");
++        if(candidate.getController()!=activator)return new Prediction(false,"borrowed-candidate");
++        // Existing nonintrinsic keyword spells need not have come from a presently visible stack grant.
++        for(var keyword:candidate.getUnhiddenKeywords())if(!keyword.isIntrinsic())return new Prediction(false,"extrinsic-candidate-keyword");
++        List<StaticAbility> grants=new ArrayList<>();Set<String> hazards=new TreeSet<>();
++        candidate.getGame().forEachCardInGame(card->{
++            if(!card.getStaticCommandList().isEmpty())hazards.add("static-command");
++            if(card.hasRemoveIntrinsic()||!card.getChangedCardTraitsByText().isEmpty()||!card.getChangedCardKeywordsByText().isEmpty())hazards.add("masked-source-traits");
++            for(var changes:card.getChangedCardTraits().values())
++                if(!(changes instanceof forge.game.card.CardTraitChanges known)||known.remove()!=null)hazards.add("masked-source-traits");
++            for(var changes:card.getChangedCardKeywords().values())
++                if(changes.isRemoveAllKeywords()||!changes.getRemoveKeywords().isEmpty()||!changes.getRemovedKeywordInstances().isEmpty())hazards.add("masked-source-keywords");
++            List<StaticAbility> abilities=new ArrayList<>(card.getStaticAbilities());abilities.addAll(card.getHiddenStaticAbilities());
++            for(StaticAbility ability:abilities){
++                if(!potentialSource(ability,candidate))continue;
++                Plan plan;
++                try{plan=compile(ability);}catch(RuntimeException unknown){hazards.add("unknown-script");continue;}
++                if(plan.kind.equals("assassin-grant"))grants.add(ability);
++                else if(plan.kind.equals("local-defined")){
++                    Card target=definedTarget(ability);
++                    if(target!=null&&target.equals(candidate))hazards.add("candidate-local-effect");
++                }
++                else if(plan.kind.equals("self-type-layer")){if(ability.getHostCard().equals(candidate))hazards.add("candidate-self-type");}
++                else if(!plan.kind.equals("irrelevant"))hazards.add(plan.kind);
++            }
++            return true;
++        },true);
++        if(!hazards.isEmpty())return new Prediction(false,String.join("+",hazards));
++        if(grants.isEmpty())return new Prediction(false,"no-recognized-grant");
++        for(StaticAbility grant:grants){
++            // Do not trust present zone, suppression or activation conditions to remain unchanged.
++            if(grant.getHostCard().getController()==candidate.getController()&&candidate.getType().hasCreatureType("Assassin"))return new Prediction(false,"possible-assassin-grant");
++        }
++        return new Prediction(true,"excluded-by-controller-or-subtype");
++    }
++
++}
+diff --git a/forge-game/src/main/java/forge/game/GameActionUtil.java b/forge-game/src/main/java/forge/game/GameActionUtil.java
+--- a/forge-game/src/main/java/forge/game/GameActionUtil.java
++++ b/forge-game/src/main/java/forge/game/GameActionUtil.java
+@@ -247,7 +247,8 @@
+                 }
+
+                 // some needs to check after ability was put on the stack
+-                if (game.getAction().hasStaticAbilityAffectingZone(ZoneType.Stack, StaticAbilityLayer.ABILITIES)) {
++                if (game.getAction().hasStaticAbilityAffectingZone(ZoneType.Stack, StaticAbilityLayer.ABILITIES)
++                        && !forge.game.staticability.StackCandidateEligibility.predict(source, activator).skip()) {
+                     Map<StaticAbility, CardPlayOption> oldMayPlay = source.getMayPlay();
+                     Zone oldZone = source.getLastKnownZone();
+                     Card stackCopy = source;
+diff --git a/forge-ai/src/main/java/forge/ai/ComputerUtilAbility.java b/forge-ai/src/main/java/forge/ai/ComputerUtilAbility.java
+--- a/forge-ai/src/main/java/forge/ai/ComputerUtilAbility.java
++++ b/forge-ai/src/main/java/forge/ai/ComputerUtilAbility.java
+@@ -82,6 +82,7 @@
+     }
+
+     public static List<SpellAbility> getSpellAbilities(final CardCollectionView all, final Player activator) {
++        try(var dmDiscovery=forge.game.staticability.StackCandidateEligibility.search()) {
+         final List<SpellAbility> spellAbilities = Lists.newArrayList();
+         for (final Card c : all) {
+             Multimap<SpellAbility, SpellAbility> unhiddenAltCost = ArrayListMultimap.create();
+@@ -95,9 +96,12 @@
+             spellAbilities.addAll(possible);
+         }
+         return spellAbilities;
++
++        }
+     }
+
+     public static List<SpellAbility> getOriginalAndAltCostAbilities(final List<SpellAbility> originList, final Player activator) {
++        try(var dmDiscovery=forge.game.staticability.StackCandidateEligibility.search()) {
+         List<SpellAbility> originListWithAddCosts = Lists.newArrayList();
+         for (SpellAbility sa : originList) {
+             // If this spell has alternative additional costs, add them instead of the unmodified SA itself
+@@ -153,6 +157,8 @@
+         }
+
+         return result;
++
++        }
+     }
+
+     public static SpellAbility getTopSpellAbilityOnStack(Game game, SpellAbility sa) {
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/StackCandidateEligibilityTest.java b/forge-gui-desktop/src/test/java/forge/ai/StackCandidateEligibilityTest.java
+new file mode 100644
+--- /dev/null
++++ b/forge-gui-desktop/src/test/java/forge/ai/StackCandidateEligibilityTest.java
+@@ -0,0 +1,223 @@
++package forge.ai;
++
++import forge.game.staticability.StackCandidateEligibility;
++import forge.game.card.Card;
++import forge.game.zone.ZoneType;
++import org.testng.Assert;
++import org.testng.annotations.Test;
++
++/** Regression cases for the shadow classifier, not a universal rules proof. */
++public class StackCandidateEligibilityTest extends AITest {
++    private Card hand(String name,forge.game.player.Player player){return addCardToZone(name,player,ZoneType.Hand);}
++    @Test public void nonAssassinIsExcludedAndRealAssassinKept(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);
++        addCard("Ezio Auditore da Firenze",p);
++        Assert.assertTrue(StackCandidateEligibility.predict(hand("Grizzly Bears",p),p).skip());
++        Assert.assertFalse(StackCandidateEligibility.predict(hand("Basim Ibn Ishaq",p),p).skip());
++    }
++    @Test public void otherControllerAssassinExcludedButBorrowedSpellFallsBack(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        addCard("Ezio Auditore da Firenze",p);Card candidate=hand("Basim Ibn Ishaq",other);
++        Assert.assertTrue(StackCandidateEligibility.predict(candidate,other).skip());
++        Assert.assertEquals(StackCandidateEligibility.predict(candidate,p).reason(),"borrowed-candidate");
++    }
++    @Test public void lkiAndChangelingCandidatesFallBack(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card candidate=hand("Grizzly Bears",p);
++        Assert.assertEquals(StackCandidateEligibility.predict(forge.game.card.CardCopyService.getLKICopy(candidate),p).reason(),"lki-candidate");
++        Assert.assertFalse(StackCandidateEligibility.predict(hand("Changeling Outcast",p),p).skip());
++    }
++    @Test public void activeTypeChangerInLibraryBlocksPrediction(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCardToZone("Grizzly Bears",p,ZoneType.Library);
++        host.addStaticAbility("Mode$ Continuous | Affected$ Card.YouCtrl | AffectedZone$ Hand | EffectZone$ Library | AddType$ Assassin");
++        Assert.assertEquals(StackCandidateEligibility.predict(hand("Grizzly Bears",p),p).reason(),"type-layer");
++    }
++    @Test public void controlAndTextChangesBlockPrediction(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);Card host=addCard("Grizzly Bears",p);addCard("Ezio Auditore da Firenze",p);
++        Card candidate=hand("Grizzly Bears",p);
++        host.addStaticAbility("Mode$ Continuous | Affected$ Card | GainControl$ True");
++        host.addStaticAbility("Mode$ Continuous | Affected$ Card | ChangeColorWordsTo$ Blue");
++        String reason=StackCandidateEligibility.predict(candidate,p).reason();
++        Assert.assertTrue(reason.contains("control-layer"));Assert.assertTrue(reason.contains("text-layer"));
++    }
++    @Test public void unknownStackAndDefinedGrantsFallBack(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p);Card candidate=hand("Grizzly Bears",p);
++        host.addStaticAbility("Mode$ Continuous | Affected$ Card | AffectedDefined$ Remembered | AddKeyword$ Freerunning:B B");
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void descriptorMutationIsSeenWithinScope(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);Card ezio=addCard("Ezio Auditore da Firenze",p);Card candidate=hand("Grizzly Bears",p);
++        try(var scope=StackCandidateEligibility.search()){
++            Assert.assertTrue(StackCandidateEligibility.predict(candidate,p).skip());
++            var grant=ezio.getStaticAbilities().stream().filter(s->s.hasParam("AffectedZone")).findFirst().orElseThrow();
++            grant.putParam("Affected","Card.YouCtrl+wasCast");
++            Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++        }
++    }
++    @Test public void controllerMutationIsSeenWithinScope(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        Card ezio=addCard("Ezio Auditore da Firenze",p),candidate=hand("Basim Ibn Ishaq",other);
++        try(var scope=StackCandidateEligibility.search()){
++            Assert.assertTrue(StackCandidateEligibility.predict(candidate,other).skip());
++            ezio.setController(other,game.getNextTimestamp());
++            Assert.assertFalse(StackCandidateEligibility.predict(candidate,other).skip());
++        }
++    }
++    @Test public void generatedStaticSVarMutationIsSeenWithinScope(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        host.setSVar("Generated","Mode$ Continuous | Affected$ Creature.YouCtrl | AddPower$ 1");
++        host.addStaticAbility("Mode$ Continuous | Affected$ Creature.YouCtrl | AddStaticAbility$ Generated");
++        try(var scope=StackCandidateEligibility.search()){
++            Assert.assertTrue(StackCandidateEligibility.predict(candidate,p).skip());
++            host.setSVar("Generated","Mode$ Continuous | Affected$ Card | AffectedZone$ Stack | AddKeyword$ Freerunning:B B");
++            Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++        }
++    }
++    @Test public void addedHiddenSourceIsSeenWithinScope(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);Card candidate=hand("Grizzly Bears",p);
++        try(var scope=StackCandidateEligibility.search()){
++            Assert.assertTrue(StackCandidateEligibility.predict(candidate,p).skip());
++            Card hidden=addCardToZone("Grizzly Bears",p,ZoneType.Library);
++            hidden.addStaticAbility("Mode$ Continuous | EffectZone$ Library | Affected$ Card | AffectedZone$ Stack | AddKeyword$ Freerunning:B B");
++            Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++        }
++    }
++    @Test public void unknownGeneratedTraitsAndVariablesFallBack(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        host.setSVar("Variable","SVar:Foo:Count$Valid Card");
++        host.addStaticAbility("Mode$ Continuous | Affected$ Card | AddSVar$ Variable");
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void abilityRemovalFallsBackEvenOffBoard(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCardToZone("Grizzly Bears",p,ZoneType.Hand),candidate=hand("Grizzly Bears",p);
++        host.addStaticAbility("Mode$ Continuous | Affected$ Creature | EffectZone$ Hand | RemoveAllAbilities$ True");
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void unrecognizedKeywordGeneratorFallsBack(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        host.addStaticAbility("Mode$ Continuous | Affected$ Creature | AddKeyword$ Changeling");
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void alwaysTriggerSVarMutationFallsBack(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        host.setSVar("Generated","Mode$ DamageDone | ValidSource$ Card.Self | Execute$ None");
++        host.addStaticAbility("Mode$ Continuous | Affected$ Creature | AddTrigger$ Generated");
++        try(var scope=StackCandidateEligibility.search()){
++            Assert.assertTrue(StackCandidateEligibility.predict(candidate,p).skip());
++            host.setSVar("Generated","Mode$ Always | Execute$ None");
++            Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++        }
++    }
++    @Test public void fixedInactiveSourceIsExcludedButCandidateStackActivationFallsBack(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card hidden=addCardToZone("Grizzly Bears",p,ZoneType.Library),candidate=hand("Grizzly Bears",p);
++        hidden.addStaticAbility("Mode$ Continuous | Affected$ Card | AffectedZone$ Hand | AddType$ Assassin");
++        Assert.assertTrue(StackCandidateEligibility.predict(candidate,p).skip());
++        candidate.addStaticAbility("Mode$ Continuous | EffectZone$ Stack | Affected$ Card.Self | AffectedZone$ Stack | AddType$ Assassin");
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void inactiveUnknownStackSourceBecomesRelevantOnZoneChange(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCardToZone("Grizzly Bears",p,ZoneType.Library),candidate=hand("Grizzly Bears",p);
++        host.addStaticAbility("Mode$ Continuous | Affected$ Card | AffectedZone$ Stack | AddKeyword$ Freerunning:B B");
++        try(var scope=StackCandidateEligibility.search()){
++            Assert.assertTrue(StackCandidateEligibility.predict(candidate,p).skip());
++            p.getZone(ZoneType.Library).remove(host);p.getZone(ZoneType.Battlefield).add(host);host.setZone(p.getZone(ZoneType.Battlefield));
++            Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++        }
++    }
++    @Test public void compoundCharacteristicEffectCannotHideGeneratedGrant(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        host.setSVar("Generated","Mode$ Continuous | Affected$ Card | AffectedZone$ Stack | AddKeyword$ Freerunning:B B");
++        host.addStaticAbility("Mode$ Continuous | CharacteristicDefining$ True | AddType$ Assassin | AddStaticAbility$ Generated");
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void unrelatedEquipmentIsExcludedAndAttachmentMutationIsSeen(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card equipment=addCard("Lightning Greaves",p),bear=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        equipment.setEntityAttachedTo(bear);
++        try(var scope=StackCandidateEligibility.search()){
++            Assert.assertTrue(StackCandidateEligibility.predict(candidate,p).skip());
++            equipment.setEntityAttachedTo(candidate);
++            Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++        }
++    }
++    @Test public void unrelatedSelfTypeEffectIsExcludedButCandidateTargetIsNot(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        host.addStaticAbility("Mode$ Continuous | AffectedDefined$ Self | AddType$ Assassin");
++        Assert.assertTrue(StackCandidateEligibility.predict(candidate,p).skip());
++        candidate.addStaticAbility("Mode$ Continuous | EffectZone$ Hand | AffectedDefined$ Self | AddType$ Assassin");
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void definedSelectorDoesNotHideAbilityRewrite(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        host.addStaticAbility("Mode$ Continuous | AffectedDefined$ Self | RemoveAllAbilities$ True");
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void removedSourceTraitsCannotDisappearFromDependencyAudit(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        host.addStaticAbility("Mode$ Continuous | Affected$ Card | AffectedZone$ Stack | AddType$ Assassin");
++        host.addChangedCardTraits(null,null,null,null,trait->true,game.getNextTimestamp(),99L);
++        Assert.assertTrue(host.getStaticAbilities().isEmpty());
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void removedSourceKeywordsCannotDisappearFromDependencyAudit(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        Card host=addCard("Grizzly Bears",p),candidate=hand("Grizzly Bears",p);
++        host.addChangedCardKeywords(java.util.List.of(),java.util.List.of("Flying"),false,game.getNextTimestamp(),null);
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++    }
++    @Test public void shadowQueryDoesNotChangeAlternativeCostResults(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);
++        for(String name:new String[]{"Grizzly Bears","Basim Ibn Ishaq"}){
++            Card candidate=hand(name,p);var sa=candidate.getFirstSpellAbility();sa.setActivatingPlayer(p);
++            var first=forge.game.GameActionUtil.getAlternativeCosts(sa,p,false);
++            var second=forge.game.GameActionUtil.getAlternativeCosts(sa,p,false);
++            Assert.assertEquals(signature(first),signature(second));
++        }
++    }
++    @Test public void exclusionMatchesDisabledFullRebuildAcrossControllersAndTypeChanges(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        addCard("Ezio Auditore da Firenze",p);
++        Card bear=hand("Grizzly Bears",p),assassin=hand("Basim Ibn Ishaq",p),opposing=hand("Basim Ibn Ishaq",other);
++        compareOriginal(bear,p);compareOriginal(assassin,p);compareOriginal(opposing,other);compareOriginal(opposing,p);
++        Card changer=addCard("Grizzly Bears",p);
++        changer.addStaticAbility("Mode$ Continuous | Affected$ Card.YouCtrl | AffectedZone$ Stack | AddType$ Assassin");
++        compareOriginal(bear,p);
++    }
++    private void compareOriginal(Card card,forge.game.player.Player player){
++        var sa=card.getFirstSpellAbility();sa.setActivatingPlayer(player);
++        String previous=System.getProperty("dragonmind.disableStackCandidateEligibility");
++        try{
++            System.setProperty("dragonmind.disableStackCandidateEligibility","true");
++            var expected=signature(forge.game.GameActionUtil.getAlternativeCosts(sa,player,false));
++            System.clearProperty("dragonmind.disableStackCandidateEligibility");
++            Assert.assertEquals(signature(forge.game.GameActionUtil.getAlternativeCosts(sa,player,false)),expected);
++        }finally{if(previous==null)System.clearProperty("dragonmind.disableStackCandidateEligibility");else System.setProperty("dragonmind.disableStackCandidateEligibility",previous);}
++    }
++    @Test public void metadataScopesReleaseReferencesOnNestedAndExceptionalExit()throws Exception{
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);Card candidate=hand("Grizzly Bears",p);
++        var field=StackCandidateEligibility.class.getDeclaredField("plans");field.setAccessible(true);
++        var local=(ThreadLocal<?>)field.get(null);Assert.assertNull(local.get());
++        try{
++            try(var outer=StackCandidateEligibility.search()){
++                StackCandidateEligibility.predict(candidate,p);var cache=local.get();Assert.assertNotNull(cache);
++                try(var inner=StackCandidateEligibility.search()){StackCandidateEligibility.predict(candidate,p);}
++                Assert.assertSame(local.get(),cache);throw new IllegalStateException("exercise cleanup");
++            }
++        }catch(IllegalStateException expected){Assert.assertEquals(expected.getMessage(),"exercise cleanup");}
++        Assert.assertNull(local.get());
++    }
++    private java.util.List<String> signature(java.util.List<forge.game.spellability.SpellAbility> values){return values.stream().map(sa->sa.getAlternativeCost()+":"+sa.getPayCosts()+":"+sa.getRestrictions().getZone()).toList();}
++}

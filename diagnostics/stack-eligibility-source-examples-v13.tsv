@@ -1,0 +1,7 @@
+reason	script_example
+local-defined	Caduceus, Staff of Hermes | {AddKeyword=Indestructible & Prevent all damage that would be dealt to CARDNAME., AddPower=5, AddToughness=5, Affected=Creature, AffectedDefined=Equipped, CheckSVar=X, Description=As long as you have 30 or more life, equipped creature gets +5/+5 and has indestructible and "Prevent all damage that would be dealt to this creature.", Mode=Continuous, SVarCompare=GE30}
+local-defined	Caduceus, Staff of Hermes | {AddKeyword=Lifelink, Affected=Creature, AffectedDefined=Equipped, Description=Equipped creature has lifelink., Mode=Continuous}
+local-defined	Field-Tested Frying Pan | {AddTrigger=GainLifeTrig, Affected=Creature, AffectedDefined=Equipped, Description=Equipped creature has "Whenever you gain life, this creature gets +X/+X until end of turn, where X is the amount of life you gained.", Mode=Continuous}
+local-defined	Lightning Greaves | {AddKeyword=Haste & Shroud, Affected=Creature, AffectedDefined=Equipped, Description=Equipped creature has haste and shroud., Mode=Continuous}
+local-defined	Skullclamp | {AddPower=1, AddToughness=-1, Affected=Creature, AffectedDefined=Equipped, Description=Equipped creature gets +1/-1., Mode=Continuous}
+self-type-layer	Changeling Outcast | {AddAllCreatureTypes=True, CharacteristicDefining=True, Description=Changeling (This card is every creature type.), EffectZone=All, Mode=Continuous, Secondary=True}

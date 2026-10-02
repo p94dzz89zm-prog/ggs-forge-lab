@@ -1,0 +1,6 @@
+reason,queries,predicted_skips,actual_empty,missed_productive_rebuilds,shadow_body_ns,incomplete
+borrowed-candidate,29775,0,28781,0,7591796045,0
+candidate-self-type,34,0,34,0,10306201,0
+excluded-by-controller-or-subtype,17633,17633,17633,0,6678394373,0
+lki-candidate,110,0,110,0,19010919,0
+possible-assassin-grant,1028,0,0,0,464863658,0

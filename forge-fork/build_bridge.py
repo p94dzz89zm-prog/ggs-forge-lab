@@ -67,8 +67,11 @@ def main():
     commander_property = Path(__file__).with_name('dragonmind-commander-property-v13.patch').resolve()
     subprocess.run(['git', 'apply', '--check', str(commander_property)], cwd=checkout, check=True)
     subprocess.run(['git', 'apply', str(commander_property)], cwd=checkout, check=True)
+    stack_eligibility = Path(__file__).with_name('dragonmind-stack-eligibility-v14.patch').resolve()
+    subprocess.run(['git', 'apply', '--check', str(stack_eligibility)], cwd=checkout, check=True)
+    subprocess.run(['git', 'apply', str(stack_eligibility)], cwd=checkout, check=True)
     subprocess.run([args.maven, '-pl', 'forge-gui-desktop', '-am', 'test',
-                    '-Dtest=BridgeEngineTest,GgsPilotTest,DragonMindPerformanceTest,RuntimeLifecycleTest', '-Dsurefire.failIfNoSpecifiedTests=false',
+                    '-Dtest=BridgeEngineTest,GgsPilotTest,DragonMindPerformanceTest,StackCandidateEligibilityTest,RuntimeLifecycleTest', '-Dsurefire.failIfNoSpecifiedTests=false',
                     '-Djava.awt.headless=true'], cwd=checkout, check=True)
     subprocess.run([args.maven, '-pl', 'forge-gui-desktop', '-am', 'package', '-DskipTests'],
                    cwd=checkout, check=True)

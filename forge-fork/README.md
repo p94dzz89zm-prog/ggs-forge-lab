@@ -181,3 +181,16 @@ their original paths. Other properties retain their original dispatch behavior.
 There is no added game-state cache or search pruning. The measured two-seed,
 two-repeat comparison and validation limits are in
 `../performance/README-commander-property-investigation.md`.
+
+## Scoped stack-grant eligibility (v14)
+
+The sixteenth patch excludes hypothetical stack reconstruction only for recognized
+literal freerunning grants whose controller/subtype restrictions exclude the
+candidate, after fresh source and dependency inspection. Unknown grants, changing
+or masked traits, borrowing/LKI contexts and uncertain dependencies retain full
+rebuilding. Parsed metadata is held only inside spell-discovery scopes; no final
+spell options or persistent source membership are cached. Nested and exceptional
+scope exits are covered by StackCandidateEligibilityTest. Disable exclusion with
+-Ddragonmind.disableStackCandidateEligibility=true. The repeated two-seed result,
+shadow counters, validation and activation are documented in
+../performance/README-stack-eligibility-v14.md.
