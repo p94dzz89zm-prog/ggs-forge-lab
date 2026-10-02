@@ -1,0 +1,278 @@
+{
+  "seeds": [
+    20261013,
+    20261014,
+    20261015,
+    20261016,
+    20261017,
+    20261018
+  ],
+  "jar_sha256": {
+    "control": "64dca58b59f8849e4d9c55a9492efbf700f28a041ab92530afe11587a118f7e8",
+    "candidate": "9389e96f9190e051f1b739460e61e0b407b087aa7fb3f5f423d6169bc5eeab68"
+  },
+  "runs": {
+    "group-1-control": [
+      {
+        "seed": 20261013,
+        "engine_ms": 34614,
+        "last_logged_turn": 56,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      },
+      {
+        "seed": 20261014,
+        "engine_ms": 41155,
+        "last_logged_turn": 50,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      },
+      {
+        "seed": 20261015,
+        "engine_ms": 7037,
+        "last_logged_turn": 28,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      }
+    ],
+    "group-1-candidate": [
+      {
+        "seed": 20261013,
+        "engine_ms": 33104,
+        "last_logged_turn": 56,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      },
+      {
+        "seed": 20261014,
+        "engine_ms": 40236,
+        "last_logged_turn": 50,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      },
+      {
+        "seed": 20261015,
+        "engine_ms": 8387,
+        "last_logged_turn": 28,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      }
+    ],
+    "group-2-candidate": [
+      {
+        "seed": 20261016,
+        "engine_ms": 15958,
+        "last_logged_turn": 36,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      },
+      {
+        "seed": 20261017,
+        "engine_ms": 27350,
+        "last_logged_turn": 57,
+        "status": "completed",
+        "winner": "Ai(3)-Gabe_Food"
+      },
+      {
+        "seed": 20261018,
+        "engine_ms": 39853,
+        "last_logged_turn": 42,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      }
+    ],
+    "group-2-control": [
+      {
+        "seed": 20261016,
+        "engine_ms": 14189,
+        "last_logged_turn": 36,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      },
+      {
+        "seed": 20261017,
+        "engine_ms": 27033,
+        "last_logged_turn": 57,
+        "status": "completed",
+        "winner": "Ai(3)-Gabe_Food"
+      },
+      {
+        "seed": 20261018,
+        "engine_ms": 42946,
+        "last_logged_turn": 42,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      }
+    ]
+  },
+  "comparisons": [
+    {
+      "seed": 20261013,
+      "control": {
+        "seed": 20261013,
+        "engine_ms": 34614,
+        "last_logged_turn": 56,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      },
+      "candidate": {
+        "seed": 20261013,
+        "engine_ms": 33104,
+        "last_logged_turn": 56,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      },
+      "tracked_events": 1245,
+      "trace_match": false,
+      "phase_inventory_match": true,
+      "full_tracked_records": 1271,
+      "full_record_count_match": true,
+      "outcome_match": true
+    },
+    {
+      "seed": 20261014,
+      "control": {
+        "seed": 20261014,
+        "engine_ms": 41155,
+        "last_logged_turn": 50,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      },
+      "candidate": {
+        "seed": 20261014,
+        "engine_ms": 40236,
+        "last_logged_turn": 50,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      },
+      "tracked_events": 1287,
+      "trace_match": true,
+      "phase_inventory_match": true,
+      "full_tracked_records": 1308,
+      "full_record_count_match": true,
+      "outcome_match": true
+    },
+    {
+      "seed": 20261015,
+      "control": {
+        "seed": 20261015,
+        "engine_ms": 7037,
+        "last_logged_turn": 28,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      },
+      "candidate": {
+        "seed": 20261015,
+        "engine_ms": 8387,
+        "last_logged_turn": 28,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      },
+      "tracked_events": 660,
+      "trace_match": true,
+      "phase_inventory_match": true,
+      "full_tracked_records": 688,
+      "full_record_count_match": true,
+      "outcome_match": true
+    },
+    {
+      "seed": 20261016,
+      "control": {
+        "seed": 20261016,
+        "engine_ms": 14189,
+        "last_logged_turn": 36,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      },
+      "candidate": {
+        "seed": 20261016,
+        "engine_ms": 15958,
+        "last_logged_turn": 36,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      },
+      "tracked_events": 864,
+      "trace_match": true,
+      "phase_inventory_match": true,
+      "full_tracked_records": 894,
+      "full_record_count_match": true,
+      "outcome_match": true
+    },
+    {
+      "seed": 20261017,
+      "control": {
+        "seed": 20261017,
+        "engine_ms": 27033,
+        "last_logged_turn": 57,
+        "status": "completed",
+        "winner": "Ai(3)-Gabe_Food"
+      },
+      "candidate": {
+        "seed": 20261017,
+        "engine_ms": 27350,
+        "last_logged_turn": 57,
+        "status": "completed",
+        "winner": "Ai(3)-Gabe_Food"
+      },
+      "tracked_events": 1316,
+      "trace_match": true,
+      "phase_inventory_match": true,
+      "full_tracked_records": 1337,
+      "full_record_count_match": true,
+      "outcome_match": true
+    },
+    {
+      "seed": 20261018,
+      "control": {
+        "seed": 20261018,
+        "engine_ms": 42946,
+        "last_logged_turn": 42,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      },
+      "candidate": {
+        "seed": 20261018,
+        "engine_ms": 39853,
+        "last_logged_turn": 42,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1"
+      },
+      "tracked_events": 1037,
+      "trace_match": true,
+      "phase_inventory_match": true,
+      "full_tracked_records": 1068,
+      "full_record_count_match": true,
+      "outcome_match": true
+    }
+  ],
+  "aggregate": {
+    "control_ms": 166974,
+    "candidate_ms": 164888,
+    "reduction_percent": 1.2492962976271755,
+    "faster_pairs": 3,
+    "exact_matching_pairs": 5,
+    "phase_inventory_matching_records": 6566
+  },
+  "control_replay": {
+    "20261013": {
+      "trace_match": false,
+      "phase_inventory_match": true,
+      "full_tracked_records": 1271,
+      "full_record_count_match": true
+    },
+    "20261014": {
+      "trace_match": true,
+      "phase_inventory_match": true,
+      "full_tracked_records": 1308,
+      "full_record_count_match": true
+    },
+    "20261015": {
+      "trace_match": true,
+      "phase_inventory_match": true,
+      "full_tracked_records": 688,
+      "full_record_count_match": true
+    }
+  },
+  "limited_sample": true,
+  "comparison_scope": "Same decks, stock AI, fixed seat order; six new seeds with jar order reversed between two three-seed groups. Single observation per seed per jar; control replay is diagnostic only and excluded from timings."
+}

@@ -2,10 +2,12 @@
 
 Latest measured checkpoint: v15 extends stack-grant eligibility to borrowed
 non-Assassins while preserving uncertain type and borrowed-Assassin fallbacks.
-Eight timed games across two repeated seeds showed a 15.00% combined reduction
-versus v14, with 4,292 matching candidate events. This is limited evidence, not
-a general speed guarantee. See
-[the change and validation](performance/README-borrowed-subtype-v15.md).
+The original repeated two-seed comparison showed 15.00% less engine time versus
+v14; six new seed pairs showed 1.25%, with three faster and three slower games.
+Results vary by game. The fresh profile selects combat prediction for the next
+investigation, and a four-game throughput check supports the two-worker default.
+See [the broader measurements and limits](performance/README-v15-followup.md)
+and [the v15 implementation](performance/README-borrowed-subtype-v15.md).
 
 DragonMind is our Commander simulation and AI layer, built on the GPL-licensed
 Forge 2.0.15 rules engine. Forge's source packages, attribution, and license remain.

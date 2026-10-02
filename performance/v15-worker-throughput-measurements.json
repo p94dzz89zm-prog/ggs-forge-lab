@@ -1,0 +1,86 @@
+{
+  "seed": 20261013,
+  "seeds": 4,
+  "batch_size": 2,
+  "jar_sha256": "9389e96f9190e051f1b739460e61e0b407b087aa7fb3f5f423d6169bc5eeab68",
+  "runs": [
+    {
+      "workers": 2,
+      "wall_seconds": 84.4055366499997,
+      "games_per_minute": 2.8434153673496114,
+      "performance": {
+        "wall_seconds": 84.311,
+        "attempts": 4,
+        "completed": 4,
+        "engine_seconds": [
+          15.157,
+          11.194,
+          37.53,
+          39.871
+        ],
+        "completed_games_per_minute": 2.847,
+        "status_counts": {
+          "completed": 4
+        },
+        "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+      },
+      "tracked_events": 4161,
+      "comparisons_against_two_workers": {}
+    },
+    {
+      "workers": 1,
+      "wall_seconds": 106.88740547199995,
+      "games_per_minute": 2.2453534066075727,
+      "performance": {
+        "wall_seconds": 106.785,
+        "attempts": 4,
+        "completed": 4,
+        "engine_seconds": [
+          32.224,
+          40.871,
+          12.532,
+          10.259
+        ],
+        "completed_games_per_minute": 2.247,
+        "status_counts": {
+          "completed": 4
+        },
+        "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+      },
+      "tracked_events": 4161,
+      "comparisons_against_two_workers": {
+        "20261013": {
+          "trace_match": true,
+          "phase_inventory_match": true,
+          "full_tracked_records": 1271,
+          "full_record_count_match": true
+        },
+        "20261014": {
+          "trace_match": true,
+          "phase_inventory_match": true,
+          "full_tracked_records": 1308,
+          "full_record_count_match": true
+        },
+        "20261015": {
+          "trace_match": true,
+          "phase_inventory_match": true,
+          "full_tracked_records": 688,
+          "full_record_count_match": true
+        },
+        "20261016": {
+          "trace_match": false,
+          "phase_inventory_match": true,
+          "full_tracked_records": 894,
+          "full_record_count_match": true
+        }
+      }
+    }
+  ],
+  "throughput_ratio_two_to_one": 1.2663553803967234,
+  "limited_sample": true,
+  "host_limits": {
+    "cpu_quota_cores": 8,
+    "memory_bytes": 8589934592
+  },
+  "scope": "Four seeds 20261013\u201316, batch size 2, stock AI, fixed seats. Worker order 2 then 1, one observation per worker count. Startup and runner overhead included. No four-worker, memory-pressure or long-duration test."
+}

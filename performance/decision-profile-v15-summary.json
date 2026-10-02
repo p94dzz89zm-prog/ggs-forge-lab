@@ -1,0 +1,536 @@
+{
+  "seed": 20261012,
+  "game": {
+    "seed": 20261012,
+    "engine_ms": 40807,
+    "last_logged_turn": 44,
+    "status": "completed",
+    "winner": "Ai(4)-Destyn_Turtles"
+  },
+  "trace_audit": {
+    "trace_match": true,
+    "phase_inventory_match": true,
+    "full_tracked_records": 1138,
+    "full_record_count_match": true
+  },
+  "legacy_tracked_events": 1103,
+  "instrumented_roots_ns": 49966040157,
+  "exclusive_totals_validated": true,
+  "timing_scope": "Instrumented nested timers; roots overlap across threads. candidate-wait overlaps the worker. Durations are not an unprofiled speed comparison.",
+  "labels": [
+    {
+      "label": "candidate-wait",
+      "calls": 1936,
+      "inclusive_ns": 13767336982,
+      "exclusive_ns": 13767336982
+    },
+    {
+      "label": "card-abilities",
+      "calls": 115289,
+      "inclusive_ns": 9037861405,
+      "exclusive_ns": 3301336787
+    },
+    {
+      "label": "stack-eligibility",
+      "calls": 34671,
+      "inclusive_ns": 3168203267,
+      "exclusive_ns": 3168203267
+    },
+    {
+      "label": "destroy-blocker",
+      "calls": 21125,
+      "inclusive_ns": 3572997310,
+      "exclusive_ns": 3165231518
+    },
+    {
+      "label": "destroy-attacker",
+      "calls": 21390,
+      "inclusive_ns": 3357920201,
+      "exclusive_ns": 2955104239
+    },
+    {
+      "label": "life-danger",
+      "calls": 5459,
+      "inclusive_ns": 2706813176,
+      "exclusive_ns": 2286238176
+    },
+    {
+      "label": "forecast-combat",
+      "calls": 1231,
+      "inclusive_ns": 17716152904,
+      "exclusive_ns": 2151078303
+    },
+    {
+      "label": "block-makeGangBlocks",
+      "calls": 1965,
+      "inclusive_ns": 3710961536,
+      "exclusive_ns": 2080914314
+    },
+    {
+      "label": "predict-damage",
+      "calls": 181937,
+      "inclusive_ns": 1830796380,
+      "exclusive_ns": 1830796380
+    },
+    {
+      "label": "alternative-costs",
+      "calls": 221595,
+      "inclusive_ns": 6001768318,
+      "exclusive_ns": 1707030819
+    },
+    {
+      "label": "evaluate-creature",
+      "calls": 38484,
+      "inclusive_ns": 1362873114,
+      "exclusive_ns": 1362873114
+    },
+    {
+      "label": "block-legality",
+      "calls": 580139,
+      "inclusive_ns": 5060937507,
+      "exclusive_ns": 1247891792
+    },
+    {
+      "label": "candidate-pay",
+      "calls": 18085,
+      "inclusive_ns": 13008674971,
+      "exclusive_ns": 1155447526
+    },
+    {
+      "label": "candidate-play",
+      "calls": 9962,
+      "inclusive_ns": 11851288977,
+      "exclusive_ns": 1139740128
+    },
+    {
+      "label": "static-rebuild-live",
+      "calls": 8467,
+      "inclusive_ns": 2436870505,
+      "exclusive_ns": 826051116
+    },
+    {
+      "label": "choose-action",
+      "calls": 2142,
+      "inclusive_ns": 27452136571,
+      "exclusive_ns": 775075353
+    },
+    {
+      "label": "static-affected-cards",
+      "calls": 132748,
+      "inclusive_ns": 706517445,
+      "exclusive_ns": 706517445
+    },
+    {
+      "label": "block-requirements",
+      "calls": 71004,
+      "inclusive_ns": 1215233784,
+      "exclusive_ns": 666657134
+    },
+    {
+      "label": "static-collect",
+      "calls": 11244,
+      "inclusive_ns": 662936267,
+      "exclusive_ns": 662936267
+    },
+    {
+      "label": "resolve-action",
+      "calls": 396,
+      "inclusive_ns": 1427111296,
+      "exclusive_ns": 585023260
+    },
+    {
+      "label": "block-cost",
+      "calls": 425407,
+      "inclusive_ns": 553077615,
+      "exclusive_ns": 553077615
+    },
+    {
+      "label": "static-effect-body",
+      "calls": 107217,
+      "inclusive_ns": 560647083,
+      "exclusive_ns": 541677993
+    },
+    {
+      "label": "attack-search",
+      "calls": 88,
+      "inclusive_ns": 9034753135,
+      "exclusive_ns": 536790538
+    },
+    {
+      "label": "attacker-blockability",
+      "calls": 73792,
+      "inclusive_ns": 414642062,
+      "exclusive_ns": 399937058
+    },
+    {
+      "label": "block-sortPotentialAttackers",
+      "calls": 1565,
+      "inclusive_ns": 1294135743,
+      "exclusive_ns": 273120174
+    },
+    {
+      "label": "block-assignBlockers",
+      "calls": 1845,
+      "inclusive_ns": 15057492414,
+      "exclusive_ns": 263780418
+    },
+    {
+      "label": "static-rebuild-hypothetical",
+      "calls": 2817,
+      "inclusive_ns": 1003363172,
+      "exclusive_ns": 260402067
+    },
+    {
+      "label": "block-makeGoodBlocks",
+      "calls": 1921,
+      "inclusive_ns": 6915194664,
+      "exclusive_ns": 219858081
+    },
+    {
+      "label": "static-clear",
+      "calls": 11244,
+      "inclusive_ns": 199085886,
+      "exclusive_ns": 199085886
+    },
+    {
+      "label": "choose-trigger",
+      "calls": 866,
+      "inclusive_ns": 5709664095,
+      "exclusive_ns": 185741959
+    },
+    {
+      "label": "block-removeUnpayableBlocks",
+      "calls": 1845,
+      "inclusive_ns": 189390827,
+      "exclusive_ns": 185040928
+    },
+    {
+      "label": "block-makeTradeBlocks",
+      "calls": 1964,
+      "inclusive_ns": 1466434200,
+      "exclusive_ns": 140722751
+    },
+    {
+      "label": "static-apply-before",
+      "calls": 107217,
+      "inclusive_ns": 1263137945,
+      "exclusive_ns": 97890864
+    },
+    {
+      "label": "static-dependencies",
+      "calls": 69646,
+      "inclusive_ns": 694227368,
+      "exclusive_ns": 84199918
+    },
+    {
+      "label": "choose-attack",
+      "calls": 36,
+      "inclusive_ns": 6230520429,
+      "exclusive_ns": 75862023
+    },
+    {
+      "label": "block-reinforceBlockersToKill",
+      "calls": 1890,
+      "inclusive_ns": 255012014,
+      "exclusive_ns": 69774454
+    },
+    {
+      "label": "discover-abilities",
+      "calls": 2112,
+      "inclusive_ns": 9085299793,
+      "exclusive_ns": 55327544
+    },
+    {
+      "label": "block-getPossibleBlockers",
+      "calls": 30327,
+      "inclusive_ns": 2609765716,
+      "exclusive_ns": 52033824
+    },
+    {
+      "label": "static-undo",
+      "calls": 15470,
+      "inclusive_ns": 42503031,
+      "exclusive_ns": 42503031
+    },
+    {
+      "label": "block-makeChumpBlocksToSavePW",
+      "calls": 1845,
+      "inclusive_ns": 208972180,
+      "exclusive_ns": 37510360
+    },
+    {
+      "label": "block-makeChumpBlocks",
+      "calls": 2321,
+      "inclusive_ns": 1435327857,
+      "exclusive_ns": 32604596
+    },
+    {
+      "label": "static-affected-players",
+      "calls": 107217,
+      "inclusive_ns": 18969090,
+      "exclusive_ns": 18969090
+    },
+    {
+      "label": "block-makeGangNonLethalBlocks",
+      "calls": 1845,
+      "inclusive_ns": 180361165,
+      "exclusive_ns": 17546166
+    },
+    {
+      "label": "block-makeRequiredBlocks",
+      "calls": 1845,
+      "inclusive_ns": 109754542,
+      "exclusive_ns": 15374186
+    },
+    {
+      "label": "block-getSafeBlockers",
+      "calls": 8054,
+      "inclusive_ns": 3373756459,
+      "exclusive_ns": 14004490
+    },
+    {
+      "label": "block-getKillingBlockers",
+      "calls": 12546,
+      "inclusive_ns": 3154287688,
+      "exclusive_ns": 12004546
+    },
+    {
+      "label": "block-search",
+      "calls": 1562,
+      "inclusive_ns": 15446567654,
+      "exclusive_ns": 10631571
+    },
+    {
+      "label": "forecast-board",
+      "calls": 961,
+      "inclusive_ns": 10097617233,
+      "exclusive_ns": 10379754
+    },
+    {
+      "label": "block-makeMultiChumpBlocks",
+      "calls": 228,
+      "inclusive_ns": 55080683,
+      "exclusive_ns": 6203373
+    },
+    {
+      "label": "stack-keyword-rebuild",
+      "calls": 1712,
+      "inclusive_ns": 641706847,
+      "exclusive_ns": 5675018
+    },
+    {
+      "label": "block-reinforceBlockersAgainstTrample",
+      "calls": 188,
+      "inclusive_ns": 7918756,
+      "exclusive_ns": 4344644
+    },
+    {
+      "label": "restore-live-state",
+      "calls": 1852,
+      "inclusive_ns": 464434105,
+      "exclusive_ns": 1936737
+    },
+    {
+      "label": "alternate-face-rebuild",
+      "calls": 206,
+      "inclusive_ns": 52179653,
+      "exclusive_ns": 474828
+    },
+    {
+      "label": "choose-block",
+      "calls": 15,
+      "inclusive_ns": 93451393,
+      "exclusive_ns": 69752
+    }
+  ],
+  "root_boundaries": [
+    {
+      "path": "Game AI Eval :: alternative-costs",
+      "calls": "18712",
+      "inclusive_ns": "278995811",
+      "exclusive_ns": "176016178"
+    },
+    {
+      "path": "Game AI Eval :: candidate-pay",
+      "calls": "18005",
+      "inclusive_ns": "13002014332",
+      "exclusive_ns": "1149752461"
+    },
+    {
+      "path": "pool-25-thread-1 :: block-cost",
+      "calls": "20",
+      "inclusive_ns": "151066",
+      "exclusive_ns": "151066"
+    },
+    {
+      "path": "pool-25-thread-1 :: block-legality",
+      "calls": "30",
+      "inclusive_ns": "7740547",
+      "exclusive_ns": "240660"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-action",
+      "calls": "2142",
+      "inclusive_ns": "27452136571",
+      "exclusive_ns": "775075353"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-attack",
+      "calls": "36",
+      "inclusive_ns": "6230520429",
+      "exclusive_ns": "75862023"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-block",
+      "calls": "15",
+      "inclusive_ns": "93451393",
+      "exclusive_ns": "69752"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-trigger",
+      "calls": "87",
+      "inclusive_ns": "174469031",
+      "exclusive_ns": "458469"
+    },
+    {
+      "path": "pool-25-thread-1 :: predict-damage",
+      "calls": "121",
+      "inclusive_ns": "2776889",
+      "exclusive_ns": "2776889"
+    },
+    {
+      "path": "pool-25-thread-1 :: resolve-action",
+      "calls": "301",
+      "inclusive_ns": "971134074",
+      "exclusive_ns": "325639188"
+    },
+    {
+      "path": "pool-25-thread-1 :: restore-live-state",
+      "calls": "44",
+      "inclusive_ns": "9430641",
+      "exclusive_ns": "78447"
+    },
+    {
+      "path": "pool-25-thread-1 :: static-rebuild-hypothetical",
+      "calls": "190",
+      "inclusive_ns": "51785785",
+      "exclusive_ns": "17914075"
+    },
+    {
+      "path": "pool-25-thread-1 :: static-rebuild-live",
+      "calls": "5619",
+      "inclusive_ns": "1691433588",
+      "exclusive_ns": "575049922"
+    }
+  ],
+  "static_rebuild_boundaries": [
+    {
+      "path": "Game AI Eval :: alternative-costs > restore-live-state > static-rebuild-live",
+      "calls": "5",
+      "inclusive_ns": "1359059",
+      "exclusive_ns": "552429"
+    },
+    {
+      "path": "Game AI Eval :: alternative-costs > stack-keyword-rebuild > static-rebuild-hypothetical",
+      "calls": "5",
+      "inclusive_ns": "3122218",
+      "exclusive_ns": "895815"
+    },
+    {
+      "path": "Game AI Eval :: candidate-pay > candidate-play > static-rebuild-hypothetical",
+      "calls": "171",
+      "inclusive_ns": "92960422",
+      "exclusive_ns": "24232103"
+    },
+    {
+      "path": "Game AI Eval :: candidate-pay > candidate-play > static-rebuild-live",
+      "calls": "171",
+      "inclusive_ns": "89746789",
+      "exclusive_ns": "27284025"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-action > discover-abilities > card-abilities > alternate-face-rebuild > static-rebuild-hypothetical",
+      "calls": "22",
+      "inclusive_ns": "11508672",
+      "exclusive_ns": "2665861"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-action > discover-abilities > card-abilities > alternative-costs > alternate-face-rebuild > static-rebuild-hypothetical",
+      "calls": "184",
+      "inclusive_ns": "40196153",
+      "exclusive_ns": "11951055"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-action > discover-abilities > card-abilities > alternative-costs > restore-live-state > static-rebuild-live",
+      "calls": "1781",
+      "inclusive_ns": "441051270",
+      "exclusive_ns": "149465267"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-action > discover-abilities > card-abilities > alternative-costs > stack-keyword-rebuild > static-rebuild-hypothetical",
+      "calls": "1707",
+      "inclusive_ns": "632909611",
+      "exclusive_ns": "158728597"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-action > discover-abilities > card-abilities > restore-live-state > static-rebuild-live",
+      "calls": "22",
+      "inclusive_ns": "10734845",
+      "exclusive_ns": "2559315"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-action > static-rebuild-hypothetical",
+      "calls": "53",
+      "inclusive_ns": "22045080",
+      "exclusive_ns": "7289910"
+    },
+    {
+      "path": "pool-25-thread-1 :: choose-action > static-rebuild-live",
+      "calls": "53",
+      "inclusive_ns": "20925998",
+      "exclusive_ns": "8320643"
+    },
+    {
+      "path": "pool-25-thread-1 :: resolve-action > resolve-action > static-rebuild-hypothetical",
+      "calls": "215",
+      "inclusive_ns": "56130796",
+      "exclusive_ns": "15960657"
+    },
+    {
+      "path": "pool-25-thread-1 :: resolve-action > resolve-action > static-rebuild-live",
+      "calls": "369",
+      "inclusive_ns": "75907868",
+      "exclusive_ns": "26337620"
+    },
+    {
+      "path": "pool-25-thread-1 :: resolve-action > static-rebuild-hypothetical",
+      "calls": "270",
+      "inclusive_ns": "92704435",
+      "exclusive_ns": "20763994"
+    },
+    {
+      "path": "pool-25-thread-1 :: resolve-action > static-rebuild-live",
+      "calls": "403",
+      "inclusive_ns": "96358894",
+      "exclusive_ns": "33150904"
+    },
+    {
+      "path": "pool-25-thread-1 :: restore-live-state > static-rebuild-live",
+      "calls": "44",
+      "inclusive_ns": "9352194",
+      "exclusive_ns": "3330991"
+    },
+    {
+      "path": "pool-25-thread-1 :: static-rebuild-hypothetical",
+      "calls": "190",
+      "inclusive_ns": "51785785",
+      "exclusive_ns": "17914075"
+    },
+    {
+      "path": "pool-25-thread-1 :: static-rebuild-live",
+      "calls": "5619",
+      "inclusive_ns": "1691433588",
+      "exclusive_ns": "575049922"
+    }
+  ]
+}
