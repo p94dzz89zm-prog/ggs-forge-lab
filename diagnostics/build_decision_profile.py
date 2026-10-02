@@ -30,7 +30,9 @@ def instrument(text,method,label,arity=None):
         opening=text.index('{',m.start()); end=end_brace(text,opening)
         params=text[text.index('(',m.start())+1:text.index(')',m.start())]
         # Count commas outside generic type arguments.
-        plain=re.sub(r'<[^<>]*>','',params)
+        plain=params
+        while re.search(r'<[^<>]*>',plain):
+            plain=re.sub(r'<[^<>]*>','',plain)
         if arity is not None and (plain.count(',')+1 if plain.strip() else 0)!=arity:continue
         text=text[:end]+'\n        }\n    '+text[end:]
         argument='"'+label+'"'
@@ -74,6 +76,16 @@ if __name__=='__main__':
             ('predictDamageTo','predict-damage',5),('lifeInDanger','life-danger',3)]
         files['forge-ai/src/main/java/forge/ai/ComputerUtilCard.java'] = [
             ('evaluateCreature','evaluate-creature',1)]
+    if '--static-internals' in sys.argv[4:]:
+        files['forge-game/src/main/java/forge/game/GameAction.java'] += [
+            ('findStaticAbilityToApply','static-dependencies',5)]
+        files['forge-game/src/main/java/forge/game/StaticEffects.java'] = [
+            ('clearStaticEffects','static-clear',2),('removeStaticEffect','static-undo',3)]
+        files['forge-game/src/main/java/forge/game/staticability/StaticAbility.java'] = [
+            ('applyContinuousAbilityBefore','static-apply-before',2),('applyContinuousAbility','static-apply',2)]
+        files['forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java'] = [
+            ('getAffectedCards','static-affected-cards',2),('getAffectedPlayers','static-affected-players',1),
+            ('applyContinuousAbility','static-effect-body',3)]
     sources=[]
     for path,methods in files.items():
         text=(src/path).read_text()
@@ -82,6 +94,11 @@ if __name__=='__main__':
             original='return future.get(game.getAITimeout(), TimeUnit.SECONDS);'
             assert text.count(original)==1
             text=text.replace(original,'try(var dmWait=forge.diagnostics.DecisionProfiler.enter("candidate-wait")) { '+original+' }')
+        if '--static-internals' in sys.argv[4:] and Path(path).name=='GameAction.java':
+            begin='        game.forEachCardInGame(c -> {'
+            assert text.count(begin)==1
+            start=text.index(begin);end=text.index('        }, true);',start)+len('        }, true);')
+            text=text[:start]+'        try(var dmCollect=forge.diagnostics.DecisionProfiler.enter("static-collect")) {\n'+text[start:end]+'\n        }'+text[end:]
         if Path(path).name=='GameActionUtil.java':
             statements={
               'game.getAction().checkStaticAbilities(false, Sets.newHashSet(source), preList);':'alternate-face-rebuild',

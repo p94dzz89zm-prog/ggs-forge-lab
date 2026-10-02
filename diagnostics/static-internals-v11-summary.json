@@ -1,0 +1,147 @@
+{
+  "instrumented_seed": 20261012,
+  "engine_seconds": 55.435,
+  "warning": "Inclusive parent/child and cross-thread timings overlap. Profiling adds overhead.",
+  "operations": {
+    "alternate-face-rebuild": {
+      "calls": 206,
+      "inclusive_ns": 45293934,
+      "exclusive_ns": 237916
+    },
+    "alternative-costs": {
+      "calls": 221595,
+      "inclusive_ns": 21382645960,
+      "exclusive_ns": 3254347886
+    },
+    "attack-search": {
+      "calls": 88,
+      "inclusive_ns": 8743787213,
+      "exclusive_ns": 1834677946
+    },
+    "block-search": {
+      "calls": 1562,
+      "inclusive_ns": 14777006293,
+      "exclusive_ns": 14777006293
+    },
+    "candidate-pay": {
+      "calls": 18085,
+      "inclusive_ns": 12871259849,
+      "exclusive_ns": 1161090249
+    },
+    "candidate-play": {
+      "calls": 9962,
+      "inclusive_ns": 11710169600,
+      "exclusive_ns": 1442214615
+    },
+    "candidate-wait": {
+      "calls": 1936,
+      "inclusive_ns": 13736707848,
+      "exclusive_ns": 13736707848
+    },
+    "card-abilities": {
+      "calls": 115289,
+      "inclusive_ns": 24110939807,
+      "exclusive_ns": 3236783356
+    },
+    "choose-action": {
+      "calls": 2142,
+      "inclusive_ns": 42208378883,
+      "exclusive_ns": 868305125
+    },
+    "choose-attack": {
+      "calls": 36,
+      "inclusive_ns": 5977878777,
+      "exclusive_ns": 81211006
+    },
+    "choose-block": {
+      "calls": 15,
+      "inclusive_ns": 95274728,
+      "exclusive_ns": 70563
+    },
+    "choose-trigger": {
+      "calls": 866,
+      "inclusive_ns": 5290248011,
+      "exclusive_ns": 339513725
+    },
+    "discover-abilities": {
+      "calls": 2112,
+      "inclusive_ns": 24143731547,
+      "exclusive_ns": 52642715
+    },
+    "forecast-board": {
+      "calls": 961,
+      "inclusive_ns": 9501588319,
+      "exclusive_ns": 361943837
+    },
+    "forecast-combat": {
+      "calls": 1231,
+      "inclusive_ns": 16968835934,
+      "exclusive_ns": 2287033806
+    },
+    "resolve-action": {
+      "calls": 396,
+      "inclusive_ns": 1376590519,
+      "exclusive_ns": 569368154
+    },
+    "restore-live-state": {
+      "calls": 34811,
+      "inclusive_ns": 8558455848,
+      "exclusive_ns": 20009567
+    },
+    "stack-keyword-rebuild": {
+      "calls": 34671,
+      "inclusive_ns": 9560831096,
+      "exclusive_ns": 21980626
+    },
+    "static-affected-cards": {
+      "calls": 1135910,
+      "inclusive_ns": 5647154529,
+      "exclusive_ns": 5647154529
+    },
+    "static-affected-players": {
+      "calls": 861543,
+      "inclusive_ns": 110906094,
+      "exclusive_ns": 110906094
+    },
+    "static-apply-before": {
+      "calls": 861543,
+      "inclusive_ns": 8188055490,
+      "exclusive_ns": 718716371
+    },
+    "static-clear": {
+      "calls": 77162,
+      "inclusive_ns": 778131132,
+      "exclusive_ns": 778131132
+    },
+    "static-collect": {
+      "calls": 77162,
+      "inclusive_ns": 3527143560,
+      "exclusive_ns": 3527143560
+    },
+    "static-dependencies": {
+      "calls": 542144,
+      "inclusive_ns": 5101478399,
+      "exclusive_ns": 341151406
+    },
+    "static-effect-body": {
+      "calls": 861543,
+      "inclusive_ns": 2739776506,
+      "exclusive_ns": 2628870412
+    },
+    "static-rebuild-hypothetical": {
+      "calls": 35776,
+      "inclusive_ns": 9912260546,
+      "exclusive_ns": 2987678786
+    },
+    "static-rebuild-live": {
+      "calls": 41426,
+      "inclusive_ns": 10640784818,
+      "exclusive_ns": 3472377219
+    },
+    "static-undo": {
+      "calls": 165462,
+      "inclusive_ns": 340915855,
+      "exclusive_ns": 340915855
+    }
+  }
+}

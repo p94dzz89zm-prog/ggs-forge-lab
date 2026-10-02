@@ -1,0 +1,11 @@
+{
+  "ordered_patches": 14,
+  "reproduced_files": 47,
+  "changed_source_files": 2,
+  "production_class_entries": [
+    "forge/game/staticability/StaticAbilityContinuous$1.class",
+    "forge/game/staticability/StaticAbilityContinuous$2.class",
+    "forge/game/staticability/StaticAbilityContinuous.class"
+  ],
+  "jar_integrity": "passed"
+}
