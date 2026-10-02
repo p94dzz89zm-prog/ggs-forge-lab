@@ -43,6 +43,9 @@ def main():
     v5 = Path(__file__).with_name('dragonmind-discovery-v5.patch').resolve()
     subprocess.run(['git', 'apply', '--check', str(v5)], cwd=checkout, check=True)
     subprocess.run(['git', 'apply', str(v5)], cwd=checkout, check=True)
+    v6 = Path(__file__).with_name('dragonmind-combat-v6.patch').resolve()
+    subprocess.run(['git', 'apply', '--check', str(v6)], cwd=checkout, check=True)
+    subprocess.run(['git', 'apply', str(v6)], cwd=checkout, check=True)
     subprocess.run([args.maven, '-pl', 'forge-gui-desktop', '-am', 'test',
                     '-Dtest=BridgeEngineTest,GgsPilotTest,DragonMindPerformanceTest', '-Dsurefire.failIfNoSpecifiedTests=false',
                     '-Djava.awt.headless=true'], cwd=checkout, check=True)

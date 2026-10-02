@@ -50,7 +50,7 @@ python forge-fork/build_bridge.py ../forge-ggs
 ```
 
 The script refuses to overwrite an existing checkout, verifies the pinned commit,
-creates branch `ggs-assisted-bridge`, applies the seven ordered patches, runs the engine tests,
+creates branch `ggs-assisted-bridge`, applies the eight ordered patches, runs the engine tests,
 and packages the desktop build. Dependencies require internet access.
 The sparse checkout used for development is unnecessary on your computer.
 The executable is also packaged as `dragonmind.jar`. Use `../dragonmind.py` for
