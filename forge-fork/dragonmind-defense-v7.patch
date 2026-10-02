@@ -1,0 +1,164 @@
+diff --git a/forge-ai/src/main/java/forge/ai/ComputerUtil.java b/forge-ai/src/main/java/forge/ai/ComputerUtil.java
+index c04e9a6..d4f7e38 100644
+--- a/forge-ai/src/main/java/forge/ai/ComputerUtil.java
++++ b/forge-ai/src/main/java/forge/ai/ComputerUtil.java
+@@ -1000,7 +1000,7 @@ public class ComputerUtil {
+ 
+         final Player controller = card.getController();
+         final Game game = controller.getGame();
+-        final CardCollectionView l = controller.getCardsIn(ZoneType.Battlefield);
++        final CardCollectionView l = game.getReplacementHandler().getReadOnlyCombatDefenseSources(controller, ApiType.Regenerate);
+         for (final Card c : l) {
+             for (final SpellAbility sa : c.getSpellAbilities()) {
+                 if (!sa.isActivatedAbility() || sa.getApi() != ApiType.Regenerate) {
+@@ -1050,7 +1050,7 @@ public class ComputerUtil {
+         final Player controller = card.getController();
+         final Game game = controller.getGame();
+ 
+-        final CardCollectionView l = controller.getCardsIn(ZoneType.Battlefield);
++        final CardCollectionView l = game.getReplacementHandler().getReadOnlyCombatDefenseSources(controller, ApiType.PreventDamage);
+         for (final Card c : l) {
+             for (final SpellAbility sa : c.getSpellAbilities()) {
+                 // if SA is from AF_Counter don't add to getPlayable
+diff --git a/forge-game/src/main/java/forge/game/card/CardState.java b/forge-game/src/main/java/forge/game/card/CardState.java
+index 31550ac..ce393c2 100644
+--- a/forge-game/src/main/java/forge/game/card/CardState.java
++++ b/forge-game/src/main/java/forge/game/card/CardState.java
+@@ -682,6 +682,7 @@ public class CardState implements GameObject, IHasSVars, ITranslatable {
+     }
+ 
+     public final boolean addSpellAbility(final SpellAbility a) {
++        card.invalidateReplacementInspection();
+         return abilities.add(a);
+     }
+ 
+diff --git a/forge-game/src/main/java/forge/game/keyword/KeywordInstance.java b/forge-game/src/main/java/forge/game/keyword/KeywordInstance.java
+index ac1fd14..e95743f 100644
+--- a/forge-game/src/main/java/forge/game/keyword/KeywordInstance.java
++++ b/forge-game/src/main/java/forge/game/keyword/KeywordInstance.java
+@@ -185,6 +185,7 @@ public abstract class KeywordInstance<T extends KeywordInstance<?>> implements K
+      * @see forge.game.keyword.KeywordInterface#addSpellAbility(forge.game.spellability.SpellAbility)
+      */
+     public final void addSpellAbility(final SpellAbility s) {
++        if (s.getHostCard() != null) s.getHostCard().invalidateReplacementInspection();
+         s.setKeyword(this);
+         abilities.add(s);
+     }
+diff --git a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+index 4bf4015..45312e7 100644
+--- a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
++++ b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+@@ -55,6 +55,7 @@ public class ReplacementHandler {
+     private static final class ManaSources {
+         final Map<ReplacementType, CardCollection> sources = new EnumMap<>(ReplacementType.class);
+         final Map<ZoneType, CardCollection[]> combatTraits = new EnumMap<>(ZoneType.class);
++        final Map<Player, Map<ApiType, CardCollection>> combatDefenses = new IdentityHashMap<>();
+         ManaSources parent;
+         boolean combat;
+         boolean invalidated;
+@@ -134,6 +135,28 @@ public class ReplacementHandler {
+         return snapshot.invalidated ? game.getCardsIn(zone) : sources[triggers ? 1 : 0];
+     }
+ 
++    /** Share defensive-ability hosts in a bounded forecast, not costs or targets. */
++    public CardCollectionView getReadOnlyCombatDefenseSources(Player controller, ApiType api) {
++        ManaSources snapshot = manaInspection.get();
++        if (snapshot == null || snapshot.invalidated || !snapshot.combat
++                || Boolean.getBoolean("dragonmind.disableCombatDefenseIndex")
++                || (api != ApiType.Regenerate && api != ApiType.PreventDamage)) return controller.getCardsIn(ZoneType.Battlefield);
++        Map<ApiType, CardCollection> sources = snapshot.combatDefenses.get(controller);
++        if (sources == null) {
++            sources = new EnumMap<>(ApiType.class);
++            sources.put(ApiType.Regenerate, new CardCollection());
++            sources.put(ApiType.PreventDamage, new CardCollection());
++            for (Card card : controller.getCardsIn(ZoneType.Battlefield)) {
++                for (SpellAbility ability : card.getSpellAbilities()) {
++                    CardCollection hosts = sources.get(ability.getApi());
++                    if (hosts != null) hosts.add(card);
++                }
++            }
++            if (!snapshot.invalidated) snapshot.combatDefenses.put(controller, sources);
++        }
++        return snapshot.invalidated ? controller.getCardsIn(ZoneType.Battlefield) : sources.get(api);
++    }
++
+     private Set<ReplacementEffect> hasRun = Sets.newHashSet();
+ 
+     // List of all replacement effect candidates for DamageDone event, in APNAP order
+diff --git a/forge-game/src/main/java/forge/game/spellability/SpellAbility.java b/forge-game/src/main/java/forge/game/spellability/SpellAbility.java
+index 2c54775..3a5e596 100644
+--- a/forge-game/src/main/java/forge/game/spellability/SpellAbility.java
++++ b/forge-game/src/main/java/forge/game/spellability/SpellAbility.java
+@@ -278,6 +278,7 @@ public abstract class SpellAbility extends CardTraitBase implements ISpellAbilit
+         return api;
+     }
+     public void setApi(ApiType apiType) {
++        if (api != apiType && getHostCard() != null) getHostCard().invalidateReplacementInspection();
+         api = apiType;
+     }
+ 
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+index 52d286a..efe65f5 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -20,6 +20,60 @@ import org.testng.Assert;
+ import org.testng.annotations.Test;
+ 
+ public class DragonMindPerformanceTest extends AITest {
++    @Test public void defenseSourceIndexKeepsTapAvailabilityAndAmountsFresh() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card target=addCard("Grizzly Bears",player),healer=addCard("Samite Healer",player);
++        healer.setSickness(false);
++        var ability=healer.getSpellAbilities().stream().filter(sa->sa.getApi()==forge.game.ability.ApiType.PreventDamage).findFirst().orElseThrow();
++        ability.setActivatingPlayer(player);
++        var handler=game.getReplacementHandler();
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertEquals(ComputerUtil.possibleDamagePrevention(target),1);
++            Assert.assertFalse(handler.getReadOnlyCombatDefenseSources(player,forge.game.ability.ApiType.PreventDamage).contains(target));
++            healer.setTapped(true);Assert.assertEquals(ComputerUtil.possibleDamagePrevention(target),0);
++            healer.setTapped(false);ability.putParam("Amount","3");
++            Assert.assertEquals(ComputerUtil.possibleDamagePrevention(target),3);
++            String previous=System.getProperty("dragonmind.disableCombatDefenseIndex");
++            try {
++                System.setProperty("dragonmind.disableCombatDefenseIndex","true");
++                Assert.assertEquals(ComputerUtil.possibleDamagePrevention(target),3);
++            } finally {
++                if(previous==null)System.clearProperty("dragonmind.disableCombatDefenseIndex");
++                else System.setProperty("dragonmind.disableCombatDefenseIndex",previous);
++            }
++        }
++    }
++
++    @Test public void defenseSourceIndexRechecksManaAndAbilityApiChanges() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card skeleton=addCard("Drudge Skeletons",player),swamp=addCard("Swamp",player);
++        var ability=skeleton.getSpellAbilities().stream().filter(sa->sa.getApi()==forge.game.ability.ApiType.Regenerate).findFirst().orElseThrow();
++        var handler=game.getReplacementHandler();
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertTrue(ComputerUtil.canRegenerate(player,skeleton));
++            swamp.setTapped(true);Assert.assertFalse(ComputerUtil.canRegenerate(player,skeleton));
++            swamp.setTapped(false);Assert.assertTrue(ComputerUtil.canRegenerate(player,skeleton));
++            ability.setApi(forge.game.ability.ApiType.Pump);Assert.assertFalse(ComputerUtil.canRegenerate(player,skeleton));
++            ability.setApi(forge.game.ability.ApiType.Regenerate);Assert.assertTrue(ComputerUtil.canRegenerate(player,skeleton));
++        }
++    }
++
++    @Test public void defenseSourceIndexSeesNewKeywordAbilitiesAndZoneDeparture() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCard("Grizzly Bears",player);host.addIntrinsicKeyword("Flying");
++        var keyword=host.getKeywords().stream().filter(k->k.getOriginal().equals("Flying")).findFirst().orElseThrow();
++        var handler=game.getReplacementHandler();
++        try(var outer=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertFalse(ComputerUtil.canRegenerate(player,host));
++            try(var inner=handler.beginReadOnlyCombatInspection()) {
++                keyword.addSpellAbility(forge.game.ability.AbilityFactory.getAbility("AB$ Regenerate | Cost$ 0 | Defined$ Self",host));
++            }
++            Assert.assertTrue(ComputerUtil.canRegenerate(player,host));
++            player.getZone(ZoneType.Battlefield).remove(host);
++            Assert.assertFalse(ComputerUtil.canRegenerate(player,host));
++        }
++    }
++
+     @Test public void emptyTriggerFastPathSeesIntrinsicKeywordAndChangedTriggers() {
+         var game=initAndCreateGame();var player=game.getPlayers().get(0);
+         Card host=addCard("Grizzly Bears",player);
