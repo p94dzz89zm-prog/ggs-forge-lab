@@ -30,6 +30,12 @@ def edits(text,name,scope=None,enter=None,deep=False):
         params=text[text.index('(',m.start())+1:text.index(')',m.start())]
         if deep and params.count(',')!=5:continue
         if scope:
+            if deep:
+                body=text[opening+1:end]
+                body,count=re.subn(r'\breturn\s+([^;]+);', lambda m: 'return dmProfile.result('+m.group(1)+');', body)
+                assert count>0,(name,'no observed returns')
+                text=text[:opening+1]+body+text[end:]
+                end=end_brace(text,opening)
             text=text[:end]+'\n        }\n    '+text[end:]
             text=text[:opening+1]+'\n        try(var dmProfile='+scope+') {'+text[opening+1:]
         else:text=text[:opening+1]+'\n        '+enter+text[opening+1:]

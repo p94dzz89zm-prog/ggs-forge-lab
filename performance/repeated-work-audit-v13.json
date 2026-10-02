@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-02",
+  "runtime": "v13 commander-property dispatch",
+  "seed": 20261012,
+  "policy": "Default, four seats",
+  "decks": [
+    "GGS_Layered_v1",
+    "Jaymie_Ezio",
+    "Gabe_Food",
+    "Destyn_Turtles"
+  ],
+  "audits": {
+    "combat-repeat-v13": {
+      "matching_events": 1103,
+      "trace_sha256": "b58ad55015921641ee9c18af8af45881fce832182f19eafb9e836e67dae8228e",
+      "log_sha256": "13fe971911f68648d7f8376464efca684c4743fd76ef4e4bc0922c5a37784525",
+      "counters": [
+        {
+          "method": "canDestroyAttacker",
+          "calls": 21390,
+          "raw_repeats": 6276,
+          "observed_state_repeats": 2491,
+          "changed_during_call": 0,
+          "body_ns": 3353438219,
+          "observed_repeat_body_ns": 354689448,
+          "completed_queries": 21390,
+          "raw_result_disagreements": 0,
+          "observed_result_disagreements": 0,
+          "changed_during_repeat": 0
+        },
+        {
+          "method": "canDestroyBlocker",
+          "calls": 21125,
+          "raw_repeats": 1003,
+          "observed_state_repeats": 106,
+          "changed_during_call": 0,
+          "body_ns": 3549516881,
+          "observed_repeat_body_ns": 18519879,
+          "completed_queries": 21125,
+          "raw_result_disagreements": 0,
+          "observed_result_disagreements": 0,
+          "changed_during_repeat": 0
+        }
+      ]
+    },
+    "reconstruction-v13": {
+      "matching_events": 1103,
+      "trace_sha256": "b58ad55015921641ee9c18af8af45881fce832182f19eafb9e836e67dae8228e",
+      "log_sha256": "1ddd563f04657fdca7cf49fad106a61d182b2aca1ac60b4315d8a33411f42ef8",
+      "counters": [
+        {
+          "queries": 221595,
+          "identity_repeats_in_discovery_scope": 0,
+          "stack_rebuilds": 34671,
+          "stack_rebuilds_without_added_options": 33168,
+          "stack_added_options": 1503,
+          "stack_body_ns": 9668862070,
+          "restorations": 34745,
+          "restore_body_ns": 7114591251
+        }
+      ]
+    }
+  },
+  "verified_managed_source_files": 48,
+  "active_jar_sha256": "1a600124a013962706dba2a2f4dc47e3b9fdb79b46a9a81be75c9bf63944fd88",
+  "production_changed": false,
+  "paired_speed_measurement": false
+}
