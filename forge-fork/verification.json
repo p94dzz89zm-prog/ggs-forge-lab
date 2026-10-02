@@ -1,0 +1,84 @@
+{
+  "upstream_commit": "4ec5f1a2c32fa90ecb983a72b9eb47aa5c5d7676",
+  "java": "17.0.20",
+  "maven": "3.9.9",
+  "engine_tests": {
+    "tests": 9,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      "externalAttackPassesEngineConstraints",
+      "externalChoiceCastsAndResolvesRealLightningBolt",
+      "externalTypeChoiceIsValidatedAndAudited",
+      "invalidPriorityIndexDoesNotCastAnything",
+      "rulesAllowEqualValueNinjutsuWhileStockPilotRejectsIt",
+      "snapshotDoesNotRevealOpponentHandOrLibrary",
+      "snapshotHidesOpponentFaceDownIdentity",
+      "staleResponseIsRejected",
+      "upkeepWithoutLandCandidatesCanPass"
+    ]
+  },
+  "python_client_tests": {
+    "tests": 2,
+    "failures": 0
+  },
+  "commander_smoke": {
+    "seed": 20301001,
+    "seats": [
+      "Jaymie_Ezio",
+      "GGS_Current"
+    ],
+    "profiles": [
+      "Default",
+      "Default"
+    ],
+    "external_decisions": 20,
+    "delegated_decisions": 161,
+    "completed": true,
+    "process_exit": 0,
+    "winner": "Jaymie_Ezio",
+    "timeout": false,
+    "engine_exception": false,
+    "interpretation": "Integration test. Mostly delegated; not a fully externally piloted game or comparative deck evaluation."
+  },
+  "invalid_attempts": [
+    {
+      "log": "evidence/invalid-initial-run.log",
+      "reason": "Bridge null land list at upkeep; repaired and regression-tested"
+    },
+    {
+      "log": "evidence/invalid-concurrent-build-run.log",
+      "reason": "Development classpath changed during concurrent Maven packaging; retested with frozen class files"
+    }
+  ],
+  "patch_sha256": "eb5de13feafde977187f76ce57fad5482706ef40f05149f0036b06435c829892",
+  "strategy_changes": true,
+  "desktop_package": {
+    "maven_exit": 0,
+    "jar": "forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
+    "commander_smoke_execution": "Frozen compiled reactor classpath; same compiled source as desktop package",
+    "jar_boot_and_deck_load_exit": 0,
+    "working_directory": "forge-gui (contains res)",
+    "note": "Prior bridge-only Maven package verification. New v1 production classes were compiled and packaged as described in pilot-v1-tests.json."
+  },
+  "publication": {
+    "offline_seat_audits": "Published with explicit user authorization after initial automatic-review rejection: internal audit files including hidden-hand information are approved for public publication.",
+    "public_evidence": [
+      "evidence/game.log",
+      "evidence/bridge-transcript.jsonl.gz",
+      "evidence/invalid-initial-run.log",
+      "evidence/invalid-concurrent-build-run.log",
+      "evidence/offline-audit/evaluation-seat-0.jsonl.gz",
+      "evidence/offline-audit/evaluation-seat-1.jsonl.gz",
+      "evidence/offline-audit/seat-1.jsonl.gz"
+    ]
+  },
+  "experimental_pilot_v1": {
+    "tests": "evidence/pilot-v1-tests.json",
+    "smoke_summary": "evidence/pilot-v1-summary.json",
+    "full_smoke_logs_and_audits": "evidence/pilot-v1-smoke.tar.gz",
+    "default": "stock; policy opt-in for one named seat",
+    "overall_strength_established": false
+  }
+}

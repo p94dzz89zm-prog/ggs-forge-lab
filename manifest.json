@@ -195,6 +195,9 @@
         "Michelangelo, the Heart"
       ],
       "library_size": 98
+    },
+    "GGS_Layered_v1": {
+      "description": "Exact October 1 layered 100-card rebuild; exploratory comparison with GGS_Current."
     }
   },
   "import_typography_aliases": {
