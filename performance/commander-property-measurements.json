@@ -1,0 +1,84 @@
+{
+  "run_order": [
+    "control-1",
+    "candidate-1",
+    "candidate-2",
+    "control-2"
+  ],
+  "runs": {
+    "control-1": [
+      {
+        "seed": 20261011,
+        "engine_ms": 25549,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 50243,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "candidate-1": [
+      {
+        "seed": 20261011,
+        "engine_ms": 25209,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 46875,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "candidate-2": [
+      {
+        "seed": 20261011,
+        "engine_ms": 24352,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 49010,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "control-2": [
+      {
+        "seed": 20261011,
+        "engine_ms": 26360,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 48369,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ]
+  },
+  "total_control_seconds": 150.521,
+  "total_candidate_seconds": 145.446,
+  "combined_reduction_percent": 3.3716225642933417,
+  "matching_events_all_pairs": 4292,
+  "decision": "Retain the stateless exact-property dispatch change after packaged-runner verification. This is a small repeated two-seed observation, not a general or statistically established speedup.",
+  "invalid_startup_attempt": {
+    "log": "commander-dispatch-candidate-1.log",
+    "reason": "Java rejected an unreadable archive before starting the engine; excluded from timings."
+  },
+  "timing_conditions": "No concurrent games, profilers, compilation, regression tests or archive/source-verification workloads during benchmark games. Lightweight reads/report writing occurred."
+}

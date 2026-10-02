@@ -171,3 +171,13 @@ modes, zones, requirements, parameters, amounts and targets. All source indexes
 fall back to original enumeration outside a scope or after invalidation. Disable
 replacement-host discovery with `-Ddragonmind.disableCombatReplacementRuleIndex=true`.
 No final damage, legality, or combat survival outcomes are cached by this change.
+
+## Exact commander-property dispatch (v13)
+
+The fifteenth patch handles the exact IsCommander property before the long
+CardProperty dispatch chain, after its existing phasing gate. It still reads
+the live card marker; prepared-spell exclusion and LKI/controller setup retain
+their original paths. Other properties retain their original dispatch behavior.
+There is no added game-state cache or search pruning. The measured two-seed,
+two-repeat comparison and validation limits are in
+`../performance/README-commander-property-investigation.md`.

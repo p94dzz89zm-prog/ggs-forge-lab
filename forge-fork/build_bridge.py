@@ -64,6 +64,9 @@ def main():
     static = Path(__file__).with_name('dragonmind-static-v12.patch').resolve()
     subprocess.run(['git', 'apply', '--check', str(static)], cwd=checkout, check=True)
     subprocess.run(['git', 'apply', str(static)], cwd=checkout, check=True)
+    commander_property = Path(__file__).with_name('dragonmind-commander-property-v13.patch').resolve()
+    subprocess.run(['git', 'apply', '--check', str(commander_property)], cwd=checkout, check=True)
+    subprocess.run(['git', 'apply', str(commander_property)], cwd=checkout, check=True)
     subprocess.run([args.maven, '-pl', 'forge-gui-desktop', '-am', 'test',
                     '-Dtest=BridgeEngineTest,GgsPilotTest,DragonMindPerformanceTest,RuntimeLifecycleTest', '-Dsurefire.failIfNoSpecifiedTests=false',
                     '-Djava.awt.headless=true'], cwd=checkout, check=True)

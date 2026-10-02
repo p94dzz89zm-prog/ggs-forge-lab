@@ -1,0 +1,18 @@
+{
+  "ordered_patches": 15,
+  "reproduced_managed_sources": 48,
+  "candidate_changed_source_files": 2,
+  "production_class_entries": [
+    "forge/game/card/CardProperty.class",
+    "forge/game/card/CardProperty$1CheckCanPayManaCost.class"
+  ],
+  "jar_integrity": "passed",
+  "new_runtime_sha256": "1a600124a013962706dba2a2f4dc47e3b9fdb79b46a9a81be75c9bf63944fd88",
+  "full_maven_build_rerun": false,
+  "stable_jar_not_yet_replaced": false,
+  "active_runtime": "v13 exact commander-property dispatch",
+  "packaged_runner_matching_events": 1043,
+  "packaged_runner_engine_seconds": 26.135,
+  "packaged_runner_wall_seconds": 31.666,
+  "installed_stable_sha256": "1a600124a013962706dba2a2f4dc47e3b9fdb79b46a9a81be75c9bf63944fd88"
+}

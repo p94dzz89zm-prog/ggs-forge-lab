@@ -1,5 +1,11 @@
 # DragonMind
 
+Latest measured checkpoint: v13 adds exact `IsCommander` property dispatch while
+preserving the existing phasing gate and live-state evaluation. Eight timed games
+across two repeated seeds showed a 3.37% combined reduction; this is a limited
+observation, not a general speed guarantee. See
+[the result and next architectural targets](performance/README-commander-property-investigation.md).
+
 DragonMind is our Commander simulation and AI layer, built on the GPL-licensed
 Forge 2.0.15 rules engine. Forge's source packages, attribution, and license remain.
 The existing checkout and remote keep their names for compatibility.
