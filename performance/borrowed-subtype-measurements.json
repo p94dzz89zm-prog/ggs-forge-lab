@@ -1,0 +1,96 @@
+{
+  "runs": {
+    "control-1": [
+      {
+        "seed": 20261011,
+        "engine_ms": 22512,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 41664,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "candidate-1": [
+      {
+        "seed": 20261011,
+        "engine_ms": 21412,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 33182,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "candidate-2": [
+      {
+        "seed": 20261011,
+        "engine_ms": 20852,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 34536,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ],
+    "control-2": [
+      {
+        "seed": 20261011,
+        "engine_ms": 23489,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio"
+      },
+      {
+        "seed": 20261012,
+        "engine_ms": 41724,
+        "last_logged_turn": 44,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles"
+      }
+    ]
+  },
+  "control_ms": 129389,
+  "candidate_ms": 109982,
+  "reduction_percent": 14.998956634644367,
+  "tracked_events_per_two_seed_run": 2146,
+  "matching_candidate_events": 4292,
+  "shadow_queries": 30947,
+  "shadow_predicted_additional_skips": 28716,
+  "shadow_missed_productive_rebuilds": 0,
+  "shadow_incomplete": 0,
+  "shadow_matching_events": 2146,
+  "limited_sample": true,
+  "packaged_runner_check": {
+    "matching_events": 1043,
+    "performance": {
+      "wall_seconds": 26.76,
+      "attempts": 1,
+      "completed": 1,
+      "engine_seconds": [
+        21.232
+      ],
+      "completed_games_per_minute": 2.242,
+      "status_counts": {
+        "completed": 1
+      },
+      "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+    },
+    "purpose": "integration only"
+  }
+}

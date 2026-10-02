@@ -59,6 +59,8 @@ if __name__=='__main__':
       'forge-game/src/main/java/forge/game/GameAction.java':[('checkStaticAbilities','static-rebuild',3)],
       'forge-game/src/main/java/forge/game/ability/AbilityUtils.java':[('resolve','resolve-action',1)],
     }
+    if '--stack-eligibility' in sys.argv[4:]:
+        files['forge-game/src/main/java/forge/game/staticability/StackCandidateEligibility.java'] = [('predict','stack-eligibility',2)]
     if '--blocking' in sys.argv[4:]:
         files['forge-game/src/main/java/forge/game/combat/CombatUtil.java']=[
             ('canBlock','block-legality',None),('getBlockCost','block-cost',3),

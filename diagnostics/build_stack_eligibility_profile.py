@@ -1,4 +1,4 @@
-"""Build an isolated v13 diagnostic overlay; no production files are modified."""
+"""Build an isolated diagnostic overlay; no production files are modified."""
 from pathlib import Path
 import subprocess, sys
 def end_brace(text,start):
@@ -28,13 +28,13 @@ def wrap(text, marker, prefix, suffix=''):
     return text[:start+1] + '\n' + prefix + text[start+1:end] + '\n' + suffix + '\n}' + text[end+1:]
 path = 'forge-game/src/main/java/forge/game/GameActionUtil.java'
 text = (src/path).read_text()
-marker = 'if (game.getAction().hasStaticAbilityAffectingZone(ZoneType.Stack, StaticAbilityLayer.ABILITIES))'
+marker = 'if (game.getAction().hasStaticAbilityAffectingZone(ZoneType.Stack, StaticAbilityLayer.ABILITIES)'
 text = wrap(text, marker, 'try(var dmRebuild=forge.diagnostics.StackEligibilityProfiler.query(source,activator)) {\nint dmBefore=alternatives.size();', 'dmRebuild.completed(alternatives.size()-dmBefore);\n}')
 dest = out/'GameActionUtil.java'; dest.write_text(text)
 path = 'forge-ai/src/main/java/forge/ai/ComputerUtilAbility.java'
 text = (src/path).read_text()
 for method in ['getSpellAbilities(', 'getOriginalAndAltCostAbilities(']:
-    text = wrap(text, 'public static List<SpellAbility> '+method, 'try(var dmDiscovery=forge.diagnostics.StackEligibilityProfiler.search()) {', '}')
+    text = wrap(text, 'public static List<SpellAbility> '+method, 'try(var dmDiagnosticDiscovery=forge.diagnostics.StackEligibilityProfiler.search()) {', '}')
 other = out/'ComputerUtilAbility.java'; other.write_text(text)
 classes = out/'classes'; classes.mkdir(exist_ok=True)
 subprocess.run(['java','com.sun.tools.javac.Main','-cp',str(jar.resolve()),'-d',str(classes),str(dest),str(other),str(Path(__file__).with_name('StackEligibilityProfiler.java'))],check=True)

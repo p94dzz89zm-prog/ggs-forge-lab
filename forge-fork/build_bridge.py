@@ -70,6 +70,9 @@ def main():
     stack_eligibility = Path(__file__).with_name('dragonmind-stack-eligibility-v14.patch').resolve()
     subprocess.run(['git', 'apply', '--check', str(stack_eligibility)], cwd=checkout, check=True)
     subprocess.run(['git', 'apply', str(stack_eligibility)], cwd=checkout, check=True)
+    borrowed_subtype = Path(__file__).with_name('dragonmind-borrowed-subtype-v15.patch').resolve()
+    subprocess.run(['git', 'apply', '--check', str(borrowed_subtype)], cwd=checkout, check=True)
+    subprocess.run(['git', 'apply', str(borrowed_subtype)], cwd=checkout, check=True)
     subprocess.run([args.maven, '-pl', 'forge-gui-desktop', '-am', 'test',
                     '-Dtest=BridgeEngineTest,GgsPilotTest,DragonMindPerformanceTest,StackCandidateEligibilityTest,RuntimeLifecycleTest', '-Dsurefire.failIfNoSpecifiedTests=false',
                     '-Djava.awt.headless=true'], cwd=checkout, check=True)

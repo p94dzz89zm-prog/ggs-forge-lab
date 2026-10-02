@@ -136,7 +136,7 @@ public final class StackEligibilityProfiler {
     }
     private static Prediction inspect(Card candidate,Player activator){
         if(candidate.isLKI())return new Prediction(false,"lki-candidate");
-        if(candidate.getController()!=activator)return new Prediction(false,"borrowed-candidate");
+        if(candidate.getController()!=activator&&candidate.getType().hasCreatureType("Assassin"))return new Prediction(false,"borrowed-candidate");
         // Existing nonintrinsic keyword spells need not have come from a presently visible stack grant.
         for(var keyword:candidate.getUnhiddenKeywords())if(!keyword.isIntrinsic())return new Prediction(false,"extrinsic-candidate-keyword");
         List<StaticAbility> grants=new ArrayList<>();Set<String> hazards=new TreeSet<>();

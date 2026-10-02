@@ -194,3 +194,11 @@ scope exits are covered by StackCandidateEligibilityTest. Disable exclusion with
 -Ddragonmind.disableStackCandidateEligibility=true. The repeated two-seed result,
 shadow counters, validation and activation are documented in
 ../performance/README-stack-eligibility-v14.md.
+
+## Borrowed non-Assassin eligibility (v15)
+
+The seventeenth patch allows borrowed non-Assassins through v14's fresh dependency
+inspection. Exact Assassin grants can be excluded on subtype without assuming
+future spell control. Borrowed Assassins, LKI candidates, uncertain type changes
+and the other existing hazards retain full reconstruction. The repeated two-seed
+result and validation are in ../performance/README-borrowed-subtype-v15.md.

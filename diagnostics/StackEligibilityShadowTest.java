@@ -187,5 +187,13 @@ public class StackEligibilityShadowTest extends AITest {
             Assert.assertEquals(signature(first),signature(second));
         }
     }
+    @Test public void borrowedNonAssassinCanBeExcludedWithoutAssumingCastController(){
+        var game=initAndCreateGame();var p=game.getPlayers().get(0);var other=game.getPlayers().get(1);
+        addCard("Ezio Auditore da Firenze",p);
+        Card candidate=hand("Grizzly Bears",other);
+        Assert.assertTrue(StackEligibilityProfiler.predict(candidate,p).skip());
+        candidate.addStaticAbility("Mode$ Continuous | EffectZone$ Stack | AffectedDefined$ Self | AddType$ Assassin");
+        Assert.assertFalse(StackEligibilityProfiler.predict(candidate,p).skip());
+    }
     private java.util.List<String> signature(java.util.List<forge.game.spellability.SpellAbility> values){return values.stream().map(sa->sa.getAlternativeCost()+":"+sa.getPayCosts()+":"+sa.getRestrictions().getZone()).toList();}
 }
