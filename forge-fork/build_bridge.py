@@ -52,6 +52,9 @@ def main():
     v8 = Path(__file__).with_name('dragonmind-stack-v8.patch').resolve()
     subprocess.run(['git', 'apply', '--check', str(v8)], cwd=checkout, check=True)
     subprocess.run(['git', 'apply', str(v8)], cwd=checkout, check=True)
+    v9 = Path(__file__).with_name('dragonmind-blocking-v9.patch').resolve()
+    subprocess.run(['git', 'apply', '--check', str(v9)], cwd=checkout, check=True)
+    subprocess.run(['git', 'apply', str(v9)], cwd=checkout, check=True)
     subprocess.run([args.maven, '-pl', 'forge-gui-desktop', '-am', 'test',
                     '-Dtest=BridgeEngineTest,GgsPilotTest,DragonMindPerformanceTest', '-Dsurefire.failIfNoSpecifiedTests=false',
                     '-Djava.awt.headless=true'], cwd=checkout, check=True)

@@ -1,5 +1,7 @@
 # DragonMind: conservative stack-effect discovery
 
+**Retired in v9:** a subsequent diagnostic game had exactly the same hypothetical stack-rebuild counts as the v7 diagnostic. The apparent small timing gain below did not establish a reduction in that work. v9 removes this conservative stack filter and its extra world scan; the v8 measurement is retained as historical evidence, including its noise caveat.
+
 October 2, 2026. Candidate v8 narrows repeated hypothetical stack rebuilding while preserving the full calculation whenever applicability is uncertain.
 
 | Complete four-player game | v7 control | v8 candidate |

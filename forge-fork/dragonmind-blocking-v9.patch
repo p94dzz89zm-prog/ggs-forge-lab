@@ -1,0 +1,539 @@
+diff --git a/forge-game/src/main/java/forge/game/GameAction.java b/forge-game/src/main/java/forge/game/GameAction.java
+index 1dd4b77..85f0f49 100644
+--- a/forge-game/src/main/java/forge/game/GameAction.java
++++ b/forge-game/src/main/java/forge/game/GameAction.java
+@@ -1067,133 +1067,6 @@ public class GameAction {
+         return false;
+     }
+ 
+-    /**
+-     * Conservative stack discovery: reject only controller-restricted grants
+-     * belonging to another player. Do not predict future spell types or costs.
+-     */
+-    public boolean hasStaticAbilityAffectingStackCandidate(Card candidate, Player activator) {
+-        if (Boolean.getBoolean("dragonmind.disableStackCandidateFilter")
+-                || candidate.isLKI() || candidate.getController() != activator) {
+-            return hasStaticAbilityAffectingZone(ZoneType.Stack, StaticAbilityLayer.ABILITIES);
+-        }
+-        if (!hasStaticAbilityAffectingZone(ZoneType.Stack, StaticAbilityLayer.ABILITIES)) return false;
+-        final boolean[] unsafe = {false};
+-        // Match the rebuild's world traversal, including hand/library and
+-        // hidden traits. Do not omit currently inactive effects: moving the
+-        // hypothetical spell can change their conditions or effect zones.
+-        game.forEachCardInGame(card -> {
+-            for (StaticAbility ability : card.getStaticAbilities()) {
+-                if (unsafeStackCandidateFilter(ability, candidate)) { unsafe[0] = true; return false; }
+-            }
+-            for (StaticAbility ability : card.getHiddenStaticAbilities()) {
+-                if (unsafeStackCandidateFilter(ability, candidate)) { unsafe[0] = true; return false; }
+-            }
+-            return true;
+-        }, true);
+-        return unsafe[0];
+-    }
+-
+-    private static boolean unsafeStackCandidateFilter(StaticAbility ability, Card candidate) {
+-        if (!ability.checkMode(StaticAbilityMode.Continuous)) return false;
+-        if (ability.getLayers().contains(StaticAbilityLayer.CONTROL)
+-                || ability.getLayers().contains(StaticAbilityLayer.COPY)
+-                || ability.getLayers().contains(StaticAbilityLayer.TEXT)
+-                || (ability.hasParam("AddStaticAbility") && !onlyGeneratesBattlefieldCombatBonuses(ability))
+-                || (ability.hasParam("AddSVar") && !onlyAddsBlockingDirective(ability))
+-                || ability.hasParam("GainsAbilitiesOf")
+-                || ability.hasParam("GainsAbilitiesOfDefined") || ability.hasParam("ShareRememberedKeywords")) return true;
+-        boolean explicitlyIncludesStack = ZoneType.listValueOf(ability.getParamOrDefault("AffectedZone",
+-            ZoneType.Battlefield.toString())).contains(ZoneType.Stack);
+-        // Defined-card/CDA selection can bypass ordinary affected-zone filtering.
+-        if (!explicitlyIncludesStack && (ability.hasParam("AffectedDefined") || ability.isCharacteristicDefining())
+-                && ability.getLayers().contains(StaticAbilityLayer.ABILITIES)
+-                && !onlyChangesCombatTraits(ability)) return true;
+-        return ability.getLayers().contains(StaticAbilityLayer.ABILITIES)
+-            && explicitlyIncludesStack
+-            && (ability.isCharacteristicDefining()
+-                || ability.getHostCard().getController() == candidate.getController()
+-                || !onlyAffectsControllerCards(ability));
+-    }
+-
+-    private static boolean onlyChangesCombatTraits(StaticAbility ability) {
+-        for (String key : ability.getMapParams().keySet()) {
+-            switch (key) {
+-                case "Mode", "Affected", "AffectedDefined", "AffectedZone", "EffectZone", "CharacteristicDefining",
+-                    "AddPower", "AddToughness", "SetPower", "SetToughness", "AddType", "RemoveType",
+-                    "RemoveCardTypes", "AddKeyword", "AddTrigger", "AddStaticAbility", "AddSVar", "Description",
+-                    "Condition", "CheckSVar", "SVarCompare": break;
+-                default: return false;
+-            }
+-        }
+-        if (!ability.hasParam("AddKeyword")) return true;
+-        for (String keyword : ability.getParam("AddKeyword").split(" & ")) {
+-            switch (keyword) {
+-                case "Haste", "Trample", "Hexproof", "Indestructible", "Flying", "First strike", "Double strike",
+-                    "Menace", "Vigilance", "Lifelink", "Deathtouch", "Shroud", "Reach", "Skulk", "Fear", "Intimidate": break;
+-                default: if (!keyword.startsWith("Protection:") && !keyword.startsWith("Protection from ")) return false;
+-            }
+-        }
+-        return true;
+-    }
+-
+-    private static boolean onlyAddsBlockingDirective(StaticAbility ability) {
+-        for (String name : ability.getParam("AddSVar").split(" & ")) {
+-            if (!"SVar:MustBeBlocked:AttackingPlayerConservative".equals(AbilityUtils.getSVar(ability, name))) return false;
+-        }
+-        return true;
+-    }
+-
+-    private static boolean onlyGeneratesBattlefieldCombatBonuses(StaticAbility ability) {
+-        // Inspect script data without constructing traits or advancing IDs.
+-        // Unknown/generated behavior keeps the original rebuild.
+-        try {
+-            for (String name : ability.getParam("AddStaticAbility").split(" & ")) {
+-                Map<String, String> params = forge.util.FileSection.parseToMap(
+-                    AbilityUtils.getSVar(ability, name), forge.util.FileSection.DOLLAR_SIGN_KV_SEPARATOR);
+-                if (!"Continuous".equals(params.get("Mode"))
+-                        || !"Battlefield".equals(params.getOrDefault("AffectedZone", "Battlefield"))) return false;
+-                for (String key : params.keySet()) {
+-                    switch (key) {
+-                        case "Mode", "Affected", "AffectedDefined", "AffectedZone", "EffectZone",
+-                            "AddPower", "AddToughness", "SetPower", "SetToughness", "AddKeyword",
+-                            "Description", "Condition", "CheckSVar", "SVarCompare": break;
+-                        default: return false;
+-                    }
+-                }
+-                if (params.containsKey("AddKeyword")) {
+-                    for (String keyword : params.get("AddKeyword").split(" & ")) {
+-                        if (!keyword.equals("Haste") && !keyword.equals("Trample")) return false;
+-                    }
+-                }
+-            }
+-            return true;
+-        } catch (RuntimeException uncertainScript) {
+-            return false;
+-        }
+-    }
+-
+-    private static boolean onlyAffectsControllerCards(StaticAbility ability) {
+-        // MayPlay validity has special ownership handling (Shaman's Trance).
+-        if (!ability.hasParam("Affected") || ability.hasParam("MayPlay")) return false;
+-        for (String branch : ability.getParam("Affected").split(",", -1)) {
+-            String[] parts = branch.split("\\.", -1);
+-            if (parts.length != 2) return false;
+-            switch (parts[0]) {
+-                case "Card", "Creature", "Artifact", "Enchantment", "Instant", "Sorcery",
+-                        "Planeswalker", "Land", "Battle", "Permanent": break;
+-                default: return false;
+-            }
+-            boolean restricted = false;
+-            for (String property : parts[1].split("\\+", -1)) {
+-                if (property.equals("YouCtrl")) restricted = true;
+-            }
+-            // Comma-separated validity branches are alternatives: each must
+-            // contain the positive, exact YouCtrl constraint.
+-            if (!restricted) return false;
+-        }
+-        return true;
+-    }
+-
+     public final void checkStaticAbilities() {
+         checkStaticAbilities(true);
+     }
+diff --git a/forge-game/src/main/java/forge/game/GameActionUtil.java b/forge-game/src/main/java/forge/game/GameActionUtil.java
+index 5a035c8..d993b4e 100644
+--- a/forge-game/src/main/java/forge/game/GameActionUtil.java
++++ b/forge-game/src/main/java/forge/game/GameActionUtil.java
+@@ -45,6 +45,7 @@ import forge.game.replacement.ReplacementLayer;
+ import forge.game.spellability.*;
+ import forge.game.staticability.StaticAbility;
+ import forge.game.staticability.StaticAbilityAlternativeCost;
++import forge.game.staticability.StaticAbilityLayer;
+ import forge.game.staticability.StaticAbilityMode;
+ import forge.game.zone.Zone;
+ import forge.game.zone.ZoneType;
+@@ -246,7 +247,7 @@ public final class GameActionUtil {
+                 }
+ 
+                 // some needs to check after ability was put on the stack
+-                if (game.getAction().hasStaticAbilityAffectingStackCandidate(source, activator)) {
++                if (game.getAction().hasStaticAbilityAffectingZone(ZoneType.Stack, StaticAbilityLayer.ABILITIES)) {
+                     Map<StaticAbility, CardPlayOption> oldMayPlay = source.getMayPlay();
+                     Zone oldZone = source.getLastKnownZone();
+                     Card stackCopy = source;
+diff --git a/forge-game/src/main/java/forge/game/card/Card.java b/forge-game/src/main/java/forge/game/card/Card.java
+index c18dd47..d9ee238 100644
+--- a/forge-game/src/main/java/forge/game/card/Card.java
++++ b/forge-game/src/main/java/forge/game/card/Card.java
+@@ -5622,6 +5622,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+     }
+     public final void setPhasedOut(final Player phasedOut0) {
+         if (phasedOut == phasedOut0) { return; }
++        invalidateReplacementInspection();
+         phasedOut = phasedOut0;
+         view.updatePhasedOut(this);
+     }
+diff --git a/forge-game/src/main/java/forge/game/combat/CombatUtil.java b/forge-game/src/main/java/forge/game/combat/CombatUtil.java
+index 0e45a5d..7ec1d65 100644
+--- a/forge-game/src/main/java/forge/game/combat/CombatUtil.java
++++ b/forge-game/src/main/java/forge/game/combat/CombatUtil.java
+@@ -288,7 +288,7 @@ public class CombatUtil {
+         final Cost attackCost = new Cost(ManaCost.ZERO, true);
+         boolean hasCost = false;
+         // Sort abilities to apply them in proper order
+-        for (final Card card : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card card : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : card.getStaticAbilities()) {
+                 final Cost additionalCost = stAb.getAttackCost(attacker, defender, attackersWithOptionalCost);
+                 if (null != additionalCost) {
+@@ -334,7 +334,7 @@ public class CombatUtil {
+         Cost blockCost = new Cost(ManaCost.ZERO, true);
+         // Sort abilities to apply them in proper order
+         boolean noCost = true;
+-        for (Card card : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : card.getStaticAbilities()) {
+                 Cost c1 = stAb.getBlockCost(blocker, attacker);
+                 if (c1 != null) {
+diff --git a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+index 45312e7..f3d1834 100644
+--- a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
++++ b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+@@ -56,6 +56,7 @@ public class ReplacementHandler {
+         final Map<ReplacementType, CardCollection> sources = new EnumMap<>(ReplacementType.class);
+         final Map<ZoneType, CardCollection[]> combatTraits = new EnumMap<>(ZoneType.class);
+         final Map<Player, Map<ApiType, CardCollection>> combatDefenses = new IdentityHashMap<>();
++        CardCollection combatRuleSources;
+         ManaSources parent;
+         boolean combat;
+         boolean invalidated;
+@@ -135,6 +136,25 @@ public class ReplacementHandler {
+         return snapshot.invalidated ? game.getCardsIn(zone) : sources[triggers ? 1 : 0];
+     }
+ 
++    /** Share ordered rule hosts in one forecast; applicability remains live. */
++    public CardCollectionView getReadOnlyCombatRuleSources() {
++        ManaSources snapshot = manaInspection.get();
++        if (snapshot == null || snapshot.invalidated || !snapshot.combat
++                || Boolean.getBoolean("dragonmind.disableCombatRuleIndex")) {
++            return game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES);
++        }
++        if (snapshot.combatRuleSources == null) {
++            CardCollection hosts = new CardCollection();
++            // Preserve the original zone/player ordering and phased-card rules.
++            for (Card card : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++                if (!card.getStaticAbilities().isEmpty()) hosts.add(card);
++            }
++            if (!snapshot.invalidated) snapshot.combatRuleSources = hosts;
++        }
++        return snapshot.invalidated ? game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)
++            : snapshot.combatRuleSources;
++    }
++
+     /** Share defensive-ability hosts in a bounded forecast, not costs or targets. */
+     public CardCollectionView getReadOnlyCombatDefenseSources(Player controller, ApiType api) {
+         ManaSources snapshot = manaInspection.get();
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityBlockRestrict.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityBlockRestrict.java
+index ff909a0..baa3580 100644
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityBlockRestrict.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityBlockRestrict.java
+@@ -11,7 +11,7 @@ public class StaticAbilityBlockRestrict {
+     static public int blockRestrictNum(Player defender) {
+         final Game game = defender.getGame();
+         int num = Integer.MAX_VALUE;
+-        for (final Card ca : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.BlockRestrict)) {
+                     continue;
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityCantAttackBlock.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityCantAttackBlock.java
+index f0554b1..aecea0e 100644
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityCantAttackBlock.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityCantAttackBlock.java
+@@ -46,7 +46,7 @@ public class StaticAbilityCantAttackBlock {
+             return true;
+         }
+ 
+-        for (final Card ca : attacker.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : attacker.getGame().getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.CantAttack)) {
+                     continue;
+@@ -125,7 +125,7 @@ public class StaticAbilityCantAttackBlock {
+     }
+ 
+     public static boolean canAttackDefender(final Card card, final GameEntity target) {
+-        for (final Card ca : card.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : card.getGame().getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.CanAttackDefender)) {
+                     continue;
+@@ -157,7 +157,7 @@ public class StaticAbilityCantAttackBlock {
+         }
+ 
+         CardCollection list = new CardCollection(blocker);
+-        list.addAll(blocker.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
++        list.addAll(blocker.getGame().getReplacementHandler().getReadOnlyCombatRuleSources());
+         for (final Card ca : list) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.CantBlock)) {
+@@ -183,7 +183,7 @@ public class StaticAbilityCantAttackBlock {
+ 
+     public static boolean canBlockTapped(final Card card)  {
+         final Game game = card.getGame();
+-        for (final Card ca : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.BlockTapped)) {
+                     continue;
+@@ -210,7 +210,7 @@ public class StaticAbilityCantAttackBlock {
+         if (blocker != null) {
+             list.add(blocker);
+         }
+-        list.addAll(attacker.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
++        list.addAll(attacker.getGame().getReplacementHandler().getReadOnlyCombatRuleSources());
+         for (final Card ca : list) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.CantBlockBy)) {
+@@ -278,7 +278,7 @@ public class StaticAbilityCantAttackBlock {
+     }
+ 
+     public static boolean canBlockIfReach(final Card attacker, final Card blocker) {
+-        for (final Card ca : attacker.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : attacker.getGame().getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.CanBlockIfReach)) {
+                     continue;
+@@ -302,7 +302,7 @@ public class StaticAbilityCantAttackBlock {
+     }
+ 
+     public static boolean canBlockIfShadow(final Card attacker, final Card blocker) {
+-        for (final Card ca : attacker.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : attacker.getGame().getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.CanBlockIfShadow)) {
+                     continue;
+@@ -402,7 +402,7 @@ public class StaticAbilityCantAttackBlock {
+         if (!attacker.isSick()) {
+             return true;
+         }
+-        for (final Card ca : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.CanAttackIfHaste)) {
+                     continue;
+@@ -435,7 +435,7 @@ public class StaticAbilityCantAttackBlock {
+         }
+ 
+         final Game game = attacker.getGame();
+-        for (final Card ca : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.MinMaxBlocker)) {
+                     continue;
+@@ -469,7 +469,7 @@ public class StaticAbilityCantAttackBlock {
+ 
+     public static boolean attackVigilance(final Card card)  {
+         final Game game = card.getGame();
+-        for (final Card ca : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.AttackVigilance)) {
+                     continue;
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityMustBlock.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityMustBlock.java
+index fdd42ba..65a3256 100644
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityMustBlock.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityMustBlock.java
+@@ -8,7 +8,7 @@ public class StaticAbilityMustBlock {
+ 
+     public static boolean blocksEachCombatIfAble(final Card creature)  {
+         final Game game = creature.getGame();
+-        for (final Card ca : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.MustBlock)) {
+                     continue;
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+index 88d45a5..4b4a6a0 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -20,116 +20,86 @@ import org.testng.Assert;
+ import org.testng.annotations.Test;
+ 
+ public class DragonMindPerformanceTest extends AITest {
+-    @Test public void stackCandidateDiscoveryKeepsOwnAndBorrowedSpellChecks() {
+-        var game=initAndCreateGame();var owner=game.getPlayers().get(0);var other=game.getPlayers().get(1);
+-        Card ezio=addCard("Ezio Auditore da Firenze",owner);
+-        Card own=addCardToZone("Grizzly Bears",owner,ZoneType.Hand);
+-        Card opposing=addCardToZone("Grizzly Bears",other,ZoneType.Hand);
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingZone(ZoneType.Stack,forge.game.staticability.StaticAbilityLayer.ABILITIES));
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(own,owner));
+-        Assert.assertFalse(game.getAction().hasStaticAbilityAffectingStackCandidate(opposing,other));
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(opposing,owner));
+-        Card copy=forge.game.card.CardCopyService.getLKICopy(opposing);
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(copy,other));
+-        ezio.setController(other,0);
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(opposing,other));
+-        Assert.assertFalse(game.getAction().hasStaticAbilityAffectingStackCandidate(own,owner));
+-    }
+-
+-    @Test public void stackCandidateDiscoveryDoesNotGuessValidityAlternatives() {
+-        var game=initAndCreateGame();var owner=game.getPlayers().get(0);var other=game.getPlayers().get(1);
+-        Card host=addCard("Grizzly Bears",owner),candidate=addCardToZone("Grizzly Bears",other,ZoneType.Hand);
+-        var ability=host.addStaticAbility("Mode$ Continuous | Affected$ Card.YouCtrl,Card.OppCtrl | AffectedZone$ Stack | AddKeyword$ Freerunning:B B");
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        ability.putParam("Affected","Card.YouCtrl,Creature.YouCtrl");
+-        Assert.assertFalse(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        ability.putParam("MayPlay","True");
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        ability.getMapParams().remove("MayPlay");
+-        ability.putParam("Affected","Card.YouOwn");
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        ability.putParam("Affected","Card.YouCtrl,");
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
++    @Test public void combatSourceDiscoveryInvalidatesDirectPhasingChanges() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCard("Grizzly Bears",player);host.addStaticAbility("Mode$ CantBlock | ValidCard$ Card.Self");
++        host.setPhasedOut(player);
++        var handler=game.getReplacementHandler();
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertFalse(handler.getReadOnlyCombatRuleSources().contains(host));
++            Assert.assertFalse(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,false).contains(host));
++            host.setPhasedOut(null);
++            Assert.assertTrue(handler.getReadOnlyCombatRuleSources().contains(host));
++            Assert.assertTrue(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,false).contains(host));
++            host.setPhasedOut(player);
++            Assert.assertFalse(handler.getReadOnlyCombatRuleSources().contains(host));
++        }
+     }
+ 
+-    @Test public void stackCandidateDiscoveryFallsBackForControllerAndTextLayers() {
+-        for(String effect:List.of("GainControl$ You","GainTextOf$ TopOfGraveyard.Creature")) {
+-            var game=initAndCreateGame();var owner=game.getPlayers().get(0);var other=game.getPlayers().get(1);
+-            addCard("Ezio Auditore da Firenze",owner);
+-            Card candidate=addCardToZone("Grizzly Bears",other,ZoneType.Hand),host=addCard("Grizzly Bears",owner);
+-            Assert.assertFalse(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-            // The hazard is inactive now; future-state conditions may differ.
+-            host.setSVar("Never","Number$0");
+-            host.addStaticAbility("Mode$ Continuous | AffectedDefined$ Self | "+effect+" | CheckSVar$ Never | SVarCompare$ EQ1");
+-            Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
++    @Test public void combatRuleSourcesPreserveZoneOrderAndInvalidateNewHosts() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        Card host=addCard("Grizzly Bears",player),empty=addCard("Grizzly Bears",other);
++        host.addStaticAbility("Mode$ CantBlock | ValidCard$ Card.Self");
++        Card command=addCardToZone("Grizzly Bears",player,ZoneType.Command);
++        command.addStaticAbility("Mode$ MustBlock | ValidCreature$ Creature");
++        Card grave=addCardToZone("Grizzly Bears",other,ZoneType.Graveyard);
++        grave.addStaticAbility("Mode$ CantBlock | ValidCard$ Card.Self");
++        var handler=game.getReplacementHandler();
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            var expected=new ArrayList<Card>();
++            for(Card c:game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES))if(!c.getStaticAbilities().isEmpty())expected.add(c);
++            Assert.assertEquals(new ArrayList<>(handler.getReadOnlyCombatRuleSources()),expected);
++            Assert.assertFalse(handler.getReadOnlyCombatRuleSources().contains(empty));
++            try(var nested=handler.beginReadOnlyCombatInspection()) {
++                empty.addStaticAbility("Mode$ CantBlock | ValidCard$ Card.Self");
++            }
++            Assert.assertTrue(handler.getReadOnlyCombatRuleSources().contains(empty));
++            other.getZone(ZoneType.Battlefield).remove(empty);
++            Assert.assertFalse(handler.getReadOnlyCombatRuleSources().contains(empty));
+         }
+     }
+ 
+-    @Test public void stackCandidateDiscoverySeesInactiveAndOffBoardHazards() {
+-        var game=initAndCreateGame();var owner=game.getPlayers().get(0);var other=game.getPlayers().get(1);
+-        addCard("Ezio Auditore da Firenze",owner);
+-        Card candidate=addCardToZone("Grizzly Bears",other,ZoneType.Hand);
+-        Card sword=addCardToZone("Sword of Feast and Famine",owner,ZoneType.Library);
+-        addCardToZone("Kaito, Bane of Nightmares",owner,ZoneType.Library);
+-        Assert.assertFalse(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        String directive=sword.getSVar("SwordOfFeastAndFamineCE");
+-        sword.setSVar("SwordOfFeastAndFamineCE","SVar:Unknown:Value");
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        sword.setSVar("SwordOfFeastAndFamineCE",directive);
+-        Assert.assertFalse(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        Card hidden=addCardToZone("Grizzly Bears",owner,ZoneType.Library);
+-        hidden.setSVar("Never","Number$0");
+-        var ability=hidden.addStaticAbility("Mode$ Continuous | Affected$ Card | AffectedZone$ Stack | AddKeyword$ Freerunning:B B | CheckSVar$ Never | SVarCompare$ EQ1");
+-        Assert.assertFalse(ability.checkConditions(forge.game.staticability.StaticAbilityMode.Continuous));
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        hidden.getCurrentState().removeStaticAbility(ability);
+-        Assert.assertFalse(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        var defined=hidden.addStaticAbility("Mode$ Continuous | AffectedDefined$ Self | AddKeyword$ Freerunning:B B");
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        hidden.getCurrentState().removeStaticAbility(defined);
+-        hidden.addStaticAbility("Mode$ Continuous | AffectedDefined$ Self | AddKeyword$ Hexproof");
+-        Assert.assertFalse(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        hidden.addStaticAbility("Mode$ Continuous | AffectedDefined$ Self | GainControl$ You | EffectZone$ Stack");
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
++    @Test public void combatRuleQueriesKeepConditionsCostsAndModesFresh() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        Card host=addCard("Grizzly Bears",player),attacker=addCard("Grizzly Bears",player),blocker=addCard("Grizzly Bears",other);
++        var restriction=host.addStaticAbility("Mode$ CantBlockBy | ValidAttacker$ Creature.YouCtrl | ValidBlocker$ Creature");
++        var cost=host.addStaticAbility("Mode$ CantBlockUnless | ValidCard$ Creature | Cost$ 1");
++        try(var scope=game.getReplacementHandler().beginReadOnlyCombatInspection()) {
++            Assert.assertTrue(forge.game.staticability.StaticAbilityCantAttackBlock.cantBlockBy(attacker,blocker));
++            restriction.putParam("ValidAttacker","Creature.OppCtrl");
++            Assert.assertFalse(forge.game.staticability.StaticAbilityCantAttackBlock.cantBlockBy(attacker,blocker));
++            Assert.assertEquals(forge.game.combat.CombatUtil.getBlockCost(game,blocker,attacker).toString(),new forge.game.cost.Cost("1",true).toString());
++            cost.putParam("Cost","3");
++            Assert.assertEquals(forge.game.combat.CombatUtil.getBlockCost(game,blocker,attacker).toString(),new forge.game.cost.Cost("3",true).toString());
++            cost.setMode(EnumSet.of(forge.game.staticability.StaticAbilityMode.CantAttackUnless));
++            Assert.assertNull(forge.game.combat.CombatUtil.getBlockCost(game,blocker,attacker));
++        }
+     }
+ 
+-    @Test public void stackCandidateAlternativesMatchFullDiscoveryAndPreserveFreerunning() {
+-        var game=initAndCreateGame();var owner=game.getPlayers().get(0);var other=game.getPlayers().get(1);
+-        addCard("Ezio Auditore da Firenze",owner);
+-        Card assassin=addCardToZone("Changeling Outcast",owner,ZoneType.Hand);
+-        Card opposing=addCardToZone("Grizzly Bears",other,ZoneType.Hand);
+-        for(Card card:List.of(assassin,opposing)) {
+-            var sa=card.getSpellAbilities().stream().filter(a->a.isSpell()).findFirst().orElseThrow();
+-            sa.setActivatingPlayer(card.getController());
+-            var filtered=forge.game.GameActionUtil.getAlternativeCosts(sa,card.getController(),false);
+-            String previous=System.getProperty("dragonmind.disableStackCandidateFilter");
+-            List<forge.game.spellability.SpellAbility> original;
++    @Test public void combatRuleQueriesPreserveExplicitVirtualHostsAndOptOut() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        Card attacker=addCard("Grizzly Bears",player),blocker=addCard("Grizzly Bears",other);
++        var virtual=forge.game.card.CardCopyService.getLKICopy(attacker);
++        virtual.addStaticAbility("Mode$ CantBlockBy | ValidAttacker$ Card.Self | ValidBlocker$ Creature");
++        var handler=game.getReplacementHandler();
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertTrue(forge.game.staticability.StaticAbilityCantAttackBlock.cantBlockBy(virtual,blocker));
++            var virtualBlocker=forge.game.card.CardCopyService.getLKICopy(blocker);
++            virtualBlocker.addStaticAbility("Mode$ CantBlock | ValidCard$ Card.Self");
++            Assert.assertTrue(forge.game.staticability.StaticAbilityCantAttackBlock.cantBlock(virtualBlocker));
++            String previous=System.getProperty("dragonmind.disableCombatRuleIndex");
+             try {
+-                System.setProperty("dragonmind.disableStackCandidateFilter","true");
+-                Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(card,card.getController()));
+-                original=forge.game.GameActionUtil.getAlternativeCosts(sa,card.getController(),false);
++                System.setProperty("dragonmind.disableCombatRuleIndex","true");
++                Assert.assertTrue(forge.game.staticability.StaticAbilityCantAttackBlock.cantBlockBy(virtual,blocker));
++                Assert.assertTrue(forge.game.staticability.StaticAbilityCantAttackBlock.cantBlock(virtualBlocker));
++                Assert.assertEquals(new ArrayList<>(handler.getReadOnlyCombatRuleSources()),new ArrayList<>(game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)));
+             } finally {
+-                if(previous==null)System.clearProperty("dragonmind.disableStackCandidateFilter");
+-                else System.setProperty("dragonmind.disableStackCandidateFilter",previous);
++                if(previous==null)System.clearProperty("dragonmind.disableCombatRuleIndex");
++                else System.setProperty("dragonmind.disableCombatRuleIndex",previous);
+             }
+-            java.util.function.Function<forge.game.spellability.SpellAbility,String> signature=a->a.getAlternativeCost()+"/"+a.getPayCosts()+"/"+new TreeMap<>(a.getMapParams());
+-            Assert.assertEquals(filtered.stream().map(signature).toList(),original.stream().map(signature).toList());
+-            if(card==assassin)Assert.assertTrue(filtered.stream().anyMatch(a->a.getAlternativeCost()==forge.game.spellability.AlternativeCost.Freerunning));
+         }
+     }
+ 
+-    @Test public void stackCandidateDiscoveryReadsGeneratedStaticDefinitionsFresh() {
+-        var game=initAndCreateGame();var owner=game.getPlayers().get(0);var other=game.getPlayers().get(1);
+-        addCard("Ezio Auditore da Firenze",owner);
+-        Card candidate=addCardToZone("Grizzly Bears",other,ZoneType.Hand);
+-        Card siege=addCardToZone("Frostcliff Siege",owner,ZoneType.Library);
+-        Assert.assertFalse(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        siege.setSVar("TemurStatic","Mode$ Continuous | Affected$ Card | AffectedZone$ Stack | AddKeyword$ Freerunning:B B");
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-        siege.setSVar("TemurStatic","Mode$ Continuous | AffectedDefined$ Self | GainControl$ You");
+-        Assert.assertTrue(game.getAction().hasStaticAbilityAffectingStackCandidate(candidate,other));
+-    }
+-
+     @Test public void defenseSourceIndexKeepsTapAvailabilityAndAmountsFresh() {
+         var game=initAndCreateGame();var player=game.getPlayers().get(0);
+         Card target=addCard("Grizzly Bears",player),healer=addCard("Samite Healer",player);
