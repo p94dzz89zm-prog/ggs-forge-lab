@@ -76,7 +76,8 @@ if __name__=='__main__':
             ('predictDamageTo','predict-damage',5),('lifeInDanger','life-danger',3)]
         files['forge-ai/src/main/java/forge/ai/ComputerUtilCard.java'] = [
             ('evaluateCreature','evaluate-creature',1)]
-    if '--static-internals' in sys.argv[4:]:
+    static_internals = any(flag in sys.argv[4:] for flag in ('--static-internals', '--affected-internals'))
+    if static_internals:
         files['forge-game/src/main/java/forge/game/GameAction.java'] += [
             ('findStaticAbilityToApply','static-dependencies',5)]
         files['forge-game/src/main/java/forge/game/StaticEffects.java'] = [
@@ -94,11 +95,33 @@ if __name__=='__main__':
             original='return future.get(game.getAITimeout(), TimeUnit.SECONDS);'
             assert text.count(original)==1
             text=text.replace(original,'try(var dmWait=forge.diagnostics.DecisionProfiler.enter("candidate-wait")) { '+original+' }')
-        if '--static-internals' in sys.argv[4:] and Path(path).name=='GameAction.java':
+        if static_internals and Path(path).name=='GameAction.java':
             begin='        game.forEachCardInGame(c -> {'
             assert text.count(begin)==1
             start=text.index(begin);end=text.index('        }, true);',start)+len('        }, true);')
             text=text[:start]+'        try(var dmCollect=forge.diagnostics.DecisionProfiler.enter("static-collect")) {\n'+text[start:end]+'\n        }'+text[end:]
+        if '--affected-internals' in sys.argv[4:] and Path(path).name=='StaticAbilityContinuous.java':
+            start=text.index('    public static CardCollectionView getAffectedCards(')
+            opening=text.index('{',start);end=end_brace(text,opening)
+            body=text[opening+1:end]
+            ranges=[
+                ('        if (stAb.isCharacteristicDefining()) {','        // non - CharacteristicDefining','affected-cda'),
+                ('        if (stAb.hasParam("AffectedDefined")) {','        // add preList','affected-defined'),
+                ('        if (!preList.isEmpty()) {','        final CardCollectionView zoneCards;','affected-hypothetical'),
+                ('        if (stAb.hasParam("AffectedDefined")) {\n            zoneCards','        // With no selected','affected-zones'),
+                ('        if (affectedCards.isEmpty()) {','        if (stAb.hasParam("Affected")) {','affected-union'),
+                ('            if (controller.hasKeyword("Shaman\'s Trance")','            affectedCards = CardLists.getValidCards','affected-trance-guard'),
+                ('            if (affectedCardsOriginal != null) {','        } else if (candidates != affectedCards) {','affected-trance-addback'),
+            ]
+            for begin,finish,label in ranges:
+                a=body.index(begin);b=body.index(finish,a)
+                body=body[:a]+'        try(var dmPart=forge.diagnostics.DecisionProfiler.enter("'+label+'")) {\n'+body[a:b]+'        }\n'+body[b:]
+            for original,label in [
+                ('            affectedCards = CardLists.getValidCards(candidates, stAb.getParam("Affected"), controller, hostCard, stAb);','affected-validity'),
+                ('        affectedCards.removeAll(stAb.getIgnoreEffectCards());','affected-ignore')]:
+                assert body.count(original)==1
+                body=body.replace(original,'        try(var dmPart=forge.diagnostics.DecisionProfiler.enter("'+label+'")) {\n'+original+'\n        }')
+            text=text[:opening+1]+body+text[end:]
         if Path(path).name=='GameActionUtil.java':
             statements={
               'game.getAction().checkStaticAbilities(false, Sets.newHashSet(source), preList);':'alternate-face-rebuild',
