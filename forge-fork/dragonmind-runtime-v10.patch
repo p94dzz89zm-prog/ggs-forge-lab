@@ -1,0 +1,62 @@
+diff --git a/forge-gui-desktop/src/main/java/forge/view/TimeLimitedCodeBlock.java b/forge-gui-desktop/src/main/java/forge/view/TimeLimitedCodeBlock.java
+--- a/forge-gui-desktop/src/main/java/forge/view/TimeLimitedCodeBlock.java
++++ b/forge-gui-desktop/src/main/java/forge/view/TimeLimitedCodeBlock.java
+@@ -33,6 +33,11 @@
+             future.cancel(true);
+             throw e;
+         }
++        catch (InterruptedException e) {
++            future.cancel(true);
++            Thread.currentThread().interrupt();
++            throw e;
++        }
+         catch (ExecutionException e) {
+             //unwrap the root cause
+             Throwable t = e.getCause();
+@@ -43,6 +48,10 @@
+             } else {
+                 throw new IllegalStateException(t);
+             }
++        } finally {
++            // Also cancel cooperative work when the waiting caller is interrupted.
++            // An uncooperative task still requires the outer process timeout.
++            executor.shutdownNow();
+         }
+     }
+ 
+diff --git a/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java b/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java
+--- a/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java
++++ b/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java
+@@ -275,6 +275,9 @@
+             System.out.println("DragonMind Result: " + result);
+         }
+         if (failure != null) return false;
++        // Decision caches hold Player/Game references. Independent seed batches
++        // must release the last game's cache even when no next decision occurs.
++        forge.ai.AiCache.clear();
+ 
+         // If both players life totals to 0 in a single turn, the game should end in a draw
+         if (g1.getOutcome().isDraw()) {
+diff --git a/forge-gui-desktop/src/test/java/forge/view/RuntimeLifecycleTest.java b/forge-gui-desktop/src/test/java/forge/view/RuntimeLifecycleTest.java
+new file mode 100644
+--- /dev/null
++++ b/forge-gui-desktop/src/test/java/forge/view/RuntimeLifecycleTest.java
+@@ -0,0 +1,18 @@
++package forge.view;
++import org.testng.annotations.Test;
++import java.util.concurrent.*;
++import java.util.concurrent.atomic.*;
++public class RuntimeLifecycleTest {
++ @Test public void checks() throws Exception {
++  if(TimeLimitedCodeBlock.runWithTimeout(()->7,1,TimeUnit.SECONDS)!=7)throw new AssertionError();
++  try{TimeLimitedCodeBlock.runWithTimeout(()->{throw new IllegalArgumentException("expected");},1,TimeUnit.SECONDS);throw new AssertionError();}catch(IllegalArgumentException expected){}
++  CountDownLatch entered=new CountDownLatch(1), stopped=new CountDownLatch(1);AtomicBoolean restored=new AtomicBoolean();
++  Thread caller=new Thread(()->{try{TimeLimitedCodeBlock.runWithTimeout(()->{entered.countDown();try{Thread.sleep(30000);}finally{stopped.countDown();}return 1;},30,TimeUnit.SECONDS);throw new AssertionError();}catch(InterruptedException expected){restored.set(Thread.currentThread().isInterrupted());}catch(Exception e){throw new RuntimeException(e);}});
++  caller.start();if(!entered.await(2,TimeUnit.SECONDS))throw new AssertionError("task never started");caller.interrupt();caller.join(3000);
++  if(caller.isAlive()||!restored.get()||!stopped.await(2,TimeUnit.SECONDS))throw new AssertionError("interrupted task leaked");
++  CountDownLatch timedStopped=new CountDownLatch(1);
++  try{TimeLimitedCodeBlock.runWithTimeout(()->{try{Thread.sleep(30000);}finally{timedStopped.countDown();}return 1;},20,TimeUnit.MILLISECONDS);throw new AssertionError();}catch(TimeoutException expected){}
++  if(!timedStopped.await(2,TimeUnit.SECONDS))throw new AssertionError("timeout task leaked");
++  System.out.println("Runtime lifecycle checks passed: 4");
++ }
++}

@@ -50,7 +50,7 @@ python forge-fork/build_bridge.py ../forge-ggs
 ```
 
 The script refuses to overwrite an existing checkout, verifies the pinned commit,
-creates branch `ggs-assisted-bridge`, applies the eleven ordered patches, runs the engine tests,
+creates branch `ggs-assisted-bridge`, applies the twelve ordered patches, runs the engine tests,
 and packages the desktop build. Dependencies require internet access.
 The sparse checkout used for development is unnecessary on your computer.
 The executable is also packaged as `dragonmind.jar`. Use `../dragonmind.py` for
@@ -143,3 +143,20 @@ they are for post-game inspection.
 ## DragonMind v3 performance
 
 The runner now records a throughput compiler policy (`--jit throughput`, the default) or standard Java compilation (`--jit default`). Tracked live keyword views preserve membership caching while invalidating on edits; hidden-ability empty fast paths preserve suspicion and keyword counters. See [the v3 measurements](../performance/README-v3.md). Fresh games still take tens of seconds, and timeouts are excluded from deck comparisons.
+
+## Batch throughput and lifecycle audit (v10)
+
+The runner defaults to two independent JVM workers when cgroup limits provide at
+least four CPU cores and 4 GiB memory; otherwise it defaults to one. On the
+measured eight-core / 8 GiB host, two workers completed four fixed games in
+94.7 seconds versus 171.1 seconds with one. Four workers took 93.5 seconds and
+used substantially more memory. These timings include startup; warm batches and
+single-game jobs are different workload configurations, not a pure scaling test.
+Use `--workers` to override and retain warm batches (`--batch-size 4`).
+
+v10 clears the global AI decision cache after successful simulations and cancels
+cooperative timeout-helper work when its waiting caller is interrupted. The
+outer process timeout remains necessary for uncooperative tasks. The runner reads
+result logs incrementally, rejects malformed results and trailing exceptions,
+and reports completions per minute alongside failure counts. Replays derive
+winner text from the current verified log without hardcoded damage/token totals.

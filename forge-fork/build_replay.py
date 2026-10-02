@@ -1,7 +1,21 @@
 #!/usr/bin/env python3
 """Build a self-contained replay from the guided seat's recorded information only."""
-import argparse,json,os,copy
+import argparse,json,os,copy,re
 from pathlib import Path
+
+def verified_final_frame(frames, log):
+    """Only display an outcome corroborated by an unambiguous completed game."""
+    if not frames or re.search(r'Stopping slow match as draw|(?:(?:[A-Za-z_]\w*\.)+[A-Za-z_]\w*(?:Exception|Error)\b|Exception in thread|StackOverflowError|OutOfMemoryError)', log):
+        return None
+    winners=re.findall(r'^Game Outcome: (.+?) has won because (.+)$',log,re.M)
+    results=re.findall(r'^Game Result: Game \d+ ended in \d+ ms\. (.+?) has won!',log,re.M)
+    players=set(re.findall(r'^Game Outcome: (.+?) has (?:won|lost)\b',log,re.M))
+    if len(winners)!=1 or len(results)!=1 or winners[0][0]!=results[0] or len(players)!=4:
+        return None
+    final=copy.deepcopy(frames[-1])
+    final.update(outcome=winners[0][0]+' wins · '+winners[0][1],action='',
+                 reason='Verified game result. Board shown is the last recorded state; final damage and token totals are not inferred.',stack=[])
+    return final
 
 def build(game_dir,card_dir,output,inline=None):
     decisions={d['request_id']:d for d in map(json.loads,(game_dir/'decisions.jsonl').read_text().splitlines())}
@@ -30,9 +44,8 @@ def build(game_dir,card_dir,output,inline=None):
             action=' · '.join(cards_by_id.get(int(pair.split(':')[0]),pair)+' → '+(names.get(int(pair.split(':')[1]),'') if q['kind']=='attack' else cards_by_id.get(int(pair.split(':')[1]),'')) for pair in response.get('pairs',[]))
         frames.append(dict(turn=s['turn'],active=s.get('active_player_id',0),phase=s['phase'],players=players,stack=[x.get('description',x.get('name','')) for x in s['stack']],reason=d.get('reason','Recorded state'),action=action))
     log=(game_dir/'game.log').read_text()
-    if frames and 'Ai(1)-GGS_Layered_v1 has won because all opponents have lost' in log:
-        final=copy.deepcopy(frames[-1])
-        final.update(outcome='GGS wins · all three opponents eliminated',action='Gabe: 4 → −1 life · Destyn: 11 → −13 life',reason='Verified game result. Board shown is the last recorded state before final damage; GGS remained in play. Six permanent Dragons were created during the game.',stack=[])
+    final = verified_final_frame(frames, log)
+    if final is not None:
         frames.append(final)
     oracle={}
     for folder,_,files in os.walk(card_dir,followlinks=True):

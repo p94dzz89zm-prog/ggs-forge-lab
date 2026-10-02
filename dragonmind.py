@@ -1,32 +1,50 @@
 #!/usr/bin/env python3
 """DragonMind: warm-process batches backed by Forge's full Commander rules."""
-import argparse, concurrent.futures, hashlib, json, pathlib, re, subprocess, time
+import argparse, concurrent.futures, hashlib, json, pathlib, re, subprocess, time, os
 from run_games import ROOT, validate_deck
 
 
-def parse_results(text, seeds):
+ENGINE_FAILURE = re.compile(r'(?:(?:[A-Za-z_]\w*\.)+[A-Za-z_]\w*(?:Exception|Error)\b|Exception in thread|StackOverflowError|OutOfMemoryError)')
+
+
+def parse_result_lines(lines, seeds):
+    """Read logs incrementally; retain results rather than entire game transcripts."""
     results = {}
-    segment = []
-    for line in text.splitlines():
+    segment_failed = False
+    last_seed = None
+    for line in lines:
         if not line.startswith('DragonMind Result: '):
-            segment.append(line)
+            segment_failed |= bool(ENGINE_FAILURE.search(line))
             continue
         row = json.loads(line[len('DragonMind Result: '):])
         seed = row['seed']
-        if seed not in seeds or seed in results:
+        if type(seed) is not int or seed not in seeds or seed in results:
             raise ValueError('Unexpected or duplicate seed result')
         if row['status'] not in ('completed', 'completed_draw', 'timeout', 'engine_error'):
             raise ValueError('Unknown engine status')
-        if row['status'] == 'completed' and not row.get('winner'):
+        if row['status'] == 'completed' and (not isinstance(row.get('winner'), str) or not row['winner'].strip()):
             raise ValueError('Completed game has no winner')
         if row['status'] != 'completed' and row.get('winner'):
             raise ValueError('Incomplete/drawn game reported a winner')
-        if row['status'] in ('completed','completed_draw') and re.search(r'(?:(?:[A-Za-z_]\w*\.)+[A-Za-z_]\w*(?:Exception|Error)\b|Exception in thread|StackOverflowError|OutOfMemoryError)', '\n'.join(segment)):
+        duration = row.get('engine_ms')
+        if type(duration) is not int or duration < 0:
+            raise ValueError('Missing or invalid engine duration')
+        if row['status'] in ('completed','completed_draw') and segment_failed:
             row['status']='engine_error'
             row['winner']=None
         results[seed] = row
-        segment = []
+        last_seed = seed
+        segment_failed = False
+    # A failure after the final marker must not leave a trusted completion.
+    if segment_failed and last_seed is not None:
+        row = results[last_seed]
+        if row['status'] in ('completed','completed_draw'):
+            row.update(status='engine_error', winner=None)
     return results
+
+
+def parse_results(text, seeds):
+    return parse_result_lines(text.splitlines(), seeds)
 
 
 def java_runtime_flags(gc, jit):
@@ -35,7 +53,7 @@ def java_runtime_flags(gc, jit):
     return [gc_flag,*jit_flags]
 
 
-def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc='parallel', jit='throughput'):
+def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc='parallel', jit='throughput', extra_jvm_flags=()):
     seats = [variant, 'Jaymie_Ezio', 'Gabe_Food', 'Destyn_Turtles']
     seats = seats[rotation:] + seats[:rotation]
     label = f'{variant}__seat{rotation}__seeds{seeds[0]}-{seeds[-1]}'
@@ -44,7 +62,7 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
         flags.append(f'-Dforge.ai.ggsPilotPlayer=Ai({seats.index(variant)+1})-{variant}')
     if audit:
         flags.append('-Dforge.audit.directory='+str(out/'audit'/label))
-    cmd = ['java', '-Xmx1536m', *java_runtime_flags(gc,jit), '-Djava.awt.headless=true', *flags, '-jar', str(jar),
+    cmd = ['java', '-Xmx1536m', *java_runtime_flags(gc,jit), *extra_jvm_flags, '-Djava.awt.headless=true', *flags, '-jar', str(jar),
            'sim', '-D', str(ROOT/'decks'), '-d', *[s+'.dck' for s in seats],
            '-f', 'Commander', '-seeds', *map(str, seeds), '-c', str(timeout),
            '-a', *(['Default']*4)]
@@ -60,18 +78,41 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
             rc = -1
             process_timeout = True
     elapsed = time.monotonic()-start
-    rows = parse_results(logpath.read_text(errors='replace'), seeds)
+    parse_error = None
+    try:
+        with logpath.open(errors='replace') as log:
+            rows = parse_result_lines(log, seeds)
+    except (ValueError, KeyError, TypeError) as error:
+        rows = {}
+        parse_error = str(error)
     records = []
     for seed in seeds:
         row = rows.get(seed, {'seed':seed, 'status':'not_run', 'winner':None})
         # An abnormal JVM exit means its emitted records cannot be trusted.
-        if rc:
+        if rc or parse_error:
             row = {'seed':seed, 'status':'process_timeout' if process_timeout else 'process_error', 'winner':None}
+        if row['status'] == 'completed' and row['winner'] not in {f'Ai({i+1})-{name}' for i,name in enumerate(seats)}:
+            row.update(status='engine_error',winner=None,result_error='Winner does not match a registered seat')
+        if parse_error:
+            row['result_error'] = parse_error
         row.update(variant=variant, seat_rotation=rotation, seats=seats,
                    pilot='commander-aware' if pilot else 'stock', batch_wall_seconds=round(elapsed,3),
                    batch_size=len(seeds), command=cmd, log=logpath.name)
         records.append(row)
     return records
+
+
+def default_workers():
+    """Use the measured two-worker setting on hosts with sufficient capacity."""
+    try:
+        quota, period = pathlib.Path('/sys/fs/cgroup/cpu.max').read_text().split()
+        cores = (os.cpu_count() or 1) if quota == 'max' else int(quota) / int(period)
+        memory = pathlib.Path('/sys/fs/cgroup/memory.max').read_text().strip()
+        if cores >= 4 and memory != 'max' and int(memory) >= 4 * 1024**3:
+            return 2
+    except (OSError, ValueError, ZeroDivisionError):
+        pass
+    return 1
 
 
 def main():
@@ -82,7 +123,7 @@ def main():
     p.add_argument('--seed',type=int,default=20261011)
     p.add_argument('--seeds',type=int,default=2,help='Independent seeds per seat')
     p.add_argument('--rotations',type=int,nargs='+',default=[0,1,2,3])
-    p.add_argument('--workers',type=int,default=1,help='Separate JVM workers, each with independent RNG')
+    p.add_argument('--workers',type=int,default=default_workers(),help='Separate JVM workers with independent RNG; default 2 on sufficiently provisioned cgroup hosts, otherwise 1')
     p.add_argument('--batch-size',type=int,default=4)
     p.add_argument('--timeout',type=int,default=90)
     p.add_argument('--gc',choices=['parallel','g1'],default='parallel',help='Recorded JVM garbage collector; parallel won the initial throughput check')
@@ -115,8 +156,11 @@ def main():
             (out/'summary.json').write_text(json.dumps(results,indent=2)+'\n')
             print(f'{len(results)} / {len(a.rotations)*a.seeds} attempts recorded',flush=True)
     completed=[r for r in results if r['status'] in ('completed','completed_draw')]
-    perf={'wall_seconds':round(time.monotonic()-start,3),'attempts':len(results),'completed':len(completed),
+    elapsed = time.monotonic()-start
+    perf={'wall_seconds':round(elapsed,3),'attempts':len(results),'completed':len(completed),
           'engine_seconds':[r['engine_ms']/1000 for r in completed],
+          'completed_games_per_minute':round(60*len(completed)/elapsed,3),
+          'status_counts':{status:sum(r['status']==status for r in results) for status in sorted({r['status'] for r in results})},
           'meaning':'Unattended full-rules games; no external review pauses. Timeouts excluded from completions.'}
     (out/'performance.json').write_text(json.dumps(perf,indent=2)+'\n');print(json.dumps(perf))
 
