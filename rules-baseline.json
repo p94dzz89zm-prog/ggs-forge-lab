@@ -1,0 +1,12 @@
+{
+  "authority": "Wizards of the Coast",
+  "document": "Magic: The Gathering Comprehensive Rules",
+  "effective_date": "2026-09-25",
+  "checked_on": "2026-10-01",
+  "url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+  "sha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca",
+  "oracle_source": "https://gatherer.wizards.com/",
+  "commander_rules_section": "903",
+  "policy": "Official rules and current Oracle text take precedence over implementation behavior. Record discrepancies as engine errors; do not substitute approximations.",
+  "validation_status": "Targeted tests; not certified as exhaustive conformance."
+}

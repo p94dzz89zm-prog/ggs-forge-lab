@@ -1,4 +1,4 @@
-# GGS assisted Forge bridge
+# DragonMind engine integration
 
 This is a custom, opt-in controller overlay for Card-Forge/forge 2.0.15, pinned to
 `4ec5f1a2c32fa90ecb983a72b9eb47aa5c5d7676` (2026-09-28).
@@ -14,12 +14,32 @@ Each response must match the current request ID. The file interface has no netwo
 listener. A request/response transcript records decisions.
 
 **This is assisted control.** Stock AI still handles mana selection, cost payment
-(including some sacrifice/bounce choices), mulligans, damage assignment, modes,
+(including some sacrifice/bounce choices), mulligans, damage assignment,
 trigger preparation, and controller hooks not overridden in the patch. An explicit
 `{"auto":true}` delegates a supported prompt to stock AI. Such decisions must be
 labelled delegated in any analysis. This is not a fully manual pilot or a trained AI.
-The bridge does not alter stock strategy. When neither bridge nor audit is enabled,
+The bridge itself does not alter stock strategy. The optional [GGS pilot v1](PILOT_V1.md)
+changes ninjutsu decisions for one named seat. Without its property, stock strategy
+is retained. When neither bridge nor audit is enabled,
 Forge constructs its normal AI controller.
+
+The commander-identity follow-up exposes search and modal-effect choices to the
+external pilot, and adds public rules text, commander flags, attachments, phasing,
+and entry-this-turn state. Its opt-in ninjutsu policy preserves commanders and
+recognizes the GGS Dragon engine from its scripted trigger conditions. Recognition
+is deliberately narrow; this is not a general commander strategy model. It does
+not prohibit commanders from attacking. Rescue or redeployment through ninjutsu
+needs a separate decision policy.
+
+The guided seed-20261012 game won with GGS still in play and six permanent Dragons
+created, on the guided player's tenth turn. It used the earlier executable plus
+external decisions; it does not validate the follow-up policy's independent play.
+Targeted follow-up checks: 19 pilot tests and 12 bridge tests passed. Invalid
+interface attempts are excluded. One assisted game cannot establish a win rate.
+
+`viewer/index.html` is a self-contained recorded replay, not a live stream. Rebuild
+from the guided seat's transcript with `forge-fork/build_replay.py`; never feed
+opponent-private audit hands into its input.
 
 ## Build
 
@@ -30,9 +50,12 @@ python forge-fork/build_bridge.py ../forge-ggs
 ```
 
 The script refuses to overwrite an existing checkout, verifies the pinned commit,
-creates branch `ggs-assisted-bridge`, applies the patch, runs the engine tests,
+creates branch `ggs-assisted-bridge`, applies the fourteen ordered patches, runs the engine tests,
 and packages the desktop build. Dependencies require internet access.
 The sparse checkout used for development is unnecessary on your computer.
+The executable is also packaged as `dragonmind.jar`. Use `../dragonmind.py` for
+unattended warm-process batches. Interactive bridge sessions intentionally wait
+for external decisions and are not simulation throughput benchmarks.
 
 ## Start a controlled Commander seat
 
@@ -100,7 +123,8 @@ and a legal equal-mana-value ninjutsu activation rejected by stock AI.
 
 Exception runs and timeout runs are invalid for win-rate analysis, even if Forge
 prints a winner. A controlled smoke run establishes integration, not strong play
-or better card recommendations. Keep deck swaps provisional until pilot decisions
+or better card recommendations. See [PILOT_V1.md](PILOT_V1.md) for the separately tested experimental strategy update.
+Keep deck swaps provisional until pilot decisions
 and completed, comparable games have been reviewed.
 
 ## License and attribution
@@ -115,3 +139,35 @@ Seat-private post-game audit files are published under `evidence/offline-audit`
 with explicit user authorization to publish the internal audits, including hidden
 hand information. Keep these files away from the external pilot during matches;
 they are for post-game inspection.
+
+## DragonMind v3 performance
+
+The runner now records a throughput compiler policy (`--jit throughput`, the default) or standard Java compilation (`--jit default`). Tracked live keyword views preserve membership caching while invalidating on edits; hidden-ability empty fast paths preserve suspicion and keyword counters. See [the v3 measurements](../performance/README-v3.md). Fresh games still take tens of seconds, and timeouts are excluded from deck comparisons.
+
+## Batch throughput and lifecycle audit (v10)
+
+The runner defaults to two independent JVM workers when cgroup limits provide at
+least four CPU cores and 4 GiB memory; otherwise it defaults to one. On the
+measured eight-core / 8 GiB host, two workers completed four fixed games in
+94.7 seconds versus 171.1 seconds with one. Four workers took 93.5 seconds and
+used substantially more memory. These timings include startup; warm batches and
+single-game jobs are different workload configurations, not a pure scaling test.
+Use `--workers` to override and retain warm batches (`--batch-size 4`).
+
+v10 clears the global AI decision cache after successful simulations and cancels
+cooperative timeout-helper work when its waiting caller is interrupted. The
+outer process timeout remains necessary for uncooperative tasks. The runner reads
+result logs incrementally, rejects malformed results and trailing exceptions,
+and reports completions per minute alongside failure counts. Replays derive
+winner text from the current verified log without hardcoded damage/token totals.
+
+## Damage forecast source discovery (v11)
+
+Damage-related static queries share the bounded forecast's ordered source snapshot.
+Queries that append an explicit source keep the full source list to preserve original
+real-card/LKI deduplication priority. Other static queries reuse the static-host index.
+Prevention queries index hosts with any replacement effect, retaining live effect
+modes, zones, requirements, parameters, amounts and targets. All source indexes
+fall back to original enumeration outside a scope or after invalidation. Disable
+replacement-host discovery with `-Ddragonmind.disableCombatReplacementRuleIndex=true`.
+No final damage, legality, or combat survival outcomes are cached by this change.

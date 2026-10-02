@@ -26,6 +26,23 @@ index 4908a2b8..2c329f6f 100644
  
                  // reset LastStateBattlefield
                  sa.clearLastState();
+diff --git a/forge-ai/src/main/java/forge/ai/ComputerUtil.java b/forge-ai/src/main/java/forge/ai/ComputerUtil.java
+index 47fea136..c04e9a6b 100644
+--- a/forge-ai/src/main/java/forge/ai/ComputerUtil.java
++++ b/forge-ai/src/main/java/forge/ai/ComputerUtil.java
+@@ -787,6 +787,12 @@ public class ComputerUtil {
+             return new CardCollection();
+         }
+ 
++        if (amount == 1 && sa.isNinjutsu() && forge.ai.ggs.GgsNinjutsuPolicy.enabled(ai)) {
++            var plan = forge.ai.ggs.GgsNinjutsuPolicy.choose(ai, sa, typeList);
++            if (plan == null) return new CardCollection();
++            forge.ai.bridge.BridgeAudit.evaluation(ai, sa, "GgsNinjutsu:payReturn=" + plan.returned().getName() + ",score=" + plan.score());
++            return new CardCollection(plan.returned());
++        }
+         CardLists.sortByPowerAsc(typeList);
+         final CardCollection returnList = new CardCollection();
+ 
 diff --git a/forge-ai/src/main/java/forge/ai/LobbyPlayerAi.java b/forge-ai/src/main/java/forge/ai/LobbyPlayerAi.java
 index 09d9ad01..3cef5a60 100644
 --- a/forge-ai/src/main/java/forge/ai/LobbyPlayerAi.java
@@ -49,10 +66,22 @@ index 09d9ad01..3cef5a60 100644
 \ No newline at end of file
 +}
 diff --git a/forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java b/forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java
-index 73676766..7b7dc61c 100644
+index 73676766..22e919e3 100644
 --- a/forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java
 +++ b/forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java
-@@ -289,6 +289,7 @@ public class ChangeZoneAi extends SpellAbilityAi {
+@@ -284,11 +284,18 @@ public class ChangeZoneAi extends SpellAbilityAi {
+         }
+         final String destination = sa.getParam("Destination");
+ 
+-        if (sa.isNinjutsu()) {
++        if (sa.isNinjutsu() && forge.ai.ggs.GgsNinjutsuPolicy.enabled(ai)) {
++            var combat = ai.getGame().getCombat();
++            var plan = combat == null ? null : forge.ai.ggs.GgsNinjutsuPolicy.choose(ai, sa, combat.getUnblockedAttackers());
++            forge.ai.bridge.BridgeAudit.evaluation(ai, sa, plan == null ? "GgsNinjutsu:noDamagePlan"
++                    : "GgsNinjutsu:score=" + plan.score() + ",return=" + plan.returned().getName() + "," + plan.reason());
++            if (plan == null || plan.score() <= 0) return new AiAbilityDecision(0, AiPlayDecision.CantPlayAi);
++        } else if (sa.isNinjutsu()) {
+             if (!source.ignoreLegendRule() && ai.isCardInPlay(source.getName())) {
                  return new AiAbilityDecision(0, AiPlayDecision.WouldDestroyLegend);
              }
              if (ai.getGame().getPhaseHandler().getPhase().isAfter(PhaseType.COMBAT_DAMAGE)) {
@@ -60,7 +89,7 @@ index 73676766..7b7dc61c 100644
                  return new AiAbilityDecision(0, AiPlayDecision.WaitForCombat);
              }
  
-@@ -304,6 +305,7 @@ public class ChangeZoneAi extends SpellAbilityAi {
+@@ -304,6 +311,7 @@ public class ChangeZoneAi extends SpellAbilityAi {
                  }
              }
              if (!lowerCMC) {
@@ -375,6 +404,147 @@ index 00000000..0e6abf7b
 +        String error=CombatUtil.validateBlocks(combat,defender);if(error!=null)throw new IllegalArgumentException(error);
 +    }
 +}
+diff --git a/forge-ai/src/main/java/forge/ai/ggs/GgsNinjutsuPolicy.java b/forge-ai/src/main/java/forge/ai/ggs/GgsNinjutsuPolicy.java
+new file mode 100644
+index 00000000..bacb5cb2
+--- /dev/null
++++ b/forge-ai/src/main/java/forge/ai/ggs/GgsNinjutsuPolicy.java
+@@ -0,0 +1,135 @@
++package forge.ai.ggs;
++
++import forge.ai.ComputerUtilCard;
++import forge.ai.ComputerUtilCombat;
++import forge.game.GameEntity;
++import forge.game.card.Card;
++import forge.game.combat.Combat;
++import forge.game.keyword.Keyword;
++import forge.game.phase.PhaseType;
++import forge.game.player.Player;
++import forge.game.spellability.SpellAbility;
++import forge.game.trigger.TriggerType;
++import forge.game.zone.ZoneType;
++
++/** Opt-in, deterministic heuristic. Uses public positions, never an opponent's hand/library. */
++public final class GgsNinjutsuPolicy {
++    private GgsNinjutsuPolicy() {}
++    public record Plan(Card returned, int score, int dragonBonus, String reason) {}
++    public static boolean enabled(Player ai) {
++        return ai.getName().equals(System.getProperty("forge.ai.ggsPilotPlayer", ""));
++    }
++    public static Plan choose(Player ai, SpellAbility sa, Iterable<Card> candidates) {
++        Combat combat = ai.getGame().getCombat();
++        PhaseType phase = ai.getGame().getPhaseHandler().getPhase();
++        // This version optimizes damage-producing swaps, not post-damage rescues/redeployment.
++        if (combat == null || (phase != PhaseType.COMBAT_DECLARE_BLOCKERS
++                && phase != PhaseType.COMBAT_FIRST_STRIKE_DAMAGE)) return null;
++        Card incoming = sa.getHostCard();
++        if (!incoming.ignoreLegendRule() && incoming.getType().isLegendary()
++                && ai.isCardInPlay(incoming.getName())) return null;
++        if (phase == PhaseType.COMBAT_FIRST_STRIKE_DAMAGE && incoming.hasKeyword(Keyword.FIRST_STRIKE)
++                && !incoming.hasKeyword(Keyword.DOUBLE_STRIKE)) return null;
++        java.util.List<Card> ggsCards = new java.util.ArrayList<>();
++        for (Card c : ai.getCreaturesInPlay()) {
++            if (c.getName().equals("Goro-Goro and Satoru") && !c.isPhasedOut()) {
++                for (var t : c.getTriggers()) if (t.getMode() == TriggerType.DamageDoneOnce) {ggsCards.add(c); break;}
++            }
++        }
++        Plan best = null;
++        for (Card outgoing : candidates) {
++            if (outgoing.getController() != ai || !combat.isAttacking(outgoing)
++                    || !combat.getUnblockedAttackers().contains(outgoing) || outgoing.isPhasedOut()) continue;
++            // Before first strike, preserve double-strike attackers: two damage batches and
++            // repeated triggers need a fuller forecast than this one-connection heuristic.
++            if (phase == PhaseType.COMBAT_DECLARE_BLOCKERS && outgoing.hasKeyword(Keyword.DOUBLE_STRIKE)) continue;
++            GameEntity defender = combat.getDefenderByAttacker(outgoing);
++            if (!(defender instanceof Player opponent) || !opponent.isOpponentOf(ai)) continue;
++            Card body = incoming;
++            // Stock clone choice still determines the actual copy on resolution.
++            if (incoming.getName().equals("Sakashima's Student")) {
++                for (Card c : ai.getGame().getCardsIn(ZoneType.Battlefield)) {
++                    if (c != outgoing && c.isCreature() && !c.isFaceDown() && !c.isPhasedOut()
++                            && (!c.getType().isLegendary() || !ai.isCardInPlay(c.getName()))
++                            && ComputerUtilCard.evaluateCreature(c) > ComputerUtilCard.evaluateCreature(body)) body = c;
++                }
++            }
++            int incomingDamage = ComputerUtilCombat.predictDamageTo(opponent, Math.max(0, body.getNetCombatDamage()), body, true);
++            int outgoingDamage = damageRemaining(outgoing, opponent, phase);
++            if (incomingDamage <= 0) continue;
++            // Preserve an already lethal connection; source printed power is not a lethal forecast.
++            if (outgoingDamage >= opponent.getLife() && opponent.canLoseLife()
++                    && !opponent.cantLoseForZeroOrLessLife()) continue;
++            boolean freshConnection = outgoing.enteredThisTurn() && outgoingDamage > 0;
++            for (Card other : combat.getUnblockedAttackers()) {
++                if (other != outgoing && other.getController() == ai && other.enteredThisTurn()
++                        && defender.equals(combat.getDefenderByAttacker(other))
++                        && damageRemaining(other, opponent, phase) > 0) freshConnection = true;
++            }
++            boolean ggs = ggsCards.stream().anyMatch(c -> c != outgoing);
++            if (body.getName().equals("Goro-Goro and Satoru") && body.getTriggers().anyMatch(t -> t.getMode() == TriggerType.DamageDoneOnce)) ggs = true;
++            int dragon = ggs && !freshConnection ? 90 : 0;
++            int combatValue = hitValue(incoming, opponent, combat, outgoing) - (outgoingDamage > 0 ? hitValue(outgoing, opponent, combat, outgoing) : 0);
++            int score = 10 * (incomingDamage - outgoingDamage) + combatValue + dragon
++                    + (ComputerUtilCard.evaluateCreature(body) - ComputerUtilCard.evaluateCreature(outgoing)) / 8
++                    - outgoing.getCMC() * 4 - sa.getPayCosts().getTotalMana().getCMC() * 6;
++            if (outgoing.isToken()) score -= ComputerUtilCard.evaluateCreature(outgoing) / 3;
++            int lostEngine = switch (outgoing.getName()) {
++                case "Goro-Goro and Satoru" -> 60;
++                case "Satoru Umezawa" -> 40;
++                case "Tetsuko Umezawa, Fugitive" -> 25;
++                default -> 0;
++            };
++            score -= lostEngine;
++            if (incomingDamage >= opponent.getLife() && opponent.canLoseLife()
++                    && !opponent.cantLoseForZeroOrLessLife()) score += 1000;
++            if (incoming.getName().equals("Thousand-Faced Shadow")) {
++                int copyPower = 0;
++                for (Card other : combat.getAttackers()) if (other != outgoing && other.getController() == ai)
++                    copyPower = Math.max(copyPower, other.getNetCombatDamage());
++                score += copyPower * 15;
++            }
++            if (best == null || score > best.score() || (score == best.score() && outgoing.getId() < best.returned().getId())) {
++                best = new Plan(outgoing, score, dragon, "damageDelta=" + (incomingDamage - outgoingDamage)
++                        + ",hitValueDelta=" + combatValue + ",additionalGgsDragon=" + (dragon > 0)
++                        + ",activationMana=" + sa.getPayCosts().getTotalMana().getCMC()
++                        + ",replayMana=" + outgoing.getCMC() + ",lostEngine=" + lostEngine + ",tokenLost=" + outgoing.isToken());
++            }
++        }
++        return best;
++    }
++    private static int damageRemaining(Card c, Player defender, PhaseType phase) {
++        if (phase == PhaseType.COMBAT_FIRST_STRIKE_DAMAGE && c.hasKeyword(Keyword.FIRST_STRIKE)
++                && !c.hasKeyword(Keyword.DOUBLE_STRIKE)) return 0;
++        return ComputerUtilCombat.predictDamageTo(defender, Math.max(0, c.getNetCombatDamage()), c, true);
++    }
++    private static int hitValue(Card c, Player opponent, Combat combat, Card returned) {
++        // Explicit utility weights, not learned win probabilities or guaranteed card value.
++        return switch (c.getName()) {
++            case "Moon-Circuit Hacker", "Ninja of the Deep Hours" -> 35;
++            case "Yuriko, the Tiger's Shadow" -> 45;
++            case "Ingenious Infiltrator" -> {
++                int hits = 1;
++                for (Card other : combat.getUnblockedAttackers()) {
++                    GameEntity defender = combat.getDefenderByAttacker(other);
++                    if (other != returned && other.getController() == c.getController()
++                            && other.getType().hasCreatureType("Ninja")
++                            && defender instanceof Player player
++                            && damageRemaining(other, player, c.getGame().getPhaseHandler().getPhase()) > 0) hits++;
++                }
++                yield 30 * hits;
++            }
++            case "Prosperous Thief" -> 30;
++            case "Fallen Shinobi" -> 80;
++            case "Higure, the Still Wind" -> 45;
++            case "Silent-Blade Oni" -> opponent.getCardsIn(ZoneType.Hand).isEmpty() ? 0 : 60;
++            case "Biting-Palm Ninja" -> opponent.getCardsIn(ZoneType.Hand).isEmpty() ? 0 : 35;
++            case "Orochi Soul-Reaver" -> 50;
++            case "Ink-Eyes, Servant of Oni" -> opponent.getCardsIn(ZoneType.Graveyard).anyMatch(Card::isCreature) ? 45 : 0;
++            case "Throat Slitter" -> opponent.getCreaturesInPlay().anyMatch(x -> !x.isBlack()) ? 35 : 0;
++            case "Balefire Dragon" -> opponent.getCreaturesInPlay().isEmpty() ? 0 : 80;
++            case "Port Razer" -> 100;
++            default -> 0;
++        };
++    }
++}
 diff --git a/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java b/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
 new file mode 100644
 index 00000000..1d14311f
@@ -508,6 +678,157 @@ index 00000000..1d14311f
 +        Path dir=Files.createTempDirectory("forge-bridge-upkeep");PlayerControllerBridge bridge=remote(me,dir);
 +        Future<?> client=reply(dir,q->{JsonObject r=new JsonObject();r.addProperty("index",-1);return r;},1);
 +        Assert.assertNull(bridge.chooseSpellAbilityToPlay());client.get(15,TimeUnit.SECONDS);
++    }
++
++}
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/ggs/GgsPilotTest.java b/forge-gui-desktop/src/test/java/forge/ai/ggs/GgsPilotTest.java
+new file mode 100644
+index 00000000..48ba96ac
+--- /dev/null
++++ b/forge-gui-desktop/src/test/java/forge/ai/ggs/GgsPilotTest.java
+@@ -0,0 +1,145 @@
++package forge.ai.ggs;
++
++import forge.ai.*;
++import forge.game.Game;
++import forge.game.card.*;
++import forge.game.combat.Combat;
++import forge.game.phase.PhaseType;
++import forge.game.player.Player;
++import forge.game.spellability.SpellAbility;
++import forge.game.zone.ZoneType;
++import org.testng.Assert;
++import org.testng.annotations.*;
++import java.util.List;
++
++public class GgsPilotTest extends AITest {
++    @AfterMethod(alwaysRun=true) public void clear(){System.clearProperty("forge.ai.ggsPilotPlayer");}
++    private void enable(Player ai){System.setProperty("forge.ai.ggsPilotPlayer",ai.getName());}
++    private SpellAbility ninja(Player ai,String name){
++        Card c=addCardToZone(name,ai,ZoneType.Hand);
++        SpellAbility sa=ComputerUtilAbility.getSpellAbilities(new CardCollection(c),ai).stream().filter(SpellAbility::isNinjutsu).findFirst().orElseThrow();
++        sa.setActivatingPlayer(ai);return sa;
++    }
++    private Combat attack(Game game,Player ai,Card attacker,Player opponent){
++        attacker.setSickness(false);
++        game.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_ATTACKERS,ai);
++        Combat combat=new Combat(ai);combat.addAttacker(attacker,opponent);combat.setBlocked(attacker,false);
++        game.getPhaseHandler().setCombat(combat);game.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_BLOCKERS,ai,false);
++        attacker.setTurnInZone(game.getPhaseHandler().getTurn()-1);return combat;
++    }
++    @Test public void equalManaValueDrawUpgradeChangesStockDecision(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);addCard("Island",ai);
++        Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));SpellAbility sa=ninja(ai,"Moon-Circuit Hacker");
++        AiController pilot=((PlayerControllerAi)ai.getController()).getAi();
++        Assert.assertEquals(pilot.canPlaySa(sa),AiPlayDecision.CantPlayAi);
++        enable(ai);Assert.assertTrue(pilot.canPlaySa(sa).willingToPlay());
++    }
++    @Test public void choosesDifferentDefenderForAdditionalDragonInsteadOfLowestPower(){
++        Game g=initAndCreateThreePlayerGame();Player ai=g.getPlayers().get(1),a=g.getPlayers().get(0),b=g.getPlayers().get(2);
++        addCard("Goro-Goro and Satoru",ai);Card bear=addCard("Runeclaw Bear",ai);Combat combat=attack(g,ai,bear,b);
++        Card chick=addCard("Phoenix Chick",ai);chick.setSickness(false);chick.setTurnInZone(g.getPhaseHandler().getTurn());combat.addAttacker(chick,a);combat.setBlocked(chick,false);
++        SpellAbility sa=ninja(ai,"Moon-Circuit Hacker");
++        CardCollection stock=ComputerUtil.chooseReturnType(ai,"Creature.YouCtrl+attacking+unblocked",sa.getHostCard(),null,1,sa);
++        Assert.assertEquals(stock.getFirst(),chick);
++        enable(ai);var plan=GgsNinjutsuPolicy.choose(ai,sa,combat.getUnblockedAttackers());
++        Assert.assertEquals(plan.returned(),bear);Assert.assertEquals(plan.dragonBonus(),90);
++        Assert.assertEquals(ComputerUtil.chooseReturnType(ai,"Creature.YouCtrl+attacking+unblocked",sa.getHostCard(),null,1,sa).getFirst(),bear);
++    }
++    @Test public void doesNotDoubleCountFreshAttackerAgainstSamePlayer(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1),opp=g.getPlayers().get(0);
++        addCard("Goro-Goro and Satoru",ai);Card bear=addCard("Runeclaw Bear",ai);Combat c=attack(g,ai,bear,opp);
++        Card chick=addCard("Phoenix Chick",ai);chick.setTurnInZone(g.getPhaseHandler().getTurn());c.addAttacker(chick,opp);c.setBlocked(chick,false);
++        var plan=GgsNinjutsuPolicy.choose(ai,ninja(ai,"Moon-Circuit Hacker"),List.of(bear));Assert.assertNotNull(plan);Assert.assertEquals(plan.dragonBonus(),0);
++    }
++    @Test public void noCommanderNoDragonBonus(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));
++        Assert.assertEquals(GgsNinjutsuPolicy.choose(ai,ninja(ai,"Moon-Circuit Hacker"),List.of(bear)).dragonBonus(),0);
++    }
++    @Test public void preservesLethalUnblockedDragon(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1),opp=g.getPlayers().get(0);opp.setLife(6,null);
++        addCard("Goro-Goro and Satoru",ai);Card dragon=addCard("Balefire Dragon",ai);attack(g,ai,dragon,opp);
++        enable(ai);Assert.assertNull(GgsNinjutsuPolicy.choose(ai,ninja(ai,"Moon-Circuit Hacker"),List.of(dragon)));
++    }
++    @Test public void preservesBalefireBoardClearInsteadOfNewDragon(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1),opp=g.getPlayers().get(0);
++        addCard("Goro-Goro and Satoru",ai);addCard("Runeclaw Bear",opp);Card dragon=addCard("Balefire Dragon",ai);attack(g,ai,dragon,opp);
++        var plan=GgsNinjutsuPolicy.choose(ai,ninja(ai,"Moon-Circuit Hacker"),List.of(dragon));Assert.assertNotNull(plan);Assert.assertTrue(plan.score()<=0);
++    }
++    @Test public void doesNotSpendManaForOrdinarySwapAfterDamage(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));
++        SpellAbility sa=ninja(ai,"Moon-Circuit Hacker");g.getPhaseHandler().devModeSet(PhaseType.COMBAT_DAMAGE,ai,false);
++        Assert.assertNull(GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)));
++    }
++    @Test public void firstStrikeOnlyIncomingCannotHitAfterFirstStrikeStep(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));
++        SpellAbility sa=ninja(ai,"Moon-Circuit Hacker");sa.getHostCard().addIntrinsicKeyword("First strike");
++        g.getPhaseHandler().devModeSet(PhaseType.COMBAT_FIRST_STRIKE_DAMAGE,ai,false);
++        Assert.assertNull(GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)));
++    }
++    @Test public void refusesDuplicateLegend(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);addCard("Higure, the Still Wind",ai);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));
++        Assert.assertNull(GgsNinjutsuPolicy.choose(ai,ninja(ai,"Higure, the Still Wind"),List.of(bear)));
++    }
++    @Test public void actualNinjutsuPaysReturnsAndCreatesDragon(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1),opp=g.getPlayers().get(0);
++        addCard("Goro-Goro and Satoru",ai);addCard("Island",ai);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,opp);
++        fillLibrary(ai,5);fillLibrary(opp,5);SpellAbility sa=ninja(ai,"Moon-Circuit Hacker");enable(ai);
++        Assert.assertTrue(((PlayerControllerAi)ai.getController()).getAi().canPlaySa(sa).willingToPlay());
++        Assert.assertTrue(ComputerUtil.handlePlayingSpellAbility(ai,sa,null));g.getStack().resolveStack();
++        Assert.assertTrue(g.getCardState(bear).isInZone(ZoneType.Hand));
++        Card hacker=ai.getCreaturesInPlay().stream().filter(c->c.getName().equals("Moon-Circuit Hacker")).findFirst().orElseThrow();
++        Assert.assertTrue(g.getCombat().isAttacking(hacker));Assert.assertTrue(hacker.enteredThisTurn());
++        int steps=0;while(!g.isGameOver()&&!g.getPhaseHandler().is(PhaseType.COMBAT_END)&&steps++<100)g.getPhaseHandler().mainLoopStep();
++        Assert.assertTrue(steps<100);Assert.assertTrue(ai.getCreaturesInPlay().anyMatch(c->c.isToken()&&c.getType().hasCreatureType("Dragon")));
++    }
++    @Test public void expensiveNinjutsuWithoutDragonIsNotWorthOneCard(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));
++        SpellAbility sa=ninja(ai,"Moon-Circuit Hacker");
++        sa.setPayCosts(new forge.game.cost.Cost("6 Return<1/Creature.YouCtrl+attacking+unblocked>",true));
++        Assert.assertTrue(GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)).score()<=0);
++    }
++    @Test public void preservesDoubleStrikeAttackerBeforeBothDamageBatches(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);Card bear=addCard("Runeclaw Bear",ai);bear.addIntrinsicKeyword("Double strike");attack(g,ai,bear,g.getPlayers().get(0));
++        addCard("Goro-Goro and Satoru",ai);Assert.assertNull(GgsNinjutsuPolicy.choose(ai,ninja(ai,"Moon-Circuit Hacker"),List.of(bear)));
++    }
++
++    @Test public void studentDoesNotForecastCopyingItsOwnCommanderIntoLegendConflict(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);addCard("Goro-Goro and Satoru",ai);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));
++        addCard("Runeclaw Bear",ai);
++        var plan=GgsNinjutsuPolicy.choose(ai,ninja(ai,"Sakashima's Student"),List.of(bear));
++        Assert.assertNotNull(plan);Assert.assertTrue(plan.reason().contains("damageDelta=0"),plan.reason());
++    }
++
++    @Test public void studentCannotForecastCopyingTheCreatureReturnedToPayForIt(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));
++        Assert.assertNull(GgsNinjutsuPolicy.choose(ai,ninja(ai,"Sakashima's Student"),List.of(bear)));
++    }
++
++    @Test public void returningCommanderDoesNotCreatePhantomDragonOrWasteEngineForDraw(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);Card ggs=addCard("Goro-Goro and Satoru",ai);attack(g,ai,ggs,g.getPlayers().get(0));
++        var plan=GgsNinjutsuPolicy.choose(ai,ninja(ai,"Moon-Circuit Hacker"),List.of(ggs));
++        Assert.assertNotNull(plan);Assert.assertEquals(plan.dragonBonus(),0);Assert.assertTrue(plan.score()<=0);
++    }
++
++    @Test public void infiltratorDoesNotCountZeroPowerNinjaAsDraw(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1),opp=g.getPlayers().get(0);
++        Card bear=addCard("Runeclaw Bear",ai);Combat combat=attack(g,ai,bear,opp);
++        SpellAbility sa=ninja(ai,"Ingenious Infiltrator");
++        int before=GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)).score();
++        Card ninja=addCard("Ninja of the Deep Hours",ai);ninja.setBasePower(0);
++        ninja.setTurnInZone(g.getPhaseHandler().getTurn()-1);combat.addAttacker(ninja,opp);combat.setBlocked(ninja,false);
++        Assert.assertEquals(GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)).score(),before,
++            "Zero combat damage cannot produce an Infiltrator draw");
++    }
++    @Test public void infiltratorDoesNotCountPlaneswalkerConnectionAsDraw(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1),opp=g.getPlayers().get(0);
++        Card bear=addCard("Runeclaw Bear",ai);Combat combat=attack(g,ai,bear,opp);
++        SpellAbility sa=ninja(ai,"Ingenious Infiltrator");
++        int before=GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)).score();
++        Card walker=addCard("Jace Beleren",opp);Card ninja=addCard("Ninja of the Deep Hours",ai);
++        ninja.setTurnInZone(g.getPhaseHandler().getTurn()-1);combat.addAttacker(ninja,walker);combat.setBlocked(ninja,false);
++        Assert.assertEquals(GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)).score(),before,
++            "Combat damage to a planeswalker cannot produce an Infiltrator draw");
 +    }
 +
 +}

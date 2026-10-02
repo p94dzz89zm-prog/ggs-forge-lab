@@ -52,14 +52,15 @@
       "reason": "Development classpath changed during concurrent Maven packaging; retested with frozen class files"
     }
   ],
-  "patch_sha256": "f73c74bace5bc6844050a107b0881c91506f221edfc6e0e010d291a7ae3d2e69",
-  "strategy_changes": false,
+  "patch_sha256": "eb5de13feafde977187f76ce57fad5482706ef40f05149f0036b06435c829892",
+  "strategy_changes": true,
   "desktop_package": {
     "maven_exit": 0,
     "jar": "forge-gui-desktop-2.0.15-jar-with-dependencies.jar",
     "commander_smoke_execution": "Frozen compiled reactor classpath; same compiled source as desktop package",
     "jar_boot_and_deck_load_exit": 0,
-    "working_directory": "forge-gui (contains res)"
+    "working_directory": "forge-gui (contains res)",
+    "note": "Prior bridge-only Maven package verification. New v1 production classes were compiled and packaged as described in pilot-v1-tests.json."
   },
   "publication": {
     "offline_seat_audits": "Published with explicit user authorization after initial automatic-review rejection: internal audit files including hidden-hand information are approved for public publication.",
@@ -72,5 +73,12 @@
       "evidence/offline-audit/evaluation-seat-1.jsonl.gz",
       "evidence/offline-audit/seat-1.jsonl.gz"
     ]
+  },
+  "experimental_pilot_v1": {
+    "tests": "evidence/pilot-v1-tests.json",
+    "smoke_summary": "evidence/pilot-v1-summary.json",
+    "full_smoke_logs_and_audits": "evidence/pilot-v1-smoke.tar.gz",
+    "default": "stock; policy opt-in for one named seat",
+    "overall_strength_established": false
   }
 }

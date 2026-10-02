@@ -1,0 +1,44 @@
+[
+  {
+    "workers": 1,
+    "wall_seconds": 171.12734780699975,
+    "games_per_minute": 1.402464323064692,
+    "peak_total_rss_mib": 1228.3359375,
+    "completed": 4,
+    "matching_events": 4292,
+    "engine_seconds": [
+      27.453,
+      53.632,
+      26.346,
+      53.092
+    ]
+  },
+  {
+    "workers": 2,
+    "wall_seconds": 94.70779038599994,
+    "games_per_minute": 2.534110436130265,
+    "peak_total_rss_mib": 2327.1171875,
+    "completed": 4,
+    "matching_events": 4292,
+    "engine_seconds": [
+      30.027,
+      57.814,
+      30.412,
+      57.963
+    ]
+  },
+  {
+    "workers": 4,
+    "wall_seconds": 93.48763496799984,
+    "games_per_minute": 2.567184420508127,
+    "peak_total_rss_mib": 4192.18359375,
+    "completed": 4,
+    "matching_events": 4292,
+    "engine_seconds": [
+      47.212,
+      81.922,
+      46.88,
+      81.547
+    ]
+  }
+]

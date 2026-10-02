@@ -1,0 +1,197 @@
+diff --git a/forge-ai/src/main/java/forge/ai/AiAttackController.java b/forge-ai/src/main/java/forge/ai/AiAttackController.java
+index 97375e1..67b58c6 100644
+--- a/forge-ai/src/main/java/forge/ai/AiAttackController.java
++++ b/forge-ai/src/main/java/forge/ai/AiAttackController.java
+@@ -805,6 +805,7 @@ public class AiAttackController {
+      * @return a {@link forge.game.combat.Combat} object.
+      */
+     public final int declareAttackers(final Combat combat) {
++        try (var inspection = ai.getGame().getReplacementHandler().beginReadOnlyCombatInspection()) {
+         // something prevents attacking, try another
+         if (this.attackers.isEmpty() && ai.getOpponents().size() > 1) {
+             final PlayerCollection opps = ai.getOpponents();
+@@ -1347,6 +1348,7 @@ public class AiAttackController {
+         }
+ 
+         return aiAggression;
++        }
+     }
+ 
+     private class SpellAbilityFactors {
+diff --git a/forge-ai/src/main/java/forge/ai/AiBlockController.java b/forge-ai/src/main/java/forge/ai/AiBlockController.java
+index 8258436..c9c4e96 100644
+--- a/forge-ai/src/main/java/forge/ai/AiBlockController.java
++++ b/forge-ai/src/main/java/forge/ai/AiBlockController.java
+@@ -992,12 +992,14 @@ public class AiBlockController {
+         assignBlockersForCombat(combat, null);
+     }
+     public void assignBlockersForCombat(final Combat combat, final CardCollection excludedBlockers) {
++        try (var inspection = ai.getGame().getReplacementHandler().beginReadOnlyCombatInspection()) {
+         List<Card> possibleBlockers = ai.getCreaturesInPlay();
+         if (excludedBlockers != null && !excludedBlockers.isEmpty()) {
+             possibleBlockers.removeAll(excludedBlockers);
+         }
+         attackers = sortPotentialAttackers(combat);
+         assignBlockers(combat, possibleBlockers);
++        }
+     }
+     /**
+      * assignBlockersForCombat() with additional and possibly "virtual" blockers.
+diff --git a/forge-ai/src/main/java/forge/ai/AiController.java b/forge-ai/src/main/java/forge/ai/AiController.java
+index 2c329f6..51280de 100644
+--- a/forge-ai/src/main/java/forge/ai/AiController.java
++++ b/forge-ai/src/main/java/forge/ai/AiController.java
+@@ -808,6 +808,7 @@ public class AiController {
+     }
+ 
+     private AiPlayDecision canPlayAndPayFor(final SpellAbility sa) {
++        try (var inspection = game.getReplacementHandler().beginReadOnlyCombatInspection()) {
+         final Card host = sa.getHostCard();
+ 
+         if (sa instanceof Spell sp) {
+@@ -835,6 +836,7 @@ public class AiController {
+                 host.setCastSA(null);
+             }
+         }
++        }
+     }
+ 
+     // This is for playing spells regularly (no Cascade/Ripple etc.)
+@@ -869,6 +871,7 @@ public class AiController {
+     }
+ 
+     public AiPlayDecision canPlaySa(SpellAbility sa) {
++        try (var inspection = game.getReplacementHandler().beginReadOnlyCombatInspection()) {
+         if (!checkAiSpecificRestrictions(sa)) {
+             return AiPlayDecision.CantPlayAi;
+         }
+@@ -957,6 +960,7 @@ public class AiController {
+         }
+ 
+         return saSideEffects(spellHost, sa);
++        }
+     }
+ 
+     private AiPlayDecision saSideEffects(final Card card, final SpellAbility sa) {
+diff --git a/forge-game/src/main/java/forge/game/card/Card.java b/forge-game/src/main/java/forge/game/card/Card.java
+index a0405e6..42f1734 100644
+--- a/forge-game/src/main/java/forge/game/card/Card.java
++++ b/forge-game/src/main/java/forge/game/card/Card.java
+@@ -1939,8 +1939,15 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+         return delta;
+     }
+ 
++    @Override
++    public void setCounters(final CounterType counterType, final Integer num) {
++        invalidateReplacementInspection();
++        super.setCounters(counterType, num);
++    }
++
+     @Override
+     public final void setCounters(final Multiset<CounterType> allCounters) {
++        invalidateReplacementInspection();
+         boolean changed = counters.contains(CounterEnumType.MANABOND) || counters.elementSet().stream().anyMatch(CounterType::isKeywordCounter);
+         counters = allCounters;
+         view.updateCounters(this);
+diff --git a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+index e0b5a72..667505f 100644
+--- a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
++++ b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+@@ -54,6 +54,8 @@ public class ReplacementHandler {
+     private final Game game;
+     private static final class ManaSources {
+         final Map<ReplacementType, CardCollection> sources = new EnumMap<>(ReplacementType.class);
++        ManaSources parent;
++        boolean combat;
+         boolean invalidated;
+     }
+     private final ThreadLocal<ManaSources> manaInspection = new ThreadLocal<>();
+@@ -90,7 +92,27 @@ public class ReplacementHandler {
+ 
+     public void invalidateReadOnlyManaInspection() {
+         ManaSources snapshot = manaInspection.get();
+-        if (snapshot != null) snapshot.invalidated = true;
++        while (snapshot != null) {
++            snapshot.invalidated = true;
++            snapshot = snapshot.parent;
++        }
++    }
++
++    /** One read-only AI search: cache hosts, never eligibility or damage results. */
++    public ManaInspection beginReadOnlyCombatInspection() {
++        ManaSources previous = manaInspection.get();
++        if (!Boolean.getBoolean("dragonmind.disableCombatIndex")
++                && (previous == null || previous.invalidated || !previous.combat)) {
++            ManaSources snapshot = new ManaSources();
++            snapshot.parent = previous;
++            snapshot.combat = true;
++            snapshot.sources.put(ReplacementType.DamageDone, null);
++            snapshot.sources.put(ReplacementType.Tap, null);
++            snapshot.sources.put(ReplacementType.Untap, null);
++            snapshot.sources.put(ReplacementType.ProduceMana, null);
++            manaInspection.set(snapshot);
++        }
++        return new ManaInspection(previous);
+     }
+ 
+     private Set<ReplacementEffect> hasRun = Sets.newHashSet();
+@@ -108,6 +130,17 @@ public class ReplacementHandler {
+ 
+     public List<ReplacementEffect> getReplacementList(final ReplacementType event, final Map<AbilityKey, Object> runParams, final ReplacementLayer layer) {
+         ManaSources snapshot = manaInspection.get();
++        if (snapshot != null && !snapshot.invalidated && snapshot.combat
++                && snapshot.sources.containsKey(event) && snapshot.sources.get(event) == null) {
++            snapshot.sources.replaceAll((mode, hosts) -> new CardCollection());
++            game.forEachCardInGame(card -> {
++                for (ReplacementEffect effect : card.getReplacementEffects()) {
++                    CardCollection hosts = snapshot.sources.get(effect.getMode());
++                    if (hosts != null) hosts.add(card);
++                }
++                return true;
++            });
++        }
+         CardCollectionView sources = snapshot == null || snapshot.invalidated ? null : snapshot.sources.get(event);
+         return getReplacementList(event, runParams, layer, sources);
+     }
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+index c33cbf6..e47dd56 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -20,6 +20,37 @@ import org.testng.Assert;
+ import org.testng.annotations.Test;
+ 
+ public class DragonMindPerformanceTest extends AITest {
++    @Test public void combatInspectionRechecksEffectsAndInvalidatesNestedMutations() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card source=addCard("Grizzly Bears",player),target=addCard("Grizzly Bears",player);
++        var handler=game.getReplacementHandler();
++        var params=AbilityKey.mapFromAffected(target);
++        params.put(AbilityKey.DamageSource,source);params.put(AbilityKey.DamageAmount,2);
++        params.put(AbilityKey.IsCombat,true);
++        var effect=ReplacementHandler.parseReplacement("Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True",target,false,null);
++        target.addReplacementEffect(effect);
++        var expected=handler.getReplacementList(ReplacementType.DamageDone,params,ReplacementLayer.Other);
++        Assert.assertTrue(expected.contains(effect));
++        try(var outer=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertEquals(handler.getReplacementList(ReplacementType.DamageDone,params,ReplacementLayer.Other),expected);
++            effect.setHasRun(true);
++            Assert.assertTrue(handler.getReplacementList(ReplacementType.DamageDone,params,ReplacementLayer.Other).isEmpty());
++            effect.setHasRun(false);
++            try(var inner=handler.beginReadOnlyManaInspection()) {
++                source.addReplacementEffect(ReplacementHandler.parseReplacement("Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True",source,false,null));
++            }
++            Assert.assertEquals(handler.getReplacementList(ReplacementType.DamageDone,params,ReplacementLayer.Other).size(),2);
++            game.getAction().moveToGraveyard(target,null);
++            Assert.assertFalse(handler.getReplacementList(ReplacementType.DamageDone,params,ReplacementLayer.Other).contains(effect));
++        }
++        Card shield=addCard("Grizzly Bears",player);params.put(AbilityKey.Affected,shield);
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            var original=handler.getReplacementList(ReplacementType.DamageDone,params,ReplacementLayer.Other);
++            shield.setCounters(CounterType.getType("Shield"),1);
++            var indexed=handler.getReplacementList(ReplacementType.DamageDone,params,ReplacementLayer.Other);
++            Assert.assertTrue(indexed.size()>original.size());
++        }
++    }
+     private ReplacementEffect replacement(Card host) {
+         return ReplacementHandler.parseReplacement("Event$ Destroy | ActiveZones$ Battlefield | ValidCard$ Card.Self | Prevent$ True",host,false,null);
+     }

@@ -1,0 +1,12 @@
+{
+  "control_seconds": [
+    25.509,
+    49.104
+  ],
+  "candidate_seconds": [
+    25.383,
+    48.763
+  ],
+  "combined_reduction_percent": 0.6258962915309696,
+  "matching_events": 2146
+}

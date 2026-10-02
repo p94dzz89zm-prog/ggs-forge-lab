@@ -1,4 +1,32 @@
-# GGS Forge Lab
+# DragonMind
+
+DragonMind is our Commander simulation and AI layer, built on the GPL-licensed
+Forge 2.0.15 rules engine. Forge's source packages, attribution, and license remain.
+The existing checkout and remote keep their names for compatibility.
+
+## Fast unattended batches
+
+Build the patched executable using `forge-fork/build_bridge.py`, then run:
+
+```sh
+python3 dragonmind.py --engine /absolute/path/to/forge/forge-gui --jar /absolute/path/to/forge/forge-gui-desktop/target/dragonmind.jar --seeds 4 --batch-size 4 --workers 1
+```
+
+Each process loads the card database once and plays multiple independently seeded
+games with fresh matches. Seat rotations run in separate batches. Separate JVMs
+isolate Forge's global RNG; games are not run concurrently inside one JVM. Audit is
+off by default; use `--audit` for diagnosis. The commander-aware ninjutsu policy
+is enabled by default; `--stock` is available for controlled comparisons.
+
+The initial performance check reduced a completed test game from 46.2 seconds
+unprofiled to 39.5 seconds cold and 34.8 seconds warm, with the same winner and
+final turn. This is a small benchmark, not a general speed guarantee. Another
+seed timed out at 90 seconds and is reported as incomplete. Interactive review
+pauses are absent in batch mode. Seconds-to-instant games are still a target.
+
+See `performance/` for raw measurements, source changes, and validation. A timeout
+or engine failure aborts the remaining games in that JVM batch; those games are
+reported as not run. No timeout counts as a win or loss.
 
 A reproducible runner for **actual four-player Commander games in Forge**, using the supplied Goro-Goro and Satoru and Jaymie/Ezio lists. This project is a runner, not a newly invented Magic rules engine. All card resolution, priority, combat, triggers, replacement effects, commander rules and player decisions are delegated to Forge. Engine correctness remains subject to Forge's card scripts and bugs.
 

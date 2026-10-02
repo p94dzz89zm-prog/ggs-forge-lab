@@ -1,0 +1,13 @@
+{
+  "ordered_patches": 15,
+  "reproduced_files": 47,
+  "changed_source_files": 3,
+  "production_class_entries": [
+    "forge/game/GameAction$1.class",
+    "forge/game/GameAction.class",
+    "forge/game/card/CardState$1.class",
+    "forge/game/card/CardState$LandTraitChanges.class",
+    "forge/game/card/CardState.class"
+  ],
+  "jar_integrity": "passed"
+}
