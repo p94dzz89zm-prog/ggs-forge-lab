@@ -1,0 +1,272 @@
+[
+  {
+    "label": "candidate-wait",
+    "calls": 1936,
+    "inclusive_seconds": 16.714467893,
+    "exclusive_seconds": 16.714467893
+  },
+  {
+    "label": "static-rebuild-live",
+    "calls": 41426,
+    "inclusive_seconds": 9.736539052,
+    "exclusive_seconds": 9.736539052
+  },
+  {
+    "label": "static-rebuild-hypothetical",
+    "calls": 35776,
+    "inclusive_seconds": 8.79197208,
+    "exclusive_seconds": 8.79197208
+  },
+  {
+    "label": "destroy-blocker",
+    "calls": 21125,
+    "inclusive_seconds": 4.471520571,
+    "exclusive_seconds": 3.688372555
+  },
+  {
+    "label": "destroy-attacker",
+    "calls": 21390,
+    "inclusive_seconds": 4.180380435,
+    "exclusive_seconds": 3.407467882
+  },
+  {
+    "label": "predict-damage",
+    "calls": 181937,
+    "inclusive_seconds": 3.392637719,
+    "exclusive_seconds": 3.392637719
+  },
+  {
+    "label": "alternative-costs",
+    "calls": 221595,
+    "inclusive_seconds": 19.468827121,
+    "exclusive_seconds": 3.345223094
+  },
+  {
+    "label": "card-abilities",
+    "calls": 115289,
+    "inclusive_seconds": 22.327397034,
+    "exclusive_seconds": 3.333289891
+  },
+  {
+    "label": "life-danger",
+    "calls": 5459,
+    "inclusive_seconds": 3.646745216,
+    "exclusive_seconds": 2.850674565
+  },
+  {
+    "label": "block-makeGangBlocks",
+    "calls": 1965,
+    "inclusive_seconds": 4.915878606,
+    "exclusive_seconds": 2.587480479
+  },
+  {
+    "label": "forecast-combat",
+    "calls": 1231,
+    "inclusive_seconds": 22.340288357,
+    "exclusive_seconds": 2.217865472
+  },
+  {
+    "label": "evaluate-creature",
+    "calls": 38484,
+    "inclusive_seconds": 2.00783514,
+    "exclusive_seconds": 2.00783514
+  },
+  {
+    "label": "block-legality",
+    "calls": 580139,
+    "inclusive_seconds": 5.142033898,
+    "exclusive_seconds": 1.267930304
+  },
+  {
+    "label": "candidate-play",
+    "calls": 9962,
+    "inclusive_seconds": 14.737031667,
+    "exclusive_seconds": 1.182157125
+  },
+  {
+    "label": "candidate-pay",
+    "calls": 18085,
+    "inclusive_seconds": 15.89639843,
+    "exclusive_seconds": 1.157394037
+  },
+  {
+    "label": "choose-action",
+    "calls": 2142,
+    "inclusive_seconds": 44.635084346,
+    "exclusive_seconds": 0.851651777
+  },
+  {
+    "label": "block-requirements",
+    "calls": 71004,
+    "inclusive_seconds": 1.227315174,
+    "exclusive_seconds": 0.683430305
+  },
+  {
+    "label": "attack-search",
+    "calls": 88,
+    "inclusive_seconds": 11.358985201,
+    "exclusive_seconds": 0.605175682
+  },
+  {
+    "label": "block-sortPotentialAttackers",
+    "calls": 1565,
+    "inclusive_seconds": 1.978131881,
+    "exclusive_seconds": 0.58026987
+  },
+  {
+    "label": "resolve-action",
+    "calls": 396,
+    "inclusive_seconds": 1.490677034,
+    "exclusive_seconds": 0.561704683
+  },
+  {
+    "label": "block-cost",
+    "calls": 425407,
+    "inclusive_seconds": 0.548709564,
+    "exclusive_seconds": 0.548709564
+  },
+  {
+    "label": "block-assignBlockers",
+    "calls": 1845,
+    "inclusive_seconds": 19.166766059,
+    "exclusive_seconds": 0.475386211
+  },
+  {
+    "label": "attacker-blockability",
+    "calls": 73792,
+    "inclusive_seconds": 0.427999425,
+    "exclusive_seconds": 0.415311132
+  },
+  {
+    "label": "block-makeGoodBlocks",
+    "calls": 1921,
+    "inclusive_seconds": 8.426052525,
+    "exclusive_seconds": 0.308063245
+  },
+  {
+    "label": "block-removeUnpayableBlocks",
+    "calls": 1845,
+    "inclusive_seconds": 0.247916244,
+    "exclusive_seconds": 0.243235765
+  },
+  {
+    "label": "block-makeTradeBlocks",
+    "calls": 1964,
+    "inclusive_seconds": 1.78295272,
+    "exclusive_seconds": 0.184757427
+  },
+  {
+    "label": "choose-trigger",
+    "calls": 866,
+    "inclusive_seconds": 6.971824483,
+    "exclusive_seconds": 0.183655428
+  },
+  {
+    "label": "block-reinforceBlockersToKill",
+    "calls": 1890,
+    "inclusive_seconds": 0.329715048,
+    "exclusive_seconds": 0.088166284
+  },
+  {
+    "label": "choose-attack",
+    "calls": 36,
+    "inclusive_seconds": 7.720750513,
+    "exclusive_seconds": 0.070633335
+  },
+  {
+    "label": "block-makeChumpBlocksToSavePW",
+    "calls": 1845,
+    "inclusive_seconds": 0.35404328,
+    "exclusive_seconds": 0.069360929
+  },
+  {
+    "label": "discover-abilities",
+    "calls": 2112,
+    "inclusive_seconds": 22.371869456,
+    "exclusive_seconds": 0.060576658
+  },
+  {
+    "label": "block-getPossibleBlockers",
+    "calls": 30327,
+    "inclusive_seconds": 2.653855947,
+    "exclusive_seconds": 0.053138659
+  },
+  {
+    "label": "block-makeChumpBlocks",
+    "calls": 2321,
+    "inclusive_seconds": 1.886903311,
+    "exclusive_seconds": 0.038983898
+  },
+  {
+    "label": "stack-keyword-rebuild",
+    "calls": 34671,
+    "inclusive_seconds": 8.436255806,
+    "exclusive_seconds": 0.023544957
+  },
+  {
+    "label": "block-makeGangNonLethalBlocks",
+    "calls": 1845,
+    "inclusive_seconds": 0.208570214,
+    "exclusive_seconds": 0.020284446
+  },
+  {
+    "label": "restore-live-state",
+    "calls": 34811,
+    "inclusive_seconds": 7.676455215,
+    "exclusive_seconds": 0.01836498
+  },
+  {
+    "label": "block-makeRequiredBlocks",
+    "calls": 1845,
+    "inclusive_seconds": 0.114979073,
+    "exclusive_seconds": 0.015717564
+  },
+  {
+    "label": "block-getSafeBlockers",
+    "calls": 8054,
+    "inclusive_seconds": 4.221907437,
+    "exclusive_seconds": 0.014048968
+  },
+  {
+    "label": "block-getKillingBlockers",
+    "calls": 12546,
+    "inclusive_seconds": 3.942690101,
+    "exclusive_seconds": 0.012235166
+  },
+  {
+    "label": "block-search",
+    "calls": 1562,
+    "inclusive_seconds": 19.918800978,
+    "exclusive_seconds": 0.010628489
+  },
+  {
+    "label": "forecast-board",
+    "calls": 961,
+    "inclusive_seconds": 12.418742633,
+    "exclusive_seconds": 0.009954436
+  },
+  {
+    "label": "block-makeMultiChumpBlocks",
+    "calls": 228,
+    "inclusive_seconds": 0.055392054,
+    "exclusive_seconds": 0.005777178
+  },
+  {
+    "label": "block-reinforceBlockersAgainstTrample",
+    "calls": 188,
+    "inclusive_seconds": 0.009529744,
+    "exclusive_seconds": 0.005198933
+  },
+  {
+    "label": "alternate-face-rebuild",
+    "calls": 206,
+    "inclusive_seconds": 0.041407638,
+    "exclusive_seconds": 0.000377957
+  },
+  {
+    "label": "choose-block",
+    "calls": 15,
+    "inclusive_seconds": 0.115346671,
+    "exclusive_seconds": 6.8675e-05
+  }
+]

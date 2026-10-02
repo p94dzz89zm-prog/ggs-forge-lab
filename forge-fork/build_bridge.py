@@ -58,6 +58,9 @@ def main():
     lifecycle = Path(__file__).with_name('dragonmind-runtime-v10.patch').resolve()
     subprocess.run(['git', 'apply', '--check', str(lifecycle)], cwd=checkout, check=True)
     subprocess.run(['git', 'apply', str(lifecycle)], cwd=checkout, check=True)
+    damage = Path(__file__).with_name('dragonmind-damage-v11.patch').resolve()
+    subprocess.run(['git', 'apply', '--check', str(damage)], cwd=checkout, check=True)
+    subprocess.run(['git', 'apply', str(damage)], cwd=checkout, check=True)
     subprocess.run([args.maven, '-pl', 'forge-gui-desktop', '-am', 'test',
                     '-Dtest=BridgeEngineTest,GgsPilotTest,DragonMindPerformanceTest,RuntimeLifecycleTest', '-Dsurefire.failIfNoSpecifiedTests=false',
                     '-Djava.awt.headless=true'], cwd=checkout, check=True)

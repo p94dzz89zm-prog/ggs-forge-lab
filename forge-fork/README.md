@@ -50,7 +50,7 @@ python forge-fork/build_bridge.py ../forge-ggs
 ```
 
 The script refuses to overwrite an existing checkout, verifies the pinned commit,
-creates branch `ggs-assisted-bridge`, applies the twelve ordered patches, runs the engine tests,
+creates branch `ggs-assisted-bridge`, applies the thirteen ordered patches, runs the engine tests,
 and packages the desktop build. Dependencies require internet access.
 The sparse checkout used for development is unnecessary on your computer.
 The executable is also packaged as `dragonmind.jar`. Use `../dragonmind.py` for
@@ -160,3 +160,14 @@ outer process timeout remains necessary for uncooperative tasks. The runner read
 result logs incrementally, rejects malformed results and trailing exceptions,
 and reports completions per minute alongside failure counts. Replays derive
 winner text from the current verified log without hardcoded damage/token totals.
+
+## Damage forecast source discovery (v11)
+
+Damage-related static queries share the bounded forecast's ordered source snapshot.
+Queries that append an explicit source keep the full source list to preserve original
+real-card/LKI deduplication priority. Other static queries reuse the static-host index.
+Prevention queries index hosts with any replacement effect, retaining live effect
+modes, zones, requirements, parameters, amounts and targets. All source indexes
+fall back to original enumeration outside a scope or after invalidation. Disable
+replacement-host discovery with `-Ddragonmind.disableCombatReplacementRuleIndex=true`.
+No final damage, legality, or combat survival outcomes are cached by this change.

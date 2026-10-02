@@ -61,6 +61,19 @@ if __name__=='__main__':
         files['forge-game/src/main/java/forge/game/combat/CombatUtil.java']=[
             ('canBlock','block-legality',None),('getBlockCost','block-cost',3),
             ('mustBlockAnAttacker','block-requirements',3),('canBeBlocked','attacker-blockability',None)]
+    if '--block-internals' in sys.argv[4:]:
+        files['forge-ai/src/main/java/forge/ai/AiBlockController.java'] += [
+            (name, 'block-'+name, None) for name in (
+                'assignBlockers','getPossibleBlockers','getSafeBlockers','getKillingBlockers',
+                'sortPotentialAttackers','makeGoodBlocks','makeGangBlocks','makeGangNonLethalBlocks',
+                'makeTradeBlocks','makeChumpBlocks','makeMultiChumpBlocks',
+                'reinforceBlockersAgainstTrample','reinforceBlockersToKill',
+                'makeChumpBlocksToSavePW','makeRequiredBlocks','removeUnpayableBlocks')]
+        files['forge-ai/src/main/java/forge/ai/ComputerUtilCombat.java'] = [
+            ('canDestroyAttacker','destroy-attacker',6),('canDestroyBlocker','destroy-blocker',6),
+            ('predictDamageTo','predict-damage',5),('lifeInDanger','life-danger',3)]
+        files['forge-ai/src/main/java/forge/ai/ComputerUtilCard.java'] = [
+            ('evaluateCreature','evaluate-creature',1)]
     sources=[]
     for path,methods in files.items():
         text=(src/path).read_text()
