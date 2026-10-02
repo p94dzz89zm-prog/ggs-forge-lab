@@ -1,0 +1,109 @@
+diff --git a/forge-game/src/main/java/forge/game/card/CardState.java b/forge-game/src/main/java/forge/game/card/CardState.java
+--- a/forge-game/src/main/java/forge/game/card/CardState.java
++++ b/forge-game/src/main/java/forge/game/card/CardState.java
+@@ -733,6 +733,22 @@
+         card.updateStaticAbilities(result, this);
+         return result;
+     }
++    /** Collect for this rebuild only; never expose or retain the intrinsic collection. */
++    public final void collectActiveContinuousStaticAbilities(FCollection<StaticAbility> result) {
++        final FCollectionView<StaticAbility> abilities;
++        if (!hasCombinedSplitTraits() && !card.hasChangedTraitEffects()
++                && !card.hasRemoveIntrinsic() && !cachedKeywords.hasStaticAbilities()) {
++            abilities = staticAbilities;
++        } else {
++            abilities = getStaticAbilities();
++        }
++        for (StaticAbility ability : abilities) {
++            if (ability.checkMode(StaticAbilityMode.Continuous) && ability.zonesCheck()) {
++                result.add(ability);
++            }
++        }
++    }
++
+     public final boolean addStaticAbility(StaticAbility stab) {
+         card.invalidateReplacementInspection();
+         return staticAbilities.add(stab);
+diff --git a/forge-game/src/main/java/forge/game/GameAction.java b/forge-game/src/main/java/forge/game/GameAction.java
+--- a/forge-game/src/main/java/forge/game/GameAction.java
++++ b/forge-game/src/main/java/forge/game/GameAction.java
+@@ -1099,11 +1099,7 @@
+         game.forEachCardInGame(c -> {
+             // need to get Card from preList if able
+             final Card co = preList.get(c);
+-            for (StaticAbility stAb : co.getStaticAbilities()) {
+-                if (stAb.checkMode(StaticAbilityMode.Continuous) && stAb.zonesCheck()) {
+-                    staticAbilities.add(stAb);
+-                }
+-            }
++            co.getCurrentState().collectActiveContinuousStaticAbilities(staticAbilities);
+             if (!co.getStaticCommandList().isEmpty()) {
+                 staticList.add(co);
+             }
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -652,4 +652,63 @@
+         Assert.assertEquals(new ArrayList<>(StaticAbilityContinuous.getAffectedCards(ability,forge.game.card.CardCollection.EMPTY)),List.of(own));
+     }
+ 
++    private void assertContinuousDiscoveryMatches(Card host) {
++        var expected=new FCollection<StaticAbility>();
++        for(var ability:host.getStaticAbilities()) {
++            if(ability.checkMode(forge.game.staticability.StaticAbilityMode.Continuous) && ability.zonesCheck())expected.add(ability);
++        }
++        var actual=new FCollection<StaticAbility>();host.getCurrentState().collectActiveContinuousStaticAbilities(actual);
++        Assert.assertEquals(new ArrayList<>(actual),new ArrayList<>(expected));
++    }
++    @Test public void continuousDiscoveryKeepsLiveModesZonesPhasingAndMembership() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);Card host=addCard("Grizzly Bears",player);
++        StaticAbility first=trait(host,"Creature"),second=trait(host,"Creature.YouCtrl");host.addStaticAbility(first);host.addStaticAbility(second);
++        host.addStaticAbility("Mode$ CantBlock | ValidCard$ Card.Self");assertContinuousDiscoveryMatches(host);
++        var saved=new FCollection<StaticAbility>();host.getCurrentState().collectActiveContinuousStaticAbilities(saved);
++        host.getCurrentState().removeStaticAbility(first);assertContinuousDiscoveryMatches(host);Assert.assertTrue(saved.contains(first));
++        second.setActiveZone(java.util.EnumSet.of(ZoneType.Graveyard));assertContinuousDiscoveryMatches(host);
++        player.getZone(ZoneType.Battlefield).remove(host);player.getZone(ZoneType.Graveyard).add(host);assertContinuousDiscoveryMatches(host);
++        host.setPhasedOut(player);assertContinuousDiscoveryMatches(host);host.setPhasedOut(null);assertContinuousDiscoveryMatches(host);
++    }
++    @Test public void continuousDiscoveryKeepsGrantedAndRemovedTraits() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        var intrinsic=trait(host,"Creature");host.addStaticAbility(intrinsic);assertContinuousDiscoveryMatches(host);
++        var granted=trait(host,"Creature.YouCtrl");
++        host.addChangedCardTraits(List.of(),List.of(),List.of(),List.of(granted),ability -> true,1L,1L,false);
++        assertContinuousDiscoveryMatches(host);
++        var result=new FCollection<StaticAbility>();host.getCurrentState().collectActiveContinuousStaticAbilities(result);
++        Assert.assertTrue(result.contains(granted));Assert.assertFalse(result.contains(intrinsic));
++        host.removeChangedCardTraits(1L,1L);assertContinuousDiscoveryMatches(host);
++    }
++    @Test public void continuousDiscoveryKeepsKeywordAndSplitStateTraits() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        host.addIntrinsicKeyword("Flying");
++        var keyword=host.getCurrentState().getCachedKeywords().getValues().iterator().next();keyword.addStaticAbility(trait(host,"Creature"));
++        assertContinuousDiscoveryMatches(host);
++        Card split=addCard("Fire",game.getPlayers().get(0));
++        split.getState(CardStateName.LeftSplit).addStaticAbility(trait(split,"Creature"));
++        split.getState(CardStateName.RightSplit).addStaticAbility(trait(split,"Creature.YouCtrl"));
++        split.setState(CardStateName.Original,false);assertContinuousDiscoveryMatches(split);
++    }
++
++    @Test public void continuousDiscoveryRespectsIntrinsicRemovalByLandTypeEffects() {
++        var game=initAndCreateGame();Card host=addCard("Island",game.getPlayers().get(0));host.addStaticAbility(trait(host,"Creature"));
++        assertContinuousDiscoveryMatches(host);
++        host.addChangedCardTypes(new forge.card.CardType(List.of("Mountain"),true),null,false,
++            java.util.EnumSet.of(forge.card.RemoveType.LandTypes),1L,1L,false,false);
++        Assert.assertTrue(host.hasRemoveIntrinsic());assertContinuousDiscoveryMatches(host);
++        var result=new FCollection<StaticAbility>();host.getCurrentState().collectActiveContinuousStaticAbilities(result);Assert.assertTrue(result.isEmpty());
++        host.removeChangedCardTypes(1L,1L,false);assertContinuousDiscoveryMatches(host);
++    }
++
++    @Test public void staticRebuildDiscoversHypotheticalTraitsAndRestoresLiveBoard() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        var virtual=forge.game.card.CardCopyService.getLKICopy(host);virtual.addStaticAbility(trait(virtual,"Creature"));
++        Assert.assertEquals(host.getNetPower(),2);
++        game.getAction().checkStaticAbilities(false,new HashSet<>(),new forge.game.card.CardCollection(virtual));
++        Assert.assertEquals(virtual.getNetPower(),3);Assert.assertEquals(host.getNetPower(),2);
++        game.getAction().checkStaticAbilities(false,new HashSet<>(),forge.game.card.CardCollection.EMPTY);
++        Assert.assertEquals(host.getNetPower(),2);Assert.assertEquals(virtual.getNetPower(),2);
++    }
++
+ }
