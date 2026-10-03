@@ -1,0 +1,2753 @@
+{
+  "current-apex": {
+    "summary": {
+      "seed": 20261019,
+      "engine_ms": 52340,
+      "last_logged_turn": 44,
+      "status": "completed",
+      "winner": "Ai(1)-GGS_Apex_War_Form_Current",
+      "variant": "GGS_Apex_War_Form_Current",
+      "seat_rotation": 0,
+      "seats": [
+        "GGS_Apex_War_Form_Current",
+        "Jaymie_Ezio",
+        "Gabe_Food",
+        "Destyn_Turtles"
+      ],
+      "pilot": "commander-aware",
+      "batch_wall_seconds": 58.516,
+      "batch_size": 1,
+      "command": [
+        "java",
+        "-Xmx1536m",
+        "-XX:+UseParallelGC",
+        "-XX:-TieredCompilation",
+        "-XX:CompileThreshold=1000",
+        "-Djava.awt.headless=true",
+        "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Apex_War_Form_Current",
+        "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/apex-layered-pod/current-apex/audit/GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019",
+        "-jar",
+        "/workspace/scratch/872734602a8c/forge-source/forge-gui-desktop/target/dragonmind.jar",
+        "sim",
+        "-D",
+        "/workspace/scratch/872734602a8c/ggs-forge-lab/decks",
+        "-d",
+        "GGS_Apex_War_Form_Current.dck",
+        "Jaymie_Ezio.dck",
+        "Gabe_Food.dck",
+        "Destyn_Turtles.dck",
+        "-f",
+        "Commander",
+        "-seeds",
+        "20261019",
+        "-c",
+        "180",
+        "-a",
+        "Default",
+        "Default",
+        "Default",
+        "Default"
+      ],
+      "log": "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019.log"
+    },
+    "performance": {
+      "wall_seconds": 58.522,
+      "attempts": 1,
+      "completed": 1,
+      "engine_seconds": [
+        52.34
+      ],
+      "completed_games_per_minute": 1.025,
+      "status_counts": {
+        "completed": 1
+      },
+      "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+    },
+    "metadata": {
+      "product": "DragonMind",
+      "rules_engine": "Forge 2.0.15 GPL-3.0-or-later fork",
+      "rules_baseline": {
+        "authority": "Wizards of the Coast",
+        "document": "Magic: The Gathering Comprehensive Rules",
+        "effective_date": "2026-09-25",
+        "checked_on": "2026-10-01",
+        "url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+        "sha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca",
+        "oracle_source": "https://gatherer.wizards.com/",
+        "commander_rules_section": "903",
+        "policy": "Official rules and current Oracle text take precedence over implementation behavior. Record discrepancies as engine errors; do not substitute approximations.",
+        "validation_status": "Targeted tests; not certified as exhaustive conformance."
+      },
+      "jar_sha256": "9389e96f9190e051f1b739460e61e0b407b087aa7fb3f5f423d6169bc5eeab68",
+      "deck_sha256": {
+        "GGS_Apex_War_Form_Current": "2201b8e2515326d70488badfb7458a8d300f9bef0075eb18ea34ef23f21a3a37",
+        "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+        "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+        "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a"
+      },
+      "arguments": {
+        "engine": "/workspace/scratch/872734602a8c/pod-test-engine",
+        "jar": "/workspace/scratch/872734602a8c/forge-source/forge-gui-desktop/target/dragonmind.jar",
+        "variant": "GGS_Apex_War_Form_Current",
+        "seed": 20261019,
+        "seeds": 1,
+        "rotations": [
+          0
+        ],
+        "workers": 1,
+        "batch_size": 1,
+        "timeout": 180,
+        "gc": "parallel",
+        "jit": "throughput",
+        "stock": false,
+        "audit": true,
+        "output": "/workspace/scratch/0209e1f07b34/apex-layered-pod/current-apex"
+      }
+    },
+    "log_sha256": "5ba6a50a332983826d3807549f75afb114c0bdd41f45736777a1a5bb703479da",
+    "own_turns": [
+      2,
+      6,
+      10,
+      14,
+      18,
+      22,
+      26,
+      30,
+      34,
+      38,
+      42,
+      44
+    ],
+    "commander_casts": [
+      {
+        "global_turn": 26,
+        "own_turn_number": 7
+      },
+      {
+        "global_turn": 42,
+        "own_turn_number": 11
+      }
+    ],
+    "opening_hand": [
+      "Bloodstained Mire",
+      "Dauthi Voidwalker",
+      "Marsh Flats",
+      "Crux of Fate",
+      "Kari Zev, Skyship Raider",
+      "Xander's Lounge",
+      "Skullclamp"
+    ],
+    "stack_actions": [
+      {
+        "turn": 6,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Bloodstained Mire"
+      },
+      {
+        "turn": 6,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Skullclamp"
+      },
+      {
+        "turn": 10,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Marsh Flats"
+      },
+      {
+        "turn": 10,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Raucous Theater"
+      },
+      {
+        "turn": 10,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Dauthi Voidwalker"
+      },
+      {
+        "turn": 14,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Skullclamp targeting [Dauthi Voidwalker (55)]"
+      },
+      {
+        "turn": 14,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Kari Zev, Skyship Raider"
+      },
+      {
+        "turn": 18,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Kari Zev, Skyship Raider"
+      },
+      {
+        "turn": 18,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Ingenious Infiltrator"
+      },
+      {
+        "turn": 18,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Ingenious Infiltrator"
+      },
+      {
+        "turn": 18,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Kari Zev, Skyship Raider"
+      },
+      {
+        "turn": 22,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Purphoros, God of the Forge"
+      },
+      {
+        "turn": 26,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Misty Rainforest"
+      },
+      {
+        "turn": 26,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Undercity Sewers"
+      },
+      {
+        "turn": 26,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+      },
+      {
+        "turn": 26,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 27,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast An Offer You Can't Refuse targeting [Search your library for up to three basic land cards and reveal them. Put two of them onto the battlefield tapped and the other into your hand, then shuffle.   ]"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Kari Zev, Skyship Raider"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Yuriko, the Tiger's Shadow"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Yuriko, the Tiger's Shadow"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Ingenious Infiltrator"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Talisman of Dominance"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Skullclamp targeting [Dragon Spirit Token (443)]"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Balefire Dragon"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 36,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Skullclamp"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Scalding Tarn"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goldlust Triad"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Skullclamp targeting [Goldlust Triad (88)]"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Aggravated Assault"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Gingerbrute"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldlust Triad"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Kari Zev, Skyship Raider"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldlust Triad"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldlust Triad"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Kari Zev, Skyship Raider"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldlust Triad"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Dauthi Voidwalker"
+      },
+      {
+        "turn": 42,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 44,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Lightning Greaves"
+      },
+      {
+        "turn": 44,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Lightning Greaves targeting [Purphoros, God of the Forge (63)]"
+      },
+      {
+        "turn": 44,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldlust Triad"
+      },
+      {
+        "turn": 44,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Kari Zev, Skyship Raider"
+      },
+      {
+        "turn": 44,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+      },
+      {
+        "turn": 44,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Purphoros, God of the Forge"
+      },
+      {
+        "turn": 44,
+        "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Purphoros, God of the Forge"
+      }
+    ],
+    "trigger_counts": {
+      "Raucous Theater": 1,
+      "Kari Zev, Skyship Raider": 5,
+      "Ingenious Infiltrator": 2,
+      "Undercity Sewers": 1,
+      "Purphoros, God of the Forge": 15,
+      "Yuriko, the Tiger's Shadow": 1,
+      "Goro-Goro and Satoru": 3,
+      "Skullclamp": 1,
+      "Goldlust Triad": 5
+    },
+    "logged_damage_by_source": {
+      "Michelangelo, the Heart": {
+        "Ai(1)-GGS_Apex_War_Form_Current": 2
+      },
+      "Dauthi Voidwalker": {
+        "Ai(4)-Destyn_Turtles": 8,
+        "Ai(3)-Gabe_Food": 8
+      },
+      "Savvy Hunter": {
+        "Ai(1)-GGS_Apex_War_Form_Current": 6
+      },
+      "Ingenious Infiltrator": {
+        "Ai(3)-Gabe_Food": 2
+      },
+      "Ragavan": {
+        "Ai(2)-Jaymie_Ezio": 4
+      },
+      "Gwaihir, Greatest of the Eagles": {
+        "Ai(1)-GGS_Apex_War_Form_Current": 5,
+        "Ai(4)-Destyn_Turtles": 10
+      },
+      "Purphoros, God of the Forge": {
+        "Ai(2)-Jaymie_Ezio": 30,
+        "Ai(3)-Gabe_Food": 26,
+        "Ai(4)-Destyn_Turtles": 20
+      },
+      "Corpsejack Menace": {
+        "Ai(3)-Gabe_Food": 4
+      },
+      "Yuriko, the Tiger's Shadow": {
+        "Ai(4)-Destyn_Turtles": 1
+      },
+      "Goldlust Triad": {
+        "Ai(2)-Jaymie_Ezio": 4,
+        "Ai(3)-Gabe_Food": 4
+      },
+      "Kari Zev, Skyship Raider": {
+        "Ai(2)-Jaymie_Ezio": 3
+      }
+    },
+    "log_category_counts": {
+      "Error handling registered!": 1,
+      "15": 6,
+      "Language 'en-US' loaded successfully.": 1,
+      "(ThreadUtil first call)": 1,
+      "Read cards": 2,
+      "Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.": 2,
+      "The card A-Alrund's Epiphany was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Baba Lysaga, Night Witch was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Divide by Zero was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Esika's Chariot was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Faceless Haven was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Fires of Invention was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Goldspan Dragon was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Hullbreaker Horror was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Kumano Faces Kakkazan was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Luminarch Aspirant was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Monster Manual was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Omnath, Locus of Creation was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-The Meathook Massacre was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Unholy Heat was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Blinding Radiance was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Goblin Bruiser was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Ogre Painbringer was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Titanic Pelagosaur was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Treetop Recluse was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "Simulation mode": 1,
+      "Ai(1)-GGS_Apex_War_Form_Current [Default] vs Ai(2)-Jaymie_Ezio [Default] vs Ai(3)-Gabe_Food [Default] vs Ai(4)-Destyn_Turtles [Default] - one game of Commander": 1,
+      "Watery Grave Did not have activator set in SpellAbility_Condition.checkConditions()": 12,
+      "Warning": 5,
+      "Mulligan": 5,
+      "Turn": 44,
+      "Phase": 567,
+      "Replacement Effect": 30,
+      "Land": 28,
+      "Life": 62,
+      "Zone Change": 46,
+      "Add To Stack": 144,
+      "Resolve Stack": 145,
+      "Mana": 177,
+      "Combat": 28,
+      "Damage": 56,
+      "Ai(3)-Gabe_Food didn't block Dauthi Voidwalker (55).": 1,
+      "Ai(1)-GGS_Apex_War_Form_Current didn't block Savvy Hunter (225).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Goldlust Triad (470).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Goldlust Triad (88).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Dragon Spirit Token (479).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Goro-Goro and Satoru (100).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Dauthi Voidwalker (55).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Ingenious Infiltrator (26).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Kari Zev, Skyship Raider (93).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Yuriko, the Tiger's Shadow (98).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Gingerbrute (65).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Ragavan (486).": 1,
+      "Player Control": 4,
+      "Game Outcome": 6,
+      "Match Result": 1,
+      "DragonMind Result": 1,
+      "": 2,
+      "Game Result": 1
+    },
+    "priority_counts": {
+      "seat-3": 503,
+      "seat-2": 507,
+      "seat-0": 555,
+      "seat-1": 538
+    },
+    "evaluation_counts": {
+      "evaluation-seat-2": {
+        "rows": 3610,
+        "decisions": {
+          "CantPlayAi": 1762,
+          "CantPlaySa": 1766,
+          "CantAfford": 66,
+          "BadEtbEffects": 3,
+          "WillPlay": 13
+        }
+      },
+      "evaluation-seat-0": {
+        "rows": 6044,
+        "decisions": {
+          "CantPlayAi": 1242,
+          "CantPlaySa": 4650,
+          "CantAfford": 106,
+          "WillPlay": 26,
+          "GgsNinjutsu:score=-8,return=Dauthi Voidwalker,damageDelta=-2,hitValueDelta=30,additionalGgsDragon=false,activationMana=2,replayMana=2,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:noDamagePlan": 12,
+          "GgsNinjutsu:score=22,return=Kari Zev, Skyship Raider,damageDelta=1,hitValueDelta=30,additionalGgsDragon=false,activationMana=2,replayMana=2,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:payReturn=Kari Zev, Skyship Raider,score=22": 1,
+          "GgsNinjutsu:score=13,return=Ragavan,damageDelta=-1,hitValueDelta=45,additionalGgsDragon=false,activationMana=2,replayMana=0,lostEngine=0,tokenLost=true": 1,
+          "GgsNinjutsu:score=-4,return=Dauthi Voidwalker,damageDelta=-3,hitValueDelta=45,additionalGgsDragon=false,activationMana=2,replayMana=2,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:score=86,return=Dauthi Voidwalker,damageDelta=-3,hitValueDelta=45,additionalGgsDragon=true,activationMana=2,replayMana=2,lostEngine=0,tokenLost=false": 2,
+          "GgsNinjutsu:payReturn=Dauthi Voidwalker,score=86": 1
+        }
+      },
+      "evaluation-seat-3": {
+        "rows": 4329,
+        "decisions": {
+          "CantPlayAi": 1923,
+          "CantPlaySa": 2301,
+          "CantAfford": 73,
+          "WillPlay": 18,
+          "BadEtbEffects": 14
+        }
+      },
+      "evaluation-seat-1": {
+        "rows": 5260,
+        "decisions": {
+          "CantPlayAi": 2426,
+          "CantAfford": 631,
+          "WillPlay": 10,
+          "CantPlaySa": 2193
+        }
+      }
+    },
+    "audit_bytes": 57594237,
+    "main1_first_snapshot_per_own_turn": {
+      "2": {
+        "life": 40,
+        "hand": [
+          "Bloodstained Mire",
+          "Dauthi Voidwalker",
+          "Marsh Flats",
+          "Crux of Fate",
+          "Kari Zev, Skyship Raider",
+          "Xander's Lounge",
+          "Skullclamp",
+          "Ingenious Infiltrator"
+        ],
+        "battlefield": []
+      },
+      "6": {
+        "life": 40,
+        "hand": [
+          "Bloodstained Mire",
+          "Dauthi Voidwalker",
+          "Marsh Flats",
+          "Crux of Fate",
+          "Kari Zev, Skyship Raider",
+          "Skullclamp",
+          "Ingenious Infiltrator",
+          "Purphoros, God of the Forge"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          }
+        ]
+      },
+      "10": {
+        "life": 39,
+        "hand": [
+          "Dauthi Voidwalker",
+          "Marsh Flats",
+          "Crux of Fate",
+          "Kari Zev, Skyship Raider",
+          "Ingenious Infiltrator",
+          "Purphoros, God of the Forge",
+          "An Offer You Can't Refuse"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          }
+        ]
+      },
+      "14": {
+        "life": 36,
+        "hand": [
+          "Crux of Fate",
+          "Kari Zev, Skyship Raider",
+          "Ingenious Infiltrator",
+          "Purphoros, God of the Forge",
+          "An Offer You Can't Refuse",
+          "Balefire Dragon"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Raucous Theater",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Dauthi Voidwalker",
+            "tapped": false,
+            "type": "Creature - Dauthi Rogue"
+          }
+        ]
+      },
+      "18": {
+        "life": 33,
+        "hand": [
+          "Crux of Fate",
+          "Ingenious Infiltrator",
+          "Purphoros, God of the Forge",
+          "An Offer You Can't Refuse",
+          "Balefire Dragon",
+          "Yuriko, the Tiger's Shadow"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Raucous Theater",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Dauthi Voidwalker",
+            "tapped": false,
+            "type": "Creature - Dauthi Rogue"
+          },
+          {
+            "name": "Kari Zev, Skyship Raider",
+            "tapped": false,
+            "type": "Legendary Creature - Human Pirate"
+          }
+        ]
+      },
+      "22": {
+        "life": 33,
+        "hand": [
+          "Crux of Fate",
+          "Purphoros, God of the Forge",
+          "An Offer You Can't Refuse",
+          "Balefire Dragon",
+          "Yuriko, the Tiger's Shadow",
+          "Kari Zev, Skyship Raider",
+          "Talisman of Dominance"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Raucous Theater",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Dauthi Voidwalker",
+            "tapped": false,
+            "type": "Creature - Dauthi Rogue"
+          },
+          {
+            "name": "Ingenious Infiltrator",
+            "tapped": false,
+            "type": "Creature - Vedalken Ninja"
+          },
+          {
+            "name": "Malakir Mire",
+            "tapped": false,
+            "type": "Land"
+          }
+        ]
+      },
+      "26": {
+        "life": 25,
+        "hand": [
+          "Crux of Fate",
+          "An Offer You Can't Refuse",
+          "Balefire Dragon",
+          "Yuriko, the Tiger's Shadow",
+          "Kari Zev, Skyship Raider",
+          "Talisman of Dominance",
+          "Misty Rainforest"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Raucous Theater",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Dauthi Voidwalker",
+            "tapped": false,
+            "type": "Creature - Dauthi Rogue"
+          },
+          {
+            "name": "Ingenious Infiltrator",
+            "tapped": false,
+            "type": "Creature - Vedalken Ninja"
+          },
+          {
+            "name": "Malakir Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Purphoros, God of the Forge",
+            "tapped": false,
+            "type": "Legendary Enchantment"
+          }
+        ]
+      },
+      "30": {
+        "life": 24,
+        "hand": [
+          "Crux of Fate",
+          "Balefire Dragon",
+          "Yuriko, the Tiger's Shadow",
+          "Kari Zev, Skyship Raider",
+          "Talisman of Dominance",
+          "Kindred Discovery"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Raucous Theater",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Dauthi Voidwalker",
+            "tapped": false,
+            "type": "Creature - Dauthi Rogue"
+          },
+          {
+            "name": "Ingenious Infiltrator",
+            "tapped": false,
+            "type": "Creature - Vedalken Ninja"
+          },
+          {
+            "name": "Malakir Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Purphoros, God of the Forge",
+            "tapped": false,
+            "type": "Legendary Enchantment"
+          },
+          {
+            "name": "Undercity Sewers",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Goro-Goro and Satoru",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin Human"
+          }
+        ]
+      },
+      "34": {
+        "life": 24,
+        "hand": [
+          "Crux of Fate",
+          "Balefire Dragon",
+          "Kindred Discovery",
+          "Dauthi Voidwalker",
+          "Lightning Greaves",
+          "Aggravated Assault"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Raucous Theater",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Ingenious Infiltrator",
+            "tapped": false,
+            "type": "Creature - Vedalken Ninja"
+          },
+          {
+            "name": "Malakir Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Purphoros, God of the Forge",
+            "tapped": false,
+            "type": "Legendary Enchantment"
+          },
+          {
+            "name": "Undercity Sewers",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Goro-Goro and Satoru",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin Human"
+          },
+          {
+            "name": "Kari Zev, Skyship Raider",
+            "tapped": false,
+            "type": "Legendary Creature - Human Pirate"
+          },
+          {
+            "name": "Yuriko, the Tiger's Shadow",
+            "tapped": false,
+            "type": "Legendary Creature - Human Ninja"
+          },
+          {
+            "name": "Dragon Spirit Token",
+            "tapped": false,
+            "type": "Creature - Dragon Spirit"
+          },
+          {
+            "name": "Training Center",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Talisman of Dominance",
+            "tapped": false,
+            "type": "Artifact"
+          }
+        ]
+      },
+      "38": {
+        "life": 24,
+        "hand": [
+          "Crux of Fate",
+          "Kindred Discovery",
+          "Dauthi Voidwalker",
+          "Lightning Greaves",
+          "Aggravated Assault",
+          "Scalding Tarn",
+          "Goldlust Triad",
+          "Exotic Orchard"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Raucous Theater",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Ingenious Infiltrator",
+            "tapped": false,
+            "type": "Creature - Vedalken Ninja"
+          },
+          {
+            "name": "Malakir Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Purphoros, God of the Forge",
+            "tapped": false,
+            "type": "Legendary Enchantment"
+          },
+          {
+            "name": "Undercity Sewers",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Kari Zev, Skyship Raider",
+            "tapped": false,
+            "type": "Legendary Creature - Human Pirate"
+          },
+          {
+            "name": "Yuriko, the Tiger's Shadow",
+            "tapped": false,
+            "type": "Legendary Creature - Human Ninja"
+          },
+          {
+            "name": "Training Center",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Talisman of Dominance",
+            "tapped": false,
+            "type": "Artifact"
+          }
+        ]
+      },
+      "42": {
+        "life": 23,
+        "hand": [
+          "Crux of Fate",
+          "Kindred Discovery",
+          "Dauthi Voidwalker",
+          "Lightning Greaves",
+          "Aggravated Assault",
+          "Exotic Orchard",
+          "Gingerbrute"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Raucous Theater",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Ingenious Infiltrator",
+            "tapped": false,
+            "type": "Creature - Vedalken Ninja"
+          },
+          {
+            "name": "Malakir Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Purphoros, God of the Forge",
+            "tapped": false,
+            "type": "Legendary Enchantment"
+          },
+          {
+            "name": "Undercity Sewers",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Kari Zev, Skyship Raider",
+            "tapped": false,
+            "type": "Legendary Creature - Human Pirate"
+          },
+          {
+            "name": "Yuriko, the Tiger's Shadow",
+            "tapped": false,
+            "type": "Legendary Creature - Human Ninja"
+          },
+          {
+            "name": "Training Center",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Talisman of Dominance",
+            "tapped": false,
+            "type": "Artifact"
+          },
+          {
+            "name": "Blood Crypt",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Goldlust Triad",
+            "tapped": false,
+            "type": "Creature - Dragon"
+          }
+        ]
+      },
+      "44": {
+        "life": 23,
+        "hand": [
+          "Crux of Fate",
+          "Kindred Discovery",
+          "Lightning Greaves",
+          "Deflecting Swat"
+        ],
+        "battlefield": [
+          {
+            "name": "Xander's Lounge",
+            "tapped": false,
+            "type": "Land - Island Swamp Mountain"
+          },
+          {
+            "name": "Watery Grave",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Skullclamp",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Raucous Theater",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Ingenious Infiltrator",
+            "tapped": false,
+            "type": "Creature - Vedalken Ninja"
+          },
+          {
+            "name": "Malakir Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Purphoros, God of the Forge",
+            "tapped": false,
+            "type": "Legendary Enchantment Creature - God"
+          },
+          {
+            "name": "Undercity Sewers",
+            "tapped": false,
+            "type": "Land - Island Swamp"
+          },
+          {
+            "name": "Kari Zev, Skyship Raider",
+            "tapped": false,
+            "type": "Legendary Creature - Human Pirate"
+          },
+          {
+            "name": "Yuriko, the Tiger's Shadow",
+            "tapped": false,
+            "type": "Legendary Creature - Human Ninja"
+          },
+          {
+            "name": "Training Center",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Talisman of Dominance",
+            "tapped": false,
+            "type": "Artifact"
+          },
+          {
+            "name": "Blood Crypt",
+            "tapped": false,
+            "type": "Land - Swamp Mountain"
+          },
+          {
+            "name": "Goldlust Triad",
+            "tapped": false,
+            "type": "Creature - Dragon"
+          },
+          {
+            "name": "Exotic Orchard",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Goro-Goro and Satoru",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin Human"
+          },
+          {
+            "name": "Aggravated Assault",
+            "tapped": false,
+            "type": "Enchantment"
+          },
+          {
+            "name": "Gingerbrute",
+            "tapped": false,
+            "type": "Artifact Creature - Food Golem"
+          },
+          {
+            "name": "Dragon Spirit Token",
+            "tapped": false,
+            "type": "Creature - Dragon Spirit"
+          },
+          {
+            "name": "Dauthi Voidwalker",
+            "tapped": false,
+            "type": "Creature - Dauthi Rogue"
+          }
+        ]
+      }
+    },
+    "commander_evaluations": [
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 2,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 2,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 2,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 2,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 10,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 10,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 10,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 10,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 10,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 10,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 14,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 14,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 14,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 14,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 14,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 14,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 14,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 14,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 18,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 18,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 18,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 18,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 22,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 22,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 22,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 22,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "WillPlay",
+        "player_id": 0,
+        "turn": 26,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 38,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 38,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 38,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 38,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 38,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 38,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "WillPlay",
+        "player_id": 0,
+        "turn": 42,
+        "phase": "MAIN1"
+      }
+    ],
+    "hand_card_snapshot_occurrences": {
+      "Bloodstained Mire": 44,
+      "Dauthi Voidwalker": 288,
+      "Marsh Flats": 82,
+      "Crux of Fate": 555,
+      "Kari Zev, Skyship Raider": 278,
+      "Xander's Lounge": 11,
+      "Skullclamp": 51,
+      "Ingenious Infiltrator": 167,
+      "Purphoros, God of the Forge": 175,
+      "An Offer You Can't Refuse": 204,
+      "Balefire Dragon": 272,
+      "Yuriko, the Tiger's Shadow": 158,
+      "Malakir Rebirth": 6,
+      "Talisman of Dominance": 122,
+      "Misty Rainforest": 2,
+      "Kindred Discovery": 237,
+      "Lightning Greaves": 209,
+      "Training Center": 3,
+      "Aggravated Assault": 104,
+      "Scalding Tarn": 25,
+      "Goldlust Triad": 28,
+      "Exotic Orchard": 52,
+      "Gingerbrute": 8,
+      "Deflecting Swat": 16
+    }
+  },
+  "layered": {
+    "summary": {
+      "seed": 20261019,
+      "engine_ms": 28518,
+      "last_logged_turn": 44,
+      "status": "completed",
+      "winner": "Ai(4)-Destyn_Turtles",
+      "variant": "GGS_Layered_v1",
+      "seat_rotation": 0,
+      "seats": [
+        "GGS_Layered_v1",
+        "Jaymie_Ezio",
+        "Gabe_Food",
+        "Destyn_Turtles"
+      ],
+      "pilot": "commander-aware",
+      "batch_wall_seconds": 33.947,
+      "batch_size": 1,
+      "command": [
+        "java",
+        "-Xmx1536m",
+        "-XX:+UseParallelGC",
+        "-XX:-TieredCompilation",
+        "-XX:CompileThreshold=1000",
+        "-Djava.awt.headless=true",
+        "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Layered_v1",
+        "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/apex-layered-pod/layered/audit/GGS_Layered_v1__seat0__seeds20261019-20261019",
+        "-jar",
+        "/workspace/scratch/0209e1f07b34/borrowed-subtype-candidate/dragonmind-borrowed-subtype-experiment.jar",
+        "sim",
+        "-D",
+        "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+        "-d",
+        "GGS_Layered_v1.dck",
+        "Jaymie_Ezio.dck",
+        "Gabe_Food.dck",
+        "Destyn_Turtles.dck",
+        "-f",
+        "Commander",
+        "-seeds",
+        "20261019",
+        "-c",
+        "180",
+        "-a",
+        "Default",
+        "Default",
+        "Default",
+        "Default"
+      ],
+      "log": "GGS_Layered_v1__seat0__seeds20261019-20261019.log"
+    },
+    "performance": {
+      "wall_seconds": 33.953,
+      "attempts": 1,
+      "completed": 1,
+      "engine_seconds": [
+        28.518
+      ],
+      "completed_games_per_minute": 1.767,
+      "status_counts": {
+        "completed": 1
+      },
+      "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+    },
+    "metadata": {
+      "product": "DragonMind",
+      "rules_engine": "Forge 2.0.15 GPL-3.0-or-later fork",
+      "rules_baseline": {
+        "authority": "Wizards of the Coast",
+        "document": "Magic: The Gathering Comprehensive Rules",
+        "effective_date": "2026-09-25",
+        "checked_on": "2026-10-01",
+        "url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+        "sha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca",
+        "oracle_source": "https://gatherer.wizards.com/",
+        "commander_rules_section": "903",
+        "policy": "Official rules and current Oracle text take precedence over implementation behavior. Record discrepancies as engine errors; do not substitute approximations.",
+        "validation_status": "Targeted tests; not certified as exhaustive conformance."
+      },
+      "jar_sha256": "9389e96f9190e051f1b739460e61e0b407b087aa7fb3f5f423d6169bc5eeab68",
+      "deck_sha256": {
+        "GGS_Layered_v1": "65400110cb649d1498c39d58e59b2c20426d1ce1aee05c2af6889edbfb457584",
+        "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+        "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+        "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a"
+      },
+      "arguments": {
+        "engine": "/workspace/scratch/0209e1f07b34/forge-resources/forge-gui",
+        "jar": "/workspace/scratch/0209e1f07b34/borrowed-subtype-candidate/dragonmind-borrowed-subtype-experiment.jar",
+        "variant": "GGS_Layered_v1",
+        "seed": 20261019,
+        "seeds": 1,
+        "rotations": [
+          0
+        ],
+        "workers": 1,
+        "batch_size": 1,
+        "timeout": 180,
+        "gc": "parallel",
+        "jit": "throughput",
+        "stock": false,
+        "audit": true,
+        "output": "/workspace/scratch/0209e1f07b34/apex-layered-pod/layered"
+      }
+    },
+    "log_sha256": "c07ceefd3b22404e3d0e1e8a8830fd72282d037941a51bbf4b6e7179b47dac4e",
+    "own_turns": [
+      2,
+      6,
+      10,
+      14,
+      18,
+      22,
+      26,
+      30,
+      34,
+      38
+    ],
+    "commander_casts": [
+      {
+        "global_turn": 10,
+        "own_turn_number": 3
+      },
+      {
+        "global_turn": 18,
+        "own_turn_number": 5
+      }
+    ],
+    "opening_hand": [
+      "Mana Drain",
+      "Fell the Profane",
+      "Exotic Orchard",
+      "Blazemire Verge",
+      "Orochi Soul-Reaver",
+      "Ingenious Infiltrator",
+      "Mountain"
+    ],
+    "stack_actions": [
+      {
+        "turn": 10,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+      },
+      {
+        "turn": 14,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Deadly Rollick targeting [Savvy Hunter (225)]"
+      },
+      {
+        "turn": 14,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Lightning Greaves"
+      },
+      {
+        "turn": 14,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Lightning Greaves targeting [Goro-Goro and Satoru (100)]"
+      },
+      {
+        "turn": 18,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+      },
+      {
+        "turn": 18,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Lightning Greaves targeting [Goro-Goro and Satoru (100)]"
+      },
+      {
+        "turn": 18,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+      },
+      {
+        "turn": 22,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Orochi Soul-Reaver"
+      },
+      {
+        "turn": 22,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+      },
+      {
+        "turn": 22,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+      },
+      {
+        "turn": 22,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Krenko, Tin Street Kingpin"
+      },
+      {
+        "turn": 26,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Fallen Shinobi"
+      },
+      {
+        "turn": 26,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Fallen Shinobi"
+      },
+      {
+        "turn": 26,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+      },
+      {
+        "turn": 26,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Great Oak Guardian"
+      },
+      {
+        "turn": 26,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Great Oak Guardian targeting [Ai(1)-GGS_Layered_v1]"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Orochi Soul-Reaver"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+      },
+      {
+        "turn": 30,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+      },
+      {
+        "turn": 31,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Mana Drain targeting [Shao Jun - Creature 3 / 3]"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Mana Drain"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Ingenious Infiltrator"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Ingenious Infiltrator"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Ingenious Infiltrator"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered City of Brass"
+      },
+      {
+        "turn": 34,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Vandalblast"
+      },
+      {
+        "turn": 35,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Prize Pig"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Marsh Flats"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Reanimate targeting [Krang, the All-Powerful (325)]"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Krenko, Tin Street Kingpin"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Ingenious Infiltrator"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Ingenious Infiltrator"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Krang, the All-Powerful"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Krang, the All-Powerful"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Xander's Lounge"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Talisman of Dominance"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Fellwar Stone"
+      },
+      {
+        "turn": 38,
+        "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered City of Brass"
+      }
+    ],
+    "trigger_counts": {
+      "Goro-Goro and Satoru": 5,
+      "Orochi Soul-Reaver": 4,
+      "Fallen Shinobi": 1,
+      "Great Oak Guardian": 1,
+      "Mana Drain": 1,
+      "Ingenious Infiltrator": 4,
+      "City of Brass": 2,
+      "Prize Pig": 1,
+      "Krenko, Tin Street Kingpin": 1,
+      "Krang, the All-Powerful": 2
+    },
+    "logged_damage_by_source": {
+      "Goro-Goro and Satoru": {
+        "Ai(4)-Destyn_Turtles": 6,
+        "Ai(2)-Jaymie_Ezio": 3
+      },
+      "Orochi Soul-Reaver": {
+        "Ai(3)-Gabe_Food": 10,
+        "Ai(4)-Destyn_Turtles": 10
+      },
+      "Dragon Spirit Token": {
+        "Ai(3)-Gabe_Food": 10,
+        "Ai(4)-Destyn_Turtles": 5
+      },
+      "Fallen Shinobi": {
+        "Ai(3)-Gabe_Food": 5
+      },
+      "Gwaihir, Greatest of the Eagles": {
+        "Ai(1)-GGS_Layered_v1": 12
+      },
+      "Ingenious Infiltrator": {
+        "Ai(3)-Gabe_Food": 2,
+        "Ai(4)-Destyn_Turtles": 2
+      },
+      "City of Brass": {
+        "Ai(1)-GGS_Layered_v1": 2
+      },
+      "Great Oak Guardian": {
+        "Ai(1)-GGS_Layered_v1": 4
+      },
+      "Tokka & Rahzar, Unsupervised": {
+        "Ai(3)-Gabe_Food": 5
+      },
+      "Leonardo, the Balance": {
+        "Ai(3)-Gabe_Food": 5,
+        "Ai(1)-GGS_Layered_v1": 8,
+        "Ai(2)-Jaymie_Ezio": 15
+      },
+      "Michelangelo, the Heart": {
+        "Ai(3)-Gabe_Food": 4,
+        "Ai(1)-GGS_Layered_v1": 8,
+        "Ai(2)-Jaymie_Ezio": 22
+      },
+      "Krenko, Tin Street Kingpin": {
+        "Ai(4)-Destyn_Turtles": 2
+      },
+      "Ezio Auditore da Firenze": {
+        "Ai(4)-Destyn_Turtles": 3
+      },
+      "Ninja Token": {
+        "Ai(2)-Jaymie_Ezio": 12
+      },
+      "Changeling Outcast": {
+        "Ai(4)-Destyn_Turtles": 1
+      },
+      "Heroes in a Half Shell": {
+        "Ai(2)-Jaymie_Ezio": 7
+      }
+    },
+    "log_category_counts": {
+      "Error handling registered!": 1,
+      "13": 6,
+      "Language 'en-US' loaded successfully.": 1,
+      "(ThreadUtil first call)": 1,
+      "Read cards": 2,
+      "Upcoming set Star Trek (TRK) dated in the future. All `upcoming` cards will be added to this set with unknown rarity.": 2,
+      "The card A-Alrund's Epiphany was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Baba Lysaga, Night Witch was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Divide by Zero was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Esika's Chariot was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Faceless Haven was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Fires of Invention was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Goldspan Dragon was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Hullbreaker Horror was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Kumano Faces Kakkazan was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Luminarch Aspirant was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Monster Manual was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Omnath, Locus of Creation was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-The Meathook Massacre was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card A-Unholy Heat was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Blinding Radiance was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Goblin Bruiser was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Ogre Painbringer was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Titanic Pelagosaur was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "The card Treetop Recluse was not assigned to any set. Adding it to UNKNOWN set... to fix see res/editions/ folder. ": 1,
+      "Simulation mode": 1,
+      "Ai(1)-GGS_Layered_v1 [Default] vs Ai(2)-Jaymie_Ezio [Default] vs Ai(3)-Gabe_Food [Default] vs Ai(4)-Destyn_Turtles [Default] - one game of Commander": 1,
+      "Fell Mire Did not have activator set in SpellAbility_Condition.checkConditions()": 6,
+      "Warning": 3,
+      "Correcting zone for Tempestra, Dame of Games (382)": 1,
+      "Correcting zone for Krang, the All-Powerful (325)": 1,
+      "Correcting zone for Face-down card (H4)": 1,
+      "Mulligan": 4,
+      "Turn": 44,
+      "Phase": 568,
+      "Replacement Effect": 37,
+      "Land": 36,
+      "Mana": 173,
+      "Add To Stack": 118,
+      "Resolve Stack": 119,
+      "Life": 31,
+      "Zone Change": 27,
+      "Combat": 30,
+      "Damage": 45,
+      "Ai(3)-Gabe_Food didn't block Dragon Spirit Token (416).": 1,
+      "Ai(4)-Destyn_Turtles didn't block Dragon Spirit Token (423).": 1,
+      "Ai(4)-Destyn_Turtles didn't block Great Oak Guardian (223).": 1,
+      "Ai(3)-Gabe_Food didn't block Orochi Soul-Reaver (68).": 1,
+      "Ai(3)-Gabe_Food didn't block Dragon Spirit Token (434).": 1,
+      "Discard": 3,
+      "Ai(1)-GGS_Layered_v1 didn't block Great Oak Guardian (223).": 1,
+      "Ai(3)-Gabe_Food didn't block Leonardo, the Balance (404).": 1,
+      "Ai(3)-Gabe_Food didn't block Michelangelo, the Heart (402).": 1,
+      "Ai(4)-Destyn_Turtles didn't block Orochi Soul-Reaver (68).": 1,
+      "Ai(4)-Destyn_Turtles didn't block Goro-Goro and Satoru (100).": 1,
+      "Ai(4)-Destyn_Turtles didn't block Ingenious Infiltrator (24).": 1,
+      "Ai(1)-GGS_Layered_v1 didn't block Michelangelo, the Heart (402).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Michelangelo, the Heart (402).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Ninja Token (464).": 2,
+      "Ai(2)-Jaymie_Ezio didn't block Ninja Token (466).": 2,
+      "Ai(2)-Jaymie_Ezio assigned Ramses, Assassin Lord (114) to block Michelangelo, the Heart (402).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Heroes in a Half Shell (375).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Ninja Token (469).": 1,
+      "Ai(2)-Jaymie_Ezio didn't block Ninja Token (471).": 1,
+      "Player Control": 4,
+      "Game Outcome": 6,
+      "Match Result": 1,
+      "DragonMind Result": 1,
+      "": 2,
+      "Game Result": 1
+    },
+    "priority_counts": {
+      "seat-3": 523,
+      "seat-2": 405,
+      "seat-0": 464,
+      "seat-1": 519
+    },
+    "evaluation_counts": {
+      "evaluation-seat-2": {
+        "rows": 2342,
+        "decisions": {
+          "CantPlayAi": 710,
+          "CantPlaySa": 1531,
+          "CantAfford": 86,
+          "BadEtbEffects": 5,
+          "WillPlay": 10
+        }
+      },
+      "evaluation-seat-0": {
+        "rows": 4403,
+        "decisions": {
+          "CantPlaySa": 2806,
+          "CantPlayAi": 1480,
+          "CantAfford": 64,
+          "WillPlay": 20,
+          "GgsNinjutsu:noDamagePlan": 21,
+          "GgsNinjutsu:score=31,return=Dragon Spirit Token,damageDelta=0,hitValueDelta=50,additionalGgsDragon=true,activationMana=4,replayMana=0,lostEngine=0,tokenLost=true": 1,
+          "GgsNinjutsu:payReturn=Dragon Spirit Token,score=31": 1,
+          "GgsNinjutsu:score=-94,return=Orochi Soul-Reaver,damageDelta=-3,hitValueDelta=-20,additionalGgsDragon=false,activationMana=2,replayMana=6,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:score=72,return=Orochi Soul-Reaver,damageDelta=0,hitValueDelta=30,additionalGgsDragon=true,activationMana=4,replayMana=6,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:payReturn=Orochi Soul-Reaver,score=72": 1,
+          "GgsNinjutsu:score=-59,return=Dragon Spirit Token,damageDelta=0,hitValueDelta=50,additionalGgsDragon=false,activationMana=4,replayMana=0,lostEngine=0,tokenLost=true": 1,
+          "GgsNinjutsu:score=-75,return=Dragon Spirit Token,damageDelta=-3,hitValueDelta=60,additionalGgsDragon=false,activationMana=2,replayMana=0,lostEngine=0,tokenLost=true": 2,
+          "GgsNinjutsu:score=103,return=Great Oak Guardian,damageDelta=1,hitValueDelta=50,additionalGgsDragon=true,activationMana=4,replayMana=6,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:payReturn=Great Oak Guardian,score=103": 1,
+          "GgsNinjutsu:score=15,return=Dragon Spirit Token,damageDelta=-3,hitValueDelta=60,additionalGgsDragon=true,activationMana=2,replayMana=0,lostEngine=0,tokenLost=true": 1,
+          "GgsNinjutsu:payReturn=Dragon Spirit Token,score=15": 1
+        }
+      },
+      "evaluation-seat-3": {
+        "rows": 4661,
+        "decisions": {
+          "CantPlayAi": 2358,
+          "CantPlaySa": 2202,
+          "CantAfford": 73,
+          "WillPlay": 16,
+          "BadEtbEffects": 12
+        }
+      },
+      "evaluation-seat-1": {
+        "rows": 4891,
+        "decisions": {
+          "CantPlayAi": 2978,
+          "CantAfford": 197,
+          "WillPlay": 13,
+          "CantPlaySa": 1703
+        }
+      }
+    },
+    "audit_bytes": 45117835,
+    "main1_first_snapshot_per_own_turn": {
+      "2": {
+        "life": 40,
+        "hand": [
+          "Mana Drain",
+          "Fell the Profane",
+          "Exotic Orchard",
+          "Blazemire Verge",
+          "Orochi Soul-Reaver",
+          "Ingenious Infiltrator",
+          "Mountain",
+          "Deadly Rollick"
+        ],
+        "battlefield": []
+      },
+      "6": {
+        "life": 40,
+        "hand": [
+          "Mana Drain",
+          "Fell the Profane",
+          "Exotic Orchard",
+          "Orochi Soul-Reaver",
+          "Ingenious Infiltrator",
+          "Mountain",
+          "Deadly Rollick",
+          "Krenko, Tin Street Kingpin"
+        ],
+        "battlefield": [
+          {
+            "name": "Blazemire Verge",
+            "tapped": false,
+            "type": "Land"
+          }
+        ]
+      },
+      "10": {
+        "life": 40,
+        "hand": [
+          "Mana Drain",
+          "Fell the Profane",
+          "Exotic Orchard",
+          "Orochi Soul-Reaver",
+          "Ingenious Infiltrator",
+          "Deadly Rollick",
+          "Krenko, Tin Street Kingpin",
+          "Mana Confluence"
+        ],
+        "battlefield": [
+          {
+            "name": "Blazemire Verge",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Mountain",
+            "tapped": false,
+            "type": "Basic Land - Mountain"
+          }
+        ]
+      },
+      "14": {
+        "life": 39,
+        "hand": [
+          "Mana Drain",
+          "Fell the Profane",
+          "Exotic Orchard",
+          "Orochi Soul-Reaver",
+          "Ingenious Infiltrator",
+          "Krenko, Tin Street Kingpin",
+          "Lightning Greaves"
+        ],
+        "battlefield": [
+          {
+            "name": "Blazemire Verge",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Mountain",
+            "tapped": false,
+            "type": "Basic Land - Mountain"
+          },
+          {
+            "name": "Mana Confluence",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Goro-Goro and Satoru",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin Human"
+          }
+        ]
+      },
+      "18": {
+        "life": 39,
+        "hand": [
+          "Mana Drain",
+          "Exotic Orchard",
+          "Orochi Soul-Reaver",
+          "Ingenious Infiltrator",
+          "Krenko, Tin Street Kingpin",
+          "Takenuma, Abandoned Mire"
+        ],
+        "battlefield": [
+          {
+            "name": "Blazemire Verge",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Mountain",
+            "tapped": false,
+            "type": "Basic Land - Mountain"
+          },
+          {
+            "name": "Mana Confluence",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Fell Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Lightning Greaves",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          }
+        ]
+      },
+      "22": {
+        "life": 38,
+        "hand": [
+          "Mana Drain",
+          "Exotic Orchard",
+          "Orochi Soul-Reaver",
+          "Ingenious Infiltrator",
+          "Krenko, Tin Street Kingpin",
+          "Diabolic Intent"
+        ],
+        "battlefield": [
+          {
+            "name": "Blazemire Verge",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Mountain",
+            "tapped": false,
+            "type": "Basic Land - Mountain"
+          },
+          {
+            "name": "Mana Confluence",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Fell Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Lightning Greaves",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Takenuma, Abandoned Mire",
+            "tapped": false,
+            "type": "Legendary Land"
+          },
+          {
+            "name": "Goro-Goro and Satoru",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin Human"
+          },
+          {
+            "name": "Dragon Spirit Token",
+            "tapped": false,
+            "type": "Creature - Dragon Spirit"
+          }
+        ]
+      },
+      "26": {
+        "life": 37,
+        "hand": [
+          "Mana Drain",
+          "Ingenious Infiltrator",
+          "Diabolic Intent",
+          "Fallen Shinobi"
+        ],
+        "battlefield": [
+          {
+            "name": "Blazemire Verge",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Mountain",
+            "tapped": false,
+            "type": "Basic Land - Mountain"
+          },
+          {
+            "name": "Mana Confluence",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Fell Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Lightning Greaves",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Takenuma, Abandoned Mire",
+            "tapped": false,
+            "type": "Legendary Land"
+          },
+          {
+            "name": "Goro-Goro and Satoru",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin Human"
+          },
+          {
+            "name": "Exotic Orchard",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Orochi Soul-Reaver",
+            "tapped": false,
+            "type": "Creature - Snake Ninja Rogue"
+          },
+          {
+            "name": "",
+            "tapped": false,
+            "type": "Creature"
+          },
+          {
+            "name": "Dragon Spirit Token",
+            "tapped": false,
+            "type": "Creature - Dragon Spirit"
+          },
+          {
+            "name": "Krenko, Tin Street Kingpin",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin"
+          }
+        ]
+      },
+      "30": {
+        "life": 37,
+        "hand": [
+          "Mana Drain",
+          "Ingenious Infiltrator",
+          "Diabolic Intent",
+          "Orochi Soul-Reaver",
+          "Xander's Lounge"
+        ],
+        "battlefield": [
+          {
+            "name": "Blazemire Verge",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Mountain",
+            "tapped": false,
+            "type": "Basic Land - Mountain"
+          },
+          {
+            "name": "Mana Confluence",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Fell Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Lightning Greaves",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Takenuma, Abandoned Mire",
+            "tapped": false,
+            "type": "Legendary Land"
+          },
+          {
+            "name": "Goro-Goro and Satoru",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin Human"
+          },
+          {
+            "name": "Exotic Orchard",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "",
+            "tapped": false,
+            "type": "Creature"
+          },
+          {
+            "name": "Krenko, Tin Street Kingpin",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin"
+          },
+          {
+            "name": "Fallen Shinobi",
+            "tapped": false,
+            "type": "Creature - Zombie Ninja"
+          },
+          {
+            "name": "Dragon Spirit Token",
+            "tapped": false,
+            "type": "Creature - Dragon Spirit"
+          },
+          {
+            "name": "Great Oak Guardian",
+            "tapped": false,
+            "type": "Creature - Treefolk"
+          },
+          {
+            "name": "Plains",
+            "tapped": false,
+            "type": "Basic Land - Plains"
+          }
+        ]
+      },
+      "34": {
+        "life": 29,
+        "hand": [
+          "Ingenious Infiltrator",
+          "Diabolic Intent",
+          "Xander's Lounge",
+          "City of Brass"
+        ],
+        "battlefield": [
+          {
+            "name": "Blazemire Verge",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Mountain",
+            "tapped": false,
+            "type": "Basic Land - Mountain"
+          },
+          {
+            "name": "Mana Confluence",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Fell Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Lightning Greaves",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Takenuma, Abandoned Mire",
+            "tapped": false,
+            "type": "Legendary Land"
+          },
+          {
+            "name": "Goro-Goro and Satoru",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin Human"
+          },
+          {
+            "name": "Exotic Orchard",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "",
+            "tapped": false,
+            "type": "Creature"
+          },
+          {
+            "name": "Krenko, Tin Street Kingpin",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin"
+          },
+          {
+            "name": "Dragon Spirit Token",
+            "tapped": false,
+            "type": "Creature - Dragon Spirit"
+          },
+          {
+            "name": "Plains",
+            "tapped": false,
+            "type": "Basic Land - Plains"
+          },
+          {
+            "name": "Orochi Soul-Reaver",
+            "tapped": false,
+            "type": "Creature - Snake Ninja Rogue"
+          },
+          {
+            "name": "Tempestra, Dame of Games",
+            "tapped": false,
+            "type": "Legendary Creature - Elemental Illusion"
+          },
+          {
+            "name": "Dragon Spirit Token",
+            "tapped": false,
+            "type": "Creature - Dragon Spirit"
+          }
+        ]
+      },
+      "38": {
+        "life": 23,
+        "hand": [
+          "Diabolic Intent",
+          "Xander's Lounge",
+          "Reanimate",
+          "Marsh Flats"
+        ],
+        "battlefield": [
+          {
+            "name": "Blazemire Verge",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Mountain",
+            "tapped": false,
+            "type": "Basic Land - Mountain"
+          },
+          {
+            "name": "Mana Confluence",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Fell Mire",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Lightning Greaves",
+            "tapped": false,
+            "type": "Artifact - Equipment"
+          },
+          {
+            "name": "Takenuma, Abandoned Mire",
+            "tapped": false,
+            "type": "Legendary Land"
+          },
+          {
+            "name": "Goro-Goro and Satoru",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin Human"
+          },
+          {
+            "name": "Exotic Orchard",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Krenko, Tin Street Kingpin",
+            "tapped": false,
+            "type": "Legendary Creature - Goblin"
+          },
+          {
+            "name": "Orochi Soul-Reaver",
+            "tapped": false,
+            "type": "Creature - Snake Ninja Rogue"
+          },
+          {
+            "name": "Tempestra, Dame of Games",
+            "tapped": false,
+            "type": "Legendary Creature - Elemental Illusion"
+          },
+          {
+            "name": "City of Brass",
+            "tapped": false,
+            "type": "Land"
+          },
+          {
+            "name": "Ingenious Infiltrator",
+            "tapped": false,
+            "type": "Creature - Vedalken Ninja"
+          },
+          {
+            "name": "Island",
+            "tapped": false,
+            "type": "Basic Land - Island"
+          }
+        ]
+      }
+    },
+    "commander_evaluations": [
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 2,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 2,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 2,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 2,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantAfford",
+        "player_id": 0,
+        "turn": 6,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 10,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "CantPlayAi",
+        "player_id": 0,
+        "turn": 10,
+        "phase": "MAIN1"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "WillPlay",
+        "player_id": 0,
+        "turn": 10,
+        "phase": "MAIN2"
+      },
+      {
+        "kind": "ai_evaluation",
+        "offline_private": true,
+        "ability": "Goro-Goro and Satoru - Creature 3 / 4",
+        "decision": "WillPlay",
+        "player_id": 0,
+        "turn": 18,
+        "phase": "MAIN1"
+      }
+    ],
+    "hand_card_snapshot_occurrences": {
+      "Mana Drain": 315,
+      "Fell the Profane": 117,
+      "Exotic Orchard": 202,
+      "Blazemire Verge": 11,
+      "Orochi Soul-Reaver": 257,
+      "Ingenious Infiltrator": 355,
+      "Mountain": 44,
+      "Deadly Rollick": 105,
+      "Krenko, Tin Street Kingpin": 171,
+      "Mana Confluence": 2,
+      "Lightning Greaves": 5,
+      "Takenuma, Abandoned Mire": 2,
+      "Diabolic Intent": 264,
+      "Fallen Shinobi": 6,
+      "Xander's Lounge": 146,
+      "City of Brass": 3,
+      "Reanimate": 67,
+      "Vandalblast": 3,
+      "Marsh Flats": 2,
+      "Talisman of Dominance": 8,
+      "Gloomlake Verge": 27,
+      "Fellwar Stone": 3
+    }
+  }
+}

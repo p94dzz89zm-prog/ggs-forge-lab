@@ -1,0 +1,13 @@
+{
+  "wall_seconds": 58.522,
+  "attempts": 1,
+  "completed": 1,
+  "engine_seconds": [
+    52.34
+  ],
+  "completed_games_per_minute": 1.025,
+  "status_counts": {
+    "completed": 1
+  },
+  "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+}
