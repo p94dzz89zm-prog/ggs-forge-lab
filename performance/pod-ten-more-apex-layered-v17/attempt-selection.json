@@ -1,0 +1,24 @@
+{
+  "accepted_games": 20,
+  "total_attempts": 22,
+  "retries": [
+    {
+      "deck": "apex",
+      "seed": 20261028,
+      "original_status": "engine_error",
+      "original_log_sha256": "bfc77172e4707bc5b2ed1d02afe824bef78d69f4e1e2bd6dbc0bf7f93dfd7de1",
+      "accepted_retry_log_sha256": "ecb86cbca525b7e38f54b11669991b2e9fdf3ff22396eceb129660c7bc169019",
+      "retry_settings": "unchanged",
+      "cause": "AI evaluation TimeoutException"
+    },
+    {
+      "deck": "layered",
+      "seed": 20261031,
+      "original_status": "not_run",
+      "original_log_sha256": "bbc67eaa62e737f63b8a4a932ea7792610a0ab2d9dba3e5b330498af3630863a",
+      "accepted_retry_log_sha256": "dad02f9815450b97d40010dadcbb2e2e3be791e5bf23711a84c9cd3245aabe5b",
+      "retry_settings": "unchanged",
+      "cause": "No terminal game result; original JVM exited without a trusted completion"
+    }
+  ]
+}

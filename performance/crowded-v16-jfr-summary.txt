@@ -1,0 +1,67 @@
+Execution samples=19830; with Forge frame=19810
+Top Forge leaf frames (sample hits)
+2131	forge.game.card.CardState.getStaticAbilities
+1604	forge.util.collect.FCollection.addAll
+1303	forge.card.CardType.hasSubtype
+1294	forge.util.collect.FCollection.add
+939	forge.game.card.Card.isValid
+915	forge.game.card.Card.updateStaticAbilities
+570	forge.game.card.CardProperty.cardHasProperty
+493	forge.game.staticability.StackCandidateEligibility.lambda$inspect$0
+458	forge.game.player.Player.getCardsIn
+453	forge.util.collect.FCollection.<init>
+420	forge.game.CardTraitBase.hasParam
+397	forge.game.staticability.StaticAbilityContinuous.applyContinuousAbility
+250	forge.game.staticability.StackCandidateEligibility.compile
+246	forge.game.keyword.KeywordCollection.insert
+210	forge.card.CardType.isACreatureType
+Decision paths (sample hits)
+855	forge.game.card.Card.isValid <- forge.game.GameObject.isValid <- forge.game.card.CardPredicates.lambda$restriction$20 <- forge.game.card.CardPredicates$$Lambda$493+0x00007f22052b30e8.1225865499.test <- forge.util.collect.FCollection.<init> <- forge.game.card.CardCollection.<init> <- forge.game.card.CardLists.filter <- forge.game.card.CardLists.getValidCards
+592	forge.card.CardType.hasSubtype <- forge.card.CardType.isSaga <- forge.game.card.CardState.getReplacementEffects <- forge.game.card.CardState.getReplacementEffects <- forge.game.card.Card.getReplacementEffects <- forge.game.replacement.ReplacementHandler.lambda$getReplacementList$4 <- forge.game.replacement.ReplacementHandler$$Lambda$489+0x00007f22052aad10.1007490383.visit <- forge.util.Visitor.visitAll
+504	forge.game.card.CardProperty.cardHasProperty <- forge.game.card.Card.hasProperty <- forge.game.card.Card.isValid <- forge.game.GameObject.isValid <- forge.game.card.CardPredicates.lambda$restriction$20 <- forge.game.card.CardPredicates$$Lambda$493+0x00007f22052b30e8.1225865499.test <- forge.util.collect.FCollection.<init> <- forge.game.card.CardCollection.<init>
+488	forge.game.staticability.StackCandidateEligibility.lambda$inspect$0 <- forge.game.staticability.StackCandidateEligibility$$Lambda$773+0x00007f2205347690.673289184.visit <- forge.util.Visitor.visitAll <- forge.game.Game.forEachCardInGame <- forge.game.staticability.StackCandidateEligibility.inspect <- forge.game.staticability.StackCandidateEligibility.predict <- forge.game.GameActionUtil.getAlternativeCosts <- forge.game.card.Card.lambda$getAllPossibleAbilities$4
+338	forge.card.CardType.hasSubtype <- forge.card.CardType.hasStringType <- forge.game.card.Card.isValid <- forge.game.GameObject.isValid <- forge.game.card.CardPredicates.lambda$restriction$20 <- forge.game.card.CardPredicates$$Lambda$493+0x00007f22052b30e8.1225865499.test <- forge.util.collect.FCollection.<init> <- forge.game.card.CardCollection.<init>
+295	forge.game.card.CardState.getStaticAbilities <- forge.game.card.Card.getStaticAbilities <- forge.game.GameAction.lambda$checkStaticAbilities$0 <- forge.game.GameAction$$Lambda$491+0x00007f22052b0840.230883356.visit <- forge.util.Visitor.visitAll <- forge.game.Game.forEachCardInGame <- forge.game.GameAction.checkStaticAbilities <- forge.game.GameAction.checkStaticAbilities
+286	forge.game.card.CardState.getStaticAbilities <- forge.game.card.Card.getStaticAbilities <- forge.game.GameAction.lambda$checkStaticAbilities$0 <- forge.game.GameAction$$Lambda$491+0x00007f22052b0840.230883356.visit <- forge.util.Visitor.visitAll <- forge.game.Game.forEachCardInGame <- forge.game.GameAction.checkStaticAbilities <- forge.game.GameActionUtil.getAlternativeCosts
+273	forge.util.collect.FCollection.addAll <- forge.game.keyword.KeywordInstance.applyStaticAbility <- forge.game.keyword.KeywordCollection.applyStaticAbility <- forge.game.card.Card.updateStaticAbilities <- forge.game.card.CardState.getStaticAbilities <- forge.game.card.Card.getStaticAbilities <- forge.game.GameAction.lambda$checkStaticAbilities$0 <- forge.game.GameAction$$Lambda$491+0x00007f22052b0840.230883356.visit
+253	forge.game.card.CardState.getStaticAbilities <- forge.game.card.Card.getStaticAbilities <- forge.game.staticability.StackCandidateEligibility.lambda$inspect$0 <- forge.game.staticability.StackCandidateEligibility$$Lambda$773+0x00007f2205347690.673289184.visit <- forge.util.Visitor.visitAll <- forge.game.Game.forEachCardInGame <- forge.game.staticability.StackCandidateEligibility.inspect <- forge.game.staticability.StackCandidateEligibility.predict
+250	forge.game.staticability.StackCandidateEligibility.compile <- forge.game.staticability.StackCandidateEligibility.lambda$inspect$0 <- forge.game.staticability.StackCandidateEligibility$$Lambda$773+0x00007f2205347690.673289184.visit <- forge.util.Visitor.visitAll <- forge.game.Game.forEachCardInGame <- forge.game.staticability.StackCandidateEligibility.inspect <- forge.game.staticability.StackCandidateEligibility.predict <- forge.game.GameActionUtil.getAlternativeCosts
+163	forge.game.card.CardState.getStaticAbilities <- forge.game.card.Card.getStaticAbilities <- forge.game.staticability.StaticAbilityDevotion.getDevotionMod <- forge.game.player.Player.afterStaticAbilityLayer <- forge.game.GameAction.checkStaticAbilities <- forge.game.GameActionUtil.getAlternativeCosts <- forge.game.card.Card.lambda$getAllPossibleAbilities$4 <- forge.game.card.Card$$Lambda$520+0x00007f22052bf920.1378896634.accept
+161	forge.util.collect.FCollection.add <- forge.util.collect.FCollection.addAll <- forge.util.collect.FCollection.addAll <- forge.game.player.PlayerCollection.getCardsIn <- forge.game.Game.getCardsIn <- forge.game.staticability.StaticAbilityContinuous.getAffectedCards <- forge.game.GameAction.findStaticAbilityToApply <- forge.game.GameAction.checkStaticAbilities
+144	forge.game.card.Card.updateStaticAbilities <- forge.game.card.CardState.getStaticAbilities <- forge.game.card.Card.getStaticAbilities <- forge.game.GameAction.lambda$checkStaticAbilities$0 <- forge.game.GameAction$$Lambda$491+0x00007f22052b0840.230883356.visit <- forge.util.Visitor.visitAll <- forge.game.Game.forEachCardInGame <- forge.game.GameAction.checkStaticAbilities
+140	forge.util.collect.FCollection.add <- forge.util.collect.FCollection.addAll <- forge.util.collect.FCollection.addAll <- forge.game.Game.getCardsIn <- forge.game.staticability.StaticAbilityDevotion.getDevotionMod <- forge.game.player.Player.afterStaticAbilityLayer <- forge.game.GameAction.checkStaticAbilities <- forge.game.GameAction.checkStaticAbilities
+139	forge.game.card.CardState.getStaticAbilities <- forge.game.card.Card.getStaticAbilities <- forge.game.staticability.StaticAbilityAlternativeCost.alternativeCosts <- forge.game.GameActionUtil.getAlternativeCosts <- forge.game.card.Card.lambda$getAllPossibleAbilities$4 <- forge.game.card.Card$$Lambda$520+0x00007f22052bf920.1378896634.accept <- forge.game.card.Card.getAllPossibleAbilities <- forge.ai.ComputerUtilAbility.getSpellAbilities
+Inclusive target hits (overlap; do not add)
+13312	forge.ai.ComputerUtilAbility.getSpellAbilities
+13311	forge.game.card.Card.getAllPossibleAbilities
+12063	forge.game.GameActionUtil.getAlternativeCosts
+10067	forge.game.GameAction.checkStaticAbilities
+4221	forge.ai.AiController.canPlayAndPayFor
+3856	forge.ai.AiController.canPlaySa
+3601	forge.ai.ComputerUtil.predictNextCombatsRemainingLife
+3218	forge.ai.AiBlockController.assignBlockersForCombat
+2951	forge.ai.AiAttackController.declareAttackers
+1594	forge.game.replacement.ReplacementHandler.getReplacementList
+1090	forge.ai.ComputerUtil.evaluateBoardPositionChanged
+679	forge.game.staticability.StaticAbilityAlternativeCost.alternativeCosts
+646	forge.ai.PlayerControllerAi.declareAttackers
+646	forge.ai.AiController.declareAttackers
+108	forge.game.spellability.Spell.getAlternateHost
+32	forge.game.card.Card.getSpellAbilities
+32	forge.game.card.CardState.getSpellAbilities
+Sampled allocation weight by nearest Forge frame (bytes; estimates)
+49723402752	forge.util.collect.FCollection.add
+38089352552	forge.util.collect.FCollection.<init>
+19272265136	forge.util.collect.FCollection.iterator
+17535020112	forge.game.card.Card.updateStaticAbilities
+12017253744	forge.game.staticability.StackCandidateEligibility.lambda$inspect$0
+9671071136	forge.game.staticability.StaticAbilityContinuous.applyContinuousAbility
+8731086336	forge.game.zone.ZoneType.listValueOf
+7455006416	forge.game.card.CardState.getStaticAbilities
+7437237312	forge.util.collect.FCollection.hashed
+6100912832	forge.game.card.Card.isValid
+5551068248	forge.game.keyword.KeywordCollection.insert
+5441675512	forge.util.collect.FCollection.addAll
+3499636848	forge.util.collect.FCollection.anyMatch
+3335619656	forge.game.keyword.KeywordCollection$1.iterator
+3324615952	forge.game.keyword.KeywordInstance.getReminderText

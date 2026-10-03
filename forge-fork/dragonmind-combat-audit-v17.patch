@@ -1,0 +1,76 @@
+--- a/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java
++++ b/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java
+@@ -69,6 +69,24 @@
+             var sa=instance.getSpellAbility();JsonObject so=entity(sa.getHostCard(),viewer);
+             if(!sa.getHostCard().isFaceDown())so.addProperty("description",sa.toString());stack.add(so);
+         }
+-        out.add("stack",stack);return out;
++        out.add("stack",stack);
++        var combat=game.getCombat();
++        if(combat!=null) {
++            JsonArray attackers=new JsonArray();
++            for(Card attacker:combat.getAttackers()) {
++                JsonObject relation=new JsonObject();relation.addProperty("attacker_id",attacker.getId());
++                GameEntity defender=combat.getDefenderByAttacker(attacker);
++                if(defender!=null) {
++                    relation.addProperty("defender_id",defender.getId());
++                    relation.addProperty("defender_kind",defender instanceof Player ? "player" : "card");
++                }
++                relation.addProperty("blocked",combat.isBlocked(attacker));
++                relation.addProperty("unblocked",combat.isUnblocked(attacker));
++                JsonArray blockers=new JsonArray();for(Card blocker:combat.getBlockers(attacker))blockers.add(blocker.getId());
++                relation.add("blocker_ids",blockers);attackers.add(relation);
++            }
++            JsonObject publicCombat=new JsonObject();publicCombat.add("attackers",attackers);out.add("combat",publicCombat);
++        }
++        return out;
+     }
+ }
+--- a/forge-ai/src/main/java/forge/ai/bridge/BridgeAudit.java
++++ b/forge-ai/src/main/java/forge/ai/bridge/BridgeAudit.java
+@@ -12,6 +12,8 @@
+         String dir=System.getProperty("forge.audit.directory");if(dir==null)return;
+         JsonObject row=new JsonObject();row.addProperty("kind","ai_evaluation");
+         row.addProperty("offline_private",true);row.addProperty("ability",ability.toString());row.addProperty("decision",decision);
++        row.addProperty("card_id",ability.getHostCard().getId());row.addProperty("card",ability.getHostCard().getName());
++        row.addProperty("is_ninjutsu",ability.isNinjutsu());
+         // Full state is recorded at priority selection, not for every candidate:
+         // duplicating snapshots in the timed evaluator would distort its budget.
+         row.addProperty("player_id",player.getId());row.addProperty("turn",player.getGame().getPhaseHandler().getTurn());
+--- a/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
+@@ -169,4 +169,34 @@
+         Assert.assertEquals(snapshot.get("rules_text_kind").getAsString(),"oracle_current_face");
+     }
+
++    @Test public void snapshotRecordsCombatRelationsWithoutRevealingFaceDownIdentity(){
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1),opp=game.getPlayers().get(0);
++        Card attacker=addCard("Grizzly Bears",me),unblocked=addCard("Phoenix Chick",me);
++        Card blocker=addCard("Fallen Shinobi",opp);blocker.turnFaceDown(true);
++        Combat combat=new Combat(me);combat.addAttacker(attacker,opp);combat.addAttacker(unblocked,opp);
++        combat.addBlocker(attacker,blocker);combat.setBlocked(attacker,true);combat.setBlocked(unblocked,false);
++        game.getPhaseHandler().setCombat(combat);
++        var snapshot=BridgeSnapshot.forPlayer(me);Assert.assertFalse(snapshot.toString().contains("Fallen Shinobi"));
++        var relations=snapshot.getAsJsonObject("combat").getAsJsonArray("attackers");Assert.assertEquals(relations.size(),2);
++        var blocked=relations.get(0).getAsJsonObject();Assert.assertEquals(blocked.get("attacker_id").getAsInt(),attacker.getId());
++        Assert.assertEquals(blocked.get("defender_id").getAsInt(),opp.getId());Assert.assertEquals(blocked.get("defender_kind").getAsString(),"player");
++        Assert.assertTrue(blocked.get("blocked").getAsBoolean());Assert.assertFalse(blocked.get("unblocked").getAsBoolean());
++        Assert.assertEquals(blocked.getAsJsonArray("blocker_ids").get(0).getAsInt(),blocker.getId());
++        Assert.assertTrue(relations.get(1).getAsJsonObject().get("unblocked").getAsBoolean());
++        game.getPhaseHandler().setCombat(null);Assert.assertFalse(BridgeSnapshot.forPlayer(me).has("combat"));
++    }
++
++    @Test public void privateEvaluationIdentifiesNinjutsuHostWithoutAddingFullState()throws Exception{
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1);
++        Card ninja=addCardToZone("Moon-Circuit Hacker",me,ZoneType.Hand);
++        SpellAbility sa=forge.ai.ComputerUtilAbility.getSpellAbilities(new CardCollection(ninja),me).stream()
++                .filter(SpellAbility::isNinjutsu).findFirst().orElseThrow();sa.setActivatingPlayer(me);
++        Path dir=Files.createTempDirectory("forge-ninjutsu-audit");System.setProperty("forge.audit.directory",dir.toString());
++        BridgeAudit.evaluation(me,sa,"CantAfford");
++        var row=JsonParser.parseString(Files.readString(dir.resolve("evaluation-seat-"+me.getId()+".jsonl")).trim()).getAsJsonObject();
++        Assert.assertTrue(row.get("offline_private").getAsBoolean());Assert.assertTrue(row.get("is_ninjutsu").getAsBoolean());
++        Assert.assertEquals(row.get("card_id").getAsInt(),ninja.getId());Assert.assertEquals(row.get("card").getAsString(),"Moon-Circuit Hacker");
++        Assert.assertFalse(row.has("state"));
++    }
++
+ }

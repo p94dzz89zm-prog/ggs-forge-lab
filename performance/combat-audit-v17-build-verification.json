@@ -1,0 +1,34 @@
+{
+  "upstream_commit": "4ec5f1a2c32fa90ecb983a72b9eb47aa5c5d7676",
+  "ordered_patches": 19,
+  "reproduced_managed_sources": 51,
+  "production_changed_source_files": 2,
+  "regression_test_files_updated": 1,
+  "full_maven_build_rerun": false,
+  "engine_checks": 110,
+  "reflective_test_methods": 107,
+  "lifecycle_internal_checks": 4,
+  "python_checks": 34,
+  "production_class_entries": [
+    "forge/ai/bridge/BridgeSnapshot.class",
+    "forge/ai/bridge/BridgeAudit.class"
+  ],
+  "fresh_reconstructed_source_matches_packaged_classes": true,
+  "jar_sha256": "41cce57aa2e64156365440e33b8c9ca83eb406e4cbc53d0e4876b59f025af3c5",
+  "v16_jar_retained": true,
+  "pilot_changes": false,
+  "rules_changes": false,
+  "audit_schema_extended": true,
+  "performance_speedup_established": false,
+  "diagnostic_classes_packaged": false,
+  "control": {
+    "trace_match": true,
+    "phase_inventory_match": true,
+    "full_tracked_records": 887,
+    "full_record_count_match": true
+  },
+  "patch_sha256": "a3f5f3b26d3b3d4ae5f646cd0564b9b73e10b36db0ab62213ee34002f8531074",
+  "active_jar": "/workspace/scratch/0209e1f07b34/dragonmind.jar",
+  "accepted_new_games": 20,
+  "original_failed_attempts": 2
+}

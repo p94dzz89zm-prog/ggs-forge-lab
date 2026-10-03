@@ -3,9 +3,9 @@ import argparse, collections, hashlib, json, re
 from pathlib import Path
 
 
-def summarize(run, include_private_hands=False):
+def summarize(run, include_private_hands=False, expected_games=5):
     summaries=json.loads((run/'summary.json').read_text())
-    assert len(summaries)==5 and all(s['status']=='completed' for s in summaries)
+    assert len(summaries)==expected_games and all(s['status']=='completed' for s in summaries)
     logs=list(dict.fromkeys(run/s['log'] for s in summaries)); games=[]; lines=[]
     for line in (line for log in logs for line in log.read_text().splitlines()):
         lines.append(line)
@@ -28,10 +28,11 @@ def summarize(run, include_private_hands=False):
             games.append({**result,'own_turns':own,'commander_casts':casts,'trigger_counts':dict(triggers),'stack_actions':actions,'logged_damage_by_source':{k:dict(v) for k,v in damage.items()}})
             lines=[]
     assert [g['seed'] for g in games]==[s['seed'] for s in summaries]
-    # Priority streams append across games. Completed games reset turn numbers; verify exactly five segments.
+    # Priority streams append across games. Verify the segments against the requested summaries.
     priority={}; evaluation={}; hands=[collections.Counter() for _ in games]; openings=[None for _ in games]
     seed_to_segment={g['seed']:i for i,g in enumerate(games)}
     board_peaks=[{'permanents':0,'creatures':0,'turn':None} for _ in games]
+    combat_turns=[{} for _ in games]; ninjutsu=[collections.Counter() for _ in games]
     for file in sorted((run/'audit').rglob('seat-*.jsonl')):
         count=0; segment=seed_to_segment[int(re.search(r'seeds(\d+)-',file.parent.name)[1])]; initial_segment=segment; previous=0
         for line in file.open():
@@ -44,6 +45,17 @@ def summarize(run, include_private_hands=False):
                 creatures=sum('Creature' in c.get('type','') for p in state['players'] for c in p['battlefield'])
                 if creatures>board_peaks[segment]['creatures']:
                     board_peaks[segment]={'permanents':permanents,'creatures':creatures,'turn':turn}
+                if state.get('active_player_id')==0 and state['phase'] in ('COMBAT_DECLARE_BLOCKERS','COMBAT_FIRST_STRIKE_DAMAGE') and 'combat' in state:
+                    own_cards={c['id']:c for c in me['battlefield']}
+                    attacks=[a for a in state['combat']['attackers'] if a['attacker_id'] in own_cards]
+                    fresh=[a for a in attacks if own_cards[a['attacker_id']].get('entered_this_turn',False)]
+                    ggs=any(c.get('name')=='Goro-Goro and Satoru' for c in me['battlefield'])
+                    prior=combat_turns[segment].get(turn,{})
+                    combat_turns[segment][turn]={'phase':state['phase'],'ggs_named_creature_present':ggs,
+                        'attackers':len(attacks),'fresh_attackers':len(fresh),'fresh_unblocked_attackers':sum(a['unblocked'] for a in fresh),
+                        'ggs_named_creature_seen':prior.get('ggs_named_creature_seen',False) or ggs,
+                        'fresh_attack_with_ggs_seen':prior.get('fresh_attack_with_ggs_seen',False) or (ggs and bool(fresh)),
+                        'fresh_unblocked_with_ggs_seen':prior.get('fresh_unblocked_with_ggs_seen',False) or (ggs and any(a['unblocked'] for a in fresh))}
                 if openings[segment] is None:openings[segment]=[c['name'] for c in me.get('hand',[])]
                 for card in me.get('hand',[]):hands[segment][card['name']]+=1
         expected_end=seed_to_segment[int(re.search(r'-(\d+)$',file.parent.name)[1])]
@@ -51,17 +63,28 @@ def summarize(run, include_private_hands=False):
         priority[file.parent.name+'/'+file.stem]=count
     for file in sorted((run/'audit').rglob('evaluation-seat-*.jsonl')):
         decisions=collections.Counter();count=0
-        for line in file.open():decisions[json.loads(line)['decision']]+=1;count+=1
-        evaluation[file.parent.name+'/'+file.stem]={'rows':count,'decisions':dict(decisions)}
+        segment=seed_to_segment[int(re.search(r'seeds(\d+)-',file.parent.name)[1])];previous=0
+        for line in file.open():
+            row=json.loads(line);count+=1
+            if include_private_hands:decisions[row['decision']]+=1
+            if row['turn']<previous:segment+=1
+            previous=row['turn']
+            if file.name=='evaluation-seat-0.jsonl' and row.get('is_ninjutsu',False):
+                decision=row['decision']
+                category='paid_return' if decision.startswith('GgsNinjutsu:payReturn=') else 'no_damage_plan' if decision=='GgsNinjutsu:noDamagePlan' else 'plan_scored' if decision.startswith('GgsNinjutsu:score=') else decision
+                ninjutsu[segment][category]+=1
+        evaluation[file.parent.name+'/'+file.stem]={'rows':count}
+        if include_private_hands:evaluation[file.parent.name+'/'+file.stem]['decisions']=dict(decisions)
     for i,g in enumerate(games):
         g['peak_observed_creature_board']=board_peaks[i]
+        g['observed_combat_turns']=combat_turns[i];g['ninjutsu_evaluation_counts']=dict(ninjutsu[i])
         if include_private_hands:
             g['opening_hand']=openings[i];g['hand_snapshot_occurrences']=dict(hands[i])
     return {'games':games,'summary':summaries,'performance':json.loads((run/'performance.json').read_text()),'metadata':json.loads((run/'metadata.json').read_text()),'log_sha256':{log.name:hashlib.sha256(log.read_bytes()).hexdigest() for log in logs},'priority_counts':priority,'evaluation_counts':evaluation,'audit_bytes':sum(p.stat().st_size for p in (run/'audit').rglob('*.jsonl'))}
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('run_directory',type=Path);p.add_argument('--include-private-hands',action='store_true',help='Include private hand observations for local analysis; omit for public reports');a=p.parse_args()
-    result={name:summarize(a.run_directory/name,a.include_private_hands) for name in ['apex','layered']}
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('run_directory',type=Path);p.add_argument('--expected-games',type=int,default=5);p.add_argument('--include-private-hands',action='store_true',help='Include private hands and raw evaluation decision strings for local analysis; omit for public reports');a=p.parse_args()
+    result={name:summarize(a.run_directory/name,a.include_private_hands,a.expected_games) for name in ['apex','layered']}
     (a.run_directory/'analysis.json').write_text(json.dumps(result,indent=2)+'\n')
     for name,deck in result.items():
         for g in deck['games']:print(name,g['seed'],g['winner'],g['engine_ms'],g['last_logged_turn'],g['commander_casts'])

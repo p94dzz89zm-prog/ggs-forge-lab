@@ -219,3 +219,14 @@ Current statistics, keywords and attachments remain separate snapshot fields;
 consumers must not treat Oracle text as a complete rendering of modified abilities.
 Hidden-card guards remain in place. The regression suite covers the modal snapshot
 and precombat deployment's seat, profile, commander-marker and affordability gates.
+
+## Public combat relationships in audits (v17)
+
+The nineteenth patch records attacker IDs, defender IDs and kinds, blocked and
+unblocked status, and blocker IDs in snapshots. Existing face-down identity and
+hand/library guards remain in place. Private evaluation rows now identify the
+host card and whether the evaluated ability is ninjutsu, without repeating a
+full snapshot for each candidate. These fields improve offline analysis; they
+are not inputs to the pilot and change no strategy weights or game rules.
+A fixed-seed control retained all 887 tracked game events. No CPU speedup is
+claimed for this recording change.

@@ -1,0 +1,40 @@
+{
+  "apex": {
+    "new_wins": 4,
+    "cumulative_wins": 5,
+    "new_median_seconds": 33.1625,
+    "cumulative_median_seconds": 33.719,
+    "ggs_trigger_total": 21,
+    "ggs_observed_combat_turns": 48,
+    "fresh_attack_with_ggs_turns": 19,
+    "fresh_unblocked_with_ggs_turns": 17,
+    "ninjutsu_evaluations": {
+      "CantPlaySa": 2401,
+      "no_damage_plan": 85,
+      "CantPlayAi": 89,
+      "plan_scored": 20,
+      "CantAfford": 11,
+      "WillPlay": 5,
+      "paid_return": 5
+    }
+  },
+  "layered": {
+    "new_wins": 2,
+    "cumulative_wins": 4,
+    "new_median_seconds": 48.801,
+    "cumulative_median_seconds": 32.211,
+    "ggs_trigger_total": 25,
+    "ggs_observed_combat_turns": 64,
+    "fresh_attack_with_ggs_turns": 25,
+    "fresh_unblocked_with_ggs_turns": 24,
+    "ninjutsu_evaluations": {
+      "CantPlaySa": 3414,
+      "no_damage_plan": 155,
+      "CantPlayAi": 197,
+      "plan_scored": 87,
+      "CantAfford": 30,
+      "WillPlay": 15,
+      "paid_return": 15
+    }
+  }
+}

@@ -76,6 +76,9 @@ def main():
     deployment = Path(__file__).with_name('ggs-commander-deployment-v16.patch').resolve()
     subprocess.run(['git', 'apply', '--check', str(deployment)], cwd=checkout, check=True)
     subprocess.run(['git', 'apply', str(deployment)], cwd=checkout, check=True)
+    combat_audit = Path(__file__).with_name('dragonmind-combat-audit-v17.patch').resolve()
+    subprocess.run(['git', 'apply', '--check', str(combat_audit)], cwd=checkout, check=True)
+    subprocess.run(['git', 'apply', str(combat_audit)], cwd=checkout, check=True)
     subprocess.run([args.maven, '-pl', 'forge-gui-desktop', '-am', 'test',
                     '-Dtest=BridgeEngineTest,GgsPilotTest,DragonMindPerformanceTest,StackCandidateEligibilityTest,RuntimeLifecycleTest', '-Dsurefire.failIfNoSpecifiedTests=false',
                     '-Djava.awt.headless=true'], cwd=checkout, check=True)

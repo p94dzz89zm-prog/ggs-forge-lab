@@ -1,0 +1,13 @@
+{
+  "archive": "GGS_Additional_Twenty_Pod_Games_v17_Data.tar.gz",
+  "bytes": 150912909,
+  "sha256": "ee94d0bf4a83b6dba38cee5079ffa2e0e9dcfb2cc9cc4d9aa158a2d14bf05c03",
+  "accepted_games": 20,
+  "attempts": 22,
+  "log_count": 22,
+  "private_four_seat_audits_retained": true,
+  "public_export_private_fields_excluded": true,
+  "public_export_allowlisted": true,
+  "raw_evaluation_decision_strings_published": false,
+  "card_level_action_details_published": false
+}
