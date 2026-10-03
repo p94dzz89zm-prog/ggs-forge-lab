@@ -1,0 +1,93 @@
+--- a/forge-ai/src/main/java/forge/ai/ComputerUtil.java
++++ b/forge-ai/src/main/java/forge/ai/ComputerUtil.java
+@@ -1152,6 +1152,15 @@
+
+     public static boolean castPermanentInMain1(final Player ai, final SpellAbility sa) {
+         final Card card = sa.getHostCard();
++        // The opt-in commander engine needs to be present before fresh combat connections.
++        // Legality, costs, targets and normal candidate ranking remain with the existing AI.
++        if (forge.ai.ggs.GgsNinjutsuPolicy.enabled(ai)
++                && !Boolean.getBoolean("dragonmind.disableGgsMain1Deployment")
++                && sa.isSpell() && card.isCommander() && card.getController() == ai
++                && forge.ai.ggs.CommanderEngineProfile.needsFreshCombatConnection(card)) {
++            return true;
++        }
++
+         final CardState cardState = card.isFaceDown() ? card.getState(CardStateName.Original) : card.getCurrentState();
+
+         if (card.hasSVar("PlayMain1")) {
+--- a/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java
++++ b/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java
+@@ -25,7 +25,10 @@
+             if(!hidden) {
+                 out.addProperty("commander",c.isCommander());
+                 out.addProperty("entered_this_turn",c.enteredThisTurn());
+-                out.addProperty("rules_text",c.getAbilityText());
++                // Formatting live abilities may inspect modal targets before an activating player exists.
++                // Snapshot current-face Oracle text without evaluating those live ability descriptions.
++                out.addProperty("rules_text",c.getOracleText());
++                out.addProperty("rules_text_kind","oracle_current_face");
+                 out.addProperty("phased_out",c.isPhasedOut());
+                 JsonArray keywords=new JsonArray();
+                 for(var keyword:c.getKeywords())keywords.add(keyword.getOriginal());
+--- a/forge-gui-desktop/src/test/java/forge/ai/ggs/GgsPilotTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/ggs/GgsPilotTest.java
+@@ -13,7 +13,41 @@
+ import java.util.List;
+
+ public class GgsPilotTest extends AITest {
+-    @AfterMethod(alwaysRun=true) public void clear(){System.clearProperty("forge.ai.ggsPilotPlayer");}
++    @AfterMethod(alwaysRun=true) public void clear(){System.clearProperty("forge.ai.ggsPilotPlayer");System.clearProperty("dragonmind.disableGgsMain1Deployment");}
++    @Test public void commanderEngineDeploysBeforeCombatOnlyForEnabledPilot(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);
++        Card card=addCardToZone("Goro-Goro and Satoru",ai,ZoneType.Hand);card.setCommander(true);
++        SpellAbility sa=card.getFirstSpellAbility();sa.setActivatingPlayer(ai);
++        boolean stock=ComputerUtil.castPermanentInMain1(ai,sa);
++        enable(ai);Assert.assertTrue(ComputerUtil.castPermanentInMain1(ai,sa));
++        System.setProperty("dragonmind.disableGgsMain1Deployment","true");
++        Assert.assertEquals(ComputerUtil.castPermanentInMain1(ai,sa),stock);
++        System.clearProperty("dragonmind.disableGgsMain1Deployment");
++        System.setProperty("forge.ai.ggsPilotPlayer",g.getPlayers().get(0).getName());
++        Assert.assertEquals(ComputerUtil.castPermanentInMain1(ai,sa),stock);
++    }
++    @Test public void deploymentLeavesOtherCommandersAndNoncommanderCopiesUnchanged(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);
++        Card other=addCardToZone("Runeclaw Bear",ai,ZoneType.Hand);other.setCommander(true);
++        Card copy=addCardToZone("Goro-Goro and Satoru",ai,ZoneType.Hand);
++        boolean otherStock=ComputerUtil.castPermanentInMain1(ai,other.getFirstSpellAbility());
++        boolean copyStock=ComputerUtil.castPermanentInMain1(ai,copy.getFirstSpellAbility());
++        enable(ai);
++        Assert.assertEquals(ComputerUtil.castPermanentInMain1(ai,other.getFirstSpellAbility()),otherStock);
++        Assert.assertEquals(ComputerUtil.castPermanentInMain1(ai,copy.getFirstSpellAbility()),copyStock);
++    }
++    @Test public void deploymentDoesNotBypassCostChecks() throws Exception {
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);
++        Card card=addCardToZone("Goro-Goro and Satoru",ai,ZoneType.Hand);card.setCommander(true);
++        SpellAbility sa=card.getFirstSpellAbility();sa.setActivatingPlayer(ai);enable(ai);
++        Assert.assertTrue(ComputerUtil.castPermanentInMain1(ai,sa));
++        AiController pilot=((PlayerControllerAi)ai.getController()).getAi();
++        var evaluate=AiController.class.getDeclaredMethod("canPlayAndPayFor",SpellAbility.class);
++        evaluate.setAccessible(true);
++        Assert.assertEquals(evaluate.invoke(pilot,sa),AiPlayDecision.CantAfford);
++        addCard("Island",ai);addCard("Swamp",ai);addCard("Mountain",ai);
++        Assert.assertTrue(((AiPlayDecision)evaluate.invoke(pilot,sa)).willingToPlay());
++    }
+     private void enable(Player ai){System.setProperty("forge.ai.ggsPilotPlayer",ai.getName());}
+     private SpellAbility ninja(Player ai,String name){
+         Card c=addCardToZone(name,ai,ZoneType.Hand);
+--- a/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
+@@ -160,4 +160,13 @@
+         Assert.assertNull(bridge.chooseSpellAbilityToPlay());client.get(15,TimeUnit.SECONDS);
+     }
+
++    @Test public void snapshotModalTriggerDoesNotRequireAnActivatingPlayer(){
++        var game=initAndCreateGame();var ai=game.getPlayers().get(1);
++        Card card=addCardToZone("Brotherhood Outcast",ai,ZoneType.Hand);
++        card.getTriggers().get(0).ensureAbility().setActivatingPlayer(null);
++        var snapshot=forge.ai.bridge.BridgeSnapshot.entity(card,ai);
++        Assert.assertEquals(snapshot.get("rules_text").getAsString(),card.getOracleText());
++        Assert.assertEquals(snapshot.get("rules_text_kind").getAsString(),"oracle_current_face");
++    }
++
+ }

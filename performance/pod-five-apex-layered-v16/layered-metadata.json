@@ -1,0 +1,41 @@
+{
+  "product": "DragonMind",
+  "rules_engine": "Forge 2.0.15 GPL-3.0-or-later fork",
+  "rules_baseline": {
+    "authority": "Wizards of the Coast",
+    "document": "Magic: The Gathering Comprehensive Rules",
+    "effective_date": "2026-09-25",
+    "checked_on": "2026-10-01",
+    "url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+    "sha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca",
+    "oracle_source": "https://gatherer.wizards.com/",
+    "commander_rules_section": "903",
+    "policy": "Official rules and current Oracle text take precedence over implementation behavior. Record discrepancies as engine errors; do not substitute approximations.",
+    "validation_status": "Targeted tests; not certified as exhaustive conformance."
+  },
+  "jar_sha256": "79a16f73adb86e910bc370ab331ee6d61cedc4cd79a0fbfa452ba67d37cc6b76",
+  "deck_sha256": {
+    "GGS_Layered_v1": "65400110cb649d1498c39d58e59b2c20426d1ce1aee05c2af6889edbfb457584",
+    "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+    "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+    "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a"
+  },
+  "arguments": {
+    "engine": "/workspace/scratch/0209e1f07b34/forge-resources/forge-gui",
+    "jar": "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+    "variant": "GGS_Layered_v1",
+    "seed": 20261019,
+    "seeds": 5,
+    "rotations": [
+      0
+    ],
+    "workers": 1,
+    "batch_size": 1,
+    "timeout": 600,
+    "gc": "parallel",
+    "jit": "throughput",
+    "stock": false,
+    "audit": true,
+    "output": "/workspace/scratch/0209e1f07b34/ggs-five-pod-final/layered"
+  }
+}

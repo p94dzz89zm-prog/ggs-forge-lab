@@ -1,0 +1,768 @@
+Turn: Turn 1 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 2 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 3 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Phase: Ai(1)-GGS_Layered_v1's End step
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 4 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 5 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Add To Stack: Ai(3)-Gabe_Food cast Gollum, Obsessed Stalker
+Phase: Ai(3)-Gabe_Food's End step
+Add To Stack: Ai(3)-Gabe_Food triggered Gollum, Obsessed Stalker
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 6 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(4)-Destyn_Turtles cast Michelangelo, the Heart
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 7 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Dour Port-Mage
+Phase: Ai(1)-GGS_Layered_v1's End step
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 8 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 9 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Add To Stack: Ai(3)-Gabe_Food cast Sam, Loyal Attendant
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant targeting [Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Gollum, Obsessed Stalker (244) deals 1 combat damage to Ai(4)-Destyn_Turtles.
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Add To Stack: Ai(3)-Gabe_Food triggered Gollum, Obsessed Stalker
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 10 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles cast Everything Pizza
+Add To Stack: Ai(4)-Destyn_Turtles triggered Everything Pizza
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 11 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Vandalblast targeting [Everything Pizza (369)]
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Phase: Ai(1)-GGS_Layered_v1's End step
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 12 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Ezio Auditore da Firenze
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 13 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Add To Stack: Ai(3)-Gabe_Food activated Ghost Quarter targeting [Xander's Lounge (89)]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (303) deals 2 combat damage to Ai(2)-Jaymie_Ezio.
+Damage: Gollum, Obsessed Stalker (244) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Add To Stack: Ai(3)-Gabe_Food cast The Gaffer
+Phase: Ai(3)-Gabe_Food's End step
+Add To Stack: Ai(3)-Gabe_Food triggered Gollum, Obsessed Stalker
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 14 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(4)-Destyn_Turtles cast Voracious Hydra
+Add To Stack: Ai(4)-Destyn_Turtles triggered Voracious Hydra
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 15 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Prosperous Thief
+Phase: Ai(1)-GGS_Layered_v1's End step
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 16 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(3)-Gabe_Food.
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Desmond Miles
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 17 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Add To Stack: Ai(3)-Gabe_Food cast Pippin, Warden of Isengard
+Add To Stack: Ai(3)-Gabe_Food triggered Pippin, Warden of Isengard targeting [Ai(3)-Gabe_Food]
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Gollum, Obsessed Stalker (244) deals 1 combat damage to Ai(4)-Destyn_Turtles.
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Add To Stack: Ai(3)-Gabe_Food triggered Gollum, Obsessed Stalker
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 18 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(4)-Destyn_Turtles cast Shellshock targeting [Prosperous Thief (25)]
+Damage: Shellshock (316) deals 2 damage to Prosperous Thief (25).
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Voracious Hydra (323) deals 4 combat damage to Ai(3)-Gabe_Food.
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Voracious Hydra (323)]
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 19 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Add To Stack: Ai(1)-GGS_Layered_v1 activated Bloodstained Mire
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Phase: Ai(1)-GGS_Layered_v1's End step
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 20 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Add To Stack: Ai(2)-Jaymie_Ezio cast Smoke Bomb
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 21 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Add To Stack: Ai(3)-Gabe_Food cast Assemble the Entmoot
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Sam, Loyal Attendant (303) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Damage: The Gaffer (207) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Gollum, Obsessed Stalker (244) deals 1 combat damage to Ai(4)-Destyn_Turtles.
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Phase: Ai(3)-Gabe_Food's End step
+Add To Stack: Ai(3)-Gabe_Food triggered Gollum, Obsessed Stalker
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 22 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Add To Stack: Ai(4)-Destyn_Turtles activated Escape Tunnel
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Add To Stack: Ai(3)-Gabe_Food activated Assemble the Entmoot
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Voracious Hydra (323) deals 5 combat damage to Ai(3)-Gabe_Food.
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Damage: Grand Coliseum (305) deals 1 non-combat damage to Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(4)-Destyn_Turtles cast Raphael, the Muscle
+Add To Stack: Ai(4)-Destyn_Turtles triggered Raphael, the Muscle
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 23 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's End step
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 24 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Smoke Bomb
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Smoke Bomb targeting [Desmond Miles (147)]
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Add To Stack: Ai(2)-Jaymie_Ezio cast Swords to Plowshares targeting [Voracious Hydra (323)]
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Swan Song targeting [Exile target creature. Its controller gains life equal to its power.]
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Sword of Feast and Famine
+Add To Stack: Ai(1)-GGS_Layered_v1 cast An Offer You Can't Refuse targeting [Sword of Feast and Famine]
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Desmond Miles (147) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Desmond Miles
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Queen Marchesa
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Queen Marchesa
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered The Monarch
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 25 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Gollum, Obsessed Stalker (244) deals 1 combat damage to Ai(4)-Destyn_Turtles.
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Add To Stack: Ai(3)-Gabe_Food cast Lobelia, Defender of Bag End
+Add To Stack: Ai(3)-Gabe_Food triggered Lobelia, Defender of Bag End
+Phase: Ai(3)-Gabe_Food's End step
+Add To Stack: Ai(3)-Gabe_Food triggered Gollum, Obsessed Stalker
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 26 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Add To Stack: Ai(4)-Destyn_Turtles cast Super Combo targeting [Voracious Hydra (323)] [Queen Marchesa (132)]
+Add To Stack: Ai(4)-Destyn_Turtles triggered Super Combo
+Add To Stack: Ai(4)-Destyn_Turtles cast Super Combo targeting [Voracious Hydra (323)] [Goro-Goro and Satoru (100)]
+Add To Stack: Ai(4)-Destyn_Turtles cast Super Combo targeting [Voracious Hydra (323)] [Goro-Goro and Satoru (100)]
+Damage: Voracious Hydra (323) deals 10 damage to Goro-Goro and Satoru (100).
+Add To Stack: Ai(2)-Jaymie_Ezio cast Flawless Maneuver
+Damage: Voracious Hydra (323) deals 10 damage to Queen Marchesa (132).
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Add To Stack: Ai(3)-Gabe_Food activated Pippin, Warden of Isengard
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 27 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Phase: Ai(1)-GGS_Layered_v1's End step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 28 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Ratonhnhaké:ton
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Desmond Miles (147) deals 4 combat damage to Ai(3)-Gabe_Food.
+Damage: Queen Marchesa (132) deals 3 combat damage to Ai(3)-Gabe_Food.
+Damage: Bird Token (505) deals 2 combat damage to Ai(3)-Gabe_Food.
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Desmond Miles
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered The Monarch
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 29 (Ai(3)-Gabe_Food)
+Phase: Ai(3)-Gabe_Food's Untap step
+Phase: Ai(3)-Gabe_Food's Upkeep step
+Phase: Ai(3)-Gabe_Food's Draw step
+Phase: Ai(3)-Gabe_Food's Main phase, precombat
+Add To Stack: Ai(3)-Gabe_Food cast Field-Tested Frying Pan
+Add To Stack: Ai(3)-Gabe_Food triggered Field-Tested Frying Pan
+Phase: Ai(3)-Gabe_Food's Beginning of Combat Step
+Add To Stack: Ai(3)-Gabe_Food triggered Sam, Loyal Attendant
+Phase: Ai(3)-Gabe_Food's Declare Attackers Step
+Phase: Ai(3)-Gabe_Food's Declare Blockers Step
+Phase: Ai(3)-Gabe_Food's First Strike Damage Step
+Phase: Ai(3)-Gabe_Food's Combat Damage Step
+Damage: Gollum, Obsessed Stalker (244) deals 1 combat damage to Ai(2)-Jaymie_Ezio.
+Add To Stack: Ai(2)-Jaymie_Ezio triggered The Monarch
+Phase: Ai(3)-Gabe_Food's End of Combat Step
+Phase: Ai(3)-Gabe_Food's Main phase, postcombat
+Add To Stack: Ai(3)-Gabe_Food cast Arcane Signet
+Phase: Ai(3)-Gabe_Food's End step
+Add To Stack: Ai(3)-Gabe_Food triggered Gollum, Obsessed Stalker
+Add To Stack: Ai(3)-Gabe_Food triggered The Monarch
+Phase: Ai(3)-Gabe_Food's Cleanup step
+Turn: Turn 30 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Add To Stack: Ai(3)-Gabe_Food activated Pippin, Warden of Isengard
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Damage: Voracious Hydra (323) deals 10 combat damage to Ai(3)-Gabe_Food.
+Damage: Raphael, the Muscle (378) deals 4 damage to Sam, Loyal Attendant (303).
+Damage: The Gaffer (207) deals 2 damage to Raphael, the Muscle (378).
+Damage: Sam, Loyal Attendant (303) deals 2 damage to Raphael, the Muscle (378).
+Add To Stack: Ai(3)-Gabe_Food triggered The Monarch
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles triggered Michelangelo, the Heart targeting [Voracious Hydra (323)]
+Add To Stack: Ai(4)-Destyn_Turtles cast Leonardo, the Balance
+Add To Stack: Ai(4)-Destyn_Turtles cast Big Mother Mouser
+Phase: Ai(4)-Destyn_Turtles' End step
+Add To Stack: Ai(4)-Destyn_Turtles triggered The Monarch
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 31 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Add To Stack: Ai(1)-GGS_Layered_v1 activated Dour Port-Mage targeting [Goro-Goro and Satoru (100)]
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Dour Port-Mage
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Hope of Ghirapur
+Phase: Ai(1)-GGS_Layered_v1's End step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 32 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Queen Marchesa
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Caduceus, Staff of Hermes
+Add To Stack: Ai(2)-Jaymie_Ezio cast Farseek
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Add To Stack: Ai(3)-Gabe_Food activated Lobelia, Defender of Bag End
+Add To Stack: Ai(3)-Gabe_Food triggered Halfling Token
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Desmond Miles (147) deals 5 combat damage to Ai(3)-Gabe_Food.
+Damage: Ezio Auditore da Firenze (201) deals 3 combat damage to Ai(3)-Gabe_Food.
+Damage: Queen Marchesa (132) deals 2 damage (Deathtouch) to Halfling Token (572).
+Damage: Queen Marchesa (132) deals 1 damage (Deathtouch) to Lobelia, Defender of Bag End (206).
+Damage: Ratonhnhaké:ton (138) deals 3 combat damage to Ai(3)-Gabe_Food.
+Damage: Bird Token (505) deals 2 combat damage to Ai(3)-Gabe_Food.
+Damage: Assassin Token (599) deals 1 damage (Deathtouch) to The Gaffer (207).
+Damage: Halfling Token (572) deals 3 damage to Queen Marchesa (132).
+Damage: Lobelia, Defender of Bag End (206) deals 2 damage to Queen Marchesa (132).
+Damage: The Gaffer (207) deals 2 damage to Assassin Token (599).
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Desmond Miles
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ezio Auditore da Firenze
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ratonhnhaké:ton
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Ratonhnhaké:ton targeting [Sword of Feast and Famine (195)]
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 33 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles cast Corpsejack Menace
+Add To Stack: Ai(4)-Destyn_Turtles cast Cultivate
+Phase: Ai(4)-Destyn_Turtles' End step
+Add To Stack: Ai(4)-Destyn_Turtles triggered The Monarch
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 34 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Grim Hireling
+Phase: Ai(1)-GGS_Layered_v1's End step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 35 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Add To Stack: Ai(2)-Jaymie_Ezio activated Caduceus, Staff of Hermes targeting [Desmond Miles (147)]
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Desmond Miles (147) deals 10 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Assassin Token (602) deals 3 damage to Leonardo, the Balance (404).
+Damage: Bird Token (505) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Big Mother Mouser (343) deals 2 damage to Assassin Token (602).
+Damage: Leonardo, the Balance (404) deals 3 damage to Assassin Token (602).
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Desmond Miles
+Add To Stack: Ai(4)-Destyn_Turtles triggered The Monarch
+Add To Stack: Ai(4)-Destyn_Turtles triggered The Monarch
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Rooftop Bypass
+Add To Stack: Ai(2)-Jaymie_Ezio activated Sword of Feast and Famine targeting [Desmond Miles (147)]
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered The Monarch
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 36 (Ai(4)-Destyn_Turtles)
+Phase: Ai(4)-Destyn_Turtles' Untap step
+Phase: Ai(4)-Destyn_Turtles' Upkeep step
+Phase: Ai(4)-Destyn_Turtles' Draw step
+Phase: Ai(4)-Destyn_Turtles' Main phase, precombat
+Phase: Ai(4)-Destyn_Turtles' Beginning of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Declare Attackers Step
+Phase: Ai(4)-Destyn_Turtles' Declare Blockers Step
+Phase: Ai(4)-Destyn_Turtles' First Strike Damage Step
+Phase: Ai(4)-Destyn_Turtles' Combat Damage Step
+Phase: Ai(4)-Destyn_Turtles' End of Combat Step
+Phase: Ai(4)-Destyn_Turtles' Main phase, postcombat
+Add To Stack: Ai(4)-Destyn_Turtles cast Mole Module
+Add To Stack: Ai(4)-Destyn_Turtles cast Tokka & Rahzar, Unsupervised
+Add To Stack: Ai(4)-Destyn_Turtles cast Splinter, the Mentor
+Phase: Ai(4)-Destyn_Turtles' End step
+Phase: Ai(4)-Destyn_Turtles' Cleanup step
+Turn: Turn 37 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Phase: Ai(1)-GGS_Layered_v1's End step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 38 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Add To Stack: Ai(2)-Jaymie_Ezio activated Kessig Wolf Run targeting [Desmond Miles (147)]
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Desmond Miles (147) deals 10 combat damage to Ai(4)-Destyn_Turtles.
+Damage: Desmond Miles (147) deals 3 damage to Tokka & Rahzar, Unsupervised (306).
+Damage: Desmond Miles (147) deals 2 damage to Big Mother Mouser (343).
+Damage: Bird Token (505) deals 2 combat damage to Ai(4)-Destyn_Turtles.
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Desmond Miles
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Sword of Feast and Famine
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Rooftop Bypass
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Haystack
+Add To Stack: Ai(2)-Jaymie_Ezio cast Fellwar Stone
+Add To Stack: Ai(2)-Jaymie_Ezio cast Cover of Darkness
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered The Monarch
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 39 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Phase: Ai(1)-GGS_Layered_v1's End step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 40 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Lightning Greaves
+Add To Stack: Ai(2)-Jaymie_Ezio activated Lightning Greaves targeting [Desmond Miles (147)]
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Phase: Ai(2)-Jaymie_Ezio's Combat Damage Step
+Damage: Desmond Miles (147) deals 13 combat damage to Ai(1)-GGS_Layered_v1.
+Damage: Bird Token (505) deals 2 combat damage to Ai(1)-GGS_Layered_v1.
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Desmond Miles
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Sword of Feast and Famine
+Add To Stack: Ai(2)-Jaymie_Ezio triggered Rooftop Bypass
+Phase: Ai(2)-Jaymie_Ezio's End of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, postcombat
+Phase: Ai(2)-Jaymie_Ezio's End step
+Add To Stack: Ai(2)-Jaymie_Ezio triggered The Monarch
+Phase: Ai(2)-Jaymie_Ezio's Cleanup step
+Turn: Turn 41 (Ai(1)-GGS_Layered_v1)
+Phase: Ai(1)-GGS_Layered_v1's Untap step
+Phase: Ai(1)-GGS_Layered_v1's Upkeep step
+Phase: Ai(1)-GGS_Layered_v1's Draw step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, precombat
+Add To Stack: Ai(1)-GGS_Layered_v1 cast Fell the Profane targeting [Ratonhnhaké:ton (138)]
+Phase: Ai(1)-GGS_Layered_v1's Beginning of Combat Step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Declare Attackers Step
+Phase: Ai(1)-GGS_Layered_v1's Declare Blockers Step
+Phase: Ai(1)-GGS_Layered_v1's First Strike Damage Step
+Phase: Ai(1)-GGS_Layered_v1's Combat Damage Step
+Phase: Ai(1)-GGS_Layered_v1's End of Combat Step
+Phase: Ai(1)-GGS_Layered_v1's Main phase, postcombat
+Phase: Ai(1)-GGS_Layered_v1's End step
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration
+Phase: Ai(1)-GGS_Layered_v1's Cleanup step
+Turn: Turn 42 (Ai(2)-Jaymie_Ezio)
+Phase: Ai(2)-Jaymie_Ezio's Untap step
+Phase: Ai(2)-Jaymie_Ezio's Upkeep step
+Phase: Ai(2)-Jaymie_Ezio's Draw step
+Phase: Ai(2)-Jaymie_Ezio's Main phase, precombat
+Add To Stack: Ai(2)-Jaymie_Ezio cast Bayek of Siwa
+Phase: Ai(2)-Jaymie_Ezio's Beginning of Combat Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Attackers Step
+Phase: Ai(2)-Jaymie_Ezio's Declare Blockers Step
+Add To Stack: Ai(1)-GGS_Layered_v1 activated Dour Port-Mage targeting [Goro-Goro and Satoru (100)]
+Add To Stack: Ai(1)-GGS_Layered_v1 triggered Dour Port-Mage
+Phase: Ai(2)-Jaymie_Ezio's First Strike Damage Step
+Damage: Desmond Miles (147) deals 16 combat damage to Ai(1)-GGS_Layered_v1.
+Damage: Ezio Auditore da Firenze (201) deals 3 damage to Grim Hireling (98).
+Match Result: Ai(1)-GGS_Layered_v1: 0 Ai(2)-Jaymie_Ezio: 1 Ai(3)-Gabe_Food: 0 Ai(4)-Destyn_Turtles: 0
+DragonMind Result: {"seed":20261020,"engine_ms":38840,"last_logged_turn":42,"status":"completed","winner":"Ai(2)-Jaymie_Ezio"}
+Game Result: Game 1 ended in 38840 ms. Ai(2)-Jaymie_Ezio has won!

@@ -202,3 +202,20 @@ inspection. Exact Assassin grants can be excluded on subtype without assuming
 future spell control. Borrowed Assassins, LKI candidates, uncertain type changes
 and the other existing hazards retain full reconstruction. The repeated two-seed
 result and validation are in ../performance/README-borrowed-subtype-v15.md.
+
+## Precombat commander deployment and safe audit text (v16)
+
+The eighteenth patch lets the opted-in GGS pilot consider deploying its commander
+before combat when its existing engine profile needs fresh creatures to connect.
+Normal costs, legality, targets and candidate ranking still apply. Other seats,
+other commander profiles and noncommander copies retain the prior path. Disable
+this preference with `-Ddragonmind.disableGgsMain1Deployment=true`. This is a pilot
+change, not a CPU optimization or a demonstrated increase in deck strength.
+
+Visible snapshot `rules_text` now contains the current face's Oracle text, marked
+by `rules_text_kind: oracle_current_face`. The old live ability formatter could
+inspect modal targets without an activating player and abort audited games.
+Current statistics, keywords and attachments remain separate snapshot fields;
+consumers must not treat Oracle text as a complete rendering of modified abilities.
+Hidden-card guards remain in place. The regression suite covers the modal snapshot
+and precombat deployment's seat, profile, commander-marker and affordability gates.

@@ -1,0 +1,3609 @@
+{
+  "apex": {
+    "games": [
+      {
+        "seed": 20261019,
+        "engine_ms": 24643,
+        "last_logged_turn": 36,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "own_turns": [
+          2,
+          6,
+          10,
+          14,
+          18,
+          22,
+          26,
+          30
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 14,
+            "own_turn": 4,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "trigger_counts": {
+          "Raucous Theater": 1,
+          "Ingenious Infiltrator": 2,
+          "Goro-Goro and Satoru": 2,
+          "Purphoros, God of the Forge": 4,
+          "Yuriko, the Tiger's Shadow": 1
+        },
+        "stack_actions": [
+          {
+            "turn": 6,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Bloodstained Mire"
+          },
+          {
+            "turn": 6,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Skullclamp"
+          },
+          {
+            "turn": 10,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Marsh Flats"
+          },
+          {
+            "turn": 10,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Raucous Theater"
+          },
+          {
+            "turn": 10,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Dauthi Voidwalker"
+          },
+          {
+            "turn": 14,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 18,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Skullclamp targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 18,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Ingenious Infiltrator"
+          },
+          {
+            "turn": 18,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Ingenious Infiltrator"
+          },
+          {
+            "turn": 18,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 22,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Purphoros, God of the Forge"
+          },
+          {
+            "turn": 26,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Misty Rainforest"
+          },
+          {
+            "turn": 26,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Kari Zev, Skyship Raider"
+          },
+          {
+            "turn": 26,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+          },
+          {
+            "turn": 26,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Dauthi Voidwalker"
+          },
+          {
+            "turn": 26,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+          },
+          {
+            "turn": 30,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Yuriko, the Tiger's Shadow"
+          },
+          {
+            "turn": 30,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+          },
+          {
+            "turn": 30,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Purphoros, God of the Forge"
+          },
+          {
+            "turn": 30,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Yuriko, the Tiger's Shadow"
+          },
+          {
+            "turn": 30,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Ingenious Infiltrator"
+          },
+          {
+            "turn": 30,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 30,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+          },
+          {
+            "turn": 32,
+            "phase": "Ai(4)-Destyn_Turtles' Upkeep step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast An Offer You Can't Refuse targeting [Choose two \u2014"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Michelangelo, the Heart": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 9,
+            "Ai(2)-Jaymie_Ezio": 31
+          },
+          "Dauthi Voidwalker": {
+            "Ai(4)-Destyn_Turtles": 3
+          },
+          "Ingenious Infiltrator": {
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Dragon Spirit Token": {
+            "Ai(4)-Destyn_Turtles": 16
+          },
+          "Gwaihir, Greatest of the Eagles": {
+            "Ai(4)-Destyn_Turtles": 10
+          },
+          "Krang, the All-Powerful": {
+            "Ai(3)-Gabe_Food": 31,
+            "Ai(1)-GGS_Apex_War_Form_Current": 33
+          },
+          "Purphoros, God of the Forge": {
+            "Ai(2)-Jaymie_Ezio": 8,
+            "Ai(3)-Gabe_Food": 8,
+            "Ai(4)-Destyn_Turtles": 8
+          },
+          "Yuriko, the Tiger's Shadow": {
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Tokka & Rahzar, Unsupervised": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 9
+          },
+          "Leonardo, the Balance": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 7,
+            "Ai(2)-Jaymie_Ezio": 10
+          },
+          "Shao Jun": {
+            "Ai(4)-Destyn_Turtles": 3
+          },
+          "Rocksteady, Mutant Marauder": {
+            "Ai(2)-Jaymie_Ezio": 18
+          },
+          "Bebop, Skull & Crossbones": {
+            "Ai(2)-Jaymie_Ezio": 16
+          },
+          "Lita, Little Orphan Amphibian": {
+            "Ai(2)-Jaymie_Ezio": 14
+          },
+          "Mole Module": {
+            "Ai(2)-Jaymie_Ezio": 6
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 60,
+          "creatures": 18,
+          "turn": 30
+        }
+      },
+      {
+        "seed": 20261020,
+        "engine_ms": 47617,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Apex_War_Form_Current",
+        "own_turns": [
+          3,
+          7,
+          11,
+          15,
+          19,
+          23,
+          27,
+          31,
+          35,
+          39,
+          41,
+          43,
+          45
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 15,
+            "own_turn": 4,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "trigger_counts": {
+          "Undercity Sewers": 1,
+          "Goro-Goro and Satoru": 3,
+          "Dragon Tempest": 13,
+          "Terror of the Peaks": 6,
+          "Goldlust Triad": 3,
+          "The Monarch": 3,
+          "Ragavan, Nimble Pilferer": 1
+        },
+        "stack_actions": [
+          {
+            "turn": 3,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Sol Ring"
+          },
+          {
+            "turn": 7,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Dragon Tempest"
+          },
+          {
+            "turn": 7,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Skullclamp"
+          },
+          {
+            "turn": 13,
+            "phase": "Ai(3)-Gabe_Food's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Swan Song targeting [Exile target creature. Its controller gains life equal to its power.]"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Skullclamp targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Bloodstained Mire"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Undercity Sewers"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Tetsuko Umezawa, Fugitive"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest targeting [Gollum, Obsessed Stalker (244)]"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Fell the Profane targeting [Raphael, the Muscle (378)]"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Misty Rainforest"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Terror of the Peaks"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest targeting [Bird Token (415)]"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goldlust Triad"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest targeting [Ai(3)-Gabe_Food]"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Terror of the Peaks targeting [Ai(3)-Gabe_Food]"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldlust Triad"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest targeting [Michelangelo, the Heart (402)]"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Terror of the Peaks targeting [Irma, Part-Time Mutant (310)]"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldlust Triad"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest targeting [Ai(4)-Destyn_Turtles]"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Terror of the Peaks targeting [Ai(4)-Destyn_Turtles]"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's End of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldlust Triad"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's End step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered The Monarch"
+          },
+          {
+            "turn": 41,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 41,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's End step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered The Monarch"
+          },
+          {
+            "turn": 43,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Upkeep step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 43,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 43,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's End step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered The Monarch"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Upkeep step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Ragavan, Nimble Pilferer"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Terror of the Peaks targeting [Ezio Auditore da Firenze (201)]"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Hope of Ghirapur"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Terror of the Peaks targeting [Evie Frye (123)]"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Ragavan, Nimble Pilferer"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest targeting [Ai(2)-Jaymie_Ezio]"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Terror of the Peaks targeting [Ai(2)-Jaymie_Ezio]"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Dragon Tempest"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Grand Coliseum": {
+            "Ai(4)-Destyn_Turtles": 1
+          },
+          "Gollum, Obsessed Stalker": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 1,
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Sam, Loyal Attendant": {
+            "Ai(4)-Destyn_Turtles": 7
+          },
+          "Ezio Auditore da Firenze": {
+            "Ai(3)-Gabe_Food": 3,
+            "Ai(1)-GGS_Apex_War_Form_Current": 3
+          },
+          "Bird Token": {
+            "Ai(4)-Destyn_Turtles": 6,
+            "Ai(1)-GGS_Apex_War_Form_Current": 2
+          },
+          "Goro-Goro and Satoru": {
+            "Ai(3)-Gabe_Food": 4
+          },
+          "Tetsuko Umezawa, Fugitive": {
+            "Ai(3)-Gabe_Food": 4,
+            "Ai(4)-Destyn_Turtles": 2,
+            "Ai(2)-Jaymie_Ezio": 1
+          },
+          "Desmond Miles": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 2,
+            "Ai(3)-Gabe_Food": 2
+          },
+          "Dragon Spirit Token": {
+            "Ai(4)-Destyn_Turtles": 10,
+            "Ai(3)-Gabe_Food": 15,
+            "Ai(2)-Jaymie_Ezio": 20
+          },
+          "City of Brass": {
+            "Ai(4)-Destyn_Turtles": 3
+          },
+          "The Gaffer": {
+            "Ai(4)-Destyn_Turtles": 4
+          },
+          "Lobelia, Defender of Bag End": {
+            "Ai(4)-Destyn_Turtles": 4
+          },
+          "Queen Marchesa": {
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Arbaaz Mir": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 5,
+            "Ai(3)-Gabe_Food": 2,
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Ratonhnhak\u00e9:ton": {
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Terror of the Peaks": {
+            "Ai(3)-Gabe_Food": 4,
+            "Ai(4)-Destyn_Turtles": 10,
+            "Ai(2)-Jaymie_Ezio": 20
+          },
+          "Goldlust Triad": {
+            "Ai(3)-Gabe_Food": 3,
+            "Ai(2)-Jaymie_Ezio": 4
+          },
+          "Ragavan, Nimble Pilferer": {
+            "Ai(2)-Jaymie_Ezio": 2
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 81,
+          "creatures": 31,
+          "turn": 39
+        }
+      },
+      {
+        "seed": 20261021,
+        "engine_ms": 370535,
+        "last_logged_turn": 75,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "own_turns": [
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56,
+          60,
+          64,
+          68,
+          71,
+          74
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 16,
+            "own_turn": 4,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 24,
+            "own_turn": 6,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 56,
+            "own_turn": 14,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 71,
+            "own_turn": 18,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "trigger_counts": {
+          "Raucous Theater": 1,
+          "Goro-Goro and Satoru": 1,
+          "Port Razer": 2,
+          "Undercity Sewers": 1,
+          "Goldspan Dragon": 2,
+          "Loyal Apprentice": 5
+        },
+        "stack_actions": [
+          {
+            "turn": 8,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Lightning Greaves"
+          },
+          {
+            "turn": 12,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Raucous Theater"
+          },
+          {
+            "turn": 12,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Arcane Signet"
+          },
+          {
+            "turn": 16,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Polluted Delta"
+          },
+          {
+            "turn": 16,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 16,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Lightning Greaves targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 16,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 20,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Port Razer"
+          },
+          {
+            "turn": 20,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Lightning Greaves targeting [Port Razer (36)]"
+          },
+          {
+            "turn": 20,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Port Razer"
+          },
+          {
+            "turn": 20,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Port Razer"
+          },
+          {
+            "turn": 24,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 28,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Ingenious Infiltrator"
+          },
+          {
+            "turn": 32,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Satoru Umezawa"
+          },
+          {
+            "turn": 32,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Yuriko, the Tiger's Shadow"
+          },
+          {
+            "turn": 36,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Feed the Swarm targeting [Corpsejack Menace (353)]"
+          },
+          {
+            "turn": 36,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Satoru, the Infiltrator"
+          },
+          {
+            "turn": 40,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Krenko, Tin Street Kingpin"
+          },
+          {
+            "turn": 44,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Crux of Fate"
+          },
+          {
+            "turn": 48,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Marsh Flats"
+          },
+          {
+            "turn": 48,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Undercity Sewers"
+          },
+          {
+            "turn": 52,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goldspan Dragon"
+          },
+          {
+            "turn": 52,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldspan Dragon"
+          },
+          {
+            "turn": 56,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 56,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Misty Rainforest"
+          },
+          {
+            "turn": 56,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goldspan Dragon"
+          },
+          {
+            "turn": 60,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Loyal Apprentice"
+          },
+          {
+            "turn": 60,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Loyal Apprentice"
+          },
+          {
+            "turn": 60,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Balefire Dragon"
+          },
+          {
+            "turn": 64,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Loyal Apprentice"
+          },
+          {
+            "turn": 68,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Loyal Apprentice"
+          },
+          {
+            "turn": 68,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Dauthi Voidwalker"
+          },
+          {
+            "turn": 71,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goldspan Dragon"
+          },
+          {
+            "turn": 71,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 71,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Loyal Apprentice"
+          },
+          {
+            "turn": 71,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Loyal Apprentice"
+          },
+          {
+            "turn": 74,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Loyal Apprentice"
+          },
+          {
+            "turn": 74,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Balefire Dragon"
+          },
+          {
+            "turn": 74,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Dauthi Voidwalker"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Sam, Loyal Attendant": {
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Goro-Goro and Satoru": {
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Port Razer": {
+            "Ai(3)-Gabe_Food": 4,
+            "Ai(2)-Jaymie_Ezio": 4
+          },
+          "Heroes in a Half Shell": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 5
+          },
+          "Aya of Alexandria": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 4,
+            "Ai(4)-Destyn_Turtles": 12
+          },
+          "Banquet Guests": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 8
+          },
+          "Corpsejack Menace": {
+            "Ai(3)-Gabe_Food": 4
+          },
+          "Woodfall Primus": {
+            "Ai(2)-Jaymie_Ezio": 5
+          },
+          "Goldspan Dragon": {
+            "Ai(4)-Destyn_Turtles": 8
+          },
+          "Achilles Davenport": {
+            "Ai(4)-Destyn_Turtles": 8
+          },
+          "Rat King, Pale Piper": {
+            "Ai(3)-Gabe_Food": 69,
+            "Ai(1)-GGS_Apex_War_Form_Current": 64
+          },
+          "Frodo, Adventurous Hobbit": {
+            "Ai(2)-Jaymie_Ezio": 21
+          },
+          "Rat Token": {
+            "Ai(3)-Gabe_Food": 238
+          },
+          "Leonardo, the Balance": {
+            "Ai(3)-Gabe_Food": 20
+          },
+          "Raphael, the Muscle": {
+            "Ai(3)-Gabe_Food": 16
+          },
+          "April O'Neil, Live on the Scene": {
+            "Ai(3)-Gabe_Food": 12
+          },
+          "Big Mother Mouser": {
+            "Ai(3)-Gabe_Food": 16
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 123,
+          "creatures": 52,
+          "turn": 70
+        }
+      },
+      {
+        "seed": 20261022,
+        "engine_ms": 50538,
+        "last_logged_turn": 51,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio",
+        "own_turns": [
+          3,
+          7,
+          11,
+          15,
+          19,
+          23,
+          27,
+          31,
+          35,
+          38,
+          41,
+          44
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 23,
+            "own_turn": 6,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "trigger_counts": {
+          "Raucous Theater": 1,
+          "Mithril Coat": 1,
+          "Purphoros, God of the Forge": 2,
+          "Balefire Dragon": 2
+        },
+        "stack_actions": [
+          {
+            "turn": 11,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Prosperous Thief"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Flooded Strand"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Lightning Greaves"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Lightning Greaves targeting [Prosperous Thief (27)]"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Bloodstained Mire"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Raucous Theater"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast War Cadence"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Misty Rainforest"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Skullclamp"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Mithril Coat"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Mithril Coat targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Skullclamp targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Kaito, Bane of Nightmares"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Kaito, Bane of Nightmares"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Demonic Tutor"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Purphoros, God of the Forge"
+          },
+          {
+            "turn": 38,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Balefire Dragon"
+          },
+          {
+            "turn": 38,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+          },
+          {
+            "turn": 41,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Feed the Swarm targeting [Leonardo, the Balance (404)]"
+          },
+          {
+            "turn": 41,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated War Cadence"
+          },
+          {
+            "turn": 41,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Balefire Dragon"
+          },
+          {
+            "turn": 44,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Ragavan, Nimble Pilferer"
+          },
+          {
+            "turn": 44,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Purphoros, God of the Forge"
+          },
+          {
+            "turn": 44,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated War Cadence"
+          },
+          {
+            "turn": 44,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated War Cadence"
+          },
+          {
+            "turn": 44,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Balefire Dragon"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Brushland": {
+            "Ai(3)-Gabe_Food": 4
+          },
+          "Sam, Loyal Attendant": {
+            "Ai(2)-Jaymie_Ezio": 2
+          },
+          "Ezio Auditore da Firenze": {
+            "Ai(3)-Gabe_Food": 3,
+            "Ai(4)-Destyn_Turtles": 13
+          },
+          "Gilded Goose": {
+            "Ai(2)-Jaymie_Ezio": 2
+          },
+          "Casey Jones, Back Alley Brute": {
+            "Ai(2)-Jaymie_Ezio": 19,
+            "Ai(3)-Gabe_Food": 11
+          },
+          "April O'Neil, Live on the Scene": {
+            "Ai(3)-Gabe_Food": 15
+          },
+          "Aya of Alexandria": {
+            "Ai(3)-Gabe_Food": 4
+          },
+          "Grand Coliseum": {
+            "Ai(4)-Destyn_Turtles": 3
+          },
+          "Lydia Frye": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 3
+          },
+          "The Lord of Pain": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 8,
+            "Ai(3)-Gabe_Food": 4,
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Roadkill Rodney": {
+            "Ai(3)-Gabe_Food": 5
+          },
+          "Purphoros, God of the Forge": {
+            "Ai(2)-Jaymie_Ezio": 4,
+            "Ai(4)-Destyn_Turtles": 10
+          },
+          "Goro-Goro and Satoru": {
+            "Ai(4)-Destyn_Turtles": 6,
+            "Ai(2)-Jaymie_Ezio": 3
+          },
+          "Balefire Dragon": {
+            "Ai(2)-Jaymie_Ezio": 6,
+            "Ai(4)-Destyn_Turtles": 6
+          },
+          "Arno Dorian": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 6
+          },
+          "Basim Ibn Ishaq": {
+            "Ai(4)-Destyn_Turtles": 2
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 66,
+          "creatures": 24,
+          "turn": 33
+        }
+      },
+      {
+        "seed": 20261023,
+        "engine_ms": 30007,
+        "last_logged_turn": 43,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio",
+        "own_turns": [
+          3,
+          7,
+          11,
+          15,
+          19,
+          23,
+          27,
+          31,
+          35
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 11,
+            "own_turn": 3,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "trigger_counts": {
+          "Goro-Goro and Satoru": 1,
+          "Prosperous Thief": 3,
+          "Grim Hireling": 2,
+          "Krenko, Tin Street Kingpin": 1
+        },
+        "stack_actions": [
+          {
+            "turn": 6,
+            "phase": "Ai(4)-Destyn_Turtles' Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast An Offer You Can't Refuse targeting [Everything Pizza]"
+          },
+          {
+            "turn": 11,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Sink into Stupor targeting [Ezio Auditore da Firenze (201)]"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Misty Rainforest"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Grim Hireling"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Prosperous Thief"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Prosperous Thief"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Grim Hireling"
+          },
+          {
+            "turn": 24,
+            "phase": "Ai(2)-Jaymie_Ezio's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Swan Song targeting [Black Market Connections]"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Chaos Warp targeting [Sam, Loyal Attendant (303)]"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Prosperous Thief"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Grim Hireling"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Krenko, Tin Street Kingpin"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Prosperous Thief"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Grim Hireling"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Draconic Visitor"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current activated Shizo, Death's Storehouse targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current triggered Krenko, Tin Street Kingpin"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Apex_War_Form_Current cast Dragon Tempest"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Ezio Auditore da Firenze": {
+            "Ai(4)-Destyn_Turtles": 9,
+            "Ai(1)-GGS_Apex_War_Form_Current": 6,
+            "Ai(3)-Gabe_Food": 6
+          },
+          "Krang, the All-Powerful": {
+            "Ai(3)-Gabe_Food": 9
+          },
+          "Goro-Goro and Satoru": {
+            "Ai(4)-Destyn_Turtles": 3,
+            "Ai(3)-Gabe_Food": 6
+          },
+          "Prosperous Thief": {
+            "Ai(4)-Destyn_Turtles": 3,
+            "Ai(3)-Gabe_Food": 6
+          },
+          "Dragon Spirit Token": {
+            "Ai(3)-Gabe_Food": 15
+          },
+          "Grim Hireling": {
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Unstoppable Slasher": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 2,
+            "Ai(4)-Destyn_Turtles": 13
+          },
+          "Bird Token": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 4,
+            "Ai(3)-Gabe_Food": 2,
+            "Ai(4)-Destyn_Turtles": 7
+          },
+          "Motivated Pony": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 4
+          },
+          "Leonardo, the Balance": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 3,
+            "Ai(2)-Jaymie_Ezio": 11
+          },
+          "April O'Neil, Live on the Scene": {
+            "Ai(1)-GGS_Apex_War_Form_Current": 2,
+            "Ai(2)-Jaymie_Ezio": 5
+          },
+          "Draconic Visitor": {
+            "Ai(3)-Gabe_Food": 5
+          },
+          "Edward Kenway": {
+            "Ai(3)-Gabe_Food": 13,
+            "Ai(4)-Destyn_Turtles": 10
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 47,
+          "creatures": 18,
+          "turn": 35
+        }
+      }
+    ],
+    "summary": [
+      {
+        "seed": 20261019,
+        "engine_ms": 24643,
+        "last_logged_turn": 36,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "variant": "GGS_Apex_War_Form_Current",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Apex_War_Form_Current",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 30.114,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Apex_War_Form_Current",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/apex/audit/GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Apex_War_Form_Current.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261019",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019.log"
+      },
+      {
+        "seed": 20261020,
+        "engine_ms": 47617,
+        "last_logged_turn": 45,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Apex_War_Form_Current",
+        "variant": "GGS_Apex_War_Form_Current",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Apex_War_Form_Current",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 52.589,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Apex_War_Form_Current",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/apex/audit/GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Apex_War_Form_Current.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261020",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020.log"
+      },
+      {
+        "seed": 20261021,
+        "engine_ms": 370535,
+        "last_logged_turn": 75,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "variant": "GGS_Apex_War_Form_Current",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Apex_War_Form_Current",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 375.235,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Apex_War_Form_Current",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/apex/audit/GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Apex_War_Form_Current.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261021",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021.log"
+      },
+      {
+        "seed": 20261022,
+        "engine_ms": 50538,
+        "last_logged_turn": 51,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio",
+        "variant": "GGS_Apex_War_Form_Current",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Apex_War_Form_Current",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 55.466,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Apex_War_Form_Current",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/apex/audit/GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Apex_War_Form_Current.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261022",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022.log"
+      },
+      {
+        "seed": 20261023,
+        "engine_ms": 30007,
+        "last_logged_turn": 43,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio",
+        "variant": "GGS_Apex_War_Form_Current",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Apex_War_Form_Current",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 34.749,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Apex_War_Form_Current",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/apex/audit/GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Apex_War_Form_Current.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261023",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023.log"
+      }
+    ],
+    "performance": {
+      "wall_seconds": 548.179,
+      "attempts": 5,
+      "completed": 5,
+      "engine_seconds": [
+        24.643,
+        47.617,
+        370.535,
+        50.538,
+        30.007
+      ],
+      "completed_games_per_minute": 0.547,
+      "status_counts": {
+        "completed": 5
+      },
+      "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+    },
+    "metadata": {
+      "product": "DragonMind",
+      "rules_engine": "Forge 2.0.15 GPL-3.0-or-later fork",
+      "rules_baseline": {
+        "authority": "Wizards of the Coast",
+        "document": "Magic: The Gathering Comprehensive Rules",
+        "effective_date": "2026-09-25",
+        "checked_on": "2026-10-01",
+        "url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+        "sha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca",
+        "oracle_source": "https://gatherer.wizards.com/",
+        "commander_rules_section": "903",
+        "policy": "Official rules and current Oracle text take precedence over implementation behavior. Record discrepancies as engine errors; do not substitute approximations.",
+        "validation_status": "Targeted tests; not certified as exhaustive conformance."
+      },
+      "jar_sha256": "79a16f73adb86e910bc370ab331ee6d61cedc4cd79a0fbfa452ba67d37cc6b76",
+      "deck_sha256": {
+        "GGS_Apex_War_Form_Current": "2201b8e2515326d70488badfb7458a8d300f9bef0075eb18ea34ef23f21a3a37",
+        "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+        "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+        "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a"
+      },
+      "arguments": {
+        "engine": "/workspace/scratch/0209e1f07b34/forge-resources/forge-gui",
+        "jar": "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+        "variant": "GGS_Apex_War_Form_Current",
+        "seed": 20261019,
+        "seeds": 5,
+        "rotations": [
+          0
+        ],
+        "workers": 1,
+        "batch_size": 1,
+        "timeout": 600,
+        "gc": "parallel",
+        "jit": "throughput",
+        "stock": false,
+        "audit": true,
+        "output": "/workspace/scratch/0209e1f07b34/ggs-five-pod-final/apex"
+      }
+    },
+    "log_sha256": {
+      "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019.log": "0fb8913543855928e1d4044e652f9c022d5608983b0ef788d20306dffda9e176",
+      "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020.log": "437bf45615cee8b4efd5bde6af34d02d9ebedfde7c3c7ed6d6f43dc80f40b7ea",
+      "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021.log": "e627fa6dabdebdfdee071cbfd548465fc14b8cc75fe688fbc1d4fdb4e5b6aff5",
+      "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022.log": "2c99ec79d36e96183a80859a457f319c3e86a07e60203b46fe36beaeda9b94a5",
+      "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023.log": "590ca6f54198625b82e558dfba109ca0f5215edb9cf89ba998d0533ef0a5c602"
+    },
+    "priority_counts": {
+      "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019/seat-0": 384,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019/seat-1": 455,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019/seat-2": 354,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019/seat-3": 469,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020/seat-0": 572,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020/seat-1": 562,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020/seat-2": 460,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020/seat-3": 475,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021/seat-0": 1048,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021/seat-1": 876,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021/seat-2": 1037,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021/seat-3": 1068,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022/seat-0": 555,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022/seat-1": 629,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022/seat-2": 425,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022/seat-3": 630,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023/seat-0": 408,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023/seat-1": 503,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023/seat-2": 446,
+      "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023/seat-3": 499
+    },
+    "evaluation_counts": {
+      "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019/evaluation-seat-0": {
+        "rows": 3834,
+        "decisions": {
+          "CantPlayAi": 702,
+          "CantPlaySa": 3027,
+          "CantAfford": 72,
+          "WillPlay": 13,
+          "GgsNinjutsu:score=93,return=Dauthi Voidwalker,damageDelta=-1,hitValueDelta=30,additionalGgsDragon=true,activationMana=2,replayMana=2,lostEngine=0,tokenLost=false": 2,
+          "GgsNinjutsu:noDamagePlan": 12,
+          "GgsNinjutsu:payReturn=Dauthi Voidwalker,score=93": 1,
+          "GgsNinjutsu:score=-24,return=Ingenious Infiltrator,damageDelta=-1,hitValueDelta=15,additionalGgsDragon=false,activationMana=2,replayMana=4,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:score=-11,return=Dragon Spirit Token,damageDelta=-4,hitValueDelta=45,additionalGgsDragon=true,activationMana=2,replayMana=0,lostEngine=0,tokenLost=true": 2,
+          "GgsNinjutsu:score=97,return=Dauthi Voidwalker,damageDelta=-2,hitValueDelta=45,additionalGgsDragon=true,activationMana=2,replayMana=2,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:payReturn=Dauthi Voidwalker,score=97": 1
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019/evaluation-seat-1": {
+        "rows": 4498,
+        "decisions": {
+          "CantPlayAi": 2294,
+          "CantAfford": 480,
+          "WillPlay": 10,
+          "CantPlaySa": 1714
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019/evaluation-seat-2": {
+        "rows": 2418,
+        "decisions": {
+          "CantPlayAi": 1055,
+          "CantPlaySa": 1285,
+          "CantAfford": 65,
+          "BadEtbEffects": 3,
+          "WillPlay": 10
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261019-20261019/evaluation-seat-3": {
+        "rows": 4415,
+        "decisions": {
+          "CantPlayAi": 2028,
+          "CantPlaySa": 2255,
+          "CantAfford": 95,
+          "WillPlay": 21,
+          "BadEtbEffects": 16
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020/evaluation-seat-0": {
+        "rows": 5457,
+        "decisions": {
+          "CantPlayAi": 3377,
+          "CantAfford": 23,
+          "CantPlaySa": 2035,
+          "WillPlay": 22
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020/evaluation-seat-1": {
+        "rows": 2797,
+        "decisions": {
+          "CantPlayAi": 492,
+          "CantAfford": 121,
+          "WillPlay": 17,
+          "CantPlaySa": 2167
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020/evaluation-seat-2": {
+        "rows": 3894,
+        "decisions": {
+          "CantPlayAi": 2164,
+          "CantAfford": 273,
+          "WillPlay": 14,
+          "CantPlaySa": 1443
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261020-20261020/evaluation-seat-3": {
+        "rows": 4167,
+        "decisions": {
+          "CantPlayAi": 1852,
+          "CantPlaySa": 2268,
+          "CantAfford": 35,
+          "WillPlay": 12
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021/evaluation-seat-0": {
+        "rows": 12953,
+        "decisions": {
+          "CantPlaySa": 6772,
+          "CantAfford": 78,
+          "CantPlayAi": 6067,
+          "WillPlay": 27,
+          "GgsNinjutsu:noDamagePlan": 7,
+          "GgsNinjutsu:score=-130,return=Port Razer,damageDelta=-2,hitValueDelta=-70,additionalGgsDragon=false,activationMana=2,replayMana=5,lostEngine=0,tokenLost=false": 2
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021/evaluation-seat-1": {
+        "rows": 7125,
+        "decisions": {
+          "CantPlayAi": 2127,
+          "CantAfford": 411,
+          "WillPlay": 29,
+          "CantPlaySa": 4558
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021/evaluation-seat-2": {
+        "rows": 20142,
+        "decisions": {
+          "CantPlayAi": 13269,
+          "CantAfford": 175,
+          "WillPlay": 43,
+          "CantPlaySa": 6655
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261021-20261021/evaluation-seat-3": {
+        "rows": 16949,
+        "decisions": {
+          "CantPlayAi": 7058,
+          "CantAfford": 204,
+          "CantPlaySa": 9628,
+          "WillPlay": 59
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022/evaluation-seat-0": {
+        "rows": 5174,
+        "decisions": {
+          "CantPlayAi": 1668,
+          "CantPlaySa": 3389,
+          "CantAfford": 96,
+          "WillPlay": 21
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022/evaluation-seat-1": {
+        "rows": 3843,
+        "decisions": {
+          "CantPlayAi": 1270,
+          "WillPlay": 22,
+          "CantPlaySa": 2465,
+          "CantAfford": 86
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022/evaluation-seat-2": {
+        "rows": 5136,
+        "decisions": {
+          "CantPlayAi": 2048,
+          "CantAfford": 154,
+          "WillPlay": 17,
+          "CantPlaySa": 2917
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261022-20261022/evaluation-seat-3": {
+        "rows": 7494,
+        "decisions": {
+          "CantPlayAi": 3347,
+          "CantPlaySa": 3990,
+          "CantAfford": 132,
+          "WillPlay": 24,
+          "BadEtbEffects": 1
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023/evaluation-seat-0": {
+        "rows": 3601,
+        "decisions": {
+          "CantPlaySa": 2030,
+          "CantAfford": 27,
+          "CantPlayAi": 1531,
+          "WillPlay": 11,
+          "GgsNinjutsu:score=92,return=Grim Hireling,damageDelta=0,hitValueDelta=30,additionalGgsDragon=true,activationMana=2,replayMana=4,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:payReturn=Grim Hireling,score=92": 1
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023/evaluation-seat-1": {
+        "rows": 2691,
+        "decisions": {
+          "CantPlayAi": 1016,
+          "CantAfford": 278,
+          "WillPlay": 15,
+          "CantPlaySa": 1382
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023/evaluation-seat-2": {
+        "rows": 2937,
+        "decisions": {
+          "CantPlayAi": 1619,
+          "CantAfford": 113,
+          "WillPlay": 15,
+          "CantPlaySa": 1190
+        }
+      },
+      "GGS_Apex_War_Form_Current__seat0__seeds20261023-20261023/evaluation-seat-3": {
+        "rows": 4894,
+        "decisions": {
+          "CantPlayAi": 1370,
+          "CantPlaySa": 3409,
+          "CantAfford": 100,
+          "WillPlay": 15
+        }
+      }
+    },
+    "audit_bytes": 411843758
+  },
+  "layered": {
+    "games": [
+      {
+        "seed": 20261019,
+        "engine_ms": 30075,
+        "last_logged_turn": 51,
+        "status": "completed",
+        "winner": "Ai(3)-Gabe_Food",
+        "own_turns": [
+          2,
+          6,
+          10,
+          14,
+          18,
+          22,
+          26,
+          30,
+          34,
+          38,
+          42,
+          45
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 10,
+            "own_turn": 3,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 26,
+            "own_turn": 7,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "trigger_counts": {
+          "City of Brass": 3,
+          "Mana Drain": 1,
+          "Fallen Shinobi": 1,
+          "Ingenious Infiltrator": 1,
+          "Orochi Soul-Reaver": 1,
+          "Mentor of the Meek": 3
+        },
+        "stack_actions": [
+          {
+            "turn": 10,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 14,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Deadly Rollick targeting [Savvy Hunter (225)]"
+          },
+          {
+            "turn": 14,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Lightning Greaves"
+          },
+          {
+            "turn": 14,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Lightning Greaves targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 18,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Ingenious Infiltrator"
+          },
+          {
+            "turn": 22,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Lightning Greaves targeting [Ingenious Infiltrator (24)]"
+          },
+          {
+            "turn": 22,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Orochi Soul-Reaver"
+          },
+          {
+            "turn": 26,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 30,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Fallen Shinobi"
+          },
+          {
+            "turn": 34,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Krenko, Tin Street Kingpin"
+          },
+          {
+            "turn": 34,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Xander's Lounge"
+          },
+          {
+            "turn": 34,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered City of Brass"
+          },
+          {
+            "turn": 38,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Vandalblast"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(2)-Jaymie_Ezio's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Mana Drain targeting [Destroy target creature or enchantment.]"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(2)-Jaymie_Ezio's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered City of Brass"
+          },
+          {
+            "turn": 42,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Mana Drain"
+          },
+          {
+            "turn": 42,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Sol Ring"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Reanimate targeting [Mentor of the Meek (279)]"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Fallen Shinobi"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Ingenious Infiltrator"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Mentor of the Meek"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Sol Ring"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Dawn of Hope"
+          },
+          {
+            "turn": 46,
+            "phase": "Ai(2)-Jaymie_Ezio's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Dawn of Hope"
+          },
+          {
+            "turn": 46,
+            "phase": "Ai(2)-Jaymie_Ezio's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Mentor of the Meek"
+          },
+          {
+            "turn": 46,
+            "phase": "Ai(2)-Jaymie_Ezio's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Dawn of Hope"
+          },
+          {
+            "turn": 46,
+            "phase": "Ai(2)-Jaymie_Ezio's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered City of Brass"
+          },
+          {
+            "turn": 46,
+            "phase": "Ai(2)-Jaymie_Ezio's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Mentor of the Meek"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Goro-Goro and Satoru": {
+            "Ai(4)-Destyn_Turtles": 6,
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Michelangelo, the Heart": {
+            "Ai(1)-GGS_Layered_v1": 2
+          },
+          "Gwaihir, Greatest of the Eagles": {
+            "Ai(1)-GGS_Layered_v1": 11,
+            "Ai(4)-Destyn_Turtles": 25,
+            "Ai(2)-Jaymie_Ezio": 15
+          },
+          "Grand Coliseum": {
+            "Ai(4)-Destyn_Turtles": 4
+          },
+          "Corpsejack Menace": {
+            "Ai(3)-Gabe_Food": 16
+          },
+          "City of Brass": {
+            "Ai(1)-GGS_Layered_v1": 3
+          },
+          "Shao Jun": {
+            "Ai(4)-Destyn_Turtles": 16,
+            "Ai(1)-GGS_Layered_v1": 11,
+            "Ai(3)-Gabe_Food": 6
+          },
+          "Tokka & Rahzar, Unsupervised": {
+            "Ai(3)-Gabe_Food": 11
+          },
+          "Fallen Shinobi": {
+            "Ai(3)-Gabe_Food": 5
+          },
+          "Rapacious Guest": {
+            "Ai(2)-Jaymie_Ezio": 15
+          },
+          "Sam, Loyal Attendant": {
+            "Ai(2)-Jaymie_Ezio": 4
+          },
+          "Landroval, Horizon Witness": {
+            "Ai(2)-Jaymie_Ezio": 6
+          },
+          "Bird Token": {
+            "Ai(2)-Jaymie_Ezio": 6
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 60,
+          "creatures": 19,
+          "turn": 44
+        }
+      },
+      {
+        "seed": 20261020,
+        "engine_ms": 38840,
+        "last_logged_turn": 42,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio",
+        "own_turns": [
+          3,
+          7,
+          11,
+          15,
+          19,
+          23,
+          27,
+          31,
+          34,
+          37,
+          39,
+          41
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 19,
+            "own_turn": 5,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 27,
+            "own_turn": 7,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 31,
+            "own_turn": 8,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat"
+          }
+        ],
+        "trigger_counts": {
+          "Determined Iteration": 12,
+          "Dour Port-Mage": 2
+        },
+        "stack_actions": [
+          {
+            "turn": 7,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Dour Port-Mage"
+          },
+          {
+            "turn": 11,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Vandalblast targeting [Everything Pizza (369)]"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Prosperous Thief"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Bloodstained Mire"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Determined Iteration"
+          },
+          {
+            "turn": 24,
+            "phase": "Ai(2)-Jaymie_Ezio's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Swan Song targeting [Exile target creature. Its controller gains life equal to its power.]"
+          },
+          {
+            "turn": 24,
+            "phase": "Ai(2)-Jaymie_Ezio's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast An Offer You Can't Refuse targeting [Sword of Feast and Famine]"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Layered_v1's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Layered_v1's End step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Dour Port-Mage targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Dour Port-Mage"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Hope of Ghirapur"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's End step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 34,
+            "phase": "Ai(1)-GGS_Layered_v1's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 34,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Grim Hireling"
+          },
+          {
+            "turn": 34,
+            "phase": "Ai(1)-GGS_Layered_v1's End step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 37,
+            "phase": "Ai(1)-GGS_Layered_v1's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 37,
+            "phase": "Ai(1)-GGS_Layered_v1's End step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Layered_v1's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Layered_v1's End step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 41,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Fell the Profane targeting [Ratonhnhak\u00e9:ton (138)]"
+          },
+          {
+            "turn": 41,
+            "phase": "Ai(1)-GGS_Layered_v1's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 41,
+            "phase": "Ai(1)-GGS_Layered_v1's End step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Determined Iteration"
+          },
+          {
+            "turn": 42,
+            "phase": "Ai(2)-Jaymie_Ezio's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Dour Port-Mage targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 42,
+            "phase": "Ai(2)-Jaymie_Ezio's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Dour Port-Mage"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Grand Coliseum": {
+            "Ai(4)-Destyn_Turtles": 4
+          },
+          "Gollum, Obsessed Stalker": {
+            "Ai(4)-Destyn_Turtles": 4,
+            "Ai(2)-Jaymie_Ezio": 2
+          },
+          "Sam, Loyal Attendant": {
+            "Ai(2)-Jaymie_Ezio": 2,
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Ezio Auditore da Firenze": {
+            "Ai(3)-Gabe_Food": 6
+          },
+          "Voracious Hydra": {
+            "Ai(3)-Gabe_Food": 19
+          },
+          "The Gaffer": {
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Desmond Miles": {
+            "Ai(4)-Destyn_Turtles": 22,
+            "Ai(3)-Gabe_Food": 9,
+            "Ai(1)-GGS_Layered_v1": 29
+          },
+          "Queen Marchesa": {
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Bird Token": {
+            "Ai(3)-Gabe_Food": 4,
+            "Ai(4)-Destyn_Turtles": 4,
+            "Ai(1)-GGS_Layered_v1": 2
+          },
+          "Ratonhnhak\u00e9:ton": {
+            "Ai(3)-Gabe_Food": 3
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 58,
+          "creatures": 18,
+          "turn": 32
+        }
+      },
+      {
+        "seed": 20261021,
+        "engine_ms": 23173,
+        "last_logged_turn": 48,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "own_turns": [
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 20,
+            "own_turn": 5,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 28,
+            "own_turn": 7,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "trigger_counts": {
+          "Heroes in a Half Shell": 1,
+          "Goro-Goro and Satoru": 1
+        },
+        "stack_actions": [
+          {
+            "turn": 8,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Dour Port-Mage"
+          },
+          {
+            "turn": 12,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Sol Ring"
+          },
+          {
+            "turn": 16,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Kaito, Bane of Nightmares"
+          },
+          {
+            "turn": 16,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Kaito, Bane of Nightmares"
+          },
+          {
+            "turn": 20,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 22,
+            "phase": "Ai(3)-Gabe_Food's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Fierce Guardianship targeting [Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.   ]"
+          },
+          {
+            "turn": 24,
+            "phase": "Ai(1)-GGS_Layered_v1's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Withering Torment targeting [Heroes in a Half Shell (375)]"
+          },
+          {
+            "turn": 24,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Reanimate targeting [Heroes in a Half Shell (375)]"
+          },
+          {
+            "turn": 24,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Heroes in a Half Shell"
+          },
+          {
+            "turn": 24,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 28,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 28,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Skullclamp"
+          },
+          {
+            "turn": 32,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Skullclamp targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 32,
+            "phase": "Ai(1)-GGS_Layered_v1's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Shizo, Death's Storehouse targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 36,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Ingenious Infiltrator"
+          },
+          {
+            "turn": 36,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Dauthi Voidwalker"
+          },
+          {
+            "turn": 40,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Slither Blade"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Shire Shirriff": {
+            "Ai(2)-Jaymie_Ezio": 4
+          },
+          "Sam, Loyal Attendant": {
+            "Ai(2)-Jaymie_Ezio": 2
+          },
+          "Essence Warden": {
+            "Ai(2)-Jaymie_Ezio": 1
+          },
+          "Bayek of Siwa": {
+            "Ai(3)-Gabe_Food": 6
+          },
+          "Butterbur, Bree Innkeeper": {
+            "Ai(2)-Jaymie_Ezio": 3
+          },
+          "Heroes in a Half Shell": {
+            "Ai(3)-Gabe_Food": 5,
+            "Ai(2)-Jaymie_Ezio": 5
+          },
+          "Goro-Goro and Satoru": {
+            "Ai(2)-Jaymie_Ezio": 3,
+            "Ai(4)-Destyn_Turtles": 4
+          },
+          "Aya of Alexandria": {
+            "Ai(1)-GGS_Layered_v1": 8
+          },
+          "Motivated Pony": {
+            "Ai(2)-Jaymie_Ezio": 4,
+            "Ai(4)-Destyn_Turtles": 6
+          },
+          "Leonardo, the Balance": {
+            "Ai(1)-GGS_Layered_v1": 9,
+            "Ai(2)-Jaymie_Ezio": 11
+          },
+          "Rocksteady, Mutant Marauder": {
+            "Ai(1)-GGS_Layered_v1": 14,
+            "Ai(2)-Jaymie_Ezio": 9,
+            "Ai(3)-Gabe_Food": 13
+          },
+          "City of Brass": {
+            "Ai(4)-Destyn_Turtles": 5
+          },
+          "Biogenic Ooze": {
+            "Ai(1)-GGS_Layered_v1": 9,
+            "Ai(2)-Jaymie_Ezio": 7,
+            "Ai(3)-Gabe_Food": 16
+          },
+          "Ooze Token": {
+            "Ai(1)-GGS_Layered_v1": 12,
+            "Ai(2)-Jaymie_Ezio": 6
+          },
+          "Dauthi Voidwalker": {
+            "Ai(4)-Destyn_Turtles": 3
+          },
+          "Mole Module": {
+            "Ai(1)-GGS_Layered_v1": 6,
+            "Ai(3)-Gabe_Food": 8
+          },
+          "Krang, the All-Powerful": {
+            "Ai(2)-Jaymie_Ezio": 11
+          },
+          "Leatherhead, Iron Gator": {
+            "Ai(2)-Jaymie_Ezio": 8,
+            "Ai(3)-Gabe_Food": 12
+          },
+          "Bebop, Skull & Crossbones": {
+            "Ai(2)-Jaymie_Ezio": 6,
+            "Ai(3)-Gabe_Food": 10
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 53,
+          "creatures": 13,
+          "turn": 43
+        }
+      },
+      {
+        "seed": 20261022,
+        "engine_ms": 32211,
+        "last_logged_turn": 35,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1",
+        "own_turns": [
+          3,
+          7,
+          11,
+          15,
+          19,
+          23,
+          27,
+          31,
+          33,
+          35
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 11,
+            "own_turn": 3,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "trigger_counts": {
+          "Karlach, Fury of Avernus": 2,
+          "Orochi Soul-Reaver": 6,
+          "Higure, the Still Wind": 2,
+          "Goro-Goro and Satoru": 3,
+          "Heroes in a Half Shell": 1,
+          "Fallen Shinobi": 1,
+          "Ingenious Infiltrator": 2
+        },
+        "stack_actions": [
+          {
+            "turn": 11,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Krenko, Tin Street Kingpin"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Lightning Greaves"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Lightning Greaves targeting [Goro-Goro and Satoru (100)]"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Orochi Soul-Reaver"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Phoenix Chick"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Karlach, Fury of Avernus"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Karlach, Fury of Avernus"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Higure, the Still Wind"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's First Strike Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Higure, the Still Wind"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Heroes in a Half Shell"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Phoenix Chick"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Flooded Strand"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Higure, the Still Wind targeting [Higure, the Still Wind (47)]"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Declare Attackers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Karlach, Fury of Avernus"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Fallen Shinobi"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's First Strike Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Higure, the Still Wind"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's First Strike Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's First Strike Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Ingenious Infiltrator"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Fallen Shinobi"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Ingenious Infiltrator"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Ingenious Infiltrator"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's First Strike Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Orochi Soul-Reaver"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Phoenix Chick"
+          },
+          {
+            "turn": 33,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Hope of Ghirapur"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Layered_v1's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Deadly Rollick targeting [The Lord of Pain (142)]"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Brushland": {
+            "Ai(3)-Gabe_Food": 1
+          },
+          "Sam, Loyal Attendant": {
+            "Ai(2)-Jaymie_Ezio": 2,
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Underground River": {
+            "Ai(1)-GGS_Layered_v1": 2
+          },
+          "Ezio Auditore da Firenze": {
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Leonardo, the Balance": {
+            "Ai(3)-Gabe_Food": 10
+          },
+          "Corpsejack Menace": {
+            "Ai(3)-Gabe_Food": 6
+          },
+          "Roadkill Rodney": {
+            "Ai(3)-Gabe_Food": 12
+          },
+          "April O'Neil, Live on the Scene": {
+            "Ai(3)-Gabe_Food": 12
+          },
+          "Goro-Goro and Satoru": {
+            "Ai(4)-Destyn_Turtles": 6
+          },
+          "Basim Ibn Ishaq": {
+            "Ai(4)-Destyn_Turtles": 2
+          },
+          "Frodo, Adventurous Hobbit": {
+            "Ai(4)-Destyn_Turtles": 1
+          },
+          "Prosperous Innkeeper": {
+            "Ai(4)-Destyn_Turtles": 1
+          },
+          "Farmer Cotton": {
+            "Ai(4)-Destyn_Turtles": 1
+          },
+          "Halfling Token": {
+            "Ai(4)-Destyn_Turtles": 6
+          },
+          "The Lord of Pain": {
+            "Ai(4)-Destyn_Turtles": 5,
+            "Ai(3)-Gabe_Food": 5,
+            "Ai(1)-GGS_Layered_v1": 10,
+            "Ai(2)-Jaymie_Ezio": 6
+          },
+          "Casey Jones, Back Alley Brute": {
+            "Ai(3)-Gabe_Food": 2
+          },
+          "Ninja Token": {
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Orochi Soul-Reaver": {
+            "Ai(4)-Destyn_Turtles": 5,
+            "Ai(2)-Jaymie_Ezio": 5
+          },
+          "Karlach, Fury of Avernus": {
+            "Ai(4)-Destyn_Turtles": 5,
+            "Ai(2)-Jaymie_Ezio": 5
+          },
+          "Higure, the Still Wind": {
+            "Ai(4)-Destyn_Turtles": 3,
+            "Ai(2)-Jaymie_Ezio": 3
+          },
+          "Heroes in a Half Shell": {
+            "Ai(4)-Destyn_Turtles": 5
+          },
+          "Dragon Spirit Token": {
+            "Ai(2)-Jaymie_Ezio": 20
+          },
+          "Fallen Shinobi": {
+            "Ai(2)-Jaymie_Ezio": 5
+          },
+          "Ingenious Infiltrator": {
+            "Ai(2)-Jaymie_Ezio": 2
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 68,
+          "creatures": 26,
+          "turn": 29
+        }
+      },
+      {
+        "seed": 20261023,
+        "engine_ms": 26725,
+        "last_logged_turn": 52,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1",
+        "own_turns": [
+          3,
+          7,
+          11,
+          15,
+          19,
+          23,
+          27,
+          31,
+          35,
+          39,
+          42,
+          45,
+          48,
+          50,
+          52
+        ],
+        "commander_casts": [
+          {
+            "global_turn": 11,
+            "own_turn": 3,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 23,
+            "own_turn": 6,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 39,
+            "own_turn": 10,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat"
+          },
+          {
+            "global_turn": 45,
+            "own_turn": 12,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat"
+          }
+        ],
+        "trigger_counts": {
+          "Goro-Goro and Satoru": 2,
+          "Balefire Dragon": 6,
+          "Fallen Shinobi": 1,
+          "Professional Face-Breaker": 1
+        },
+        "stack_actions": [
+          {
+            "turn": 7,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Arcane Signet"
+          },
+          {
+            "turn": 11,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Satoru Umezawa"
+          },
+          {
+            "turn": 15,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Tetsuko Umezawa, Fugitive"
+          },
+          {
+            "turn": 19,
+            "phase": "Ai(1)-GGS_Layered_v1's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Sink into Stupor targeting [Sam, Loyal Attendant (303)]"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Layered_v1's Beginning of Combat Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Goro-Goro and Satoru"
+          },
+          {
+            "turn": 23,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Balefire Dragon"
+          },
+          {
+            "turn": 27,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Sol Ring"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Draw step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Deadly Rollick targeting [Leatherhead, Iron Gator (381)]"
+          },
+          {
+            "turn": 31,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Balefire Dragon"
+          },
+          {
+            "turn": 35,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Balefire Dragon"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Layered_v1's Declare Blockers Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Fallen Shinobi"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Balefire Dragon"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Fallen Shinobi"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Goro-Goro and Satoru"
+          },
+          {
+            "turn": 39,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 42,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Misty Rainforest"
+          },
+          {
+            "turn": 42,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Balefire Dragon"
+          },
+          {
+            "turn": 42,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Tetsuko Umezawa, Fugitive"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Balefire Dragon"
+          },
+          {
+            "turn": 45,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Goro-Goro and Satoru"
+          },
+          {
+            "turn": 48,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Professional Face-Breaker"
+          },
+          {
+            "turn": 50,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 cast Skullclamp"
+          },
+          {
+            "turn": 50,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 activated Skullclamp targeting [Balefire Dragon (64)]"
+          },
+          {
+            "turn": 50,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Balefire Dragon"
+          },
+          {
+            "turn": 50,
+            "phase": "Ai(1)-GGS_Layered_v1's Combat Damage Step",
+            "line": "Add To Stack: Ai(1)-GGS_Layered_v1 triggered Professional Face-Breaker"
+          }
+        ],
+        "logged_damage_by_source": {
+          "Ezio Auditore da Firenze": {
+            "Ai(1)-GGS_Layered_v1": 3,
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Satoru Umezawa": {
+            "Ai(3)-Gabe_Food": 2
+          },
+          "Tetsuko Umezawa, Fugitive": {
+            "Ai(3)-Gabe_Food": 4,
+            "Ai(4)-Destyn_Turtles": 4,
+            "Ai(2)-Jaymie_Ezio": 1
+          },
+          "Goro-Goro and Satoru": {
+            "Ai(3)-Gabe_Food": 6
+          },
+          "Leonardo, the Balance": {
+            "Ai(3)-Gabe_Food": 3
+          },
+          "Dragon Spirit Token": {
+            "Ai(3)-Gabe_Food": 15,
+            "Ai(4)-Destyn_Turtles": 35,
+            "Ai(2)-Jaymie_Ezio": 20
+          },
+          "Balefire Dragon": {
+            "Ai(3)-Gabe_Food": 12,
+            "Ai(4)-Destyn_Turtles": 20,
+            "Ai(2)-Jaymie_Ezio": 12
+          },
+          "Fallen Shinobi": {
+            "Ai(3)-Gabe_Food": 5
+          },
+          "Everything Pizza": {
+            "Ai(2)-Jaymie_Ezio": 3
+          }
+        },
+        "peak_observed_creature_board": {
+          "permanents": 49,
+          "creatures": 15,
+          "turn": 30
+        }
+      }
+    ],
+    "summary": [
+      {
+        "seed": 20261019,
+        "engine_ms": 30075,
+        "last_logged_turn": 51,
+        "status": "completed",
+        "winner": "Ai(3)-Gabe_Food",
+        "variant": "GGS_Layered_v1",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Layered_v1",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 35.455,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Layered_v1",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/layered/audit/GGS_Layered_v1__seat0__seeds20261019-20261019",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Layered_v1.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261019",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Layered_v1__seat0__seeds20261019-20261019.log"
+      },
+      {
+        "seed": 20261020,
+        "engine_ms": 38840,
+        "last_logged_turn": 42,
+        "status": "completed",
+        "winner": "Ai(2)-Jaymie_Ezio",
+        "variant": "GGS_Layered_v1",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Layered_v1",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 43.649,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Layered_v1",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/layered/audit/GGS_Layered_v1__seat0__seeds20261020-20261020",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Layered_v1.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261020",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Layered_v1__seat0__seeds20261020-20261020.log"
+      },
+      {
+        "seed": 20261021,
+        "engine_ms": 23173,
+        "last_logged_turn": 48,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "variant": "GGS_Layered_v1",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Layered_v1",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 28.11,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Layered_v1",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/layered/audit/GGS_Layered_v1__seat0__seeds20261021-20261021",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Layered_v1.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261021",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Layered_v1__seat0__seeds20261021-20261021.log"
+      },
+      {
+        "seed": 20261022,
+        "engine_ms": 32211,
+        "last_logged_turn": 35,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1",
+        "variant": "GGS_Layered_v1",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Layered_v1",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 37.161,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Layered_v1",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/layered/audit/GGS_Layered_v1__seat0__seeds20261022-20261022",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Layered_v1.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261022",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Layered_v1__seat0__seeds20261022-20261022.log"
+      },
+      {
+        "seed": 20261023,
+        "engine_ms": 26725,
+        "last_logged_turn": 52,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1",
+        "variant": "GGS_Layered_v1",
+        "seat_rotation": 0,
+        "seats": [
+          "GGS_Layered_v1",
+          "Jaymie_Ezio",
+          "Gabe_Food",
+          "Destyn_Turtles"
+        ],
+        "pilot": "commander-aware",
+        "batch_wall_seconds": 31.675,
+        "batch_size": 1,
+        "command": [
+          "java",
+          "-Xmx1536m",
+          "-XX:+UseParallelGC",
+          "-XX:-TieredCompilation",
+          "-XX:CompileThreshold=1000",
+          "-Djava.awt.headless=true",
+          "-Dforge.ai.ggsPilotPlayer=Ai(1)-GGS_Layered_v1",
+          "-Dforge.audit.directory=/workspace/scratch/0209e1f07b34/ggs-five-pod-final/layered/audit/GGS_Layered_v1__seat0__seeds20261023-20261023",
+          "-jar",
+          "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+          "sim",
+          "-D",
+          "/workspace/scratch/0209e1f07b34/ggs-forge-lab/decks",
+          "-d",
+          "GGS_Layered_v1.dck",
+          "Jaymie_Ezio.dck",
+          "Gabe_Food.dck",
+          "Destyn_Turtles.dck",
+          "-f",
+          "Commander",
+          "-seeds",
+          "20261023",
+          "-c",
+          "600",
+          "-a",
+          "Default",
+          "Default",
+          "Default",
+          "Default"
+        ],
+        "log": "GGS_Layered_v1__seat0__seeds20261023-20261023.log"
+      }
+    ],
+    "performance": {
+      "wall_seconds": 176.071,
+      "attempts": 5,
+      "completed": 5,
+      "engine_seconds": [
+        30.075,
+        38.84,
+        23.173,
+        32.211,
+        26.725
+      ],
+      "completed_games_per_minute": 1.704,
+      "status_counts": {
+        "completed": 5
+      },
+      "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+    },
+    "metadata": {
+      "product": "DragonMind",
+      "rules_engine": "Forge 2.0.15 GPL-3.0-or-later fork",
+      "rules_baseline": {
+        "authority": "Wizards of the Coast",
+        "document": "Magic: The Gathering Comprehensive Rules",
+        "effective_date": "2026-09-25",
+        "checked_on": "2026-10-01",
+        "url": "https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt",
+        "sha256": "8d860e451f20f38865b725b42d82feb714c725373dd8f3b32b8652b3eeb070ca",
+        "oracle_source": "https://gatherer.wizards.com/",
+        "commander_rules_section": "903",
+        "policy": "Official rules and current Oracle text take precedence over implementation behavior. Record discrepancies as engine errors; do not substitute approximations.",
+        "validation_status": "Targeted tests; not certified as exhaustive conformance."
+      },
+      "jar_sha256": "79a16f73adb86e910bc370ab331ee6d61cedc4cd79a0fbfa452ba67d37cc6b76",
+      "deck_sha256": {
+        "GGS_Layered_v1": "65400110cb649d1498c39d58e59b2c20426d1ce1aee05c2af6889edbfb457584",
+        "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+        "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+        "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a"
+      },
+      "arguments": {
+        "engine": "/workspace/scratch/0209e1f07b34/forge-resources/forge-gui",
+        "jar": "/workspace/scratch/0209e1f07b34/ggs-deployment-candidate/dragonmind-v16-ggs-deployment.jar",
+        "variant": "GGS_Layered_v1",
+        "seed": 20261019,
+        "seeds": 5,
+        "rotations": [
+          0
+        ],
+        "workers": 1,
+        "batch_size": 1,
+        "timeout": 600,
+        "gc": "parallel",
+        "jit": "throughput",
+        "stock": false,
+        "audit": true,
+        "output": "/workspace/scratch/0209e1f07b34/ggs-five-pod-final/layered"
+      }
+    },
+    "log_sha256": {
+      "GGS_Layered_v1__seat0__seeds20261019-20261019.log": "bd3a68ac04265748b328b8732ef69243cc8a4ae45d38bb5bf0bd7b7db81b989c",
+      "GGS_Layered_v1__seat0__seeds20261020-20261020.log": "2cc6f78613206ddf12f418f4c87e66169e0713e239626ae0dbb9804d51e85ab1",
+      "GGS_Layered_v1__seat0__seeds20261021-20261021.log": "800f0e2ce874c112dd74edf5db0877587a2f9af1c5f7ccfdcf34d0f36274be9d",
+      "GGS_Layered_v1__seat0__seeds20261022-20261022.log": "29c2c7a6c21c2dab0bf9cef384130dd203c0faed88ac2b8e3e66ee4561fa36f9",
+      "GGS_Layered_v1__seat0__seeds20261023-20261023.log": "a57221f0cd09ad967dae11e36d3476a5c710d140f105cf5f4739ff55e6bf5a07"
+    },
+    "priority_counts": {
+      "GGS_Layered_v1__seat0__seeds20261019-20261019/seat-0": 553,
+      "GGS_Layered_v1__seat0__seeds20261019-20261019/seat-1": 619,
+      "GGS_Layered_v1__seat0__seeds20261019-20261019/seat-2": 617,
+      "GGS_Layered_v1__seat0__seeds20261019-20261019/seat-3": 498,
+      "GGS_Layered_v1__seat0__seeds20261020-20261020/seat-0": 525,
+      "GGS_Layered_v1__seat0__seeds20261020-20261020/seat-1": 533,
+      "GGS_Layered_v1__seat0__seeds20261020-20261020/seat-2": 386,
+      "GGS_Layered_v1__seat0__seeds20261020-20261020/seat-3": 471,
+      "GGS_Layered_v1__seat0__seeds20261021-20261021/seat-0": 499,
+      "GGS_Layered_v1__seat0__seeds20261021-20261021/seat-1": 564,
+      "GGS_Layered_v1__seat0__seeds20261021-20261021/seat-2": 597,
+      "GGS_Layered_v1__seat0__seeds20261021-20261021/seat-3": 611,
+      "GGS_Layered_v1__seat0__seeds20261022-20261022/seat-0": 475,
+      "GGS_Layered_v1__seat0__seeds20261022-20261022/seat-1": 470,
+      "GGS_Layered_v1__seat0__seeds20261022-20261022/seat-2": 375,
+      "GGS_Layered_v1__seat0__seeds20261022-20261022/seat-3": 395,
+      "GGS_Layered_v1__seat0__seeds20261023-20261023/seat-0": 587,
+      "GGS_Layered_v1__seat0__seeds20261023-20261023/seat-1": 518,
+      "GGS_Layered_v1__seat0__seeds20261023-20261023/seat-2": 426,
+      "GGS_Layered_v1__seat0__seeds20261023-20261023/seat-3": 596
+    },
+    "evaluation_counts": {
+      "GGS_Layered_v1__seat0__seeds20261019-20261019/evaluation-seat-0": {
+        "rows": 4840,
+        "decisions": {
+          "CantPlaySa": 2836,
+          "CantPlayAi": 1920,
+          "CantAfford": 54,
+          "WillPlay": 18,
+          "GgsNinjutsu:noDamagePlan": 12
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261019-20261019/evaluation-seat-1": {
+        "rows": 6389,
+        "decisions": {
+          "CantPlayAi": 2848,
+          "CantAfford": 353,
+          "WillPlay": 15,
+          "CantPlaySa": 3166,
+          "BadEtbEffects": 7
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261019-20261019/evaluation-seat-2": {
+        "rows": 4070,
+        "decisions": {
+          "CantPlayAi": 1640,
+          "CantPlaySa": 2240,
+          "CantAfford": 169,
+          "BadEtbEffects": 4,
+          "WillPlay": 17
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261019-20261019/evaluation-seat-3": {
+        "rows": 4487,
+        "decisions": {
+          "CantPlayAi": 1887,
+          "CantPlaySa": 2471,
+          "CantAfford": 97,
+          "WillPlay": 17,
+          "BadEtbEffects": 15
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261020-20261020/evaluation-seat-0": {
+        "rows": 4626,
+        "decisions": {
+          "CantPlayAi": 2543,
+          "CantPlaySa": 2037,
+          "CantAfford": 33,
+          "WillPlay": 13
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261020-20261020/evaluation-seat-1": {
+        "rows": 2413,
+        "decisions": {
+          "CantPlayAi": 757,
+          "CantAfford": 99,
+          "WillPlay": 20,
+          "CantPlaySa": 1537
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261020-20261020/evaluation-seat-2": {
+        "rows": 2982,
+        "decisions": {
+          "CantPlayAi": 1512,
+          "CantAfford": 99,
+          "WillPlay": 13,
+          "CantPlaySa": 1358
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261020-20261020/evaluation-seat-3": {
+        "rows": 4045,
+        "decisions": {
+          "CantPlayAi": 1174,
+          "CantPlaySa": 2801,
+          "CantAfford": 56,
+          "WillPlay": 14
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261021-20261021/evaluation-seat-0": {
+        "rows": 4563,
+        "decisions": {
+          "CantPlayAi": 2103,
+          "CantAfford": 57,
+          "CantPlaySa": 2382,
+          "WillPlay": 14,
+          "GgsNinjutsu:score=-50,return=Heroes in a Half Shell,damageDelta=-3,hitValueDelta=30,additionalGgsDragon=false,activationMana=2,replayMana=5,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:noDamagePlan": 6
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261021-20261021/evaluation-seat-1": {
+        "rows": 3621,
+        "decisions": {
+          "CantPlayAi": 1408,
+          "CantAfford": 236,
+          "WillPlay": 19,
+          "CantPlaySa": 1958
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261021-20261021/evaluation-seat-2": {
+        "rows": 4293,
+        "decisions": {
+          "CantPlayAi": 2398,
+          "CantAfford": 140,
+          "WillPlay": 14,
+          "CantPlaySa": 1741
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261021-20261021/evaluation-seat-3": {
+        "rows": 5001,
+        "decisions": {
+          "CantPlayAi": 1945,
+          "CantAfford": 143,
+          "CantPlaySa": 2886,
+          "WillPlay": 27
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261022-20261022/evaluation-seat-0": {
+        "rows": 4136,
+        "decisions": {
+          "CantPlayAi": 1853,
+          "CantAfford": 41,
+          "CantPlaySa": 2198,
+          "WillPlay": 17,
+          "GgsNinjutsu:noDamagePlan": 13,
+          "GgsNinjutsu:score=136,return=Phoenix Chick,damageDelta=2,hitValueDelta=45,additionalGgsDragon=true,activationMana=4,replayMana=1,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:payReturn=Phoenix Chick,score=136": 1,
+          "GgsNinjutsu:score=25,return=Heroes in a Half Shell,damageDelta=0,hitValueDelta=80,additionalGgsDragon=false,activationMana=4,replayMana=5,lostEngine=0,tokenLost=false": 5,
+          "GgsNinjutsu:score=193,return=Phoenix Chick,damageDelta=4,hitValueDelta=80,additionalGgsDragon=true,activationMana=4,replayMana=1,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:payReturn=Phoenix Chick,score=193": 1,
+          "GgsNinjutsu:score=40,return=Higure, the Still Wind,damageDelta=2,hitValueDelta=60,additionalGgsDragon=false,activationMana=2,replayMana=5,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:payReturn=Higure, the Still Wind,score=40": 1,
+          "GgsNinjutsu:score=26,return=Karlach, Fury of Avernus,damageDelta=3,hitValueDelta=45,additionalGgsDragon=false,activationMana=4,replayMana=5,lostEngine=0,tokenLost=false": 1,
+          "GgsNinjutsu:score=-12,return=Dragon Spirit Token,damageDelta=-2,hitValueDelta=45,additionalGgsDragon=true,activationMana=4,replayMana=0,lostEngine=0,tokenLost=true": 1,
+          "GgsNinjutsu:score=1038,return=Dragon Spirit Token,damageDelta=3,hitValueDelta=45,additionalGgsDragon=true,activationMana=4,replayMana=0,lostEngine=0,tokenLost=true": 1
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261022-20261022/evaluation-seat-1": {
+        "rows": 3185,
+        "decisions": {
+          "CantPlayAi": 994,
+          "WillPlay": 14,
+          "CantPlaySa": 2087,
+          "CantAfford": 73,
+          "BadEtbEffects": 17
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261022-20261022/evaluation-seat-2": {
+        "rows": 5300,
+        "decisions": {
+          "CantPlayAi": 2121,
+          "CantAfford": 88,
+          "WillPlay": 17,
+          "CantPlaySa": 3074
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261022-20261022/evaluation-seat-3": {
+        "rows": 3514,
+        "decisions": {
+          "CantPlayAi": 1388,
+          "CantPlaySa": 2057,
+          "CantAfford": 55,
+          "WillPlay": 14
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261023-20261023/evaluation-seat-0": {
+        "rows": 5355,
+        "decisions": {
+          "CantPlayAi": 3534,
+          "CantAfford": 30,
+          "WillPlay": 18,
+          "CantPlaySa": 1768,
+          "GgsNinjutsu:score=18,return=Tetsuko Umezawa, Fugitive,damageDelta=5,hitValueDelta=0,additionalGgsDragon=false,activationMana=4,replayMana=2,lostEngine=25,tokenLost=false": 1,
+          "GgsNinjutsu:noDamagePlan": 2,
+          "GgsNinjutsu:score=165,return=Tetsuko Umezawa, Fugitive,damageDelta=4,hitValueDelta=80,additionalGgsDragon=true,activationMana=4,replayMana=2,lostEngine=25,tokenLost=false": 1,
+          "GgsNinjutsu:payReturn=Tetsuko Umezawa, Fugitive,score=165": 1
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261023-20261023/evaluation-seat-1": {
+        "rows": 2522,
+        "decisions": {
+          "CantPlayAi": 1030,
+          "CantAfford": 329,
+          "WillPlay": 11,
+          "CantPlaySa": 1152
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261023-20261023/evaluation-seat-2": {
+        "rows": 3354,
+        "decisions": {
+          "CantPlayAi": 1705,
+          "CantAfford": 211,
+          "WillPlay": 16,
+          "CantPlaySa": 1422
+        }
+      },
+      "GGS_Layered_v1__seat0__seeds20261023-20261023/evaluation-seat-3": {
+        "rows": 6232,
+        "decisions": {
+          "CantPlayAi": 2377,
+          "CantPlaySa": 3711,
+          "CantAfford": 117,
+          "WillPlay": 27
+        }
+      }
+    },
+    "audit_bytes": 289197215
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "upstream_commit": "4ec5f1a2c32fa90ecb983a72b9eb47aa5c5d7676",
+  "ordered_patches": 18,
+  "reproduced_managed_sources": 51,
+  "production_changed_source_files": 2,
+  "regression_test_files_updated": 2,
+  "full_maven_build_rerun": false,
+  "engine_checks": 108,
+  "reflective_test_methods": 105,
+  "lifecycle_internal_checks": 4,
+  "python_checks": 34,
+  "production_class_entries": [
+    "forge/ai/ComputerUtil.class",
+    "forge/ai/bridge/BridgeSnapshot.class"
+  ],
+  "fresh_reconstructed_source_matches_packaged_classes": true,
+  "jar_sha256": "79a16f73adb86e910bc370ab331ee6d61cedc4cd79a0fbfa452ba67d37cc6b76",
+  "prior_v15_jar_retained": true,
+  "active_jar": "/workspace/scratch/0209e1f07b34/dragonmind.jar",
+  "strategy_changes": true,
+  "performance_speedup_established": false,
+  "diagnostic_classes_packaged": false,
+  "patch_sha256": "13d68c1511b1e20bebb54460b8d11650c585ce0446b14f69ea6a1f9a9d51505d",
+  "modal_null_player_regression_reproduces_v15_crash": true
+}
