@@ -1,6 +1,6 @@
 import json, tarfile, tempfile, unittest
 from pathlib import Path
-from analyze_matched_pod_collection import bootstrap_win_difference, metrics, report
+from analyze_matched_pod_collection import bootstrap_win_difference, metrics, report, unresolved_outcome_bounds
 from watch_matched_pod_collection import archive_checkpoint
 
 def row(seed, win, seat=0):
@@ -30,6 +30,13 @@ class MatchedPodTests(unittest.TestCase):
         self.assertIsNone(value['median_first_commander_cast_own_turn'])
         self.assertEqual(value['win_rate'],.5)
         self.assertEqual(value['opponent_wins'],{'Jaymie_Ezio':1})
+
+    def test_unknown_outcomes_are_bounds_not_imputed_results(self):
+        value=unresolved_outcome_bounds({'apex':{'games':9,'wins':4},
+            'layered':{'games':8,'wins':3}},10)
+        self.assertEqual(value['by_deck']['apex']['possible_scheduled_win_rate_range'],[.4,.5])
+        self.assertAlmostEqual(value['possible_apex_minus_layered_scheduled_win_rate_range'][0],-.1)
+        self.assertAlmostEqual(value['possible_apex_minus_layered_scheduled_win_rate_range'][1],.2)
 
     def test_report_handles_no_valid_pairs(self):
         self.assertIn('Matched valid pairs: **0**',report({'matched_valid_pairs':0,

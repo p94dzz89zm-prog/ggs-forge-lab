@@ -25,6 +25,18 @@ def bootstrap_win_difference(pairs, iterations=10000):
         'seed_clusters': len(clusters), 'iterations': iterations,
         'method': 'Paired percentile bootstrap resampling whole seed clusters; exploratory, conditional on valid pairs'}
 
+def unresolved_outcome_bounds(all_valid, planned):
+    bounds={}
+    for name, result in all_valid.items():
+        known_wins=result.get('wins',0); missing=planned-result['games']
+        bounds[name]={'unresolved_slots':missing,
+            'possible_scheduled_win_rate_range':[known_wins/planned,(known_wins+missing)/planned]}
+    apex=bounds['apex']['possible_scheduled_win_rate_range']
+    layered=bounds['layered']['possible_scheduled_win_rate_range']
+    return {'by_deck':bounds,'possible_apex_minus_layered_scheduled_win_rate_range':
+        [apex[0]-layered[1],apex[1]-layered[0]],
+        'meaning':'Worst-case bounds for unknown outcomes, not estimates or confidence intervals; invalid games are not assigned wins or losses'}
+
 def metrics(rows):
     first = [g['commander_casts'][0]['own_turn'] for g in rows
              if g['commander_casts'] and g['commander_casts'][0]['own_turn'] is not None]
@@ -90,6 +102,8 @@ def analyze(root):
             'both_win' if a['ggs_win'] and b['ggs_win'] else 'apex_only_win' if a['ggs_win']
             else 'layered_only_win' if b['ggs_win'] else 'neither_win' for a,b in pairs)),
         'unresolved_slots':failures}
+    comparison['unresolved_outcome_sensitivity']=unresolved_outcome_bounds(
+        comparison['all_valid'],comparison['planned_games_per_deck'])
     return {'games':public,'metadata':protocol['metadata'],'log_sha256':hashes},comparison
 
 def report(comparison):
@@ -116,6 +130,10 @@ def report(comparison):
         low,high=estimate['approximate_95_percentile_interval']
         lines += ['', f"Apex-minus-Layered matched win-rate difference: **{100*estimate['difference_apex_minus_layered']:.1f} percentage points**. Exploratory seed-clustered bootstrap interval: **{100*low:.1f} to {100*high:.1f} points**.", '',
             'The bootstrap resamples entire seed clusters, preserving the dependence among their four seat rotations. It is approximate, small-sample and conditional on valid pairs; it is not a guarantee of human-pod superiority. An interval crossing zero does not establish a clear ranking.']
+    sensitivity=comparison.get('unresolved_outcome_sensitivity')
+    if sensitivity:
+        low,high=sensitivity['possible_apex_minus_layered_scheduled_win_rate_range']
+        lines += ['',f'If unresolved outcomes are allowed to range from all losses to all wins, the possible Apex-minus-Layered difference across all scheduled slots ranges from **{100*low:.1f} to {100*high:.1f} percentage points**. These are worst-case unknown-outcome bounds—not estimates or confidence intervals—and no invalid game is assigned a result.']
     lines += ['', '## Interpretation limits', '',
         'Wins are the primary endpoint. Secondary metrics describe activity and possible mechanisms, not causal card value. Announced GGS triggers are not verified resolved Dragon tokens; paid-return records are not independent opportunities; combat metrics union observations within a turn and may include extra combats. Face-down identities and post-elimination viewer gaps limit board observations. First-cast medians exclude games without a logged cast, whose counts are reported separately.', '',
         'Audits and concurrent workers affect duration. These are descriptive collection times, not a controlled speed benchmark. Shared initial seeds do not force identical subsequent random choices once deck-dependent play diverges. Proxy opponents and AI piloting limit transfer to actual games. Unresolved games may be non-random, so failure counts and all-valid results accompany the matched analysis.', '',

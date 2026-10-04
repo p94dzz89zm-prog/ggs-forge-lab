@@ -37,5 +37,10 @@ results. The runner checkpoints each game, analyzes it while raw audits are
 available, and losslessly compresses and verifies those audits before reclaiming
 the newly generated uncompressed files. Logs and every attempt are retained.
 
+The analysis also reports worst-case bounds for unresolved outcomes: each
+unknown result is allowed to range from a loss to a win without imputing either.
+These bounds are distinct from the seed-clustered bootstrap confidence interval
+and show whether unresolved games could reverse the observed scheduled-slot lead.
+
 The protocol is not a claim that the collection has finished. Final counts,
 results, uncertainty and unresolved slots will be reported after completion.
