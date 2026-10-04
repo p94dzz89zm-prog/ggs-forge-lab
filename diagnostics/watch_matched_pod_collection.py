@@ -1,7 +1,12 @@
 """Save recoverable checkpoints and final deliverables for a long pod collection."""
-import argparse, io, json, subprocess, tarfile, time
+import argparse, io, json, os, shutil, subprocess, tarfile, time
 from pathlib import Path
 from analyze_matched_pod_collection import analyze, report
+from multipart_pod_save import save_checkpoint
+
+class RetryableTransferFailure(RuntimeError):
+    """Bytes failed to transfer; no finalization was performed for this item."""
+    pass
 
 def archive_checkpoint(root, destination, records):
     with tarfile.open(destination, 'w:gz', compresslevel=1) as archive:
@@ -20,14 +25,38 @@ def archive_checkpoint(root, destination, records):
         assert sum(m.name.endswith('/summary.json') for m in archive.getmembers())==len(records)
 
 def upload(helper, uploads):
+    staging = os.environ.get('GGS_LIBRARY_STAGING_DIRECTORY')
+    if staging:
+        directory=Path(staging).resolve(); directory.mkdir(parents=True,exist_ok=True)
+        staged=[]
+        for request in uploads:
+            source=Path(request['local_path']); target=directory/source.name
+            if source.resolve()!=target.resolve():
+                shutil.copyfile(source,target)
+            staged.append({**request,'local_path':str(target)})
+        uploads=staged
     process=subprocess.run(['python3',str(helper)],input=json.dumps({'uploads':uploads}),
         text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
     print(process.stdout,flush=True)
     if process.returncode:
         raise RuntimeError('Saving failed; do not blindly retry an uncertain write')
     result=json.loads(process.stdout.strip().splitlines()[-1])
+    if result['results'] and all(r['status']=='failed' and r.get('error_code')=='transfer_failed'
+                                 for r in result['results']):
+        raise RetryableTransferFailure('Transfer failed before saving; retained locally for retry')
     assert all(r['status']=='succeeded' and r.get('local_metadata_applied') for r in result['results'])
     return result['results']
+
+def save_with_retries(root, destination, records, helper, identity=None):
+    while True:
+        try:
+            return save_checkpoint(root,destination,records,upload,helper,identity)
+        except RetryableTransferFailure as error:
+            print(str(error),flush=True)
+            # Keep the watcher alive during temporary transfer outages. Only
+            # explicit pre-finalization failures are retried; unknown writes stop.
+            for _ in range(15):
+                time.sleep(20)
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
@@ -43,15 +72,8 @@ def main():
             raise TimeoutError('Collection did not finish within six hours; completed checkpoints retained')
         records=json.loads((root/'attempts.json').read_text()) if (root/'attempts.json').exists() else []
         if len(records)>=saved_count+args.checkpoint_every:
-            archive_checkpoint(root,checkpoint,records)
-            request={'local_path':str(checkpoint),'purpose':'create_library_file','library_artifact_type':'other'}
-            if identity:
-                request={'local_path':str(checkpoint),'purpose':'replace_library_file',
-                    'library_file_id':identity['library_file_id'],
-                    'expected_current_version':identity['current_version_number'],
-                    'version_reason':f'{len(records)} attempts checkpointed'}
             print('Saving files to Library',flush=True)
-            identity=upload(args.upload_helper,[request])[0];saved_count=len(records)
+            identity=save_with_retries(root,checkpoint,records,args.upload_helper,identity);saved_count=len(records)
             receipt.write_text(json.dumps({'attempts':saved_count,'result':identity},indent=2)+'\n')
         time.sleep(20)
     public,comparison=analyze(root)
@@ -63,12 +85,12 @@ def main():
     differential.write_text(json.dumps(comparison,indent=2)+'\n')
     final_archive=root.parent/'GGS_100_Per_Deck_Pod_Data_v17.tar.gz'
     records=json.loads((root/'attempts.json').read_text())
-    archive_checkpoint(root,final_archive,records)
+    raw_result=save_with_retries(root,final_archive,records,args.upload_helper)
     print('Saving files to Library',flush=True)
     results=upload(args.upload_helper,[
         {'local_path':str(markdown),'purpose':'create_library_file','library_artifact_type':'report'},
-        {'local_path':str(differential),'purpose':'create_library_file','library_artifact_type':'other'},
-        {'local_path':str(final_archive),'purpose':'create_library_file','library_artifact_type':'other'}])
+        {'local_path':str(differential),'purpose':'create_library_file','library_artifact_type':'other'}])
+    results.append(raw_result)
     (root/'final-save.json').write_text(json.dumps(results,indent=2)+'\n')
     print(json.dumps({'saved':True,'comparison':comparison}),flush=True)
 
