@@ -67,6 +67,7 @@ def metrics(rows):
 
 def analyze(root):
     selected = json.loads((root/'selected.json').read_text())
+    attempts = json.loads((root/'attempts.json').read_text())
     protocol = json.loads((root/'protocol.json').read_text())
     assert len(selected)==2*protocol['planned_games_per_deck']
     assert len({(r['deck'],r['rotation'],r['seed']) for r in selected})==len(selected)
@@ -104,6 +105,22 @@ def analyze(root):
         'unresolved_slots':failures}
     comparison['unresolved_outcome_sensitivity']=unresolved_outcome_bounds(
         comparison['all_valid'],comparison['planned_games_per_deck'])
+    comparison['attempt_accounting'] = {
+        'retained_attempts':len(attempts),
+        'initial_attempts':sum(r['attempt']==1 for r in attempts),
+        'retries':sum(r['attempt']==2 for r in attempts),
+        'recovered_by_retry':sum(r['attempt']==2 and r['status'] in VALID for r in selected),
+        'invalid_attempts':sum(r['status'] not in VALID for r in attempts),
+        'invalid_by_deck_and_status':{n:dict(collections.Counter(r['status'] for r in attempts
+             if r['deck']==n and r['status'] not in VALID)) for n in ('apex','layered')}}
+    integrity_path=root/'integrity-review.json'
+    if integrity_path.exists():
+        integrity=json.loads(integrity_path.read_text())
+        comparison['raw_audit_integrity']={
+            'status':integrity['status'],
+            'affected_retained_audits':1,
+            'accepted_outcome_and_log_retained':integrity['accepted_outcome_and_log_retained'],
+            'meaning':'One retained private audit archive is truncated; full raw-audit verification remains pending. Accepted outcomes and original game logs remain available.'}
     return {'games':public,'metadata':protocol['metadata'],'log_sha256':hashes},comparison
 
 def report(comparison):
@@ -134,10 +151,31 @@ def report(comparison):
     if sensitivity:
         low,high=sensitivity['possible_apex_minus_layered_scheduled_win_rate_range']
         lines += ['',f'If unresolved outcomes are allowed to range from all losses to all wins, the possible Apex-minus-Layered difference across all scheduled slots ranges from **{100*low:.1f} to {100*high:.1f} percentage points**. These are worst-case unknown-outcome bounds—not estimates or confidence intervals—and no invalid game is assigned a result.']
+    lines += ['', '## All-valid outcomes and seats', '',
+        '| All-valid result | Apex | Layered |','|---|---:|---:|']
+    for name,key in [('Accepted games','games'),('Wins','wins'),('Draws','draws')]:
+        lines.append(f"| {name} | {comparison['all_valid']['apex'].get(key,0)} | {comparison['all_valid']['layered'].get(key,0)} |")
+    lines += ['', '| Matched seat | Apex wins / games | Layered wins / games |','|---|---:|---:|']
+    for seat in range(4):
+        values=[f"{comparison['matched'][n].get('wins_by_seat',{}).get(seat,0)} / {comparison['matched'][n].get('games_by_seat',{}).get(seat,0)}" for n in ('apex','layered')]
+        lines.append(f'| Seat {seat+1} | {values[0]} | {values[1]} |')
+    accounting=comparison.get('attempt_accounting')
+    if accounting:
+        lines += ['', '## Retained failures and retries', '',
+            f"Retained attempts: **{accounting['retained_attempts']}**, including **{accounting['initial_attempts']}** initial attempts and **{accounting['retries']}** permitted retries. Invalid attempts retained: **{accounting['invalid_attempts']}**. Slots recovered by retry: **{accounting['recovered_by_retry']}**.", '',
+            '| Invalid status, across all attempts | Apex | Layered |','|---|---:|---:|']
+        statuses=sorted({s for counts in accounting['invalid_by_deck_and_status'].values() for s in counts})
+        for status in statuses:
+            values=[accounting['invalid_by_deck_and_status'][n].get(status,0) for n in ('apex','layered')]
+            lines.append(f'| {status} | {values[0]} | {values[1]} |')
+    integrity=comparison.get('raw_audit_integrity')
+    if integrity and integrity['status']=='blocked_raw_audit_verification':
+        lines += ['', '## Raw-audit verification pending', '',
+            '**The collection is not fully verified for delivery.** One retained private audit archive is truncated, including in its saved multipart segment. Its accepted outcome, analysis and original game log remain available. This retention gap does not assign the game a new result or justify rerunning an accepted game. An intact historical copy matching the original recorded hash is required to finish raw-audit verification. The comparison below describes the retained outcome and analysis records; this report does not claim a complete recoverable four-seat raw audit for every attempt.']
     lines += ['', '## Interpretation limits', '',
         'Wins are the primary endpoint. Secondary metrics describe activity and possible mechanisms, not causal card value. Announced GGS triggers are not verified resolved Dragon tokens; paid-return records are not independent opportunities; combat metrics union observations within a turn and may include extra combats. Face-down identities and post-elimination viewer gaps limit board observations. First-cast medians exclude games without a logged cast, whose counts are reported separately.', '',
         'Audits and concurrent workers affect duration. These are descriptive collection times, not a controlled speed benchmark. Shared initial seeds do not force identical subsequent random choices once deck-dependent play diverges. Proxy opponents and AI piloting limit transfer to actual games. Unresolved games may be non-random, so failure counts and all-valid results accompany the matched analysis.', '',
-        'Raw logs, all attempts and private audits are retained in the saved data archive. Public exports use explicit numeric/outcome allowlists and exclude hands, raw AI decision strings and card-level action records.', '']
+        'Raw logs and all attempts are retained in the saved data archive. Any private-audit retention issue is reported above. Public exports use explicit numeric/outcome allowlists and exclude hands, raw AI decision strings and card-level action records.', '']
     return '\n'.join(lines)
 
 if __name__=='__main__':
