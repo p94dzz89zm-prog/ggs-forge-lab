@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""DragonMind: warm-process batches backed by Forge's full Commander rules."""
+"""DragonMind: independent seeded games backed by Forge's full Commander rules."""
 import argparse, concurrent.futures, hashlib, json, pathlib, re, subprocess, time, os
 from run_games import ROOT, validate_deck
 
@@ -124,7 +124,7 @@ def main():
     p.add_argument('--seeds',type=int,default=2,help='Independent seeds per seat')
     p.add_argument('--rotations',type=int,nargs='+',default=[0,1,2,3])
     p.add_argument('--workers',type=int,default=default_workers(),help='Separate JVM workers with independent RNG; default 2 on sufficiently provisioned cgroup hosts, otherwise 1')
-    p.add_argument('--batch-size',type=int,default=4)
+    p.add_argument('--batch-size',type=int,default=1,help='Games per JVM; default 1 isolates incomplete games. Larger warm batches are opt-in.')
     p.add_argument('--timeout',type=int,default=90)
     p.add_argument('--gc',choices=['parallel','g1'],default='parallel',help='Recorded JVM garbage collector; parallel won the initial throughput check')
     p.add_argument('--jit',choices=['throughput','default'],default='throughput',help='Recorded compiler policy; throughput favors warmed batch execution')

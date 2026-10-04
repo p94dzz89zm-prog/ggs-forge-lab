@@ -1,0 +1,69 @@
+{
+  "apex": {
+    "wall_seconds": 564.677,
+    "attempts": 16,
+    "completed": 9,
+    "engine_seconds": [
+      35.821,
+      21.609,
+      27.215,
+      163.595,
+      93.723,
+      46.968,
+      21.286,
+      36.35,
+      32.775
+    ],
+    "completed_games_per_minute": 0.956,
+    "status_counts": {
+      "completed": 9,
+      "engine_error": 1,
+      "not_run": 6
+    },
+    "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+  },
+  "layered": {
+    "wall_seconds": 617.491,
+    "attempts": 16,
+    "completed": 14,
+    "engine_seconds": [
+      34.719,
+      27.836,
+      80.316,
+      45.994,
+      15.701,
+      41.661,
+      28.361,
+      161.856,
+      90.549,
+      44.188,
+      162.345,
+      14.548,
+      84.666,
+      18.188
+    ],
+    "completed_games_per_minute": 1.36,
+    "status_counts": {
+      "completed": 14,
+      "engine_error": 2
+    },
+    "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+  },
+  "recovery": {
+    "wall_seconds": 514.898,
+    "attempts": 9,
+    "completed": 7,
+    "workers": 2,
+    "batch_size": 1
+  },
+  "collection": {
+    "wall_seconds": 1697.066,
+    "accepted_games": 30,
+    "accepted_games_per_minute": 1.061,
+    "initial_planned_slots": 32,
+    "recovery_games": 9,
+    "initial_slots_without_results": 6,
+    "unresolved_after_recovery": 2,
+    "meaning": "Actual game collection wall time includes sequential deck batches and recovery; excludes investigation, analysis and saving. Not a controlled speed comparison."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "accepted_games": 30,
+  "matched_valid_pairs": 14,
+  "unresolved_slots": [
+    {
+      "deck": "apex",
+      "rotation": 1,
+      "seed": 20261035,
+      "original_status": "engine_error",
+      "selected": "apex/rotation1/seed20261035",
+      "accepted_status": "engine_error"
+    },
+    {
+      "deck": "layered",
+      "rotation": 0,
+      "seed": 20261034,
+      "original_status": "engine_error",
+      "selected": "layered/rotation0/seed20261034",
+      "accepted_status": "engine_error"
+    }
+  ],
+  "public_fields_allowlisted": true,
+  "raw_decision_strings_published": false,
+  "private_audits_retained": true,
+  "source_and_package_candidate_checks": 114,
+  "python_checks": 34,
+  "active_engine_unchanged": "v17",
+  "observations_without_live_ggs_excluded": 1
+}

@@ -1,0 +1,8 @@
+{
+  "upstream_commit": "4ec5f1a2c32fa90ecb983a72b9eb47aa5c5d7676",
+  "ordered_patches_including_unadopted_candidate": 20,
+  "managed_sources": 52,
+  "fresh_production_classes_match_candidate_jar": true,
+  "full_maven_build_rerun": false,
+  "adopted": false
+}

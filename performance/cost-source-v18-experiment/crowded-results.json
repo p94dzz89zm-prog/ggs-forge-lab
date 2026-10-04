@@ -1,0 +1,20 @@
+{
+  "control": [
+    {
+      "seed": 20261025,
+      "status": "completed",
+      "winner": "Ai(4)-Destyn_Turtles",
+      "engine_ms": 80104,
+      "last_logged_turn": 58
+    }
+  ],
+  "candidate": [
+    {
+      "seed": 20261025,
+      "status": "completed",
+      "winner": "Ai(4)-Destyn_Turtles",
+      "engine_ms": 81167,
+      "last_logged_turn": 58
+    }
+  ]
+}

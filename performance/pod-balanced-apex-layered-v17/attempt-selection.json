@@ -1,0 +1,258 @@
+[
+  {
+    "deck": "apex",
+    "rotation": 0,
+    "seed": 20261034,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 0,
+    "seed": 20261035,
+    "original_status": "not_run",
+    "selected": "apex/rotation0/seed20261035",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 0,
+    "seed": 20261036,
+    "original_status": "not_run",
+    "selected": "apex/rotation0/seed20261036",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 0,
+    "seed": 20261037,
+    "original_status": "not_run",
+    "selected": "apex/rotation0/seed20261037",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 1,
+    "seed": 20261034,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 1,
+    "seed": 20261035,
+    "original_status": "engine_error",
+    "selected": "apex/rotation1/seed20261035",
+    "accepted_status": "engine_error"
+  },
+  {
+    "deck": "apex",
+    "rotation": 1,
+    "seed": 20261036,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 1,
+    "seed": 20261037,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 2,
+    "seed": 20261034,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 2,
+    "seed": 20261035,
+    "original_status": "not_run",
+    "selected": "apex/rotation2/seed20261035",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 2,
+    "seed": 20261036,
+    "original_status": "not_run",
+    "selected": "apex/rotation2/seed20261036",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 2,
+    "seed": 20261037,
+    "original_status": "not_run",
+    "selected": "apex/rotation2/seed20261037",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 3,
+    "seed": 20261034,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 3,
+    "seed": 20261035,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 3,
+    "seed": 20261036,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "apex",
+    "rotation": 3,
+    "seed": 20261037,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 0,
+    "seed": 20261034,
+    "original_status": "engine_error",
+    "selected": "layered/rotation0/seed20261034",
+    "accepted_status": "engine_error"
+  },
+  {
+    "deck": "layered",
+    "rotation": 0,
+    "seed": 20261035,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 0,
+    "seed": 20261036,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 0,
+    "seed": 20261037,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 1,
+    "seed": 20261034,
+    "original_status": "engine_error",
+    "selected": "layered/rotation1/seed20261034",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 1,
+    "seed": 20261035,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 1,
+    "seed": 20261036,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 1,
+    "seed": 20261037,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 2,
+    "seed": 20261034,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 2,
+    "seed": 20261035,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 2,
+    "seed": 20261036,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 2,
+    "seed": 20261037,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 3,
+    "seed": 20261034,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 3,
+    "seed": 20261035,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 3,
+    "seed": 20261036,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  },
+  {
+    "deck": "layered",
+    "rotation": 3,
+    "seed": 20261037,
+    "original_status": "completed",
+    "selected": "original",
+    "accepted_status": "completed"
+  }
+]

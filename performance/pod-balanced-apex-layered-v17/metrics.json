@@ -1,0 +1,82 @@
+{
+  "apex": {
+    "planned_games": 16,
+    "games": 15,
+    "missing_planned_slots": 1,
+    "wins": 5,
+    "draws": 0,
+    "wins_by_seat": {
+      "0": 2,
+      "1": 0,
+      "2": 2,
+      "3": 1
+    },
+    "games_by_seat": {
+      "0": 4,
+      "1": 4,
+      "2": 4,
+      "3": 3
+    },
+    "median_audited_seconds": 41.959,
+    "logged_ggs_triggers": 28,
+    "median_first_ggs_cast_own_turn": 3,
+    "ggs_observed_combat_turns": 75,
+    "fresh_attack_with_ggs_turns": 33,
+    "fresh_unblocked_with_ggs_turns": 29,
+    "ninjutsu_evaluation_counts": {
+      "CantPlaySa": 5064,
+      "no_damage_plan": 96,
+      "CantPlayAi": 104,
+      "plan_scored": 43,
+      "CantAfford": 27,
+      "WillPlay": 8,
+      "paid_return": 8
+    },
+    "matched_games": 14,
+    "matched_wins": 5,
+    "all_clean_historical_games": 30,
+    "all_clean_historical_wins": 10,
+    "combined_matched_games": 29,
+    "combined_matched_wins": 10
+  },
+  "layered": {
+    "planned_games": 16,
+    "games": 15,
+    "missing_planned_slots": 1,
+    "wins": 4,
+    "draws": 0,
+    "wins_by_seat": {
+      "0": 1,
+      "1": 1,
+      "2": 0,
+      "3": 2
+    },
+    "games_by_seat": {
+      "0": 3,
+      "1": 4,
+      "2": 4,
+      "3": 4
+    },
+    "median_audited_seconds": 44.188,
+    "logged_ggs_triggers": 45,
+    "median_first_ggs_cast_own_turn": 4,
+    "ggs_observed_combat_turns": 93,
+    "fresh_attack_with_ggs_turns": 42,
+    "fresh_unblocked_with_ggs_turns": 42,
+    "ninjutsu_evaluation_counts": {
+      "CantPlaySa": 5997,
+      "plan_scored": 165,
+      "CantAfford": 32,
+      "no_damage_plan": 252,
+      "CantPlayAi": 354,
+      "WillPlay": 31,
+      "paid_return": 31
+    },
+    "matched_games": 14,
+    "matched_wins": 4,
+    "all_clean_historical_games": 30,
+    "all_clean_historical_wins": 8,
+    "combined_matched_games": 29,
+    "combined_matched_wins": 8
+  }
+}

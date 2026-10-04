@@ -1,0 +1,66 @@
+{
+  "control-1": [
+    {
+      "seed": 20261011,
+      "engine_ms": 18456,
+      "last_logged_turn": 45,
+      "status": "completed",
+      "winner": "Ai(2)-Jaymie_Ezio"
+    },
+    {
+      "seed": 20261012,
+      "engine_ms": 31393,
+      "last_logged_turn": 44,
+      "status": "completed",
+      "winner": "Ai(4)-Destyn_Turtles"
+    }
+  ],
+  "candidate-1": [
+    {
+      "seed": 20261011,
+      "engine_ms": 18848,
+      "last_logged_turn": 45,
+      "status": "completed",
+      "winner": "Ai(2)-Jaymie_Ezio"
+    },
+    {
+      "seed": 20261012,
+      "engine_ms": 31777,
+      "last_logged_turn": 44,
+      "status": "completed",
+      "winner": "Ai(4)-Destyn_Turtles"
+    }
+  ],
+  "candidate-2": [
+    {
+      "seed": 20261011,
+      "engine_ms": 17554,
+      "last_logged_turn": 45,
+      "status": "completed",
+      "winner": "Ai(2)-Jaymie_Ezio"
+    },
+    {
+      "seed": 20261012,
+      "engine_ms": 30990,
+      "last_logged_turn": 44,
+      "status": "completed",
+      "winner": "Ai(4)-Destyn_Turtles"
+    }
+  ],
+  "control-2": [
+    {
+      "seed": 20261011,
+      "engine_ms": 17936,
+      "last_logged_turn": 45,
+      "status": "completed",
+      "winner": "Ai(2)-Jaymie_Ezio"
+    },
+    {
+      "seed": 20261012,
+      "engine_ms": 31409,
+      "last_logged_turn": 44,
+      "status": "completed",
+      "winner": "Ai(4)-Destyn_Turtles"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "adopted": false,
+  "active_version": "v17",
+  "reason": "No useful measured speed improvement",
+  "engine_checks": 114,
+  "control_abba_seconds": 99.194,
+  "candidate_abba_seconds": 99.169,
+  "crowded_control_seconds": 80.104,
+  "crowded_candidate_seconds": 81.167,
+  "abba_tracked_events_per_run": 2146,
+  "crowded_tracked_events": 1650,
+  "traces_match": true,
+  "candidate_jar_sha256": "4074cfbce26e514cffb8fd184c52554fc7531d5a9a58659ca9f2ec940b5fb4a7",
+  "active_jar_sha256": "41cce57aa2e64156365440e33b8c9ca83eb406e4cbc53d0e4876b59f025af3c5"
+}

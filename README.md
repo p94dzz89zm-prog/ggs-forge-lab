@@ -1,13 +1,12 @@
 # DragonMind
 
-Latest measured checkpoint: v15 extends stack-grant eligibility to borrowed
-non-Assassins while preserving uncertain type and borrowed-Assassin fallbacks.
-The original repeated two-seed comparison showed 15.00% less engine time versus
-v14; six new seed pairs showed 1.25%, with three faster and three slower games.
-Results vary by game. The fresh profile selects combat prediction for the next
-investigation, and a four-game throughput check supports the two-worker default.
-See [the broader measurements and limits](performance/README-v15-followup.md)
-and [the v15 implementation](performance/README-borrowed-subtype-v15.md).
+Latest accepted engine: v17 records combat relationships and private ninjutsu
+attribution for diagnosis. The cost-source v18 candidate preserved tested traces
+but produced no useful speed gain, so it was not adopted. See
+[the experiment](performance/cost-source-v18-experiment/README.md). The runner
+defaults to one game per JVM and two workers on sufficiently provisioned hosts:
+complex warm batches can stop early and leave later seeds without results.
+Earlier speed measurements remain in [the v15 follow-up](performance/README-v15-followup.md).
 
 DragonMind is our Commander simulation and AI layer, built on the GPL-licensed
 Forge 2.0.15 rules engine. Forge's source packages, attribution, and license remain.
@@ -18,12 +17,13 @@ The existing checkout and remote keep their names for compatibility.
 Build the patched executable using `forge-fork/build_bridge.py`, then run:
 
 ```sh
-python3 dragonmind.py --engine /absolute/path/to/forge/forge-gui --jar /absolute/path/to/forge/forge-gui-desktop/target/dragonmind.jar --seeds 4 --batch-size 4 --workers 1
+python3 dragonmind.py --engine /absolute/path/to/forge/forge-gui --jar /absolute/path/to/forge/forge-gui-desktop/target/dragonmind.jar --seeds 4 --batch-size 1 --workers 2
 ```
 
-Each process loads the card database once and plays multiple independently seeded
-games with fresh matches. Seat rotations run in separate batches. Separate JVMs
-isolate Forge's global RNG; games are not run concurrently inside one JVM. Audit is
+Each process loads the card database and plays an independently seeded game.
+Larger warm batches remain opt-in with `--batch-size`; they amortize startup but
+can leave later seeds unrun after an incomplete game. Separate JVMs isolate
+Forge's global RNG; games are not run concurrently inside one JVM. Audit is
 off by default; use `--audit` for diagnosis. The commander-aware ninjutsu policy
 is enabled by default; `--stock` is available for controlled comparisons.
 

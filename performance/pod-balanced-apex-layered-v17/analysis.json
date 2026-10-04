@@ -1,0 +1,3102 @@
+{
+  "apex": {
+    "games": [
+      {
+        "seed": 20261034,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "engine_ms": 163595,
+        "last_logged_turn": 59,
+        "commander_casts": [
+          {
+            "global_turn": 11,
+            "own_turn": 3,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 51,
+            "own_turn": 13,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 107,
+          "creatures": 37,
+          "turn": 47
+        },
+        "peak_observed_ggs_creatures": 9,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "35": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "39": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "43": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "47": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 0,
+        "ggs_seat": 0,
+        "ggs_win": false,
+        "logged_ggs_triggers": 0,
+        "matched_valid_pair": false
+      },
+      {
+        "seed": 20261035,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "engine_ms": 197333,
+        "last_logged_turn": 71,
+        "commander_casts": [
+          {
+            "global_turn": 11,
+            "own_turn": 3,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 110,
+          "creatures": 40,
+          "turn": 65
+        },
+        "peak_observed_ggs_creatures": 5,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "11": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "27": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "31": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 0,
+        "ggs_seat": 0,
+        "ggs_win": false,
+        "logged_ggs_triggers": 0,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261036,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Apex_War_Form_Current",
+        "engine_ms": 41959,
+        "last_logged_turn": 54,
+        "commander_casts": [
+          {
+            "global_turn": 9,
+            "own_turn": 3,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 29,
+            "own_turn": 8,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 41,
+            "own_turn": 11,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 50,
+            "own_turn": 14,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 51,
+          "creatures": 17,
+          "turn": 30
+        },
+        "peak_observed_ggs_creatures": 4,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "won because all opponents have lost",
+        "observed_combat_turns": {
+          "1": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "5": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "9": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "13": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "17": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "21": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "29": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "47": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "50": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "52": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "54": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 0,
+        "ggs_seat": 0,
+        "ggs_win": true,
+        "logged_ggs_triggers": 0,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261037,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Apex_War_Form_Current",
+        "engine_ms": 46635,
+        "last_logged_turn": 49,
+        "commander_casts": [
+          {
+            "global_turn": 29,
+            "own_turn": 8,
+            "phase": "Ai(1)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 62,
+          "creatures": 19,
+          "turn": 38
+        },
+        "peak_observed_ggs_creatures": 9,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "won because all opponents have lost",
+        "observed_combat_turns": {
+          "29": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "33": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "37": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "41": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 6,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "44": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 5,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "47": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 9,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "49": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 7,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 0,
+        "ggs_seat": 0,
+        "ggs_win": true,
+        "logged_ggs_triggers": 4,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261034,
+        "status": "completed",
+        "winner": "Ai(1)-Jaymie_Ezio",
+        "engine_ms": 35821,
+        "last_logged_turn": 43,
+        "commander_casts": [
+          {
+            "global_turn": 10,
+            "own_turn": 3,
+            "phase": "Ai(4)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 41,
+          "creatures": 10,
+          "turn": 25
+        },
+        "peak_observed_ggs_creatures": 3,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "6": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "14": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "18": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "22": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "26": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 1,
+        "ggs_seat": 3,
+        "ggs_win": false,
+        "logged_ggs_triggers": 0,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261036,
+        "status": "completed",
+        "winner": "Ai(3)-Destyn_Turtles",
+        "engine_ms": 21609,
+        "last_logged_turn": 40,
+        "commander_casts": [
+          {
+            "global_turn": 16,
+            "own_turn": 4,
+            "phase": "Ai(4)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 58,
+          "creatures": 18,
+          "turn": 32
+        },
+        "peak_observed_ggs_creatures": 9,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "20": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 1,
+        "ggs_seat": 3,
+        "ggs_win": false,
+        "logged_ggs_triggers": 0,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261037,
+        "status": "completed",
+        "winner": "Ai(4)-GGS_Apex_War_Form_Current",
+        "engine_ms": 27215,
+        "last_logged_turn": 41,
+        "commander_casts": [
+          {
+            "global_turn": 12,
+            "own_turn": 3,
+            "phase": "Ai(4)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 20,
+            "own_turn": 5,
+            "phase": "Ai(4)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 34,
+            "own_turn": 9,
+            "phase": "Ai(4)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 45,
+          "creatures": 14,
+          "turn": 34
+        },
+        "peak_observed_ggs_creatures": 6,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "won because all opponents have lost",
+        "observed_combat_turns": {
+          "16": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "24": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "31": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "34": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "37": {
+            "phase": "COMBAT_FIRST_STRIKE_DAMAGE",
+            "ggs_named_creature_present": true,
+            "attackers": 5,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "39": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 3,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "41": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 5,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 1,
+        "ggs_seat": 3,
+        "ggs_win": true,
+        "logged_ggs_triggers": 1,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261034,
+        "status": "completed",
+        "winner": "Ai(1)-Gabe_Food",
+        "engine_ms": 93723,
+        "last_logged_turn": 68,
+        "commander_casts": [
+          {
+            "global_turn": 9,
+            "own_turn": 3,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 33,
+            "own_turn": 9,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 49,
+            "own_turn": 13,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 70,
+          "creatures": 23,
+          "turn": 30
+        },
+        "peak_observed_ggs_creatures": 6,
+        "excluded_priority_snapshots_without_ggs": 1,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "13": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "17": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "21": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "33": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "41": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "64": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 2,
+        "ggs_seat": 2,
+        "ggs_win": false,
+        "logged_ggs_triggers": 3,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261035,
+        "status": "completed",
+        "winner": "Ai(1)-Gabe_Food",
+        "engine_ms": 95089,
+        "last_logged_turn": 59,
+        "commander_casts": [
+          {
+            "global_turn": 21,
+            "own_turn": 6,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 25,
+            "own_turn": 7,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 57,
+            "own_turn": 15,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 95,
+          "creatures": 34,
+          "turn": 57
+        },
+        "peak_observed_ggs_creatures": 11,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "13": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "17": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "21": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "25": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "29": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "33": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "37": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "41": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "45": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "49": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "53": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 7,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "57": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 9,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 2,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 2,
+        "ggs_seat": 2,
+        "ggs_win": false,
+        "logged_ggs_triggers": 7,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261036,
+        "status": "completed",
+        "winner": "Ai(3)-GGS_Apex_War_Form_Current",
+        "engine_ms": 24348,
+        "last_logged_turn": 40,
+        "commander_casts": [
+          {
+            "global_turn": 11,
+            "own_turn": 3,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 19,
+            "own_turn": 5,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 34,
+            "own_turn": 9,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 38,
+            "own_turn": 11,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 55,
+          "creatures": 19,
+          "turn": 30
+        },
+        "peak_observed_ggs_creatures": 7,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "won because all opponents have lost",
+        "observed_combat_turns": {
+          "7": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "11": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "15": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "27": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "31": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "34": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "38": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "40": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 2,
+        "ggs_seat": 2,
+        "ggs_win": true,
+        "logged_ggs_triggers": 4,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261037,
+        "status": "completed",
+        "winner": "Ai(3)-GGS_Apex_War_Form_Current",
+        "engine_ms": 63716,
+        "last_logged_turn": 51,
+        "commander_casts": [
+          {
+            "global_turn": 11,
+            "own_turn": 3,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 23,
+            "own_turn": 6,
+            "phase": "Ai(3)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 57,
+          "creatures": 24,
+          "turn": 43
+        },
+        "peak_observed_ggs_creatures": 10,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "won because all opponents have lost",
+        "observed_combat_turns": {
+          "15": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "31": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "35": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 5,
+            "fresh_attackers": 3,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "39": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 4,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "43": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 5,
+            "fresh_attackers": 4,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "46": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 5,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "49": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 9,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "51": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 7,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 2,
+        "ggs_seat": 2,
+        "ggs_win": true,
+        "logged_ggs_triggers": 5,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261034,
+        "status": "completed",
+        "winner": "Ai(1)-Destyn_Turtles",
+        "engine_ms": 46968,
+        "last_logged_turn": 46,
+        "commander_casts": [
+          {
+            "global_turn": 16,
+            "own_turn": 4,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 42,
+            "own_turn": 11,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 61,
+          "creatures": 18,
+          "turn": 34
+        },
+        "peak_observed_ggs_creatures": 5,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "20": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "36": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 3,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 3,
+        "ggs_seat": 1,
+        "ggs_win": false,
+        "logged_ggs_triggers": 0,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261035,
+        "status": "completed",
+        "winner": "Ai(1)-Destyn_Turtles",
+        "engine_ms": 21286,
+        "last_logged_turn": 56,
+        "commander_casts": [
+          {
+            "global_turn": 12,
+            "own_turn": 3,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 20,
+            "own_turn": 5,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 43,
+            "own_turn": 11,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 57,
+          "creatures": 17,
+          "turn": 32
+        },
+        "peak_observed_ggs_creatures": 7,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "16": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "28": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "32": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "36": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "40": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "46": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 2,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 3,
+        "ggs_seat": 1,
+        "ggs_win": false,
+        "logged_ggs_triggers": 1,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261036,
+        "status": "completed",
+        "winner": "Ai(1)-Destyn_Turtles",
+        "engine_ms": 36350,
+        "last_logged_turn": 46,
+        "commander_casts": [
+          {
+            "global_turn": 10,
+            "own_turn": 3,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 22,
+            "own_turn": 6,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 34,
+            "own_turn": 9,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 41,
+            "own_turn": 11,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 58,
+          "creatures": 18,
+          "turn": 38
+        },
+        "peak_observed_ggs_creatures": 7,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "22": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 0,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "30": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "34": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "38": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "41": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "44": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 3,
+        "ggs_seat": 1,
+        "ggs_win": false,
+        "logged_ggs_triggers": 1,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261037,
+        "status": "completed",
+        "winner": "Ai(3)-Jaymie_Ezio",
+        "engine_ms": 32775,
+        "last_logged_turn": 66,
+        "commander_casts": [
+          {
+            "global_turn": 10,
+            "own_turn": 3,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          },
+          {
+            "global_turn": 22,
+            "own_turn": 6,
+            "phase": "Ai(2)-GGS_Apex_War_Form_Current's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 44,
+          "creatures": 16,
+          "turn": 28
+        },
+        "peak_observed_ggs_creatures": 8,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "10": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "14": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "18": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "22": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "26": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "30": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "34": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "38": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 3,
+        "ggs_seat": 1,
+        "ggs_win": false,
+        "logged_ggs_triggers": 2,
+        "matched_valid_pair": true
+      }
+    ],
+    "metadata": {
+      "jar_sha256": "41cce57aa2e64156365440e33b8c9ca83eb406e4cbc53d0e4876b59f025af3c5",
+      "deck_sha256": {
+        "GGS_Apex_War_Form_Current": "2201b8e2515326d70488badfb7458a8d300f9bef0075eb18ea34ef23f21a3a37",
+        "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+        "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+        "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a"
+      }
+    },
+    "log_sha256": {
+      "rotation0/GGS_Apex_War_Form_Current__seat0__seeds20261034-20261034.log": "f6b5345b2430be13acbd9d82fae9e347256fc059b12ca9dbbbc4bb5b3961b25d",
+      "rotation0/GGS_Apex_War_Form_Current__seat0__seeds20261035-20261035.log": "efcfed990870865f76c7dad7ef9d7c80bd4151d4d1048c1fa5dd2201f2f85c45",
+      "rotation0/GGS_Apex_War_Form_Current__seat0__seeds20261036-20261036.log": "e3766bdb8504138ccd5441fc8a47c524f706e785280e1a5664be23535732a769",
+      "rotation0/GGS_Apex_War_Form_Current__seat0__seeds20261037-20261037.log": "d0f223a55f05920af9c5689569efa3b65dbb6c8a770cce57b85d1d7937a39640",
+      "rotation1/GGS_Apex_War_Form_Current__seat1__seeds20261034-20261034.log": "5422b03006788584c26ca44281577e08714e9a57b72799c6d5fd00f64b44af07",
+      "rotation1/GGS_Apex_War_Form_Current__seat1__seeds20261036-20261036.log": "6a8ac3ebdcfc8f0e48a1e31da8391ab660df924d297159c4790ba8191c2dad29",
+      "rotation1/GGS_Apex_War_Form_Current__seat1__seeds20261037-20261037.log": "e9d3200557024ac9e513f918b99fdd0edf84409e13e766b5cab7a52644086ff4",
+      "rotation2/GGS_Apex_War_Form_Current__seat2__seeds20261034-20261034.log": "98d9d728436b1e3c8d178535c60f29f4f1a96af5285f860aaa57d57b6b8bbac5",
+      "rotation2/GGS_Apex_War_Form_Current__seat2__seeds20261035-20261035.log": "795e4eda1279e0e90823efa9ad71597e62e64d140a527862d64e183635cdb31b",
+      "rotation2/GGS_Apex_War_Form_Current__seat2__seeds20261036-20261036.log": "3b7422826ba1553e3995909178011bdfaf83604c8dfad2f747cf6d4015c4bfaf",
+      "rotation2/GGS_Apex_War_Form_Current__seat2__seeds20261037-20261037.log": "0877f321262b3492c665dd289dc0b850767f4db7ae2d7a3c4280014f52c17497",
+      "rotation3/GGS_Apex_War_Form_Current__seat3__seeds20261034-20261034.log": "c8d4a8d91939a250a30c8e6b6ceb0c7982d93cf7d682f71d5b3e227f4cc0af4a",
+      "rotation3/GGS_Apex_War_Form_Current__seat3__seeds20261035-20261035.log": "5f4c8d778dd2d2475c1a232e8fb091a3cbd73df82b5541e8b15f79b544b73fca",
+      "rotation3/GGS_Apex_War_Form_Current__seat3__seeds20261036-20261036.log": "ce0c3ea517cd722dc58916db1faeae98b7c48741b53c4150e5caa1897c677bb8",
+      "rotation3/GGS_Apex_War_Form_Current__seat3__seeds20261037-20261037.log": "f2eacad1e25212f4185c9e1e2d5576262dbe6bc187189c5ba5f52d7048314a49"
+    }
+  },
+  "layered": {
+    "games": [
+      {
+        "seed": 20261035,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "engine_ms": 161856,
+        "last_logged_turn": 54,
+        "commander_casts": [
+          {
+            "global_turn": 15,
+            "own_turn": 4,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 31,
+            "own_turn": 8,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 70,
+          "creatures": 25,
+          "turn": 35
+        },
+        "peak_observed_ggs_creatures": 9,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "7": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "11": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "15": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "19": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "23": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "27": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "31": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "35": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "38": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 0,
+        "ggs_seat": 0,
+        "ggs_win": false,
+        "logged_ggs_triggers": 3,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261036,
+        "status": "completed",
+        "winner": "Ai(4)-Destyn_Turtles",
+        "engine_ms": 90549,
+        "last_logged_turn": 61,
+        "commander_casts": [
+          {
+            "global_turn": 9,
+            "own_turn": 3,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 17,
+            "own_turn": 5,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 29,
+            "own_turn": 8,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 37,
+            "own_turn": 10,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 45,
+            "own_turn": 12,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 88,
+          "creatures": 27,
+          "turn": 56
+        },
+        "peak_observed_ggs_creatures": 5,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "1": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "5": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "9": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "13": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 0,
+        "ggs_seat": 0,
+        "ggs_win": false,
+        "logged_ggs_triggers": 0,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261037,
+        "status": "completed",
+        "winner": "Ai(1)-GGS_Layered_v1",
+        "engine_ms": 44188,
+        "last_logged_turn": 52,
+        "commander_casts": [
+          {
+            "global_turn": 9,
+            "own_turn": 3,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 25,
+            "own_turn": 7,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 41,
+            "own_turn": 11,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, postcombat"
+          },
+          {
+            "global_turn": 48,
+            "own_turn": 14,
+            "phase": "Ai(1)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 79,
+          "creatures": 21,
+          "turn": 40
+        },
+        "peak_observed_ggs_creatures": 7,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "won because all opponents have lost",
+        "observed_combat_turns": {
+          "25": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "29": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "33": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "37": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "41": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "44": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "46": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 2,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 2,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "48": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "50": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 5,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "52": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 7,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 0,
+        "ggs_seat": 0,
+        "ggs_win": true,
+        "logged_ggs_triggers": 3,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261034,
+        "status": "completed",
+        "winner": "Ai(3)-Destyn_Turtles",
+        "engine_ms": 44481,
+        "last_logged_turn": 46,
+        "commander_casts": [
+          {
+            "global_turn": 10,
+            "own_turn": 3,
+            "phase": "Ai(4)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 30,
+            "own_turn": 8,
+            "phase": "Ai(4)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 88,
+          "creatures": 30,
+          "turn": 41
+        },
+        "peak_observed_ggs_creatures": 5,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "14": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "18": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "22": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 1,
+        "ggs_seat": 3,
+        "ggs_win": false,
+        "logged_ggs_triggers": 0,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261035,
+        "status": "completed",
+        "winner": "Ai(2)-Gabe_Food",
+        "engine_ms": 34719,
+        "last_logged_turn": 43,
+        "commander_casts": [
+          {
+            "global_turn": 14,
+            "own_turn": 4,
+            "phase": "Ai(4)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 58,
+          "creatures": 27,
+          "turn": 35
+        },
+        "peak_observed_ggs_creatures": 9,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "14": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "18": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "22": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "26": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "30": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "34": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "37": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 1,
+        "ggs_seat": 3,
+        "ggs_win": false,
+        "logged_ggs_triggers": 2,
+        "matched_valid_pair": false
+      },
+      {
+        "seed": 20261036,
+        "status": "completed",
+        "winner": "Ai(4)-GGS_Layered_v1",
+        "engine_ms": 27836,
+        "last_logged_turn": 39,
+        "commander_casts": [
+          {
+            "global_turn": 12,
+            "own_turn": 3,
+            "phase": "Ai(4)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 32,
+            "own_turn": 8,
+            "phase": "Ai(4)-GGS_Layered_v1's Main phase, postcombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 68,
+          "creatures": 31,
+          "turn": 31
+        },
+        "peak_observed_ggs_creatures": 14,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "won because all opponents have lost",
+        "observed_combat_turns": {
+          "16": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "20": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "24": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "28": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 5,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "32": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 14,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "35": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 11,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "37": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 7,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "39": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 12,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 1,
+        "ggs_seat": 3,
+        "ggs_win": true,
+        "logged_ggs_triggers": 5,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261037,
+        "status": "completed",
+        "winner": "Ai(4)-GGS_Layered_v1",
+        "engine_ms": 80316,
+        "last_logged_turn": 41,
+        "commander_casts": [
+          {
+            "global_turn": 20,
+            "own_turn": 5,
+            "phase": "Ai(4)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 39,
+            "own_turn": 10,
+            "phase": "Ai(4)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 80,
+          "creatures": 33,
+          "turn": 37
+        },
+        "peak_observed_ggs_creatures": 15,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "won because all opponents have lost",
+        "observed_combat_turns": {
+          "16": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "20": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "24": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "28": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "32": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 2,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "36": {
+            "phase": "COMBAT_FIRST_STRIKE_DAMAGE",
+            "ggs_named_creature_present": true,
+            "attackers": 12,
+            "fresh_attackers": 3,
+            "fresh_unblocked_attackers": 3,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "39": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 9,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "41": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 14,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 1,
+        "ggs_seat": 3,
+        "ggs_win": true,
+        "logged_ggs_triggers": 5,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261034,
+        "status": "completed",
+        "winner": "Ai(4)-Jaymie_Ezio",
+        "engine_ms": 45994,
+        "last_logged_turn": 40,
+        "commander_casts": [
+          {
+            "global_turn": 17,
+            "own_turn": 5,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 25,
+            "own_turn": 7,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 50,
+          "creatures": 17,
+          "turn": 39
+        },
+        "peak_observed_ggs_creatures": 8,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost due to effect of spell 'Ezio Auditore da Firenze'",
+        "observed_combat_turns": {
+          "21": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "25": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "29": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "33": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "36": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "39": {
+            "phase": "COMBAT_FIRST_STRIKE_DAMAGE",
+            "ggs_named_creature_present": false,
+            "attackers": 7,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 2,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 2,
+        "ggs_seat": 2,
+        "ggs_win": false,
+        "logged_ggs_triggers": 3,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261035,
+        "status": "completed",
+        "winner": "Ai(4)-Jaymie_Ezio",
+        "engine_ms": 15701,
+        "last_logged_turn": 42,
+        "commander_casts": [
+          {
+            "global_turn": 13,
+            "own_turn": 4,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 37,
+            "own_turn": 10,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, postcombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 57,
+          "creatures": 21,
+          "turn": 37
+        },
+        "peak_observed_ggs_creatures": 9,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "9": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "13": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "17": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "21": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "25": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "29": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "33": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "37": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 7,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 2,
+        "ggs_seat": 2,
+        "ggs_win": false,
+        "logged_ggs_triggers": 2,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261036,
+        "status": "completed",
+        "winner": "Ai(4)-Jaymie_Ezio",
+        "engine_ms": 41661,
+        "last_logged_turn": 69,
+        "commander_casts": [
+          {
+            "global_turn": 15,
+            "own_turn": 4,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 19,
+            "own_turn": 5,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 27,
+            "own_turn": 7,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 35,
+            "own_turn": 9,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, postcombat"
+          },
+          {
+            "global_turn": 43,
+            "own_turn": 11,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 83,
+          "creatures": 20,
+          "turn": 52
+        },
+        "peak_observed_ggs_creatures": 7,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "27": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "35": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "39": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "43": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "47": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 2,
+        "ggs_seat": 2,
+        "ggs_win": false,
+        "logged_ggs_triggers": 2,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261037,
+        "status": "completed",
+        "winner": "Ai(4)-Jaymie_Ezio",
+        "engine_ms": 28361,
+        "last_logged_turn": 41,
+        "commander_casts": [
+          {
+            "global_turn": 11,
+            "own_turn": 3,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 38,
+            "own_turn": 10,
+            "phase": "Ai(3)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 68,
+          "creatures": 24,
+          "turn": 35
+        },
+        "peak_observed_ggs_creatures": 8,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "19": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "23": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "27": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "31": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "35": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 3,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "38": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "40": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 2,
+        "ggs_seat": 2,
+        "ggs_win": false,
+        "logged_ggs_triggers": 1,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261034,
+        "status": "completed",
+        "winner": "Ai(1)-Destyn_Turtles",
+        "engine_ms": 162345,
+        "last_logged_turn": 57,
+        "commander_casts": [
+          {
+            "global_turn": 12,
+            "own_turn": 3,
+            "phase": "Ai(2)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 86,
+          "creatures": 34,
+          "turn": 51
+        },
+        "peak_observed_ggs_creatures": 12,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "8": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": false,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "12": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "16": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "20": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "52": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 8,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 2,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "55": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          }
+        },
+        "rotation": 3,
+        "ggs_seat": 1,
+        "ggs_win": false,
+        "logged_ggs_triggers": 3,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261035,
+        "status": "completed",
+        "winner": "Ai(2)-GGS_Layered_v1",
+        "engine_ms": 14548,
+        "last_logged_turn": 46,
+        "commander_casts": [
+          {
+            "global_turn": 16,
+            "own_turn": 4,
+            "phase": "Ai(2)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 24,
+            "own_turn": 6,
+            "phase": "Ai(2)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 38,
+            "own_turn": 10,
+            "phase": "Ai(2)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 46,
+            "own_turn": 13,
+            "phase": "Ai(2)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 36,
+          "creatures": 13,
+          "turn": 18
+        },
+        "peak_observed_ggs_creatures": 7,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "won because all opponents have lost",
+        "observed_combat_turns": {
+          "24": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "32": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "35": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "38": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "44": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 4,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 2,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "46": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 7,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 3,
+        "ggs_seat": 1,
+        "ggs_win": true,
+        "logged_ggs_triggers": 3,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261036,
+        "status": "completed",
+        "winner": "Ai(3)-Jaymie_Ezio",
+        "engine_ms": 84666,
+        "last_logged_turn": 67,
+        "commander_casts": [
+          {
+            "global_turn": 14,
+            "own_turn": 4,
+            "phase": "Ai(2)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 22,
+            "own_turn": 6,
+            "phase": "Ai(2)-GGS_Layered_v1's Main phase, precombat"
+          },
+          {
+            "global_turn": 46,
+            "own_turn": 12,
+            "phase": "Ai(2)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 84,
+          "creatures": 25,
+          "turn": 61
+        },
+        "peak_observed_ggs_creatures": 15,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "18": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": false,
+            "attackers": 0,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "22": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "30": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "34": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "38": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 3,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 2,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "42": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 8,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "46": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "50": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "54": {
+            "phase": "COMBAT_FIRST_STRIKE_DAMAGE",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "64": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "66": {
+            "phase": "COMBAT_FIRST_STRIKE_DAMAGE",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 2,
+            "fresh_unblocked_attackers": 2,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 3,
+        "ggs_seat": 1,
+        "ggs_win": false,
+        "logged_ggs_triggers": 11,
+        "matched_valid_pair": true
+      },
+      {
+        "seed": 20261037,
+        "status": "completed",
+        "winner": "Ai(1)-Destyn_Turtles",
+        "engine_ms": 18188,
+        "last_logged_turn": 52,
+        "commander_casts": [
+          {
+            "global_turn": 14,
+            "own_turn": 4,
+            "phase": "Ai(2)-GGS_Layered_v1's Main phase, precombat"
+          }
+        ],
+        "peak_observed_creature_board": {
+          "permanents": 42,
+          "creatures": 19,
+          "turn": 32
+        },
+        "peak_observed_ggs_creatures": 5,
+        "excluded_priority_snapshots_without_ggs": 0,
+        "ggs_outcome_reason": "lost because life total reached 0",
+        "observed_combat_turns": {
+          "18": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 0,
+            "fresh_unblocked_attackers": 0,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": false,
+            "fresh_unblocked_with_ggs_seen": false
+          },
+          "22": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 1,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          },
+          "26": {
+            "phase": "COMBAT_DECLARE_BLOCKERS",
+            "ggs_named_creature_present": true,
+            "attackers": 2,
+            "fresh_attackers": 1,
+            "fresh_unblocked_attackers": 1,
+            "ggs_named_creature_seen": true,
+            "fresh_attack_with_ggs_seen": true,
+            "fresh_unblocked_with_ggs_seen": true
+          }
+        },
+        "rotation": 3,
+        "ggs_seat": 1,
+        "ggs_win": false,
+        "logged_ggs_triggers": 2,
+        "matched_valid_pair": true
+      }
+    ],
+    "metadata": {
+      "jar_sha256": "41cce57aa2e64156365440e33b8c9ca83eb406e4cbc53d0e4876b59f025af3c5",
+      "deck_sha256": {
+        "GGS_Layered_v1": "65400110cb649d1498c39d58e59b2c20426d1ce1aee05c2af6889edbfb457584",
+        "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+        "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+        "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a"
+      }
+    },
+    "log_sha256": {
+      "rotation0/GGS_Layered_v1__seat0__seeds20261035-20261035.log": "71569f89e1e4a895dd08176cee9861d6fb54a632a0eba276f23c80dc762b115c",
+      "rotation0/GGS_Layered_v1__seat0__seeds20261036-20261036.log": "9c3bbb3329489948aff3973a8b31e1bd4fa64267fb52830e45e37af81416291e",
+      "rotation0/GGS_Layered_v1__seat0__seeds20261037-20261037.log": "f5678c0eaf56d3724b4620a7d499e5aa8cb78754783db69cd49c3f295418704b",
+      "rotation1/GGS_Layered_v1__seat1__seeds20261034-20261034.log": "34d09e6a3b18a772515b25181c885efb43c43cae466fdc6fafeafcf412a1ef4d",
+      "rotation1/GGS_Layered_v1__seat1__seeds20261035-20261035.log": "45e9309e1b6ee4dd032b1b9d1a9d2dcd012fea79672fdad61a0bbe0d5f6fe713",
+      "rotation1/GGS_Layered_v1__seat1__seeds20261036-20261036.log": "2a539e9b62792edd04bc3a6ab07dfcb646bdf8f6c6efb976061cf4edc1421260",
+      "rotation1/GGS_Layered_v1__seat1__seeds20261037-20261037.log": "8c5b0eaee05709181b9a4358253695b8729c85d119a8a64a61fe8258ef2f782a",
+      "rotation2/GGS_Layered_v1__seat2__seeds20261034-20261034.log": "c6ee01ade36b6962d0ffd97ba83fb3c45f6b5765ceb69fa519ade7df1a6e11d5",
+      "rotation2/GGS_Layered_v1__seat2__seeds20261035-20261035.log": "cb0d0982f89e6d55dfe2cdead9d56ed57281090f96a5850a1c2294a8008812e8",
+      "rotation2/GGS_Layered_v1__seat2__seeds20261036-20261036.log": "e8862eed7e2c121774d29d1e50d18e165dbb47dc04f8884bee901bf71243c62b",
+      "rotation2/GGS_Layered_v1__seat2__seeds20261037-20261037.log": "079dc2f174b72d3f03138fbd54b7f80266201673b6be4f904636526014627cc3",
+      "rotation3/GGS_Layered_v1__seat3__seeds20261034-20261034.log": "8ee3bc14c6e3a5b43df651a934785075c12c73ee40fa5f2bd0b62f436ac08d8c",
+      "rotation3/GGS_Layered_v1__seat3__seeds20261035-20261035.log": "6a0ed5d672ec63e9f0fc5fb25af48ba6434fbc00c7c33a6384406a05e4915486",
+      "rotation3/GGS_Layered_v1__seat3__seeds20261036-20261036.log": "491f6df365f3e365eb6ce5a6bf1c445154766a6d98efcb18455a90b3cf65181f",
+      "rotation3/GGS_Layered_v1__seat3__seeds20261037-20261037.log": "c520f12093fb27e6af2e6b92b9e00e7a58463d48ce7f50b07cc224b1526be509"
+    }
+  }
+}
