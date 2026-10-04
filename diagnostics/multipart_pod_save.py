@@ -70,7 +70,7 @@ def save_checkpoint(root, destination, records, upload, helper, identity=None):
             data = (json.dumps(value, indent=2)+'\n').encode()
             member = tarfile.TarInfo(root.name+'/'+name); member.size = len(data)
             archive.addfile(member, io.BytesIO(data))
-        for name in ('finished.json', 'selected.json'):
+        for name in ('finished.json', 'selected.json', 'integrity-review.json', 'integrity-save.json', 'report-save.json'):
             if (root/name).exists():
                 archive.add(root/name, arcname=root.name+'/'+name)
     request = {'local_path': str(destination), 'purpose': 'create_library_file',

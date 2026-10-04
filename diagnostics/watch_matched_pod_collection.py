@@ -47,8 +47,10 @@ def upload(helper, uploads):
     assert all(r['status']=='succeeded' and r.get('local_metadata_applied') for r in result['results'])
     return result['results']
 
-def save_with_retries(root, destination, records, helper, identity=None):
+def save_with_retries(root, destination, records, helper, identity=None, stop_when_finished=False):
     while True:
+        if stop_when_finished and (root/'finished.json').exists():
+            return None
         try:
             return save_checkpoint(root,destination,records,upload,helper,identity)
         except RetryableTransferFailure as error:
@@ -56,6 +58,8 @@ def save_with_retries(root, destination, records, helper, identity=None):
             # Keep the watcher alive during temporary transfer outages. Only
             # explicit pre-finalization failures are retried; unknown writes stop.
             for _ in range(15):
+                if stop_when_finished and (root/'finished.json').exists():
+                    return None
                 time.sleep(20)
 
 def main():
@@ -73,7 +77,10 @@ def main():
         records=json.loads((root/'attempts.json').read_text()) if (root/'attempts.json').exists() else []
         if len(records)>=saved_count+args.checkpoint_every:
             print('Saving files to Library',flush=True)
-            identity=save_with_retries(root,checkpoint,records,args.upload_helper,identity);saved_count=len(records)
+            next_identity=save_with_retries(root,checkpoint,records,args.upload_helper,identity,stop_when_finished=True)
+            if next_identity is None:
+                break
+            identity=next_identity;saved_count=len(records)
             receipt.write_text(json.dumps({'attempts':saved_count,'result':identity},indent=2)+'\n')
         time.sleep(20)
     public,comparison=analyze(root)
@@ -83,13 +90,21 @@ def main():
     markdown=root.parent/'GGS_100_Game_Comparison_v17.md';markdown.write_text(report(comparison))
     differential=root.parent/'GGS_100_Game_Differential_v17.json'
     differential.write_text(json.dumps(comparison,indent=2)+'\n')
+    # Preserve each successful report identity before large raw transfers retry.
+    report_receipt=root/'report-save.json'
+    results=json.loads(report_receipt.read_text()) if report_receipt.exists() else []
+    for path,kind in [(markdown,'report'),(differential,'other')][len(results):]:
+        while True:
+            try:
+                print('Saving files to Library',flush=True)
+                results.extend(upload(args.upload_helper,[{'local_path':str(path),'purpose':'create_library_file','library_artifact_type':kind}]))
+                temporary=report_receipt.with_suffix('.tmp');temporary.write_text(json.dumps(results,indent=2)+'\n');temporary.replace(report_receipt)
+                break
+            except RetryableTransferFailure:
+                time.sleep(20)
     final_archive=root.parent/'GGS_100_Per_Deck_Pod_Data_v17.tar.gz'
     records=json.loads((root/'attempts.json').read_text())
     raw_result=save_with_retries(root,final_archive,records,args.upload_helper)
-    print('Saving files to Library',flush=True)
-    results=upload(args.upload_helper,[
-        {'local_path':str(markdown),'purpose':'create_library_file','library_artifact_type':'report'},
-        {'local_path':str(differential),'purpose':'create_library_file','library_artifact_type':'other'}])
     results.append(raw_result)
     (root/'final-save.json').write_text(json.dumps(results,indent=2)+'\n')
     print(json.dumps({'saved':True,'comparison':comparison}),flush=True)
