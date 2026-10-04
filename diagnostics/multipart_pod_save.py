@@ -21,12 +21,31 @@ def write_json(path, value):
     temp.write_text(json.dumps(value, indent=2)+'\n')
     temp.replace(path)
 
+def validate_attempt(root, folder):
+    relative = Path(folder)
+    if relative.is_absolute() or '..' in relative.parts:
+        raise ValueError('Unsafe attempt path')
+    source = root / relative
+    if source.is_symlink() or not source.is_dir():
+        raise ValueError('Attempt must be a real directory')
+    for path in source.rglob('*'):
+        if path.is_symlink() or not (path.is_file() or path.is_dir()):
+            raise ValueError('Attempt contains an unsupported archive member')
+    metadata = source / 'audit-archive.json'
+    if metadata.exists():
+        expected = json.loads(metadata.read_text())
+        archive = source / 'private-audits.tar.gz'
+        if not archive.is_file() or archive.stat().st_size != expected['bytes'] or digest(archive) != expected['sha256']:
+            raise ValueError('Private audit failed its recorded integrity check; saving stopped')
+
 def save_checkpoint(root, destination, records, upload, helper, identity=None):
     state_path = root/'multipart-save.json'
     state = json.loads(state_path.read_text()) if state_path.exists() else {'segments': []}
     covered = {folder for segment in state['segments'] for folder in segment['folders']}
     missing = [record for record in records if record['folder'] not in covered]
     if missing:
+        for record in missing:
+            validate_attempt(root, record['folder'])
         number = len(state['segments']) + 1
         archive_path = root.parent/f'GGS_Private_Pod_v17_Segment_{number:03d}.tar.gz'
         with tarfile.open(archive_path, 'w:gz', compresslevel=1) as archive:
@@ -57,6 +76,9 @@ def save_checkpoint(root, destination, records, upload, helper, identity=None):
     for segment in state['segments']:
         for chunk in segment['chunks']:
             if 'saved' not in chunk:
+                local = Path(chunk['local_path'])
+                if local.stat().st_size != chunk['bytes'] or digest(local) != chunk['sha256']:
+                    raise ValueError('Pending archive chunk changed; saving stopped')
                 chunk['saved'] = upload(helper, [{'local_path': chunk['local_path'],
                     'purpose': 'create_library_file', 'library_artifact_type': 'other'}])[0]
                 write_json(state_path, state)

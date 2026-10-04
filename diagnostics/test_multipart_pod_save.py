@@ -3,6 +3,40 @@ from pathlib import Path
 import multipart_pod_save as saving
 
 class MultipartRecoveryTest(unittest.TestCase):
+    def test_damaged_private_audit_is_rejected_before_upload(self):
+        with tempfile.TemporaryDirectory() as temp:
+            base=Path(temp);root=base/'collection';root.mkdir()
+            (root/'protocol.json').write_text('{}')
+            folder=root/'attempt';folder.mkdir()
+            (folder/'summary.json').write_text('[]')
+            (folder/'private-audits.tar.gz').write_bytes(b'truncated')
+            (folder/'audit-archive.json').write_text(json.dumps({'bytes':20,'sha256':'original'}))
+            with self.assertRaisesRegex(ValueError,'integrity'):
+                saving.save_checkpoint(root,base/'index.tar.gz',[{'folder':'attempt'}],
+                    lambda *args:self.fail('Damaged records must not be uploaded'),None)
+
+    def test_symlink_cannot_be_archived(self):
+        with tempfile.TemporaryDirectory() as temp:
+            base=Path(temp);root=base/'collection';root.mkdir()
+            folder=root/'attempt';folder.mkdir()
+            (folder/'link').symlink_to(base)
+            with self.assertRaisesRegex(ValueError,'unsupported'):
+                saving.validate_attempt(root,'attempt')
+
+    def test_changed_pending_chunk_is_rejected_on_retry(self):
+        with tempfile.TemporaryDirectory() as temp:
+            base=Path(temp);root=base/'collection';root.mkdir()
+            (root/'protocol.json').write_text('{}')
+            folder=root/'attempt';folder.mkdir();(folder/'summary.json').write_text('[]')
+            def interrupted(*args):raise RuntimeError('transfer failed')
+            with self.assertRaises(RuntimeError):
+                saving.save_checkpoint(root,base/'index.tar.gz',[{'folder':'attempt'}],interrupted,None)
+            state=json.loads((root/'multipart-save.json').read_text())
+            Path(state['segments'][0]['chunks'][0]['local_path']).write_bytes(b'damaged')
+            with self.assertRaisesRegex(ValueError,'chunk changed'):
+                saving.save_checkpoint(root,base/'index.tar.gz',[{'folder':'attempt'}],
+                    lambda *args:self.fail('Changed chunk must not be uploaded'),None)
+
     def test_recovery_and_incremental_saves(self):
         with tempfile.TemporaryDirectory() as temp:
             base=Path(temp); root=base/'collection'; root.mkdir()

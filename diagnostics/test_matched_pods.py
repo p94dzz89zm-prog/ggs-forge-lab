@@ -41,6 +41,7 @@ class MatchedPodTests(unittest.TestCase):
     def test_report_handles_no_valid_pairs(self):
         self.assertIn('Matched valid pairs: **0**',report({'matched_valid_pairs':0,
             'unresolved_slots':[{}],'matched':{'apex':metrics([]),'layered':metrics([])},
+            'all_valid':{'apex':metrics([]),'layered':metrics([])},
             'win_difference':None}))
 
     def test_checkpoint_keeps_only_checkpointed_attempts(self):

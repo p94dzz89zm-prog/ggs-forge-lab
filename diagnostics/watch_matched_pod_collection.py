@@ -1,8 +1,8 @@
 """Save recoverable checkpoints and final deliverables for a long pod collection."""
-import argparse, io, json, os, shutil, subprocess, tarfile, time
+import argparse, fcntl, io, json, os, shutil, subprocess, tarfile, time
 from pathlib import Path
 from analyze_matched_pod_collection import analyze, report
-from multipart_pod_save import save_checkpoint
+from multipart_pod_save import save_checkpoint, write_json
 
 class RetryableTransferFailure(RuntimeError):
     """Bytes failed to transfer; no finalization was performed for this item."""
@@ -52,8 +52,13 @@ def save_with_retries(root, destination, records, helper, identity=None, stop_wh
         if stop_when_finished and (root/'finished.json').exists():
             return None
         try:
-            return save_checkpoint(root,destination,records,upload,helper,identity)
+            write_json(root/'save-status.json', {'state':'saving','attempts':len(records),'updated_at':time.time()})
+            result=save_checkpoint(root,destination,records,upload,helper,identity)
+            write_json(root/'save-status.json', {'state':'saved','attempts':len(records),'updated_at':time.time()})
+            return result
         except RetryableTransferFailure as error:
+            write_json(root/'save-status.json', {'state':'retrying','attempts':len(records),'updated_at':time.time(),
+                'message':'Saving is delayed. Completed records remain local; the confirmed transfer failure will retry.'})
             print(str(error),flush=True)
             # Keep the watcher alive during temporary transfer outages. Only
             # explicit pre-finalization failures are retried; unknown writes stop.
@@ -61,12 +66,18 @@ def save_with_retries(root, destination, records, helper, identity=None, stop_wh
                 if stop_when_finished and (root/'finished.json').exists():
                     return None
                 time.sleep(20)
+        except Exception:
+            write_json(root/'save-status.json', {'state':'attention','attempts':len(records),'updated_at':time.time(),
+                'message':'Saving stopped for an integrity, conflict or uncertain-write check. No automatic retry was made.'})
+            raise
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('root',type=Path);parser.add_argument('--upload-helper',type=Path,required=True)
     parser.add_argument('--checkpoint-every',type=int,default=20)
     args=parser.parse_args();root=args.root.resolve();saved_count=0;identity=None;started=time.monotonic()
+    lock=(root/'saver.lock').open('a')
+    fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     checkpoint=root.parent/'GGS_100_Game_Pod_Data_v17_Checkpoint.tar.gz'
     receipt=root/'checkpoint-save.json'
     if receipt.exists():
