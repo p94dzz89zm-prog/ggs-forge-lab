@@ -7,7 +7,7 @@ extract each resulting tar beneath the checkpoint's parent to recover attempts.
 import hashlib, io, json, tarfile
 from pathlib import Path
 
-CHUNK_BYTES = 400 * 1024 * 1024
+CHUNK_BYTES = 64 * 1024 * 1024
 
 def digest(path):
     h = hashlib.sha256()
