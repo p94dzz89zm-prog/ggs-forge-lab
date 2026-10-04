@@ -120,7 +120,9 @@ def analyze(root):
             'status':integrity['status'],
             'affected_retained_audits':1,
             'accepted_outcome_and_log_retained':integrity['accepted_outcome_and_log_retained'],
-            'meaning':'One retained private audit archive is truncated; full raw-audit verification remains pending. Accepted outcomes and original game logs remain available.'}
+            'meaning':('All retained archive hashes match their original metadata. One damaged historical archive requires the separately saved byte-identical repair supplement for recovery; accepted outcomes and logs were unchanged.'
+                if integrity['status']=='verified' else
+                'One retained private audit archive is truncated; full raw-audit verification remains pending. Accepted outcomes and original game logs remain available.')}
     return {'games':public,'metadata':protocol['metadata'],'log_sha256':hashes},comparison
 
 def report(comparison):
@@ -172,6 +174,9 @@ def report(comparison):
     if integrity and integrity['status']=='blocked_raw_audit_verification':
         lines += ['', '## Raw-audit verification pending', '',
             '**The collection is not fully verified for delivery.** One retained private audit archive is truncated, including in its saved multipart segment. Its accepted outcome, analysis and original game log remain available. This retention gap does not assign the game a new result or justify rerunning an accepted game. An intact historical copy matching the original recorded hash is required to finish raw-audit verification. The comparison below describes the retained outcome and analysis records; this report does not claim a complete recoverable four-seat raw audit for every attempt.']
+    elif integrity and integrity['status']=='verified':
+        lines += ['', '## Raw-audit recovery', '',
+            'All retained archive hashes match their original recorded metadata. One damaged historical archive was reconstructed byte-for-byte and saved separately as GGS_Private_Audit_v17_Repair.tar.gz. Full recovery requires this repair supplement plus every chunk listed by the raw-data index. Verify supplement and target hashes, then restore only the damaged audit archive as directed by the saved integrity record; accepted outcomes, logs, analysis and hash metadata remain unchanged.']
     lines += ['', '## Interpretation limits', '',
         'Wins are the primary endpoint. Secondary metrics describe activity and possible mechanisms, not causal card value. Announced GGS triggers are not verified resolved Dragon tokens; paid-return records are not independent opportunities; combat metrics union observations within a turn and may include extra combats. Face-down identities and post-elimination viewer gaps limit board observations. First-cast medians exclude games without a logged cast, whose counts are reported separately.', '',
         'Audits and concurrent workers affect duration. These are descriptive collection times, not a controlled speed benchmark. Shared initial seeds do not force identical subsequent random choices once deck-dependent play diverges. Proxy opponents and AI piloting limit transfer to actual games. Unresolved games may be non-random, so failure counts and all-valid results accompany the matched analysis.', '',

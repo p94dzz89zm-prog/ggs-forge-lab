@@ -1,0 +1,256 @@
+{
+  "planned_games_per_deck": 100,
+  "matched_valid_pairs": 96,
+  "all_valid": {
+    "apex": {
+      "games": 99,
+      "wins": 36,
+      "win_rate": 0.36363636363636365,
+      "draws": 0,
+      "wins_by_seat": {
+        "0": 11,
+        "1": 10,
+        "2": 6,
+        "3": 9
+      },
+      "games_by_seat": {
+        "0": 24,
+        "1": 25,
+        "2": 25,
+        "3": 25
+      },
+      "opponent_wins": {
+        "Destyn_Turtles": 29,
+        "Gabe_Food": 11,
+        "Jaymie_Ezio": 23
+      },
+      "median_engine_seconds": 64.623,
+      "p90_engine_seconds_nearest_rank": 139.652,
+      "median_first_commander_cast_own_turn": 4,
+      "games_without_logged_commander_cast": 2,
+      "commander_recast_events": 124,
+      "logged_ggs_triggers": 264,
+      "median_logged_ggs_triggers": 2,
+      "ninjutsu_paid_return_records": 55,
+      "median_peak_observed_ggs_creatures": 7,
+      "observed_combat_turns_with_ggs": 506,
+      "fresh_attack_turns_with_ggs": 251,
+      "fresh_unblocked_turns_with_ggs": 224,
+      "median_global_finish_turn_on_wins": 43.0
+    },
+    "layered": {
+      "games": 97,
+      "wins": 27,
+      "win_rate": 0.27835051546391754,
+      "draws": 0,
+      "wins_by_seat": {
+        "0": 7,
+        "1": 8,
+        "2": 6,
+        "3": 6
+      },
+      "games_by_seat": {
+        "0": 25,
+        "1": 24,
+        "2": 25,
+        "3": 23
+      },
+      "opponent_wins": {
+        "Destyn_Turtles": 36,
+        "Jaymie_Ezio": 25,
+        "Gabe_Food": 9
+      },
+      "median_engine_seconds": 69.809,
+      "p90_engine_seconds_nearest_rank": 132.555,
+      "median_first_commander_cast_own_turn": 3,
+      "games_without_logged_commander_cast": 0,
+      "commander_recast_events": 158,
+      "logged_ggs_triggers": 236,
+      "median_logged_ggs_triggers": 2,
+      "ninjutsu_paid_return_records": 93,
+      "median_peak_observed_ggs_creatures": 7,
+      "observed_combat_turns_with_ggs": 538,
+      "fresh_attack_turns_with_ggs": 265,
+      "fresh_unblocked_turns_with_ggs": 235,
+      "median_global_finish_turn_on_wins": 49
+    }
+  },
+  "matched": {
+    "apex": {
+      "games": 96,
+      "wins": 35,
+      "win_rate": 0.3645833333333333,
+      "draws": 0,
+      "wins_by_seat": {
+        "0": 11,
+        "1": 9,
+        "2": 6,
+        "3": 9
+      },
+      "games_by_seat": {
+        "0": 24,
+        "1": 24,
+        "2": 25,
+        "3": 23
+      },
+      "opponent_wins": {
+        "Destyn_Turtles": 28,
+        "Gabe_Food": 11,
+        "Jaymie_Ezio": 22
+      },
+      "median_engine_seconds": 64.6455,
+      "p90_engine_seconds_nearest_rank": 139.652,
+      "median_first_commander_cast_own_turn": 4.0,
+      "games_without_logged_commander_cast": 2,
+      "commander_recast_events": 119,
+      "logged_ggs_triggers": 259,
+      "median_logged_ggs_triggers": 2.0,
+      "ninjutsu_paid_return_records": 54,
+      "median_peak_observed_ggs_creatures": 7.0,
+      "observed_combat_turns_with_ggs": 493,
+      "fresh_attack_turns_with_ggs": 245,
+      "fresh_unblocked_turns_with_ggs": 219,
+      "median_global_finish_turn_on_wins": 43
+    },
+    "layered": {
+      "games": 96,
+      "wins": 27,
+      "win_rate": 0.28125,
+      "draws": 0,
+      "wins_by_seat": {
+        "0": 7,
+        "1": 8,
+        "2": 6,
+        "3": 6
+      },
+      "games_by_seat": {
+        "0": 24,
+        "1": 24,
+        "2": 25,
+        "3": 23
+      },
+      "opponent_wins": {
+        "Destyn_Turtles": 35,
+        "Jaymie_Ezio": 25,
+        "Gabe_Food": 9
+      },
+      "median_engine_seconds": 69.881,
+      "p90_engine_seconds_nearest_rank": 132.555,
+      "median_first_commander_cast_own_turn": 3.0,
+      "games_without_logged_commander_cast": 0,
+      "commander_recast_events": 155,
+      "logged_ggs_triggers": 234,
+      "median_logged_ggs_triggers": 2.0,
+      "ninjutsu_paid_return_records": 93,
+      "median_peak_observed_ggs_creatures": 7.0,
+      "observed_combat_turns_with_ggs": 533,
+      "fresh_attack_turns_with_ggs": 263,
+      "fresh_unblocked_turns_with_ggs": 233,
+      "median_global_finish_turn_on_wins": 49
+    }
+  },
+  "win_difference": {
+    "difference_apex_minus_layered": 0.08333333333333333,
+    "approximate_95_percentile_interval": [
+      -0.05,
+      0.20430107526881722
+    ],
+    "seed_clusters": 25,
+    "iterations": 10000,
+    "method": "Paired percentile bootstrap resampling whole seed clusters; exploratory, conditional on valid pairs"
+  },
+  "paired_outcomes": {
+    "apex_only_win": 21,
+    "neither_win": 48,
+    "layered_only_win": 13,
+    "both_win": 14
+  },
+  "unresolved_slots": [
+    {
+      "deck": "layered",
+      "rotation": 1,
+      "seed": 20261048,
+      "attempt": 2,
+      "status": "engine_error",
+      "winner": null,
+      "engine_ms": 573143,
+      "folder": "layered/rotation1/seed20261048/attempt2"
+    },
+    {
+      "deck": "layered",
+      "rotation": 3,
+      "seed": 20261047,
+      "attempt": 2,
+      "status": "engine_error",
+      "winner": null,
+      "engine_ms": 168334,
+      "folder": "layered/rotation3/seed20261047/attempt2"
+    },
+    {
+      "deck": "layered",
+      "rotation": 1,
+      "seed": 20261038,
+      "attempt": 2,
+      "status": "engine_error",
+      "winner": null,
+      "engine_ms": 124408,
+      "folder": "layered/rotation1/seed20261038/attempt2"
+    },
+    {
+      "deck": "apex",
+      "rotation": 0,
+      "seed": 20261045,
+      "attempt": 2,
+      "status": "engine_error",
+      "winner": null,
+      "engine_ms": 288648,
+      "folder": "apex/rotation0/seed20261045/attempt2"
+    }
+  ],
+  "unresolved_outcome_sensitivity": {
+    "by_deck": {
+      "apex": {
+        "unresolved_slots": 1,
+        "possible_scheduled_win_rate_range": [
+          0.36,
+          0.37
+        ]
+      },
+      "layered": {
+        "unresolved_slots": 3,
+        "possible_scheduled_win_rate_range": [
+          0.27,
+          0.3
+        ]
+      }
+    },
+    "possible_apex_minus_layered_scheduled_win_rate_range": [
+      0.06,
+      0.09999999999999998
+    ],
+    "meaning": "Worst-case bounds for unknown outcomes, not estimates or confidence intervals; invalid games are not assigned wins or losses"
+  },
+  "attempt_accounting": {
+    "retained_attempts": 207,
+    "initial_attempts": 200,
+    "retries": 7,
+    "recovered_by_retry": 3,
+    "invalid_attempts": 11,
+    "invalid_by_deck_and_status": {
+      "apex": {
+        "not_run": 1,
+        "engine_error": 2
+      },
+      "layered": {
+        "engine_error": 7,
+        "not_run": 1
+      }
+    }
+  },
+  "raw_audit_integrity": {
+    "status": "verified",
+    "affected_retained_audits": 1,
+    "accepted_outcome_and_log_retained": true,
+    "meaning": "All retained archive hashes match their original metadata. One damaged historical archive requires the separately saved byte-identical repair supplement for recovery; accepted outcomes and logs were unchanged."
+  }
+}
