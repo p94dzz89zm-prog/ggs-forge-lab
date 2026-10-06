@@ -1,0 +1,36 @@
+{
+  "deck": "Pure_GGS",
+  "sha256": "166a88df0207b4792d3784f7ef0218510e3c0114a7208368b079ce99bdc07cf7",
+  "deck_changes_allowed": false,
+  "timing": "Pure personal turns, distinct active Pure global turns",
+  "basic": "Additional resolved GGS Dragon within two following Pure turns AND net increase in simultaneous GGS Dragons or >=5 offensive power, or >=2 hand/Treasure resources without losing offensive power, against immediate Dragon-1 state",
+  "strong": [
+    "3 simultaneously surviving GGS-created Dragons",
+    "15 ready meaningful evasive/flying power",
+    "2+ resolved GGS Dragon creations in one Pure turn",
+    "extra combat plus net >=5 offensive power growth and GGS Dragon creation",
+    "2+ combat-generated cards plus 2+ Treasure creations with continued GGS production and >=2 cards left"
+  ],
+  "threatening": [
+    "20 actual unblocked attacking combat power after legal blocks, after ignition",
+    "15 actual Pure combat damage to opponents in one Pure turn after ignition"
+  ],
+  "amplifiers": [
+    "Purphoros, God of the Forge",
+    "Dragon Tempest",
+    "Roaming Throne",
+    "Karlach, Fury of Avernus",
+    "Port Razer",
+    "Aggravated Assault"
+  ],
+  "dependency": "Natural requires no material amplifier in path to threshold. Amplified requires actual contributing amplifier effect; amplifier-dependent requires direct contribution necessary to cross threshold at observed time. Uncertain causal cases stay unclassified instead of guessing. Counterfactual attribution is observational, not a randomized ablation.",
+  "stage_sizes": [
+    16,
+    32,
+    64,
+    96,
+    128
+  ],
+  "stabilization": "At least 64 valid games and 40 ignited games; latest two increments differ <=10 percentage points for conversion/basic/strong/threatening and natural/dependent; timing medians <=1 Pure turn difference; leading stall reason unchanged. Report Wilson intervals. Continue if unstable, bounded at 128 with explicit inconclusive qualification if needed.",
+  "clarification": "Before analyzing experimental batch 1, tightened board threat evidence to actual unblocked attackers rather than assuming flying bodies will connect."
+}
