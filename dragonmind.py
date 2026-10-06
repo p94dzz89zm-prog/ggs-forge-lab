@@ -62,7 +62,11 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
         flags.append(f'-Dforge.ai.ggsPilotPlayer=Ai({seats.index(variant)+1})-{variant}')
     if audit:
         flags.append('-Dforge.audit.directory='+str(out/'audit'/label))
-    cmd = ['java', '-Xmx1536m', *java_runtime_flags(gc,jit), *extra_jvm_flags, '-Djava.awt.headless=true', *flags, '-jar', str(jar),
+    # Forge writes logs, preferences and caches under user.home. Never share that
+    # mutable profile between independent JVM games, even with separate audits.
+    runtime_home=out/'runtime-home'/label
+    runtime_home.mkdir(parents=True,exist_ok=True)
+    cmd = ['java', '-XX:-UsePerfData', '-Duser.home='+str(runtime_home.resolve()), '-Xmx1536m', *java_runtime_flags(gc,jit), *extra_jvm_flags, '-Djava.awt.headless=true', *flags, '-jar', str(jar),
            'sim', '-D', str(ROOT/'decks'), '-d', *[s+'.dck' for s in seats],
            '-f', 'Commander', '-seeds', *map(str, seeds), '-c', str(timeout),
            '-a', *(['Default']*4)]
@@ -99,6 +103,8 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
                    pilot='commander-aware' if pilot else 'stock', batch_wall_seconds=round(elapsed,3),
                    batch_size=len(seeds), command=cmd, log=logpath.name)
         records.append(row)
+    # Keep a successful process exit with no structured result visibly invalid.
+    # An exit status alone is never evidence that a game finished.
     return records
 
 
@@ -113,6 +119,27 @@ def default_workers():
     except (OSError, ValueError, ZeroDivisionError):
         pass
     return 1
+
+
+def run_jobs(jobs, worker, workers, stop_on_failure=False):
+    """Keep only active jobs submitted so a failed gate cannot start a backlog."""
+    pending=iter(jobs); stopped=False
+    with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+        futures=set()
+        def submit_next():
+            job=next(pending,None)
+            if job is None:return
+            futures.add(pool.submit(worker,job))
+        for _ in range(workers):submit_next()
+        while futures:
+            done,_=concurrent.futures.wait(futures,return_when=concurrent.futures.FIRST_COMPLETED)
+            records=[]
+            for future in done:
+                futures.remove(future);records.extend(future.result())
+            if stop_on_failure and any(r['status'] not in ('completed','completed_draw') for r in records):stopped=True
+            yield records
+            if not stopped:
+                for _ in done:submit_next()
 
 
 def main():
@@ -130,6 +157,8 @@ def main():
     p.add_argument('--jit',choices=['throughput','default'],default='throughput',help='Recorded compiler policy; throughput favors warmed batch execution')
     p.add_argument('--stock',action='store_true',help='Disable commander-aware ninjutsu policy')
     p.add_argument('--audit',action='store_true',help='Private diagnostic recording; slower')
+    p.add_argument('--forecast',choices=['bounded','stock'],default='bounded')
+    p.add_argument('--stop-on-failure',action='store_true',help='Stop submitting games after the first invalid result; finish already active games')
     p.add_argument('--output',type=pathlib.Path,default=ROOT/'dragonmind-results')
     a=p.parse_args()
     if min(a.seeds,a.workers,a.batch_size,a.timeout)<1 or any(r not in range(4) for r in a.rotations):
@@ -141,6 +170,9 @@ def main():
     out=a.output.resolve();out.mkdir(parents=True,exist_ok=True)
     if (out/'metadata.json').exists():p.error('Use a new output directory to preserve previous results')
     jar=a.jar.resolve();engine=a.engine.resolve()
+    if not jar.is_file():p.error('Engine executable is missing; restore the verified build first')
+    for required in ('cardsfolder','tokenscripts','editions','languages'):
+        if not (engine/'res'/required).is_dir():p.error('Engine resources are missing: res/'+required)
     meta={'product':'DragonMind','rules_engine':'Forge 2.0.15 GPL-3.0-or-later fork',
           'rules_baseline':json.loads((ROOT/'rules-baseline.json').read_text()),
           'jar_sha256':hashlib.sha256(jar.read_bytes()).hexdigest(),
@@ -149,12 +181,14 @@ def main():
     (out/'metadata.json').write_text(json.dumps(meta,indent=2)+'\n')
     jobs=[(r,list(range(a.seed+i,a.seed+min(i+a.batch_size,a.seeds)))) for r in a.rotations for i in range(0,a.seeds,a.batch_size)]
     results=[];start=time.monotonic()
-    with concurrent.futures.ThreadPoolExecutor(max_workers=a.workers) as pool:
-        futures=[pool.submit(batch,engine,jar,out,a.variant,r,seeds,a.timeout,not a.stock,a.audit,a.gc,a.jit) for r,seeds in jobs]
-        for future in concurrent.futures.as_completed(futures):
-            results.extend(future.result())
-            (out/'summary.json').write_text(json.dumps(results,indent=2)+'\n')
-            print(f'{len(results)} / {len(a.rotations)*a.seeds} attempts recorded',flush=True)
+    def worker(job):
+        r,seeds=job
+        return batch(engine,jar,out,a.variant,r,seeds,a.timeout,not a.stock,a.audit,a.gc,a.jit,
+            ('-Ddragonmind.boundedCombatForecast='+str(a.forecast=='bounded').lower(),))
+    for records in run_jobs(jobs,worker,a.workers,a.stop_on_failure):
+        results.extend(records)
+        (out/'summary.json').write_text(json.dumps(results,indent=2)+'\n')
+        print(f'{len(results)} / {len(a.rotations)*a.seeds} attempts recorded',flush=True)
     completed=[r for r in results if r['status'] in ('completed','completed_draw')]
     elapsed = time.monotonic()-start
     perf={'wall_seconds':round(elapsed,3),'attempts':len(results),'completed':len(completed),
@@ -163,6 +197,7 @@ def main():
           'status_counts':{status:sum(r['status']==status for r in results) for status in sorted({r['status'] for r in results})},
           'meaning':'Unattended full-rules games; no external review pauses. Timeouts excluded from completions.'}
     (out/'performance.json').write_text(json.dumps(perf,indent=2)+'\n');print(json.dumps(perf))
+    if a.stop_on_failure and len(completed)!=len(results):raise SystemExit(1)
 
 
 if __name__=='__main__':main()
