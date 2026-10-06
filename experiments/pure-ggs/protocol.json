@@ -9,11 +9,12 @@
     "15 ready meaningful evasive/flying power",
     "2+ resolved GGS Dragon creations in one Pure turn",
     "extra combat plus net >=5 offensive power growth and GGS Dragon creation",
-    "2+ combat-generated cards plus 2+ Treasure creations with continued GGS production and >=2 cards left"
+    "2+ observed engine-drawn cards plus 2+ Treasure creations with continued GGS production and >=2 cards left"
   ],
   "threatening": [
     "20 actual unblocked attacking combat power after legal blocks, after ignition",
-    "15 actual Pure combat damage to opponents in one Pure turn after ignition"
+    "15 actual Pure combat damage to opponents in one Pure turn after ignition",
+    "20 actual total Pure damage to opponents in one Pure turn after ignition, including amplifier damage"
   ],
   "amplifiers": [
     "Purphoros, God of the Forge",
@@ -21,7 +22,8 @@
     "Roaming Throne",
     "Karlach, Fury of Avernus",
     "Port Razer",
-    "Aggravated Assault"
+    "Aggravated Assault",
+    "Annie Joins Up"
   ],
   "dependency": "Natural requires no material amplifier in path to threshold. Amplified requires actual contributing amplifier effect; amplifier-dependent requires direct contribution necessary to cross threshold at observed time. Uncertain causal cases stay unclassified instead of guessing. Counterfactual attribution is observational, not a randomized ablation.",
   "stage_sizes": [
@@ -32,5 +34,21 @@
     128
   ],
   "stabilization": "At least 64 valid games and 40 ignited games; latest two increments differ <=10 percentage points for conversion/basic/strong/threatening and natural/dependent; timing medians <=1 Pure turn difference; leading stall reason unchanged. Report Wilson intervals. Continue if unstable, bounded at 128 with explicit inconclusive qualification if needed.",
-  "clarification": "Before analyzing experimental batch 1, tightened board threat evidence to actual unblocked attackers rather than assuming flying bodies will connect."
+  "clarification": "Before analyzing experimental batch 1, tightened board threat evidence to actual unblocked attackers rather than assuming flying bodies will connect.",
+  "analysis_clarifications": [
+    "Track other comparable amplifiers (including stolen Annie Joins Up).",
+    "Purphoros damage alone does not count as material to Basic/Strong board growth.",
+    "Include noncombat amplifier damage in Table-Threatening State evidence, rather than missing burn-driven threats.",
+    "Causal necessity remains observational and uncertain cases are explicitly retained.",
+    "Damage thresholds follow exact canonical phase/combat/life state, not future damage from later extra combats.",
+    "Throne type decisions are standalone audit events and must be read even without state.",
+    "Post-ignition stalls consider disruptions in the first two-turn progression window, not earlier pre-ignition removal.",
+    "Traced mass spell/ability losses of >=3 creatures count for wipe recovery; untraced combat casualties are excluded.",
+    "Report Natural states both without material amplifier contribution and with no amplifier present before the threshold.",
+    "Basic resource growth requires observed engine draw/Treasure growth, so two ordinary draw steps alone cannot qualify.",
+    "Additional combats count as material only after observed additional-combat production/resources/damage; scheduled but unused combats do not count.",
+    "Additional-combat board growth is measured from the first-combat end state, not before the ordinary first combat.",
+    "Casual mulligan counts are read from each seat's actual engine opening-hand log.",
+    "Reliable access confirmed means GGS fresh-connection triggers observed on two distinct Pure turns, separate from access-card availability."
+  ]
 }
