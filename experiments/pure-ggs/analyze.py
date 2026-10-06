@@ -13,7 +13,7 @@ def extract(directory,row):
  log=(directory/row.get('engine_transcript',row['log'])).read_text(errors='replace')
  audit=directory/'audit'/Path(row['log']).stem/f'seat-{pureidx}.jsonl'
  metrics={'seed':row['seed'],'rotation':row['seat_rotation'],'status':row['status'],'winner':row.get('winner'),'win':row.get('winner')==name,'final_global_turn':row.get('last_logged_turn'),'engine_seconds':row.get('engine_ms',0)/1000,'log':str(directory/row['log']),'audit':str(audit),'ggs_cast_turn':None,'first_fresh_connection':None,'first_dragon_turn':None,'second_dragon_turn':None,'peak_simultaneous_ggs_dragons':0,'peak_offensive_power':0,'peak_evasive_power':0,'renewable_ammunition_turn':None,'access_turn':None,'card_acceleration_turn':None,'mana_acceleration_turn':None,'basic_turn':None,'strong_turn':None,'threat_turn':None,'amplifiers_seen':[],'artifact_reasons':[]}
- states=[];pureturns={};turncount=0;owner_ids={};all_own_ids=set();seen=set();ggsids=set();copyids=set();prev=None;prevbf={};lasttop={};events=[];draws=0;treasures=0;wipe_events=[];lastcast=None;removed_ggs=[];audit_amp_events=[];combat_counts=collections.Counter();combat_start={};prev_phase=None;chosen_throne=None
+ states=[];pureturns={};turncount=0;owner_ids={};all_own_ids=set();seen=set();ggsids=set();copyids=set();prev=None;prevbf={};lasttop={};events=[];draws=0;treasures=0;wipe_events=[];lastcast=None;removed_ggs=[];audit_amp_events=[];combat_counts=collections.Counter();combat_start={};prev_phase=None;chosen_throne=None;ggs_birth_seq={};audit_haste_events=[]
  with audit.open() as stream:
   for line in stream:
    x=json.loads(line);s=x.get('state');
@@ -32,11 +32,14 @@ def extract(directory,row):
    top=s.get('stack',[{}])[0] if s.get('stack') else {}
    if phase=='COMBAT_BEGIN' and prev_phase!=(turn,phase):combat_counts[turn]+=1
    if top.get('name') in AMPS and top.get('controller_id')==pureidx and any(w in top.get('description','') for w in ('Whenever','Untap all','additional combat')):audit_amp_events.append({'name':top['name'],'seq':len(states),'global_turn':turn})
+   if top.get('name')=='Goro-Goro and Satoru' and 'gain haste' in top.get('description',''):audit_haste_events.append({'seq':len(states),'global_turn':turn})
    prev_phase=(turn,phase)
+   for i in set(bf)-set(prevbf):
+    if lasttop.get('name') in FACTORIES and lasttop.get('controller_id')==pureidx and 'Creature' in bf[i]['type'] and (bf[i]['name']!=lasttop['name'] or lasttop['name'] in {'Reinforced Ronin','Nether Traitor'}):events.append({'kind':'factory_ammunition','source':lasttop['name'],'id':i,'turn':personal,'global_turn':turn,'seq':len(states)})
    for i,c in born.items():
     if c['name']=='Dragon Spirit Token':
      if lasttop.get('name')=='Goro-Goro and Satoru' and CREATION in lasttop.get('description',''):
-      ggsids.add(i);events.append({'kind':'ggs_dragon','id':i,'global_turn':turn,'turn':personal,'seq':len(states),'amp_present':sorted(names&AMPS),'source':lasttop.get('description')})
+      ggsids.add(i);ggs_birth_seq[i]=len(states);events.append({'kind':'ggs_dragon','id':i,'global_turn':turn,'turn':personal,'seq':len(states),'amp_present':sorted(names&AMPS),'source':lasttop.get('description')})
      else:copyids.add(i);events.append({'kind':'other_dragon','id':i,'global_turn':turn,'turn':personal,'seq':len(states),'source':lasttop.get('name'),'source_player_id':lasttop.get('controller_id')})
     if c['name']=='Treasure Token':treasures+=1
    if prev and pure['hand_count']>prev['hand_count'] and phase!='DRAW' and 'draw' in lasttop.get('description','').lower():
@@ -48,7 +51,7 @@ def extract(directory,row):
    def evasion(c):return any(k in c['keywords'] for k in ['Flying','Shadow','Fear','Horsemanship']) or 'can\'t be blocked' in c['rules_text'].lower() or any('can\'t be blocked' in k.lower() for k in c['keywords'])
    power=sum(max(0,c['power']) for c in creatures);epower=sum(max(0,c['power']) for c in ready if evasion(c))
    simultaneous=len(ggsids & set(bf))
-   snap={'seq':len(states),'global_turn':turn,'turn':personal,'active':s['active_player_id']==pureidx,'phase':phase,'combat_ordinal':combat_counts[turn],'chosen_throne':chosen_throne,'ggs_dragons':simultaneous,'ggs_total':len(ggsids),'offensive_power':power,'evasive_power':epower,'unblocked_power':sum(max(0,bf[a['attacker_id']]['power']) for a in s.get('combat',{}).get('attackers',[]) if a.get('unblocked') and a['attacker_id'] in bf and a.get('defender_kind')=='player'),'hand':pure['hand_count'],'treasures':sum(c['name']=='Treasure Token' for c in bf.values()),'treasures_created':treasures,'combat_draws':draws,'ggs_present':'Goro-Goro and Satoru' in names,'factories':sorted(names&FACTORIES),'access':sorted(names&ACCESS),'amp_present':sorted(names&AMPS),'creature_count':len(creatures),'mana_sources':sum('Land' in c['type'] for c in bf.values())+sum(c['name'] in ROCKS for c in bf.values()),'fresh_creatures':sum(c['entered_this_turn'] and c['power']>0 for c in creatures),'fresh_ready':sum(c['entered_this_turn'] and c['power']>0 for c in ready),'fresh_unblocked_power':sum(max(0,bf[a['attacker_id']]['power']) for a in s.get('combat',{}).get('attackers',[]) if a.get('unblocked') and a['attacker_id'] in bf and bf[a['attacker_id']]['entered_this_turn'] and a.get('defender_kind')=='player'),'fresh_evasive':sum(c['entered_this_turn'] and c['power']>0 and evasion(c) for c in ready),'life_vector':{p['name']:p['life'] for p in s['players']},'life':pure['life'],'opponent_life':{p['name']:p['life'] for p in s['players'] if p['id']!=pureidx},'top':top.get('name')}
+   snap={'seq':len(states),'global_turn':turn,'turn':personal,'active':s['active_player_id']==pureidx,'phase':phase,'combat_ordinal':combat_counts[turn],'chosen_throne':chosen_throne,'ggs_dragons':simultaneous,'ggs_total':len(ggsids),'offensive_power':power,'evasive_power':epower,'unblocked_power':sum(max(0,bf[a['attacker_id']]['power']) for a in s.get('combat',{}).get('attackers',[]) if a.get('unblocked') and a['attacker_id'] in bf and a.get('defender_kind')=='player'),'tempest_haste_power':sum(max(0,c['power']) for c in ready if c['id'] in ggsids and c['entered_this_turn'] and 'Haste' in c['keywords'] and c['id'] not in attackids and 'Dragon Tempest' in names and not any(bf.get(i,{}).get('name')=='Lightning Greaves' for i in c['attachments']) and not any(a['global_turn']==turn and a['seq']>ggs_birth_seq[c['id']] for a in audit_haste_events)),'hand':pure['hand_count'],'treasures':sum(c['name']=='Treasure Token' for c in bf.values()),'treasures_created':treasures,'combat_draws':draws,'ggs_present':'Goro-Goro and Satoru' in names,'factories':sorted(names&FACTORIES),'access':sorted(names&ACCESS),'amp_present':sorted(names&AMPS),'creature_count':len(creatures),'mana_sources':sum('Land' in c['type'] for c in bf.values())+sum(c['name'] in ROCKS for c in bf.values()),'fresh_creatures':sum(c['entered_this_turn'] and c['power']>0 for c in creatures),'attacker_count':len(attackids),'fresh_attacking_count':sum(c['entered_this_turn'] and c['power']>0 and c['id'] in attackids for c in creatures),'fresh_ready':sum(c['entered_this_turn'] and c['power']>0 for c in ready),'fresh_unblocked_power':sum(max(0,bf[a['attacker_id']]['power']) for a in s.get('combat',{}).get('attackers',[]) if a.get('unblocked') and a['attacker_id'] in bf and bf[a['attacker_id']]['entered_this_turn'] and a.get('defender_kind')=='player'),'fresh_evasive':sum(c['entered_this_turn'] and c['power']>0 and evasion(c) for c in ready),'life_vector':{p['name']:p['life'] for p in s['players']},'life':pure['life'],'opponent_life':{p['name']:p['life'] for p in s['players'] if p['id']!=pureidx},'top':top.get('name')}
    states.append(snap)
    if snap['active'] and snap['combat_ordinal']>=1 and turn not in combat_start:combat_start[turn]=snap
    if snap['factories'] and metrics['renewable_ammunition_turn'] is None:metrics['renewable_ammunition_turn']=personal
@@ -63,10 +66,10 @@ def extract(directory,row):
     if len(lost)>=3 and lasttop.get('name') not in {None,'March of Swirling Mist','Alora, Merry Thief'}:
      wipe_events.append({'turn':personal,'global_turn':turn,'seq':len(states)-1,'lost':len(lost),'power_before':states[-2]['offensive_power'],'ggs_total':len(ggsids),'source':lasttop.get('name'),'source_player_id':lasttop.get('controller_id')})
     if 'Goro-Goro and Satoru' in {c['name'] for c in prevbf.values()} and 'Goro-Goro and Satoru' not in names:
-     removed_ggs.append({'turn':personal,'global_turn':turn,'source':lasttop.get('name'),'seq':len(states)-1})
+     removed_ggs.append({'turn':personal,'global_turn':turn,'source':lasttop.get('name'),'source_player_id':lasttop.get('controller_id'),'voluntary_reload':lasttop.get('name') in {'Alora, Merry Thief','Grazilaxx, Illithid Scholar'} and lasttop.get('controller_id')==pureidx,'seq':len(states)-1})
    prev={'hand_count':pure['hand_count']};prevbf=bf;lasttop=top
  # Canonical event log and personal turn mapping.
- curglobal=0;curpersonal=0;curphase=None;raw_combat=0;raw_life={f'Ai({i+1})-{d}':40 for i,d in enumerate(row['seats'])};raw_points=[];dragon_hits=[];haste_activations=[];casts=[];damage=collections.Counter();all_damage=collections.Counter();dragon_damage=0;incoming=[];interaction=[];amp_events=[];ggs_resolutions=[];last_add=None
+ curglobal=0;curpersonal=0;curphase=None;raw_combat=0;raw_life={f'Ai({i+1})-{d}':40 for i,d in enumerate(row['seats'])};raw_points=[];dragon_hits=[];haste_activations=[];casts=[];damage=collections.Counter();all_damage=collections.Counter();dragon_damage=0;incoming=[];interaction=[];amp_events=[];ggs_resolutions=[];fresh_connections=[];last_add=None
  for lineno,line in enumerate(log.splitlines(),1):
   m=re.match(r'Turn: Turn (\d+) \((.+)\)',line)
   if m:curglobal=int(m[1]);curpersonal=pureturns.get(curglobal,curpersonal);raw_combat=0
@@ -82,8 +85,9 @@ def extract(directory,row):
   if m:
    who,kind,desc=m.groups();last_add={'who':who,'kind':kind,'desc':desc,'turn':curpersonal,'global_turn':curglobal,'line':lineno}
    if who==name and kind=='cast' and desc=='Goro-Goro and Satoru':casts.append(curpersonal)
+   if who==name and kind=='triggered' and desc.startswith('Goro-Goro and Satoru'):fresh_connections.append(last_add)
    if who==name and kind=='activated' and desc.startswith('Goro-Goro and Satoru'):haste_activations.append({'global_turn':curglobal,'line':lineno})
-   if who!=name and 'targeting' in desc and any(int(i) in all_own_ids for i in re.findall(r'\((\d+)\)',desc)):
+   if who!=name and 'targeting' in desc and (name in desc or any(owner_ids.get((curglobal,int(i)),pureidx if int(i) in all_own_ids else None)==pureidx for i in re.findall(r'\((\d+)\)',desc))):
     interaction.append({**last_add,'kind':'targeted_interaction'})
    if who==name and any(desc.startswith(a) for a in AMPS) and kind in ('triggered','activated'):
     amp_events.append(last_add)
@@ -113,6 +117,8 @@ def extract(directory,row):
  if len(births)==len(ggs_resolutions):
   for e,r in zip(births,ggs_resolutions):e['raw_line']=r['line']
  metrics['ggs_cast_turn']=casts[0] if casts else None
+ metrics['first_fresh_connection']=fresh_connections[0]['turn'] if fresh_connections else None
+ metrics['fresh_connection_trigger_events']=fresh_connections
  metrics['ggs_cast_turns']=casts;metrics['cumulative_dragons']=len(births);metrics['dragon_damage']=dragon_damage
  metrics['combat_damage_each_turn']=dict(damage);metrics['all_damage_each_turn']=dict(all_damage);metrics['extra_combats_each_turn']={pureturns.get(g):max(0,n-1) for g,n in combat_counts.items() if n>1}
  metrics['resolved_creation_count']=len(ggs_resolutions);metrics['measurement_gaps']=[]
@@ -122,7 +128,7 @@ def extract(directory,row):
  for s in states:
   metrics['peak_simultaneous_ggs_dragons']=max(metrics['peak_simultaneous_ggs_dragons'],s['ggs_dragons']);metrics['peak_offensive_power']=max(metrics['peak_offensive_power'],s['offensive_power']);metrics['peak_evasive_power']=max(metrics['peak_evasive_power'],s['evasive_power'])
  if births:
-  first=births[0];baseline=states[first['seq']];d1=first['turn'];metrics['first_dragon_turn']=d1;metrics['first_fresh_connection']=d1
+  first=births[0];baseline=states[first['seq']];d1=first['turn'];metrics['first_dragon_turn']=d1
   if len(births)>1:metrics['second_dragon_turn']=births[1]['turn'];metrics['dragon_1_to_2_turns']=births[1]['turn']-d1
   else:metrics['dragon_1_to_2_turns']=None
   for s in states[first['seq']:]:
@@ -153,6 +159,7 @@ def extract(directory,row):
   if tempest and any(a['desc'].startswith('Dragon Tempest') for a in contributions):material=sorted(set(material)|{'Dragon Tempest'})
   if label in ('basic','strong'):
    material=[a for a in material if a not in ('Purphoros, God of the Forge','Dragon Tempest')]
+   if label=='strong' and snap['evasive_power']>=15 and snap['evasive_power']-snap['tempest_haste_power']<15 and snap['ggs_dragons']<3 and sum(e['turn']==snap['turn'] and e['seq']<=seq for e in births)<2 and not (snap['combat_draws']>=2 and snap['treasures_created']>=2 and snap['ggs_total']>=2 and snap['hand']>=2):material=sorted(set(material)|{'Dragon Tempest'})
    # Tempest contributes to Dragon growth only when same-turn fresh Dragons actually connect without another haste source.
    for e in births:
     if e['seq']>seq or 'Dragon Tempest' not in e['amp_present']:continue
@@ -180,14 +187,29 @@ def extract(directory,row):
   if not material:return {'class':'NATURAL GGS','material_amplifiers':[],'confidence':'observed path, no contributing major amplifier found'}
   # Direct trigger doubling can be subtracted for threshold attribution. Other temporal counterfactuals stay uncertain.
   if material==['Roaming Throne']:
-   natural_equiv=sum(0.5 if 'Roaming Throne' in e['amp_present'] and states[e['seq']].get('chosen_throne') in ('Human','Goblin') else 1 for e in births if e['seq']<=seq)
+   doubled=collections.Counter((e['global_turn'],states[e['seq']]['combat_ordinal']) for e in births if e['seq']<=seq and 'Roaming Throne' in e['amp_present'] and states[e['seq']].get('chosen_throne') in ('Human','Goblin'))
+   ordinary=sum(1 for e in births if e['seq']<=seq and not ('Roaming Throne' in e['amp_present'] and states[e['seq']].get('chosen_throne') in ('Human','Goblin')))
+   natural_equiv=ordinary+sum((n+1)//2 for n in doubled.values())
    necessary=(label=='basic' and natural_equiv<2) or (label=='strong' and snap['ggs_dragons']>=3 and natural_equiv<3 and snap['evasive_power']-(len([e for e in births if e['seq']<=seq])-natural_equiv)*5<15)
+   if label=='basic' and necessary:
+    # Basic has a two-own-turn window. Later independent connections within that window
+    # support amplification, rather than necessity merely for the earliest observed state.
+    later_groups=collections.Counter((e['global_turn'],states[e['seq']]['combat_ordinal']) for e in births if e['turn']<=d1+2 and 'Roaming Throne' in e['amp_present'] and states[e['seq']].get('chosen_throne') in ('Human','Goblin'))
+    later_ordinary=sum(1 for e in births if e['turn']<=d1+2 and not ('Roaming Throne' in e['amp_present'] and states[e['seq']].get('chosen_throne') in ('Human','Goblin')))
+    if later_ordinary+sum((n+1)//2 for n in later_groups.values())>=2:necessary=False
+
    return {'class':'AMPLIFIER-DEPENDENT' if necessary else 'AMPLIFIED GGS','material_amplifiers':material,'confidence':'observational direct trigger contribution'}
   if label=='threat' and set(material)<= {'Purphoros, God of the Forge','Dragon Tempest'} and snap['observed_combat_damage']<15 and snap.get('unblocked_power',0)<20:
    direct=sum(a.get('amount',0) for a in contributions if a['kind']=='damage' and a['global_turn']==snap['global_turn'])
    if snap['observed_total_damage']-direct<20:return {'class':'AMPLIFIER-DEPENDENT','material_amplifiers':material,'confidence':'direct amplifier damage necessary for observed damage threshold'}
   return {'class':'AMPLIFIED GGS','material_amplifiers':material,'confidence':'contribution observed; necessity not established','dependency_uncertain':True}
  for label in ['basic','strong','threat']:metrics[label+'_dependency']=dependency(label)
+ factory_turns=collections.defaultdict(set);metrics['renewable_ammunition_confirmed_turn']=None
+ for ev in events:
+  if ev['kind']=='factory_ammunition':
+   factory_turns[ev['source']].add(ev['turn'])
+   if len(factory_turns[ev['source']])>=2 and metrics['renewable_ammunition_confirmed_turn'] is None:metrics['renewable_ammunition_confirmed_turn']=ev['turn']
+ metrics['factory_ammunition_events']=[e for e in events if e['kind']=='factory_ammunition']
  metrics['within_one']=bool(len(births)>1 and metrics['dragon_1_to_2_turns']<=1);metrics['within_two']=bool(len(births)>1 and metrics['dragon_1_to_2_turns']<=2)
  metrics['wipe_events']=wipe_events;metrics['recovery_definition']='Within three following Pure turns: another GGS-created Dragon and >=half pre-disruption offensive power (minimum5); only traced spell/ability mass loss >=3 creatures, combat casualties excluded';metrics['ggs_disruptions']=removed_ggs;metrics['interactions']=interaction;metrics['incoming_combat']=incoming;metrics['amp_events']=amp_events
  for w in wipe_events:
@@ -202,14 +224,14 @@ def extract(directory,row):
   else:reason=8
  elif metrics['basic_turn'] is None:
   if any(not w['recovered'] and (not births or first['seq']<=w['seq'] and w['turn']<=d1+2) for w in wipe_events):reason=6
-  elif any(not births or first['seq']<=d['seq'] and d['turn']<=d1+2 for d in removed_ggs):reason=5
+  elif any(not d.get('voluntary_reload') and (not births or first['seq']<=d['seq'] and d['turn']<=d1+2) for d in removed_ggs):reason=5
   elif not births and (not casts or max((s['mana_sources'] for s in states),default=0)<3):reason=1
   elif births:
    last=states[-1]
    post=[s for s in states if metrics['first_dragon_turn']<s['turn']<=metrics['first_dragon_turn']+2 and s['active']]
    if not post:reason=8
-   elif not any(s['fresh_creatures'] for s in post if s['phase'].startswith('COMBAT')):reason=2
-   elif not any(s['fresh_ready'] for s in post if s['phase'].startswith('COMBAT')):reason=4
+   elif not any(s['fresh_attacking_count'] or (s['phase']=='COMBAT_BEGIN' or s['phase']=='COMBAT_DECLARE_ATTACKERS' and s['attacker_count']==0) and s['fresh_creatures'] for s in post):reason=2
+   elif not any(s['fresh_attacking_count'] or (s['phase']=='COMBAT_BEGIN' or s['phase']=='COMBAT_DECLARE_ATTACKERS' and s['attacker_count']==0) and s['fresh_ready'] for s in post):reason=4
    elif not any(s['fresh_unblocked_power'] for s in post if s['phase'].startswith('COMBAT')):reason=3
    elif len(births)>=2:reason=7
    else:reason=4
