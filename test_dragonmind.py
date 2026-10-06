@@ -3,6 +3,67 @@ from dragonmind import parse_results, java_runtime_flags
 
 
 class DragonMindResults(unittest.TestCase):
+    def test_failed_gate_does_not_submit_remaining_games(self):
+        from dragonmind import run_jobs
+        started=[]
+        def worker(job):
+            started.append(job)
+            return [{'status':'timeout' if job==0 else 'completed'}]
+        results=list(run_jobs(range(16),worker,1,True))
+        self.assertEqual(started,[0])
+        self.assertEqual(results,[[{'status':'timeout'}]])
+
+    def test_normal_batch_still_runs_all_jobs(self):
+        from dragonmind import run_jobs
+        def worker(job):return [{'status':'timeout' if job==0 else 'completed','seed':job}]
+        rows=[r for group in run_jobs(range(4),worker,2,False) for r in group]
+        self.assertEqual(sorted(r['seed'] for r in rows),list(range(4)))
+
+    def test_parallel_games_receive_separate_runtime_profiles(self):
+        import pathlib,tempfile
+        from unittest.mock import patch
+        from dragonmind import batch
+        commands=[]
+        def process(command,**kwargs):
+            commands.append(command)
+            return type('Process',(),{'returncode':0})()
+        with tempfile.TemporaryDirectory() as directory,patch('dragonmind.subprocess.run',side_effect=process):
+            for rotation in (0,1):
+                rows=batch(pathlib.Path(directory),pathlib.Path('test.jar'),pathlib.Path(directory),'GGS_Layered_v1',rotation,[4],1,False,False)
+                self.assertEqual(rows[0]['status'],'not_run')
+        homes=[next(x for x in cmd if x.startswith('-Duser.home=')) for cmd in commands]
+        self.assertNotEqual(homes[0],homes[1])
+
+    def engine_record_case(self, console_error=False, mismatch=False):
+        import pathlib,tempfile
+        from unittest.mock import patch
+        from dragonmind import batch
+        def process(command,**kwargs):
+            directory=pathlib.Path(next(x.split('=',1)[1] for x in command if x.startswith('-Ddragonmind.resultDirectory=')))
+            directory.mkdir(parents=True)
+            row={'seed':4,'status':'completed','winner':'Ai(1)-GGS_Layered_v1','engine_ms':1}
+            (directory/'4.json').write_text(json.dumps(row))
+            transcript=dict(row)
+            if mismatch:transcript['engine_ms']=2
+            (directory/'4.log').write_text('DragonMind Result: '+json.dumps(transcript)+'\n')
+            if console_error:kwargs['stdout'].write('java.lang.IllegalStateException: engine fault\n')
+            return type('Process',(),{'returncode':0})()
+        with tempfile.TemporaryDirectory() as directory,patch('dragonmind.subprocess.run',side_effect=process):
+            return batch(pathlib.Path(directory),pathlib.Path('test.jar'),pathlib.Path(directory),'GGS_Layered_v1',0,[4],1,False,False)[0]
+
+    def test_actual_engine_record_can_survive_missing_console_footer(self):
+        row=self.engine_record_case()
+        self.assertEqual(row['status'],'completed')
+        self.assertIn('engine_transcript',row)
+
+    def test_engine_record_cannot_hide_console_exception(self):
+        row=self.engine_record_case(console_error=True)
+        self.assertEqual(row['status'],'engine_error');self.assertIsNone(row['winner'])
+
+    def test_disagreeing_engine_record_and_transcript_rejected(self):
+        row=self.engine_record_case(mismatch=True)
+        self.assertEqual(row['status'],'process_error');self.assertIsNone(row['winner'])
+
     def test_runtime_flags_record_explicit_compiler_and_collector_choices(self):
         self.assertEqual(java_runtime_flags('parallel','throughput'),['-XX:+UseParallelGC','-XX:-TieredCompilation','-XX:CompileThreshold=1000'])
         self.assertEqual(java_runtime_flags('g1','default'),['-XX:+UseG1GC'])

@@ -1,0 +1,15 @@
+{
+  "basis": "Apply existing v17 patch chain, then these recovered v18-v24 source snapshots",
+  "files": {
+    "forge-ai/src/main/java/forge/ai/ComputerUtil.java": "4398aa2df357716be7d6af2c6e583f34de29e78df05f3b40524b44c533474667",
+    "forge-ai/src/main/java/forge/ai/AiController.java": "448a8aada029509e0a21fa81288611bd0da02d07f77248e39f417447ecea3cd4",
+    "forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java": "cd51a76ae88fec114db47a0d5b06e6d6a67737eb38d6f63e25fdf8cd7b07e49a",
+    "forge-ai/src/main/java/forge/ai/ability/PhasesAi.java": "fd0ecbbbec0dfee4252aaaf577130f95434808e330cfa6ed1d07731289e583eb",
+    "forge-ai/src/main/java/forge/ai/ggs/FireworkPilotPolicy.java": "91bf273c13d0dee621893d84fe8a3966de44f54b11b7441e5cf2a3ef211f65d1",
+    "forge-ai/src/main/java/forge/ai/ComputerUtilCard.java": "2d901b904432ea49e18ac6a6408f13df0b9c4057a53e83ef381d73c9297b8786",
+    "forge-ai/src/main/java/forge/ai/ComputerUtilCombat.java": "1dba31e1703e1f6ec4a0be6b7ccad5347e5f7af986fb4585035fe4c0b019a44a",
+    "forge-ai/src/main/java/forge/ai/AiBlockController.java": "6ac12bb5763e04d344bb228c4cd8c352fe3f2b7eec2f84effca51315d941ec68",
+    "forge-game/src/main/java/forge/game/combat/CombatUtil.java": "e1d4f9f3d41e9421d42aa113caa621709e326f05353c4cba886ca0804f4dddb3",
+    "forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java": "d3d06361e331f47ed2a391c539c8f0619fe990764780ec6487c1c90478d233bb"
+  }
+}
