@@ -34,6 +34,36 @@ class DragonMindResults(unittest.TestCase):
         homes=[next(x for x in cmd if x.startswith('-Duser.home=')) for cmd in commands]
         self.assertNotEqual(homes[0],homes[1])
 
+    def engine_record_case(self, console_error=False, mismatch=False):
+        import pathlib,tempfile
+        from unittest.mock import patch
+        from dragonmind import batch
+        def process(command,**kwargs):
+            directory=pathlib.Path(next(x.split('=',1)[1] for x in command if x.startswith('-Ddragonmind.resultDirectory=')))
+            directory.mkdir(parents=True)
+            row={'seed':4,'status':'completed','winner':'Ai(1)-GGS_Layered_v1','engine_ms':1}
+            (directory/'4.json').write_text(json.dumps(row))
+            transcript=dict(row)
+            if mismatch:transcript['engine_ms']=2
+            (directory/'4.log').write_text('DragonMind Result: '+json.dumps(transcript)+'\n')
+            if console_error:kwargs['stdout'].write('java.lang.IllegalStateException: engine fault\n')
+            return type('Process',(),{'returncode':0})()
+        with tempfile.TemporaryDirectory() as directory,patch('dragonmind.subprocess.run',side_effect=process):
+            return batch(pathlib.Path(directory),pathlib.Path('test.jar'),pathlib.Path(directory),'GGS_Layered_v1',0,[4],1,False,False)[0]
+
+    def test_actual_engine_record_can_survive_missing_console_footer(self):
+        row=self.engine_record_case()
+        self.assertEqual(row['status'],'completed')
+        self.assertIn('engine_transcript',row)
+
+    def test_engine_record_cannot_hide_console_exception(self):
+        row=self.engine_record_case(console_error=True)
+        self.assertEqual(row['status'],'engine_error');self.assertIsNone(row['winner'])
+
+    def test_disagreeing_engine_record_and_transcript_rejected(self):
+        row=self.engine_record_case(mismatch=True)
+        self.assertEqual(row['status'],'process_error');self.assertIsNone(row['winner'])
+
     def test_runtime_flags_record_explicit_compiler_and_collector_choices(self):
         self.assertEqual(java_runtime_flags('parallel','throughput'),['-XX:+UseParallelGC','-XX:-TieredCompilation','-XX:CompileThreshold=1000'])
         self.assertEqual(java_runtime_flags('g1','default'),['-XX:+UseG1GC'])
