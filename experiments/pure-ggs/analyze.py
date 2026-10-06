@@ -198,7 +198,7 @@ def extract(directory,row):
     later_ordinary=sum(1 for e in births if e['turn']<=d1+2 and not ('Roaming Throne' in e['amp_present'] and states[e['seq']].get('chosen_throne') in ('Human','Goblin')))
     if later_ordinary+sum((n+1)//2 for n in later_groups.values())>=2:necessary=False
 
-   return {'class':'AMPLIFIER-DEPENDENT' if necessary else 'AMPLIFIED GGS','material_amplifiers':material,'confidence':'observational direct trigger contribution'}
+   return {'class':'AMPLIFIER-DEPENDENT' if necessary else 'AMPLIFIED GGS','material_amplifiers':material,'confidence':'observational direct trigger contribution','dependency_uncertain':not necessary}
   if label=='threat' and set(material)<= {'Purphoros, God of the Forge','Dragon Tempest'} and snap['observed_combat_damage']<15 and snap.get('unblocked_power',0)<20:
    direct=sum(a.get('amount',0) for a in contributions if a['kind']=='damage' and a['global_turn']==snap['global_turn'])
    if snap['observed_total_damage']-direct<20:return {'class':'AMPLIFIER-DEPENDENT','material_amplifiers':material,'confidence':'direct amplifier damage necessary for observed damage threshold'}
