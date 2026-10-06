@@ -1,0 +1,52 @@
+{
+  "version": "v28",
+  "status": "verified-16-clean",
+  "jar_sha256": "d9278b1ddd644ef6dd458b19cfabee20d3c2e9fde51d1cf10827a91c842616ee",
+  "games": 16,
+  "valid": 16,
+  "invalid": 0,
+  "seat_rotations": 4,
+  "seeds": [
+    202610052,
+    202610053,
+    202610054,
+    202610055
+  ],
+  "engine_regressions": 85,
+  "runner_regressions": 32,
+  "performance": {
+    "wall_seconds": 607.094,
+    "attempts": 16,
+    "completed": 16,
+    "engine_seconds": [
+      68.092,
+      85.852,
+      57.294,
+      59.716,
+      49.691,
+      91.257,
+      33.068,
+      62.629,
+      67.342,
+      146.142,
+      67.148,
+      87.093,
+      99.909,
+      33.267,
+      25.921,
+      40.997
+    ],
+    "completed_games_per_minute": 1.581,
+    "status_counts": {
+      "completed": 16
+    },
+    "meaning": "Unattended full-rules games; no external review pauses. Timeouts excluded from completions."
+  },
+  "deck_sha256": {
+    "GGS_Firework_Protocol_v1_0": "38298044b173295ac7d0d2d91f2ba4b5c357bc29bf574caaf55103df9f506456",
+    "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+    "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+    "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a"
+  },
+  "original_silent_exit_root_cause": "unproven; reporting repair passed fresh gate"
+}
