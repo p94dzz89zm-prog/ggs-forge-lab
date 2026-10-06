@@ -1,0 +1,4 @@
+classes/
+__pycache__/
+*.jar
+*.log
