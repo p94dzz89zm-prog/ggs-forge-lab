@@ -37,7 +37,7 @@ def extract(directory,row):
     if c['name']=='Dragon Spirit Token':
      if lasttop.get('name')=='Goro-Goro and Satoru' and CREATION in lasttop.get('description',''):
       ggsids.add(i);events.append({'kind':'ggs_dragon','id':i,'global_turn':turn,'turn':personal,'seq':len(states),'amp_present':sorted(names&AMPS),'source':lasttop.get('description')})
-     else:copyids.add(i);events.append({'kind':'other_dragon','id':i,'global_turn':turn,'turn':personal,'seq':len(states),'source':lasttop.get('name')})
+     else:copyids.add(i);events.append({'kind':'other_dragon','id':i,'global_turn':turn,'turn':personal,'seq':len(states),'source':lasttop.get('name'),'source_player_id':lasttop.get('controller_id')})
     if c['name']=='Treasure Token':treasures+=1
    if prev and pure['hand_count']>prev['hand_count'] and phase!='DRAW' and 'draw' in lasttop.get('description','').lower():
     gain=pure['hand_count']-prev['hand_count'];draws+=gain
@@ -48,7 +48,7 @@ def extract(directory,row):
    def evasion(c):return any(k in c['keywords'] for k in ['Flying','Shadow','Fear','Horsemanship']) or 'can\'t be blocked' in c['rules_text'].lower() or any('can\'t be blocked' in k.lower() for k in c['keywords'])
    power=sum(max(0,c['power']) for c in creatures);epower=sum(max(0,c['power']) for c in ready if evasion(c))
    simultaneous=len(ggsids & set(bf))
-   snap={'seq':len(states),'global_turn':turn,'turn':personal,'active':s['active_player_id']==pureidx,'phase':phase,'combat_ordinal':combat_counts[turn],'chosen_throne':chosen_throne,'ggs_dragons':simultaneous,'ggs_total':len(ggsids),'offensive_power':power,'evasive_power':epower,'unblocked_power':sum(max(0,bf[a['attacker_id']]['power']) for a in s.get('combat',{}).get('attackers',[]) if a.get('unblocked') and a['attacker_id'] in bf and a.get('defender_kind')=='player'),'hand':pure['hand_count'],'treasures':sum(c['name']=='Treasure Token' for c in bf.values()),'treasures_created':treasures,'combat_draws':draws,'ggs_present':'Goro-Goro and Satoru' in names,'factories':sorted(names&FACTORIES),'access':sorted(names&ACCESS),'amp_present':sorted(names&AMPS),'creature_count':len(creatures),'mana_sources':sum('Land' in c['type'] for c in bf.values())+sum(c['name'] in ROCKS for c in bf.values()),'fresh_creatures':sum(c['entered_this_turn'] and c['power']>0 for c in creatures),'fresh_evasive':sum(c['entered_this_turn'] and c['power']>0 and evasion(c) for c in ready),'life_vector':{p['name']:p['life'] for p in s['players']},'life':pure['life'],'opponent_life':{p['name']:p['life'] for p in s['players'] if p['id']!=pureidx},'top':top.get('name')}
+   snap={'seq':len(states),'global_turn':turn,'turn':personal,'active':s['active_player_id']==pureidx,'phase':phase,'combat_ordinal':combat_counts[turn],'chosen_throne':chosen_throne,'ggs_dragons':simultaneous,'ggs_total':len(ggsids),'offensive_power':power,'evasive_power':epower,'unblocked_power':sum(max(0,bf[a['attacker_id']]['power']) for a in s.get('combat',{}).get('attackers',[]) if a.get('unblocked') and a['attacker_id'] in bf and a.get('defender_kind')=='player'),'hand':pure['hand_count'],'treasures':sum(c['name']=='Treasure Token' for c in bf.values()),'treasures_created':treasures,'combat_draws':draws,'ggs_present':'Goro-Goro and Satoru' in names,'factories':sorted(names&FACTORIES),'access':sorted(names&ACCESS),'amp_present':sorted(names&AMPS),'creature_count':len(creatures),'mana_sources':sum('Land' in c['type'] for c in bf.values())+sum(c['name'] in ROCKS for c in bf.values()),'fresh_creatures':sum(c['entered_this_turn'] and c['power']>0 for c in creatures),'fresh_ready':sum(c['entered_this_turn'] and c['power']>0 for c in ready),'fresh_unblocked_power':sum(max(0,bf[a['attacker_id']]['power']) for a in s.get('combat',{}).get('attackers',[]) if a.get('unblocked') and a['attacker_id'] in bf and bf[a['attacker_id']]['entered_this_turn'] and a.get('defender_kind')=='player'),'fresh_evasive':sum(c['entered_this_turn'] and c['power']>0 and evasion(c) for c in ready),'life_vector':{p['name']:p['life'] for p in s['players']},'life':pure['life'],'opponent_life':{p['name']:p['life'] for p in s['players'] if p['id']!=pureidx},'top':top.get('name')}
    states.append(snap)
    if snap['active'] and snap['combat_ordinal']>=1 and turn not in combat_start:combat_start[turn]=snap
    if snap['factories'] and metrics['renewable_ammunition_turn'] is None:metrics['renewable_ammunition_turn']=personal
@@ -61,7 +61,7 @@ def extract(directory,row):
     prev_creatures={i:c for i,c in prevbf.items() if 'Creature' in c['type'] and not c.get('phased_out')}
     lost=set(prev_creatures)-set(bf)
     if len(lost)>=3 and lasttop.get('name') not in {None,'March of Swirling Mist','Alora, Merry Thief'}:
-     wipe_events.append({'turn':personal,'global_turn':turn,'seq':len(states)-1,'lost':len(lost),'power_before':states[-2]['offensive_power'],'ggs_total':len(ggsids),'source':lasttop.get('name')})
+     wipe_events.append({'turn':personal,'global_turn':turn,'seq':len(states)-1,'lost':len(lost),'power_before':states[-2]['offensive_power'],'ggs_total':len(ggsids),'source':lasttop.get('name'),'source_player_id':lasttop.get('controller_id')})
     if 'Goro-Goro and Satoru' in {c['name'] for c in prevbf.values()} and 'Goro-Goro and Satoru' not in names:
      removed_ggs.append({'turn':personal,'global_turn':turn,'source':lasttop.get('name'),'seq':len(states)-1})
    prev={'hand_count':pure['hand_count']};prevbf=bf;lasttop=top
@@ -117,6 +117,7 @@ def extract(directory,row):
  metrics['combat_damage_each_turn']=dict(damage);metrics['all_damage_each_turn']=dict(all_damage);metrics['extra_combats_each_turn']={pureturns.get(g):max(0,n-1) for g,n in combat_counts.items() if n>1}
  metrics['resolved_creation_count']=len(ggs_resolutions);metrics['measurement_gaps']=[]
  if len(births)!=len(ggs_resolutions):metrics['measurement_gaps'].append(f'Observed GGS token births {len(births)} vs canonical resolved creations {len(ggs_resolutions)}')
+ metrics['reliable_access_confirmed_turn']=next((e['turn'] for e in births if any(b['turn']<e['turn'] for b in births)),None)
  metrics['dragons_each_turn']=dict(collections.Counter(e['turn'] for e in births));metrics['multi_dragon_turn']=next((t for t,n in sorted(metrics['dragons_each_turn'].items()) if n>=2),None)
  for s in states:
   metrics['peak_simultaneous_ggs_dragons']=max(metrics['peak_simultaneous_ggs_dragons'],s['ggs_dragons']);metrics['peak_offensive_power']=max(metrics['peak_offensive_power'],s['offensive_power']);metrics['peak_evasive_power']=max(metrics['peak_evasive_power'],s['evasive_power'])
@@ -125,9 +126,10 @@ def extract(directory,row):
   if len(births)>1:metrics['second_dragon_turn']=births[1]['turn'];metrics['dragon_1_to_2_turns']=births[1]['turn']-d1
   else:metrics['dragon_1_to_2_turns']=None
   for s in states[first['seq']:]:
-   growth=s['ggs_dragons']>baseline['ggs_dragons'] or s['offensive_power']>=baseline['offensive_power']+5 or (s['hand']+s['treasures']>=baseline['hand']+baseline['treasures']+2 and s['offensive_power']>=baseline['offensive_power'])
+   growth=s['ggs_dragons']>baseline['ggs_dragons'] or s['offensive_power']>=baseline['offensive_power']+5 or (s['hand']+s['treasures']>=baseline['hand']+baseline['treasures']+2 and s['offensive_power']>=baseline['offensive_power'] and s['combat_draws']+s['treasures_created']>=baseline['combat_draws']+baseline['treasures_created']+2)
    if metrics['basic_turn'] is None and s['ggs_total']>=2 and s['turn']<=d1+2 and growth:metrics['basic_turn']=s['turn'];metrics['basic_seq']=s['seq']
-   extra=(s['combat_ordinal']>=2 and s['offensive_power']>=combat_start[s['global_turn']]['offensive_power']+5 and s['ggs_total']>combat_start[s['global_turn']]['ggs_total'])
+   prior_end=[q for q in states[first['seq']:s['seq']] if q['global_turn']==s['global_turn'] and q['phase']=='COMBAT_END' and q['combat_ordinal']==1]
+   extra=bool(s['combat_ordinal']>=2 and prior_end and s['offensive_power']>=prior_end[-1]['offensive_power']+5 and s['ggs_total']>prior_end[-1]['ggs_total'])
    strong=extra or s['ggs_dragons']>=3 or s['evasive_power']>=15 or sum(e['turn']==s['turn'] and e['seq']<=s['seq'] for e in births)>=2 or (s['combat_draws']>=2 and s['treasures_created']>=2 and s['ggs_total']>=2 and s['hand']>=2)
    if metrics['strong_turn'] is None and strong:metrics['strong_turn']=s['turn'];metrics['strong_seq']=s['seq']
    if metrics['threat_turn'] is None and (s['unblocked_power']>=20 or ((s['observed_combat_damage']>=15 or s['observed_total_damage']>=20) and s['phase'] in ('COMBAT_END','MAIN2','END_OF_TURN','CLEANUP'))):metrics['threat_turn']=s['turn'];metrics['threat_seq']=s['seq']
@@ -158,6 +160,23 @@ def extract(directory,row):
     if any(any(b.get('raw_line',0)>h['line'] and b['seq']<=seq and b['global_turn']==e['global_turn'] for b in births) and not any(a['global_turn']==e['global_turn'] and e.get('raw_line',0)<a['line']<h['line'] for a in haste_activations) for h in hits):
      # Greaves may supply redundant haste: leave the cause uncertain rather than asserting necessity.
      material=sorted(set(material)|{'Dragon Tempest'});break
+  # Scheduling an extra combat is not yet a contribution to a state reached in the first combat.
+  # Require observed additional-combat production, resources, or damage before the threshold.
+  extra_names={'Karlach, Fury of Avernus','Port Razer','Aggravated Assault'}
+  filtered=[]
+  for amp in material:
+   if amp not in extra_names:filtered.append(amp);continue
+   contributed=False
+   for ev in contributions:
+    if not ev['desc'].startswith(amp):continue
+    extra_states=[q for q in states[:seq+1] if q['global_turn']==ev['global_turn'] and q['active'] and q['combat_ordinal']>=2]
+    if not extra_states:continue
+    first_extra=extra_states[0];before=[q for q in states[:first_extra['seq']] if q['global_turn']==ev['global_turn'] and q['active'] and q['phase']=='COMBAT_END' and q['combat_ordinal']==1]
+    if not before:continue
+    base=before[-1]
+    if any(q['ggs_total']>base['ggs_total'] or q['combat_draws']>base['combat_draws'] or q['treasures_created']>base['treasures_created'] or (label=='threat' and q['observed_combat_damage']>base['observed_combat_damage']) for q in extra_states):contributed=True
+   if contributed:filtered.append(amp)
+  material=filtered
   if not material:return {'class':'NATURAL GGS','material_amplifiers':[],'confidence':'observed path, no contributing major amplifier found'}
   # Direct trigger doubling can be subtracted for threshold attribution. Other temporal counterfactuals stay uncertain.
   if material==['Roaming Throne']:
@@ -190,7 +209,8 @@ def extract(directory,row):
    post=[s for s in states if metrics['first_dragon_turn']<s['turn']<=metrics['first_dragon_turn']+2 and s['active']]
    if not post:reason=8
    elif not any(s['fresh_creatures'] for s in post if s['phase'].startswith('COMBAT')):reason=2
-   elif not any(s['fresh_evasive'] or s['access'] for s in post if s['phase'].startswith('COMBAT')):reason=3
+   elif not any(s['fresh_ready'] for s in post if s['phase'].startswith('COMBAT')):reason=4
+   elif not any(s['fresh_unblocked_power'] for s in post if s['phase'].startswith('COMBAT')):reason=3
    elif len(births)>=2:reason=7
    else:reason=4
   elif max((s['fresh_creatures'] for s in states),default=0)==0:reason=2
@@ -200,6 +220,10 @@ def extract(directory,row):
  metrics['primary_stall_category']=reason
  # Definite repeated self-sabotage: commander clamped to death, or offensive ninjutsu removes it with no replacement engine.
  if 'Skullclamp targeting [Goro-Goro and Satoru' in log:metrics['artifact_reasons'].append('Commander targeted by Skullclamp; requires audit, not automatic failure')
+ metrics['mulligans']={}
+ for who,n,redo in re.findall(r'DragonMind CasualSeven: player=(Ai\(\d+\)-.+?) reshuffles=(\d+) redraw=(true|false)',(directory/row['log']).read_text(errors='replace')):
+  if redo=='false':metrics['mulligans'][who]=int(n)
+ metrics['pure_mulligans']=metrics['mulligans'].get(name)
  metrics['provisional']=True
  metrics['snapshot_life_match_rate']=sum(s['life_match'] for s in states)/len(states) if states else None
  return metrics,{'states':states,'events':events,'personal_turn_map':pureturns}
