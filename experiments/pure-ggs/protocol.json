@@ -49,6 +49,12 @@
     "Additional combats count as material only after observed additional-combat production/resources/damage; scheduled but unused combats do not count.",
     "Additional-combat board growth is measured from the first-combat end state, not before the ordinary first combat.",
     "Casual mulligan counts are read from each seat's actual engine opening-hand log.",
-    "Reliable access confirmed means GGS fresh-connection triggers observed on two distinct Pure turns, separate from access-card availability."
+    "Reliable access confirmed means GGS fresh-connection triggers observed on two distinct Pure turns, separate from access-card availability.",
+    "Throne attribution respects the full Basic two-turn window when later independent connections are observed.",
+    "Strong readiness from Tempest-granted haste is tagged separately from ordinary Dragon accumulation; haste or burn presence alone is not assumed necessary.",
+    "Fresh ammunition must be attack-eligible at declaration or actually enter combat attacking; Krenko Goblins created after declaration do not count as fresh attackers for that combat.",
+    "Deliberate Alora/Grazilaxx commander reloads are recorded separately from hostile commander disruption.",
+    "Repeat factory/reload production is confirmed from actual battlefield entries on two distinct Pure turns, separate from factory-card availability.",
+    "First qualifying fresh connection is read from the actual GGS trigger event, separately from Dragon creation resolution."
   ]
 }
