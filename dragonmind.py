@@ -66,7 +66,9 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
     # mutable profile between independent JVM games, even with separate audits.
     runtime_home=out/'runtime-home'/label
     runtime_home.mkdir(parents=True,exist_ok=True)
-    cmd = ['java', '-XX:-UsePerfData', '-Duser.home='+str(runtime_home.resolve()), '-Xmx1536m', *java_runtime_flags(gc,jit), *extra_jvm_flags, '-Djava.awt.headless=true', *flags, '-jar', str(jar),
+    record_dir=out/'engine-records'/label
+    flags.append('-Ddragonmind.resultDirectory='+str(record_dir.resolve()))
+    cmd = ['java', '-XX:-UsePerfData', '-Ddragonmind.consoleOnly=true', '-Duser.home='+str(runtime_home.resolve()), '-Xmx1536m', *java_runtime_flags(gc,jit), *extra_jvm_flags, '-Djava.awt.headless=true', *flags, '-jar', str(jar),
            'sim', '-D', str(ROOT/'decks'), '-d', *[s+'.dck' for s in seats],
            '-f', 'Commander', '-seeds', *map(str, seeds), '-c', str(timeout),
            '-a', *(['Default']*4)]
@@ -86,6 +88,23 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
     try:
         with logpath.open(errors='replace') as log:
             rows = parse_result_lines(log, seeds)
+        for seed in seeds:
+            record=record_dir/(str(seed)+'.json')
+            transcript=record_dir/(str(seed)+'.log')
+            if record.exists() and transcript.exists():
+                recorded=json.loads(record.read_text())
+                with transcript.open() as stream:
+                    confirmed=parse_result_lines(stream,[seed])[seed]
+                if recorded!=confirmed:raise ValueError('Engine result and transcript disagree')
+                if seed in rows and any(rows[seed].get(k)!=recorded.get(k) for k in ('seed','status','winner','engine_ms')):
+                    raise ValueError('Console and engine result disagree')
+                if seed not in rows:
+                    # Preserve any console-reported engine exception as a failure.
+                    if ENGINE_FAILURE.search(logpath.read_text(errors='replace')):
+                        recorded.update(status='engine_error',winner=None)
+                    rows[seed]=recorded
+                rows[seed]['engine_record']=str(record.relative_to(out))
+                rows[seed]['engine_transcript']=str(transcript.relative_to(out))
     except (ValueError, KeyError, TypeError) as error:
         rows = {}
         parse_error = str(error)
