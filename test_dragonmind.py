@@ -3,6 +3,37 @@ from dragonmind import parse_results, java_runtime_flags
 
 
 class DragonMindResults(unittest.TestCase):
+    def test_failed_gate_does_not_submit_remaining_games(self):
+        from dragonmind import run_jobs
+        started=[]
+        def worker(job):
+            started.append(job)
+            return [{'status':'timeout' if job==0 else 'completed'}]
+        results=list(run_jobs(range(16),worker,1,True))
+        self.assertEqual(started,[0])
+        self.assertEqual(results,[[{'status':'timeout'}]])
+
+    def test_normal_batch_still_runs_all_jobs(self):
+        from dragonmind import run_jobs
+        def worker(job):return [{'status':'timeout' if job==0 else 'completed','seed':job}]
+        rows=[r for group in run_jobs(range(4),worker,2,False) for r in group]
+        self.assertEqual(sorted(r['seed'] for r in rows),list(range(4)))
+
+    def test_parallel_games_receive_separate_runtime_profiles(self):
+        import pathlib,tempfile
+        from unittest.mock import patch
+        from dragonmind import batch
+        commands=[]
+        def process(command,**kwargs):
+            commands.append(command)
+            return type('Process',(),{'returncode':0})()
+        with tempfile.TemporaryDirectory() as directory,patch('dragonmind.subprocess.run',side_effect=process):
+            for rotation in (0,1):
+                rows=batch(pathlib.Path(directory),pathlib.Path('test.jar'),pathlib.Path(directory),'GGS_Layered_v1',rotation,[4],1,False,False)
+                self.assertEqual(rows[0]['status'],'not_run')
+        homes=[next(x for x in cmd if x.startswith('-Duser.home=')) for cmd in commands]
+        self.assertNotEqual(homes[0],homes[1])
+
     def test_runtime_flags_record_explicit_compiler_and_collector_choices(self):
         self.assertEqual(java_runtime_flags('parallel','throughput'),['-XX:+UseParallelGC','-XX:-TieredCompilation','-XX:CompileThreshold=1000'])
         self.assertEqual(java_runtime_flags('g1','default'),['-XX:+UseG1GC'])
