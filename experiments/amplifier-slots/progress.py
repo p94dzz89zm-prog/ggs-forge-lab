@@ -2,6 +2,8 @@
 import json,subprocess,sys,time,argparse
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];WORK=ROOT.parent;OUT=WORK/'amplifier-slots'
+with (OUT/'checkpoint-watch.log').open('a') as f:
+ subprocess.Popen([sys.executable,str(HERE/'checkpoint_watch.py')],cwd=WORK,stdout=f,stderr=subprocess.STDOUT)
 def run(script,*args,log):
  with (OUT/log).open('a') as f:subprocess.run([sys.executable,str(HERE/script),*map(str,args)],cwd=WORK,stdout=f,stderr=subprocess.STDOUT,check=True)
 parser=argparse.ArgumentParser();parser.add_argument('--resume-gate',action='store_true');args=parser.parse_args()
