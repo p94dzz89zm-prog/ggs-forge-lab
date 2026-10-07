@@ -1,0 +1,78 @@
+{
+  "arms": [
+    {
+      "name": "Pure_Slot_Purphoros",
+      "removed": "Purphoros, God of the Forge",
+      "sha256": "0cea544a2959170b975da3997856ed75f0c7aa6188c2118cd5fc4210b30d9266"
+    },
+    {
+      "name": "Pure_Slot_Tempest",
+      "removed": "Dragon Tempest",
+      "sha256": "3abcebbef3a2dd3787245d6b2dd6e44c5e3ce702a5a455397a7c83cae1bc63c9"
+    },
+    {
+      "name": "Pure_Slot_Throne",
+      "removed": "Roaming Throne",
+      "sha256": "c048cb341dbc88e3840cc77830a9e2e3cf94a1ccd4848c36920f209816542ed7"
+    },
+    {
+      "name": "Pure_Slot_Karlach",
+      "removed": "Karlach, Fury of Avernus",
+      "sha256": "d622a3646be79b3724bc1784fc41432aa506a06d16e0e8df1fc3a7e67c0b1d88"
+    },
+    {
+      "name": "Pure_Slot_Port_Razer",
+      "removed": "Port Razer",
+      "sha256": "da62f1be839d5a69b9355b44dbae8affc061edd5c1b33d4e326d96896eed642a"
+    },
+    {
+      "name": "Pure_Slot_Assault",
+      "removed": "Aggravated Assault",
+      "sha256": "9dad3f2b420f3a5fc8fe396406d43bf053aead41779b38740ed0fa8e7fff5283"
+    }
+  ],
+  "replacement": "Night's Whisper",
+  "baseline_sha256": "166a88df0207b4792d3784f7ef0218510e3c0114a7208368b079ce99bdc07cf7",
+  "control_sha256": "38298044b173295ac7d0d2d91f2ba4b5c357bc29bf574caaf55103df9f506456",
+  "engine_sha256": "43b8dded3ad4316c12632cd0ed359f687b79c461da3b8a68e365481d5f15dcfb",
+  "pod_sha256": {
+    "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+    "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+    "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a"
+  },
+  "gate_seed": 202610060,
+  "rotations": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "stages": [
+    16,
+    32,
+    64,
+    96,
+    128
+  ],
+  "minimum": 64,
+  "maximum": 128,
+  "stop_rule": "At least64 valid/arm and20 exposed pairs; primary unconditional ignition/basic/strong/threat retention effects change<=10pp and observed median timing effects change<=1 turn versus preceding planned cumulative stage. Extend unstable arms, report uncertainty at cap.",
+  "primary": [
+    "ignition",
+    "basic",
+    "strong",
+    "threat"
+  ],
+  "secondary": [
+    "conditional ignited conversion/snowball",
+    "timing",
+    "recovery",
+    "stall categories",
+    "exposure and contribution",
+    "wins"
+  ],
+  "estimand": "Entire amplifier card versus a common ordinary draw spell, holding the other five amplifiers constant; not simultaneous six-card removal or isolated ability text.",
+  "matching": "Common seeds and seats. Different deck/card choices can consume RNG differently; no identical-counterfactual assumption.",
+  "runtime": "Actual Forge v28, casual-seven mulligans, unchanged pilot/cards, four isolated JVMs,300-second limit, all-seat audits and canonical logs.",
+  "interrupted_gate": "Prior unsaved checkpoint lost in workspace reset. Do not count unavailable games. Original128-game study and saved protocol intact."
+}

@@ -1,5 +1,5 @@
 """Extract observed progression from Forge priority snapshots and canonical transcripts."""
-import json,re,hashlib,statistics,collections,sys
+import json,re,hashlib,statistics,collections,sys,gzip
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 AMPS={'Purphoros, God of the Forge','Dragon Tempest','Roaming Throne','Karlach, Fury of Avernus','Port Razer','Aggravated Assault','Annie Joins Up'}
@@ -9,12 +9,13 @@ ROCKS={'Sol Ring','Arcane Signet','Fellwar Stone','Talisman of Creativity','Tali
 CREATION='Whenever one or more creatures you control that entered this turn deal combat damage to a player, create a 5/5 red Dragon Spirit'
 
 def extract(directory,row):
- pureidx=row['seats'].index('Pure_GGS');name=f'Ai({pureidx+1})-Pure_GGS'
+ variant=row.get('variant','Pure_GGS');pureidx=row['seats'].index(variant);name=f'Ai({pureidx+1})-{variant}'
  log=(directory/row.get('engine_transcript',row['log'])).read_text(errors='replace')
  audit=directory/'audit'/Path(row['log']).stem/f'seat-{pureidx}.jsonl'
+ if not audit.exists():audit=audit.with_suffix('.jsonl.gz')
  metrics={'seed':row['seed'],'rotation':row['seat_rotation'],'status':row['status'],'winner':row.get('winner'),'win':row.get('winner')==name,'final_global_turn':row.get('last_logged_turn'),'engine_seconds':row.get('engine_ms',0)/1000,'log':str(directory/row['log']),'audit':str(audit),'ggs_cast_turn':None,'first_fresh_connection':None,'first_dragon_turn':None,'second_dragon_turn':None,'peak_simultaneous_ggs_dragons':0,'peak_offensive_power':0,'peak_evasive_power':0,'renewable_ammunition_turn':None,'access_turn':None,'card_acceleration_turn':None,'mana_acceleration_turn':None,'basic_turn':None,'strong_turn':None,'threat_turn':None,'amplifiers_seen':[],'artifact_reasons':[]}
  states=[];pureturns={};turncount=0;owner_ids={};all_own_ids=set();seen=set();ggsids=set();copyids=set();prev=None;prevbf={};lasttop={};events=[];draws=0;treasures=0;wipe_events=[];lastcast=None;removed_ggs=[];audit_amp_events=[];combat_counts=collections.Counter();combat_start={};prev_phase=None;chosen_throne=None;ggs_birth_seq={};audit_haste_events=[]
- with audit.open() as stream:
+ with (gzip.open(audit,'rt') if audit.suffix=='.gz' else audit.open()) as stream:
   for line in stream:
    x=json.loads(line);s=x.get('state');
    if x.get('kind')=='type' and x.get('decision',{}).get('card')=='Roaming Throne':chosen_throne=x['decision'].get('chosen_type')
