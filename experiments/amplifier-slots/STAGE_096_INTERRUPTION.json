@@ -1,0 +1,34 @@
+{
+  "status": "Collection paused: workspace environment_offline; simulator process state unknown",
+  "last_confirmed_completed_experimental_identities": 411,
+  "durably_saved_experimental_identities": 408,
+  "sealed_comparison_games": 384,
+  "stage096": {
+    "target_new_games": 160,
+    "last_confirmed_completed": 27,
+    "saved": 24,
+    "latest_saved_manifest": "libfile_37d90903c7808191ac6764b3afd9571a",
+    "latest_saved_archive": "libfile_0668251f1c4c819191ba9c93241d34e3"
+  },
+  "unsaved_completed_log_recoverability": "unknown; inspect workspace before classifying or rerunning",
+  "new_observed_simulator_defects": 0,
+  "deck_changes": false,
+  "engine_changes": false,
+  "remaining_arms": [
+    "Pure_Slot_Purphoros",
+    "Pure_Slot_Tempest",
+    "Pure_Slot_Throne",
+    "Pure_Slot_Karlach",
+    "Pure_Slot_Port_Razer"
+  ],
+  "closed_arm": "Pure_Slot_Assault at64; registered stability gate passed",
+  "resume_steps": [
+    "Inspect running processes and local logs before starting another collector.",
+    "Restore saved stage096 Parts01–06 if necessary; do not repeat saved identities.",
+    "Recover the at least three console-confirmed unsaved completions if logs survive; do not yet label them lost.",
+    "Complete stage096; extend only arms still failing registered stability rules to128.",
+    "Publish final report and audit artifacts after stopping criteria; current intervals do not justify firm cuts."
+  ],
+  "connection_error": "failed to query exec-server capabilities: environment registry request failed (409 Conflict, environment_offline): Environment is not connected.",
+  "source_parent": "2de03193a6c940872130e5b6e72e204931e5f5f6"
+}
