@@ -12,5 +12,5 @@ while not (OUT/'collection-completed.json').exists():
   rows=json.loads((d/'summary.json').read_text())
   saved=set(json.loads((d/'saved-game-keys.json').read_text())) if (d/'saved-game-keys.json').exists() else set()
   pending=[r for r in rows if f"{r['variant']}-{r['seed']}-r{r['seat_rotation']}" not in saved]
-  if len(pending)>=4:save(d)
+  if pending:save(d)
  time.sleep(10)
