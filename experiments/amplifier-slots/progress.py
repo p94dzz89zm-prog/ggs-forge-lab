@@ -12,6 +12,7 @@ if not (OUT/'gate-receipt.json').exists():run('check_gate.py',OUT/'gate',log='ga
 run('checkpoint.py',OUT/'gate',log='gate-save-final.log')
 print('Gate and baseline replay passed; experimental collection begins',flush=True)
 deadline=json.loads((OUT/'deadline-gate-receipt.json').read_text());assert deadline['passed'] and deadline['games']==16
+concurrency=json.loads((OUT/'concurrency-gate-receipt.json').read_text());assert concurrency['passed'] and concurrency['games']==16 and concurrency['workers_after']==2
 arms=[x['name'] for x in json.loads((HERE/'protocol.json').read_text())['arms']]
 for target,seed,seeds in [(16,202610061,4),(32,202610065,4),(64,202610069,8),(96,202610077,8),(128,202610085,8)]:
  if target>64:
@@ -21,7 +22,7 @@ for target,seed,seeds in [(16,202610061,4),(32,202610065,4),(64,202610069,8),(96
  perf=json.loads((stage/'performance.json').read_text()) if (stage/'performance.json').exists() else {}
  if perf.get('valid')!=seeds*4*len(arms):
   print('Starting cumulative stage',target,'arms',arms,flush=True)
-  run('run_batch.py','--seed',seed,'--seeds',seeds,'--out',stage,'--arms',*arms,'--timeout',600,*(['--resume'] if stage.exists() else []),log=f'stage-{target:03d}-progress.log')
+  run('run_batch.py','--seed',seed,'--seeds',seeds,'--out',stage,'--arms',*arms,'--timeout',600,'--workers',2,*(['--resume'] if stage.exists() else []),log=f'stage-{target:03d}-progress.log')
  run('compare.py',log=f'comparison-{target:03d}.log');r=json.loads((OUT/'Pure_GGS_Amplifier_Results.json').read_text());assert not r['unresolved_exclusions'],'Pause: excluded game requires audit'
  (OUT/f'comparison-{target:03d}.json').write_text(json.dumps({k:v for k,v in r.items() if k not in ['games','reused_baseline_games','baseline_exposure']},indent=2)+'\n')
  run('cleanup_saved.py',log=f'cleanup-{target:03d}.log')

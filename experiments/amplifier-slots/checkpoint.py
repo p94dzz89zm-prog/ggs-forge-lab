@@ -18,7 +18,8 @@ def _save(directory):
   for p in [directory/'failed-attempts.json',directory/'run-amendments.json',directory/'adoption-receipt.json']:
    if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
   if any('supersedes_failed_attempt' in r for r in new):
-   for p in [directory/'failed-attempts',OUT/'deadline-gate-receipt.json',OUT/'timeout-replay-unprofiled/replay-check.json']:
+   proof_paths={OUT/r[field] for r in new for field in ['recovery_proof','recovery_gate'] if field in r}
+   for p in [directory/'failed-attempts',*sorted(proof_paths)]:
     if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
   for r in new:
    label=Path(r['log']).stem

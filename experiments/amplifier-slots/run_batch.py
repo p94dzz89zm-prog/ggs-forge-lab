@@ -3,7 +3,7 @@ from checkpoint import save
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(ROOT));import dragonmind
 spec=importlib.util.spec_from_file_location('pure_metrics',ROOT/'experiments/pure-ggs/analyze.py');metrics=importlib.util.module_from_spec(spec);spec.loader.exec_module(metrics)
-p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);p.add_argument('--seed',type=int,required=True);p.add_argument('--seeds',type=int,required=True);p.add_argument('--arms',nargs='+');p.add_argument('--gate',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--timeout',type=int,default=300);a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);p.add_argument('--seed',type=int,required=True);p.add_argument('--seeds',type=int,required=True);p.add_argument('--arms',nargs='+');p.add_argument('--gate',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--timeout',type=int,default=300);p.add_argument('--workers',type=int,default=4);a=p.parse_args();assert 1<=a.workers<=4
 protocol=json.loads((HERE/'protocol.json').read_text());sha=lambda path:hashlib.sha256(path.read_bytes()).hexdigest();jar=ROOT/'experiments/pure-ggs/engine-casual-seven.jar'
 assert sha(jar)==protocol['engine_sha256'] and sha(ROOT/'decks/Pure_GGS.dck')==protocol['baseline_sha256'] and sha(ROOT/'decks/GGS_Firework_Protocol_v1_0.dck')==protocol['control_sha256']
 for name,value in protocol['pod_sha256'].items():assert sha(ROOT/'decks'/f'{name}.dck')==value
@@ -12,13 +12,14 @@ arms=a.arms or (['Pure_GGS'] if a.gate else [])+[x['name'] for x in protocol['ar
 out=a.out.resolve();out.mkdir(parents=True,exist_ok=a.resume);(out/'analysis').mkdir(exist_ok=a.resume)
 import fcntl
 batch_lock=(out/'batch.lock').open('w');fcntl.flock(batch_lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-metadata={'protocol':protocol,'seed':a.seed,'seeds':a.seeds,'arms':arms,'gate':a.gate,'workers':4,'timeout':a.timeout,'engine_resources':'restored-v28/engine'}
+metadata={'protocol':protocol,'seed':a.seed,'seeds':a.seeds,'arms':arms,'gate':a.gate,'workers':a.workers,'timeout':a.timeout,'engine_resources':'restored-v28/engine'}
 if (out/'metadata.json').exists():
  previous=json.loads((out/'metadata.json').read_text())
  if previous!=metadata:
   amendment=json.loads((out/'run-amendments.json').read_text());assert amendment['gate']['passed'] and amendment['gate']['games']==16
-  assert previous['timeout']==amendment['timeout_before'] and metadata['timeout']==amendment['timeout_after']
-  assert {k:v for k,v in previous.items() if k!='timeout'}=={k:v for k,v in metadata.items() if k!='timeout'}
+  changed={k for k in previous if previous[k]!=metadata[k]};assert changed.issubset({'timeout','workers'})
+  for k in changed:assert previous[k]==amendment[k+'_before'] and metadata[k]==amendment[k+'_after']
+  assert {k:v for k,v in previous.items() if k not in changed}=={k:v for k,v in metadata.items() if k not in changed}
 else:(out/'metadata.json').write_text(json.dumps(metadata,indent=2)+'\n')
 def atomic(name,obj):
  tmp=out/(name+'.tmp');tmp.write_text(json.dumps(obj,indent=2)+'\n');tmp.replace(out/name)
@@ -47,7 +48,7 @@ if a.resume:
   label=f'{arm}__seat{rotation}__seeds{seed}-{seed}';quarantine=out/'interrupted-attempts'/label
   for p in [out/(label+'.log'),out/'audit'/label,out/'runtime-home'/label,out/'engine-records'/label]:
    if p.exists():quarantine.mkdir(parents=True,exist_ok=True);shutil.move(str(p),str(quarantine/(p.parent.name+'-'+p.name)))
-for rs in dragonmind.run_jobs(jobs,work,4,True):
+for rs in dragonmind.run_jobs(jobs,work,a.workers,True):
  rows+=rs;atomic('summary.json',rows);print(json.dumps({'completed':len(rows),'requested':len(all_jobs),'last':[(r['variant'],r['seed'],r['seat_rotation'],r['status']) for r in rs],'wall_seconds':round(time.monotonic()-start,1)}),flush=True)
  if len(rows)//16>(len(rows)-len(rs))//16:save(out)
 historical=json.loads((out/'failed-attempts.json').read_text()) if (out/'failed-attempts.json').exists() else []

@@ -6,7 +6,7 @@ for folder in sys.argv[1:]:
  for archive in sorted(Path(folder).rglob('Pure_GGS_Amplifier_*_Part_*.tar.gz')):
   with tarfile.open(archive) as t:
    manifests=[m for m in t.getmembers() if m.name.startswith('Pure_GGS_Amplifier_') and m.name.endswith('.json') and '/' not in m.name];assert len(manifests)==1
-   m=json.load(t.extractfile(manifests[0]));name=m['batch'];assert re.fullmatch(r'gate|deadline-gate|stage-\d{3}',name)
+   m=json.load(t.extractfile(manifests[0]));name=m['batch'];assert re.fullmatch(r'gate|deadline-gate|concurrency-gate|stage-\d{3}',name)
    assert m['metadata']['protocol']==P
    if name in metadata:assert metadata[name]==m['metadata']
    metadata[name]=m['metadata'];rows.setdefault(name,{})
