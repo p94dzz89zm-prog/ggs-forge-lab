@@ -19,7 +19,7 @@ index['concurrency_amendment']=json.loads((OUT/'Pure_GGS_Concurrency_Amendment.j
 index['execution_interruptions']=r.get('execution_interruptions');index['known_attempted_total']=r.get('known_attempted_total',r['attempted'])
 index['restoration_validation']=json.loads((OUT/'restoration-validation-receipt.json').read_text())
 index['source_local_commit']=index['source_commit'];index['source_commit']=git('FETCH_HEAD');index['source_tree_sha']=git('FETCH_HEAD^{tree}')
-for f in sorted((OUT/'saved-chunks').glob('*.json'))+[OUT/'audit-repair-save.json',OUT/'timeout-diagnostic-save.json',OUT/'deadline-amendment-save.json',OUT/'late-timeout-evidence-save.json']:
+for f in sorted((OUT/'saved-chunks').glob('*.json'))+[OUT/'audit-repair-save.json',OUT/'timeout-diagnostic-save.json',OUT/'deadline-amendment-save.json',OUT/'late-timeout-evidence-save.json',OUT/'workspace-restoration-save.json']:
  results=json.loads(f.read_text())['results'];assert all(x['status']=='succeeded' for x in results)
  index['evidence_files'].extend({'file_name':x['file_name'],'library_file_id':x['library_file_id'],'receipt':f.name} for x in results)
 for d in [OUT/'gate',OUT/'deadline-gate',OUT/'concurrency-gate',*sorted(OUT.glob('stage-*'))]:
