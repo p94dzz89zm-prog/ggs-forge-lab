@@ -1,14 +1,14 @@
 {
-  "status": "Resolved after execution-service reconnection and workspace restoration",
-  "last_confirmed_completed_experimental_identities": 496,
-  "last_sealed_analysis": 384,
+  "status": "Paused: stage128 result disagreement; execution workspace unavailable",
+  "last_confirmed_completed_experimental_identities": 582,
+  "last_sealed_analysis": 544,
   "completed_games_are_not_final_verified_evidence": true,
   "engine_changed": false,
   "decks_changed": false,
-  "source_fix_commit": "724b4416d636caee2c609761e8d3a00bd3884074",
-  "source_tree": "58c53f8d74260da4aad3c6fdd3b6244da2efde93",
-  "collector_pause_signal": "SIGSTOP",
-  "watcher_pause_signal": "SIGINT",
+  "source_fix_commit": "c29aa3d83b59745136d1906e5bc0a0bf56fb0d28",
+  "source_tree": "0aa5754baf7ad18d595276b13a34acd7643464b1",
+  "collector_pause_signal": "Automatic stop_on_failure; workspace unavailable",
+  "watcher_pause_signal": "Not controllable while workspace unavailable",
   "do_not_resume_collection_before_archive_validation": false,
   "mismatched_archives": [
     {
@@ -107,22 +107,30 @@
     }
   ],
   "pending_steps": [
-    "Continue from 114 completed stage096 identities; run the remaining46 current-stage games.",
-    "Compare sealed96 results; extend only unstable arms to128 and report uncertainty at cap.",
-    "Save the final five deliverables with verified evidence."
+    "Reconnect execution workspace; reuse current local files if intact. If reset, restore closed-stage analysis checkpoint096 instead of recomputing 544 cached games.",
+    "Inspect preserved Karlach seed202610088 rotation0 console, canonical transcript and engine JSON from stage128Part39. Do not promote the failed attempt or bypass the disagreement check.",
+    "Diagnose any actual engine/rules/pilot defect separately from output/execution artifacts. Apply only the narrow demonstrated repair, replay the affected identity, and rerun the reliability gate before resuming collection.",
+    "Preserve two stream-stopped attempts from seed202610086 rotation1 (Throne/Karlach), whose complete replacements already passed. Their ledger/evidence references exist in stage128 checkpoints17+ and explicit interruption evidence.",
+    "Resume only unsaved/invalid identities; no duplicate completed observations. Complete only the final Purphoros/Throne/Karlach extension up to128 per arm, then save five final deliverables."
   ],
   "fast_restore": {
     "analysis_checkpoint_064_tar": "libfile_50c1229f66048191ad74a092aed3acfe",
     "analysis_checkpoint_064_manifest": "libfile_f800db91d1a8819196771d85f4b25c20",
     "phase_reconciliation_repair_tar": "libfile_c9e419c57d208191a542c2cc01728438",
-    "phase_reconciliation_repair_manifest": "libfile_a41d48a3f1a081919b4ea780aacd0a89"
+    "phase_reconciliation_repair_manifest": "libfile_a41d48a3f1a081919b4ea780aacd0a89",
+    "analysis_checkpoint_096_tar": "libfile_67648792563c81918c48911945341396",
+    "analysis_checkpoint_096_manifest": "libfile_106676debcfc81919ec88cfe226b6137",
+    "analysis_checkpoint_096_sha256": "aceb44c62c7e7ea302e06c43910ad7dcdbf2232b92fc00c39b550fa7981dd65a",
+    "analysis_checkpoint_096_manifest_sha256": "c234ab37205a9bdf7cf0e70f9aa8973c15078f6121029814b358b27cd8ad6e0d",
+    "final_extension_interruption_tar": "libfile_84015500e7dc8191bece6ff945bace68",
+    "final_extension_interruption_receipt": "libfile_21974e05d5d4819192654c89fee5dc1f"
   },
   "checkpoint_save_failure": {
     "part68_empty_local_receipt": true,
     "part68_records_all_saved_in_part69": true,
     "part69_now_requires_archive_repair": true
   },
-  "limitations": "Archive size mismatch is a persistence defect, not evidence of a game-engine failure. Nine identities are in the four suspect archives; the precise recoverability/exclusion count is not yet known. No conclusive slot ranking or deck change is authorized by current results.",
+  "limitations": "The older archive repair is resolved. Current Part39 is a separate result-integrity failure, excluded from deck performance until diagnosed. The live status monitor counted all summary rows as valid; corrected total is582 completed valid identities, not583. The stage096 conclusions are unchanged and inconclusive for individual threat slot value. Decks, rules and pilot remain frozen.",
   "collector_pid_at_pause_historical": 169986,
   "watcher_pid_at_pause_historical": 241397,
   "recovery": {
@@ -159,5 +167,25 @@
         "passed": true
       }
     ]
-  }
+  },
+  "current_stage": {
+    "name": "stage-128",
+    "recorded_attempts": 39,
+    "completed_valid_pending_final_audit": 38,
+    "failed_attempts": 1,
+    "target_valid": 96,
+    "remaining_valid_needed": 58,
+    "failed_identity": {
+      "variant": "Pure_Slot_Karlach",
+      "seed": 202610088,
+      "seat_rotation": 0,
+      "status": "process_error",
+      "result_error": "Console and engine result disagree"
+    },
+    "failure_manifest_id": "libfile_e80800c424348191bf9898fa85372b08",
+    "failure_archive_id": "libfile_393495c472c08191b8c0ecf159ce1736",
+    "failure_archive_bytes": 19519278,
+    "automatic_stop": "run_jobs(stop_on_failure=True) stops new submissions and drains already active jobs. No later completion is confirmed."
+  },
+  "do_not_resume_collection_before_failure_diagnosis": true
 }
