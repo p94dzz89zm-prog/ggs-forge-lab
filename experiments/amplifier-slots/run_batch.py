@@ -25,8 +25,11 @@ def work(job):
   (out/'analysis'/(key+'-metrics.json')).write_text(json.dumps(m,indent=2)+'\n')
   with gzip.open(out/'analysis'/(key+'-timeline.json.gz'),'wt',compresslevel=5) as f:json.dump(t,f,separators=(',',':'))
   for audit in (out/'audit'/Path(row['log']).stem).glob('*.jsonl'):
-   with audit.open('rb') as src,gzip.open(audit.with_suffix('.jsonl.gz'),'wb',compresslevel=5) as dst:shutil.copyfileobj(src,dst)
-   audit.unlink()
+   compressed=audit.with_suffix('.jsonl.gz');temporary=compressed.with_suffix('.gz.tmp')
+   with audit.open('rb') as src,gzip.open(temporary,'wb',compresslevel=5) as dst:shutil.copyfileobj(src,dst)
+   with gzip.open(temporary,'rb') as check:
+    while check.read(1<<20):pass
+   temporary.replace(compressed);audit.unlink()
   if m['measurement_gaps'] or m['snapshot_life_match_rate']!=1.0:row['status']='measurement_error';row['measurement_gaps']=m['measurement_gaps'];row['life_match']=m['snapshot_life_match_rate']
  return rows
 all_jobs=[(arm,s,r) for s in range(a.seed,a.seed+a.seeds) for r in range(4) for arm in arms]

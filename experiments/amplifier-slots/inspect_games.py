@@ -2,7 +2,7 @@ import gzip,json,re
 from pathlib import Path
 def inspect(directory,row,cards):
  directory=Path(directory);arm=row['variant'];idx=row['seats'].index(arm);name=f'Ai({idx+1})-{arm}';audit=directory/'audit'/Path(row['log']).stem/f'seat-{idx}.jsonl'
- if not audit.exists():audit=audit.with_suffix('.jsonl.gz')
+ if audit.with_suffix('.jsonl.gz').exists():audit=audit.with_suffix('.jsonl.gz')
  result={c:{'hand_seen':False,'battlefield_seen':False,'casts':0,'activated_or_triggered':0} for c in cards};clamp=[];prev=False
  with (gzip.open(audit,'rt') if audit.suffix=='.gz' else audit.open()) as f:
   for line in f:

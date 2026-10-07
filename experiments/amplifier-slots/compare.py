@@ -1,5 +1,5 @@
 """Paired seed-cluster comparisons; positive effects favor retaining amplifier."""
-import collections,csv,json,random,statistics,sys
+import collections,csv,json,random,statistics,sys,subprocess
 from pathlib import Path
 from inspect_games import inspect
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];WORK=ROOT.parent;OUT=WORK/'amplifier-slots';P=json.loads((HERE/'protocol.json').read_text());cards=[a['removed'] for a in P['arms']]+[P['replacement']]
@@ -15,7 +15,9 @@ new=[];batches=[]
 for d in sorted(OUT.glob('stage-*')):
  if not (d/'performance.json').exists():continue
  batch=json.loads((d/'performance.json').read_text());batch['path']=str(d);batches.append(batch)
- for r in json.loads((d/'summary.json').read_text()):
+ rows=json.loads((d/'summary.json').read_text());receipt=d/'audit-integrity.json'
+ if not receipt.exists() or json.loads(receipt.read_text())['finished_games']!=len(rows):subprocess.run([sys.executable,str(HERE/'audit_integrity.py'),str(d),'--repair','--prune-raw'],check=True)
+ for r in rows:
   if r['status']!='completed':new.append(r);continue
   key=f"{r['variant']}-{r['seed']}-r{r['seat_rotation']}";m=json.loads((d/'analysis'/(key+'-metrics.json')).read_text());af=d/'analysis'/(key+'-inspection.json')
   if af.exists():i=json.loads(af.read_text())

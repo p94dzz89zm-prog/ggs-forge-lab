@@ -19,3 +19,5 @@ python ggs-forge-lab/experiments/amplifier-slots/progress.py
 ```
 
 Keep the original baseline/control hashes fixed. Never silently approximate unsupported card text or combine untested cuts.
+
+Audit compression publishes a completed temporary file by atomic rename. `inspect_games.py` prefers the complete compressed audit when redundant raw files also exist. `audit_integrity.py` verifies every finished stream through the gzip footer and JSON records before a stage comparison; it can recover an incomplete compressed copy only from a preserved raw superset, recording hashes and repairs. Redundant raw prefixes are removed only after durable saving and verification. This is evidence handling, not an engine/card/AI change.
