@@ -11,8 +11,14 @@ if saved.exists():
  if len(prior)==5 and all(x['status']=='succeeded' for x in prior):
   print('Final deliverables already saved; not duplicating them');raise SystemExit(0)
 subprocess.run([sys.executable,str(HERE/'report.py')],check=True)
+git=lambda ref:subprocess.check_output(['git','rev-parse',ref],cwd=ROOT,text=True).strip()
+assert not subprocess.run(['git','diff','--quiet'],cwd=ROOT).returncode,'Publish tracked changes before sealing source provenance'
+assert git('HEAD^{tree}')==git('FETCH_HEAD^{tree}'),'Published source tree differs from local source'
 index={'protocol':r['protocol'],'operational_amendment':json.loads((OUT/'Pure_GGS_Deadline_Amendment.json').read_text()),'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'attempted':r['attempted'],'valid':r['valid'],'excluded':r['excluded'],'evidence_files':[],'integrity_receipts':{},'baseline_evidence':{'results':'libfile_c61413031b2c8191abac8622c20051b6','engine_v28':'libfile_eda2e9500280819187bcae0b814b7077','part01':'libfile_c95300f07d1c81919f6dbbdeb582df8a','part02':'libfile_07b9545af1448191aaecca824ed7805b','part03':'libfile_22282b785844819185264d70b8582be4','part04':'libfile_ad554ddbc87c81919d05b9c4468954a2','part05':'libfile_f47130ae7ee8819193ada35c0d6b69af'}}
 index['concurrency_amendment']=json.loads((OUT/'Pure_GGS_Concurrency_Amendment.json').read_text())
+index['execution_interruptions']=r.get('execution_interruptions');index['known_attempted_total']=r.get('known_attempted_total',r['attempted'])
+index['restoration_validation']=json.loads((OUT/'restoration-validation-receipt.json').read_text())
+index['source_local_commit']=index['source_commit'];index['source_commit']=git('FETCH_HEAD');index['source_tree_sha']=git('FETCH_HEAD^{tree}')
 for f in sorted((OUT/'saved-chunks').glob('*.json'))+[OUT/'audit-repair-save.json',OUT/'timeout-diagnostic-save.json',OUT/'deadline-amendment-save.json',OUT/'late-timeout-evidence-save.json']:
  results=json.loads(f.read_text())['results'];assert all(x['status']=='succeeded' for x in results)
  index['evidence_files'].extend({'file_name':x['file_name'],'library_file_id':x['library_file_id'],'receipt':f.name} for x in results)
