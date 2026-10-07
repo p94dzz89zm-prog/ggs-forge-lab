@@ -30,7 +30,7 @@ def canonical(p):
    out.append('BLOCK ASSIGNMENTS:'+json.dumps(sorted(group)));continue
   if l.startswith('Combat: ') and ' to attack ' in l and ' assigned ' in l:
    start,tail=l.split(' assigned ',1);attackers,end=tail.rsplit(' to attack ',1)
-   names=re.findall(r'[^,]+? \(\d+\)',attackers.replace(' and ',','));assert len(names)==len(re.findall(r'\(\d+\)',attackers))
+   names=re.findall(r'(.+? \(\d+\))(?:, | and |$)',attackers);assert len(names)==len(re.findall(r'\(\d+\)',attackers))
    out.append(start+' assigned '+json.dumps(sorted(s.strip(' ,') for s in names))+' to attack '+end);continue
   out.append(l)
  return out
