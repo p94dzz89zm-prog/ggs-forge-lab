@@ -27,7 +27,7 @@ for d in sorted(OUT.glob('stage-*')):
   key=f"{r['variant']}-{r['seed']}-r{r['seat_rotation']}";m=json.loads((d/'analysis'/(key+'-metrics.json')).read_text());af=d/'analysis'/(key+'-inspection.json')
   if af.exists():i=json.loads(af.read_text())
   else:i=inspect(d,r,cards);af.write_text(json.dumps(i,indent=2)+'\n')
-  m['inspection']=i;m['excluded']=bool(m['measurement_gaps']) or m['snapshot_life_match_rate']!=1.0 or not i['clamp_cleared'];new.append(m)
+  m.setdefault('runtime_engine_sha256',P['engine_sha256']);m.setdefault('ai_decision_seconds',5);m['inspection']=i;m['excluded']=bool(m['measurement_gaps']) or m['snapshot_life_match_rate']!=1.0 or not i['clamp_cleared'];new.append(m)
 def rates(rs):
  ig=[r for r in rs if r.get('first_dragon_turn') is not None]
  return {'ignition':sum(r.get('first_dragon_turn') is not None for r in rs)/len(rs),**{k:sum(bool(r.get(k+'_turn')) for r in rs)/len(rs) for k in ['basic','strong','threat']},'win':sum(r['win'] for r in rs)/len(rs),**{k:sum(bool(r.get(k)) for r in ig)/len(ig) if ig else None for k in ['within_one','within_two']},**{k+'_conditional':sum(bool(r.get(k+'_turn')) for r in ig)/len(ig) if ig else None for k in ['basic','strong','threat']}}
@@ -84,12 +84,13 @@ for i,a in enumerate(arms if shared else []):
   boot.sort();rank_pairs.append({'card_A':a['removed'],'card_B':c['removed'],'common_games':len(shared),'A_retention_over_B_pp':statistics.mean([v for values in groups.values() for v in values]),'paired_seed_bootstrap_95':[boot[int(len(boot)*q)] for q in (.025,.975)],'fifteen_comparison_interval':[boot[min(int(len(boot)*q),len(boot)-1)] for q in (.0016667,.9983333)]})
 result['direct_threat_retention_rank_comparisons']=rank_pairs
 (OUT/'Pure_GGS_Amplifier_Results.json').write_text(json.dumps(result,indent=2)+'\n')
-fields=['variant','seed','rotation','status','excluded','excluded_kind','win','ggs_cast_turn','first_dragon_turn','second_dragon_turn','within_one','within_two','basic_turn','strong_turn','threat_turn','cumulative_dragons','peak_simultaneous_ggs_dragons','peak_offensive_power','dragon_damage','primary_stall_category','log','audit','first_fresh_connection','dragon_1_to_2_turns','multi_dragon_turn','dragons_each_turn','peak_evasive_power','renewable_ammunition_turn','renewable_ammunition_confirmed_turn','access_turn','reliable_access_confirmed_turn','card_acceleration_turn','mana_acceleration_turn','pure_mulligans','engine_seconds','final_global_turn','final_pure_turn','basic_dependency','strong_dependency','threat_dependency','interactions','ggs_disruptions','wipe_events']
+fields=['runtime_engine_sha256','ai_decision_seconds','variant','seed','rotation','status','excluded','excluded_kind','win','ggs_cast_turn','first_dragon_turn','second_dragon_turn','within_one','within_two','basic_turn','strong_turn','threat_turn','cumulative_dragons','peak_simultaneous_ggs_dragons','peak_offensive_power','dragon_damage','primary_stall_category','log','audit','first_fresh_connection','dragon_1_to_2_turns','multi_dragon_turn','dragons_each_turn','peak_evasive_power','renewable_ammunition_turn','renewable_ammunition_confirmed_turn','access_turn','reliable_access_confirmed_turn','card_acceleration_turn','mana_acceleration_turn','pure_mulligans','engine_seconds','final_global_turn','final_pure_turn','basic_dependency','strong_dependency','threat_dependency','interactions','ggs_disruptions','wipe_events']
 with (OUT/'Pure_GGS_Amplifier_Per_Game.csv').open('w') as f:
  w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore');w.writeheader();export=[{**m,'variant':'Pure_GGS','excluded':False} for m in baseline]+new+[{**x['original_record'],'rotation':x['original_record']['seat_rotation'],'excluded':True,'excluded_kind':x.get('excluded_kind','engine_timeout')} for x in failed_attempts]
  w.writerows({k:json.dumps(v,separators=(',',':')) if isinstance(v,(dict,list)) else v for k,v in m.items()} for m in export)
 print(json.dumps({'attempted':result['attempted'],'valid':result['valid'],'excluded':result['excluded'],'arms':[{'name':a['name'],'valid':a['valid'],'stability':a['stability'],'threat':a['contrasts']['threat']} for a in arms]},indent=2))
 
 if (OUT/'Pure_GGS_Decision_Clock_Amendment.json').exists():
+ result['runtime_game_counts']=dict(collections.Counter(m['runtime_engine_sha256'] for m in new if m['status']=='completed' and not m.get('excluded')))
  result['decision_clock_amendment']=json.loads((OUT/'Pure_GGS_Decision_Clock_Amendment.json').read_text())
  (OUT/'Pure_GGS_Amplifier_Results.json').write_text(json.dumps(result,indent=2)+'\n')

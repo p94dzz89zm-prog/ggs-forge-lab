@@ -1,6 +1,6 @@
 {
-  "status": "AI decision timeout reproduced; clock-only repair undergoing fresh16-game gate",
-  "last_confirmed_completed_experimental_identities": 582,
+  "status": "Clock-only16-game gate passed; final48 preplanned games collecting",
+  "last_confirmed_completed_experimental_identities": 592,
   "last_sealed_analysis": 544,
   "completed_games_are_not_final_verified_evidence": true,
   "engine_changed": true,
@@ -170,26 +170,23 @@
   },
   "current_stage": {
     "name": "stage-128",
-    "recorded_attempts": 39,
-    "completed_valid_pending_final_audit": 38,
-    "failed_attempts": 1,
+    "valid_pending_final_audit": 48,
     "target_valid": 96,
-    "remaining_valid_needed": 58,
-    "failed_identity": {
-      "variant": "Pure_Slot_Karlach",
-      "seed": 202610088,
-      "seat_rotation": 0,
-      "status": "process_error",
-      "result_error": "Console and engine result disagree"
-    },
-    "failure_manifest_id": "libfile_e80800c424348191bf9898fa85372b08",
-    "failure_archive_id": "libfile_393495c472c08191b8c0ecf159ce1736",
-    "failure_archive_bytes": 19519278,
-    "automatic_stop": "run_jobs(stop_on_failure=True) stops new submissions and drains already active jobs. No later completion is confirmed."
+    "remaining_valid_needed": 48,
+    "prior_AI_decision_timeout_identities_replaced_once": 2,
+    "preplanned_uncollected_gate_identities_retained_once": 9,
+    "old_failed_records_preserved": true,
+    "checkpoint_numbering_restored": true,
+    "verified_checkpoint_manifest": "libfile_83372634cca88191a14b084b6883374b",
+    "verified_checkpoint_archive": "libfile_b1c64b04fe8881918c654b4c68505479"
   },
-  "do_not_resume_collection_before_failure_diagnosis": true,
+  "do_not_resume_collection_before_failure_diagnosis": false,
   "execution_workspace_available": true,
   "rules_and_pilot_heuristics_unchanged": true,
   "runtime_candidate_sha256": "dbfba4a2af104503f063a5569597f04b57957a7ccdd52dce8dc9ed742b3b1061",
-  "repair_scope": "Expose existing five-second AI decision timeout; gate tests30seconds; whole-game deadline600seconds unchanged."
+  "repair_scope": "Expose existing five-second AI decision timeout; gate tests30seconds; whole-game deadline600seconds unchanged.",
+  "pre_gate_valid_tally_corrected_from": 582,
+  "pre_gate_valid_tally_corrected_to": 581,
+  "decision_clock_gate_passed": true,
+  "decision_clock_gate_games": 16
 }

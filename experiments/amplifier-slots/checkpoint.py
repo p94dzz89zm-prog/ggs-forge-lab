@@ -35,7 +35,7 @@ def _save(directory):
  directory=Path(directory).resolve();receipts=OUT/'saved-chunks';receipts.mkdir(exist_ok=True);state=directory/'saved-game-keys.json'
  done=set(json.loads(state.read_text())) if state.exists() else set();rows=json.loads((directory/'summary.json').read_text());key=lambda r:f"{r['variant']}-{r['seed']}-r{r['seat_rotation']}";new=[r for r in rows if key(r) not in done]
  if not new:return
- index=len(list(receipts.glob(directory.name+'-*.json')))+1;stem=f'Pure_GGS_Amplifier_{directory.name}_Part_{index:02d}';archive=OUT/(stem+'.tar.gz');manifest=OUT/(stem+'.json');receipt=receipts/f'{directory.name}-{index:02d}.json'
+ index=max([int(p.stem.rsplit('-',1)[1]) for p in receipts.glob(directory.name+'-*.json')],default=0)+1;stem=f'Pure_GGS_Amplifier_{directory.name}_Part_{index:02d}';archive=OUT/(stem+'.tar.gz');manifest=OUT/(stem+'.json');receipt=receipts/f'{directory.name}-{index:02d}.json'
  manifest.write_text(json.dumps({'batch':directory.name,'metadata':json.loads((directory/'metadata.json').read_text()),'records':new,'cumulative_completed':len(rows),'only_finished_attempts':True},indent=2)+'\n')
  temporary_archive=archive.with_suffix('.gz.tmp')
  with tarfile.open(temporary_archive,'w:gz',compresslevel=3) as t:
