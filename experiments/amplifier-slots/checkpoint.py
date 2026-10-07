@@ -1,5 +1,5 @@
 """Persist only completed game records; excludes live jobs and source code."""
-import json,subprocess,tarfile,fcntl
+import json,subprocess,tarfile,fcntl,gzip,hashlib
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];WORK=ROOT.parent;OUT=WORK/'amplifier-slots'
 HELPER='/root/.codex/plugins/cache/openai-curated-remote/openai-library/0.1.61/skills/library/scripts/library_upload.py'
@@ -28,10 +28,28 @@ def _save(directory):
    for p in [directory/r['log'],directory/'audit'/label,directory/'engine-records'/label]:
     if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
    for p in (directory/'analysis').glob(key(r)+'-*'):t.add(p,arcname=str(p.relative_to(WORK)))
+ # Finalization success is not an archive-integrity check. Require the footer
+ # and every member payload before marking any completion as durably saved.
+ with gzip.open(archive,'rb') as verified:
+  while verified.read(1<<20):pass
+ members=0
+ with tarfile.open(archive,'r|gz') as verified:
+  for member in verified:
+   if member.isfile():
+    n=0
+    with verified.extractfile(member) as payload:
+     while chunk:=payload.read(1<<20):n+=len(chunk)
+    assert n==member.size,(member.name,'incomplete archive payload')
+   members+=1
+ h=hashlib.sha256()
+ with archive.open('rb') as verified:
+  while chunk:=verified.read(1<<20):h.update(chunk)
+ integrity={'gzip_footer_verified':True,'all_member_payloads_verified':True,'members':members,'bytes':archive.stat().st_size,'sha256':h.hexdigest()}
  request={'uploads':[{'local_path':str(p.resolve()),'purpose':'create_library_file','directory_id':'6a8249fab85c8191a7fcb8390fc88fc5','library_artifact_type':'other'} for p in [manifest,archive]]}
  proc=subprocess.run(['python3',HELPER],input=json.dumps(request),text=True,capture_output=True,cwd=WORK);receipt.write_text(proc.stdout)
  if proc.returncode:raise RuntimeError('Checkpoint save failed; inspect private receipt before advancing')
  results=json.loads(proc.stdout)['results'];assert len(results)==2 and all(x['status']=='succeeded' for x in results)
+ receipt_data=json.loads(proc.stdout);receipt_data['archive_integrity']=integrity;receipt.write_text(json.dumps(receipt_data,indent=2)+'\n')
  done.update(key(r) for r in new);tmp=state.with_suffix('.tmp');tmp.write_text(json.dumps(sorted(done))+'\n');tmp.replace(state)
  print(json.dumps({'saved_batch':directory.name,'new_saved_games':len(new),'cumulative_saved':len(done),'files':[x['file_name'] for x in results]}),flush=True)
 if __name__=='__main__':

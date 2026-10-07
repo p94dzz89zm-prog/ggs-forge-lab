@@ -1,11 +1,11 @@
 {
-  "status": "collection_stage_064_complete; full-stage audit and stability comparison pending",
+  "status": "Stage064 fully verified; five unstable arms collecting stage096",
   "completed_experimental_games": 384,
   "completed_per_arm": 64,
-  "retained_experimental_attempts": 387,
+  "retained_experimental_attempts": 388,
   "retained_timeouts": 3,
   "known_previous_completed_attempts_without_recoverable_logs": 4,
-  "known_attempts_minimum": 391,
+  "known_attempts_minimum": 392,
   "baseline_games_reused": 128,
   "latest_stage_completed": 192,
   "latest_stage_saved": 192,
@@ -20,11 +20,9 @@
   "production_deadline_seconds": 600,
   "source_before_this_receipt": "ee4c54e7edcb6f2ad57cad4fe84f86c527ce65f1",
   "next_steps": [
-    "Reconnect workspace; do not rerun completed identities.",
-    "If snapshot rolled back, restore newer checkpoint Parts 08–33 and preserve all original exclusion ledgers. Retry Part14 receipt was repaired; both files saved successfully.",
-    "Reconstruct completed stage performance only from restored terminal rows, then finish eight-stream CRC/JSON verification.",
-    "Run compare.py --through-stage 64; extend only unstable arms per original registered protocol.",
-    "Finish report/data/paired logs/evidence index only after stability or registered cap; do not claim final slot rankings before analysis."
+    "Continue the already-running stage096 for Purphoros, Tempest, Throne, Karlach and Port Razer; Aggravated Assault stabilized at64.",
+    "Use registered stopping rules; extend only still-unstable arms to128.",
+    "Produce final report, data, paired logs and evidence index; no deck changes or firm slot ranking from overlapping intervals."
   ],
   "notes": [
     "Pure_GGS and Firework Protocol v1.0 remain separate and unchanged.",
@@ -32,5 +30,144 @@
     "Three historical timed-out attempts have completed recoveries counted once; preserved originals remain excluded.",
     "Four missing-log completions from the earlier workspace rollback are separate platform-loss attempts, not engine defects.",
     "Latest operational amendment supersedes original workers4 metadata: workers2, timeout600, same engine/decks/pilot."
+  ],
+  "saved_archive_exclusions": 1,
+  "all_experimental_audit_streams_verified": 3072,
+  "all_four_original_gate_baseline_canonical_replays_identical": true,
+  "archive_recovery_metadata": "libfile_9a1529b3b68481919da57b0ce9f540f9",
+  "archive_recovery": "Original incomplete Part14 fully replaced by verified Part34 and Part35, preserving one identity per game",
+  "stability": [
+    {
+      "name": "Pure_Slot_Purphoros",
+      "valid": 64,
+      "stability": {
+        "n": 64,
+        "previous": 32,
+        "slot_exposed_pairs": 39,
+        "effect_shifts": {
+          "ignition": 4.68,
+          "basic": 1.57,
+          "strong": 4.68,
+          "threat": -1.57
+        },
+        "timing_effect_shifts": {
+          "ggs_cast_turn": 0.0,
+          "first_dragon_turn": 2.0,
+          "second_dragon_turn": 2.0,
+          "threat_turn": 3.5
+        },
+        "passed": false
+      }
+    },
+    {
+      "name": "Pure_Slot_Tempest",
+      "valid": 64,
+      "stability": {
+        "n": 64,
+        "previous": 32,
+        "slot_exposed_pairs": 26,
+        "effect_shifts": {
+          "ignition": 0.0,
+          "basic": 7.81,
+          "strong": 1.56,
+          "threat": -3.13
+        },
+        "timing_effect_shifts": {
+          "ggs_cast_turn": 0.0,
+          "first_dragon_turn": 2,
+          "second_dragon_turn": 2.0,
+          "threat_turn": 1.5
+        },
+        "passed": false
+      }
+    },
+    {
+      "name": "Pure_Slot_Throne",
+      "valid": 64,
+      "stability": {
+        "n": 64,
+        "previous": 32,
+        "slot_exposed_pairs": 25,
+        "effect_shifts": {
+          "ignition": 10.94,
+          "basic": 14.06,
+          "strong": 9.37,
+          "threat": 4.69
+        },
+        "timing_effect_shifts": {
+          "ggs_cast_turn": -1.5,
+          "first_dragon_turn": 1.0,
+          "second_dragon_turn": 0.0,
+          "threat_turn": 1.5
+        },
+        "passed": false
+      }
+    },
+    {
+      "name": "Pure_Slot_Karlach",
+      "valid": 64,
+      "stability": {
+        "n": 64,
+        "previous": 32,
+        "slot_exposed_pairs": 30,
+        "effect_shifts": {
+          "ignition": 10.94,
+          "basic": 17.19,
+          "strong": 14.06,
+          "threat": 9.38
+        },
+        "timing_effect_shifts": {
+          "ggs_cast_turn": -1.5,
+          "first_dragon_turn": 1.0,
+          "second_dragon_turn": 0.0,
+          "threat_turn": 2.0
+        },
+        "passed": false
+      }
+    },
+    {
+      "name": "Pure_Slot_Port_Razer",
+      "valid": 64,
+      "stability": {
+        "n": 64,
+        "previous": 32,
+        "slot_exposed_pairs": 23,
+        "effect_shifts": {
+          "ignition": -0.01,
+          "basic": 4.68,
+          "strong": 1.56,
+          "threat": 7.82
+        },
+        "timing_effect_shifts": {
+          "ggs_cast_turn": -1.0,
+          "first_dragon_turn": 0.5,
+          "second_dragon_turn": 1.0,
+          "threat_turn": 2.0
+        },
+        "passed": false
+      }
+    },
+    {
+      "name": "Pure_Slot_Assault",
+      "valid": 64,
+      "stability": {
+        "n": 64,
+        "previous": 32,
+        "slot_exposed_pairs": 32,
+        "effect_shifts": {
+          "ignition": 4.69,
+          "basic": -3.13,
+          "strong": 3.12,
+          "threat": 3.12
+        },
+        "timing_effect_shifts": {
+          "ggs_cast_turn": 0.0,
+          "first_dragon_turn": 0.0,
+          "second_dragon_turn": -1.0,
+          "threat_turn": 0.5
+        },
+        "passed": true
+      }
+    }
   ]
 }

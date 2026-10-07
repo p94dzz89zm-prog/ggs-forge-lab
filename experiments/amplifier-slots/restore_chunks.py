@@ -1,9 +1,37 @@
 """Reconstruct completed checkpoints after authorized Library materialization."""
-import hashlib,json,re,sys,tarfile
+import argparse,gzip,hashlib,json,re,sys,tarfile
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;WORK=HERE.parents[2];P=json.loads((HERE/'protocol.json').read_text());rows={};metadata={}
-for folder in sys.argv[1:]:
- for archive in sorted(Path(folder).rglob('Pure_GGS_Amplifier_*_Part_*.tar.gz')):
+parser=argparse.ArgumentParser();parser.add_argument('--skip-live-raw',action='store_true');parser.add_argument('folders',nargs='+');args=parser.parse_args();skipped=[]
+for folder in args.folders:
+ archives=sorted(Path(folder).rglob('Pure_GGS_Amplifier_*_Part_*.tar.gz'))
+ for index,archive in enumerate(archives):
+  if archive.name=='Pure_GGS_Amplifier_stage-064_Part_14.tar.gz':
+   # The retained original is known to be truncated. Every original identity
+   # must be present unchanged, or explicitly superseded, in later complete
+   # archives before this copy can be bypassed. No prefix is guessed.
+   assert hashlib.sha256(archive.read_bytes()).hexdigest()=='d15052a4e9446f30a006150593246001ce538bf5a1832cde3ec1ace59247266d'
+   sidecar=archive.with_name(archive.name.removesuffix('.tar.gz')+'.json');original=json.loads(sidecar.read_text());assert original['metadata']['protocol']==P
+   coverage=[]
+   for later in archives[index+1:]:
+    side=later.with_name(later.name.removesuffix('.tar.gz')+'.json')
+    if not side.exists():continue
+    lm=json.loads(side.read_text())
+    matched=[r for r in original['records'] if any(n==r or n.get('supersedes_failed_attempt')==r for n in lm['records'])]
+    if not matched:continue
+    assert lm['metadata']['protocol']==P
+    with gzip.open(later,'rb') as verified:
+     while verified.read(1<<20):pass
+    with tarfile.open(later,'r|gz') as verified:
+     for member in verified:
+      if member.isfile():
+       size=0
+       with verified.extractfile(member) as payload:
+        while chunk:=payload.read(1<<20):size+=len(chunk)
+       assert size==member.size
+    coverage.extend(matched)
+   assert all(r in coverage for r in original['records']),'Incomplete archive has not been fully replaced; stop recovery'
+   skipped.append({'archive':str(archive),'reason':'All four identities covered by later verified full archives; original remains preserved in Library'});continue
   with tarfile.open(archive) as t:
    manifests=[m for m in t.getmembers() if m.name.startswith('Pure_GGS_Amplifier_') and m.name.endswith('.json') and '/' not in m.name];assert len(manifests)==1
    m=json.load(t.extractfile(manifests[0]));name=m['batch'];assert re.fullmatch(r'gate|deadline-gate|concurrency-gate|stage-\d{3}',name)
@@ -18,7 +46,8 @@ for folder in sys.argv[1:]:
      elif prior.get('supersedes_failed_attempt')==r:continue
      else:raise AssertionError('Conflicting checkpoint record without explicit replay provenance')
     rows[name][key]=r
-   t.extractall(WORK,filter='data')
+   members=[x for x in t.getmembers() if not(args.skip_live_raw and '/audit/' in x.name and x.name.endswith('.jsonl') and '/failed-attempts/' not in x.name)]
+   t.extractall(WORK,members=members,filter='data')
 for name,records in rows.items():
  # A later recovery archive contains completed gzip streams and the excluded
  # original in failed-attempts. Remove only bit-identical obsolete raw copies
@@ -39,3 +68,4 @@ for name,records in rows.items():
  expected=metadata[name]['seeds']*4*len(metadata[name]['arms'])
  if len(records)==expected and all(r['status']=='completed' for r in ordered):(d/'performance.json').write_text(json.dumps({'attempted':len(records)+(len(json.loads((d/'failed-attempts.json').read_text())) if (d/'failed-attempts.json').exists() else 0),'valid':len(records),'requested':expected,'restored_from_saved_evidence':True})+'\n')
  print(name,'restored completed',len(records),'of',expected)
+if skipped:(WORK/'amplifier-slots/skipped-replaced-archives.json').write_text(json.dumps(skipped,indent=2)+'\n')
