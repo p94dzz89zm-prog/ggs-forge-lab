@@ -5,7 +5,8 @@ p=argparse.ArgumentParser();p.add_argument('directory',type=Path);p.add_argument
 for r in rows:
  if r['status']!='completed':continue
  key=f"{r['variant']}-{r['seed']}-r{r['seat_rotation']}"
- for f in sorted((d/'audit'/Path(r['log']).stem).glob('*.jsonl.gz')):
+ streams=sorted((d/'audit'/Path(r['log']).stem).glob('*.jsonl.gz'));assert len(streams)==8,(key,'missing all-seat audit streams',len(streams))
+ for f in streams:
   raw=f.with_suffix('');repaired=False
   try:
    with gzip.open(f,'rb') as h:data=h.read()

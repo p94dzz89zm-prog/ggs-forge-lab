@@ -22,5 +22,5 @@ for folder in sys.argv[1:]:
 for name,records in rows.items():
  d=WORK/'amplifier-slots'/name;d.mkdir(parents=True,exist_ok=True);ordered=list(records.values());(d/'metadata.json').write_text(json.dumps(metadata[name],indent=2)+'\n');(d/'summary.json').write_text(json.dumps(ordered,indent=2)+'\n');(d/'saved-game-keys.json').write_text(json.dumps([f"{r['variant']}-{r['seed']}-r{r['seat_rotation']}" for r in ordered])+'\n')
  expected=metadata[name]['seeds']*4*len(metadata[name]['arms'])
- if len(records)==expected and all(r['status']=='completed' for r in ordered):(d/'performance.json').write_text(json.dumps({'attempted':len(records),'valid':len(records),'requested':expected,'restored_from_saved_evidence':True})+'\n')
+ if len(records)==expected and all(r['status']=='completed' for r in ordered):(d/'performance.json').write_text(json.dumps({'attempted':len(records)+(len(json.loads((d/'failed-attempts.json').read_text())) if (d/'failed-attempts.json').exists() else 0),'valid':len(records),'requested':expected,'restored_from_saved_evidence':True})+'\n')
  print(name,'restored completed',len(records),'of',expected)
