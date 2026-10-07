@@ -24,6 +24,7 @@ for target,seed,seeds in [(16,202610061,4),(32,202610065,4),(64,202610069,8),(96
   run('run_batch.py','--seed',seed,'--seeds',seeds,'--out',stage,'--arms',*arms,'--timeout',600,*(['--resume'] if stage.exists() else []),log=f'stage-{target:03d}-progress.log')
  run('compare.py',log=f'comparison-{target:03d}.log');r=json.loads((OUT/'Pure_GGS_Amplifier_Results.json').read_text());assert not r['unresolved_exclusions'],'Pause: excluded game requires audit'
  (OUT/f'comparison-{target:03d}.json').write_text(json.dumps({k:v for k,v in r.items() if k not in ['games','reused_baseline_games','baseline_exposure']},indent=2)+'\n')
+ run('cleanup_saved.py',log=f'cleanup-{target:03d}.log')
  print('Stage completed',target,'new valid',r['valid'],'stable',[a['name'] for a in r['arms'] if a['stability']['passed']],flush=True)
 (OUT/'collection-completed.json').write_text(json.dumps({'valid':r['valid'],'arms':[(a['name'],a['valid'],a['stability']['passed']) for a in r['arms']]},indent=2)+'\n')
 print('Collection completed',flush=True)
