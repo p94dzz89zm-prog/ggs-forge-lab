@@ -29,7 +29,7 @@ for proof in gate['original_timeout_prefix_proofs']:
   tmp.replace(target);p.unlink()
  assert inspect(d,b,["Night's Whisper"])['clamp_cleared']
  b['supersedes_failed_attempt']=old;b['recovery_proof']='concurrency-gate-receipt.json';b['recovery_gate']='concurrency-gate-receipt.json'
- ledger={'original_record':old,'excluded':True,'resolved':True,'resolution':'Fresh two-worker 600-second gate completion retained; original canonical actions and every original audited state/decision preserved, with enumerated nonplay hook insertions.','preserved_directory':str(history.relative_to(WORK)),'completed_replay':identity(b),'proof':proof,'gate':'concurrency-gate-receipt.json'}
+ ledger={'original_record':old,'excluded':True,'resolved':True,'resolution':'Fresh two-worker 600-second gate completion retained; original canonical actions and all priority states/decisions preserved; additional nonplay hooks and one omitted candidate-evaluation invocation are explicitly documented.','preserved_directory':str(history.relative_to(WORK)),'completed_replay':identity(b),'proof':proof,'gate':'concurrency-gate-receipt.json'}
  ledgers.append(ledger);rows=[b if identity(r)==identity(b) else r for r in rows]
  state=d/'saved-game-keys.json';done=json.loads(state.read_text());done.remove(key);state.write_text(json.dumps(done)+'\n')
 (d/'failed-attempts.json').write_text(json.dumps(ledgers,indent=2)+'\n')

@@ -42,7 +42,7 @@ def command(cmd):
   elif v.startswith(('-Duser.home=','-Dforge.audit.directory=','-Ddragonmind.resultDirectory=')):out.append(v.split('=')[0]+'=OUTPUT')
   else:out.append(v)
  return out
-def verify(original,replay,arms):
+def verify(original,replay,arms,gate_trace_tolerance=False):
  old={r['variant']:r for r in json.loads((original/'summary.json').read_text()) if r['seed']==202610070 and r['seat_rotation']==2}
  new={r['variant']:r for r in json.loads((replay/'summary.json').read_text()) if r['seed']==202610070 and r['seat_rotation']==2};proof=[]
  for arm in arms:
@@ -55,9 +55,19 @@ def verify(original,replay,arms):
    if not pb.exists():pb=pb.with_suffix('.jsonl.gz')
    x=[normalized(r) for r in records(pa)];y=[normalized(r) for r in records(pb)]
    hashed=lambda rs:[hashlib.sha256(json.dumps(r,sort_keys=True).encode()).hexdigest() for r in rs]
-   additions=[];matched=0
+   additions=[];omissions=[];matched=0
    for op,i,j,k,l in difflib.SequenceMatcher(None,hashed(x),hashed(y),autojunk=False).get_opcodes():
     if op=='equal':matched+=j-i;continue
+    if gate_trace_tolerance and op=='delete' and arm=='Pure_Slot_Karlach' and name=='evaluation-seat-1.jsonl':
+     expected={'kind':'ai_evaluation','offline_private':True,'ability':'Rocksteady, Mutant Marauder - Creature 3 / 3','decision':'WillPlay','card_id':183,'card':'Rocksteady, Mutant Marauder','is_ninjutsu':False,'player_id':1,'turn':48,'phase':'MAIN2'}
+     assert x[i:j]==[expected]
+     # This candidate-hook invocation is absent, but its actual cast and every
+     # priority state/decision remain identical. Do not hide it as a rejected play.
+     priority=replay/'audit'/label/'seat-1.jsonl'
+     if not priority.exists():priority=priority.with_suffix('.jsonl.gz')
+     assert any(r.get('state',{}).get('turn')==48 and r.get('state',{}).get('phase')=='MAIN2' and r.get('decision',{}).get('action')=='[Rocksteady, Mutant Marauder - Creature 3 / 3]' for r in records(priority))
+     assert (replay/b['engine_transcript']).read_text().count('Add To Stack: Ai(2)-Destyn_Turtles cast Rocksteady, Mutant Marauder')==1
+     omissions.append({'original_index':i,'record':expected,'actual_cast_and_priority_decision_preserved':True});continue
     assert op=='insert','Replay changes or deletes an original recorded state/decision'
     if i==len(x):continue # continuation beyond the timeout
     extra=y[k:l]
@@ -67,8 +77,8 @@ def verify(original,replay,arms):
      assert len(extra)==17 and all(r['kind']=='ai_evaluation' and r['turn']==61 and r['phase']=='MAIN1' and r['decision'] in ['CantPlayAi','CantPlaySa'] for r in extra)
     else:raise AssertionError('Unexpected additional audit event before original timeout')
     additions.append({'original_index':i,'replay_index':k,'records':extra})
-   assert matched==len(x)
-   streams.append({'stream':name,'original_records':len(x),'matched_original_records':matched,'replay_records':len(y),'extra_nonplay_hooks':additions})
+   assert matched+len(omissions)==len(x)
+   streams.append({'stream':name,'original_records':len(x),'matched_original_records':matched,'replay_records':len(y),'extra_nonplay_hooks':additions,'omitted_candidate_hooks':omissions})
   proof.append({'variant':arm,'seed':a['seed'],'rotation':a['seat_rotation'],'verified':True,'commands_equal_except_output_paths_and_deadline':True,'canonical_prefix_equal_after_representation_normalization':True,'canonical_original_lines':len(canonical(original/a['engine_transcript'])),'normalization':['Unordered combat attacker enumeration by card ID','Block assignments and simultaneous damage log rendering order; each full assignment/damage record retained'],'streams':streams,'engine_seconds':b['engine_ms']/1000,'original_deadline_seconds':600,'diagnostic_deadline_seconds':900,'diagnostic_workers':2})
  return proof
 if __name__=='__main__':
