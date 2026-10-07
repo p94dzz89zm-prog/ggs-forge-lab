@@ -8,6 +8,25 @@ ACCESS={'Tetsuko Umezawa, Fugitive','Higure, the Still Wind','Dauthi Trapper','D
 ROCKS={'Sol Ring','Arcane Signet','Fellwar Stone','Talisman of Creativity','Talisman of Dominance','Talisman of Indulgence','Goldspan Dragon'}
 CREATION='Whenever one or more creatures you control that entered this turn deal combat damage to a player, create a 5/5 red Dragon Spirit'
 
+def match_life_snapshot(snap,points_by_phase,last_line,turn_players):
+ key=(snap['global_turn'],snap['phase'],snap['combat_ordinal'])
+ points=points_by_phase.get(key,[])
+ exact=lambda q:q['line']>=last_line and all(q['life'].get(n)==hp for n,hp in snap['life_vector'].items())
+ matches=[q for q in points if exact(q)]
+ active=turn_players.get(snap['global_turn'])
+ # Forge can log empty combat phases after the active player is eliminated.
+ # No priority at COMBAT_BEGIN then reaches this observer. Reconcile only the
+ # first logged combat, only after active-player disappearance, and only with
+ # an exact surviving-life vector in the same turn/phase and forward log order.
+ # Keep observed combat_ordinal=0: this is not an observed extra combat.
+ if not points and snap['combat_ordinal']==0 and active and active not in snap['life_vector'] and snap['phase'] in ('COMBAT_END','MAIN2','END_OF_TURN','CLEANUP'):
+  matches=[q for q in points_by_phase.get((snap['global_turn'],snap['phase'],1),[]) if exact(q)]
+  if matches:
+   snap['canonical_combat_ordinal']=1
+   snap['phase_reconciliation_reason']='active-player-eliminated-before-observed-combat'
+   return matches[0],True
+ return (matches[0],True) if matches else (next((q for q in points if q['line']>=last_line),None),False)
+
 def extract(directory,row):
  variant=row.get('variant','Pure_GGS');pureidx=row['seats'].index(variant);name=f'Ai({pureidx+1})-{variant}'
  log=(directory/row.get('engine_transcript',row['log'])).read_text(errors='replace')
@@ -70,10 +89,10 @@ def extract(directory,row):
      removed_ggs.append({'turn':personal,'global_turn':turn,'source':lasttop.get('name'),'source_player_id':lasttop.get('controller_id'),'voluntary_reload':lasttop.get('name') in {'Alora, Merry Thief','Grazilaxx, Illithid Scholar'} and lasttop.get('controller_id')==pureidx,'seq':len(states)-1})
    prev={'hand_count':pure['hand_count']};prevbf=bf;lasttop=top
  # Canonical event log and personal turn mapping.
- curglobal=0;curpersonal=0;curphase=None;raw_combat=0;raw_life={f'Ai({i+1})-{d}':40 for i,d in enumerate(row['seats'])};raw_points=[];dragon_hits=[];haste_activations=[];casts=[];damage=collections.Counter();all_damage=collections.Counter();dragon_damage=0;incoming=[];interaction=[];amp_events=[];ggs_resolutions=[];fresh_connections=[];last_add=None
+ curglobal=0;curpersonal=0;curphase=None;raw_combat=0;raw_life={f'Ai({i+1})-{d}':40 for i,d in enumerate(row['seats'])};raw_points=[];turn_players={};dragon_hits=[];haste_activations=[];casts=[];damage=collections.Counter();all_damage=collections.Counter();dragon_damage=0;incoming=[];interaction=[];amp_events=[];ggs_resolutions=[];fresh_connections=[];last_add=None
  for lineno,line in enumerate(log.splitlines(),1):
   m=re.match(r'Turn: Turn (\d+) \((.+)\)',line)
-  if m:curglobal=int(m[1]);curpersonal=pureturns.get(curglobal,curpersonal);raw_combat=0
+  if m:curglobal=int(m[1]);curpersonal=pureturns.get(curglobal,curpersonal);raw_combat=0;turn_players[curglobal]=m[2]
   if line.startswith('Phase: '):
    phase_names={'Untap step':'UNTAP','Upkeep step':'UPKEEP','Draw step':'DRAW','Main phase, precombat':'MAIN1','Beginning of Combat Step':'COMBAT_BEGIN','Declare Attackers Step':'COMBAT_DECLARE_ATTACKERS','Declare Blockers Step':'COMBAT_DECLARE_BLOCKERS','First Strike Damage Step':'COMBAT_FIRST_STRIKE_DAMAGE','Combat Damage Step':'COMBAT_DAMAGE','End of Combat Step':'COMBAT_END','Main phase, postcombat':'MAIN2','End step':'END_OF_TURN','Cleanup step':'CLEANUP'}
    curphase=next((v for k,v in phase_names.items() if line.endswith(k)),None)
@@ -108,11 +127,9 @@ def extract(directory,row):
  for point in raw_points:points_by_phase[(point['global_turn'],point['phase'],point['combat_ordinal'])].append(point)
  last_line=0
  for snap in states:
-  points=points_by_phase.get((snap['global_turn'],snap['phase'],snap['combat_ordinal']),[])
-  matches=[q for q in points if q['line']>=last_line and all(q['life'].get(n)==hp for n,hp in snap['life_vector'].items())]
-  q=matches[0] if matches else next((q for q in points if q['line']>=last_line),None)
+  q,matched=match_life_snapshot(snap,points_by_phase,last_line,turn_players)
   if q:
-   last_line=q['line'];snap['raw_line']=q['line'];snap['observed_combat_damage']=q['combat_damage'];snap['observed_total_damage']=q['all_damage'];snap['life_match']=bool(matches)
+   last_line=q['line'];snap['raw_line']=q['line'];snap['observed_combat_damage']=q['combat_damage'];snap['observed_total_damage']=q['all_damage'];snap['life_match']=matched
   else:snap['raw_line']=last_line;snap['observed_combat_damage']=0;snap['observed_total_damage']=0;snap['life_match']=False
  births=[e for e in events if e['kind']=='ggs_dragon']
  if len(births)==len(ggs_resolutions):

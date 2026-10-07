@@ -18,13 +18,14 @@ index={'protocol':r['protocol'],'operational_amendment':json.loads((OUT/'Pure_GG
 index['concurrency_amendment']=json.loads((OUT/'Pure_GGS_Concurrency_Amendment.json').read_text())
 index['execution_interruptions']=r.get('execution_interruptions');index['known_attempted_total']=r.get('known_attempted_total',r['attempted'])
 index['simulator_error_attempts']=r['simulator_error_attempts'];index['archive_integrity_exclusions']=r['archive_integrity_exclusions']
+index['measurement_integrity_exclusions']=r.get('measurement_integrity_exclusions',0)
 index['archive_integrity_recovery']=json.loads((OUT/'archive-integrity-recovery.json').read_text())
 index['restoration_validation']=json.loads((OUT/'restoration-validation-receipt.json').read_text())
 index['source_local_commit']=index['source_commit'];index['source_commit']=git('FETCH_HEAD');index['source_tree_sha']=git('FETCH_HEAD^{tree}')
 for f in sorted((OUT/'saved-chunks').glob('*.json'))+[OUT/'audit-repair-save.json',OUT/'timeout-diagnostic-save.json',OUT/'deadline-amendment-save.json',OUT/'late-timeout-evidence-save.json',OUT/'workspace-restoration-save.json',OUT/'archive-recovery-metadata-save.json']:
  results=json.loads(f.read_text())['results'];assert all(x['status']=='succeeded' for x in results)
  index['evidence_files'].extend({'file_name':x['file_name'],'library_file_id':x['library_file_id'],'receipt':f.name} for x in results)
-for d in [OUT/'gate',OUT/'deadline-gate',OUT/'concurrency-gate',*sorted(OUT.glob('stage-*'))]:
+for d in [OUT/'gate',OUT/'deadline-gate',OUT/'concurrency-gate',OUT/'phase-reconciliation-gate',*sorted(OUT.glob('stage-*'))]:
  if (d/'audit-integrity.json').exists():index['integrity_receipts'][d.name]=json.loads((d/'audit-integrity.json').read_text())
 p=OUT/'Pure_GGS_Amplifier_Evidence_Index.json';p.write_text(json.dumps(index,indent=2)+'\n')
 files=[OUT/'Pure_GGS_Amplifier_Report.md',OUT/'Pure_GGS_Amplifier_Per_Game.csv',OUT/'Pure_GGS_Amplifier_Results.json',OUT/'Pure_GGS_Amplifier_Representative_Logs.zip',p]

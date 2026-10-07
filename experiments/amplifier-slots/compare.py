@@ -61,6 +61,7 @@ for arm in P['arms']:
 result={'protocol':P,'attempted':len(new)+len(failed_attempts),'valid':sum(m['status']=='completed' and not m.get('excluded') for m in new),'excluded':[(m['variant'],m['seed'],m.get('rotation',m.get('seat_rotation')),m['status']) for m in new if m['status']!='completed' or m.get('excluded')],'batches':batches,'arms':arms,'games':new,'reused_baseline_games':baseline,'baseline_exposure':E,'limitations':['Entire card versus Whisper with other five amplifiers retained.','Common seeds do not guarantee identical trajectories or openings.','Conditional ignited rates select different games and are secondary.','Bootstrap intervals reflect seed variation, not pilot or model bias; repeated stages/multiple outcomes remain exploratory.','Presence or hand exposure, including tutored/stolen same-name cards, is not automatically material contribution.']}
 result['failed_attempts']=failed_attempts
 result['archive_integrity_exclusions']=sum(x.get('excluded_kind')=='incomplete_saved_audit' for x in failed_attempts)
+result['measurement_integrity_exclusions']=sum(x.get('excluded_kind')=='phase_reconciliation' for x in failed_attempts)
 result['simulator_error_attempts']=len(result['excluded'])+sum(x.get('simulator_failure',x['original_record']['status']!='completed') for x in failed_attempts)
 interruption=OUT/'execution-interruptions.json'
 result['execution_interruptions']=json.loads(interruption.read_text()) if interruption.exists() else None
