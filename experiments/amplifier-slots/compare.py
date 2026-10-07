@@ -14,7 +14,9 @@ else:
 new=[];batches=[];failed_attempts=[]
 for d in sorted(OUT.glob('stage-*')):
  if not (d/'performance.json').exists():continue
- batch=json.loads((d/'performance.json').read_text());batch['path']=str(d);batches.append(batch)
+ batch=json.loads((d/'performance.json').read_text())
+ if batch['valid']!=batch['requested']:continue
+ batch['path']=str(d);batches.append(batch)
  failed_attempts.extend(json.loads((d/'failed-attempts.json').read_text()) if (d/'failed-attempts.json').exists() else [])
  rows=json.loads((d/'summary.json').read_text());receipt=d/'audit-integrity.json'
  if not receipt.exists() or json.loads(receipt.read_text())['finished_games']!=len(rows):subprocess.run([sys.executable,str(HERE/'audit_integrity.py'),str(d),'--repair','--prune-raw'],check=True)
