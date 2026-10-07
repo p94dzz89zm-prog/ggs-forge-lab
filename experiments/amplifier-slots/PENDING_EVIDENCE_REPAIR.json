@@ -1,0 +1,131 @@
+{
+  "status": "Collection explicitly paused for evidence-integrity repair; execution service disconnected before repair",
+  "last_confirmed_completed_experimental_identities": 496,
+  "last_sealed_analysis": 384,
+  "completed_games_are_not_final_verified_evidence": true,
+  "engine_changed": false,
+  "decks_changed": false,
+  "source_fix_commit": "724b4416d636caee2c609761e8d3a00bd3884074",
+  "source_tree": "58c53f8d74260da4aad3c6fdd3b6244da2efde93",
+  "collector_pid_at_pause": 169986,
+  "collector_pause_signal": "SIGSTOP",
+  "watcher_pid_at_pause": 241397,
+  "watcher_pause_signal": "SIGINT",
+  "do_not_resume_collection_before_archive_validation": true,
+  "mismatched_archives": [
+    {
+      "archive_name": "Pure_GGS_Amplifier_stage-096_Part_72.tar.gz",
+      "library_file_id": "libfile_a7e0b6b5504081919e0d0cef2acf03cf",
+      "manifest_id": "libfile_ea80320bb0748191a3a2e3966fe7816a",
+      "expected_receipt_bytes": 22920376,
+      "expected_receipt_sha256": "196609bfd6a8b389803d1aefc7ad5b978dc7eb46969c76778a2a638291fcb4be",
+      "actual_native_bytes": 21591081,
+      "records": [
+        {
+          "variant": "Pure_Slot_Karlach",
+          "seed": 202610082,
+          "seat_rotation": 0,
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "archive_name": "Pure_GGS_Amplifier_stage-096_Part_46.tar.gz",
+      "library_file_id": "libfile_76690587c71481918f2516f03e76d383",
+      "manifest_id": "libfile_e5bdb08ceebc819188e356ab1ef2af2c",
+      "expected_receipt_bytes": 18908314,
+      "expected_receipt_sha256": "6a25d7455742274adf533c19c08951c44b9712b2ffa879d10bed5b0dfca2cf86",
+      "actual_native_bytes": 14460665,
+      "records": [
+        {
+          "variant": "Pure_Slot_Tempest",
+          "seed": 202610080,
+          "seat_rotation": 1,
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "archive_name": "Pure_GGS_Amplifier_stage-096_Part_69.tar.gz",
+      "library_file_id": "libfile_d648bf32f9f08191ab4992d32e8b9766",
+      "manifest_id": "libfile_cdd11b90a8348191b5f039b5bd0d0f71",
+      "expected_receipt_bytes": 29175148,
+      "expected_receipt_sha256": "86981697f0ce4949e74363758363b0d9d9bbf3861e3827d97c8f992e4ab07616",
+      "actual_native_bytes": 13973044,
+      "records": [
+        {
+          "variant": "Pure_Slot_Purphoros",
+          "seed": 202610081,
+          "seat_rotation": 3,
+          "status": "completed"
+        },
+        {
+          "variant": "Pure_Slot_Port_Razer",
+          "seed": 202610081,
+          "seat_rotation": 2,
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "archive_name": "Pure_GGS_Amplifier_stage-096_Part_73.tar.gz",
+      "library_file_id": "libfile_b61b767e17748191bdcc2334a4cdfb27",
+      "manifest_id": "libfile_476dc3c910b481918480ce167a07d6c8",
+      "expected_receipt_bytes": 26836469,
+      "expected_receipt_sha256": "ee0afc96d8bf3255dff8d342079b9bb51a568a1745218aeefb8889e13e88eed6",
+      "actual_native_bytes": 17944313,
+      "records": [
+        {
+          "variant": "Pure_Slot_Purphoros",
+          "seed": 202610082,
+          "seat_rotation": 1,
+          "status": "completed"
+        },
+        {
+          "variant": "Pure_Slot_Port_Razer",
+          "seed": 202610082,
+          "seat_rotation": 0,
+          "status": "completed"
+        },
+        {
+          "variant": "Pure_Slot_Tempest",
+          "seed": 202610082,
+          "seat_rotation": 1,
+          "status": "completed"
+        },
+        {
+          "variant": "Pure_Slot_Throne",
+          "seed": 202610082,
+          "seat_rotation": 1,
+          "status": "completed"
+        },
+        {
+          "variant": "Pure_Slot_Karlach",
+          "seed": 202610082,
+          "seat_rotation": 1,
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "pending_steps": [
+    "Reconnect execution service and inspect collector/process state; do not start duplicate collection.",
+    "Preserve suspect archives; reconstruct complete copies from retained canonical logs, all eight audit streams and analysis. Use separate foreground creation and upload calls, then materialize saved versions to verify decoded members, gzip footer and exact uploaded SHA.",
+    "Replace the same Library archive identities, preserving manifest provenance and version history. If original evidence cannot be reconstructed, classify missing material separately and validate actual replays rather than silently counting corrupt archives.",
+    "Audit all stage-096 saved artifacts for post-upload integrity before restoring saved-key claims.",
+    "Restart a single checkpoint watcher and SIGCONT the paused collector only if it still exists and its current-state evidence is intact. Otherwise restore saved identities and rerun only genuinely unavailable work.",
+    "Complete stage096 comparison; extend only unstable arms to128, then save final five deliverables."
+  ],
+  "fast_restore": {
+    "analysis_checkpoint_064_tar": "libfile_50c1229f66048191ad74a092aed3acfe",
+    "analysis_checkpoint_064_manifest": "libfile_f800db91d1a8819196771d85f4b25c20",
+    "phase_reconciliation_repair_tar": "libfile_c9e419c57d208191a542c2cc01728438",
+    "phase_reconciliation_repair_manifest": "libfile_a41d48a3f1a081919b4ea780aacd0a89"
+  },
+  "checkpoint_save_failure": {
+    "part68_empty_local_receipt": true,
+    "part68_records_all_saved_in_part69": true,
+    "part69_now_requires_archive_repair": true
+  },
+  "limitations": "Archive size mismatch is a persistence defect, not evidence of a game-engine failure. Nine identities are in the four suspect archives; the precise recoverability/exclusion count is not yet known. No conclusive slot ranking or deck change is authorized by current results."
+}
