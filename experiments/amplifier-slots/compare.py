@@ -89,3 +89,7 @@ with (OUT/'Pure_GGS_Amplifier_Per_Game.csv').open('w') as f:
  w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore');w.writeheader();export=[{**m,'variant':'Pure_GGS','excluded':False} for m in baseline]+new+[{**x['original_record'],'rotation':x['original_record']['seat_rotation'],'excluded':True,'excluded_kind':x.get('excluded_kind','engine_timeout')} for x in failed_attempts]
  w.writerows({k:json.dumps(v,separators=(',',':')) if isinstance(v,(dict,list)) else v for k,v in m.items()} for m in export)
 print(json.dumps({'attempted':result['attempted'],'valid':result['valid'],'excluded':result['excluded'],'arms':[{'name':a['name'],'valid':a['valid'],'stability':a['stability'],'threat':a['contrasts']['threat']} for a in arms]},indent=2))
+
+if (OUT/'Pure_GGS_Decision_Clock_Amendment.json').exists():
+ result['decision_clock_amendment']=json.loads((OUT/'Pure_GGS_Decision_Clock_Amendment.json').read_text())
+ (OUT/'Pure_GGS_Amplifier_Results.json').write_text(json.dumps(result,indent=2)+'\n')

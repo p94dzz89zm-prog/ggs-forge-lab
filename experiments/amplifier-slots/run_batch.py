@@ -3,11 +3,17 @@ from checkpoint import save
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(ROOT));import dragonmind
 spec=importlib.util.spec_from_file_location('pure_metrics',ROOT/'experiments/pure-ggs/analyze.py');metrics=importlib.util.module_from_spec(spec);spec.loader.exec_module(metrics)
-p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);p.add_argument('--seed',type=int,required=True);p.add_argument('--seeds',type=int,required=True);p.add_argument('--arms',nargs='+');p.add_argument('--gate',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--timeout',type=int,default=300);p.add_argument('--workers',type=int,default=4);a=p.parse_args();assert 1<=a.workers<=4
+p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);p.add_argument('--seed',type=int,required=True);p.add_argument('--seeds',type=int,required=True);p.add_argument('--arms',nargs='+');p.add_argument('--gate',action='store_true');p.add_argument('--resume',action='store_true');p.add_argument('--timeout',type=int,default=300);p.add_argument('--workers',type=int,default=4);p.add_argument('--ai-decision-seconds',type=int,default=5);a=p.parse_args();assert 1<=a.workers<=4
 protocol=json.loads((HERE/'protocol.json').read_text());sha=lambda path:hashlib.sha256(path.read_bytes()).hexdigest();jar=ROOT/'experiments/pure-ggs/engine-casual-seven.jar'
 assert sha(jar)==protocol['engine_sha256'] and sha(ROOT/'decks/Pure_GGS.dck')==protocol['baseline_sha256'] and sha(ROOT/'decks/GGS_Firework_Protocol_v1_0.dck')==protocol['control_sha256']
 for name,value in protocol['pod_sha256'].items():assert sha(ROOT/'decks'/f'{name}.dck')==value
 for arm in protocol['arms']:assert sha(ROOT/'decks'/f"{arm['name']}.dck")==arm['sha256']
+flags=('-Ddragonmind.boundedCombatForecast=true','-Ddragonmind.casualSeven=true')
+if a.ai_decision_seconds!=5:
+ amendment=json.loads((ROOT.parent/'amplifier-slots/Pure_GGS_Decision_Clock_Amendment.json').read_text());gate=json.loads((ROOT.parent/'amplifier-slots/decision-clock-gate-receipt.json').read_text())
+ assert gate['passed'] and gate['games']==16 and a.ai_decision_seconds==amendment['decision_seconds_after']==30
+ jar=ROOT.parent/amendment['runtime_jar'];assert sha(jar)==amendment['runtime_engine_sha256']==gate['build']['patched_sha256']
+ flags+=('-Ddragonmind.aiDecisionTimeoutSeconds=30',)
 arms=a.arms or (['Pure_GGS'] if a.gate else [])+[x['name'] for x in protocol['arms']]
 out=a.out.resolve();out.mkdir(parents=True,exist_ok=a.resume);(out/'analysis').mkdir(exist_ok=a.resume)
 import fcntl
@@ -24,10 +30,11 @@ else:(out/'metadata.json').write_text(json.dumps(metadata,indent=2)+'\n')
 def atomic(name,obj):
  tmp=out/(name+'.tmp');tmp.write_text(json.dumps(obj,indent=2)+'\n');tmp.replace(out/name)
 def work(job):
- arm,seed,rotation=job;rows=dragonmind.batch(ROOT.parent/'restored-v28/engine',jar,out,arm,rotation,[seed],a.timeout,True,True,extra_jvm_flags=('-Ddragonmind.boundedCombatForecast=true','-Ddragonmind.casualSeven=true'))
+ arm,seed,rotation=job;rows=dragonmind.batch(ROOT.parent/'restored-v28/engine',jar,out,arm,rotation,[seed],a.timeout,True,True,extra_jvm_flags=flags)
  for row in rows:
+  row['runtime_engine_sha256']=sha(jar);row['ai_decision_seconds']=a.ai_decision_seconds
   if row['status']!='completed':continue
-  m,t=metrics.extract(out,row);m['variant']=arm;key=f'{arm}-{seed}-r{rotation}'
+  m,t=metrics.extract(out,row);m['variant']=arm;m['runtime_engine_sha256']=sha(jar);m['ai_decision_seconds']=a.ai_decision_seconds;key=f'{arm}-{seed}-r{rotation}'
   (out/'analysis'/(key+'-metrics.json')).write_text(json.dumps(m,indent=2)+'\n')
   with gzip.open(out/'analysis'/(key+'-timeline.json.gz'),'wt',compresslevel=5) as f:json.dump(t,f,separators=(',',':'))
   for audit in (out/'audit'/Path(row['log']).stem).glob('*.jsonl'):

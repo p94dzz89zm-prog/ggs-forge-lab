@@ -42,7 +42,7 @@ def _save(directory):
   t.add(manifest,arcname=manifest.name)
   for p in [directory/'failed-attempts.json',directory/'run-amendments.json',directory/'adoption-receipt.json']:
    if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
-  for p in [OUT/'execution-interruptions.json',OUT/'restoration-validation-receipt.json',OUT/'archive-copy-recovery.json']:
+  for p in [OUT/'execution-interruptions.json',OUT/'restoration-validation-receipt.json',OUT/'archive-copy-recovery.json',OUT/'Pure_GGS_Decision_Clock_Amendment.json',OUT/'decision-clock-gate-receipt.json']:
    if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
   if any('supersedes_failed_attempt' in r for r in new):
    proof_paths={OUT/r[field] for r in new for field in ['recovery_proof','recovery_gate','recovery_evidence'] if field in r}

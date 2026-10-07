@@ -1,9 +1,9 @@
 {
-  "status": "Paused: stage128 result disagreement; execution workspace unavailable",
+  "status": "AI decision timeout reproduced; clock-only repair undergoing fresh16-game gate",
   "last_confirmed_completed_experimental_identities": 582,
   "last_sealed_analysis": 544,
   "completed_games_are_not_final_verified_evidence": true,
-  "engine_changed": false,
+  "engine_changed": true,
   "decks_changed": false,
   "source_fix_commit": "c29aa3d83b59745136d1906e5bc0a0bf56fb0d28",
   "source_tree": "0aa5754baf7ad18d595276b13a34acd7643464b1",
@@ -187,5 +187,9 @@
     "failure_archive_bytes": 19519278,
     "automatic_stop": "run_jobs(stop_on_failure=True) stops new submissions and drains already active jobs. No later completion is confirmed."
   },
-  "do_not_resume_collection_before_failure_diagnosis": true
+  "do_not_resume_collection_before_failure_diagnosis": true,
+  "execution_workspace_available": true,
+  "rules_and_pilot_heuristics_unchanged": true,
+  "runtime_candidate_sha256": "dbfba4a2af104503f063a5569597f04b57957a7ccdd52dce8dc9ed742b3b1061",
+  "repair_scope": "Expose existing five-second AI decision timeout; gate tests30seconds; whole-game deadline600seconds unchanged."
 }
