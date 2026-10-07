@@ -50,6 +50,17 @@ for arm in P['arms']:
  stability={'n':len(rs),'previous':previous,'slot_exposed_pairs':exposed,'effect_shifts':shifts,'timing_effect_shifts':time_shifts,'passed':len(rs)>=64 and exposed>=20 and all(abs(x)<=10 for x in shifts.values()) and all(x is None or abs(x)<=1 for x in time_shifts.values())}
  arms.append({**arm,'valid':len(rs),'baseline_ignited':sum(x['first_dragon_turn'] is not None for x in bs),'replacement_ignited':sum(x['first_dragon_turn'] is not None for x in rs),'contrasts':contrasts,'baseline_timing':bt,'replacement_timing':vt,'baseline_usage':usage(be,card),'replacement_usage':usage(ve,P['replacement']),'baseline_material_thresholds':{k:sum(card in (m.get(k+'_dependency') or {}).get('material_amplifiers',[]) for m in bs) for k in ['basic','strong','threat']},'baseline_stalls':dict(collections.Counter(m['primary_stall_category'] for m in bs)),'replacement_stalls':dict(collections.Counter(m['primary_stall_category'] for m in rs)),'baseline_recovery':recovery(bs),'replacement_recovery':recovery(rs),'stability':stability})
 result={'protocol':P,'attempted':len(new),'valid':sum(m['status']=='completed' and not m.get('excluded') for m in new),'excluded':[(m['variant'],m['seed'],m.get('rotation',m.get('seat_rotation')),m['status']) for m in new if m['status']!='completed' or m.get('excluded')],'batches':batches,'arms':arms,'games':new,'reused_baseline_games':baseline,'baseline_exposure':E,'limitations':['Entire card versus Whisper with other five amplifiers retained.','Common seeds do not guarantee identical trajectories or openings.','Conditional ignited rates select different games and are secondary.','Bootstrap intervals reflect seed variation, not pilot or model bias; repeated stages/multiple outcomes remain exploratory.','Presence or hand exposure, including tutored/stolen same-name cards, is not automatically material contribution.']}
+maps={a['name']:{(m['seed'],m['rotation']):m for m in new if m['variant']==a['name'] and m['status']=='completed' and not m.get('excluded')} for a in arms}
+shared=set.intersection(*(set(x) for x in maps.values())) if maps else set();result['common_comparison_games_per_arm']=len(shared);rank_pairs=[]
+for i,a in enumerate(arms if shared else []):
+ for c in arms[i+1:]:
+  groups=collections.defaultdict(list)
+  for key in sorted(shared):groups[key[0]].append((bool(maps[c['name']][key]['threat_turn'])-bool(maps[a['name']][key]['threat_turn']))*100)
+  keys=sorted(groups);rng=random.Random(20261008);boot=[]
+  for _ in range(4000):
+   values=[v for key in rng.choices(keys,k=len(keys)) for v in groups[key]];boot.append(statistics.mean(values))
+  boot.sort();rank_pairs.append({'card_A':a['removed'],'card_B':c['removed'],'common_games':len(shared),'A_retention_over_B_pp':statistics.mean([v for values in groups.values() for v in values]),'paired_seed_bootstrap_95':[boot[int(len(boot)*q)] for q in (.025,.975)],'fifteen_comparison_interval':[boot[min(int(len(boot)*q),len(boot)-1)] for q in (.0016667,.9983333)]})
+result['direct_threat_retention_rank_comparisons']=rank_pairs
 (OUT/'Pure_GGS_Amplifier_Results.json').write_text(json.dumps(result,indent=2)+'\n')
 fields=['variant','seed','rotation','status','excluded','win','ggs_cast_turn','first_dragon_turn','second_dragon_turn','within_one','within_two','basic_turn','strong_turn','threat_turn','cumulative_dragons','peak_simultaneous_ggs_dragons','peak_offensive_power','dragon_damage','primary_stall_category','log','audit']
 with (OUT/'Pure_GGS_Amplifier_Per_Game.csv').open('w') as f:

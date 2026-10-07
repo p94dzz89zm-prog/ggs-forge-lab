@@ -1,9 +1,13 @@
 """Persist only completed game records; excludes live jobs and source code."""
-import json,subprocess,tarfile
+import json,subprocess,tarfile,fcntl
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];WORK=ROOT.parent;OUT=WORK/'amplifier-slots'
 HELPER='/root/.codex/plugins/cache/openai-curated-remote/openai-library/0.1.61/skills/library/scripts/library_upload.py'
 def save(directory):
+ directory=Path(directory).resolve()
+ with (directory/'checkpoint.lock').open('w') as lock:
+  fcntl.flock(lock,fcntl.LOCK_EX);_save(directory)
+def _save(directory):
  directory=Path(directory).resolve();receipts=OUT/'saved-chunks';receipts.mkdir(exist_ok=True);state=directory/'saved-game-keys.json'
  done=set(json.loads(state.read_text())) if state.exists() else set();rows=json.loads((directory/'summary.json').read_text());key=lambda r:f"{r['variant']}-{r['seed']}-r{r['seat_rotation']}";new=[r for r in rows if key(r) not in done]
  if not new:return
