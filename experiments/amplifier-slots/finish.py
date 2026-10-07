@@ -19,6 +19,7 @@ index['concurrency_amendment']=json.loads((OUT/'Pure_GGS_Concurrency_Amendment.j
 index['execution_interruptions']=r.get('execution_interruptions');index['known_attempted_total']=r.get('known_attempted_total',r['attempted'])
 index['simulator_error_attempts']=r['simulator_error_attempts'];index['archive_integrity_exclusions']=r['archive_integrity_exclusions']
 index['measurement_integrity_exclusions']=r.get('measurement_integrity_exclusions',0)
+index['archive_copy_recovery']=r.get('archive_copy_recovery')
 index['archive_integrity_recovery']=json.loads((OUT/'archive-integrity-recovery.json').read_text())
 index['restoration_validation']=json.loads((OUT/'restoration-validation-receipt.json').read_text())
 index['source_local_commit']=index['source_commit'];index['source_commit']=git('FETCH_HEAD');index['source_tree_sha']=git('FETCH_HEAD^{tree}')

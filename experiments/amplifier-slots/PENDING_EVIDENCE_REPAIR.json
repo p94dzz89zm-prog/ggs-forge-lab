@@ -1,5 +1,5 @@
 {
-  "status": "Collection explicitly paused for evidence-integrity repair; execution service disconnected before repair",
+  "status": "Resolved after execution-service reconnection and workspace restoration",
   "last_confirmed_completed_experimental_identities": 496,
   "last_sealed_analysis": 384,
   "completed_games_are_not_final_verified_evidence": true,
@@ -7,11 +7,9 @@
   "decks_changed": false,
   "source_fix_commit": "724b4416d636caee2c609761e8d3a00bd3884074",
   "source_tree": "58c53f8d74260da4aad3c6fdd3b6244da2efde93",
-  "collector_pid_at_pause": 169986,
   "collector_pause_signal": "SIGSTOP",
-  "watcher_pid_at_pause": 241397,
   "watcher_pause_signal": "SIGINT",
-  "do_not_resume_collection_before_archive_validation": true,
+  "do_not_resume_collection_before_archive_validation": false,
   "mismatched_archives": [
     {
       "archive_name": "Pure_GGS_Amplifier_stage-096_Part_72.tar.gz",
@@ -109,12 +107,9 @@
     }
   ],
   "pending_steps": [
-    "Reconnect execution service and inspect collector/process state; do not start duplicate collection.",
-    "Preserve suspect archives; reconstruct complete copies from retained canonical logs, all eight audit streams and analysis. Use separate foreground creation and upload calls, then materialize saved versions to verify decoded members, gzip footer and exact uploaded SHA.",
-    "Replace the same Library archive identities, preserving manifest provenance and version history. If original evidence cannot be reconstructed, classify missing material separately and validate actual replays rather than silently counting corrupt archives.",
-    "Audit all stage-096 saved artifacts for post-upload integrity before restoring saved-key claims.",
-    "Restart a single checkpoint watcher and SIGCONT the paused collector only if it still exists and its current-state evidence is intact. Otherwise restore saved identities and rerun only genuinely unavailable work.",
-    "Complete stage096 comparison; extend only unstable arms to128, then save final five deliverables."
+    "Continue from 114 completed stage096 identities; run the remaining46 current-stage games.",
+    "Compare sealed96 results; extend only unstable arms to128 and report uncertainty at cap.",
+    "Save the final five deliverables with verified evidence."
   ],
   "fast_restore": {
     "analysis_checkpoint_064_tar": "libfile_50c1229f66048191ad74a092aed3acfe",
@@ -127,5 +122,42 @@
     "part68_records_all_saved_in_part69": true,
     "part69_now_requires_archive_repair": true
   },
-  "limitations": "Archive size mismatch is a persistence defect, not evidence of a game-engine failure. Nine identities are in the four suspect archives; the precise recoverability/exclusion count is not yet known. No conclusive slot ranking or deck change is authorized by current results."
+  "limitations": "Archive size mismatch is a persistence defect, not evidence of a game-engine failure. Nine identities are in the four suspect archives; the precise recoverability/exclusion count is not yet known. No conclusive slot ranking or deck change is authorized by current results.",
+  "collector_pid_at_pause_historical": 169986,
+  "watcher_pid_at_pause_historical": 241397,
+  "recovery": {
+    "passed": true,
+    "affected_archives": [
+      46,
+      69,
+      72,
+      73
+    ],
+    "affected_identities": 9,
+    "intact_identities_preserved": 3,
+    "actual_recovery_replays": 6,
+    "fresh_baseline_replays": 4,
+    "post_upload_integrity_required": true,
+    "gate_receipt": "archive-recovery-20261007/validation-receipt.json",
+    "original_archives_preserved_in_library": true,
+    "engine_and_decks_unchanged": true,
+    "distinct_valid_experimental_identities_at_recovery": 498,
+    "replacement_checkpoint_receipt": "saved-chunks/stage-096-79.json",
+    "post_upload_integrity": [
+      {
+        "file_name": "Pure_GGS_Amplifier_stage-096_Part_79.json",
+        "library_file_id": "libfile_782358ae228081918081455ac036ca05",
+        "bytes": 38603,
+        "sha256": "c5eff8c25696a88b82f176995d5a92f4c63fde255ceff6dc6b8803ae84f9879d",
+        "passed": true
+      },
+      {
+        "file_name": "Pure_GGS_Amplifier_stage-096_Part_79.tar.gz",
+        "library_file_id": "libfile_c16725519608819182042b9e7dd7573d",
+        "bytes": 157382664,
+        "sha256": "48a3d90cdd93480eb1dc35acc3bb974aee52c039613f584dc8caf7f72426d7d8",
+        "passed": true
+      }
+    ]
+  }
 }

@@ -62,6 +62,8 @@ result={'protocol':P,'attempted':len(new)+len(failed_attempts),'valid':sum(m['st
 result['failed_attempts']=failed_attempts
 result['archive_integrity_exclusions']=sum(x.get('excluded_kind')=='incomplete_saved_audit' for x in failed_attempts)
 result['measurement_integrity_exclusions']=sum(x.get('excluded_kind')=='phase_reconciliation' for x in failed_attempts)
+copy_recovery=OUT/'archive-copy-recovery.json'
+result['archive_copy_recovery']=json.loads(copy_recovery.read_text()) if copy_recovery.exists() else None
 result['simulator_error_attempts']=len(result['excluded'])+sum(x.get('simulator_failure',x['original_record']['status']!='completed') for x in failed_attempts)
 interruption=OUT/'execution-interruptions.json'
 result['execution_interruptions']=json.loads(interruption.read_text()) if interruption.exists() else None

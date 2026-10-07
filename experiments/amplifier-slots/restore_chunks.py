@@ -2,15 +2,22 @@
 import argparse,gzip,hashlib,json,re,sys,tarfile
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;WORK=HERE.parents[2];P=json.loads((HERE/'protocol.json').read_text());rows={};metadata={}
+KNOWN_TRUNCATED={
+ 'Pure_GGS_Amplifier_stage-064_Part_14.tar.gz':'d15052a4e9446f30a006150593246001ce538bf5a1832cde3ec1ace59247266d',
+ 'Pure_GGS_Amplifier_stage-096_Part_46.tar.gz':'0c4fbe387878b5672c3ce5682387689caa3ed06af1c57fcc280de256d37a4f54',
+ 'Pure_GGS_Amplifier_stage-096_Part_69.tar.gz':'8ef2275786f10de888af7586c0d54284ec9370fbc84f84b553f58684ec3b0b5e',
+ 'Pure_GGS_Amplifier_stage-096_Part_72.tar.gz':'ac390e360c3781a85b1459e56942e7180b70b7ebf6bc9c3c6542bc5bc3ac18a6',
+ 'Pure_GGS_Amplifier_stage-096_Part_73.tar.gz':'b3a06124237dd6e6f3b3f5862c42bfd2a690eed1d929bca72dc2ff45bb9f157a',
+}
 parser=argparse.ArgumentParser();parser.add_argument('--skip-live-raw',action='store_true');parser.add_argument('folders',nargs='+');args=parser.parse_args();skipped=[]
 for folder in args.folders:
  archives=sorted(Path(folder).rglob('Pure_GGS_Amplifier_*_Part_*.tar.gz'))
  for index,archive in enumerate(archives):
-  if archive.name=='Pure_GGS_Amplifier_stage-064_Part_14.tar.gz':
+  if archive.name in KNOWN_TRUNCATED:
    # The retained original is known to be truncated. Every original identity
    # must be present unchanged, or explicitly superseded, in later complete
    # archives before this copy can be bypassed. No prefix is guessed.
-   assert hashlib.sha256(archive.read_bytes()).hexdigest()=='d15052a4e9446f30a006150593246001ce538bf5a1832cde3ec1ace59247266d'
+   assert hashlib.sha256(archive.read_bytes()).hexdigest()==KNOWN_TRUNCATED[archive.name]
    sidecar=archive.with_name(archive.name.removesuffix('.tar.gz')+'.json');original=json.loads(sidecar.read_text());assert original['metadata']['protocol']==P
    coverage=[]
    for later in archives[index+1:]:
@@ -31,7 +38,7 @@ for folder in args.folders:
        assert size==member.size
     coverage.extend(matched)
    assert all(r in coverage for r in original['records']),'Incomplete archive has not been fully replaced; stop recovery'
-   skipped.append({'archive':str(archive),'reason':'All four identities covered by later verified full archives; original remains preserved in Library'});continue
+   skipped.append({'archive':str(archive),'reason':'Every original identity covered unchanged or explicitly superseded by later verified full archives; original remains preserved in Library'});continue
   with tarfile.open(archive) as t:
    manifests=[m for m in t.getmembers() if m.name.startswith('Pure_GGS_Amplifier_') and m.name.endswith('.json') and '/' not in m.name];assert len(manifests)==1
    m=json.load(t.extractfile(manifests[0]));name=m['batch'];assert re.fullmatch(r'gate|deadline-gate|concurrency-gate|phase-reconciliation-gate|stage-\d{3}',name)
