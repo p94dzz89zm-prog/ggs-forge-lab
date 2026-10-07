@@ -1,8 +1,9 @@
 """Paired seed-cluster comparisons; positive effects favor retaining amplifier."""
-import collections,csv,json,random,statistics,sys,subprocess
+import argparse,collections,csv,json,random,statistics,sys,subprocess
 from pathlib import Path
 from inspect_games import inspect
 HERE=Path(__file__).resolve().parent;ROOT=HERE.parents[1];WORK=ROOT.parent;OUT=WORK/'amplifier-slots';P=json.loads((HERE/'protocol.json').read_text());cards=[a['removed'] for a in P['arms']]+[P['replacement']]
+parser=argparse.ArgumentParser();parser.add_argument('--through-stage',type=int);args=parser.parse_args()
 baseline=json.loads((WORK/'pure-ggs/Pure_GGS_Results.json').read_text())['games'];B={(m['seed'],m['rotation']):m for m in baseline}
 cache=OUT/'baseline-exposure.json'
 if cache.exists():E=json.loads(cache.read_text())
@@ -13,6 +14,7 @@ else:
  cache.write_text(json.dumps(E,indent=2)+'\n')
 new=[];batches=[];failed_attempts=[]
 for d in sorted(OUT.glob('stage-*')):
+ if args.through_stage is not None and int(d.name.split('-')[1])>args.through_stage:continue
  if not (d/'performance.json').exists():continue
  batch=json.loads((d/'performance.json').read_text())
  if batch['valid']!=batch['requested']:continue
