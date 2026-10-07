@@ -25,8 +25,17 @@ def _save(directory):
     if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
   for r in new:
    label=Path(r['log']).stem
-   for p in [directory/r['log'],directory/'audit'/label,directory/'engine-records'/label]:
+   for p in [directory/r['log'],directory/'engine-records'/label]:
     if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
+   # Only canonical audit streams belong in a terminal checkpoint. Recursive
+   # directory traversal can catch transient filesystem materialization files
+   # that disappear before tar reads them, or redundant raw copies.
+   audit=directory/'audit'/label
+   for seat in range(4):
+    for prefix in ['seat-','evaluation-seat-']:
+     raw=audit/f'{prefix}{seat}.jsonl';compressed=raw.with_suffix('.jsonl.gz')
+     p=compressed if compressed.exists() else raw
+     if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
    for p in (directory/'analysis').glob(key(r)+'-*'):t.add(p,arcname=str(p.relative_to(WORK)))
  # Finalization success is not an archive-integrity check. Require the footer
  # and every member payload before marking any completion as durably saved.
