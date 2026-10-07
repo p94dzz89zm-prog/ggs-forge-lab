@@ -12,9 +12,14 @@ def _save(directory):
  done=set(json.loads(state.read_text())) if state.exists() else set();rows=json.loads((directory/'summary.json').read_text());key=lambda r:f"{r['variant']}-{r['seed']}-r{r['seat_rotation']}";new=[r for r in rows if key(r) not in done]
  if not new:return
  index=len(list(receipts.glob(directory.name+'-*.json')))+1;stem=f'Pure_GGS_Amplifier_{directory.name}_Part_{index:02d}';archive=OUT/(stem+'.tar.gz');manifest=OUT/(stem+'.json');receipt=receipts/f'{directory.name}-{index:02d}.json'
- manifest.write_text(json.dumps({'batch':directory.name,'metadata':json.loads((directory/'metadata.json').read_text()),'records':new,'cumulative_completed':len(rows),'only_completed_records':True},indent=2)+'\n')
+ manifest.write_text(json.dumps({'batch':directory.name,'metadata':json.loads((directory/'metadata.json').read_text()),'records':new,'cumulative_completed':len(rows),'only_finished_attempts':True},indent=2)+'\n')
  with tarfile.open(archive,'w:gz',compresslevel=3) as t:
   t.add(manifest,arcname=manifest.name)
+  for p in [directory/'failed-attempts.json',directory/'run-amendments.json',directory/'adoption-receipt.json']:
+   if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
+  if any('supersedes_failed_attempt' in r for r in new):
+   for p in [directory/'failed-attempts',OUT/'deadline-gate-receipt.json',OUT/'timeout-replay-unprofiled/replay-check.json']:
+    if p.exists():t.add(p,arcname=str(p.relative_to(WORK)))
   for r in new:
    label=Path(r['log']).stem
    for p in [directory/r['log'],directory/'audit'/label,directory/'engine-records'/label]:

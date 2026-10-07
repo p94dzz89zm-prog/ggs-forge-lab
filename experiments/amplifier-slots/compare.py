@@ -11,10 +11,11 @@ else:
  for d in sorted((WORK/'pure-ggs').glob('batch-*')):
   for r in json.loads((d/'summary.json').read_text()):E[f"{r['seed']}-r{r['seat_rotation']}"]=inspect(d,r,cards)
  cache.write_text(json.dumps(E,indent=2)+'\n')
-new=[];batches=[]
+new=[];batches=[];failed_attempts=[]
 for d in sorted(OUT.glob('stage-*')):
  if not (d/'performance.json').exists():continue
  batch=json.loads((d/'performance.json').read_text());batch['path']=str(d);batches.append(batch)
+ failed_attempts.extend(json.loads((d/'failed-attempts.json').read_text()) if (d/'failed-attempts.json').exists() else [])
  rows=json.loads((d/'summary.json').read_text());receipt=d/'audit-integrity.json'
  if not receipt.exists() or json.loads(receipt.read_text())['finished_games']!=len(rows):subprocess.run([sys.executable,str(HERE/'audit_integrity.py'),str(d),'--repair','--prune-raw'],check=True)
  for r in rows:
@@ -51,7 +52,11 @@ for arm in P['arms']:
  def usage(es,c):return {'hand_games':sum(e['cards'][c]['hand_seen'] for e in es),'cast_games':sum(e['cards'][c]['casts']>0 for e in es),'battlefield_games':sum(e['cards'][c]['battlefield_seen'] for e in es),'trigger_or_activation_games':sum(e['cards'][c]['activated_or_triggered']>0 for e in es)}
  stability={'n':len(rs),'previous':previous,'slot_exposed_pairs':exposed,'effect_shifts':shifts,'timing_effect_shifts':time_shifts,'passed':len(rs)>=64 and exposed>=20 and all(abs(x)<=10 for x in shifts.values()) and all(x is None or abs(x)<=1 for x in time_shifts.values())}
  arms.append({**arm,'valid':len(rs),'baseline_ignited':sum(x['first_dragon_turn'] is not None for x in bs),'replacement_ignited':sum(x['first_dragon_turn'] is not None for x in rs),'contrasts':contrasts,'baseline_timing':bt,'replacement_timing':vt,'baseline_usage':usage(be,card),'replacement_usage':usage(ve,P['replacement']),'baseline_material_thresholds':{k:sum(card in (m.get(k+'_dependency') or {}).get('material_amplifiers',[]) for m in bs) for k in ['basic','strong','threat']},'baseline_stalls':dict(collections.Counter(m['primary_stall_category'] for m in bs)),'replacement_stalls':dict(collections.Counter(m['primary_stall_category'] for m in rs)),'baseline_recovery':recovery(bs),'replacement_recovery':recovery(rs),'stability':stability})
-result={'protocol':P,'attempted':len(new),'valid':sum(m['status']=='completed' and not m.get('excluded') for m in new),'excluded':[(m['variant'],m['seed'],m.get('rotation',m.get('seat_rotation')),m['status']) for m in new if m['status']!='completed' or m.get('excluded')],'batches':batches,'arms':arms,'games':new,'reused_baseline_games':baseline,'baseline_exposure':E,'limitations':['Entire card versus Whisper with other five amplifiers retained.','Common seeds do not guarantee identical trajectories or openings.','Conditional ignited rates select different games and are secondary.','Bootstrap intervals reflect seed variation, not pilot or model bias; repeated stages/multiple outcomes remain exploratory.','Presence or hand exposure, including tutored/stolen same-name cards, is not automatically material contribution.']}
+result={'protocol':P,'attempted':len(new)+len(failed_attempts),'valid':sum(m['status']=='completed' and not m.get('excluded') for m in new),'excluded':[(m['variant'],m['seed'],m.get('rotation',m.get('seat_rotation')),m['status']) for m in new if m['status']!='completed' or m.get('excluded')],'batches':batches,'arms':arms,'games':new,'reused_baseline_games':baseline,'baseline_exposure':E,'limitations':['Entire card versus Whisper with other five amplifiers retained.','Common seeds do not guarantee identical trajectories or openings.','Conditional ignited rates select different games and are secondary.','Bootstrap intervals reflect seed variation, not pilot or model bias; repeated stages/multiple outcomes remain exploratory.','Presence or hand exposure, including tutored/stolen same-name cards, is not automatically material contribution.']}
+result['failed_attempts']=failed_attempts
+result['unresolved_exclusions']=list(result['excluded'])+[(x['original_record']['variant'],x['original_record']['seed'],x['original_record']['seat_rotation'],x['original_record']['status']) for x in failed_attempts if not x['resolved']]
+result['resolved_exclusions']=[(x['original_record']['variant'],x['original_record']['seed'],x['original_record']['seat_rotation'],x['original_record']['status']) for x in failed_attempts if x['resolved']]
+result['excluded']+=result['resolved_exclusions']
 maps={a['name']:{(m['seed'],m['rotation']):m for m in new if m['variant']==a['name'] and m['status']=='completed' and not m.get('excluded')} for a in arms}
 shared=set.intersection(*(set(x) for x in maps.values())) if maps else set();result['common_comparison_games_per_arm']=len(shared);rank_pairs=[]
 for i,a in enumerate(arms if shared else []):
@@ -66,5 +71,5 @@ result['direct_threat_retention_rank_comparisons']=rank_pairs
 (OUT/'Pure_GGS_Amplifier_Results.json').write_text(json.dumps(result,indent=2)+'\n')
 fields=['variant','seed','rotation','status','excluded','win','ggs_cast_turn','first_dragon_turn','second_dragon_turn','within_one','within_two','basic_turn','strong_turn','threat_turn','cumulative_dragons','peak_simultaneous_ggs_dragons','peak_offensive_power','dragon_damage','primary_stall_category','log','audit']
 with (OUT/'Pure_GGS_Amplifier_Per_Game.csv').open('w') as f:
- w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore');w.writeheader();w.writerows([{**m,'variant':'Pure_GGS','excluded':False} for m in baseline]+new)
+ w=csv.DictWriter(f,fieldnames=fields,extrasaction='ignore');w.writeheader();w.writerows([{**m,'variant':'Pure_GGS','excluded':False} for m in baseline]+new+[{**x['original_record'],'rotation':x['original_record']['seat_rotation'],'excluded':True} for x in failed_attempts])
 print(json.dumps({'attempted':result['attempted'],'valid':result['valid'],'excluded':result['excluded'],'arms':[{'name':a['name'],'valid':a['valid'],'stability':a['stability'],'threat':a['contrasts']['threat']} for a in arms]},indent=2))

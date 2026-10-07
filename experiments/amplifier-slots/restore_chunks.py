@@ -6,13 +6,17 @@ for folder in sys.argv[1:]:
  for archive in sorted(Path(folder).rglob('Pure_GGS_Amplifier_*_Part_*.tar.gz')):
   with tarfile.open(archive) as t:
    manifests=[m for m in t.getmembers() if m.name.startswith('Pure_GGS_Amplifier_') and m.name.endswith('.json') and '/' not in m.name];assert len(manifests)==1
-   m=json.load(t.extractfile(manifests[0]));name=m['batch'];assert re.fullmatch(r'gate|stage-\d{3}',name)
+   m=json.load(t.extractfile(manifests[0]));name=m['batch'];assert re.fullmatch(r'gate|deadline-gate|stage-\d{3}',name)
    assert m['metadata']['protocol']==P
    if name in metadata:assert metadata[name]==m['metadata']
    metadata[name]=m['metadata'];rows.setdefault(name,{})
    for r in m['records']:
     key=(r['variant'],r['seed'],r['seat_rotation'])
-    if key in rows[name]:assert rows[name][key]==r
+    if key in rows[name] and rows[name][key]!=r:
+     prior=rows[name][key]
+     if r.get('supersedes_failed_attempt')==prior:pass
+     elif prior.get('supersedes_failed_attempt')==r:continue
+     else:raise AssertionError('Conflicting checkpoint record without explicit replay provenance')
     rows[name][key]=r
    t.extractall(WORK,filter='data')
 for name,records in rows.items():
