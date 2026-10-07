@@ -28,3 +28,4 @@ for target,seed,seeds in [(16,202610061,4),(32,202610065,4),(64,202610069,8),(96
  print('Stage completed',target,'new valid',r['valid'],'stable',[a['name'] for a in r['arms'] if a['stability']['passed']],flush=True)
 (OUT/'collection-completed.json').write_text(json.dumps({'valid':r['valid'],'arms':[(a['name'],a['valid'],a['stability']['passed']) for a in r['arms']]},indent=2)+'\n')
 print('Collection completed',flush=True)
+run('finish.py',log='final-deliverables.log')
