@@ -1,8 +1,8 @@
 {
-  "status": "Clock-only16-game gate passed; final48 preplanned games collecting",
-  "last_confirmed_completed_experimental_identities": 592,
-  "last_sealed_analysis": 544,
-  "completed_games_are_not_final_verified_evidence": true,
+  "status": "Experiment completed:640 valid variants; all six arms stabilized; final audit and slot recommendations complete",
+  "last_confirmed_completed_experimental_identities": 640,
+  "last_sealed_analysis": 640,
+  "completed_games_are_not_final_verified_evidence": false,
   "engine_changed": true,
   "decks_changed": false,
   "source_fix_commit": "c29aa3d83b59745136d1906e5bc0a0bf56fb0d28",
@@ -170,15 +170,9 @@
   },
   "current_stage": {
     "name": "stage-128",
-    "valid_pending_final_audit": 48,
-    "target_valid": 96,
-    "remaining_valid_needed": 48,
-    "prior_AI_decision_timeout_identities_replaced_once": 2,
-    "preplanned_uncollected_gate_identities_retained_once": 9,
-    "old_failed_records_preserved": true,
-    "checkpoint_numbering_restored": true,
-    "verified_checkpoint_manifest": "libfile_83372634cca88191a14b084b6883374b",
-    "verified_checkpoint_archive": "libfile_b1c64b04fe8881918c654b4c68505479"
+    "valid": 96,
+    "requested": 96,
+    "complete": true
   },
   "do_not_resume_collection_before_failure_diagnosis": false,
   "execution_workspace_available": true,
@@ -188,5 +182,35 @@
   "pre_gate_valid_tally_corrected_from": 582,
   "pre_gate_valid_tally_corrected_to": 581,
   "decision_clock_gate_passed": true,
-  "decision_clock_gate_games": 16
+  "decision_clock_gate_games": 16,
+  "experimental_attempts": 655,
+  "excluded_attempts": 15,
+  "simulator_error_attempts": 5,
+  "unresolved_exclusions": [],
+  "recommendation": {
+    "central_conclusion": "B: GGS works, but benefits from some gunpowder",
+    "proposed_single_swap": {
+      "out": "Dragon Tempest",
+      "in": "Night's Whisper",
+      "tested_variant": "Pure_Slot_Tempest",
+      "valid_games": 96,
+      "confidence": "Provisional practical choice; pressure improvement is not established under wider six-comparison intervals"
+    },
+    "retain_provisionally": [
+      "Purphoros, God of the Forge",
+      "Roaming Throne",
+      "Karlach, Fury of Avernus",
+      "Port Razer",
+      "Aggravated Assault"
+    ],
+    "combined_cuts_recommended": false,
+    "statistically_established_individual_pressure_winner": null,
+    "frozen_baseline_and_Firework_control_unchanged": true
+  },
+  "runtime_game_counts": {
+    "43b8dded3ad4316c12632cd0ed359f687b79c461da3b8a68e365481d5f15dcfb": 581,
+    "dbfba4a2af104503f063a5569597f04b57957a7ccdd52dce8dc9ed742b3b1061": 59
+  },
+  "decision_clock_repair_receipt": "libfile_17ddb93fa3dc8191a64d6bba850d956b",
+  "decision_clock_repair_evidence": "libfile_5d222ce23be881918099d15682c979ca"
 }
