@@ -6,7 +6,7 @@ PROTECTION={'An Offer You Can\'t Refuse','Swan Song','Mana Drain','Fierce Guardi
 STATIC={'Lightning Greaves','Swiftfoot Boots'}
 DRAW={'Ingenious Infiltrator','Dour Port-Mage','Enduring Curiosity','Grazilaxx, Illithid Scholar','Satoru, the Infiltrator',"Yuriko, the Tiger's Shadow",'Mystic Remora','Skullclamp','Frostcliff Siege','Kaito, Cunning Infiltrator'}
 TREASURE={'Ragavan, Nimble Pilferer','Prosperous Thief','Professional Face-Breaker','Grim Hireling','Orochi Soul-Reaver','Goldspan Dragon'}
-MASS={'Toxic Deluge','Blasphemous Act','Cyclonic Rift','Damnation','Wrath of God','Vanquish the Horde','Farewell','Game Over','Living Death','Fumigate','Austere Command','Blasphemous Edict'}
+MASS={'Toxic Deluge','Blasphemous Act','Cyclonic Rift','Damnation','Wrath of God','Vanquish the Horde','Farewell','Game Over','Living Death','Fumigate','Austere Command','Blasphemous Edict','Dusk','Fell the Mighty'}
 ROCKS={'Sol Ring':2,'Arcane Signet':1,'Fellwar Stone':1,'Talisman of Creativity':1,'Talisman of Dominance':1,'Talisman of Indulgence':1}
 def mana_bound(p):
  return sum((1 if 'Land' in c.get('type','') else ROCKS.get(c['name'],1 if c['name']=='Treasure Token' else 0)) for c in p['battlefield'] if not c.get('tapped') and not c.get('phased_out'))
@@ -14,7 +14,7 @@ def extract(directory,row,m,t):
  directory=Path(directory);idx=row['seats'].index(row['variant']);path=directory/'audit'/Path(row['log']).stem/f'seat-{idx}.jsonl.gz';turnmap={int(k):v for k,v in t['personal_turn_map'].items()}
  result={'protection_availability_fidelity':'Candidate cards visible at threat; exact legal castability, floating mana, and target legality not logged. Untapped-source budget is a screen only.','war_counterfactual_fidelity':'Observed blocked fresh combat, public untapped-source budget screen; no causal War Cadence ablation, opponent floating mana and choices unknown.','cards':{},'resource_events':[],'protection_threats':[],'disruptions':[],'blocked_fresh_combats':[],'ready_ignition_opportunity_turn':None,'engine_exhaustion_turns':[],'strict_dragon_threat_turn':None,'peak_ready_ggs_dragon_power':0}
  cards=collections.defaultdict(lambda:{'hand_seen':False,'battlefield_seen':False,'casts':0,'actions':0,'cards_drawn_observed':0,'treasures_created_observed':0,'first_hand_turn':None,'first_battlefield_turn':None,'last_hand_turn':None,'final_in_hand':False})
- prev=None;lasttop={};states=[];seen_resource_ids=set();pending={};combat_windows={};sources={};first_hand=None;ggs_cast_events=[];seq=-1;student_ids=set();student_copies={};static_protected_turns=set();usable_factory_events={};held_back={}
+ prev=None;lasttop={};states=[];seen_resource_ids=set();pending={};combat_windows={};sources={};first_hand=None;ggs_cast_events=[];seq=-1;student_ids=set();student_copies={};static_protected_turns=set();usable_factory_events={};held_back={};command_casts=[]
  with gzip.open(path,'rt') as f:
   for l in f:
    x=json.loads(l);s=x.get('state')
@@ -34,6 +34,9 @@ def extract(directory,row,m,t):
    if first_hand is None and p.get('hand'):
     first_hand=[c['name'] for c in p['hand']];result['keep_effective_land_faces']=sum('Land' in c.get('type','') or c['name'] in {'Malakir Rebirth','Fell the Profane','Sink into Stupor'} for c in p['hand']);result['keep_sol_ring']='Sol Ring' in first_hand;result['keep_quality_definition']='Observed random-seven effective land-face count and Sol Ring; no aggressive hand sculpting or inferred perfect color availability.'
    if prev:
+    if any(c['name']==GGS and c.get('commander') for c in prev['p']['command']):
+     for spell in ownstack:
+      if spell['name']==GGS and spell.get('commander') and any(c['id']==spell['id'] for c in prev['p']['command']) and not any(c['id']==spell['id'] for c in p['command']):command_casts.append({'turn':turn,'global_turn':s['turn'],'seq':seq,'commander_id':spell['id']})
     gain=p['hand_count']-prev['p']['hand_count'];source=lasttop.get('name');own=lasttop.get('controller_id')==idx
     if gain>0 and own and source in DRAW and 'draw' in lasttop.get('description','').lower():
      result['resource_events'].append({'turn':turn,'global_turn':s['turn'],'seq':seq,'source':source,'kind':'observed_hand_gain','amount':gain});cards[source]['cards_drawn_observed']+=gain
@@ -121,12 +124,13 @@ def extract(directory,row,m,t):
  for e in result['disruptions']:
   later=[s for s in states if s['seq']>e['seq']];reentry=next((s for s in later if s['ggs']),None);nextdragon=next((b for b in t['events'] if b['kind']=='ggs_dragon' and b['seq']>e['seq']),None)
   e.update(reentry_turn=reentry['turn'] if reentry else None,downtime_turns=reentry['turn']-e['turn'] if reentry else None,next_trigger_turn=nextdragon['turn'] if nextdragon else None,restarted_within_three=bool(nextdragon and nextdragon['turn']<=e['turn']+3),restart_observed=bool(nextdragon),three_turn_followup_available=m['final_pure_turn']>=e['turn']+3)
+  missed={s['turn'] for s in later if s['active'] and s['phase']=='COMBAT_BEGIN' and not s['ggs'] and (reentry is None or s['seq']<reentry['seq'])};e['observed_own_combat_turns_missed_before_reentry']=len(missed)
  combat_uptime={}
  for s in states:
   if s['active'] and s['phase']=='COMBAT_BEGIN':combat_uptime[s['global_turn']]=combat_uptime.get(s['global_turn'],False) or s['ggs']
  result['commander_observed_active_phase_uptime']=sum(combat_uptime.values())/max(1,len(combat_uptime));result['commander_combat_turns_present']=sum(combat_uptime.values());result['observed_combat_turns']=len(combat_uptime)
  post_cast_uptime={g:v for g,v in combat_uptime.items() if m['ggs_cast_turn'] is not None and turnmap[g]>=m['ggs_cast_turn']};result['commander_post_cast_combat_turns_present']=sum(post_cast_uptime.values());result['observed_post_cast_combat_turns']=len(post_cast_uptime)
- result['initial_keep_observed']=first_hand;result['ggs_cast_events']=ggs_cast_events;result['cards']=dict(cards);result['cast_events']=cast_lines;result['student_copies']=list(student_copies.values());result['static_protected_combat_turns']=sorted(static_protected_turns)
+ result['initial_keep_observed']=first_hand;result['ggs_cast_events']=ggs_cast_events;result['cards']=dict(cards);result['cast_events']=cast_lines;result['student_copies']=list(student_copies.values());result['static_protected_combat_turns']=sorted(static_protected_turns);result['observed_command_zone_casts']=command_casts;result['tax_fidelity']='Command-to-stack transitions observed; exact mana payments and cost modifiers are not logged. Recasts from hand are distinct from observed command-zone casts.'
  for w in result['blocked_fresh_combats']:
   w['same_turn_actual_spells']=[c for c in cast_lines if c['global_turn']==w['global_turn']];w['same_turn_actions']=[c for c in action_lines if c['global_turn']==w['global_turn']];w['mana_spent_exact_unknown']=True
  result['momentum_established_turn']=min((e['turn'] for e in result['resource_events']),default=None)
@@ -144,7 +148,7 @@ def extract(directory,row,m,t):
  post=[s for s in t['states'] if s['active'] and (not m['first_dragon_turn'] or s['turn']>m['first_dragon_turn'])]
  if not m['win']:
   if m['threat_turn']:result['failure_context']='THREATENED_AND_FOCUSED' if m['primary_stall_category']==9 else 'OPPONENT_WON_AFTER_THREAT'
-  elif nonvoluntary and any(not d['restarted_within_three'] for d in nonvoluntary):result['primary_bottleneck']='PROTECTION/RECOVERY'
+  elif any(not d['restarted_within_three'] for d in nonvoluntary) or any(not w['recovered'] for w in m['wipe_events']):result['primary_bottleneck']='PROTECTION/RECOVERY'
   elif not m['first_dragon_turn']:result['primary_bottleneck']='IGNITION' if m['ggs_cast_turn'] is None else 'ACCESS' if result['blocked_fresh_combats'] else 'AMMUNITION' if not any(s['fresh_ready'] for s in t['states'] if s['active']) else 'IGNITION'
   elif result['blocked_fresh_combats'] and not m['basic_turn']:result['primary_bottleneck']='ACCESS'
   elif not any(s['fresh_ready'] for s in post):result['primary_bottleneck']='AMMUNITION'
