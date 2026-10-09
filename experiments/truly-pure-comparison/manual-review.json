@@ -17,8 +17,7 @@
       ],
       "interpretation": "The fixed15/20 pressure threshold missed an actual opponent elimination. This game is not evidence of insufficient natural Dragon payoff. Early disruption/recovery was costly, but terminal lack of fresh attack-ready creatures is a separate ammunition observation. The commander attack/recast is a pilot-risk example; its tactical necessity is not proven.",
       "limits": "No replayed alternative line; no causal claim that another card or withholding GGS would win the game."
-    }
-    ,
+    },
     {
       "variant": "Truly_Pure_GGS_v2",
       "seed": 202610210,
@@ -32,6 +31,34 @@
       ],
       "interpretation": "An observed access stall and a plausible already-deployed Cadence window exist. Recasts consume mana on earlier blocked turns; cheaper access is in hand but the observed turn10 Shadow Rift target is GGS rather than the fresh Elemental. Presence of access cards is not proof of successful access deployment. The already-deployed screen omits Cadence's casting cost and cannot establish a changed outcome.",
       "limits": "No replayed counterfactual, exact payment attribution, or isolated Student-versus-Cadence causal effect. Do not conclude that the replacement was correct from copy choices alone."
+    },
+    {
+      "variant": "Truly_Pure_GGS_v2",
+      "seed": 202610216,
+      "rotation": 0,
+      "review_kind": "Healthy commander / Dragon attrition; payoff falsification candidate",
+      "automated_primary": null,
+      "reviewed_primary_bottleneck": "PROTECTION/RECOVERY_OF_DRAGON_BOARD_OR_PAYOFF_DELIVERY_UNRESOLVED",
+      "evidence": [
+        "GGS remained operational with no logged commander disruption. Actual Dragon production on own turns5,6,7,8 was1,2,1,1 respectively, with recurring Fire Navy Trebuchet ammunition.",
+        "Gabe exiled Dragon425 with Anguished Unmaking at global turn21. Jaymie exiled Dragon446 through Etrata at turn28. Gabe destroyed Dragon435 with Mortify at turn29.",
+        "Surviving Dragons dealt10 combat damage at own turn7 and5 at turn8. The five produced Dragons did not survive together as a lethal army."
+      ],
+      "interpretation": "The engine created five Dragons with uninterrupted GGS and recurring ammunition, yet never crossed the pressure threshold before losing. Targeted exile/removal suppressed the actual Dragon board. This is the strongest reviewed challenge to delayed natural combat payoff so far: broader protection, higher production throughput, or earlier payoff delivery could matter. It does not prove a healthy surviving Dragon army lacks power, nor does it prove that protection alone or an extra payoff card would solve the state.",
+      "limits": "No causal alternate-line replay. Broad protection/recovery here includes preserving the produced Dragon board, not commander disruption alone."
+    },
+    {
+      "variant": "Pure_GGS",
+      "seed": 202610208,
+      "rotation": 3,
+      "review_kind": "Control wins without GGS ignition; threshold limitation",
+      "evidence": [
+        "GGS was first cast on own turn11; no GGS-created Dragon was observed. The control won on own turn12.",
+        "Fallen Shinobi was reanimated on turn3, Purphoros cast turn5, and Goldspan repeatedly cast on turns6,7,8,9; Goldspan generated observed Treasure on turns6 through11.",
+        "Pre-ignition total damage reached16 on own turn7, and lower distributed damage continued."
+      ],
+      "interpretation": "The control has an observed fallback win without natural GGS production. A threat proxy restricted to post-ignition states misses this win; report fallback victories separately. This is evidence of independent package contribution, not proof that the five-part GGS architecture cannot win or that each removed payoff card is necessary.",
+      "limits": "One illustrative game, not isolated card causality. No recommendation to restore a generic fireworks package solely from this result."
     }
   ]
 }

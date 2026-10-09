@@ -40,10 +40,10 @@ def extract(directory,row,m,t):
       if spell['name']==GGS and spell.get('commander') and any(c['id']==spell['id'] for c in prev['p']['command']) and not any(c['id']==spell['id'] for c in p['command']):command_casts.append({'turn':turn,'global_turn':s['turn'],'seq':seq,'commander_id':spell['id']})
     gain=p['hand_count']-prev['p']['hand_count'];source=lasttop.get('name');own=lasttop.get('controller_id')==idx
     if gain>0 and own and source in DRAW and 'draw' in lasttop.get('description','').lower():
-     result['resource_events'].append({'turn':turn,'global_turn':s['turn'],'seq':seq,'source':source,'kind':'observed_hand_gain','amount':gain});cards[source]['cards_drawn_observed']+=gain
+     result['resource_events'].append({'turn':turn,'global_turn':s['turn'],'seq':seq,'source':source,'source_id':lasttop.get('id'),'student_origin':lasttop.get('id') in student_ids,'kind':'observed_hand_gain','amount':gain});cards[source]['cards_drawn_observed']+=gain
     newtreasure=[c for c in bf.values() if c['name']=='Treasure Token' and c['id'] not in seen_resource_ids];seen_resource_ids.update(c['id'] for c in newtreasure)
     if newtreasure and own and source in TREASURE:
-     result['resource_events'].append({'turn':turn,'global_turn':s['turn'],'seq':seq,'source':source,'kind':'observed_treasure_creation','amount':len(newtreasure)});cards[source]['treasures_created_observed']+=len(newtreasure)
+     result['resource_events'].append({'turn':turn,'global_turn':s['turn'],'seq':seq,'source':source,'source_id':lasttop.get('id'),'student_origin':lasttop.get('id') in student_ids,'kind':'observed_treasure_creation','amount':len(newtreasure)});cards[source]['treasures_created_observed']+=len(newtreasure)
     oldggs=prev['ggs']
     if oldggs and not ggs and not oldggs.get('phased_out'):
      dest=next((z for z in ('command','hand','graveyard','exile') if any(c['id']==oldggs['id'] for c in p[z])),None)
@@ -168,4 +168,6 @@ def extract(directory,row,m,t):
   elif m['basic_turn'] and m['cumulative_dragons']>=3 and m['final_pure_turn']>=m['first_dragon_turn']+3:result['primary_bottleneck']='POWER/PAYOFF_CANDIDATE_REQUIRES_REVIEW'
   else:result['failure_context']='LIMITED_FOLLOWUP_OR_UNRESOLVED'
  result['classification_fidelity']='Conservative automated primary-bottleneck screen; power/payoff requires manual healthy-engine review, focused losses remain distinct, no attribution of every loss to a deck defect.'
+ result['payoff_review_candidate']=bool(not m['win'] and m['threat_turn'] is None and m['first_dragon_turn'] is not None and m['cumulative_dragons']>=3 and m['final_pure_turn']>=m['first_dragon_turn']+3)
+ result['payoff_review_fidelity']='Broad manual-review queue independent of Strong and automated primary label. Multiple produced Dragons do not establish a healthy surviving engine or insufficient payoff.'
  m.update(result);return m
