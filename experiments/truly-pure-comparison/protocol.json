@@ -1,0 +1,56 @@
+{
+  "arms": [
+    "Pure_GGS",
+    "Truly_Pure_GGS_v2"
+  ],
+  "deck_sha256": {
+    "Pure_GGS": "166a88df0207b4792d3784f7ef0218510e3c0114a7208368b079ce99bdc07cf7",
+    "Truly_Pure_GGS_v2": "59b5e9d0ada799a7f1e2380bfc2faf908ab43642c75d1da8fb5e283ad1cb29a7",
+    "Jaymie_Ezio": "6ed38c348b58f0819c0fe7ce74df02fdf16617c41bbfe74b5c1d0c2f253c2b0e",
+    "Gabe_Food": "38afc1adb2bd377aa1c8eb428fb7e29e562c81f0f100550af2b6af724fd270b0",
+    "Destyn_Turtles": "3bc8af816de79a50644367bebcf00c8bea6ea79bbd246b292539cd254efd9f8a",
+    "GGS_Firework_Protocol_v1_0": "38298044b173295ac7d0d2d91f2ba4b5c357bc29bf574caaf55103df9f506456"
+  },
+  "engine_sha256": "dbfba4a2af104503f063a5569597f04b57957a7ccdd52dce8dc9ed742b3b1061",
+  "gate": {
+    "seed": 202610200,
+    "seeds": 2,
+    "games": 16,
+    "excluded_from_analysis": true
+  },
+  "planned_stages_per_arm": [
+    32,
+    64,
+    96,
+    128
+  ],
+  "production_seed": 202610202,
+  "max_games_per_arm": 128,
+  "stop_rule": "Collect all128/arm; compare cumulative64,96,128 rates and timing. Report unresolved uncertainty at cap, including rare exposure/disruption strata. No deck tuning.",
+  "matching": "Common seeds and rotations, identical pod and pilot; RNG paths diverge so not identical counterfactual games.",
+  "mulligans": "All seats casual full-seven reshuffle only dysfunctional hands; no sculpting.",
+  "primary": [
+    "ignition",
+    "basic",
+    "strong",
+    "threat"
+  ],
+  "material_threat_margin_pp": 10,
+  "statistics": "Paired four-seat whole-seed bootstrap95% intervals;128/arm can detect only substantial effects, not prove equivalence.",
+  "disruption_recovery_window": 3,
+  "counterfactuals": "War Cadence blocker/tax assessment is plausibility screening from observed public states, not causal card ablation.",
+  "runtime": {
+    "workers": 2,
+    "game_seconds": 600,
+    "decision_seconds": 30,
+    "rules_and_pilot_unchanged": true
+  },
+  "measurement_definitions": {
+    "basic": "Additional GGS-created Dragon within2 own turns and net meaningful board/resources growth.",
+    "strong": "3 simultaneous GGS Dragons,15 ready evasive power,multiple productions inturn,compounding extra combat,or observed draw/Treasure continuation.",
+    "whole_board_threat": "20 unblocked attacking power,15 whole-board combat damage inownturn,or20 whole-board total damage inownturn after ignition; objective pressure proxy, not forecasted lethal.",
+    "strict_dragon_pressure": "20 ready flying power from GGS-created Dragons or15 GGS Dragon combat damage inone ownturn.",
+    "protection": "Visible candidates are not verified castable; observed response plus commander preservation reported separately.",
+    "feedback": "Attributed observed resource return followed by actual Dragon creation within2 ownturns; association not card-level causal proof."
+  }
+}
