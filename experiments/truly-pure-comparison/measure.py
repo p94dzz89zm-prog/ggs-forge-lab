@@ -62,7 +62,8 @@ def extract(directory,row,m,t):
     e=pending[key];e['responses']=sorted(set(e['responses'])|{q['name'] for q in ownstack if q['name'] in PROTECTION})
    if not s['stack']:
     for key,e in list(pending.items()):
-     e.update(resolved_observation=True,commander_preserved=bool(ggs),commander_phased_out=bool(ggs and ggs.get('phased_out')),protection_with_preservation=bool(e['responses'] and ggs));result['protection_threats'].append(e)
+     saved_hand='Dour Port-Mage' in e['responses'] and any(c['id']==e['ggs_id'] for c in p['hand'])
+     e.update(resolved_observation=True,commander_preserved=bool(ggs),commander_saved_to_hand=bool(saved_hand),commander_phased_out=bool(ggs and ggs.get('phased_out')),protection_with_preservation=bool(e['responses'] and ggs),successful_response_avoided_loss=bool(e['responses'] and (ggs or saved_hand)));result['protection_threats'].append(e)
      if e['commander_on_stack'] and not ggs:result['disruptions'].append({'turn':e['turn'],'global_turn':e['global_turn'],'seq':e['seq'],'source':e['source'],'type':'counter','voluntary_or_protective_bounce':False,'ggs_total_before':brief['ggs_total'],'protection_candidates_before':e['protection_candidates'],'untapped_budget_before':e['untapped_budget_screen']})
      del pending[key]
    if s['active_player_id']==idx:
@@ -125,6 +126,8 @@ def extract(directory,row,m,t):
   later=[s for s in states if s['seq']>e['seq']];reentry=next((s for s in later if s['ggs']),None);nextdragon=next((b for b in t['events'] if b['kind']=='ggs_dragon' and b['seq']>e['seq']),None)
   e.update(reentry_turn=reentry['turn'] if reentry else None,downtime_turns=reentry['turn']-e['turn'] if reentry else None,next_trigger_turn=nextdragon['turn'] if nextdragon else None,restarted_within_three=bool(nextdragon and nextdragon['turn']<=e['turn']+3),restart_observed=bool(nextdragon),three_turn_followup_available=m['final_pure_turn']>=e['turn']+3)
   missed={s['turn'] for s in later if s['active'] and s['phase']=='COMBAT_BEGIN' and not s['ggs'] and (reentry is None or s['seq']<reentry['seq'])};e['observed_own_combat_turns_missed_before_reentry']=len(missed)
+ for e in result['protection_threats']:
+  nextdragon=next((b for b in t['events'] if b['kind']=='ggs_dragon' and b['seq']>e['seq']),None);e['another_dragon_within_three_after_response']=bool(e.get('successful_response_avoided_loss') and nextdragon and nextdragon['turn']<=e['turn']+3)
  combat_uptime={}
  for s in states:
   if s['active'] and s['phase']=='COMBAT_BEGIN':combat_uptime[s['global_turn']]=combat_uptime.get(s['global_turn'],False) or s['ggs']
