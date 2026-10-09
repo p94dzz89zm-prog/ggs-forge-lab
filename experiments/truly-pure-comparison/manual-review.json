@@ -18,5 +18,20 @@
       "interpretation": "The fixed15/20 pressure threshold missed an actual opponent elimination. This game is not evidence of insufficient natural Dragon payoff. Early disruption/recovery was costly, but terminal lack of fresh attack-ready creatures is a separate ammunition observation. The commander attack/recast is a pilot-risk example; its tactical necessity is not proven.",
       "limits": "No replayed alternative line; no causal claim that another card or withholding GGS would win the game."
     }
+    ,
+    {
+      "variant": "Truly_Pure_GGS_v2",
+      "seed": 202610210,
+      "rotation": 1,
+      "review_kind": "War Cadence plausibility, competing mana, and copy logging",
+      "evidence": [
+        "Student ID350 copied Prosperous Thief on own turn5 and returned via Reanimate as Eagles of the North on turn7. The summary previously retained only its first copy; repeated-entry logging was corrected uniformly.",
+        "The resolution description says Reanimate loses0 life, but the adjacent canonical Life event says40 to36; actual observed loss4. No missing-life-loss gameplay error is established.",
+        "Fresh Lagomos Elementals were blocked on own turns7,8,9,10 while GGS was operational in those combats. Turns7 and8 had screened combat-begin untapped budget0; actual spells included commander redeployment (both turns) and Reanimate (turn7).",
+        "Turn10 had own screened budget8 and a Cadence activation screen4, assuming Cadence was already deployed. Same-turn actions were Shadow Rift on GGS, Professional Face-Breaker, and Swiftfoot Boots on the Student/Eagles copy."
+      ],
+      "interpretation": "An observed access stall and a plausible already-deployed Cadence window exist. Recasts consume mana on earlier blocked turns; cheaper access is in hand but the observed turn10 Shadow Rift target is GGS rather than the fresh Elemental. Presence of access cards is not proof of successful access deployment. The already-deployed screen omits Cadence's casting cost and cannot establish a changed outcome.",
+      "limits": "No replayed counterfactual, exact payment attribution, or isolated Student-versus-Cadence causal effect. Do not conclude that the replacement was correct from copy choices alone."
+    }
   ]
 }

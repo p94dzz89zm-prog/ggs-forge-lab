@@ -14,7 +14,7 @@ def extract(directory,row,m,t):
  directory=Path(directory);idx=row['seats'].index(row['variant']);path=directory/'audit'/Path(row['log']).stem/f'seat-{idx}.jsonl.gz';turnmap={int(k):v for k,v in t['personal_turn_map'].items()}
  result={'protection_availability_fidelity':'Candidate cards visible at threat; exact legal castability, floating mana, and target legality not logged. Untapped-source budget is a screen only.','war_counterfactual_fidelity':'Observed blocked fresh combat, public untapped-source budget screen; no causal War Cadence ablation, opponent floating mana and choices unknown.','cards':{},'resource_events':[],'protection_threats':[],'disruptions':[],'blocked_fresh_combats':[],'ready_ignition_opportunity_turn':None,'engine_exhaustion_turns':[],'strict_dragon_threat_turn':None,'peak_ready_ggs_dragon_power':0}
  cards=collections.defaultdict(lambda:{'hand_seen':False,'battlefield_seen':False,'casts':0,'actions':0,'cards_drawn_observed':0,'treasures_created_observed':0,'first_hand_turn':None,'first_battlefield_turn':None,'last_hand_turn':None,'final_in_hand':False})
- prev=None;lasttop={};states=[];seen_resource_ids=set();pending={};combat_windows={};sources={};first_hand=None;ggs_cast_events=[];seq=-1;student_ids=set();student_copies={};static_protected_turns=set();usable_factory_events={};held_back={};command_casts=[]
+ prev=None;lasttop={};states=[];seen_resource_ids=set();pending={};combat_windows={};sources={};first_hand=None;ggs_cast_events=[];seq=-1;student_ids=set();student_copies={};student_forms={};static_protected_turns=set();usable_factory_events={};held_back={};command_casts=[]
  with gzip.open(path,'rt') as f:
   for l in f:
    x=json.loads(l);s=x.get('state')
@@ -30,7 +30,8 @@ def extract(directory,row,m,t):
      if zone=='hand':e['last_hand_turn']=turn
      if c['name']=="Sakashima's Student":student_ids.add(c['id'])
    for c in bf.values():
-    if c['id'] in student_ids and c['name']!="Sakashima's Student" and c['id'] not in student_copies:student_copies[c['id']]={'turn':turn,'global_turn':s['turn'],'copied_name':c['name'],'power':c['power'],'keywords':c['keywords'],'commander':c.get('commander',False)}
+    if c['id'] in student_ids and c['name']!="Sakashima's Student" and student_forms.get(c['id'])!=c['name']:student_copies[(seq,c['id'])]={'turn':turn,'global_turn':s['turn'],'seq':seq,'card_id':c['id'],'copied_name':c['name'],'power':c['power'],'keywords':c['keywords'],'commander':c.get('commander',False)}
+   student_forms={c['id']:c['name'] for c in bf.values() if c['id'] in student_ids}
    if first_hand is None and p.get('hand'):
     first_hand=[c['name'] for c in p['hand']];result['keep_effective_land_faces']=sum('Land' in c.get('type','') or c['name'] in {'Malakir Rebirth','Fell the Profane','Sink into Stupor'} for c in p['hand']);result['keep_sol_ring']='Sol Ring' in first_hand;result['keep_quality_definition']='Observed random-seven effective land-face count and Sol Ring; no aggressive hand sculpting or inferred perfect color availability.'
    if prev:

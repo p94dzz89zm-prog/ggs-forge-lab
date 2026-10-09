@@ -41,3 +41,15 @@ requires observed commander reentry followed by GGS Dragon creation. The
 pre-reentry creation is retained in a separate diagnostic. All completed games
 in both arms are re-extracted uniformly before comparison. Decks, rules, pilot,
 seeds, stopping rule and primary pressure thresholds remain unchanged.
+
+## Student reentry choices
+
+Supplementary copy-choice logging now retains each observed entry or form
+change of a known Sakashima's Student card ID, rather than only its first copy.
+In experimental seed202610210 rotation1, ID350 initially copied Prosperous
+Thief and later returned via Reanimate as Eagles of the North. The same
+resolution description says zero life lost to that Reanimate, but the adjacent
+canonical Life event records40 to36. The observed loss is4; the zero is a
+misleading resolution description, not evidence of missing life loss. Uniform
+re-extraction updates copy associations without changing gameplay, production,
+pressure, or primary comparison thresholds.
