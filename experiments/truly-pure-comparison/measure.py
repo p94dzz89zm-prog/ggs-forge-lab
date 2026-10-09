@@ -92,7 +92,7 @@ def extract(directory,row,m,t):
         item={'id':c['id'],'name':c['name'],'power':c['power'],'defender_id':a['defender_id'],'blockers':a['blocker_ids']}
         if item not in w['fresh_blocked']:w['fresh_blocked'].append(item)
    born_ids={e['id'] for e in t['events'] if e['kind']=='ggs_dragon' and e['seq']<=seq};attackers={a['attacker_id'] for a in s.get('combat',{}).get('attackers',[])}
-   dragon_power=sum(max(0,c['power']) for c in bf.values() if c['id'] in born_ids and 'Flying' in c['keywords'] and not c.get('phased_out') and (not c['summoning_sick'] or 'Haste' in c['keywords'] or c['id'] in attackers))
+   dragon_power=sum(max(0,c['power']) for c in bf.values() if c['id'] in born_ids and 'Flying' in c['keywords'] and not c.get('phased_out') and (c['id'] in attackers or (not c['tapped'] and (not c['summoning_sick'] or 'Haste' in c['keywords']))))
    result['peak_ready_ggs_dragon_power']=max(result['peak_ready_ggs_dragon_power'],dragon_power)
    if dragon_power>=20 and result['strict_dragon_threat_turn'] is None:result['strict_dragon_threat_turn']=turn
    states.append({'seq':seq,'turn':turn,'global_turn':s['turn'],'phase':s['phase'],'active':s['active_player_id']==idx,'ggs':bool(ggs and not ggs.get('phased_out')),'ggs_id':ggs['id'] if ggs else None,'hand_count':p['hand_count'],'bf':bf,'untapped_budget':mana_bound(p),'own_stack':ownstack})

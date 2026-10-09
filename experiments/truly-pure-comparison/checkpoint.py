@@ -1,7 +1,8 @@
 """Completed-game evidence only; atomic archive, full member/footer validation."""
-import argparse,gzip,hashlib,json,subprocess,tarfile,sys
+import argparse,gzip,hashlib,json,subprocess,tarfile,sys,os
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2];WORK=ROOT.parent
+HELPERS=Path(os.environ.get('DRAGONMIND_LIBRARY_HELPERS',str(WORK/'comparison-recovery/helpers')))
 p=argparse.ArgumentParser();p.add_argument('--batch',type=Path,required=True);a=p.parse_args();batch=a.batch.resolve();rows=json.loads((batch/'summary.json').read_text());rows=[r for r in rows if r['status']=='completed']
 out=WORK/'truly-pure-comparison/checkpoints';out.mkdir(parents=True,exist_ok=True);saved=set()
 for r in out.glob('*-receipt.json'):
@@ -30,14 +31,14 @@ with tarfile.open(temporary,'r:gz') as tar:
    while b:=f.read(1<<20):h.update(b)
   if m.name in manifest['files']:assert h.hexdigest()==manifest['files'][m.name]
 temporary.replace(archive)
-request={'uploads':[{'local_path':str(archive),'purpose':'create_library_file','directory_id':'6a8249fab85c8191a7fcb8390fc88fc5','library_artifact_type':'other'}]}
-run=subprocess.run(['python3',str(WORK/'comparison-recovery/helpers/library_upload.py')],input=json.dumps(request),text=True,capture_output=True)
+request={'uploads':[{'local_path':str(archive),'purpose':'create_library_file','library_artifact_type':'other'}]}
+run=subprocess.run(['python3',str(HELPERS/'library_upload.py')],input=json.dumps(request),text=True,capture_output=True)
 if run.returncode:raise RuntimeError('Evidence save failed: '+run.stderr[-300:])
 response=json.loads(run.stdout);assert len(response['results'])==1 and response['results'][0]['status']=='succeeded',response
-sys.path.insert(0,str(WORK/'comparison-recovery/helpers'));from library_hosted_apps import HostedAppsClient
+sys.path.insert(0,str(HELPERS));from library_hosted_apps import HostedAppsClient
 verified=out/'verified';verified.mkdir(exist_ok=True);lid=response['results'][0]['library_file_id'];reply=HostedAppsClient().call_tool('connector_openai_library','prepare_materialize',{'items':[{'library_file_id':lid}],'destination':{'directory':str(verified)}})
 content=reply['structuredContent'];transfers=content.get('result',content)['transfers'];assert len(transfers)==1;t=transfers[0]
-helper=WORK/'comparison-recovery/helpers/library_file_transfer.py'
+helper=HELPERS/'library_file_transfer.py'
 if t.get('workspace_path'):
  remote=Path(t['workspace_path']);subprocess.run(['python3',str(helper),'apply-xattrs',str(remote),lid],input=json.dumps(t.get('xattrs',[])),text=True,check=True,capture_output=True)
 else:

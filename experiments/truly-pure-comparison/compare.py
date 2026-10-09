@@ -1,5 +1,5 @@
 """Paired seed-block statistics; conditional rates retain explicit denominators."""
-import argparse,collections,json,statistics,gzip
+import argparse,collections,json,statistics,gzip,importlib.util
 from measure import extract
 from pathlib import Path
 import numpy as np
@@ -34,8 +34,12 @@ def comparison(games):
   block=np.array([sum(yes(keys[ARMS[1]][s,r],k)-yes(keys[ARMS[0]][s,r],k) for r in range(4))/4 for s in seeds]);boot=block[indices].mean(axis=1);effects[name]={'experimental_minus_control_pp':float(block.mean()*100),'paired_seed_bootstrap95_pp':[float(x) for x in np.quantile(boot,[.025,.975])*100]}
  return {'valid_games':len(games),'seed_blocks':len(seeds),'arms':{a:summarize(grouped[a]) for a in ARMS},'paired_effects':effects,'uncertainty':'Intervals quantify seed variation under this engine/pilot; not AI bias. Timing and post-disruption conditional groups differ between decks. Individual changed-card causal effects are not isolated.'}
 if __name__=='__main__':
+ spec=importlib.util.spec_from_file_location('observed',Path(__file__).resolve().parents[2]/'experiments/pure-ggs/analyze.py');observed=importlib.util.module_from_spec(spec);spec.loader.exec_module(observed)
  p=argparse.ArgumentParser();p.add_argument('batches',nargs='+',type=Path);p.add_argument('--out',type=Path,required=True);a=p.parse_args();games=[]
  for directory in a.batches:
   for row in json.loads((directory/'summary.json').read_text()):
-   assert row['status']=='completed';key=f"{row['variant']}-{row['seed']}-r{row['seat_rotation']}";m=json.loads((directory/'analysis'/(key+'-metrics.json')).read_text());t=json.load(gzip.open(directory/'analysis'/(key+'-timeline.json.gz'),'rt'));extract(directory,row,m,t);(directory/'analysis'/(key+'-extended.json')).write_text(json.dumps(m,indent=2)+'\n');m['batch_directory']=str(directory.resolve());games.append(m)
+   assert row['status']=='completed';key=f"{row['variant']}-{row['seed']}-r{row['seat_rotation']}";m,t=observed.extract(directory,row);m['variant']=row['variant'];assert not m['measurement_gaps'] and m['snapshot_life_match_rate']==1
+   (directory/'analysis'/(key+'-metrics.json')).write_text(json.dumps(m,indent=2)+'\n')
+   with gzip.open(directory/'analysis'/(key+'-timeline.json.gz'),'wt') as f:json.dump(t,f)
+   extract(directory,row,m,t);(directory/'analysis'/(key+'-extended.json')).write_text(json.dumps(m,indent=2)+'\n');m['batch_directory']=str(directory.resolve());games.append(m)
  result=comparison(games);a.out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({'valid':len(games),'effects':result['paired_effects']}))
