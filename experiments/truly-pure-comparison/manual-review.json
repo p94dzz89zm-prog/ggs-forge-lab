@@ -1,0 +1,22 @@
+{
+  "status": "ongoing; not final experiment conclusions",
+  "measurement_policy": "Original thresholds and automated screens retained. Manual observations are separate; no decks, rules or pilot changes.",
+  "reviews": [
+    {
+      "variant": "Truly_Pure_GGS_v2",
+      "seed": 202610202,
+      "rotation": 2,
+      "automated_primary": "PROTECTION/RECOVERY",
+      "terminal_bottleneck_observed": "AMMUNITION",
+      "contributing_bottleneck": "PROTECTION/RECOVERY",
+      "evidence": [
+        "Mortify removed GGS at own turn3; reentered turn6 and first Dragon turn9. Fumigate and Fell the Mighty later interrupted development.",
+        "At global turn51 / own turn13, two GGS Dragon tokens (IDs496,535) each dealt5 combat damage to Gabe_Food, whose life fell5 to-5.",
+        "GGS attacked in the same combat, received4 damage from three blockers, went to graveyard/command, and was recast in main2 using ten logged mana-source activations.",
+        "Every recorded own COMBAT_BEGIN from turns13 through18 had GGS present and fresh_ready=0. No later GGS Dragon creation was observed."
+      ],
+      "interpretation": "The fixed15/20 pressure threshold missed an actual opponent elimination. This game is not evidence of insufficient natural Dragon payoff. Early disruption/recovery was costly, but terminal lack of fresh attack-ready creatures is a separate ammunition observation. The commander attack/recast is a pilot-risk example; its tactical necessity is not proven.",
+      "limits": "No replayed alternative line; no causal claim that another card or withholding GGS would win the game."
+    }
+  ]
+}

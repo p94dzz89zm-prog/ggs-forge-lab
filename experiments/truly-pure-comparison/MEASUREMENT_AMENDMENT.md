@@ -30,3 +30,14 @@ The clock-repair archive has a damaged outer gzip footer. Only its complete
 executable member was recovered and independently matched the predeclared
 SHA256 dbfba4a2af104503f063a5569597f04b57957a7ccdd52dce8dc9ed742b3b1061.
 The archive as a whole is not accepted as valid game evidence.
+
+## Pending-trigger production versus engine restart
+
+Manual review of Truly_Pure_GGS_v2 seed202610208 rotation3 identified a
+commander death during own-turn6 combat followed by creation from its pending
+trigger while GGS was absent. This is legitimate GGS production and remains in
+all Dragon/snowball/pressure counts, but is not an engine restart. Recovery now
+requires observed commander reentry followed by GGS Dragon creation. The
+pre-reentry creation is retained in a separate diagnostic. All completed games
+in both arms are re-extracted uniformly before comparison. Decks, rules, pilot,
+seeds, stopping rule and primary pressure thresholds remain unchanged.

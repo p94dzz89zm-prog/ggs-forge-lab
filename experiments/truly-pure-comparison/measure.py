@@ -123,7 +123,14 @@ def extract(directory,row,m,t):
  if hits:result['strict_dragon_threat_turn']=min([result['strict_dragon_threat_turn']] + hits) if result['strict_dragon_threat_turn'] is not None else min(hits)
  for c in prev['p']['hand'] if prev else []:cards[c['name']]['final_in_hand']=True
  for e in result['disruptions']:
-  later=[s for s in states if s['seq']>e['seq']];reentry=next((s for s in later if s['ggs']),None);nextdragon=next((b for b in t['events'] if b['kind']=='ggs_dragon' and b['seq']>e['seq']),None)
+  later=[s for s in states if s['seq']>e['seq']];reentry=next((s for s in later if s['ggs']),None)
+  postloss=next((b for b in t['events'] if b['kind']=='ggs_dragon' and b['seq']>e['seq']),None)
+  # A trigger pending when the commander left can still resolve and create a
+  # Dragon. That is valid production, but it does not establish engine restart.
+  nextdragon=next((b for b in t['events'] if b['kind']=='ggs_dragon' and reentry is not None and b['seq']>reentry['seq']),None)
+  e['first_post_loss_creation_turn']=postloss['turn'] if postloss else None
+  e['creation_before_reentry_observed']=bool(postloss and (reentry is None or postloss['seq']<reentry['seq']))
+  e['restart_definition']='Observed GGS reentry followed by a GGS-created Dragon; pre-reentry pending-trigger production excluded.'
   e.update(reentry_turn=reentry['turn'] if reentry else None,downtime_turns=reentry['turn']-e['turn'] if reentry else None,next_trigger_turn=nextdragon['turn'] if nextdragon else None,restarted_within_three=bool(nextdragon and nextdragon['turn']<=e['turn']+3),restart_observed=bool(nextdragon),three_turn_followup_available=m['final_pure_turn']>=e['turn']+3)
   missed={s['turn'] for s in later if s['active'] and s['phase']=='COMBAT_BEGIN' and not s['ggs'] and (reentry is None or s['seq']<reentry['seq'])};e['observed_own_combat_turns_missed_before_reentry']=len(missed)
  for e in result['protection_threats']:
