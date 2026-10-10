@@ -59,6 +59,22 @@
       ],
       "interpretation": "The control has an observed fallback win without natural GGS production. A threat proxy restricted to post-ignition states misses this win; report fallback victories separately. This is evidence of independent package contribution, not proof that the five-part GGS architecture cannot win or that each removed payoff card is necessary.",
       "limits": "One illustrative game, not isolated card causality. No recommendation to restore a generic fireworks package solely from this result."
+    },
+    {
+      "variant": "Pure_GGS",
+      "seed": 202610222,
+      "rotation": 0,
+      "review_kind": "Independent payoff candidate; blocker and opponent-race review",
+      "automated_primary": "POWER/PAYOFF_CANDIDATE_REQUIRES_REVIEW",
+      "reviewed_primary_bottleneck": "PAYOFF_DELIVERY_VS_ACCESS_OR_OPPONENT_RACE_UNRESOLVED",
+      "evidence": [
+        "GGS cast own turn4; three Dragons created on own turns5,6,8; no observed commander disruption or wipe. Goldspan returned Treasure; hand count remained five at beginning of own turns6 and8.",
+        "GGS Dragons dealt5 combat damage on turns6,7,8. At turn7 Shadow Rift targeted an existing Dragon while the fresh Goldspan was blocked; no fresh connection that combat.",
+        "Own turn8 combat sent the board at Destyn and dealt12 combat damage including5 from a GGS Dragon; Destyn ultimately lost from life reaching zero. The fixed15/20 whole-board pressure threshold was not crossed.",
+        "On the next observed opposing combat, Combustion Man dealt15 damage from its attack trigger (Pure life24 to9); fresh Dragon459 blocked it but ten combat damage from other attackers reduced Pure to-1."
+      ],
+      "interpretation": "An uninterrupted commander and repeated Dragon production did not beat the surviving opponent in time, but natural Dragon damage contributed to eliminating Destyn. Access allocation and defensive choices coexist with slow payoff delivery and an opponent burst. This is not a clean proof that a functioning surviving Dragon army lacks lethal power, nor should it be dismissed automatically as commander protection failure.",
+      "limits": "No alternate-line replay; exact causality of access, target selection, defense and earlier payoff is unresolved."
     }
   ]
 }
