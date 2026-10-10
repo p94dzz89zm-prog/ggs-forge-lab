@@ -1,5 +1,5 @@
 """Frozen, paired actual-Forge collection. No deck changes and no automatic retry."""
-import argparse, gzip, hashlib, importlib.util, json, shutil, sys, time
+import argparse, gzip, hashlib, importlib.util, json, shutil, sys, time, fcntl
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]; WORK=ROOT.parent
 sys.path.insert(0,str(ROOT)); import dragonmind
@@ -7,6 +7,10 @@ from measure import extract as supplement
 spec=importlib.util.spec_from_file_location('observed',ROOT/'experiments/pure-ggs/analyze.py'); observed=importlib.util.module_from_spec(spec);spec.loader.exec_module(observed)
 p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);p.add_argument('--seed',type=int,required=True);p.add_argument('--seeds',type=int,required=True);p.add_argument('--resume',action='store_true');a=p.parse_args()
 protocol=json.loads((Path(__file__).parent/'protocol.json').read_text());sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+lockpath=WORK/'truly-pure-comparison/collector.lock';lockpath.parent.mkdir(parents=True,exist_ok=True)
+collector_lock=lockpath.open('a')
+try:fcntl.flock(collector_lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+except BlockingIOError:raise SystemExit('A comparison collector is already active; refusing overlapping writes')
 for n,h in protocol['deck_sha256'].items(): assert sha(ROOT/'decks'/f'{n}.dck')==h
 jar=WORK/'decision-clock-probe/engine-decision-clock.jar';assert sha(jar)==protocol['engine_sha256']
 out=a.out.resolve();out.mkdir(parents=True,exist_ok=a.resume);(out/'analysis').mkdir(exist_ok=a.resume)
