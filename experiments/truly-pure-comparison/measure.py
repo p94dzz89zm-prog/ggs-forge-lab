@@ -124,11 +124,12 @@ def extract(directory,row,m,t):
   w['tax_cost_screen']=min((w['defender_budgets'].get(a['defender_id'],0)+2 for a in w['fresh_blocked']),default=None)
   w['potentially_affordable_screen']=w['own_budget_begin'] is not None and w['own_budget_begin']>=w['tax_cost_screen']
   w['red_mana_and_float_unknown']=True;result['blocked_fresh_combats'].append(w)
- log=(directory/row.get('engine_transcript',row['log'])).read_text();personal=0;globalturn=0;cast_lines=[];action_lines=[];name=f'Ai({idx+1})-{row["variant"]}'
+ log=(directory/row.get('engine_transcript',row['log'])).read_text();personal=0;globalturn=0;cast_lines=[];action_lines=[];loot_lines=[];name=f'Ai({idx+1})-{row["variant"]}'
  dragon_damage_turns=collections.Counter();all_born_ids={e['id'] for e in t['events'] if e['kind']=='ggs_dragon'}
  for i,line in enumerate(log.splitlines(),1):
   mt=re.match(r'Turn: Turn (\d+)',line)
   if mt:globalturn=int(mt[1]);personal=turnmap.get(globalturn,personal)
+  if line.startswith('Resolve Stack: Kaito, Cunning Infiltrator (') and name+' draws a card.' in line and name+' discards a card.' in line:loot_lines.append({'turn':personal,'global_turn':globalturn,'line':i,'source':'Kaito, Cunning Infiltrator','kind':'observed_draw_then_discard','net_hand_gain':0})
   mt=re.match(r'Add To Stack: '+re.escape(name)+r' (cast|activated|triggered) (.+)',line)
   if mt:
    kind,desc=mt.groups();source=next((c for c in sorted(cards,key=len,reverse=True) if desc==c or desc.startswith(c+' ') or desc.startswith(c+' -')),None)
@@ -139,6 +140,7 @@ def extract(directory,row,m,t):
   damage=re.match(r'Damage: .+ \((\d+)\) deals (\d+) combat damage to (Ai\(\d+\)-.+?)\.',line)
   if damage and int(damage[1]) in all_born_ids and damage[3]!=name and globalturn in turnmap:dragon_damage_turns[personal]+=int(damage[2])
  result['ggs_dragon_combat_damage_each_turn']=dict(dragon_damage_turns)
+ result['kaito_loot_resolutions']=loot_lines
  hits=[turn for turn,damage in dragon_damage_turns.items() if damage>=15]
  if hits:result['strict_dragon_threat_turn']=min([result['strict_dragon_threat_turn']] + hits) if result['strict_dragon_threat_turn'] is not None else min(hits)
  for c in prev['p']['hand'] if prev else []:cards[c['name']]['final_in_hand']=True
