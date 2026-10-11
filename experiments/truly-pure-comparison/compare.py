@@ -1,5 +1,5 @@
 """Paired seed-block statistics; conditional rates retain explicit denominators."""
-import argparse,collections,json,statistics,gzip,importlib.util
+import argparse,collections,json,statistics,gzip,importlib.util,fcntl,hashlib
 from measure import extract
 from pathlib import Path
 import numpy as np
@@ -36,10 +36,17 @@ def comparison(games):
 if __name__=='__main__':
  spec=importlib.util.spec_from_file_location('observed',Path(__file__).resolve().parents[2]/'experiments/pure-ggs/analyze.py');observed=importlib.util.module_from_spec(spec);spec.loader.exec_module(observed)
  p=argparse.ArgumentParser();p.add_argument('batches',nargs='+',type=Path);p.add_argument('--out',type=Path,required=True);a=p.parse_args();games=[]
+ analysis_lock=(a.out.parent/'analysis.lock').open('a')
+ try:fcntl.flock(analysis_lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+ except BlockingIOError:raise SystemExit('A comparison analysis is already active; refusing overlapping derived writes')
+ source_paths=[Path(__file__),Path(__file__).parent/'measure.py',Path(__file__).resolve().parents[2]/'experiments/pure-ggs/analyze.py']
+ analysis_sources={str(path.relative_to(Path(__file__).resolve().parents[2])):hashlib.sha256(path.read_bytes()).hexdigest() for path in source_paths}
  for directory in a.batches:
   for row in json.loads((directory/'summary.json').read_text()):
    assert row['status']=='completed';key=f"{row['variant']}-{row['seed']}-r{row['seat_rotation']}";m,t=observed.extract(directory,row);m['variant']=row['variant'];assert not m['measurement_gaps'] and m['snapshot_life_match_rate']==1
    (directory/'analysis'/(key+'-metrics.json')).write_text(json.dumps(m,indent=2)+'\n')
    with gzip.open(directory/'analysis'/(key+'-timeline.json.gz'),'wt') as f:json.dump(t,f)
-   extract(directory,row,m,t);(directory/'analysis'/(key+'-extended.json')).write_text(json.dumps(m,indent=2)+'\n');m['batch_directory']=str(directory.resolve());games.append(m)
- result=comparison(games);a.out.write_text(json.dumps(result,indent=2)+'\n');print(json.dumps({'valid':len(games),'effects':result['paired_effects']}))
+   extract(directory,row,m,t);m['analysis_source_sha256']=analysis_sources
+   temporary=directory/'analysis'/(key+'-extended.json.tmp');temporary.write_text(json.dumps(m,indent=2)+'\n');temporary.replace(directory/'analysis'/(key+'-extended.json'));m['batch_directory']=str(directory.resolve());games.append(m)
+ result=comparison(games);result['analysis_source_sha256']=analysis_sources
+ temporary=a.out.with_suffix(a.out.suffix+'.tmp');temporary.write_text(json.dumps(result,indent=2)+'\n');temporary.replace(a.out);print(json.dumps({'valid':len(games),'effects':result['paired_effects']}))
