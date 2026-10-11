@@ -18,6 +18,7 @@ for stage in (32,64,96,128):
   assert row['status']=='completed';identity=(row['variant'],row['seed'],row['seat_rotation']);assert identity not in identities;identities.add(identity)
   key=f"{row['variant']}-{row['seed']}-r{row['seat_rotation']}";m=json.loads((batch/'analysis'/(key+'-extended.json')).read_text());timeline=json.load(gzip.open(batch/'analysis'/(key+'-timeline.json.gz'),'rt'))
   assert not m['measurement_gaps'] and m['snapshot_life_match_rate']==1
+  assert m['analysis_source_sha256']==summary['analysis_source_sha256'],'Mixed measurement-source versions are not a final result'
   archivekey=f"{batch.name}/{row['variant']}/{row['seed']}/r{row['seat_rotation']}";assert archivekey in saved
   triggers=m['fresh_connection_trigger_events'];m['first_trigger_observed_turn']=triggers[0]['turn'] if triggers else None;m['second_trigger_observed_turn']=triggers[1]['turn'] if len(triggers)>1 else None
   m['final_hand_count']=timeline['states'][-1]['hand'];m['first_trigger_fidelity']='Observed triggers and resolved Dragon creation are separate; earliest creation confirms production. Multiple tokens can arise from one trigger.'
