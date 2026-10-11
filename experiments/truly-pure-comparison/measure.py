@@ -30,6 +30,9 @@ def extract(directory,row,m,t):
      if zone=='hand':e['last_hand_turn']=turn
      if c['name']=="Sakashima's Student":student_ids.add(c['id'])
    for c in bf.values():
+    if c['id'] in student_ids:
+     original=cards["Sakashima's Student"];original['battlefield_seen']=True
+     if original['first_battlefield_turn'] is None:original['first_battlefield_turn']=turn
     if c['id'] in student_ids and c['name']!="Sakashima's Student" and student_forms.get(c['id'])!=c['name']:student_copies[(seq,c['id'])]={'turn':turn,'global_turn':s['turn'],'seq':seq,'card_id':c['id'],'copied_name':c['name'],'power':c['power'],'keywords':c['keywords'],'commander':c.get('commander',False)}
    student_forms={c['id']:c['name'] for c in bf.values() if c['id'] in student_ids}
    if first_hand is None and p.get('hand'):
