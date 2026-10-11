@@ -1,5 +1,11 @@
 # Frozen Truly Pure v2 versus Pure GGS
 
+## Final status — completed
+
+All256 production games (128 per arm) are completed, saved and verified;16 validation games are excluded. Both decks remain unchanged. See [the final13-point report and slot audit](FINAL_REPORT.md), [corrected summary](final-summary.json), [representative canonical log excerpts](representative-log-excerpts.md), and [reporting corrections](FINAL_MEASUREMENT_CORRECTIONS.md). The full result bundle retains all per-game observations, source hashes, archive-member hashes and11 complete representative transcripts. Historical interruption notes remain evidence of prior states, not the current status.
+
+
+
 This is a prospective paired package comparison, not individual card ablation. Pure_GGS remains byte-identical to its frozen baseline. Truly_Pure_GGS_v2 imports the supplied audited100-card list, including Ingenious Infiltrator and Sakashima's Student and excluding Reconnaissance Mission and War Cadence. Firework v1.0 remains untouched.
 
 Both experimental decks and Jaymie_Ezio, Gabe_Food and Destyn_Turtles must pass actual Forge Commander conformance before any games. `protocol.json` pins every deck and the already repaired decision-clock executable. No rules, pilot or deck changes are introduced for this comparison. All seats use the established casual full-seven reshuffle house rule; no London sculpting.
