@@ -3,11 +3,14 @@
 Never rerun saved identities. Collection and final reanalysis are separate so
 an interruption during analysis does not launch another collector.
 """
-import argparse,json,os,subprocess,sys,time
+import argparse,json,os,subprocess,sys,time,fcntl
 from pathlib import Path
 HERE=Path(__file__).resolve().parent;WORK=HERE.parents[2]
 p=argparse.ArgumentParser();p.add_argument('--analysis-only',action='store_true');a=p.parse_args()
 batch=WORK/'truly-pure-comparison/stage-128';summary=batch/'summary.json'
+controller_lock=(WORK/'truly-pure-comparison/controller.lock').open('a')
+try:fcntl.flock(controller_lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+except BlockingIOError:raise SystemExit('A final-stage controller is already active; refusing duplicate orchestration')
 def rows():return json.loads(summary.read_text())
 def command(script,*args):return [sys.executable,str(HERE/script),*map(str,args)]
 def checkpoint():subprocess.run(command('checkpoint.py','--batch',batch),check=True)
