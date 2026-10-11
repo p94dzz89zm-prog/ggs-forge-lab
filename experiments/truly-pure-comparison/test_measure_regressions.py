@@ -19,4 +19,7 @@ assert any(e['source']=='Mortify' and e['turn']==3 for e in m['protection_threat
 m=game(32,'Truly_Pure_GGS_v2',202610208,3)
 assert any(d['creation_before_reentry_observed'] for d in m['disruptions'])
 assert all(d['next_trigger_turn'] is None or d['reentry_turn'] is not None for d in m['disruptions'])
-print('PASS: Student identity/forms, protective phasing, canonical target detection, pending-trigger restart separation')
+m=game(64,'Truly_Pure_GGS_v2',202610215,3)
+assert any(e['source']=='Kaito, Cunning Infiltrator' for e in m['factory_ammunition_events'])
+assert m['kaito_loot_resolutions']
+print('PASS: Student identity/forms, protective phasing, canonical target detection, pending-trigger restart separation, Kaito ammunition/loot')
