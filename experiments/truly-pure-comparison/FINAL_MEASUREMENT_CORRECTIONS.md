@@ -1,0 +1,10 @@
+# Reporting corrections before the final comparison
+
+No deck, executable, resource, pilot, seed schedule, timeout, threshold or game outcome was changed. All256 production games must be re-extracted with the same final source.
+
+1. Sakashima's Student's known card ID now marks original-card battlefield deployment even when the visible name is a copy. Copy identities and source-ID resource attribution remain separate. Alias names can still appear in resource/card summaries; they are not extra physical deck cards.
+2. Forge omits phased-out creatures from visible zone lists. A commander disappearance immediately following own March of Swirling Mist is excluded from disruption only when the canonical resolution explicitly names that commander ID as phased out, and the card is absent from all logged zones. Such events are logged separately. Protection can preserve a phased-out commander even when it is absent from the visible battlefield; operational combat uptime still excludes phased-out periods. This was verified in Truly202610211,r3: March preserved GGS through Game Over, followed by another Dragon on own turn10.
+3. Generic snapshot stack descriptions sometimes omit target IDs. Commander-targeted effects are also identified from canonical Add To Stack targeting lists, matching global turn, source controller, source name and actual commander ID. This recovers targeted removal threats such as Truly202610202,r2 Mortify on own turn3. Duplicate same-source activations within one global turn remain a target-association limitation; exact target legality is not inferred.
+4. Exile-description effects are classified as exile even when the commander destination is already command; destination and effect type are distinct observations.
+
+Regression tests use preserved actual-game logs and include repeated Student copies, successful protective phasing, targeted removal, and pending Dragon production before commander reentry. No alternate-line wins were invented. The gate is16 actual validation games, excluded from production estimates. The overlapping unsaved collector output remains quarantined and excluded as documented previously.
