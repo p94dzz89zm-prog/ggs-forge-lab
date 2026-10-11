@@ -1,0 +1,620 @@
+{
+  "valid_games": 256,
+  "seed_blocks": 32,
+  "arms": {
+    "Pure_GGS": {
+      "ignition": {
+        "k": 95,
+        "n": 128,
+        "rate": 0.7421875,
+        "wilson95": [
+          0.6601308077044332,
+          0.8101309791005868
+        ]
+      },
+      "basic": {
+        "k": 50,
+        "n": 128,
+        "rate": 0.390625,
+        "wilson95": [
+          0.31047019100495976,
+          0.47715351817986995
+        ]
+      },
+      "basic_conditional_ignited": {
+        "k": 50,
+        "n": 95,
+        "rate": 0.5263157894736842,
+        "wilson95": [
+          0.4268534817001874,
+          0.6237325786398404
+        ]
+      },
+      "strong": {
+        "k": 56,
+        "n": 128,
+        "rate": 0.4375,
+        "wilson95": [
+          0.3546231312705327,
+          0.5240189882636558
+        ]
+      },
+      "strong_conditional_ignited": {
+        "k": 56,
+        "n": 95,
+        "rate": 0.5894736842105263,
+        "wilson95": [
+          0.4889541909881724,
+          0.6830384141679221
+        ]
+      },
+      "threat": {
+        "k": 49,
+        "n": 128,
+        "rate": 0.3828125,
+        "wilson95": [
+          0.30318625857690457,
+          0.46926771554969865
+        ]
+      },
+      "threat_conditional_ignited": {
+        "k": 49,
+        "n": 95,
+        "rate": 0.5157894736842106,
+        "wilson95": [
+          0.4166522135223193,
+          0.6136994226816975
+        ]
+      },
+      "strict_dragon_pressure": {
+        "k": 21,
+        "n": 128,
+        "rate": 0.1640625,
+        "wilson95": [
+          0.10988331645919454,
+          0.23781807603706795
+        ]
+      },
+      "strict_dragon_pressure_conditional_ignited": {
+        "k": 21,
+        "n": 95,
+        "rate": 0.22105263157894736,
+        "wilson95": [
+          0.14937352947245436,
+          0.31441423092325044
+        ]
+      },
+      "win": {
+        "k": 23,
+        "n": 128,
+        "rate": 0.1796875,
+        "wilson95": [
+          0.1228245997451618,
+          0.25521626286755356
+        ]
+      },
+      "within_one": {
+        "k": 52,
+        "n": 95,
+        "rate": 0.5473684210526316,
+        "wilson95": [
+          0.44738266913924873,
+          0.6436722394728015
+        ]
+      },
+      "within_two": {
+        "k": 61,
+        "n": 95,
+        "rate": 0.6421052631578947,
+        "wilson95": [
+          0.5419151425091481,
+          0.7312495833270022
+        ]
+      },
+      "timing": {
+        "ggs_cast_turn": {
+          "n": 127,
+          "mean": 3.9291338582677167,
+          "median": 3
+        },
+        "ready_ignition_opportunity_turn": {
+          "n": 101,
+          "mean": 6.732673267326732,
+          "median": 6
+        },
+        "first_dragon_turn": {
+          "n": 95,
+          "mean": 6.926315789473684,
+          "median": 6
+        },
+        "second_dragon_turn": {
+          "n": 73,
+          "mean": 8.150684931506849,
+          "median": 7
+        },
+        "access_turn": {
+          "n": 119,
+          "mean": 5.420168067226891,
+          "median": 5
+        },
+        "reliable_access_confirmed_turn": {
+          "n": 67,
+          "mean": 8.313432835820896,
+          "median": 8
+        },
+        "renewable_ammunition_turn": {
+          "n": 110,
+          "mean": 5.4,
+          "median": 5.0
+        },
+        "renewable_ammunition_confirmed_turn": {
+          "n": 76,
+          "mean": 7.618421052631579,
+          "median": 8.0
+        },
+        "usable_renewable_ammunition_confirmed_turn": {
+          "n": 62,
+          "mean": 8.080645161290322,
+          "median": 8.0
+        },
+        "momentum_established_turn": {
+          "n": 92,
+          "mean": 7.478260869565218,
+          "median": 7.0
+        },
+        "strong_turn": {
+          "n": 56,
+          "mean": 9.464285714285714,
+          "median": 9.0
+        },
+        "threat_turn": {
+          "n": 49,
+          "mean": 9.714285714285714,
+          "median": 10
+        },
+        "strict_dragon_threat_turn": {
+          "n": 21,
+          "mean": 10.666666666666666,
+          "median": 10
+        }
+      },
+      "mulligans": {
+        "n": 128,
+        "mean": 0.28125,
+        "median": 0.0
+      },
+      "disruptions": 189,
+      "games_disrupted": 99,
+      "disruption_types": {
+        "removal": 92,
+        "exile": 14,
+        "wipe": 74,
+        "bounce": 8,
+        "counter": 1
+      },
+      "redeployment_downtime": {
+        "n": 155,
+        "mean": 1.6,
+        "median": 1
+      },
+      "missed_combats_before_reentry": {
+        "n": 189,
+        "mean": 0.8465608465608465,
+        "median": 0
+      },
+      "observed_command_zone_casts": 272,
+      "keep_land_faces": {
+        "5": 6,
+        "3": 46,
+        "2": 51,
+        "4": 21,
+        "1": 4
+      },
+      "restart_anytime": {
+        "k": 92,
+        "n": 189
+      },
+      "restart_within_three_all": {
+        "k": 57,
+        "n": 189
+      },
+      "restart_within_three_with_followup": {
+        "k": 57,
+        "n": 133
+      },
+      "recovery_censored": 56,
+      "observed_protection_responses": 5,
+      "responses_with_preservation": 4,
+      "responses_avoided_commander_loss": 4,
+      "responses_followed_by_dragon_within_three": 3,
+      "targeted_or_wipe_threats_logged": 171,
+      "candidate_protection_visible": 74,
+      "combat_uptime": {
+        "present": 927,
+        "observed": 1467
+      },
+      "post_cast_combat_uptime": {
+        "present": 927,
+        "observed": 1088
+      },
+      "static_protection_games": 33,
+      "wipe_recovery": {
+        "k": 28,
+        "n": 66
+      },
+      "bottlenecks": {
+        "AMMUNITION": 7,
+        "PROTECTION/RECOVERY": 53,
+        "IGNITION": 6,
+        "ACCESS": 3,
+        "POWER/PAYOFF_CANDIDATE_REQUIRES_REVIEW": 1,
+        "MOMENTUM": 1
+      },
+      "loss_contexts": {
+        "LIMITED_FOLLOWUP_OR_UNRESOLVED": 2,
+        "OPPONENT_WON_AFTER_THREAT": 13,
+        "OPPONENT_WON_BEFORE_PRESSURE_THRESHOLD": 4,
+        "THREATENED_AND_FOCUSED": 15
+      },
+      "blocked_fresh_games": 36,
+      "blocked_fresh_combats": 76,
+      "potentially_affordable_cadence_games_screen": 22,
+      "feedback_sources": {
+        "Frostcliff Siege": 11,
+        "Prosperous Thief": 10,
+        "Enduring Curiosity": 5,
+        "Goldspan Dragon": 16,
+        "Grim Hireling": 5,
+        "Orochi Soul-Reaver": 16,
+        "Ragavan, Nimble Pilferer": 6,
+        "Satoru, the Infiltrator": 4,
+        "Skullclamp": 6,
+        "Grazilaxx, Illithid Scholar": 5,
+        "Professional Face-Breaker": 10
+      },
+      "student_copies": {}
+    },
+    "Truly_Pure_GGS_v2": {
+      "ignition": {
+        "k": 102,
+        "n": 128,
+        "rate": 0.796875,
+        "wilson95": [
+          0.7190073141485295,
+          0.8574426180640758
+        ]
+      },
+      "basic": {
+        "k": 50,
+        "n": 128,
+        "rate": 0.390625,
+        "wilson95": [
+          0.31047019100495976,
+          0.47715351817986995
+        ]
+      },
+      "basic_conditional_ignited": {
+        "k": 50,
+        "n": 102,
+        "rate": 0.49019607843137253,
+        "wilson95": [
+          0.39531402726372666,
+          0.5857897857195373
+        ]
+      },
+      "strong": {
+        "k": 45,
+        "n": 128,
+        "rate": 0.3515625,
+        "wilson95": [
+          0.2742728728140744,
+          0.43750216107962303
+        ]
+      },
+      "strong_conditional_ignited": {
+        "k": 45,
+        "n": 102,
+        "rate": 0.4411764705882353,
+        "wilson95": [
+          0.3486933262423881,
+          0.5379295516571956
+        ]
+      },
+      "threat": {
+        "k": 38,
+        "n": 128,
+        "rate": 0.296875,
+        "wilson95": [
+          0.2245816608356685,
+          0.3810052276504437
+        ]
+      },
+      "threat_conditional_ignited": {
+        "k": 38,
+        "n": 102,
+        "rate": 0.37254901960784315,
+        "wilson95": [
+          0.28494976078188244,
+          0.46939980800054887
+        ]
+      },
+      "strict_dragon_pressure": {
+        "k": 17,
+        "n": 128,
+        "rate": 0.1328125,
+        "wilson95": [
+          0.08460228531840494,
+          0.2024201669449517
+        ]
+      },
+      "strict_dragon_pressure_conditional_ignited": {
+        "k": 17,
+        "n": 102,
+        "rate": 0.16666666666666666,
+        "wilson95": [
+          0.10674216558718158,
+          0.25078747584379263
+        ]
+      },
+      "win": {
+        "k": 19,
+        "n": 128,
+        "rate": 0.1484375,
+        "wilson95": [
+          0.09713463115350121,
+          0.22022729122630832
+        ]
+      },
+      "within_one": {
+        "k": 45,
+        "n": 102,
+        "rate": 0.4411764705882353,
+        "wilson95": [
+          0.3486933262423881,
+          0.5379295516571956
+        ]
+      },
+      "within_two": {
+        "k": 59,
+        "n": 102,
+        "rate": 0.5784313725490197,
+        "wilson95": [
+          0.4814653869221912,
+          0.6697041092116973
+        ]
+      },
+      "timing": {
+        "ggs_cast_turn": {
+          "n": 124,
+          "mean": 3.717741935483871,
+          "median": 3.0
+        },
+        "ready_ignition_opportunity_turn": {
+          "n": 96,
+          "mean": 6.1875,
+          "median": 6.0
+        },
+        "first_dragon_turn": {
+          "n": 102,
+          "mean": 6.852941176470588,
+          "median": 6.0
+        },
+        "second_dragon_turn": {
+          "n": 73,
+          "mean": 8.232876712328768,
+          "median": 8
+        },
+        "access_turn": {
+          "n": 109,
+          "mean": 5.908256880733945,
+          "median": 5
+        },
+        "reliable_access_confirmed_turn": {
+          "n": 73,
+          "mean": 8.26027397260274,
+          "median": 8
+        },
+        "renewable_ammunition_turn": {
+          "n": 111,
+          "mean": 5.531531531531532,
+          "median": 5
+        },
+        "renewable_ammunition_confirmed_turn": {
+          "n": 77,
+          "mean": 6.454545454545454,
+          "median": 6
+        },
+        "usable_renewable_ammunition_confirmed_turn": {
+          "n": 66,
+          "mean": 7.045454545454546,
+          "median": 7.0
+        },
+        "momentum_established_turn": {
+          "n": 109,
+          "mean": 6.522935779816514,
+          "median": 6
+        },
+        "strong_turn": {
+          "n": 45,
+          "mean": 9.155555555555555,
+          "median": 9
+        },
+        "threat_turn": {
+          "n": 38,
+          "mean": 9.31578947368421,
+          "median": 9.0
+        },
+        "strict_dragon_threat_turn": {
+          "n": 17,
+          "mean": 10.470588235294118,
+          "median": 10
+        }
+      },
+      "mulligans": {
+        "n": 128,
+        "mean": 0.28125,
+        "median": 0.0
+      },
+      "disruptions": 221,
+      "games_disrupted": 107,
+      "disruption_types": {
+        "removal": 115,
+        "wipe": 78,
+        "exile": 17,
+        "bounce": 11
+      },
+      "redeployment_downtime": {
+        "n": 188,
+        "mean": 1.4946808510638299,
+        "median": 1.0
+      },
+      "missed_combats_before_reentry": {
+        "n": 221,
+        "mean": 0.7692307692307693,
+        "median": 0
+      },
+      "observed_command_zone_casts": 300,
+      "keep_land_faces": {
+        "3": 53,
+        "4": 24,
+        "5": 7,
+        "2": 43,
+        "1": 1
+      },
+      "restart_anytime": {
+        "k": 115,
+        "n": 221
+      },
+      "restart_within_three_all": {
+        "k": 79,
+        "n": 221
+      },
+      "restart_within_three_with_followup": {
+        "k": 79,
+        "n": 170
+      },
+      "recovery_censored": 51,
+      "observed_protection_responses": 15,
+      "responses_with_preservation": 8,
+      "responses_avoided_commander_loss": 12,
+      "responses_followed_by_dragon_within_three": 7,
+      "targeted_or_wipe_threats_logged": 203,
+      "candidate_protection_visible": 118,
+      "combat_uptime": {
+        "present": 962,
+        "observed": 1505
+      },
+      "post_cast_combat_uptime": {
+        "present": 962,
+        "observed": 1133
+      },
+      "static_protection_games": 40,
+      "wipe_recovery": {
+        "k": 30,
+        "n": 71
+      },
+      "bottlenecks": {
+        "AMMUNITION": 6,
+        "PROTECTION/RECOVERY": 64,
+        "MOMENTUM": 2,
+        "IGNITION": 4,
+        "ACCESS": 4
+      },
+      "loss_contexts": {
+        "OPPONENT_WON_AFTER_THREAT": 6,
+        "OPPONENT_WON_BEFORE_PRESSURE_THRESHOLD": 3,
+        "THREATENED_AND_FOCUSED": 14,
+        "LIMITED_FOLLOWUP_OR_UNRESOLVED": 6
+      },
+      "blocked_fresh_games": 33,
+      "blocked_fresh_combats": 74,
+      "potentially_affordable_cadence_games_screen": 26,
+      "feedback_sources": {
+        "Frostcliff Siege": 14,
+        "Grazilaxx, Illithid Scholar": 6,
+        "Orochi Soul-Reaver": 21,
+        "Mystic Remora": 13,
+        "Professional Face-Breaker": 13,
+        "Enduring Curiosity": 10,
+        "Prosperous Thief": 18,
+        "Dour Port-Mage": 12,
+        "Ingenious Infiltrator": 8,
+        "Ragavan, Nimble Pilferer": 4,
+        "Skullclamp": 13,
+        "Grim Hireling": 9,
+        "Satoru, the Infiltrator": 4
+      },
+      "student_copies": {
+        "Raphael, the Muscle": 1,
+        "Unstoppable Slasher": 1,
+        "Bayek of Siwa": 2,
+        "Leonardo, the Balance": 5,
+        "Prosperous Thief": 1,
+        "Eagles of the North": 1,
+        "Dragon Spirit Token": 3,
+        "Sam, Loyal Attendant": 1,
+        "Vigor": 1,
+        "Orchard Strider": 1,
+        "Biogenic Ooze": 1,
+        "Edward Kenway": 1,
+        "Olivia, Opulent Outlaw": 1,
+        "Arno Dorian": 1,
+        "Savvy Hunter": 1,
+        "Casey Jones, Back Alley Brute": 1,
+        "Shredder, Shadow Master": 1,
+        "Ezio, Blade of Vengeance": 1,
+        "Michelangelo, the Heart": 1
+      }
+    }
+  },
+  "paired_effects": {
+    "ignition": {
+      "experimental_minus_control_pp": 5.46875,
+      "paired_seed_bootstrap95_pp": [
+        -3.125,
+        14.0625
+      ]
+    },
+    "basic": {
+      "experimental_minus_control_pp": 0.0,
+      "paired_seed_bootstrap95_pp": [
+        -9.375,
+        8.59375
+      ]
+    },
+    "strong": {
+      "experimental_minus_control_pp": -8.59375,
+      "paired_seed_bootstrap95_pp": [
+        -17.96875,
+        1.5625
+      ]
+    },
+    "threat": {
+      "experimental_minus_control_pp": -8.59375,
+      "paired_seed_bootstrap95_pp": [
+        -16.40625,
+        -0.78125
+      ]
+    },
+    "strict_dragon_pressure": {
+      "experimental_minus_control_pp": -3.125,
+      "paired_seed_bootstrap95_pp": [
+        -12.5,
+        6.25
+      ]
+    },
+    "win": {
+      "experimental_minus_control_pp": -3.125,
+      "paired_seed_bootstrap95_pp": [
+        -10.9375,
+        4.6875
+      ]
+    }
+  },
+  "uncertainty": "Intervals quantify seed variation under this engine/pilot; not AI bias. Timing and post-disruption conditional groups differ between decks. Individual changed-card causal effects are not isolated.",
+  "analysis_source_sha256": {
+    "experiments/truly-pure-comparison/compare.py": "b63f8baa7c59772eca64c6e8de0d061458b6b0c3c322823d4174873682f11574",
+    "experiments/truly-pure-comparison/measure.py": "670b1e8f87b5acf2c7c368d95b71852942597a1d78892803ba469f1791f0df41",
+    "experiments/pure-ggs/analyze.py": "d4436b94dd62de154087f910095b5f4b56ff19cdb20061d8fde6985d15a1a71d"
+  }
+}
