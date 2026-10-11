@@ -9,7 +9,8 @@ TREASURE={'Ragavan, Nimble Pilferer','Prosperous Thief','Professional Face-Break
 MASS={'Toxic Deluge','Blasphemous Act','Cyclonic Rift','Damnation','Wrath of God','Vanquish the Horde','Farewell','Game Over','Living Death','Fumigate','Austere Command','Blasphemous Edict','Dusk','Fell the Mighty'}
 ROCKS={'Sol Ring':2,'Arcane Signet':1,'Fellwar Stone':1,'Talisman of Creativity':1,'Talisman of Dominance':1,'Talisman of Indulgence':1}
 def mana_bound(p):
- return sum((1 if 'Land' in c.get('type','') else ROCKS.get(c['name'],1 if c['name']=='Treasure Token' else 0)) for c in p['battlefield'] if not c.get('tapped') and not c.get('phased_out'))
+ treasure_mana=2 if any(c['name']=='Goldspan Dragon' and not c.get('phased_out') for c in p['battlefield']) else 1
+ return sum((1 if 'Land' in c.get('type','') else ROCKS.get(c['name'],treasure_mana if c['name']=='Treasure Token' else 0)) for c in p['battlefield'] if not c.get('tapped') and not c.get('phased_out'))
 def extract(directory,row,m,t):
  directory=Path(directory);idx=row['seats'].index(row['variant']);path=directory/'audit'/Path(row['log']).stem/f'seat-{idx}.jsonl.gz';turnmap={int(k):v for k,v in t['personal_turn_map'].items()}
  log=(directory/row.get('engine_transcript',row['log'])).read_text();phase_resolution_targets=set();logged_targets=collections.defaultdict(list);logged_turn=0
