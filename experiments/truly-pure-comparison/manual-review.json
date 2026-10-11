@@ -1,5 +1,5 @@
 {
-  "status": "ongoing; not final experiment conclusions",
+  "status": "completed256-game collection; reviewed examples, not isolated card causal proofs",
   "measurement_policy": "Original thresholds and automated screens retained. Manual observations are separate; no decks, rules or pilot changes.",
   "reviews": [
     {
@@ -75,6 +75,20 @@
       ],
       "interpretation": "An uninterrupted commander and repeated Dragon production did not beat the surviving opponent in time, but natural Dragon damage contributed to eliminating Destyn. Access allocation and defensive choices coexist with slow payoff delivery and an opponent burst. This is not a clean proof that a functioning surviving Dragon army lacks lethal power, nor should it be dismissed automatically as commander protection failure.",
       "limits": "No alternate-line replay; exact causality of access, target selection, defense and earlier payoff is unresolved."
+    },
+    {
+      "variant": "Pure_GGS",
+      "seed": 202610202,
+      "rotation": 2,
+      "review_kind": "Healthy commander; targeted Dragon attrition and opponent alternate win",
+      "reviewed_primary_bottleneck": "DRAGON_BOARD_PROTECTION_OR_PAYOFF_DELIVERY_UNRESOLVED",
+      "evidence": [
+        "GGS had no observed commander disruption or wipe. Four Dragons were created on own turns5,8,9,10; Dragon combat damage was5 on turns6 and9.",
+        "Royal Assassin destroyed Dragon411 after its attack and Dragon437 at global36. Shellshock dealt5 damage to Dragon451 and destroyed it at global38.",
+        "Own combat-end Dragon counts on turns8,9,10 were1,2,1; hand counts5,7,5. Jaymie eliminated Destyn and won through Ramses, Assassin Lord at global40; Pure remained at13 life."
+      ],
+      "interpretation": "The control's payoff package did not prevent Dragon-board attrition or production gaps on turns6 and7. Card exhaustion and commander downtime are not established causes. This is a delivery/attrition challenge to combat payoff, not proof that intact sustained Dragon production lacks enough power.",
+      "limits": "No alternate-line replay or isolated causal card effect."
     }
   ]
 }
