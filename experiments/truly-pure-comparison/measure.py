@@ -12,9 +12,20 @@ def mana_bound(p):
  return sum((1 if 'Land' in c.get('type','') else ROCKS.get(c['name'],1 if c['name']=='Treasure Token' else 0)) for c in p['battlefield'] if not c.get('tapped') and not c.get('phased_out'))
 def extract(directory,row,m,t):
  directory=Path(directory);idx=row['seats'].index(row['variant']);path=directory/'audit'/Path(row['log']).stem/f'seat-{idx}.jsonl.gz';turnmap={int(k):v for k,v in t['personal_turn_map'].items()}
+ log=(directory/row.get('engine_transcript',row['log'])).read_text();phase_resolution_targets=set();logged_targets=collections.defaultdict(list);logged_turn=0
+ for line in log.splitlines():
+  mt=re.match(r'Turn: Turn (\d+)',line)
+  if mt:logged_turn=int(mt[1])
+  action=re.match(r'Add To Stack: Ai\((\d+)\)-.+? (?:cast|activated|triggered) (.+) targeting \[(.+)\]',line)
+  if action:
+   targeted_ids={int(v) for v in re.findall(re.escape(GGS)+r' \((\d+)\)',action[3])}
+   if targeted_ids:logged_targets[(logged_turn,int(action[1])-1)].append((action[2],targeted_ids))
+  phase=re.match(r'Resolve Stack: March of Swirling Mist \((\d+)\) - (.+) phase out\.',line)
+  if phase:
+   for commander_id in re.findall(re.escape(GGS)+r' \((\d+)\)',phase[2]):phase_resolution_targets.add((logged_turn,int(phase[1]),int(commander_id)))
  result={'protection_availability_fidelity':'Candidate cards visible at threat; exact legal castability, floating mana, and target legality not logged. Untapped-source budget is a screen only.','war_counterfactual_fidelity':'Observed blocked fresh combat, public untapped-source budget screen; no causal War Cadence ablation, opponent floating mana and choices unknown.','cards':{},'resource_events':[],'protection_threats':[],'disruptions':[],'blocked_fresh_combats':[],'ready_ignition_opportunity_turn':None,'engine_exhaustion_turns':[],'strict_dragon_threat_turn':None,'peak_ready_ggs_dragon_power':0}
  cards=collections.defaultdict(lambda:{'hand_seen':False,'battlefield_seen':False,'casts':0,'actions':0,'cards_drawn_observed':0,'treasures_created_observed':0,'first_hand_turn':None,'first_battlefield_turn':None,'last_hand_turn':None,'final_in_hand':False})
- prev=None;lasttop={};states=[];seen_resource_ids=set();pending={};combat_windows={};sources={};first_hand=None;ggs_cast_events=[];seq=-1;student_ids=set();student_copies={};student_forms={};static_protected_turns=set();usable_factory_events={};held_back={};command_casts=[]
+ prev=None;lasttop={};states=[];seen_resource_ids=set();pending={};combat_windows={};sources={};first_hand=None;ggs_cast_events=[];seq=-1;student_ids=set();student_copies={};student_forms={};static_protected_turns=set();usable_factory_events={};held_back={};command_casts=[];protected_phased_ids=set();phase_events=[]
  with gzip.open(path,'rt') as f:
   for l in f:
    x=json.loads(l);s=x.get('state')
@@ -23,6 +34,7 @@ def extract(directory,row,m,t):
    if not p:continue
    seq+=1;turn=t['states'][seq]['turn'];brief=t['states'][seq];assert brief['global_turn']==s['turn']
    bf={c['id']:c for c in p['battlefield']};ggs=next((c for c in bf.values() if c['name']==GGS and c.get('commander')),None);ownstack=[c for c in s['stack'] if c.get('controller_id')==idx]
+   protected_phased_ids.difference_update(bf)
    for zone in ('hand','battlefield'):
     for c in p[zone]:
      e=cards[c['name']];e[zone+'_seen']=True
@@ -50,24 +62,28 @@ def extract(directory,row,m,t):
     oldggs=prev['ggs']
     if oldggs and not ggs and not oldggs.get('phased_out'):
      dest=next((z for z in ('command','hand','graveyard','exile') if any(c['id']==oldggs['id'] for c in p[z])),None)
+     protected_phase=bool(dest is None and own and source=='March of Swirling Mist' and (s['turn'],lasttop.get('id'),oldggs['id']) in phase_resolution_targets)
+     if protected_phase:
+      protected_phased_ids.add(oldggs['id']);phase_events.append({'turn':turn,'global_turn':s['turn'],'seq':seq,'source':source,'commander_id':oldggs['id'],'fidelity':'Own March explicitly targeted commander for phasing; absent from all logged zones, not a zone-change loss.'})
      voluntary=source in {'Alora, Merry Thief','Grazilaxx, Illithid Scholar','Dour Port-Mage'} and own
-     kind='bounce' if dest=='hand' else 'exile' if dest=='exile' else 'removal'
+     kind='bounce' if dest=='hand' else 'exile' if dest=='exile' or 'exile' in lasttop.get('description','').lower() else 'removal'
      if source in MASS:kind='wipe'
-     result['disruptions'].append({'turn':turn,'global_turn':s['turn'],'seq':seq,'source':source,'source_player_id':lasttop.get('controller_id'),'type':kind,'destination':dest,'voluntary_or_protective_bounce':voluntary,'ggs_total_before':brief['ggs_total'],'protection_candidates_before':sorted(PROTECTION & {c['name'] for c in prev['p']['hand']+prev['p']['battlefield']}),'untapped_budget_before':mana_bound(prev['p'])})
+     if not protected_phase:result['disruptions'].append({'turn':turn,'global_turn':s['turn'],'seq':seq,'source':source,'source_player_id':lasttop.get('controller_id'),'type':kind,'destination':dest,'voluntary_or_protective_bounce':voluntary,'ggs_total_before':brief['ggs_total'],'protection_candidates_before':sorted(PROTECTION & {c['name'] for c in prev['p']['hand']+prev['p']['battlefield']}),'untapped_budget_before':mana_bound(prev['p'])})
    # Observe opponent effects targeting the actual commander, plus known wipes.
    for c in s['stack']:
     if c.get('controller_id')==idx:continue
-    desc=c.get('description','');spell_ggs=next((q for q in ownstack if q['name']==GGS and q.get('commander')),None);subject=ggs or spell_ggs;targeted=subject and re.search(r'\('+str(subject['id'])+r'\)',desc)
+    desc=c.get('description','');spell_ggs=next((q for q in ownstack if q['name']==GGS and q.get('commander')),None);subject=ggs or spell_ggs;targeted=subject and (re.search(r'\('+str(subject['id'])+r'\)',desc) or any(subject['id'] in ids and (action==c['name'] or action.startswith(c['name']+' ')) for action,ids in logged_targets[(s['turn'],c.get('controller_id'))]))
     if not targeted and not (ggs and (c['name'] in MASS or 'destroy all creatures' in desc.lower())):continue
     key=(s['turn'],c['id'],desc)
     if key not in pending:
      candidates=sorted(PROTECTION & {c['name'] for c in p['hand']+p['battlefield']})
-     pending[key]={'turn':turn,'global_turn':s['turn'],'seq':seq,'source':c['name'],'description':desc,'ggs_id':subject['id'],'commander_on_stack':bool(spell_ggs and not ggs),'protection_candidates':candidates,'untapped_budget_screen':mana_bound(p),'responses':[],'resolved_observation':False}
+     pending[key]={'turn':turn,'global_turn':s['turn'],'seq':seq,'source':c['name'],'description':desc,'ggs_id':subject['id'],'target_detection':'Actual commander ID in snapshot description or canonical Add To Stack targeting list, matched by global turn/controller/source; known mass effects separately.','commander_on_stack':bool(spell_ggs and not ggs),'protection_candidates':candidates,'untapped_budget_screen':mana_bound(p),'responses':[],'resolved_observation':False}
     e=pending[key];e['responses']=sorted(set(e['responses'])|{q['name'] for q in ownstack if q['name'] in PROTECTION})
    if not s['stack']:
     for key,e in list(pending.items()):
      saved_hand='Dour Port-Mage' in e['responses'] and any(c['id']==e['ggs_id'] for c in p['hand'])
-     e.update(resolved_observation=True,commander_preserved=bool(ggs),commander_saved_to_hand=bool(saved_hand),commander_phased_out=bool(ggs and ggs.get('phased_out')),protection_with_preservation=bool(e['responses'] and ggs),successful_response_avoided_loss=bool(e['responses'] and (ggs or saved_hand)));result['protection_threats'].append(e)
+     phased=e['ggs_id'] in protected_phased_ids or bool(ggs and ggs.get('phased_out'))
+     e.update(resolved_observation=True,commander_preserved=bool(ggs or phased),commander_saved_to_hand=bool(saved_hand),commander_phased_out=phased,protection_with_preservation=bool(e['responses'] and (ggs or phased)),successful_response_avoided_loss=bool(e['responses'] and (ggs or saved_hand or phased)));result['protection_threats'].append(e)
      if e['commander_on_stack'] and not ggs:result['disruptions'].append({'turn':e['turn'],'global_turn':e['global_turn'],'seq':e['seq'],'source':e['source'],'type':'counter','voluntary_or_protective_bounce':False,'ggs_total_before':brief['ggs_total'],'protection_candidates_before':e['protection_candidates'],'untapped_budget_before':e['untapped_budget_screen']})
      del pending[key]
    if s['active_player_id']==idx:
@@ -144,7 +160,7 @@ def extract(directory,row,m,t):
   if s['active'] and s['phase']=='COMBAT_BEGIN':combat_uptime[s['global_turn']]=combat_uptime.get(s['global_turn'],False) or s['ggs']
  result['commander_observed_active_phase_uptime']=sum(combat_uptime.values())/max(1,len(combat_uptime));result['commander_combat_turns_present']=sum(combat_uptime.values());result['observed_combat_turns']=len(combat_uptime)
  post_cast_uptime={g:v for g,v in combat_uptime.items() if m['ggs_cast_turn'] is not None and turnmap[g]>=m['ggs_cast_turn']};result['commander_post_cast_combat_turns_present']=sum(post_cast_uptime.values());result['observed_post_cast_combat_turns']=len(post_cast_uptime)
- result['initial_keep_observed']=first_hand;result['ggs_cast_events']=ggs_cast_events;result['cards']=dict(cards);result['cast_events']=cast_lines;result['student_copies']=list(student_copies.values());result['static_protected_combat_turns']=sorted(static_protected_turns);result['observed_command_zone_casts']=command_casts;result['tax_fidelity']='Command-to-stack transitions observed; exact mana payments and cost modifiers are not logged. Recasts from hand are distinct from observed command-zone casts.'
+ result['initial_keep_observed']=first_hand;result['ggs_cast_events']=ggs_cast_events;result['cards']=dict(cards);result['cast_events']=cast_lines;result['student_copies']=list(student_copies.values());result['protective_phase_events']=phase_events;result['static_protected_combat_turns']=sorted(static_protected_turns);result['observed_command_zone_casts']=command_casts;result['tax_fidelity']='Command-to-stack transitions observed; exact mana payments and cost modifiers are not logged. Recasts from hand are distinct from observed command-zone casts.'
  for w in result['blocked_fresh_combats']:
   w['same_turn_actual_spells']=[c for c in cast_lines if c['global_turn']==w['global_turn']];w['same_turn_actions']=[c for c in action_lines if c['global_turn']==w['global_turn']];w['mana_spent_exact_unknown']=True
  result['momentum_established_turn']=min((e['turn'] for e in result['resource_events']),default=None)
