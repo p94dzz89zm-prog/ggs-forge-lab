@@ -5,6 +5,8 @@ ROOT=Path(__file__).resolve().parents[2]
 AMPS={'Purphoros, God of the Forge','Dragon Tempest','Roaming Throne','Karlach, Fury of Avernus','Port Razer','Aggravated Assault','Annie Joins Up'}
 FACTORIES={'Kari Zev, Skyship Raider','Loyal Apprentice','Lagomos, Hand of Hatred','Urabrask\'s Forge','Fire Navy Trebuchet','Krenko, Tin Street Kingpin','Reinforced Ronin','Nether Traitor','Alora, Merry Thief'}
 ACCESS={'Tetsuko Umezawa, Fugitive','Higure, the Still Wind','Dauthi Trapper','Dauthi Embrace','Break Through the Line','War Cadence'}
+FACTORIES.add('Kaito, Cunning Infiltrator')
+ACCESS.add('Kaito, Cunning Infiltrator')
 ROCKS={'Sol Ring','Arcane Signet','Fellwar Stone','Talisman of Creativity','Talisman of Dominance','Talisman of Indulgence','Goldspan Dragon'}
 CREATION='Whenever one or more creatures you control that entered this turn deal combat damage to a player, create a 5/5 red Dragon Spirit'
 
