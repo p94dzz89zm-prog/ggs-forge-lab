@@ -1,8 +1,12 @@
 """Regression checks against preserved actual games, not invented outcomes."""
 import gzip,json,sys
 from pathlib import Path
-from measure import extract
+from measure import extract,mana_bound
 ROOT=Path(sys.argv[1])
+treasure={'name':'Treasure Token','tapped':False,'type':'Artifact'}
+assert mana_bound({'battlefield':[treasure]})==1
+assert mana_bound({'battlefield':[treasure,{'name':'Goldspan Dragon','tapped':True,'type':'Creature'}]})==2
+assert mana_bound({'battlefield':[treasure,{'name':'Goldspan Dragon','tapped':True,'type':'Creature','phased_out':True}]})==1
 def game(stage,arm,seed,rotation):
  batch=ROOT/f'stage-{stage:03}';row=next(r for r in json.loads((batch/'summary.json').read_text()) if (r['variant'],r['seed'],r['seat_rotation'])==(arm,seed,rotation));key=f'{arm}-{seed}-r{rotation}'
  m=json.loads((batch/'analysis'/(key+'-metrics.json')).read_text());t=json.load(gzip.open(batch/'analysis'/(key+'-timeline.json.gz'),'rt'));return extract(batch,row,m,t)
