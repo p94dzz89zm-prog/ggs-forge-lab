@@ -70,12 +70,12 @@ public final class GgsNinjutsuPolicy {
             }
             boolean ggs = ggsCards.stream().anyMatch(c -> c != outgoing);
             if (CommanderEngineProfile.needsFreshCombatConnection(body)) ggs = true;
-            AdaptiveStrategy strategy = AdaptiveStrategy.current();
-            int dragon = ggs && !freshConnection ? strategy.dragonBonus : 0;
+            DecisionWeights strategy = DecisionWeights.current();
+            int dragon = ggs && !freshConnection ? strategy.dragon() : 0;
             int combatValue = hitValue(incoming, opponent, combat, outgoing) - (outgoingDamage > 0 ? hitValue(outgoing, opponent, combat, outgoing) : 0);
-            int score = 10 * (incomingDamage - outgoingDamage) + combatValue + dragon
-                    + (ComputerUtilCard.evaluateCreature(body) - ComputerUtilCard.evaluateCreature(outgoing)) / 8
-                    - outgoing.getCMC() * strategy.replayPenalty - sa.getPayCosts().getTotalMana().getCMC() * strategy.manaPenalty;
+            int score = strategy.damage() * (incomingDamage - outgoingDamage) + combatValue * strategy.hitPercent() / 100 + dragon
+                    + (ComputerUtilCard.evaluateCreature(body) - ComputerUtilCard.evaluateCreature(outgoing)) / strategy.bodyDivisor()
+                    - outgoing.getCMC() * strategy.replay() - sa.getPayCosts().getTotalMana().getCMC() * strategy.mana();
             if (outgoing.isToken()) score -= ComputerUtilCard.evaluateCreature(outgoing) / 3;
             int lostEngine = switch (outgoing.getName()) {
                 case "Goro-Goro and Satoru" -> 60;
