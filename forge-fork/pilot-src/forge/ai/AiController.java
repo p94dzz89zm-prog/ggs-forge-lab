@@ -892,6 +892,9 @@ public class AiController {
         if (forge.ai.ggs.GgsRecoveryPolicy.rejectRedundantHaste(player, sa)) {
             return AiPlayDecision.CantPlayAi;
         }
+        if (forge.ai.ggs.GgsCounterRescuePolicy.rejectLethalRescueCounter(player, sa)) {
+            return AiPlayDecision.CantPlayAi;
+        }
 
         if (getBoolProperty(AiProps.TRY_TO_PRESERVE_BUYBACK_SPELLS) && card.hasKeyword(Keyword.BUYBACK)
                 && !sa.isBuyback() && !canPlaySpellWithoutBuyback(sa)) {

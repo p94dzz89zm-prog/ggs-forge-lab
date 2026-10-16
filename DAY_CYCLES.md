@@ -12,7 +12,7 @@ accepts `--fixture-classpath` so a vanished upstream source checkout does not
 block retesting; its manifest records the helper's SHA-256.
 
 An ordinary batch runs the 50 admission/learner/research Python checks, all
-current engine suites (14 with MarchDefenseRegression), 128 disjoint randomized
+current engine suites (15 with CounterRescueRegression), 128 disjoint randomized
 positions and three tactical vectors across all four seat rotations of one
 shared development seed. A third vector may mutate a parent only after
 evidence-bound full-game rules and critical-decision admission. Matching
@@ -59,6 +59,8 @@ The March defense overlay is rebuilt separately with forge-fork/build_march_defe
 over its pinned combined-lethal base. See forge-fork/MARCH_DEFENSE.md. Engine
 regressions now isolate each suite's mutable user profile; missing completion
 markers remain failures even after exit 0. Preserve and investigate failures.
+The counter-rescue layer uses forge-fork/build_counter_rescue.py over the pinned
+March-corrected engine. See forge-fork/COUNTER_RESCUE.md for its narrow scope.
 Until incomplete model-startup exits are explained, run full engine validation
 after pod collectors finish. Isolation alone did not eliminate those observed
 concurrent-startup failures. Never count an unmarked exit as a clean suite.
