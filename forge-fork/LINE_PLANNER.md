@@ -148,3 +148,9 @@ both engine hashes and their evidence separate; the natural smoke games were
 not replayed or retroactively given corrected floating-mana fields. Repeating
 the cycle6 randomized positions on this rebuild does not create another 128
 independent positions. The planner remains experimental and off by default.
+
+
+Cycle7 adds the scoped public-removal reservation and corrects lost targeted
+stack information in the shared threat predictor. See PROTECTION_RESERVE.md
+for actual response/payment tests, worker-audit isolation, supported scope and
+remaining limits. The planner runner now has41 constructed check groups.

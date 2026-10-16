@@ -8,7 +8,9 @@ import java.util.Random;
 
 /** Per-thread branch scope. No branch may consume the live game's RNG. */
 public final class PlannerContext implements AutoCloseable {
-    private static final ThreadLocal<Integer> DEPTH = ThreadLocal.withInitial(() -> 0);
+    private static final InheritableThreadLocal<Integer> DEPTH = new InheritableThreadLocal<>() {
+        @Override protected Integer initialValue() { return 0; }
+    };
     public static final String UNKNOWN = "DragonMind Unknown Card";
     private final Random previousRandom;
     private final int previousDepth;

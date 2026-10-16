@@ -1673,7 +1673,10 @@ public class ComputerUtil {
             if (spell.isWrapper()) {
                 spell = ((WrappedAbility) spell).getWrappedAbility();
             }
-            if (spell.getOriginalAbility() != null && spell.getOriginalAbility().getHostCard().equals(spell.getHostCard())) {
+            // Targeted stack instances own the chosen targets. Their reusable
+            // original ability may already have been reset after activation.
+            if (!spell.usesTargeting() && spell.getOriginalAbility() != null
+                    && spell.getOriginalAbility().getHostCard().equals(spell.getHostCard())) {
                 spell = spell.getOriginalAbility();
             }
             while (sub != null && sub != sa) {

@@ -143,6 +143,11 @@ public final class GgsLinePlanner {
    SpellAbility choice=find(p,r.chosen().get(0));
    if(choice!=null){choice.setActivatingPlayer(p);if(choice.canPlay()&&ComputerUtilCost.canPayCost(choice,p,false))selected=List.of(choice);}
   }
-  PlannerTrace.record(p,r,stock,selected);return selected;
+  GgsProtectionReserve.Advice reserve=null;
+  if(selected!=null&&selected.size()==1) {
+   reserve=GgsProtectionReserve.inspect(p,selected.get(0),Long.getLong("dragonmind.protectionProbeMillis",1500L));
+   if(reserve.veto())selected=null;
+  }
+  PlannerTrace.record(p,r,stock,selected,reserve);return selected;
  }
 }

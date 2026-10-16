@@ -23,6 +23,8 @@ public class PlannerForkRegression extends AITest {
   game.getPhaseHandler().devModeSet(PhaseType.MAIN1,ai,false,5);
   String before=PlannerSnapshot.forPlayer(ai).toString();Random original=MyRandom.getRandom();Random rng=new Random(801);MyRandom.setRandom(rng);
   try(PlannerContext scope=PlannerContext.enter(91)) {
+   String oldAudit=System.getProperty("forge.audit.directory");java.nio.file.Path branchAudit=java.nio.file.Path.of(System.getProperty("user.home"),"branch-only-audit");System.setProperty("forge.audit.directory",branchAudit.toString());
+   boolean[] inherited={false};Thread worker=new Thread(()->{inherited[0]=PlannerContext.active();forge.ai.bridge.BridgeAudit.evaluation(ai,ggs.getFirstSpellAbility(),"branch must stay private projection");});worker.start();try{worker.join();}catch(InterruptedException e){throw new AssertionError(e);}Assert.assertTrue(inherited[0],"branch evaluation thread inherits audit suppression");Assert.assertFalse(java.nio.file.Files.exists(branchAudit),"no projected worker evaluation in actual-game audit");if(oldAudit==null)System.clearProperty("forge.audit.directory");else System.setProperty("forge.audit.directory",oldAudit);
    GameCopier copier=new GameCopier(game);Game fork=copier.makeCopy(null,ai);Player selected=copier.find(ai),enemy=copier.find(opp);
    Assert.assertNotSame(fork,game);checks++;Assert.assertEquals(selected.getCardsIn(ZoneType.Hand).get(0).getName(),"Kari Zev, Skyship Raider");checks++;
    Assert.assertEquals(enemy.getCardsIn(ZoneType.Hand).get(0).getName(),PlannerContext.UNKNOWN);checks++;

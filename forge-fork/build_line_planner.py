@@ -12,7 +12,7 @@ def main():
  with tempfile.TemporaryDirectory() as tmp:
   subprocess.run(['java','-XX:-UsePerfData','-m','jdk.compiler/com.sun.tools.javac.Main','-cp',str(base),'-d',tmp,*map(str,sources)],check=True)
   changes={f.relative_to(tmp).as_posix():f.read_bytes() for f in pathlib.Path(tmp).rglob('*.class')}
-  allowed=['forge/ai/ComputerUtil','forge/ai/AiController','forge/ai/bridge/BridgeAudit','forge/ai/bridge/PlayerControllerBridge','forge/ai/simulation/GameCopier','forge/ai/ggs/PlannerContext','forge/ai/ggs/PlannerSnapshot','forge/ai/ggs/PlannerTrace','forge/ai/ggs/GgsLinePlanner']
+  allowed=['forge/ai/ComputerUtil','forge/ai/AiController','forge/ai/bridge/BridgeAudit','forge/ai/bridge/PlayerControllerBridge','forge/ai/simulation/GameCopier','forge/ai/ggs/PlannerContext','forge/ai/ggs/PlannerSnapshot','forge/ai/ggs/PlannerTrace','forge/ai/ggs/GgsLinePlanner','forge/ai/ggs/GgsProtectionReserve']
   if any(not any(n==v+'.class' or n.startswith(v+'$') for v in allowed) for n in changes):raise ValueError('Unexpected overlay')
   names=sorted(changes)
   with zipfile.ZipFile(base) as z,zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as target:
