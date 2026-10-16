@@ -75,13 +75,13 @@ million-game training platform.
 
 ## Fresh verification
 
-`run_pilot_recovery.py` now verifies 131 targeted scenarios and 64 randomized combat positions (211
+`run_pilot_recovery.py` in the rigorous run verifies 157 targeted scenarios and 512 randomized full-controller combat positions (685
 executions including 16 repeated Prowler checks). The new combat fixtures pay
 native ninjutsu and graveyard Sneak costs and resolve the real triggers: native
 ninjutsu activates both Satoru rewards; paid Sneak does not. They also verify
 supplementary fresh attacks and profile-dependent opening preferences.
 
-`python -m unittest -v test_adaptive_pilot` runs six checks of persistence, automatic
+`python -m unittest -v test_adaptive_pilot` runs 18 checks of persistence, automatic
 preference change under controlled feedback, held-out/failure isolation and
 event-metric parsing. Controlled feedback tests are software tests, not evidence
 that a particular profile is superior in real games.
@@ -119,3 +119,32 @@ Audit collection can now target the GGS seat with `forge.audit.player`, avoiding
 redundant snapshots of all four private views. This is an instrumentation scope
 control, not a proven cure for all timeouts. The engine hash changes, so it is a
 new learning context. Old evidence remains tied to its original engine hash.
+
+## Rigor pass and attack-limit repair
+
+Use `--random-cases 512 --random-start 20000` on the regression runner to
+reproduce the expanded pass. The randomized referee now calls the full AI
+controller, not just the low-level proposal builder. This matters: the
+low-level planner can exceed Crawlspace, while the controller restores legality
+by falling back to no attacks. A targeted full-controller fixture demonstrated
+that lost safe attack. The new bounded subset recovery preserves useful legal
+attacks before the empty fallback, including without GGS. It does not relax
+combat requirements or mana checks, searches at most ten proposed attackers,
+and leaves unhandled cases to the stock fallback.
+
+One provisional game's `Correcting zone for Hithlain Rope` console messages
+were temporarily withheld and then investigated. The pinned GameAction source
+prints that message during normal controller changes, and Hithlain Rope passes
+control as part of its abilities. That diagnostic alone is not corruption. The
+review history preserves the investigation and the return to pending status;
+none of the six sandbox games is strategically approved.
+
+The reviewer now verifies console and canonical-file hashes, result agreement,
+observed-effect counts and recomputed reward before accepting a scoped pass.
+Genuine engine exceptions withhold collector rewards automatically. Tests cover
+both corrupted evidence and this normal controller-change false positive.
+
+The learner remains a limited profile tuner. The attack-limit fix and other
+rule/timing repairs are programmed changes found through testing, not tactics
+that a general learning model invented. No all-card tactical learner or
+mistake-free-play certificate is claimed.

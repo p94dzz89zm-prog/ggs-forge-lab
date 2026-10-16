@@ -1,0 +1,12 @@
+{
+  "AccessPackageRegression.java": "a1adc392d1cff15e09f52db3ef681456df5d4cdf8928939bcb27c446b8b6edc0",
+  "FireworkPilotRegression.java": "b3c7fe752f86e73432967b52d01151973dff34657ee1194fe2d0e0b77d15c4e9",
+  "FrostcliffRegression.java": "032601ab37ae4e8f17ba484a47522d4dd4eddd55915605dab6423734de6aece8",
+  "BoundedForecastRegression.java": "6525db62651afe3d20914a132d7ce0f527be47a00759cea0c0caf6a23ba030cf",
+  "PilotRecoveryRegression.java": "034a5dbc4e85dc89683119ad845d785f2b6f6b1882954efefca2ebacc5966a25",
+  "CombatRecoveryRegression.java": "ebcdd4ff87010f627a22bb1df6aa918e3eb31e0ca3086f4947efd21e5b91830a",
+  "RandomCombatReferee.java": "bdef3e219373e509693652de506f7edb2ee6856ebecf29fe10dd6ee33efa04c1",
+  "AuditScopeRegression.java": "46b82c691519d493aec1c351fa6383e81876ea0f143c3b04396f363a67d850f2",
+  "SneakVarietyRegression.java": "420734044e5c9898b4cccdf5ab192f5e80b9374b0108be6d480319c659c1d049",
+  "AttackLimitRegression.java": "1232bd17dd33b45ced58f221631cbb4151d809a5231b202a8b69890211de21d5"
+}

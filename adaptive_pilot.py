@@ -49,7 +49,7 @@ def connect(path):
 def statistics(db, context, reviewed=False):
     review_filter="AND EXISTS (SELECT 1 FROM reviews r WHERE r.run=episodes.run AND r.idx=episodes.idx AND r.status='pass')" if reviewed else ""
     rows=db.execute(f"""SELECT profile,COUNT(*) n,AVG(reward) mean FROM episodes
-        WHERE context=? AND mode='train' AND status IN ('completed','completed_draw') AND reward BETWEEN 0 AND 1 {review_filter} GROUP BY profile""",(context,)).fetchall()
+        WHERE context=? AND mode='train' AND status IN ('completed','completed_draw') AND reward BETWEEN 0 AND 1 AND NOT EXISTS (SELECT 1 FROM reviews x WHERE x.run=episodes.run AND x.idx=episodes.idx AND x.status='reject') {review_filter} GROUP BY profile""",(context,)).fetchall()
     found={r["profile"]:dict(r) for r in rows}
     return {p:found.get(p,{"profile":p,"n":0,"mean":0.0}) for p in PROFILES}
 
@@ -91,6 +91,10 @@ def utility(metrics, won):
     return (.55*min(metrics["ggs_triggers"]/turns/2,1)
            +.25*min(metrics["opponent_combat_damage_on_own_turn"]/turns/15,1)
            +.10*min(metrics["life_gained"]/turns/5,1)+.10*int(won))
+
+def eligible_reward(console, observed_reward):
+    if dragonmind.ENGINE_FAILURE.search(console):return None
+    return observed_reward
 
 def export(db, out):
     rows=[dict(r) for r in db.execute("SELECT * FROM episodes WHERE run=? ORDER BY idx",(str(out),))]
@@ -175,6 +179,11 @@ def main():
                     reward=utility(vector,row.get("winner")==own) if a.mode=="train" else None
                     evidence.update(metrics=vector,evaluation_utility=utility(vector,row.get("winner")==own),
                         transcript_sha256=sha(trace),record_sha256=sha(attempt/row["engine_record"]))
+                evidence["console_sha256"]=sha(attempt/row["log"])
+                evidence["console_hash_capture"]="end of attempt"
+                checked=eligible_reward((attempt/row["log"]).read_text(errors="replace"),reward)
+                if reward is not None and checked is None:evidence["quarantine_reason"]="Engine error; no preference update"
+                reward=checked
                 atomic_json(attempt/"experience.json",evidence)
                 db.execute("UPDATE episodes SET status=?,reward=?,evidence=? WHERE run=? AND idx=?",
                     (row["status"],reward,json.dumps(evidence),str(a.output),idx));db.commit();export(db,a.output)

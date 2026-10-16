@@ -45,7 +45,7 @@ The full-game experiments used engine SHA-256
 The final audit-scope repair has a different hash, recorded under
 `forge-fork/validation/pilot-recovery-r6/`. Do not pool them silently.
 
-`evidence.zip` contains complete canonical records/transcripts, inputs and
+The privately retained evidence archive contains complete canonical records/transcripts, inputs and
 commands, sandbox experience and a consistent SQLite backup. Variety probes
 include the GGS seat's private audit stream; other seats' private audit streams
 are omitted. Its manifest hashes every member. The archive passes ZIP CRC
@@ -54,3 +54,5 @@ verification and has a separate SHA-256 receipt.
 The report at `reports/pilot-lab.html` is a read-only view of the eight learner
 episodes. Controls and separate probes are in this archive rather than that
 table. No million-game run or continuous background training is claimed.
+
+The evidence archive is kept private and is not part of the public source branch. Its saved copy was read back and verified by SHA-256 and ZIP CRC.

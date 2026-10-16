@@ -1313,6 +1313,7 @@ public class AiController {
         lastAttackAggression = aiAtk.declareAttackers(combat);
 
         aiAtk.reinforceWithBanding(combat);
+        forge.ai.ggs.AttackLimitRecovery.repair(attacker, combat);
 
         // Per CR 508.1d, the decision to pay attack costs (e.g. Propaganda)
         // is made at declaration time. Remove attackers the AI can't pay for.

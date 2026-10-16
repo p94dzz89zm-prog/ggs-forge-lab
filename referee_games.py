@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Audit game-record integrity and flag review leads. Not a strategic oracle."""
 import argparse
-import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -22,8 +21,11 @@ def inspect(directory):
   for line in text.splitlines():
    if "Goro-Goro and Satoru" in line and "was put into Hand from Battlefield" in line:
     leads.append({"kind":"commander-return","event":line,"meaning":"Could be legitimate interaction; inspect cause before calling it an error."})
+  console=record.parents[2]/(record.parent.name+".log")
+  zone_warnings=console.read_text(errors="replace").count("Correcting zone for") if console.exists() else None
   reports.append({"record":str(record),"seed":expected["seed"],"status":expected["status"],
    "record_integrity_passed":not issues,"issues":issues,"review_leads":leads,
+   "control_change_diagnostics":zone_warnings,"diagnostic_meaning":"Controller-change messages alone are informational, not proof of an engine error.","learning_eligibility":"withheld" if issues or zone_warnings is None else "pending strategic review",
    "record_sha256":hashlib.sha256(record.read_bytes()).hexdigest(),
    "transcript_sha256":hashlib.sha256(trace.read_bytes()).hexdigest(),
    "rules_review":"Only covered mechanics have scenario-level tests; no full-game correctness certificate.",
