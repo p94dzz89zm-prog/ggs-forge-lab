@@ -62,6 +62,21 @@ public final class GgsNinjutsuPolicy {
             // Preserve an already lethal connection; source printed power is not a lethal forecast.
             if (outgoingDamage >= opponent.getLife() && opponent.canLoseLife()
                     && !opponent.cantLoseForZeroOrLessLife()) continue;
+            // Several unblocked creatures can be lethal together even when none
+            // is lethal alone. Do not trade that damage for a future Dragon.
+            // Count only this defender's remaining damage batch; other players'
+            // attackers and creatures that already dealt first-strike damage
+            // cannot supply the missing damage.
+            int combinedDamage = 0;
+            for (Card other : combat.getUnblockedAttackers()) {
+                if (other.getController() == ai && !other.isPhasedOut()
+                        && defender.equals(combat.getDefenderByAttacker(other))) {
+                    combinedDamage += damageRemaining(other, opponent, phase);
+                }
+            }
+            if (combinedDamage >= opponent.getLife()
+                    && combinedDamage - outgoingDamage + incomingDamage < opponent.getLife()
+                    && opponent.canLoseLife() && !opponent.cantLoseForZeroOrLessLife()) continue;
             boolean freshConnection = outgoing.enteredThisTurn() && outgoingDamage > 0;
             for (Card other : combat.getUnblockedAttackers()) {
                 if (other != outgoing && other.getController() == ai && other.enteredThisTurn()

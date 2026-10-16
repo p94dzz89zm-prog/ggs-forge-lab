@@ -15,7 +15,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parent
 SUITES = {"AccessPackageRegression":28, "FireworkPilotRegression":20,
           "FrostcliffRegression":7, "BoundedForecastRegression":8,
-          "PilotRecoveryRegression":52, "CombatRecoveryRegression":28, "RandomCombatReferee":64, "AuditScopeRegression":4, "SneakVarietyRegression":18, "AttackLimitRegression":8, "HasteEconomyRegression":9, "DecisionWeightsRegression":21}
+          "PilotRecoveryRegression":52, "CombatRecoveryRegression":28, "RandomCombatReferee":64, "AuditScopeRegression":4, "SneakVarietyRegression":18, "AttackLimitRegression":8, "HasteEconomyRegression":9, "DecisionWeightsRegression":21, "CombinedLethalRegression":18}
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -40,7 +40,7 @@ def main():
     suites={**SUITES,"RandomCombatReferee":a.random_cases}
     a.logs.mkdir(parents=True,exist_ok=False)
     manifest={"jar_sha256":digest(a.jar),"suites":[],"all_passed":False,
-              "targeted_scenarios":166,"configuration_checks":21,"randomized_positions":a.random_cases,"executions":203+a.random_cases,
+              "targeted_scenarios":184,"configuration_checks":21,"randomized_positions":a.random_cases,"executions":221+a.random_cases,
               "note":"16 Prowler repetitions are repeated scenarios, not independent games."}
     if a.fixture_classpath:
         helper=a.fixture_classpath/'forge/ai/AITest.class'
