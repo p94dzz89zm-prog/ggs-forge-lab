@@ -9,6 +9,7 @@ import java.nio.file.Path;
 public final class BridgeAudit {
     private BridgeAudit() {}
     public static void evaluation(Player player,SpellAbility ability,String decision) {
+        if(forge.ai.ggs.PlannerContext.active())return;
         String dir=System.getProperty("forge.audit.directory");if(dir==null)return;
         String selected=System.getProperty("forge.audit.player");if(selected!=null&&!selected.equals(player.getName()))return;
         JsonObject row=new JsonObject();row.addProperty("kind","ai_evaluation");

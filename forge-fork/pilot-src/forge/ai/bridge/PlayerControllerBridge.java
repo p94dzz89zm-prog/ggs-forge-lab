@@ -25,11 +25,12 @@ public class PlayerControllerBridge extends PlayerControllerAi {
         channel=remote?new BridgeChannel(Path.of(System.getProperty("forge.bridge.directory","bridge"))):null;
     }
     private JsonObject request(String kind,JsonArray options) {
-        JsonObject q=new JsonObject();q.addProperty("kind",kind);q.add("state",BridgeSnapshot.forPlayer(player));q.add("options",options);
+        JsonObject q=new JsonObject();q.addProperty("kind",kind);q.add("state",forge.ai.ggs.PlannerSnapshot.forPlayer(player));q.add("options",options);
         q.addProperty("assistance","Stock automatic mana, costs, mulligans, damage assignment and unoverridden hooks; use auto only explicitly.");
         return q;
     }
     private void audit(String kind,JsonObject detail) {
+        if(forge.ai.ggs.PlannerContext.active())return;
         String dir=System.getProperty("forge.audit.directory");if(dir==null)return;
         String selected=System.getProperty("forge.audit.player");if(selected!=null&&!selected.equals(player.getName()))return;
         JsonObject row=request(kind,new JsonArray());row.add("decision",detail);

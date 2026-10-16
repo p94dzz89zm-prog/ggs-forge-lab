@@ -42,3 +42,10 @@ paired seeds. No vector was promoted. Further work should emphasize positions
 that distinguish legal alternatives and diagnose decisions before attributing
 losses to card slots. Current opponents remain archived deck proxies and stock
 Forge pilots; this does not establish error-free piloting of any pod deck.
+
+The opt-in two-action development planner in `forge-fork/LINE_PLANNER.md` now
+searches executable public-projection lines independently of this coefficient
+search. Its material scores are not learned probabilities. It remains a
+bounded experimental policy, leaves the incumbent default intact, and cannot
+admit outcomes without the same full-game review. Projection, response and
+combat-scenario limitations must accompany its results.
