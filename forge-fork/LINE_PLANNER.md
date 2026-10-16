@@ -72,8 +72,8 @@ combined-lethal, counter-payment, haste and March corrections are preserved.
 
 Run `run_line_planner.py` with actual `--jar`, `--engine`, `--testng`,
 `--fixture-classpath` and a fresh `--output`. It checks 8 fork/isolation groups
-and 17 decision/legality groups. These are constructed checks, not 25 natural
-games. `run_pilot_recovery.py` separately runs all 17 incumbent suites and fresh
+and 17 decision/legality groups, plus the later command and mana audit groups
+(31 total). These are constructed checks, not natural games. `run_pilot_recovery.py` separately runs all 17 incumbent suites and fresh
 randomized positions on the same packaged build. The separate
 LinePlannerHeldoutRegression requires `--purpose heldout`; it must be evaluated
 once after freezing and not used to tune that build.
@@ -130,3 +130,21 @@ The final commander-scope/payment build passed all 17 legacy suites, 128 disjoin
 randomized positions (50768–50895), 82 Python tests, all 28 planner groups and
 all three fresh held-out commander cases. These are scoped mechanism results;
 the natural paired smoke and full-game strategic reviews remain separate.
+
+## Structured mana audit
+
+The initial added `public_mana_pools` field called ManaPool.toString(), which
+produced an object label, not quantities. Those older logs are retained as
+incomplete audit evidence. The corrected snapshot records totals, W/U/B/R/G/C
+counts, per-unit source IDs and snow/restriction flags. Restriction flags are
+metadata, not a guarantee every unit can pay every spell; engine payment remains
+authoritative. A three-group engine regression actually activates Island and
+Mountain, checks floating U/R with source metadata, then pays for and resolves
+Kari Zev from that pool and checks it empties. The runner now has 31 groups.
+
+An audit-only rebuild differs from the frozen payment-guard game build in
+PlannerSnapshot.class alone. Policy and card-rule bytes are identical. Keep
+both engine hashes and their evidence separate; the natural smoke games were
+not replayed or retroactively given corrected floating-mana fields. Repeating
+the cycle6 randomized positions on this rebuild does not create another 128
+independent positions. The planner remains experimental and off by default.

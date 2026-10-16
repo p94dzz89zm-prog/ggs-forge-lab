@@ -36,7 +36,17 @@ public final class PlannerSnapshot {
             combat.add("attackers",attackers);
         }
         out.add("public_combat",combat);JsonArray mana=new JsonArray();
-        for(Player p:viewer.getGame().getPlayers()){JsonObject row=new JsonObject();row.addProperty("player_id",p.getId());row.addProperty("pool",p.getManaPool().toString());mana.add(row);}
+        for(Player p:viewer.getGame().getPlayers()) {
+            JsonObject row=new JsonObject();row.addProperty("player_id",p.getId());row.addProperty("total",p.getManaPool().totalMana());
+            JsonObject colors=new JsonObject();String[] names={"W","U","B","R","G","C"};byte[] masks={1,2,4,8,16,32};
+            for(int i=0;i<masks.length;i++)colors.addProperty(names[i],p.getManaPool().getAmountOfColor(masks[i]));
+            row.add("colors",colors);JsonArray units=new JsonArray();
+            for(var unit:p.getManaPool()) {
+                JsonObject entry=new JsonObject();entry.addProperty("color_mask",unit.getColor());entry.addProperty("snow",unit.isSnow());entry.addProperty("restricted",unit.isRestricted());
+                if(unit.getSourceCard()!=null)entry.addProperty("source_card_id",unit.getSourceCard().getId());units.add(entry);
+            }
+            row.add("units",units);mana.add(row);
+        }
         out.add("public_mana_pools",mana);return out;
     }
 }
