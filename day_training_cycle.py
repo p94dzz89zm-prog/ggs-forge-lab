@@ -25,7 +25,9 @@ def run(args):
         except BlockingIOError:
             print('Another cycle owns the lock; no duplicate work started.');return
         existing=[int(p.name.split('-')[1]) for p in args.output.glob('cycle-*') if p.is_dir() and p.name.split('-')[1].isdigit()]
-        idx=max(existing,default=-1)+1;out=args.output/f'cycle-{idx:03d}';out.mkdir()
+        idx=args.cycle_number if args.cycle_number is not None else max(existing,default=-1)+1
+        if idx<0:raise ValueError('Cycle number must be nonnegative')
+        out=args.output/f'cycle-{idx:03d}';out.mkdir(exist_ok=False)
         record={'cycle':idx,'status':'running','pid':os.getpid(),'started_unix':time.time(),
             'engine_sha256':a.sha(args.jar),'development_seed':2026110000+idx*10,
             'reserved_holdout_seed':2026120000+idx*10,'random_start':50000+idx*128,
@@ -68,6 +70,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for key in ['engine','jar','testng','fixture-classpath','output']:p.add_argument('--'+key,type=Path,required=True)
     p.add_argument('--candidates',type=int,default=3);p.add_argument('--timeout',type=int,default=120)
+    p.add_argument('--cycle-number',type=int,help='Explicit next number from the durable day ledger after workspace recovery')
     args=p.parse_args()
     for key in ['engine','jar','testng','fixture_classpath']:setattr(args,key,getattr(args,key).resolve())
     if args.candidates<2 or args.timeout<1:p.error('At least two candidates and positive timeout required')
