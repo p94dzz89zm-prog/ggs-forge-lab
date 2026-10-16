@@ -39,7 +39,11 @@ public final class GgsLinePlanner {
  private static boolean supported(SpellAbility sa) {
   if(sa.getPayCosts()==null||sa.getPayCosts().getTotalMana().toString().contains("X"))return false;
   if(sa.usesTargeting()||sa.getSubAbility()!=null||sa.isLandAbility())return false;
-  if(sa.isSpell())return sa.getApi()==ApiType.PermanentCreature||sa.getApi()==ApiType.PermanentNoncreature;
+  // Do not override command/graveyard/exile casts or modified ability copies:
+  // those incumbent alternatives are not enumerated by this hand-only search.
+  if(sa.isSpell())return sa.getHostCard().isInZone(ZoneType.Hand)
+   &&sa.getHostCard().getSpellAbilities().contains(sa)
+   &&(sa.getApi()==ApiType.PermanentCreature||sa.getApi()==ApiType.PermanentNoncreature);
   return sa.isActivatedAbility()&&sa.getApi()==ApiType.PumpAll
    &&"Goro-Goro and Satoru".equals(sa.getHostCard().getName())
    &&"Creature.YouCtrl".equals(sa.getParam("ValidCards"))&&"Haste".equals(sa.getParam("KW"))

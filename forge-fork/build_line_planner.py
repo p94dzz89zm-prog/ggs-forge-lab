@@ -7,12 +7,12 @@ def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--base',type=pathlib.Path,required=True);p.add_argument('--output',type=pathlib.Path,required=True);a=p.parse_args();base=a.base.resolve();out=a.output.resolve()
  if hashlib.sha256(base.read_bytes()).hexdigest()!=BASE_SHA256:p.error('Expected payment/trample-verified cycle4 incumbent')
  if out.exists():p.error('Choose a new output; preserve earlier attempts')
- sources=sorted((ROOT/'planner-src').rglob('*.java'))+[ROOT/'pilot-src'/name for name in ['forge/ai/AiController.java','forge/ai/bridge/BridgeAudit.java','forge/ai/bridge/PlayerControllerBridge.java']]
+ sources=sorted((ROOT/'planner-src').rglob('*.java'))+[ROOT/'pilot-src'/name for name in ['forge/ai/ComputerUtil.java','forge/ai/AiController.java','forge/ai/bridge/BridgeAudit.java','forge/ai/bridge/PlayerControllerBridge.java']]
  out.parent.mkdir(parents=True,exist_ok=True)
  with tempfile.TemporaryDirectory() as tmp:
   subprocess.run(['java','-XX:-UsePerfData','-m','jdk.compiler/com.sun.tools.javac.Main','-cp',str(base),'-d',tmp,*map(str,sources)],check=True)
   changes={f.relative_to(tmp).as_posix():f.read_bytes() for f in pathlib.Path(tmp).rglob('*.class')}
-  allowed=['forge/ai/AiController','forge/ai/bridge/BridgeAudit','forge/ai/bridge/PlayerControllerBridge','forge/ai/simulation/GameCopier','forge/ai/ggs/PlannerContext','forge/ai/ggs/PlannerSnapshot','forge/ai/ggs/PlannerTrace','forge/ai/ggs/GgsLinePlanner']
+  allowed=['forge/ai/ComputerUtil','forge/ai/AiController','forge/ai/bridge/BridgeAudit','forge/ai/bridge/PlayerControllerBridge','forge/ai/simulation/GameCopier','forge/ai/ggs/PlannerContext','forge/ai/ggs/PlannerSnapshot','forge/ai/ggs/PlannerTrace','forge/ai/ggs/GgsLinePlanner']
   if any(not any(n==v+'.class' or n.startswith(v+'$') for v in allowed) for n in changes):raise ValueError('Unexpected overlay')
   names=sorted(changes)
   with zipfile.ZipFile(base) as z,zipfile.ZipFile(out,'w',zipfile.ZIP_DEFLATED) as target:

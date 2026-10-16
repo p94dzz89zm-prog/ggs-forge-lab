@@ -2,13 +2,13 @@
 """Run isolated planner checks; preserve every attempt and require exact markers."""
 import argparse,hashlib,json,pathlib,subprocess,tempfile
 ROOT=pathlib.Path(__file__).resolve().parent
-SUITES={'PlannerForkRegression':8,'LinePlannerRegression':17}
+SUITES={'PlannerForkRegression':8,'LinePlannerRegression':17,'CommanderPlannerScopeRegression':3}
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def main():
  p=argparse.ArgumentParser(description=__doc__)
  for k in ('jar','engine','testng','fixture-classpath','output'):p.add_argument('--'+k,type=pathlib.Path,required=True)
  a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
- cp=':'.join(str(x.resolve()) for x in (a.jar,a.testng,a.fixture_classpath));state={'jar_sha256':sha(a.jar),'constructed_check_groups':25,'natural_games':0,'all_passed':False,'suites':[]}
+ cp=':'.join(str(x.resolve()) for x in (a.jar,a.testng,a.fixture_classpath));state={'jar_sha256':sha(a.jar),'constructed_check_groups':28,'natural_games':0,'all_passed':False,'suites':[]}
  with tempfile.TemporaryDirectory() as tmp:
   subprocess.run(['java','-XX:-UsePerfData','-m','jdk.compiler/com.sun.tools.javac.Main','-cp',cp,'-d',tmp,*[str(ROOT/(s+'.java')) for s in SUITES]],check=True)
   for suite,count in SUITES.items():

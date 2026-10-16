@@ -80,6 +80,14 @@ public class ComputerUtil {
 
     public static boolean handlePlayingSpellAbility(final Player ai, SpellAbility sa, Consumer<SpellAbility> chooseTargets) {
         final Card source = sa.getHostCard();
+        // Reject an unaffordable fixed-cost command cast before moving it or
+        // tapping mana. The legacy failure path cannot roll this attempt back.
+        // X/choice-dependent costs retain their existing decision path.
+        if (sa.isSpell() && source.isCommander() && source.isInZone(ZoneType.Command)
+                && sa.getPayCosts() != null && !sa.getPayCosts().getTotalMana().toString().contains("X")
+                && !ComputerUtilCost.canPayCost(sa, ai, false)) {
+            return false;
+        }
         final Game game = source.getGame();
         final Card host = sa.getHostCard();
         final Zone hz = host.isCopiedSpell() ? null : host.getZone();

@@ -95,3 +95,38 @@ The development regression preserved an actual independent-combat replay
 mismatch; only the explicitly matched combat condition supports exact replay.
 Natural-game integration and runtime evidence are recorded privately. No
 candidate is promoted and no new game outcome is trusted learning feedback.
+
+## Commander-scope correction
+
+The first cycle5 natural smoke pair exposed a real scope defect: a stock
+command-zone GGS cast or recast could be displaced by a hand permanent even though
+command casting was excluded from the search. A valid permitted, payable
+command ability reproduces the override in the frozen old JAR. The correction
+retains stock spells from outside the hand and modified ability copies that
+are absent from the enumerated root alternatives. This preserves the incumbent
+commander line; it does not claim that all commander casts are strategically
+best. The first pair remains diagnostic: incumbent lost; planner timed out.
+
+Actual command payment tests cover the first cast at three mana, one prior
+cast at five mana, and a five-mana tax cost with only three mana available.
+The negative test additionally exposed a legacy helper hazard: an unaffordable
+command cast was moved to the stack before payment failed. A narrow fixed-cost
+commander affordability preflight now rejects it before changing zones or
+spending mana. This was demonstrated by a forced invalid helper call, not
+established as a naturally observed corrupted game. X-dependent costs and
+general payment rollback remain outside this correction. Card definitions,
+commander tax and other rules are unchanged.
+
+The planner runner now includes these three payment/scope groups (28 total).
+A separate fresh held-out commander fixture requires `--purpose heldout` and
+checks two prior casts at seven mana, insufficient total mana and insufficient
+black mana. Preserve input hashes and evaluate a frozen build once. The
+original eight held-out cases are consumed historical evidence, not fresh
+coverage for this correction. `planner_applied` in diagnostic traces means
+an accepted proposal; count actual choice changes by comparing stock and
+effective actions, since accepting the same action is not a behavior change.
+
+The final commander-scope/payment build passed all 17 legacy suites, 128 disjoint
+randomized positions (50768–50895), 82 Python tests, all 28 planner groups and
+all three fresh held-out commander cases. These are scoped mechanism results;
+the natural paired smoke and full-game strategic reviews remain separate.
