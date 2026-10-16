@@ -34,3 +34,9 @@ removal, combined attackers, trample/poison/commander damage, first/double strik
 death or replacement effects, other counterspells and complicated stacks need
 further review. A tactical correction does not certify whole games or establish
 general strength. Outcomes stay provisional until full evidence-bound review.
+
+
+CounterRescuePaymentRegression also executes both controller choices at three
+life totals. It asserts actual blue-mana spending, stack resolution, attacker
+survival/removal and resulting combat life. Six executions are three paired
+constructed states, not six independent games or a whole-game approval.

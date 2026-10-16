@@ -12,7 +12,7 @@ accepts `--fixture-classpath` so a vanished upstream source checkout does not
 block retesting; its manifest records the helper's SHA-256.
 
 An ordinary batch runs the 50 admission/learner/research Python checks, all
-current engine suites (15 with CounterRescueRegression), 128 disjoint randomized
+current engine suites (17 including actual counter payment and blocked-trample checks), 128 disjoint randomized
 positions and three tactical vectors across all four seat rotations of one
 shared development seed. A third vector may mutate a parent only after
 evidence-bound full-game rules and critical-decision admission. Matching
@@ -64,3 +64,9 @@ March-corrected engine. See forge-fork/COUNTER_RESCUE.md for its narrow scope.
 Until incomplete model-startup exits are explained, run full engine validation
 after pod collectors finish. Isolation alone did not eliminate those observed
 concurrent-startup failures. Never count an unmarked exit as a clean suite.
+
+
+The blocked-trample extension uses forge-fork/build_march_trample.py over the
+recovered payment-verified counter-rescue executable. See MARCH_TRAMPLE.md.
+Profile/boundary repetitions are correlated constructed checks, not independent
+games. Initialize and validate legal blocks and damage orders in fixtures.

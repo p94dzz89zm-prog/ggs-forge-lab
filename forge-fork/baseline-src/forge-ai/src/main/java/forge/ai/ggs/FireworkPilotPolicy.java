@@ -96,6 +96,20 @@ public final class FireworkPilotPolicy {
         return (fearLegal == 0 ? 3 : 1) * Math.max(1, c.getNetCombatDamage());
     }
 
+    // Ordinary blocked trample can still be lethal. Restrict the additional
+    // forecast to the blockers step without infect or strike-order ambiguity.
+    private static int marchIncomingDamage(Card c, Player ai, Combat combat) {
+        if (combat.isUnblocked(c)) return ComputerUtilCombat.damageIfUnblocked(c, ai, combat, false);
+        if (ai.getGame().getPhaseHandler().getPhase() != PhaseType.COMBAT_DECLARE_BLOCKERS
+                || !c.hasKeyword(Keyword.TRAMPLE) || c.hasKeyword(Keyword.INFECT)
+                || c.hasKeyword(Keyword.FIRST_STRIKE) || c.hasKeyword(Keyword.DOUBLE_STRIKE)) return 0;
+        List<Card> blockers = combat.getBlockers(c);
+        for (Card blocker : blockers) if (blocker.hasKeyword(Keyword.FIRST_STRIKE)
+                || blocker.hasKeyword(Keyword.DOUBLE_STRIKE)) return 0;
+        int spill = Math.max(0, c.getNetCombatDamage() - ComputerUtilCombat.totalShieldDamage(c, blockers));
+        return ComputerUtilCombat.predictDamageTo(ai, spill, c, true);
+    }
+
     public static boolean marchTargets(Player ai, SpellAbility sa) {
         sa.resetTargets();
         List<Card> preferred = new ArrayList<>();
@@ -111,8 +125,8 @@ public final class FireworkPilotPolicy {
             boolean serious = ComputerUtilCombat.lifeInSeriousDanger(ai, combat);
             for (Card c : combat.getAttackers()) {
                 if (c.getController().isOpponentOf(ai) && ai.equals(combat.getDefenderByAttacker(c))
-                        && combat.getUnblockedAttackers().contains(c) && sa.canTarget(c)
-                        && (serious || ComputerUtilCombat.damageIfUnblocked(c, ai, combat, false) >= 4)) preferred.add(c);
+                        && sa.canTarget(c) && marchIncomingDamage(c, ai, combat) > 0
+                        && (serious || marchIncomingDamage(c, ai, combat) >= 4)) preferred.add(c);
             }
             for (Card c : ai.getCreaturesInPlay()) if (sa.canTarget(c) && !preferred.contains(c)
                     && ComputerUtilCombat.combatantWouldBeDestroyed(ai, c, combat)) preferred.add(c);
@@ -141,8 +155,7 @@ public final class FireworkPilotPolicy {
                 && ComputerUtilCombat.lifeInSeriousDanger(ai, combat);
         preferred.sort(Comparator.comparingInt((Card c) -> urgentCombat
                 && c.getController().isOpponentOf(ai) && ai.equals(combat.getDefenderByAttacker(c))
-                && combat.isUnblocked(c)
-                ? ComputerUtilCombat.damageIfUnblocked(c, ai, combat, false) : 0).reversed()
+                ? marchIncomingDamage(c, ai, combat) : 0).reversed()
                 .thenComparing(Comparator.comparingInt((Card c) -> ComputerUtilCard.evaluateCreature(c)).reversed())
                 .thenComparingInt(Card::getId));
         int max = ComputerUtilCost.setMaxXValue(sa, ai, false);
