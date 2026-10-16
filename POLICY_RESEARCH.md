@@ -6,10 +6,18 @@ Commander-preservation, already-lethal connections, legal costs and timing
 guards stay outside this score. This is not a general action learner.
 
 `policy_search.py` evaluates vectors against common seeds and seat rotations.
-It explores a bounded vector, then mutates a parent selected from completed,
-integrity-passing outcome feedback. Withheld feedback cannot influence the
+It explores a bounded vector, then may mutate a parent selected only from
+evidence-bound rules and critical-decision reviewed outcome feedback. Withheld feedback cannot influence the
 posterior. The tested pilot is never replaced automatically by a search winner.
 Small paired samples cannot prove strength or coverage of all tactics.
+
+Record integrity alone now yields `pending_review`, with the raw outcome
+preserved and learning feedback withheld. Legacy numeric feedback without an
+admission gate cannot select a parent. A review of one decision remains a
+scoped finding and cannot admit an entire episode to trusted profile learning.
+Both profile and coefficient paths recheck current evidence before reusing a
+review. See EVIDENCE_ADMISSION.md. This stricter gate does not retroactively
+certify earlier games or prove that a referee cannot miss mistakes.
 
 `research_tools.py search` queries a pinned full Oracle snapshot. Its full-text
 index stores both faces, legality, color identity and definition coverage. A

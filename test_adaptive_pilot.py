@@ -120,7 +120,7 @@ class EvidenceFaultTests(unittest.TestCase):
  def test_complete_consistent_fixture_can_receive_scoped_review(self):
   with tempfile.TemporaryDirectory()as td:
    db,root,_,_=self.fixture(td);record_review(db,str(root),0,"pass","synthetic fixture","Integrity fixture, not empirical game evidence","test")
-   self.assertEqual(a.statistics(db,"fixture",True)["BALANCED"]["n"],1);db.close()
+   self.assertEqual(a.statistics(db,"fixture",True)["BALANCED"]["n"],0);db.close()
  def rejection(self,mutation):
   with tempfile.TemporaryDirectory()as td:
    db,root,attempt,evidence=self.fixture(td);mutation(db,attempt,evidence)
@@ -152,7 +152,7 @@ class EvidenceFaultTests(unittest.TestCase):
    db,root,p,e=self.fixture(td);path=p/"console.log";path.write_text(path.read_text()+"Correcting zone for Hithlain Rope (227)\n");e["console_sha256"]=a.sha(path)
    db.execute("UPDATE episodes SET evidence=?",(json.dumps(e),));db.commit()
    record_review(db,str(root),0,"pass","synthetic fixture","Ordinary controller-change diagnostic; not empirical game evidence","test")
-   self.assertEqual(a.statistics(db,"fixture",True)["BALANCED"]["n"],1);db.close()
+   self.assertEqual(a.statistics(db,"fixture",True)["BALANCED"]["n"],0);db.close()
  def test_reported_winner_disagreement_rejected(self):
   self.rejection(lambda db,p,e:e["game"].update(winner="Ai(1)-GGS_Current"))
 

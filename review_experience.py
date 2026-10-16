@@ -6,6 +6,18 @@ import json
 import math
 from pathlib import Path
 import adaptive_pilot as a
+from learning_gate import assess, FULL_SCOPE
+
+
+def profile_learning_gate(row):
+    verify_evidence(row)
+    root=Path(row['run'])/f"attempt-{row['idx']:06d}"
+    evidence=json.loads(row['evidence'])
+    signature=json.loads((Path(row['run'])/'manifest.json').read_text())
+    signature['purpose']='development' if row['mode']=='train' else 'heldout'
+    path=root/'learning-review.json'
+    review=json.loads(path.read_text()) if path.exists() else None
+    return assess(root,evidence['game'],[{'record_integrity_passed':True}],signature,{'profile':row['profile']},review)
 
 def verify_evidence(row):
     """Recompute eligibility from preserved files, never from a proxy score alone."""
@@ -50,6 +62,8 @@ def record_review(db, run, idx, status, scope, reason, reviewer):
     if status=="pass" and (row["mode"]!="train" or row["status"] not in ("completed","completed_draw") or row["reward"] is None):
         raise ValueError("Only complete, measurable training experience can become eligible")
     if status=="pass":verify_evidence(row)
+    if status=='pass' and scope==FULL_SCOPE and profile_learning_gate(row)['status']!='approved_for_learning':
+        raise ValueError('Full learning admission requires an evidence-bound all-seat rules and critical-decision review')
     db.execute("INSERT INTO review_events(run,idx,status,scope,reason,reviewer) VALUES (?,?,?,?,?,?)",(run,idx,status,scope,reason,reviewer))
     db.execute("INSERT INTO reviews VALUES (?,?,?,?,?,?) ON CONFLICT(run,idx) DO UPDATE SET status=excluded.status,scope=excluded.scope,reason=excluded.reason,reviewer=excluded.reviewer",
                (run,idx,status,scope,reason,reviewer));db.commit()

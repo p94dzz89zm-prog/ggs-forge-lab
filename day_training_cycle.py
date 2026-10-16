@@ -32,7 +32,7 @@ def run(args):
             'engine_sha256':a.sha(args.jar),'development_seed':2026110000+idx*10,
             'reserved_holdout_seed':2026120000+idx*10,'random_start':50000+idx*128,
             'policy_promotion':False,'strategy_review':'pending; automated record checks do not approve strategy',
-            'source_files':{n:a.sha(ROOT/n) for n in ['day_training_cycle.py','policy_search.py','forge-fork/run_pilot_recovery.py']}}
+            'source_files':{n:a.sha(ROOT/n) for n in ['day_training_cycle.py','policy_search.py','learning_gate.py','forge-fork/run_pilot_recovery.py']}}
         a.atomic_json(out/'cycle.json',record);a.atomic_json(args.output/'latest.json',record)
 
         def execute(name,command):
@@ -42,7 +42,7 @@ def run(args):
             if result.returncode:raise RuntimeError(name+' failed; preserve logs and investigate before another candidate')
 
         try:
-            execute('python-tests',['-m','unittest','test_adaptive_pilot','test_research_tools','-q'])
+            execute('python-tests',['-m','unittest','test_adaptive_pilot','test_research_tools','test_learning_gate','-q'])
             execute('engine-validation',['-u','forge-fork/run_pilot_recovery.py','--jar',args.jar,
                 '--engine',args.engine,'--testng',args.testng,'--fixture-classpath',args.fixture_classpath,
                 '--logs',out/'validation','--random-cases','128','--random-start',record['random_start']])

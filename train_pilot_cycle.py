@@ -32,7 +32,7 @@ def main():
     for key in ("engine", "jar", "forge_source", "testng", "output"):
         setattr(args, key, getattr(args, key).resolve())
     args.output.mkdir(parents=True, exist_ok=True)
-    source_files = [ROOT / n for n in ("adaptive_pilot.py", "review_experience.py", "audit_pilot_cycle.py", "dragonmind.py", "run_games.py", "test_adaptive_pilot.py", "train_pilot_cycle.py")]
+    source_files = [ROOT / n for n in ("adaptive_pilot.py", "review_experience.py", "learning_gate.py", "audit_pilot_cycle.py", "dragonmind.py", "run_games.py", "test_adaptive_pilot.py", "test_learning_gate.py", "train_pilot_cycle.py")]
     source_files += list((ROOT / "forge-fork").glob("*Regression.java"))
     source_files += [ROOT / "forge-fork/RandomCombatReferee.java", ROOT / "forge-fork/run_pilot_recovery.py"]
     source_files += list((ROOT / "forge-fork/pilot-src").rglob("*.java"))
@@ -57,7 +57,7 @@ def main():
         if result.returncode:
             raise SystemExit(name + " did not pass; evidence preserved in " + str(args.output))
 
-    run("learner-tests", ["-m", "unittest", "test_adaptive_pilot", "-q"])
+    run("learner-tests", ["-m", "unittest", "test_adaptive_pilot", "test_learning_gate", "-q"])
     validation = args.output / "validation-r9"
     if validation.exists():
         checks = json.loads((validation / "validation.json").read_text())

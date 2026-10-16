@@ -53,7 +53,7 @@ def java_runtime_flags(gc, jit):
     return [gc_flag,*jit_flags]
 
 
-def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc='parallel', jit='throughput', extra_jvm_flags=()):
+def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc='parallel', jit='throughput', extra_jvm_flags=(), audit_all_seats=False):
     seats = [variant, 'Jaymie_Ezio', 'Gabe_Food', 'Destyn_Turtles']
     seats = seats[rotation:] + seats[:rotation]
     label = f'{variant}__seat{rotation}__seeds{seeds[0]}-{seeds[-1]}'
@@ -62,7 +62,7 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
         flags.append(f'-Dforge.ai.ggsPilotPlayer=Ai({seats.index(variant)+1})-{variant}')
     if audit:
         flags.append('-Dforge.audit.directory='+str(out/'audit'/label))
-        if pilot:
+        if pilot and not audit_all_seats:
             flags.append(f'-Dforge.audit.player=Ai({seats.index(variant)+1})-{variant}')
     # Forge writes logs, preferences and caches under user.home. Never share that
     # mutable profile between independent JVM games, even with separate audits.

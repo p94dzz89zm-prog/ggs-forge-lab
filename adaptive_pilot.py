@@ -48,7 +48,15 @@ def connect(path):
     db.commit();return db
 
 def statistics(db, context, reviewed=False):
-    review_filter="AND EXISTS (SELECT 1 FROM reviews r WHERE r.run=episodes.run AND r.idx=episodes.idx AND r.status='pass')" if reviewed else ""
+    review_filter="AND EXISTS (SELECT 1 FROM reviews r WHERE r.run=episodes.run AND r.idx=episodes.idx AND r.status='pass' AND r.scope='full_game_rules_and_critical_decisions')" if reviewed else ""
+    if reviewed:
+        from review_experience import profile_learning_gate
+        found={p:[] for p in PROFILES}
+        for row in db.execute(f"SELECT * FROM episodes WHERE context=? AND mode='train' AND status IN ('completed','completed_draw') AND reward BETWEEN 0 AND 1 {review_filter}",(context,)):
+            try:gate=profile_learning_gate(row)
+            except (OSError,ValueError,KeyError,TypeError):continue
+            if gate['status']=='approved_for_learning':found[row['profile']].append(row['reward'])
+        return {p:{'profile':p,'n':len(v),'mean':sum(v)/len(v) if v else 0.0} for p,v in found.items()}
     rows=db.execute(f"""SELECT profile,COUNT(*) n,AVG(reward) mean FROM episodes
         WHERE context=? AND mode='train' AND status IN ('completed','completed_draw') AND reward BETWEEN 0 AND 1 AND NOT EXISTS (SELECT 1 FROM reviews x WHERE x.run=episodes.run AND x.idx=episodes.idx AND x.status='reject') {review_filter} GROUP BY profile""",(context,)).fetchall()
     found={r["profile"]:dict(r) for r in rows}
@@ -176,7 +184,9 @@ def main():
         "model":str(a.model),"profiles":PROFILES,"pool":a.pool}
     # Normalize tuple/list before comparing a restored JSON manifest.
     signature=json.loads(json.dumps(signature))
-    if a.audit:signature["audit"]=True
+    if a.audit:
+        signature["audit"]=True
+        signature["audit_scope"]='all_seats_private_offline'
     a.output.mkdir(parents=True,exist_ok=True);a.model.parent.mkdir(parents=True,exist_ok=True)
     manifest=a.output/"manifest.json"
     if manifest.exists():
@@ -215,7 +225,7 @@ def main():
                 attempt=a.output/f"attempt-{idx:06d}";attempt.mkdir(exist_ok=False)
                 print(f"{idx+1}/{a.games}: {a.mode} {deck}, {profile}, seed {seed}",flush=True)
                 rows=dragonmind.batch(a.engine,a.jar,attempt,deck,rotation,[seed],a.timeout,True,a.audit,
-                    extra_jvm_flags=("-Ddragonmind.strategyProfile="+profile,"-Ddragonmind.boundedCombatForecast=true"))
+                    extra_jvm_flags=("-Ddragonmind.strategyProfile="+profile,"-Ddragonmind.boundedCombatForecast=true"),audit_all_seats=a.audit)
                 if sha(a.jar)!=signature["jar_sha256"] or any(sha(dragonmind.ROOT/"decks"/(n+".dck"))!=h for n,h in hashes.items()):
                     raise ValueError("Engine or decks changed during game; refuse training")
                 row=rows[0];evidence={"game":row,"statistics_before":stats,"experimental":True,"pool":a.pool,"review_status":"pending","reward_version":reward_version}
@@ -234,7 +244,7 @@ def main():
                 atomic_json(attempt/"experience.json",evidence)
                 db.execute("UPDATE episodes SET status=?,reward=?,evidence=? WHERE run=? AND idx=?",
                     (row["status"],reward,json.dumps(evidence),str(a.output),idx));db.commit();export(db,a.output)
-                print(f"  {row['status']}; learned reward={reward}",flush=True)
+                print(f"  {row['status']}; provisional observed reward={reward}; full review required for trusted learning",flush=True)
     finally:db.close()
 
 if __name__=="__main__":

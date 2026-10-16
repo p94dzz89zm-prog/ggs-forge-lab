@@ -79,8 +79,14 @@ def watch(directories, output):
             if db.execute('SELECT 1 FROM games WHERE transcript_sha256=?',(digest,)).fetchone():continue
             record=Path(report['record']);label=record.parent.name
             audits=list((record.parents[2]/'audit'/label).glob('seat-*.jsonl'))
-            if len(audits)!=1:continue
-            turns,seen,held=observations(audits[0])
+            variant=label.split('__seat')[0]
+            selected=[]
+            for path in audits:
+                with path.open() as stream:
+                    first=next((json.loads(line) for line in stream if line.strip()),{})
+                if first.get('state',{}).get('viewer','').endswith('-'+variant):selected.append(path)
+            if len(selected)!=1:continue
+            turns,seen,held=observations(selected[0])
             db.execute('INSERT INTO games VALUES(?,?,?,?,?)',(digest,str(record),report['status'],label.split('__seat')[0],engine_provenance(record)))
             db.executemany('INSERT INTO turns VALUES(?,?,?,?,?,?,?,?)',[(digest,t['turn'],i,t['life'],t['hand'],t['lands'],t['creatures'],t['ggs']) for i,t in enumerate(turns,1)])
             db.executemany('INSERT INTO card_exposure VALUES(?,?,?,?)',[(digest,n,1,n in held) for n in seen]);db.commit()
@@ -88,6 +94,7 @@ def watch(directories, output):
     grouped=[dict(zip(columns,r)) for r in db.execute('SELECT g.engine_sha256,g.variant,COUNT(*),SUM(t.hand_count=0),SUM(t.creatures=0),SUM(t.lands<=2),SUM(t.ggs_present=0) FROM turns t JOIN games g USING(transcript_sha256) WHERE own_turn>=4 GROUP BY g.engine_sha256,g.variant')]
     data={'integrity_passed_games_with_selected_seat_audits':db.execute('SELECT COUNT(*) FROM games').fetchone()[0],
       'by_deck_variant':grouped,'causal_card_cut_recommendations':[],
+      'trusted_card_recommendation_games':0,'observation_review_status':'unreviewed noncausal diagnostics; not admitted learning evidence',
       'limits':'First MAIN1 snapshots, not end-turn failures. No creatures can follow a wipe, deployment choice, or draw pattern. A held card can be correct protection. Distinct deck variants and engine versions must not be interpreted as one controlled experiment.'}
     (output/'weakness-watch.json').write_text(json.dumps(data,indent=2)+'\n');db.close();return data
 
