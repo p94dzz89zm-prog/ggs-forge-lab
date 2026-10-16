@@ -1,0 +1,16 @@
+{
+  "base_sha256": "d9278b1ddd644ef6dd458b19cfabee20d3c2e9fde51d1cf10827a91c842616ee",
+  "output_sha256": "ed294926f1b95b2ece1c5449089e0dd7f263f5a9fb7ff4c28f3679fef0f1a8b5",
+  "sources": {
+    "pilot-src/forge/ai/ComputerUtil.java": "1d27f7162a6cda589838631a8cf1604f247b6eb9fa7f51e6819b14a6cfd8bb50",
+    "pilot-src/forge/ai/ability/PumpAi.java": "6fee573b692c8fad571f8c8eca4b491f34de31b933a670107c056f2487cbb5ca",
+    "pilot-src/forge/ai/ability/UntapAllAi.java": "d566e904ed82610e297be2a8a50464de295b793a203981758d6e84b56f91307b",
+    "pilot-src/forge/ai/ggs/GgsRecoveryPolicy.java": "d19cb88fa3fe857cd9f77cd35ff8181356d71c48e8ac3cbe71f04308487a5d91"
+  },
+  "replaced_classes": [
+    "forge/ai/ComputerUtil.class",
+    "forge/ai/ability/PumpAi.class",
+    "forge/ai/ability/UntapAllAi.class",
+    "forge/ai/ggs/GgsRecoveryPolicy.class"
+  ]
+}
