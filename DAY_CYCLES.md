@@ -5,15 +5,18 @@ The user authorized repeated training, testing and fixes throughout this day.
 It does not schedule itself and does not promise persistent compute.
 
 Use the pinned `GGS_Test_Runtime_2026-10-16.zip` dependencies and the current
-`fix/pilot-recovery-v35` source. The runtime includes engine resources, the r10
-executable, TestNG and a pinned compiled AITest helper. The regression runner
+`fix/pilot-recovery-v35` source. The runtime includes engine resources, the historical r10
+executable, TestNG and a pinned compiled AITest helper. The day ledger
+identifies the currently adopted corrected executable: do not revert to r10. The regression runner
 accepts `--fixture-classpath` so a vanished upstream source checkout does not
 block retesting; its manifest records the helper's SHA-256.
 
-An ordinary batch runs the 27 current Python checks, all twelve engine suites,
-128 disjoint randomized positions and three tactical vectors across all four
-seat rotations of one shared development seed. Its third vector can mutate a
-parent selected from completed, integrity-passing outcome feedback. Distinct
+An ordinary batch runs the 50 admission/learner/research Python checks, all
+current engine suites (14 with MarchDefenseRegression), 128 disjoint randomized
+positions and three tactical vectors across all four seat rotations of one
+shared development seed. A third vector may mutate a parent only after
+evidence-bound full-game rules and critical-decision admission. Matching
+records alone never permit outcome feedback. Distinct
 cycles reserve separate development and held-out seed ranges. Never treat four
 seats of a seed as four independent random seeds.
 
@@ -51,3 +54,11 @@ Never claim universal zero-error play, guaranteed monotonic learning, a stronger
 model from unchanged outcomes, or computation that did not actually execute.
 Save private logs and model checkpoints privately after each bounded batch;
 publish only source changes to the approved repository branch.
+
+The March defense overlay is rebuilt separately with forge-fork/build_march_defense.py
+over its pinned combined-lethal base. See forge-fork/MARCH_DEFENSE.md. Engine
+regressions now isolate each suite's mutable user profile; missing completion
+markers remain failures even after exit 0. Preserve and investigate failures.
+Until incomplete model-startup exits are explained, run full engine validation
+after pod collectors finish. Isolation alone did not eliminate those observed
+concurrent-startup failures. Never count an unmarked exit as a clean suite.

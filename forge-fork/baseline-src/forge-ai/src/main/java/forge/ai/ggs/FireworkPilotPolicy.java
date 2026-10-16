@@ -131,7 +131,20 @@ public final class FireworkPilotPolicy {
             }
         }
         if (preferred.isEmpty()) return false;
-        preferred.sort(Comparator.comparingInt((Card c) -> ComputerUtilCard.evaluateCreature(c)).reversed().thenComparingInt(Card::getId));
+        // With a limited X, preserving a valuable blocker must not take the
+        // only target away from an unblocked lethal attacker. Restrict this
+        // priority to an empty-stack defensive combat; stack threats retain
+        // their existing ordering. Actual targeting, X and payment follow.
+        final boolean urgentCombat = combat != null && combat.getAttackingPlayer() != ai
+                && ai.getGame().getStack().isEmpty()
+                && (phase == PhaseType.COMBAT_DECLARE_BLOCKERS || phase == PhaseType.COMBAT_FIRST_STRIKE_DAMAGE)
+                && ComputerUtilCombat.lifeInSeriousDanger(ai, combat);
+        preferred.sort(Comparator.comparingInt((Card c) -> urgentCombat
+                && c.getController().isOpponentOf(ai) && ai.equals(combat.getDefenderByAttacker(c))
+                && combat.isUnblocked(c)
+                ? ComputerUtilCombat.damageIfUnblocked(c, ai, combat, false) : 0).reversed()
+                .thenComparing(Comparator.comparingInt((Card c) -> ComputerUtilCard.evaluateCreature(c)).reversed())
+                .thenComparingInt(Card::getId));
         int max = ComputerUtilCost.setMaxXValue(sa, ai, false);
         if (max < 1) return false;
         int count = Math.min(max, preferred.size());
