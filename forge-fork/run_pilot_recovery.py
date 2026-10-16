@@ -15,7 +15,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parent
 SUITES = {"AccessPackageRegression":28, "FireworkPilotRegression":20,
           "FrostcliffRegression":7, "BoundedForecastRegression":8,
-          "PilotRecoveryRegression":52}
+          "PilotRecoveryRegression":52, "CombatRecoveryRegression":22}
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -31,7 +31,7 @@ def main():
         p.add_argument("--"+name,type=Path,required=True)
     a=p.parse_args();a.logs.mkdir(parents=True,exist_ok=False)
     manifest={"jar_sha256":digest(a.jar),"suites":[],"all_passed":False,
-              "distinct_scenarios":99,"executions":115,
+              "distinct_scenarios":121,"executions":137,
               "note":"16 Prowler repetitions are repeated scenarios, not independent games."}
     atomic_json(a.logs/"validation.json",manifest)
     with tempfile.TemporaryDirectory() as compiled:

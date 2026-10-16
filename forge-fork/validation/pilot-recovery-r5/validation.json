@@ -1,0 +1,57 @@
+{
+  "jar_sha256": "4ad8de999aca2c4e76b6d3cb7a4c586b6b8b69a59a6e92b68db49e2d2124fad2",
+  "suites": [
+    {
+      "suite": "AccessPackageRegression",
+      "passed": true,
+      "expected": 28,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "63b6baa64ac5cff459689c1922357f42fe368ad43b71c7627a595ef4bbb62449"
+    },
+    {
+      "suite": "FireworkPilotRegression",
+      "passed": true,
+      "expected": 20,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "6e1c995deeb104ff8606f68d964defaa844570bc79da9ec96fff9e15db4a42a6"
+    },
+    {
+      "suite": "FrostcliffRegression",
+      "passed": true,
+      "expected": 7,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "ddbf2c7dc691340d68013dde324c97511c76c91219aadacf3c2ed85867db13d7"
+    },
+    {
+      "suite": "BoundedForecastRegression",
+      "passed": true,
+      "expected": 8,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "50d3da8272185eb4d1d8137bc413f4aa73f152140b2e6304ae2ff5dae0b81284"
+    },
+    {
+      "suite": "PilotRecoveryRegression",
+      "passed": true,
+      "expected": 52,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "3cbd101d9dcabae478e65e476f5208b673a91d064a805664486938191f8c3682"
+    },
+    {
+      "suite": "CombatRecoveryRegression",
+      "passed": true,
+      "expected": 22,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "76505904c562c41792eca7e417f995fdc0cb556ff4bf38def78b345103626b95"
+    }
+  ],
+  "all_passed": true,
+  "distinct_scenarios": 121,
+  "executions": 137,
+  "note": "16 Prowler repetitions are repeated scenarios, not independent games."
+}

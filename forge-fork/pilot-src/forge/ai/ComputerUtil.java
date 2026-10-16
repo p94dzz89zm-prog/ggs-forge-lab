@@ -787,6 +787,10 @@ public class ComputerUtil {
             return new CardCollection();
         }
 
+        if (amount == 1 && forge.ai.ggs.GgsSneakPolicy.applies(ai, sa)) {
+            Card returned = forge.ai.ggs.GgsSneakPolicy.chooseReturn(ai, sa, typeList);
+            return returned == null ? new CardCollection() : new CardCollection(returned);
+        }
         if (amount == 1 && sa.isNinjutsu() && forge.ai.ggs.GgsNinjutsuPolicy.enabled(ai)) {
             var plan = forge.ai.ggs.GgsNinjutsuPolicy.choose(ai, sa, typeList);
             if (plan == null) return new CardCollection();

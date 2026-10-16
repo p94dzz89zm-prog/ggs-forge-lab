@@ -27,7 +27,7 @@ public final class GgsRecoveryPolicy {
             if (((c.isCreature() || c.isArtifact() || c.isEnchantment()) && mv <= 3)
                     || ((c.isInstant() || c.isSorcery()) && mv <= 2)) early = true;
         }
-        return lands >= 4 && !early;
+        return lands >= AdaptiveStrategy.current().openingLandThreshold && !early;
     }
     public static Card prowlerTarget(Player ai, SpellAbility sa) {
         if (!enabled(ai) || !ai.canGainLife() || !"Nezumi Prowler".equals(sa.getHostCard().getName())
