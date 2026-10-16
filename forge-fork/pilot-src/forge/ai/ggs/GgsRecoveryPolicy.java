@@ -16,6 +16,20 @@ public final class GgsRecoveryPolicy {
     private static boolean enabled(Player ai) {
         return GgsNinjutsuPolicy.enabled(ai) && !Boolean.getBoolean("dragonmind.disableRecoveryPolicy");
     }
+    /** Pure haste has no current benefit when every creature is already ready.
+     * Do not override other keywords, power/toughness pumps or chained effects.
+     * Tapped sick creatures remain possible beneficiaries (an untap may follow).
+     */
+    public static boolean rejectRedundantHaste(Player ai, SpellAbility sa) {
+        if (!enabled(ai) || !"Goro-Goro and Satoru".equals(sa.getHostCard().getName())
+                || sa.getHostCard().getController() != ai || !sa.isActivatedAbility()
+                || sa.getApi() != ApiType.PumpAll || sa.getSubAbility() != null
+                || !"Creature.YouCtrl".equals(sa.getParam("ValidCards"))
+                || !"Haste".equals(sa.getParam("KW"))
+                || sa.hasParam("NumAtt") || sa.hasParam("NumDef")) return false;
+        return !ai.getCreaturesInPlay().anyMatch(c -> !c.isPhasedOut()
+                && c.hasSickness() && !c.hasKeyword(Keyword.HASTE));
+    }
     public static boolean rejectSlowSeven(Player ai, int returning) {
         if (!enabled(ai) || returning != 0 || ai.getCardsIn(ZoneType.Hand).size() != 7
                 || !ai.getCardsIn(ZoneType.Command).anyMatch(CommanderEngineProfile::needsFreshCombatConnection)) return false;

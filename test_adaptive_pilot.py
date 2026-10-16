@@ -7,6 +7,13 @@ import adaptive_pilot as a
 from review_experience import record_review
 
 class ExperienceTests(unittest.TestCase):
+ def test_outcome_reward_does_not_reward_engine_activity_in_losses(self):
+  rich={"own_turns":1,"ggs_triggers":100,"opponent_combat_damage_on_own_turn":1000,"life_gained":1000}
+  empty={"own_turns":10,"ggs_triggers":0,"opponent_combat_damage_on_own_turn":0,"life_gained":0}
+  self.assertEqual(a.utility(rich,False,a.OUTCOME_REWARD_VERSION),0)
+  self.assertEqual(a.utility(empty,True,a.OUTCOME_REWARD_VERSION),1)
+  self.assertEqual(a.utility(rich,True,a.OUTCOME_REWARD_VERSION),1)
+  with self.assertRaises(ValueError):a.utility(empty,True,"unknown")
  def test_repetition_changes_preference_and_survives_restart(self):
   with tempfile.TemporaryDirectory() as td:
    path=Path(td)/"experience.sqlite";db=a.connect(path)
@@ -68,6 +75,36 @@ class ExperienceTests(unittest.TestCase):
    db.close()
 
 class EvidenceFaultTests(unittest.TestCase):
+ def test_completed_evidence_recovers_interrupted_model_update(self):
+  with tempfile.TemporaryDirectory() as td:
+   db,root,attempt,evidence=self.fixture(td)
+   a.atomic_json(attempt/'experience.json',evidence)
+   db.execute("UPDATE episodes SET status='interrupted',reward=NULL,evidence='{}'");db.commit()
+   self.assertEqual(a.recover_complete_attempts(db,root),[0])
+   row=db.execute('SELECT * FROM episodes').fetchone()
+   self.assertEqual(row['status'],'completed')
+   self.assertIn('completion_recovery',json.loads(row['evidence']))
+   self.assertEqual(a.recover_complete_attempts(db,root),[])
+   self.assertEqual(a.statistics(db,'fixture',True)['BALANCED']['n'],0)
+   db.close()
+ def test_interrupted_recovery_refuses_changed_canonical_evidence(self):
+  with tempfile.TemporaryDirectory() as td:
+   db,root,attempt,evidence=self.fixture(td)
+   a.atomic_json(attempt/'experience.json',evidence)
+   db.execute("UPDATE episodes SET status='interrupted',reward=NULL,evidence='{}'");db.commit()
+   (attempt/'game.log').write_text('tampered')
+   with self.assertRaises(ValueError):a.recover_complete_attempts(db,root)
+   self.assertEqual(db.execute('SELECT status FROM episodes').fetchone()[0],'interrupted')
+   db.close()
+ def test_outcome_reward_is_recomputed_during_review(self):
+  with tempfile.TemporaryDirectory() as td:
+   db,root,attempt,evidence=self.fixture(td)
+   evidence['reward_version']=a.OUTCOME_REWARD_VERSION
+   db.execute("UPDATE episodes SET reward=0,evidence=?",(json.dumps(evidence),));db.commit()
+   record_review(db,str(root),0,"pass","synthetic outcome fixture","Recomputed loss outcome, not a strategic approval of real games","test")
+   db.execute("UPDATE episodes SET reward=1");db.commit()
+   with self.assertRaises(ValueError):record_review(db,str(root),0,"pass","synthetic fault","Forged win reward must fail","test")
+   db.close()
  def fixture(self,td):
   root=Path(td)/"run";attempt=root/"attempt-000000";attempt.mkdir(parents=True)
   db=a.connect(Path(td)/"model.sqlite")

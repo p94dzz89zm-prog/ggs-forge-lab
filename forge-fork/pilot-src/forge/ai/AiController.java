@@ -889,6 +889,10 @@ public class AiController {
         final Card card = sa.getHostCard();
 
         // Trying to play a card that has Buyback without a Buyback cost, look for possible additional considerations
+        if (forge.ai.ggs.GgsRecoveryPolicy.rejectRedundantHaste(player, sa)) {
+            return AiPlayDecision.CantPlayAi;
+        }
+
         if (getBoolProperty(AiProps.TRY_TO_PRESERVE_BUYBACK_SPELLS) && card.hasKeyword(Keyword.BUYBACK)
                 && !sa.isBuyback() && !canPlaySpellWithoutBuyback(sa)) {
             return AiPlayDecision.NeedsToPlayCriteriaNotMet;

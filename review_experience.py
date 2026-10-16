@@ -40,7 +40,7 @@ def verify_evidence(row):
     metrics=a.effects(text.splitlines(),own)
     if metrics!=evidence.get("metrics"):raise ValueError("Saved effects disagree with canonical events")
     if game.get("winner")!=record.get("winner"):raise ValueError("Winner provenance mismatch")
-    actual=a.utility(metrics,record.get("winner")==own)
+    actual=a.utility(metrics,record.get("winner")==own,evidence.get("reward_version",a.REWARD_VERSION))
     if not isinstance(row["reward"],(int,float)) or not math.isclose(actual,row["reward"],abs_tol=1e-12):raise ValueError("Reward disagrees with observed effects")
 
 def record_review(db, run, idx, status, scope, reason, reviewer):
