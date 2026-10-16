@@ -38,11 +38,18 @@ def connect(path):
         run TEXT, idx INTEGER, context TEXT, mode TEXT, seed INTEGER,
         profile TEXT, status TEXT, reward REAL, evidence TEXT,
         PRIMARY KEY(run,idx))""")
+    db.execute("""CREATE TABLE IF NOT EXISTS reviews (
+        run TEXT, idx INTEGER, status TEXT CHECK(status IN ('pass','reject','pending')),
+        scope TEXT, reason TEXT, reviewer TEXT, PRIMARY KEY(run,idx))""")
+    db.execute("""CREATE TABLE IF NOT EXISTS review_events (
+        id INTEGER PRIMARY KEY, run TEXT, idx INTEGER, status TEXT, scope TEXT,
+        reason TEXT, reviewer TEXT, created_at TEXT DEFAULT CURRENT_TIMESTAMP)""")
     db.commit();return db
 
-def statistics(db, context):
-    rows=db.execute("""SELECT profile,COUNT(*) n,AVG(reward) mean FROM episodes
-        WHERE context=? AND mode='train' AND status IN ('completed','completed_draw') AND reward BETWEEN 0 AND 1 GROUP BY profile""",(context,)).fetchall()
+def statistics(db, context, reviewed=False):
+    review_filter="AND EXISTS (SELECT 1 FROM reviews r WHERE r.run=episodes.run AND r.idx=episodes.idx AND r.status='pass')" if reviewed else ""
+    rows=db.execute(f"""SELECT profile,COUNT(*) n,AVG(reward) mean FROM episodes
+        WHERE context=? AND mode='train' AND status IN ('completed','completed_draw') AND reward BETWEEN 0 AND 1 {review_filter} GROUP BY profile""",(context,)).fetchall()
     found={r["profile"]:dict(r) for r in rows}
     return {p:found.get(p,{"profile":p,"n":0,"mean":0.0}) for p in PROFILES}
 
@@ -87,10 +94,14 @@ def utility(metrics, won):
 
 def export(db, out):
     rows=[dict(r) for r in db.execute("SELECT * FROM episodes WHERE run=? ORDER BY idx",(str(out),))]
-    for row in rows:row["evidence"]=json.loads(row["evidence"] or "{}")
+    for row in rows:
+        row["evidence"]=json.loads(row["evidence"] or "{}")
+        review=db.execute("SELECT status,scope,reason,reviewer FROM reviews WHERE run=? AND idx=?",(row["run"],row["idx"])).fetchone()
+        row["review"]=dict(review) if review else {"status":"pending","scope":"not yet reviewed"}
     contexts={r["context"] for r in rows}
     atomic_json(out/"experience.json",{"reward_version":REWARD_VERSION,"episodes":rows,
         "preferences":{c:statistics(db,c) for c in contexts},
+        "reviewed_preferences":{c:statistics(db,c,True) for c in contexts},
         "promotion":"experimental; no automatic claim of improved or error-free play"})
 
 def main():
@@ -100,6 +111,8 @@ def main():
     p.add_argument("--seed",type=int,default=2026102100)
     p.add_argument("--decks",nargs="+",default=["GGS_Current"])
     p.add_argument("--mode",choices=["train","evaluate"],default="train")
+    p.add_argument("--pool",choices=["reviewed","sandbox"],default="reviewed",
+        help="Default inference uses only reviewed experience; sandbox is explicitly provisional")
     p.add_argument("--timeout",type=int,default=300)
     a=p.parse_args()
     if a.games<1 or a.timeout<1:p.error("Positive game count and timeout required")
@@ -115,7 +128,7 @@ def main():
         path=dragonmind.ROOT/"decks"/(name+".dck");validate_deck(path);hashes[name]=sha(path)
     signature={"jar_sha256":sha(a.jar),"deck_sha256":hashes,"decks":decks,
         "mode":a.mode,"seed":a.seed,"timeout":a.timeout,"reward_version":REWARD_VERSION,
-        "model":str(a.model),"profiles":PROFILES}
+        "model":str(a.model),"profiles":PROFILES,"pool":a.pool}
     # Normalize tuple/list before comparing a restored JSON manifest.
     signature=json.loads(json.dumps(signature))
     a.output.mkdir(parents=True,exist_ok=True);a.model.parent.mkdir(parents=True,exist_ok=True)
@@ -139,12 +152,13 @@ def main():
                     "deck":hashes[deck],"pod":{n:hashes[n] for n in all_decks if n not in decks}},sort_keys=True).encode()).hexdigest()
                 if db.execute("SELECT 1 FROM episodes WHERE seed=? AND mode!=? LIMIT 1",(seed,a.mode)).fetchone():
                     raise ValueError("Training/evaluation seed overlap; use a disjoint seed range")
-                stats=statistics(db,context)
+                stats=statistics(db,context,a.pool=="reviewed")
                 if db.execute("SELECT 1 FROM episodes WHERE context=? AND seed=? AND mode=? AND status IN ('completed','completed_draw') LIMIT 1",(context,seed,a.mode)).fetchone():
                     raise ValueError("Duplicate completed experience; choose new seeds")
                 if a.mode=="evaluate":
                     profile=frozen.setdefault(context,select_profile(stats,False));atomic_json(frozen_path,frozen)
-                else:profile=select_profile(stats,True)
+                else:
+                    profile=PROFILES[idx%len(PROFILES)] if a.pool=="reviewed" and min(s["n"] for s in stats.values())==0 else select_profile(stats,True)
                 db.execute("INSERT INTO episodes VALUES (?,?,?,?,?,?,?,NULL,?)",(str(a.output),idx,context,a.mode,seed,profile,"running",json.dumps({"deck":deck,"rotation":rotation,"statistics_before":stats})));db.commit()
                 export(db,a.output)
                 attempt=a.output/f"attempt-{idx:06d}";attempt.mkdir(exist_ok=False)
@@ -153,7 +167,7 @@ def main():
                     extra_jvm_flags=("-Ddragonmind.strategyProfile="+profile,"-Ddragonmind.boundedCombatForecast=true"))
                 if sha(a.jar)!=signature["jar_sha256"] or any(sha(dragonmind.ROOT/"decks"/(n+".dck"))!=h for n,h in hashes.items()):
                     raise ValueError("Engine or decks changed during game; refuse training")
-                row=rows[0];evidence={"game":row,"statistics_before":stats,"experimental":True}
+                row=rows[0];evidence={"game":row,"statistics_before":stats,"experimental":True,"pool":a.pool,"review_status":"pending"}
                 reward=None
                 if row["status"] in ("completed","completed_draw"):
                     trace=attempt/row["engine_transcript"];own=f"Ai({row['seats'].index(deck)+1})-{deck}"
@@ -167,4 +181,9 @@ def main():
                 print(f"  {row['status']}; learned reward={reward}",flush=True)
     finally:db.close()
 
-if __name__=="__main__":main()
+if __name__=="__main__":
+    try:main()
+    except BlockingIOError:
+        raise SystemExit("Another trainer or evaluator is using this model. Let it finish before resuming.")
+    except ValueError as error:
+        raise SystemExit(str(error))

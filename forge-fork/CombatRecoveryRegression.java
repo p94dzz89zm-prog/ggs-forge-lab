@@ -62,6 +62,14 @@ public class CombatRecoveryRegression extends AITest {
   addCardToZone("Goro-Goro and Satoru",ai,ZoneType.Command).setCommander(true);
   for(String n:List.of("Island","Mountain","Swamp","Command Tower","Grim Hireling","Balefire Dragon","Fierce Guardianship"))addCardToZone(n,ai,ZoneType.Hand);
   Assert.assertEquals(GgsRecoveryPolicy.rejectSlowSeven(ai,0),profile.equals("BALANCED"));pass("profile changes actual opening preference "+profile);
+  Player opp=g.getPlayers().get(0);Card engine=addCard("Goro-Goro and Satoru",ai);engine.setCommander(true);engine.setSickness(false);
+  Card ninja=addCardToZone("Moon-Circuit Hacker",ai,ZoneType.Hand);
+  SpellAbility swap=ComputerUtilAbility.getSpellAbilities(new CardCollection(ninja),ai).stream().filter(SpellAbility::isNinjutsu).findFirst().orElseThrow();swap.setActivatingPlayer(ai);
+  Combat combat=new Combat(ai);combat.addAttacker(engine,opp);combat.setBlocked(engine,false);g.getPhaseHandler().setCombat(combat);g.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_BLOCKERS,ai,false);
+  Assert.assertNull(GgsNinjutsuPolicy.choose(ai,swap,List.of(engine)));pass("learning preserves commander guard "+profile);
+  Card lethal=addCard("Changeling Outcast",ai);lethal.setSickness(false);combat.addAttacker(lethal,opp);combat.setBlocked(lethal,false);opp.setLife(1,null);
+  Assert.assertNull(GgsNinjutsuPolicy.choose(ai,swap,List.of(lethal)));pass("learning preserves lethal connection "+profile);
+
  }
  public static void main(String[]args){CombatRecoveryRegression t=new CombatRecoveryRegression();t.initializeModel();t.cast(false);t.cast(true);for(int i=0;i<7;i++)t.fresh(i);for(String p:List.of("BALANCED","ENGINE","ECONOMY"))t.profile(p);System.clearProperty("dragonmind.strategyProfile");System.out.println("Checks passed: "+t.checks);System.exit(0);}
 }

@@ -1,0 +1,74 @@
+{
+  "jar_sha256": "eb0a84c5edb614ff7083140879d9e7c291e363554c6986a3b7e4aab49feefaf0",
+  "suites": [
+    {
+      "suite": "AccessPackageRegression",
+      "passed": true,
+      "expected": 28,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "56fbac2ffa6c59ec4487c6efbfba522389191d73fd711d9a704cadd7fc196377"
+    },
+    {
+      "suite": "FireworkPilotRegression",
+      "passed": true,
+      "expected": 20,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "6e1c995deeb104ff8606f68d964defaa844570bc79da9ec96fff9e15db4a42a6"
+    },
+    {
+      "suite": "FrostcliffRegression",
+      "passed": true,
+      "expected": 7,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "ddbf2c7dc691340d68013dde324c97511c76c91219aadacf3c2ed85867db13d7"
+    },
+    {
+      "suite": "BoundedForecastRegression",
+      "passed": true,
+      "expected": 8,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "50d3da8272185eb4d1d8137bc413f4aa73f152140b2e6304ae2ff5dae0b81284"
+    },
+    {
+      "suite": "PilotRecoveryRegression",
+      "passed": true,
+      "expected": 52,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "3cbd101d9dcabae478e65e476f5208b673a91d064a805664486938191f8c3682"
+    },
+    {
+      "suite": "CombatRecoveryRegression",
+      "passed": true,
+      "expected": 28,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "12e2f9ea5441624aacc3c29958fa3d2a8dfb52dbc202e1f0b70a00cd717757e4"
+    },
+    {
+      "suite": "RandomCombatReferee",
+      "passed": true,
+      "expected": 64,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "0700e4c5eb7e3a8556a2f3c2f26bd6af111391283b4db8f2ef5e8f7bddc06a8d"
+    },
+    {
+      "suite": "AuditScopeRegression",
+      "passed": true,
+      "expected": 4,
+      "returncode": 0,
+      "timeout": false,
+      "log_sha256": "a49795218ecf49b451d305016ae840f185314b32580227e0598aea04b7a5df59"
+    }
+  ],
+  "all_passed": true,
+  "targeted_scenarios": 131,
+  "randomized_positions": 64,
+  "executions": 211,
+  "note": "16 Prowler repetitions are repeated scenarios, not independent games."
+}

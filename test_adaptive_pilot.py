@@ -2,6 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 import adaptive_pilot as a
+from review_experience import record_review
 
 class ExperienceTests(unittest.TestCase):
  def test_repetition_changes_preference_and_survives_restart(self):
@@ -37,5 +38,26 @@ class ExperienceTests(unittest.TestCase):
   self.assertGreater(a.utility(metrics,False),a.utility({**metrics,"ggs_triggers":0},False))
  def test_missing_trace_does_not_create_reward(self):
   with self.assertRaises(ValueError):a.effects([],"Ai(1)-GGS_Current")
+ def test_unreviewed_high_reward_cannot_enter_reviewed_policy(self):
+  with tempfile.TemporaryDirectory() as td:
+   db=a.connect(Path(td)/"m.sqlite")
+   for i in range(3):
+    db.execute("INSERT INTO episodes VALUES (?,?,?,?,?,?,?,?,?)",("fixture",i,"deck","train",i,"ECONOMY","completed",1,"{}"))
+   db.commit()
+   self.assertEqual(a.statistics(db,"deck")["ECONOMY"]["n"],3)
+   self.assertEqual(a.statistics(db,"deck",True)["ECONOMY"]["n"],0)
+   record_review(db,"fixture",0,"reject","fixture integrity","Deliberate corrupted-feedback fixture","test")
+   self.assertEqual(a.statistics(db,"deck",True)["ECONOMY"]["n"],0)
+   record_review(db,"fixture",1,"pass","fixture feedback","Known controlled feedback","test")
+   self.assertEqual(a.statistics(db,"deck",True)["ECONOMY"]["n"],1)
+   self.assertEqual(a.select_profile(a.statistics(db,"deck",True),False),"BALANCED")
+   db.close()
+ def test_failed_or_heldout_episode_cannot_be_approved_for_training(self):
+  with tempfile.TemporaryDirectory() as td:
+   db=a.connect(Path(td)/"m.sqlite")
+   for i,(mode,status) in enumerate([("train","engine_error"),("evaluate","completed")]):
+    db.execute("INSERT INTO episodes VALUES (?,?,?,?,?,?,?,?,?)",("fixture",i,"deck",mode,i,"ENGINE",status,None,"{}"))
+    with self.assertRaises(ValueError):record_review(db,"fixture",i,"pass","test","test","test")
+   db.close()
 
 if __name__=="__main__":unittest.main()

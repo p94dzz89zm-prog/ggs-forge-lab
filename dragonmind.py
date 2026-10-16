@@ -62,6 +62,8 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
         flags.append(f'-Dforge.ai.ggsPilotPlayer=Ai({seats.index(variant)+1})-{variant}')
     if audit:
         flags.append('-Dforge.audit.directory='+str(out/'audit'/label))
+        if pilot:
+            flags.append(f'-Dforge.audit.player=Ai({seats.index(variant)+1})-{variant}')
     # Forge writes logs, preferences and caches under user.home. Never share that
     # mutable profile between independent JVM games, even with separate audits.
     runtime_home=out/'runtime-home'/label

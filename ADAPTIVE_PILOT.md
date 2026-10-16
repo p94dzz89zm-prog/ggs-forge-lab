@@ -42,7 +42,7 @@ Run from a checkout with the verified engine/resources available:
 ```bash
 python adaptive_pilot.py --engine /path/to/forge-gui \
   --jar /path/to/pilot.jar --output /path/to/training-run \
-  --model /path/to/experience.sqlite --games 6 --seed 2026102101
+  --model /path/to/experience.sqlite --games 6 --seed 2026102101 --pool sandbox
 ```
 
 Repeat the exact command to resume; increase `--games` to extend that run.
@@ -68,15 +68,54 @@ enabled by this command. `--games` is a bounded total, not a claim of how many
 games have already been completed. Training alone is not evidence of improvement:
 that requires paired held-out comparisons and decision review.
 
+The learner is currently sequential: one full JVM game per update. Very large
+runs need a distributed rollout service, storage budgets, broader deck
+curricula and bounded reporting. This prototype is not advertised as a
+million-game training platform.
+
 ## Fresh verification
 
-`run_pilot_recovery.py` now verifies 121 distinct engine scenarios (137
+`run_pilot_recovery.py` now verifies 131 targeted scenarios and 64 randomized combat positions (211
 executions including 16 repeated Prowler checks). The new combat fixtures pay
 native ninjutsu and graveyard Sneak costs and resolve the real triggers: native
 ninjutsu activates both Satoru rewards; paid Sneak does not. They also verify
 supplementary fresh attacks and profile-dependent opening preferences.
 
-`python -m unittest -v test_adaptive_pilot` verifies persistence, automatic
+`python -m unittest -v test_adaptive_pilot` runs six checks of persistence, automatic
 preference change under controlled feedback, held-out/failure isolation and
 event-metric parsing. Controlled feedback tests are software tests, not evidence
 that a particular profile is superior in real games.
+
+Known recovery gaps remain: the later equipment/ninjutsu mana-reservation
+heuristic and the older-body Trebuchet attack fallback have not been rebuilt
+in this checkpoint. The new fresh-attack supplement covers a narrow small-body
+case. There is no full-game tactical correctness certificate, broad card-rule
+coverage certificate, or basis yet for card-cut recommendations.
+
+## Referee gate added after the first experiment
+
+The first six training games update **sandbox preferences only**. None has been
+approved as strategically correct. New commands default to `--pool reviewed`;
+that pool uses only complete measurable training episodes with a recorded pass
+review. A high proxy reward cannot bypass this gate. `--pool sandbox` explicitly
+opts into provisional experimentation. Evaluation never updates either pool.
+
+`review_experience.py` records the referee, scope, reasoning and pass/reject/pending
+status, with an append-only review history. Passing a scoped review is not a
+claim that every decision was optimal. Poor but legal choices can be informative
+negative examples; do not delete losses or approve only winning games.
+
+`referee_games.py` checks canonical result/transcript agreement and engine-error
+markers, then emits review leads. It never marks a game strategically approved.
+The 64 seeded randomized combat probes additionally check attack/block legality
+and that forecasts do not mutate the battlefield. They do not solve optimal play.
+
+Legacy experimental manifests predate the pool field; preserve them with the
+older committed implementation. Start a new output directory and disjoint seeds
+for the gated runner rather than rewriting historical manifests. Existing
+experience databases migrate additively and remain readable.
+
+Audit collection can now target the GGS seat with `forge.audit.player`, avoiding
+redundant snapshots of all four private views. This is an instrumentation scope
+control, not a proven cure for all timeouts. The engine hash changes, so it is a
+new learning context. Old evidence remains tied to its original engine hash.

@@ -1,0 +1,37 @@
+{
+  "base_sha256": "d9278b1ddd644ef6dd458b19cfabee20d3c2e9fde51d1cf10827a91c842616ee",
+  "output_sha256": "eb0a84c5edb614ff7083140879d9e7c291e363554c6986a3b7e4aab49feefaf0",
+  "sources": {
+    "pilot-src/forge/ai/AiAttackController.java": "09f64916495de04a0b7fe71d622b2817f45629b2b9ff25731c2189323b1b7650",
+    "pilot-src/forge/ai/AiController.java": "744b9d3f6cab342781e7a273f5d7ce0dfc16853ea308e71dbf8025b802079a5b",
+    "pilot-src/forge/ai/ComputerUtil.java": "82457c6fb7de6689cefc24183233240d572c85b86ef500ea807008a7fcb48c35",
+    "pilot-src/forge/ai/ability/PermanentCreatureAi.java": "9ce63dd2970f6ef2a9ec8f355e2fda8011c9182cf603ba6169fc54d9bc11cfc6",
+    "pilot-src/forge/ai/ability/PumpAi.java": "6fee573b692c8fad571f8c8eca4b491f34de31b933a670107c056f2487cbb5ca",
+    "pilot-src/forge/ai/ability/UntapAllAi.java": "d566e904ed82610e297be2a8a50464de295b793a203981758d6e84b56f91307b",
+    "pilot-src/forge/ai/bridge/BridgeAudit.java": "092639eebbd91280fd431eb2145eff4dad5796185bae6561ccc9a3ac3dbc1eb6",
+    "pilot-src/forge/ai/bridge/PlayerControllerBridge.java": "7c3eb0db149bd8bacbebc46c2ef8c94531c2254c16305b3f53b522b13b3c8c71",
+    "pilot-src/forge/ai/ggs/AdaptiveStrategy.java": "16cfea7f092c73f541adde944f2c88ae2daf74b6cdc2e48f2eee25dba869f5c9",
+    "pilot-src/forge/ai/ggs/GgsFreshAttackPolicy.java": "d75b37ef281862e1a09a233fccc523e561c4810bd7cbdd4b7087f22b84dab6b2",
+    "pilot-src/forge/ai/ggs/GgsNinjutsuPolicy.java": "9351cf933a5ed4a77fe28e4be3d2b1308c49c42f48fabac7af747319e3b3ccef",
+    "pilot-src/forge/ai/ggs/GgsRecoveryPolicy.java": "bdec05d0d42519c322d01490a90b41c07347b436d74eab9702c2996a27c31fc2",
+    "pilot-src/forge/ai/ggs/GgsSneakPolicy.java": "6d9d9dfc8c63fd4790bca3e95d81da7057707ac300ec73acb293719e0db7eda8"
+  },
+  "replaced_classes": [
+    "forge/ai/AiAttackController$SpellAbilityFactors.class",
+    "forge/ai/AiAttackController.class",
+    "forge/ai/AiController$1.class",
+    "forge/ai/AiController.class",
+    "forge/ai/ComputerUtil.class",
+    "forge/ai/ability/PermanentCreatureAi.class",
+    "forge/ai/ability/PumpAi.class",
+    "forge/ai/ability/UntapAllAi.class",
+    "forge/ai/bridge/BridgeAudit.class",
+    "forge/ai/bridge/PlayerControllerBridge.class",
+    "forge/ai/ggs/AdaptiveStrategy.class",
+    "forge/ai/ggs/GgsFreshAttackPolicy.class",
+    "forge/ai/ggs/GgsNinjutsuPolicy$Plan.class",
+    "forge/ai/ggs/GgsNinjutsuPolicy.class",
+    "forge/ai/ggs/GgsRecoveryPolicy.class",
+    "forge/ai/ggs/GgsSneakPolicy.class"
+  ]
+}

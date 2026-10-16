@@ -1,0 +1,11 @@
+test_failed_or_heldout_episode_cannot_be_approved_for_training (test_adaptive_pilot.ExperienceTests.test_failed_or_heldout_episode_cannot_be_approved_for_training) ... ok
+test_metrics_separate_own_turns_opponent_damage_and_life_payment (test_adaptive_pilot.ExperienceTests.test_metrics_separate_own_turns_opponent_damage_and_life_payment) ... ok
+test_missing_trace_does_not_create_reward (test_adaptive_pilot.ExperienceTests.test_missing_trace_does_not_create_reward) ... ok
+test_no_training_on_holdout_failures_or_other_decks (test_adaptive_pilot.ExperienceTests.test_no_training_on_holdout_failures_or_other_decks) ... ok
+test_repetition_changes_preference_and_survives_restart (test_adaptive_pilot.ExperienceTests.test_repetition_changes_preference_and_survives_restart) ... ok
+test_unreviewed_high_reward_cannot_enter_reviewed_policy (test_adaptive_pilot.ExperienceTests.test_unreviewed_high_reward_cannot_enter_reviewed_policy) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.013s
+
+OK
