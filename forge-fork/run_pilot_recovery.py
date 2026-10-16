@@ -27,8 +27,12 @@ def atomic_json(path, value):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    for name in ("jar","engine","testng","forge-source","logs"):
+    for name in ("jar","engine","testng","logs"):
         p.add_argument("--"+name,type=Path,required=True)
+    fixture=p.add_mutually_exclusive_group(required=True)
+    fixture.add_argument('--forge-source',type=Path)
+    fixture.add_argument('--fixture-classpath',type=Path,
+        help='Pinned compiled AITest helper when the upstream source checkout is unavailable')
     p.add_argument("--random-cases",type=int,default=64)
     p.add_argument("--random-start",type=int,default=0)
     a=p.parse_args()
@@ -38,11 +42,16 @@ def main():
     manifest={"jar_sha256":digest(a.jar),"suites":[],"all_passed":False,
               "targeted_scenarios":166,"configuration_checks":21,"randomized_positions":a.random_cases,"executions":203+a.random_cases,
               "note":"16 Prowler repetitions are repeated scenarios, not independent games."}
+    if a.fixture_classpath:
+        helper=a.fixture_classpath/'forge/ai/AITest.class'
+        if not helper.is_file():p.error('Missing pinned AITest helper')
+        manifest['fixture_helper_sha256']=digest(helper)
     atomic_json(a.logs/"validation.json",manifest)
     with tempfile.TemporaryDirectory() as compiled:
         cp=str(a.jar.resolve())+":"+str(a.testng.resolve())
-        sources=[a.forge_source/"forge-gui-desktop/src/test/java/forge/ai/AITest.java",
-                 *[ROOT/(s+".java") for s in suites]]
+        if a.fixture_classpath:cp+=':'+str(a.fixture_classpath.resolve())
+        sources=([a.forge_source/"forge-gui-desktop/src/test/java/forge/ai/AITest.java"] if a.forge_source else [])
+        sources += [ROOT/(s+".java") for s in suites]
         subprocess.run(["java","-XX:-UsePerfData","-m","jdk.compiler/com.sun.tools.javac.Main",
                         "-cp",cp,"-d",compiled,*map(str,sources)],check=True)
         for suite,expected in suites.items():

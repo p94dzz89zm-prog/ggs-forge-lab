@@ -32,12 +32,13 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     for key in ['engine','jar','output']:p.add_argument('--'+key,type=Path,required=True)
     p.add_argument('--seed',type=int,required=True);p.add_argument('--candidates',type=int,default=3);p.add_argument('--timeout',type=int,default=120)
+    p.add_argument('--pairs',type=int,default=4,help='Matched seed/seat conditions per vector; groups of four cover all seats of one seed')
     args=p.parse_args()
-    if min(args.candidates,args.timeout)<1:p.error('Positive candidates and timeout required')
+    if min(args.candidates,args.timeout,args.pairs)<1:p.error('Positive candidates, pairs and timeout required')
     for key in ['engine','jar','output']:setattr(args,key,getattr(args,key).resolve())
     args.output.mkdir(parents=True,exist_ok=True)
     names=['GGS_Current','Jaymie_Ezio','Gabe_Food','Destyn_Turtles']
-    signature={'jar_sha256':a.sha(args.jar),'source_sha256':a.sha(Path(__file__)),'seed':args.seed,'timeout':args.timeout,
+    signature={'jar_sha256':a.sha(args.jar),'source_sha256':a.sha(Path(__file__)),'seed':args.seed,'timeout':args.timeout,'pairs':args.pairs,'seed_layout':'seed+condition//4; rotation=condition%4',
                'deck_sha256':{n:a.sha(dragonmind.ROOT/'decks'/(n+'.dck')) for n in names}}
     protocol=args.output/'protocol.json'
     if protocol.exists() and json.loads(protocol.read_text())!=signature:p.error('Inputs changed; choose a new output')
@@ -49,15 +50,15 @@ def main():
             vector=BASE.copy() if idx==0 else sample_vector(rng,state['candidates'][parent]['weights'] if parent is not None else None)
             state['candidates'].append({'weights':vector,'parent_candidate':parent,'games':[]});a.atomic_json(path,state)
         candidate=state['candidates'][idx]
-        for pair in range(len(candidate['games']),2):
-            seed=args.seed+pair;out=args.output/f'candidate-{idx:03d}'/f'pair-{pair}'
+        for pair in range(len(candidate['games']),args.pairs):
+            seed=args.seed+pair//4;rotation=pair%4;out=args.output/f'candidate-{idx:03d}'/f'pair-{pair}'
             if out.exists() and not (out/'attempt.json').exists():out.rename(out.with_name(out.name+'-interrupted-'+str(time.time_ns())))
             out.mkdir(parents=True,exist_ok=True)
             print(f'candidate {idx}, seed {seed}',flush=True)
             if (out/'attempt.json').exists():row=json.loads((out/'attempt.json').read_text())
             else:
                 flags=['-Ddragonmind.strategyProfile=BALANCED','-Ddragonmind.boundedCombatForecast=true']+[f'-Ddragonmind.weight.{k}={v}' for k,v in candidate['weights'].items()]
-                row=dragonmind.batch(args.engine,args.jar,out,'GGS_Current',pair,[seed],args.timeout,True,True,extra_jvm_flags=tuple(flags))[0];a.atomic_json(out/'attempt.json',row)
+                row=dragonmind.batch(args.engine,args.jar,out,'GGS_Current',rotation,[seed],args.timeout,True,True,extra_jvm_flags=tuple(flags))[0];a.atomic_json(out/'attempt.json',row)
             if a.sha(args.jar)!=signature['jar_sha256'] or any(a.sha(dragonmind.ROOT/'decks'/(n+'.dck'))!=h for n,h in signature['deck_sha256'].items()):raise ValueError('Experiment inputs changed')
             reports=inspect(out);row['integrity_report']=reports
             row['won']=row['status']=='completed' and row.get('winner')==f"Ai({row['seats'].index('GGS_Current')+1})-GGS_Current"
