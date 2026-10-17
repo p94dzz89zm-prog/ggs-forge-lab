@@ -37,10 +37,12 @@ def main():
     p.add_argument("--random-start",type=int,default=0)
     a=p.parse_args()
     if a.random_cases<1:p.error("Positive random case count required")
-    suites={**SUITES,"CombinedCounterRescueRegression":14,"MarchShieldRegression":11,"CounterFamilyRegression":28,"TrampleCounterRescueRegression":66,"StrikeCounterRescueRegression":24,"ExileCounterRescueRegression":12,"RandomCombatReferee":a.random_cases}
+    suites={**SUITES,"CombinedCounterRescueRegression":14,"MarchShieldRegression":11,"CounterFamilyRegression":28,"TrampleCounterRescueRegression":66,"StrikeCounterRescueRegression":24,"ExileCounterRescueRegression":12,"RegressionLauncherRegression":6,"RandomCombatReferee":a.random_cases}
     a.logs.mkdir(parents=True,exist_ok=False)
     manifest={"jar_sha256":digest(a.jar),"suites":[],"all_passed":False,
-              "targeted_scenarios":420,"configuration_checks":21,"randomized_positions":a.random_cases,"executions":457+a.random_cases,
+              "targeted_scenarios":420,"configuration_checks":21,"randomized_positions":a.random_cases,"executions":463+a.random_cases,
+              "launcher_contract_checks":6,"launcher_source_sha256":digest(ROOT/'RegressionLauncher.java'),
+              "launch_protocol":"reflection wrapper preserves original thrown failures; exact completion marker still required",
               "note":"16 Prowler repetitions are repeated scenarios, not independent games."}
     if a.fixture_classpath:
         helper=a.fixture_classpath/'forge/ai/AITest.class'
@@ -51,9 +53,11 @@ def main():
         cp=str(a.jar.resolve())+":"+str(a.testng.resolve())
         if a.fixture_classpath:cp+=':'+str(a.fixture_classpath.resolve())
         sources=([a.forge_source/"forge-gui-desktop/src/test/java/forge/ai/AITest.java"] if a.forge_source else [])
-        sources += [ROOT/(s+".java") for s in suites]
+        sources += [ROOT/'RegressionLauncher.java'] + [ROOT/(s+".java") for s in suites]
         subprocess.run(["java","-XX:-UsePerfData","-m","jdk.compiler/com.sun.tools.javac.Main",
                         "-cp",cp,"-d",compiled,*map(str,sources)],check=True)
+        manifest['launcher_class_sha256']=digest(Path(compiled)/'RegressionLauncher.class')
+        atomic_json(a.logs/"validation.json",manifest)
         for suite,expected in suites.items():
             log=a.logs/(suite+".log")
             home=(a.logs/"runtime-home"/suite).resolve();home.mkdir(parents=True,exist_ok=False)
@@ -61,7 +65,7 @@ def main():
             with log.open("w") as stream:
                 try:
                     result=subprocess.run(["java","-XX:-UsePerfData","-Xmx1536m","-Djava.awt.headless=true","-Duser.home="+str(home),
-                        "-cp",cp+":"+compiled,suite,*([str(a.random_cases),str(a.random_start)] if suite=="RandomCombatReferee" else [])],cwd=a.engine.resolve(),stdout=stream,
+                        "-cp",cp+":"+compiled,'RegressionLauncher',suite,*([str(a.random_cases),str(a.random_start)] if suite=="RandomCombatReferee" else [])],cwd=a.engine.resolve(),stdout=stream,
                         stderr=subprocess.STDOUT,timeout=150)
                     rc=result.returncode
                 except subprocess.TimeoutExpired:

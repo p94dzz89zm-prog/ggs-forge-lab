@@ -8,13 +8,14 @@ def main():
  p=argparse.ArgumentParser(description=__doc__)
  for k in ('jar','engine','testng','fixture-classpath','output'):p.add_argument('--'+k,type=pathlib.Path,required=True)
  a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
- cp=':'.join(str(x.resolve()) for x in (a.jar,a.testng,a.fixture_classpath));state={'jar_sha256':sha(a.jar),'constructed_check_groups':41,'natural_games':0,'all_passed':False,'suites':[]}
+ cp=':'.join(str(x.resolve()) for x in (a.jar,a.testng,a.fixture_classpath));state={'jar_sha256':sha(a.jar),'constructed_check_groups':41,'natural_games':0,'all_passed':False,'suites':[],'launcher_source_sha256':sha(ROOT/'RegressionLauncher.java'),'launch_protocol':'reflection wrapper preserves original thrown failures; exact completion marker still required'}
  with tempfile.TemporaryDirectory() as tmp:
-  subprocess.run(['java','-XX:-UsePerfData','-m','jdk.compiler/com.sun.tools.javac.Main','-cp',cp,'-d',tmp,*[str(ROOT/(s+'.java')) for s in SUITES]],check=True)
+  subprocess.run(['java','-XX:-UsePerfData','-m','jdk.compiler/com.sun.tools.javac.Main','-cp',cp,'-d',tmp,str(ROOT/'RegressionLauncher.java'),*[str(ROOT/(s+'.java')) for s in SUITES]],check=True)
+  state['launcher_class_sha256']=sha(pathlib.Path(tmp)/'RegressionLauncher.class')
   for suite,count in SUITES.items():
    home=(a.output/'homes'/suite).resolve();home.mkdir(parents=True);log=a.output/(suite+'.log');rc=None;timedout=False
    with log.open('w') as f:
-    try:rc=subprocess.run(['java','-XX:-UsePerfData','-Xmx1536m','-Djava.awt.headless=true','-Duser.home='+str(home),'-cp',cp+':'+tmp,suite],cwd=a.engine.resolve(),stdout=f,stderr=subprocess.STDOUT,timeout=150).returncode
+    try:rc=subprocess.run(['java','-XX:-UsePerfData','-Xmx1536m','-Djava.awt.headless=true','-Duser.home='+str(home),'-cp',cp+':'+tmp,'RegressionLauncher',suite],cwd=a.engine.resolve(),stdout=f,stderr=subprocess.STDOUT,timeout=150).returncode
     except subprocess.TimeoutExpired:timedout=True
    text=log.read_text();markers=[x for x in text.splitlines() if x.startswith('Checks passed:')];ok=rc==0 and not timedout and markers==[f'Checks passed: {count}'] and 'AssertionError' not in text and 'Exception in thread' not in text
    state['suites'].append({'suite':suite,'passed':ok,'returncode':rc,'timeout':timedout,'log_sha256':sha(log),'check_groups':count});(a.output/'validation.json').write_text(json.dumps(state,indent=2)+'\n');print(suite,ok,flush=True)

@@ -11,8 +11,8 @@ identifies the currently adopted corrected executable: do not revert to r10. The
 accepts `--fixture-classpath` so a vanished upstream source checkout does not
 block retesting; its manifest records the helper's SHA-256.
 
-An ordinary batch runs the 50 admission/learner/research Python checks, all
-current engine suites (23 including strike/exile counter rescue and March shield checks), 128 disjoint randomized
+An ordinary batch runs the full Python test suite (currently 82 checks), all
+current engine suites (24 including strike/exile counter rescue, March shield and launcher checks), 128 disjoint randomized
 positions and three tactical vectors across all four seat rotations of one
 shared development seed. A third vector may mutate a parent only after
 evidence-bound full-game rules and critical-decision admission. Matching
@@ -64,6 +64,16 @@ March-corrected engine. See forge-fork/COUNTER_RESCUE.md for its narrow scope.
 Until incomplete model-startup exits are explained, run full engine validation
 after pod collectors finish. Isolation alone did not eliminate those observed
 concurrent-startup failures. Never count an unmarked exit as a clean suite.
+
+Both isolated engine runners now invoke suites through `RegressionLauncher`,
+which catches original main-thread and class-initialization failures before a
+desktop uncaught handler can discard their trace. Six pure-JDK subprocess
+contracts cover argument forwarding, a trace-suppressing control and visible
+assertion, initialization, missing-class and usage failures. The launcher source
+and compiled class hashes are recorded. This improves diagnostics; it does not
+explain or certify away intermittent exit0-without-marker observations, does
+not capture every asynchronous worker failure, and does not change card rules
+or the pilot engine. See forge-fork/RUNTIME_RELIABILITY.md.
 
 
 The blocked-trample extension uses forge-fork/build_march_trample.py over the
