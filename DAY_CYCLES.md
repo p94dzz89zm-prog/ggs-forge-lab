@@ -12,7 +12,7 @@ accepts `--fixture-classpath` so a vanished upstream source checkout does not
 block retesting; its manifest records the helper's SHA-256.
 
 An ordinary batch runs the 50 admission/learner/research Python checks, all
-current engine suites (17 including actual counter payment and blocked-trample checks), 128 disjoint randomized
+current engine suites (19 including actual combined-counter payment and March shield checks), 128 disjoint randomized
 positions and three tactical vectors across all four seat rotations of one
 shared development seed. A third vector may mutate a parent only after
 evidence-bound full-game rules and critical-decision admission. Matching
@@ -70,3 +70,9 @@ The blocked-trample extension uses forge-fork/build_march_trample.py over the
 recovered payment-verified counter-rescue executable. See MARCH_TRAMPLE.md.
 Profile/boundary repetitions are correlated constructed checks, not independent
 games. Initialize and validate legal blocks and damage orders in fixtures.
+
+Cycle8 adds the combined-counter and March shield regressions. The day driver
+still leaves all strategic admission pending. Repeating one cycle's random
+range on a corrected build is regression revalidation of the same positions,
+not an additional disjoint random sample. See COUNTER_RESCUE.md and
+MARCH_SHIELD.md for exact mechanisms and separate frozen-build coverage.

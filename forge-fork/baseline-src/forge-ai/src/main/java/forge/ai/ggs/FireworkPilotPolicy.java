@@ -161,8 +161,18 @@ public final class FireworkPilotPolicy {
         int max = ComputerUtilCost.setMaxXValue(sa, ai, false);
         if (max < 1) return false;
         int count = Math.min(max, preferred.size());
+        List<Card> selected = new ArrayList<>(preferred.subList(0, count));
+        // Saving our blocker can expose lethal trample. During urgent empty-
+        // stack defense, keep that shield unless this cast also removes every
+        // trampler it blocks. Do not make a strike-order forecast here.
+        if (urgentCombat) selected.removeIf(c -> c.getController() == ai
+                && combat.getAttackersBlockedBy(c).stream().anyMatch(attacker ->
+                        ai.equals(combat.getDefenderByAttacker(attacker))
+                        && attacker.hasKeyword(Keyword.TRAMPLE) && !selected.contains(attacker)));
+        count = selected.size();
+        if (count == 0) return false;
         sa.setXManaCostPaid(count);
-        for (int i = 0; i < count; i++) sa.getTargets().add(preferred.get(i));
+        for (Card c : selected) sa.getTargets().add(c);
         if (!sa.isTargetNumberValid() || !ComputerUtilCost.canPayCost(sa, ai, false)) { sa.resetTargets(); return false; }
         return true;
     }

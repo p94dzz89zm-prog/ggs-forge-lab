@@ -4,6 +4,7 @@ import forge.ai.ComputerUtilAbility;
 import forge.ai.ComputerUtilCombat;
 import forge.game.ability.ApiType;
 import forge.game.card.Card;
+import forge.game.keyword.Keyword;
 import forge.game.phase.PhaseType;
 import forge.game.player.Player;
 import forge.game.spellability.SpellAbility;
@@ -29,9 +30,26 @@ public final class GgsCounterRescuePolicy {
                 || !removal.getActivatingPlayer().isOpponentOf(ai)
                 || removal.getTargets().getTargetCards().size() != 1) return false;
         Card attacker = removal.getTargets().getTargetCards().get(0);
-        return attacker.isCreature() && attacker.getController().isOpponentOf(ai)
+        if (!(attacker.isCreature() && attacker.getController().isOpponentOf(ai)
                 && !attacker.isPhasedOut() && combat.isAttacking(attacker)
-                && combat.isUnblocked(attacker) && ai.equals(combat.getDefenderByAttacker(attacker))
-                && ComputerUtilCombat.damageIfUnblocked(attacker, ai, combat, false) >= ai.getLife();
+                && combat.isUnblocked(attacker) && ai.equals(combat.getDefenderByAttacker(attacker)))) return false;
+        int removedDamage = ComputerUtilCombat.damageIfUnblocked(attacker, ai, combat, false);
+        if (removedDamage >= ai.getLife()) return true;
+        // A smaller attacker can be the difference between lethal combined
+        // damage and survival. Keep this extension to an ordinary unblocked
+        // life-damage batch aimed entirely at us; complicated combat retains
+        // the existing policy rather than guessing a removal outcome.
+        if (removedDamage <= 0) return false;
+        int combined = 0;
+        for (Card other : combat.getAttackers()) {
+            if (other.isPhasedOut() || !combat.isUnblocked(other)
+                    || !ai.equals(combat.getDefenderByAttacker(other))
+                    || other.hasKeyword(Keyword.FIRST_STRIKE)
+                    || other.hasKeyword(Keyword.DOUBLE_STRIKE)
+                    || other.hasKeyword(Keyword.INFECT)) return false;
+            combined += Math.max(0, ComputerUtilCombat.damageIfUnblocked(other, ai, combat, false));
+        }
+        return combined >= ai.getLife() && combined - removedDamage < ai.getLife();
     }
 }
+
