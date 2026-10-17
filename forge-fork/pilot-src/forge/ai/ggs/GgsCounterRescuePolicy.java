@@ -21,15 +21,26 @@ public final class GgsCounterRescuePolicy {
         if (combat.isUnblocked(attacker))
             return ComputerUtilCombat.damageIfUnblocked(attacker, ai, combat, false);
         if (!attacker.hasKeyword(Keyword.TRAMPLE)) return 0;
-        // Ordinary blockers-step spill only. Complex strike/poison/deathtouch
-        // assignments retain stock evaluation rather than a guessed rescue.
-        if (attacker.hasKeyword(Keyword.FIRST_STRIKE)
-                || attacker.hasKeyword(Keyword.DOUBLE_STRIKE)
-                || attacker.hasKeyword(Keyword.INFECT)
+        if (attacker.hasKeyword(Keyword.INFECT)
                 || attacker.hasKeyword(Keyword.DEATHTOUCH)) return -1;
         var blockers = combat.getBlockers(attacker);
-        for (Card blocker : blockers) if (blocker.hasKeyword(Keyword.FIRST_STRIKE)
-                || blocker.hasKeyword(Keyword.DOUBLE_STRIKE)) return -1;
+        boolean strike = attacker.hasFirstStrike() || attacker.hasDoubleStrike();
+        for (Card blocker : blockers) strike |= blocker.hasFirstStrike() || blocker.hasDoubleStrike();
+        if (strike) {
+            // One blocker only. Retaining its entire shield for both steps
+            // deliberately undercounts double-strike spill when it dies early.
+            // Do not assign a later step to an attacker killed in first strike.
+            if (blockers.size() != 1) return -1;
+            Card blocker = blockers.get(0);
+            if (blocker.hasKeyword(Keyword.DEATHTOUCH) || blocker.hasKeyword(Keyword.INFECT)
+                    || blocker.hasKeyword(Keyword.WITHER)) return -1;
+            int early = (blocker.hasFirstStrike() || blocker.hasDoubleStrike())
+                    ? ComputerUtilCombat.predictDamageTo(attacker, blocker.getNetCombatDamage(), blocker, true) : 0;
+            if (early >= attacker.getLethalDamage()) return -1;
+            int spill = Math.max(0, attacker.getNetCombatDamage() - blocker.getLethalDamage());
+            int damage = ComputerUtilCombat.predictDamageTo(ai, spill, attacker, true);
+            return damage * (attacker.hasDoubleStrike() ? 2 : 1);
+        }
         int spill = Math.max(0, attacker.getNetCombatDamage()
                 - ComputerUtilCombat.totalShieldDamage(attacker, blockers));
         return ComputerUtilCombat.predictDamageTo(ai, spill, attacker, true);
@@ -63,10 +74,10 @@ public final class GgsCounterRescuePolicy {
         int combined = 0;
         for (Card other : combat.getAttackers()) {
             if (!ai.equals(combat.getDefenderByAttacker(other))) continue;
-            if (other.isPhasedOut()
-                    || other.hasKeyword(Keyword.FIRST_STRIKE)
-                    || other.hasKeyword(Keyword.DOUBLE_STRIKE)
-                    || other.hasKeyword(Keyword.INFECT)) return false;
+            if (other.isPhasedOut() || other.hasKeyword(Keyword.INFECT)) return false;
+            // Only the removal target gains the strike-combat extension.
+            // Preserve the existing boundary for a separate strike attacker.
+            if (other != attacker && (other.hasFirstStrike() || other.hasDoubleStrike())) return false;
             int damage = incomingDamage(other, ai, combat);
             if (damage < 0) return false;
             combined += Math.max(0, damage);

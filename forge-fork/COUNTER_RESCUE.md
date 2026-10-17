@@ -134,3 +134,28 @@ are selected constructed cases with correlated profile repetitions, not games.
 build_counter_trample.py overlays only GgsCounterRescuePolicy.class on the
 verified cycle9 a2e981 executable and verifies all other entries byte-for-byte.
 The default incumbent and outcome-admission requirements remain unchanged.
+
+## Cycle11 single-blocker strike extension
+
+The cycle10 exclusions above left a reproduced losing decision in three
+constructed mechanisms: first-strike trampler, double-strike trampler, and
+first-strike blocker. Actual countering died in nine card/mechanism executions;
+explicit passes survived. Cycle11 extends only a single-blocker trample forecast.
+It retains the blocker's full current lethal-damage shield in each damage step,
+so double strike deliberately undercounts spill when the blocker dies early.
+An attacker that can die to the blocker's first-strike damage gets no later-step
+forecast. Multi-blocker strike, infect, deathtouch and wither blockers retain
+stock evaluation. Trigger-driven changes, prevention and replacement effects,
+regeneration, poison and commander loss still require broader review.
+
+StrikeCounterRescueRegression checks actual automatic priority, legal payment,
+Offer's Treasures, paid removal and both damage steps, plus nonlethal and lethal
+first-strike-blocker boundaries. The two formerly unsupported strike assertions
+in TrampleCounterRescueRegression now require the saving pass; all other
+ordinary scenarios remain present. These are correlated constructed checks.
+Fresh frozen evaluation is required separately; a passing regression alone
+does not establish general strength or admit a full episode.
+
+build_counter_strike.py changes only GgsCounterRescuePolicy.class over verified
+cycle10 build49d294ae9e5a7be3bdcdf96500326f4b3f5440d9144e160f869159318c2e8719.
+No card rules, decks or coefficients change; the candidate is experimental.
