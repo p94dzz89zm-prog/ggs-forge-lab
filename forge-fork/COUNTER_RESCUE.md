@@ -71,3 +71,37 @@ six. An initial fixture assertion incorrectly treated a3-power Hill Giant
 plus a2-power companion as lethal at6 life. That failed attempt was retained;
 the oracle was corrected without changing the frozen policy, and the rerun
 is explicitly a fixture retry, not an additional fresh sample.
+
+## Counter-family extension and recovery boundary
+
+Cycle9 reproduces the same losing choice with An Offer You Can't Refuse
+(present in the archived GGS list) and Counterspell (a constructed control).
+The safeguard now includes those two tested unconditional counters as well as
+Swan Song. It remains selected-pilot-only and retains the prior timing,
+targeted-removal and ordinary combined-damage boundaries. Other counterspell
+effects and complicated stacks retain stock evaluation; this is not a generic
+counterspell solver.
+
+CounterFamilyRegression contains28 groups: three development positions under
+three profiles for each of the two added cards, plus five boundary decisions
+for each card. The positive cases use actual full-priority selection, colored
+payment, resolution and combat. They also assert that a paid Offer creates
+two Treasures for the removal caster, and a paid Counterspell taps two Islands.
+The corrected policy preserves the saving removal and its own counter/mana.
+Profile repetitions are correlated cases, not independent games. The existing
+CounterRescueRegression Counterspell case is now a positive rescue assertion
+rather than an intentionally unsupported boundary; its actual removal/combat
+checks remain enabled.
+
+Build with build_counter_family.py over the recovered defense executable
+SHA256 e9ebc23c353706d2e1d1a8e66a38bf16b54996a0881a5449bca005415daadb2f.
+Only GgsCounterRescuePolicy.class changes. To reconstruct the historical
+cycle8 two-step build, use the source at7dadd311d07789894cd502201cdc7a9902e0c4b3;
+its earlier build scripts refer to that version's policy, not the new family.
+
+Cycle8 raw game/audit logs were not confirmed saved before workspace pruning.
+Its reported constructed observations above are historical, not a recoverable
+full-game certificate. The final19-suite/natural evaluation completion remains
+unknown and its reserved conditions must not be replayed as fresh. Cycle9
+recovered the prepared public source tree and repeated the two mechanisms,
+saving those logs and exact rebuilt executables before additional work.

@@ -9,16 +9,18 @@ import forge.game.phase.PhaseType;
 import forge.game.player.Player;
 import forge.game.spellability.SpellAbility;
 
-/** Do not spend Swan Song to preserve an unblocked attacker about to kill us.
+/** Do not spend a tested counter to preserve an attacker about to kill us.
  * This is a narrow public-state guard, not a multiplayer counterspell solver.
  */
 public final class GgsCounterRescuePolicy {
     private GgsCounterRescuePolicy() {}
+    private static final java.util.Set<String> SUPPORTED_COUNTERS = java.util.Set.of(
+            "Swan Song", "An Offer You Can't Refuse", "Counterspell");
     public static boolean rejectLethalRescueCounter(Player ai, SpellAbility counter) {
         if (!GgsNinjutsuPolicy.enabled(ai)
                 || Boolean.getBoolean("dragonmind.disableCounterRescuePolicy")
                 || counter.getApi() != ApiType.Counter || !counter.isSpell()
-                || !"Swan Song".equals(counter.getHostCard().getName())
+                || !SUPPORTED_COUNTERS.contains(counter.getHostCard().getName())
                 || ai.getGame().getStack().size() != 1
                 || ai.getGame().getPhaseHandler().getPhase() != PhaseType.COMBAT_DECLARE_BLOCKERS
                 || !ai.canLoseLife() || ai.cantLoseForZeroOrLessLife() || ai.getLife() <= 0) return false;

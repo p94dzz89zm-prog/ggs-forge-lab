@@ -28,9 +28,10 @@ public class CounterRescueRegression extends AITest {
   Assert.assertTrue(removal.canTarget(body));Assert.assertTrue(ComputerUtilCost.canPayCost(removal,remover,false));Assert.assertTrue(ComputerUtil.handlePlayingSpellAbility(remover,removal,null));
   Assert.assertEquals(remover.getLandsInPlay().stream().filter(Card::isTapped).count(),mode==3?2L:3L);
   SpellAbility counter=swan.getFirstSpellAbility();counter.setActivatingPlayer(ai);
-  Assert.assertEquals(GgsCounterRescuePolicy.rejectLethalRescueCounter(ai,counter),mode<4,"guard boundary "+mode);
+  boolean rescueCase=mode<4||mode==7;
+  Assert.assertEquals(GgsCounterRescuePolicy.rejectLethalRescueCounter(ai,counter),rescueCase,"guard boundary "+mode);
   AiController pilot=((PlayerControllerAi)ai.getController()).getAi();AiPlayDecision decision=pilot.canPlaySa(counter);
-  if(mode<4){
+  if(rescueCase){
    Assert.assertFalse(decision.willingToPlay());
    System.setProperty("dragonmind.disableCounterRescuePolicy","true");boolean stockWouldCounter=pilot.canPlaySa(counter).willingToPlay();System.clearProperty("dragonmind.disableCounterRescuePolicy");
    // The original Mortify reproduction must distinguish the policies. Stock
@@ -49,3 +50,4 @@ public class CounterRescueRegression extends AITest {
  }
  public static void main(String[]args){CounterRescueRegression t=new CounterRescueRegression();t.initializeModel();for(String p:List.of("BALANCED","ENGINE","ECONOMY"))for(int m=0;m<8;m++)t.scenario(p,m);System.out.println("Checks passed: "+t.checks);System.exit(0);}
 }
+

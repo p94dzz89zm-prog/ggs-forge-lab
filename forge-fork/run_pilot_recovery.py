@@ -37,10 +37,10 @@ def main():
     p.add_argument("--random-start",type=int,default=0)
     a=p.parse_args()
     if a.random_cases<1:p.error("Positive random case count required")
-    suites={**SUITES,"CombinedCounterRescueRegression":14,"MarchShieldRegression":11,"RandomCombatReferee":a.random_cases}
+    suites={**SUITES,"CombinedCounterRescueRegression":14,"MarchShieldRegression":11,"CounterFamilyRegression":28,"RandomCombatReferee":a.random_cases}
     a.logs.mkdir(parents=True,exist_ok=False)
     manifest={"jar_sha256":digest(a.jar),"suites":[],"all_passed":False,
-              "targeted_scenarios":290,"configuration_checks":21,"randomized_positions":a.random_cases,"executions":327+a.random_cases,
+              "targeted_scenarios":318,"configuration_checks":21,"randomized_positions":a.random_cases,"executions":355+a.random_cases,
               "note":"16 Prowler repetitions are repeated scenarios, not independent games."}
     if a.fixture_classpath:
         helper=a.fixture_classpath/'forge/ai/AITest.class'

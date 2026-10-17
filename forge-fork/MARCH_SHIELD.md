@@ -35,3 +35,10 @@ The old build dies in all four; the corrected build survives in all four with
 actual priority selection, ward payment, phasing and both damage steps. This
 is one deliberately selected mechanism family, not four independent natural
 games or evidence of a generally stronger pilot.
+
+Recovery note: cycle8's raw logs were not confirmed saved before workspace
+pruning; its final full-suite and natural-evaluation completion is unknown.
+The source survived in the prepared Git tree. Cycle9 rebuilt the identical
+executable and repeated old/new11-group mechanism checks with saved raw logs.
+These explicit regression repeats do not create additional fresh heldout cases
+or retroactively certify the lost games.
