@@ -17,6 +17,19 @@ public final class GgsCounterRescuePolicy {
     private GgsCounterRescuePolicy() {}
     private static final java.util.Set<String> SUPPORTED_COUNTERS = java.util.Set.of(
             "Swan Song", "An Offer You Can't Refuse", "Counterspell");
+    private static boolean supportedRemoval(SpellAbility removal) {
+        if (removal.getApi() == ApiType.Destroy && removal.getSubAbility() == null) return true;
+        // Match the tested exile spell's complete effect shape. Its three-life
+        // loss happens on resolution; it is not an additional casting cost.
+        SpellAbility loss = removal.getSubAbility();
+        return removal.getApi() == ApiType.ChangeZone
+                && removal.getHostCard().getName().equals("Anguished Unmaking")
+                && "Battlefield".equals(removal.getParam("Origin"))
+                && "Exile".equals(removal.getParam("Destination"))
+                && loss != null && loss.getApi() == ApiType.LoseLife
+                && "3".equals(loss.getParam("LifeAmount"))
+                && !loss.hasParam("Defined") && loss.getSubAbility() == null;
+    }
     private static int incomingDamage(Card attacker, Player ai, Combat combat) {
         if (combat.isUnblocked(attacker))
             return ComputerUtilCombat.damageIfUnblocked(attacker, ai, combat, false);
@@ -56,8 +69,8 @@ public final class GgsCounterRescuePolicy {
         var combat = ai.getGame().getCombat();
         if (combat == null || combat.getAttackingPlayer() == ai) return false;
         SpellAbility removal = ComputerUtilAbility.getTopSpellAbilityOnStack(ai.getGame(), counter);
-        if (removal == null || !removal.isSpell() || removal.getApi() != ApiType.Destroy
-                || removal.getSubAbility() != null || removal.getActivatingPlayer() == null
+        if (removal == null || !removal.isSpell() || !supportedRemoval(removal)
+                || removal.getActivatingPlayer() == null
                 || !removal.getActivatingPlayer().isOpponentOf(ai)
                 || removal.getTargets().getTargetCards().size() != 1) return false;
         Card attacker = removal.getTargets().getTargetCards().get(0);

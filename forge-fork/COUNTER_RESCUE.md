@@ -159,3 +159,20 @@ does not establish general strength or admit a full episode.
 build_counter_strike.py changes only GgsCounterRescuePolicy.class over verified
 cycle10 build49d294ae9e5a7be3bdcdf96500326f4b3f5440d9144e160f869159318c2e8719.
 No card rules, decks or coefficients change; the candidate is experimental.
+
+## Cycle12 Anguished Unmaking rescue
+
+The destruction-only gate missed saving exile removal. A constructed Dreadmaw
+board reproduced three supported counter choices dying at-2 while explicit
+passes survived at3. Cycle12 recognizes only Anguished Unmaking's tested
+Battlefield-to-Exile effect followed by LoseLife3 on its activating player,
+with no further subability. Existing plain Destroy support is preserved.
+The three-life loss occurs on resolution, not as a casting cost. Other exile,
+bounce, tuck and compound effects still need their own actual-resolution review.
+
+ExileCounterRescueRegression executes colored mana, exile, life-loss resolution,
+the caster leaving at zero life, and protecting the pilot's own necessary
+blocker. Nonlethal decisions retain stock evaluation. Fresh heldout constructed
+cases are separate from the repeated reproduction. No card rule, deck or model
+is changed. build_counter_exile.py overlays only the policy class on verified
+cycle11 build879c8fc6d792c7270efb6432a0d1748c62ab082b5e5565bd26deb9034b2b6f85.
