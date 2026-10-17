@@ -105,3 +105,32 @@ full-game certificate. The final19-suite/natural evaluation completion remains
 unknown and its reserved conditions must not be replayed as fresh. Cycle9
 recovered the prepared public source tree and repeated the two mechanisms,
 saving those logs and exact rebuilt executables before additional work.
+
+## Ordinary blocked-trample rescue
+
+Cycle10 reproduces a remaining losing choice with all three supported counters:
+at5 life, Colossal Dreadmaw is blocked by Memnite and another2-power attacker
+is unblocked. A third player pays Mortify on Dreadmaw. The pilot counters it,
+then takes5 trample damage plus2 from the other attacker and ends at-2.
+Explicitly letting the paid removal resolve leaves3 life. The current repair
+replaces that manual intervention with the actual priority controller's pass.
+
+The public life-damage forecast now includes ordinary blocked trample using
+the engine's blocker shield and damage-prediction helpers. Combined damage is
+summed only for the selected defender; attacks at other players cannot provide
+missing lethal damage. Plain blocked nontrampling attackers contribute zero.
+Blocked first/double strike, infect, deathtouch and first/double-strike blockers
+remain unsupported; complex prevention/replacement/commander/poison/death-effect
+lines still need review. No card definition, cost or combat rule is changed.
+
+TrampleCounterRescueRegression has66 groups:45 profile/life-boundary positive
+executions, three additional mixed-defender positives and18 boundary decisions.
+The positive cases execute full priority, colored payments, Offer Treasures,
+paid removal, legal initialized blocks and actual combat damage. Controls keep
+ordinary evaluation for nonlethal damage, no trample, another defender, attacker
+first strike, blocker first strike and remaining damage already lethal. These
+are selected constructed cases with correlated profile repetitions, not games.
+
+build_counter_trample.py overlays only GgsCounterRescuePolicy.class on the
+verified cycle9 a2e981 executable and verifies all other entries byte-for-byte.
+The default incumbent and outcome-admission requirements remain unchanged.
