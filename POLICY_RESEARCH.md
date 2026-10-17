@@ -49,3 +49,12 @@ search. Its material scores are not learned probabilities. It remains a
 bounded experimental policy, leaves the incumbent default intact, and cannot
 admit outcomes without the same full-game review. Projection, response and
 combat-scenario limitations must accompany its results.
+
+Cycle17 has a verified narrow equipment-threat correction and separate
+constructed evaluation, documented in forge-fork/KAITO_MIXED_MANA.md. The
+Whip/Breath recovery fixture distinguishes available capabilities while
+recording the real pilot's pass and a colored-mana sequencing failure. Legal
+counterfactual recovery does not establish whole-deck superiority. Keep that
+package experimental and repair payment planning before interpreting its
+simulated underuse as a card weakness. No new trusted outcome feedback was
+created by these mechanism checks.

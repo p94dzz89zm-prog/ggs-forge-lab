@@ -31,3 +31,15 @@ workspace. Record any later missing evidence as a retention gap, keep consumed
 seeds reserved, and rerun reconstructed source checks on newly allocated random
 conditions rather than describing lost logs as certified evidence. Persist a
 completed attempt before starting more work or lengthy analysis.
+
+## Frozen input integrity
+
+`run_pilot_recovery.py` now verifies a closed input ZIP's CRC and SHA256 before
+execution, optionally against `--expected-jar-sha256`. It checks the hash after
+every suite and rejects changed/missing archives even with a valid completion
+marker. Invalid inputs retain a failure manifest with zero completed checks.
+Regressions include missing ZIP directories, CRC corruption, and a different
+but structurally valid archive under an old frozen hash. This detects damaged
+inputs; it does not establish the cause of observed workspace truncations or
+explain intermittent startup exits. Verify saved checkpoint bytes again after
+materialization; an upload receipt alone is insufficient for recoverability.

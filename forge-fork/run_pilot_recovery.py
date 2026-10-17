@@ -11,6 +11,7 @@ import os
 from pathlib import Path
 import subprocess
 import tempfile
+import zipfile
 
 ROOT = Path(__file__).resolve().parent
 SUITES = {"AccessPackageRegression":28, "FireworkPilotRegression":20,
@@ -19,6 +20,20 @@ SUITES = {"AccessPackageRegression":28, "FireworkPilotRegression":20,
 
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+def verify_archive(path, expected=None):
+    """Reject truncated/corrupt inputs and an archive changed since freezing."""
+    actual = digest(path)
+    if expected is not None and actual != expected:
+        raise ValueError('Engine archive SHA256 differs from frozen input')
+    with zipfile.ZipFile(path) as archive:
+        bad = archive.testzip()
+        if bad is not None:
+            raise ValueError('Engine archive CRC failed: ' + bad)
+    if digest(path) != actual:
+        raise ValueError('Engine archive changed during verification')
+    return actual
+
 
 def atomic_json(path, value):
     with tempfile.NamedTemporaryFile(mode="w",dir=path.parent,delete=False) as f:
@@ -44,6 +59,7 @@ def main():
     fixture.add_argument('--forge-source',type=Path)
     fixture.add_argument('--fixture-classpath',type=Path,
         help='Pinned compiled AITest helper when the upstream source checkout is unavailable')
+    p.add_argument("--expected-jar-sha256",help="Frozen engine hash; mismatch is an invalid input, never a test pass")
     p.add_argument("--random-cases",type=int,default=64)
     p.add_argument("--random-start",type=int,default=0)
     p.add_argument('--suite',action='append',help='Run only the named suite(s); a focused new attempt, never an overwrite/resume of old evidence')
@@ -57,7 +73,13 @@ def main():
         if len(a.suite)!=len(set(a.suite)):p.error('Duplicate suites are not distinct evidence')
         suites={name:suites[name] for name in a.suite}
     a.logs.mkdir(parents=True,exist_ok=False)
-    manifest={"jar_sha256":digest(a.jar),"suites":[],"all_passed":False,
+    try:
+        frozen_hash=verify_archive(a.jar,a.expected_jar_sha256)
+    except (OSError,ValueError,zipfile.BadZipFile) as error:
+        atomic_json(a.logs/"validation.json",{"all_passed":False,"input_error":str(error),
+            "completed_evidence":completed_evidence([]),"suites":[]})
+        raise SystemExit("Invalid engine input: "+str(error))
+    manifest={"jar_sha256":frozen_hash,"input_zip_crc_passed":True,"suites":[],"all_passed":False,
               "planned_suites":suites,"planned_check_groups":sum(suites.values()),
               "planned_randomized_positions":suites.get('RandomCombatReferee',0),
               "completed_evidence":completed_evidence([]),"launcher_source_sha256":digest(ROOT/'RegressionLauncher.java'),
@@ -91,10 +113,17 @@ def main():
                     rc=None;timed_out=True
             lines=log.read_text(errors="replace").splitlines()
             markers=[l for l in lines if l.startswith("Checks passed:")]
-            passed=rc==0 and markers==[f"Checks passed: {expected}"] and not any(
+            archive_error=None
+            try:
+                after_hash=digest(a.jar)
+                if after_hash!=frozen_hash:archive_error='Engine archive changed during execution'
+            except OSError as error:
+                after_hash=None;archive_error=str(error)
+            passed=archive_error is None and rc==0 and markers==[f"Checks passed: {expected}"] and not any(
                 "AssertionError" in l or "Exception in thread" in l for l in lines)
             manifest["suites"].append({"suite":suite,"passed":passed,"expected":expected,
-                "returncode":rc,"timeout":timed_out,"log_sha256":digest(log)})
+                "returncode":rc,"timeout":timed_out,"log_sha256":digest(log),
+                "jar_sha256_after":after_hash,"archive_error":archive_error})
             manifest['completed_evidence']=completed_evidence(manifest['suites'])
             atomic_json(a.logs/"validation.json",manifest)
             print(f"{suite}: {'PASS' if passed else 'FAIL'}",flush=True)

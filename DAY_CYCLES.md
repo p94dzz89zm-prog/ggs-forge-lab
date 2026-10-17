@@ -86,3 +86,12 @@ still leaves all strategic admission pending. Repeating one cycle's random
 range on a corrected build is regression revalidation of the same positions,
 not an additional disjoint random sample. See COUNTER_RESCUE.md and
 MARCH_SHIELD.md for exact mechanisms and separate frozen-build coverage.
+
+Cycle17 extends the narrow Kaito defense to actual sequential equipment
+payments from next-turn mixed mana; see forge-fork/KAITO_MIXED_MANA.md. The
+separate frozen constructed comparison is not a natural-game sweep. Use a
+frozen hash with `run_pilot_recovery.py --expected-jar-sha256`; it rejects bad
+ZIP inputs and changes during suite execution. Post-save checkpoint byte
+verification remains necessary. The independent Whip test exposes a still-open
+colored-mana sequencing fault; do not convert that pilot failure into a causal
+deck-cut recommendation. All full-game admissions remain pending.
