@@ -12,7 +12,7 @@ accepts `--fixture-classpath` so a vanished upstream source checkout does not
 block retesting; its manifest records the helper's SHA-256.
 
 An ordinary batch runs the full Python test suite (currently 82 checks), all
-current engine suites (24 including strike/exile counter rescue, March shield and launcher checks), 128 disjoint randomized
+current engine suites (25 including strike/exile counter rescue, March shield, clone-copy and launcher checks), 128 disjoint randomized
 positions and three tactical vectors across all four seat rotations of one
 shared development seed. A third vector may mutate a parent only after
 evidence-bound full-game rules and critical-decision admission. Matching

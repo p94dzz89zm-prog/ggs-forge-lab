@@ -4,6 +4,7 @@ import forge.ai.ComputerUtilCard;
 import forge.ai.ComputerUtilCombat;
 import forge.game.GameEntity;
 import forge.game.card.Card;
+import forge.game.card.CardCopyService;
 import forge.game.combat.Combat;
 import forge.game.keyword.Keyword;
 import forge.game.phase.PhaseType;
@@ -55,6 +56,11 @@ public final class GgsNinjutsuPolicy {
                             && (!c.getType().isLegendary() || !ai.isCardInPlay(c.getName()))
                             && ComputerUtilCard.evaluateCreature(c) > ComputerUtilCard.evaluateCreature(body)) body = c;
                 }
+                // A clone copies characteristics, not the template's counters,
+                // Equipment or temporary pumps. Do not score those live bonuses
+                // as incoming damage or a copied body. Stock copy choice remains
+                // separate; this is not a full post-entry continuous-effect model.
+                body = CardCopyService.copyStats(body, ai, false);
             }
             int incomingDamage = ComputerUtilCombat.predictDamageTo(opponent, Math.max(0, body.getNetCombatDamage()), body, true);
             int outgoingDamage = damageRemaining(outgoing, opponent, phase);
