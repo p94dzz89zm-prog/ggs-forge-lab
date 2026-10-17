@@ -2,13 +2,35 @@ import json
 from pathlib import Path
 import random
 import sqlite3
+import subprocess
+import sys
 import tempfile
 import unittest
-from research_tools import search,observations,engine_provenance
+from research_tools import search,observations,engine_provenance,connection
 from policy_search import parent_candidate,sample_vector,BASE,BOUNDS
 
 
 class ResearchTests(unittest.TestCase):
+ def test_read_only_search_refuses_an_interrupted_transaction(self):
+  with tempfile.TemporaryDirectory() as td:
+   path=Path(td)/'interrupted.sqlite'
+   code='''import os,sqlite3,sys
+db=sqlite3.connect(sys.argv[1])
+db.execute('PRAGMA journal_mode=DELETE')
+db.execute('PRAGMA cache_size=1')
+db.execute('CREATE TABLE records(id INTEGER PRIMARY KEY,value TEXT)')
+db.executemany('INSERT INTO records VALUES(?,?)',[(i,'committed'*300) for i in range(80)])
+db.commit()
+db.execute('BEGIN IMMEDIATE')
+db.execute("UPDATE records SET value='uncommitted'||value")
+os._exit(0)
+'''
+   subprocess.run([sys.executable,'-c',code,str(path)],check=True)
+   journal=Path(str(path)+'-journal');self.assertTrue(journal.exists());self.assertNotEqual(journal.read_bytes()[:8],bytes(8))
+   db=connection(path)
+   try:
+    with self.assertRaises(sqlite3.OperationalError):db.execute('SELECT value FROM records').fetchall()
+   finally:db.close()
  def test_search_separates_eligibility_and_engine_evidence(self):
   with tempfile.TemporaryDirectory() as td:
    path=Path(td)/'index.sqlite';db=sqlite3.connect(path)

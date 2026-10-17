@@ -14,7 +14,10 @@ from referee_games import inspect
 
 
 def connection(path):
-    return sqlite3.connect(path.resolve().as_uri()+'?mode=ro&immutable=1',uri=True)
+    # Normal read-only SQLite checks recovery journals. immutable=1 skips that
+    # check and can expose uncommitted pages from an interrupted index export.
+    # Recover an offline copy separately; a research query must not bless it.
+    return sqlite3.connect(path.resolve().as_uri()+'?mode=ro',uri=True)
 
 
 def search(path, query, roles=(), limit=20):

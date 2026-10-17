@@ -42,7 +42,7 @@ def run(args):
             if result.returncode:raise RuntimeError(name+' failed; preserve logs and investigate before another candidate')
 
         try:
-            execute('python-tests',['-m','unittest','test_adaptive_pilot','test_research_tools','test_learning_gate','-q'])
+            execute('python-tests',['-m','unittest','discover','-s','.','-p','test_*.py','-q'])
             execute('engine-validation',['-u','forge-fork/run_pilot_recovery.py','--jar',args.jar,
                 '--engine',args.engine,'--testng',args.testng,'--fixture-classpath',args.fixture_classpath,
                 '--logs',out/'validation','--random-cases','128','--random-start',record['random_start']])

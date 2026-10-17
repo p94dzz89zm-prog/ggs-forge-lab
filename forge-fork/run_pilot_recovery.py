@@ -25,6 +25,17 @@ def atomic_json(path, value):
         json.dump(value,f,indent=2);f.write("\n");f.flush();os.fsync(f.fileno());tmp=f.name
     os.replace(tmp,path)
 
+def completed_evidence(suites):
+    """Count only suites with an observed exact completion marker.
+
+    Expected totals describe the plan, including suites never launched after
+    a failure. They cannot serve as completed computation.
+    """
+    passed=[s for s in suites if s['passed']]
+    return {'suites_attempted':len(suites),'suites_passed':len(passed),
+            'check_groups_passed':sum(s['expected'] for s in passed),
+            'randomized_positions_passed':sum(s['expected'] for s in passed if s['suite']=='RandomCombatReferee')}
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ("jar","engine","testng","logs"):
@@ -35,13 +46,21 @@ def main():
         help='Pinned compiled AITest helper when the upstream source checkout is unavailable')
     p.add_argument("--random-cases",type=int,default=64)
     p.add_argument("--random-start",type=int,default=0)
+    p.add_argument('--suite',action='append',help='Run only the named suite(s); a focused new attempt, never an overwrite/resume of old evidence')
     a=p.parse_args()
     if a.random_cases<1:p.error("Positive random case count required")
     suites={**SUITES,"CombinedCounterRescueRegression":14,"MarchShieldRegression":11,"CounterFamilyRegression":28,"TrampleCounterRescueRegression":66,"StrikeCounterRescueRegression":24,"ExileCounterRescueRegression":12,"RegressionLauncherRegression":6,"StudentCopyRegression":6,"RandomCombatReferee":a.random_cases}
+    compile_suites=dict(suites)  # Include shared base fixtures even in focused runs.
+    if a.suite:
+        unknown=set(a.suite)-suites.keys()
+        if unknown:p.error('Unknown suite(s): '+', '.join(sorted(unknown)))
+        if len(a.suite)!=len(set(a.suite)):p.error('Duplicate suites are not distinct evidence')
+        suites={name:suites[name] for name in a.suite}
     a.logs.mkdir(parents=True,exist_ok=False)
     manifest={"jar_sha256":digest(a.jar),"suites":[],"all_passed":False,
-              "targeted_scenarios":426,"configuration_checks":21,"randomized_positions":a.random_cases,"executions":469+a.random_cases,
-              "launcher_contract_checks":6,"launcher_source_sha256":digest(ROOT/'RegressionLauncher.java'),
+              "planned_suites":suites,"planned_check_groups":sum(suites.values()),
+              "planned_randomized_positions":suites.get('RandomCombatReferee',0),
+              "completed_evidence":completed_evidence([]),"launcher_source_sha256":digest(ROOT/'RegressionLauncher.java'),
               "launch_protocol":"reflection wrapper preserves original thrown failures; exact completion marker still required",
               "note":"16 Prowler repetitions are repeated scenarios, not independent games."}
     if a.fixture_classpath:
@@ -53,7 +72,7 @@ def main():
         cp=str(a.jar.resolve())+":"+str(a.testng.resolve())
         if a.fixture_classpath:cp+=':'+str(a.fixture_classpath.resolve())
         sources=([a.forge_source/"forge-gui-desktop/src/test/java/forge/ai/AITest.java"] if a.forge_source else [])
-        sources += [ROOT/'RegressionLauncher.java'] + [ROOT/(s+".java") for s in suites]
+        sources += [ROOT/'RegressionLauncher.java'] + [ROOT/(s+".java") for s in compile_suites]
         subprocess.run(["java","-XX:-UsePerfData","-m","jdk.compiler/com.sun.tools.javac.Main",
                         "-cp",cp,"-d",compiled,*map(str,sources)],check=True)
         manifest['launcher_class_sha256']=digest(Path(compiled)/'RegressionLauncher.class')
@@ -76,6 +95,7 @@ def main():
                 "AssertionError" in l or "Exception in thread" in l for l in lines)
             manifest["suites"].append({"suite":suite,"passed":passed,"expected":expected,
                 "returncode":rc,"timeout":timed_out,"log_sha256":digest(log)})
+            manifest['completed_evidence']=completed_evidence(manifest['suites'])
             atomic_json(a.logs/"validation.json",manifest)
             print(f"{suite}: {'PASS' if passed else 'FAIL'}",flush=True)
             if not passed: raise SystemExit(1)
