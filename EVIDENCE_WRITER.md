@@ -49,3 +49,20 @@ https://media.wizards.com/2026/downloads/MagicCompRules%2020260925.txt
 
 Record integrity and scoped regressions are necessary, but do not certify every
 full-game action or decision. Full review/learning gates remain unchanged.
+
+## Synchronization replay mitigation
+
+A bounded kernel-event reproduction observed renamed staging files recreated
+by a separate synchronization operation after finalization. Two runs inside
+the managed workspace reproduced this, including a serialized control; a run
+outside the workspace did not. This establishes a cause of the staging-name
+resurrection. It does not prove the origin of older truncated records.
+
+Run future evidence-producing stages through isolated_evidence.py with active
+output under the system temporary directory outside /workspace. The command
+receives a fresh {output} directory. Raw output is retained there on failure.
+Only a hash/manifest-verified sealed archive is atomically linked into the
+workspace; cross-filesystem publication fails closed. Restoration verifies the
+archive and creates a fresh external directory, never merges a stale live tree.
+Game commands must still use the writer, original-finalization, rules-review
+and learning gates. Stage exit0 alone is not a game or learning approval.

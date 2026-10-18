@@ -52,3 +52,12 @@ and actual saved outcomes. Do not alter unrelated schedules. Do not claim a task
 ran from its configuration alone. Report observed run URLs/conclusions, unknown
 outcomes and private execution blockers accurately; never imply continuous
 training without a verified active external runner.
+
+## Active evidence isolation
+
+Post-rename workspace synchronization can recreate stale staging names. Keep
+all active game, regression and evidence-producing output outside /workspace.
+Use isolated_evidence.py to seal and verify it before exclusive atomic archive
+publication. Restore hash-bound archives into a fresh external root; never
+merge restored raw files into a prior live game directory. Preserve anomalies
+and original hashes. This mitigation does not retroactively approve old games.
