@@ -36,3 +36,27 @@ strategy. An empty-board stock pass remains unchanged. The first payable
 projected graveyard target is a feasibility witness, not a target ranking.
 The actual subsequent stock controller still chooses the return target.
 Full-game admission and independent strength evaluation remain required.
+
+## Actual Apex mana applicability
+
+The automatic correction is restricted to two ordinary Swamps. The listed
+Apex100 contains one basic Swamp, so this guard normally cannot fire on its
+unmodified mana base. It fixes the constructed resource mistake; no ordinary
+Apex strength gain is established by that fix alone. It remains experimental.
+
+`WhipMixedLandProbe` checks established configurations using only actual listed
+Apex lands, registered GGS commander color identity, stock spell selection and
+real payment/return. The previous build completes both payments in eight
+configurations with enough usable mana. A ninth state has eight land cards but
+only seven usable mana sources: Exotic Orchard sees no opposing lands. Giving
+that opponent an Island makes the same eight-land configuration complete the
+line. This is a correct conditional-mana limitation, not a reproduced pilot
+mistake. No nonbasic policy override is added without a demonstrated defect.
+
+A separate protection regression verifies that Counterspell remains payable
+and actually counters Murder aimed at GGS after the candidate's Whip cast.
+The earlier expectation of lost UU was false; its failed diagnostic assertion
+is preserved and is not counted as a pilot failure or policy improvement.
+Rules reference: Wizards' Theros Release Notes, September16,2013,
+https://magic.wizards.com/en/news/feature/release-notes-2013-09-16 .
+The card's activation timing, haste/lifelink and exile replacement are retained.
