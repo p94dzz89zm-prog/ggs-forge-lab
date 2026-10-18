@@ -8,9 +8,10 @@ are in the private project-state document and authoritative private ledger.
 
 Repository: `p94dzz89zm-prog/ggs-forge-lab`.
 Approved branch: `fix/pilot-recovery-v35` (default `main` is older).
-Latest verified learning implementation: `e64115895fe9a61bca4ba0e9e75c00c61e04ebaa`.
-Hosted evaluation passed 135 Python tests and six launcher checks:
-https://github.com/p94dzz89zm-prog/ggs-forge-lab/actions/runs/39089201096 .
+Latest verified code/evaluation: `c2d1ee3908de0243879d0f8e235f8d403b2b8fe5`.
+The Cycle20 learning implementation and model remain preserved, unchanged.
+Hosted evaluation passed 135 Python tests and both six-check launcher runs:
+https://github.com/p94dzz89zm-prog/ggs-forge-lab/actions/runs/39091218407 .
 The current containing commit may update documentation only; recover exact
 runtime/model provenance and completion state from the private ledger.
 
@@ -92,8 +93,12 @@ branches passed assertions. These are correlated constructed cases with a Codex
 rubric, not independent expert reviews, full games or a population estimate.
 Another 128 fresh combat-legality positions passed using explicit model JVM
 properties. No new model training, full-game reward admission or promotion.
-Dashboard source recovery succeeded with a fresh credential; publication is
-pending the current evidence refresh. See the private ledger for saved receipts.
+Dashboard source recovery succeeded with a fresh credential. The owner-private
+dashboard was published successfully with cycle21 results, a manual refresh
+button and a 30-second visible-tab refresh. Refresh replaces rows and clears
+stale values on failure; static/data and DOM-contract checks passed. Browser
+visual verification was unavailable. See the private ledger for saved receipts.
+https://dragonmind-performance.symbols.chatgpt.site
 This changes learned local decisions only; no whole-game admission, broad
 strategic strength or incumbent promotion is established.
 
