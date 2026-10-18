@@ -6,6 +6,9 @@ the pair, passes explicit JVM properties, and rejects changed originals or
 snapshots before resume and after each game. Use the same preserved executable
 for both labels to isolate enabling the Cycle22 model. No fitting occurs here.
 The default deck is the dated October17 baseline, not the Whip experiment.
+The protocol fingerprints the complete resource file inventory, including card
+definitions and editions, and rechecks it after each game. A model/JAR hash alone
+does not freeze the rules implementation loaded from external resources.
 Keep all-seat private audits and native opponent-profile hashes on both labels.
 
 Example inputs: `--deck GGS_Apex_20261017_v1 --purpose heldout --population

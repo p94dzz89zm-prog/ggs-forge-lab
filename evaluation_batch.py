@@ -19,6 +19,16 @@ from learning_gate import assess
 
 
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def resource_fingerprint(engine):
+ """Card definitions/editions/AI resources are inputs, not just the JAR."""
+ root=Path(engine)/'res';digest=hashlib.sha256();count=0
+ if not root.is_dir():raise ValueError('Missing engine resources')
+ for path in sorted(root.rglob('*')):
+  if path.is_symlink():raise ValueError('Symlink in frozen engine resources')
+  if path.is_file():
+   name=path.relative_to(root).as_posix();digest.update((name+'\0'+sha(path)+'\n').encode());count+=1
+ if not count:raise ValueError('Empty engine resources')
+ return {'sha256':digest.hexdigest(),'files':count}
 def policy_inputs(a):
  """Freeze model identity separately from executable identity. Never fit here."""
  result={}
@@ -68,6 +78,7 @@ def run(a):
  pop=specification(a.engine,a.population);names=[a.deck,'Jaymie_Ezio','Gabe_Food','Destyn_Turtles'];builds={'baseline':a.baseline,'candidate':a.candidate}
  models=policy_inputs(a)
  protocol={'format':2,'purpose':a.purpose,'seed':a.seed,'rotation':a.rotation,'timeout':a.timeout,'deck':a.deck,'deck_sha256':{n:sha(dragonmind.ROOT/'decks'/(n+'.dck')) for n in names},'engine_sha256':{k:sha(v) for k,v in builds.items()},'policy_models':models,'population':pop,'logging':'all_seats_private_offline','flags':['-Ddragonmind.boundedCombatForecast=true','-Ddragonmind.linePlanner=false'],'collector_source_sha256':sha(Path(dragonmind.__file__)),'batch_source_sha256':sha(Path(__file__))}
+ protocol['engine_resources']=resource_fingerprint(a.engine)
  if a.purpose=='heldout' and a.population!='unseen_evaluation':raise ValueError('Heldout batch requires heldout opponent population')
  with (out/'cycle.lock').open('a') as lock:
   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -87,7 +98,7 @@ def run(a):
    root=out/label;root.mkdir(exist_ok=False);entry={'label':label,'status':'running'};state['attempts'].append(entry);atomic_json(path,state)
    row=dragonmind.batch(a.engine.resolve(),jar.resolve(),root,a.deck,a.rotation,[a.seed],a.timeout,True,True,extra_jvm_flags=tuple(protocol['flags']+policy_flags(out,models,label)),audit_all_seats=True,ai_profiles=pop['profiles_by_unrotated_deck'])[0]
    atomic_json(root/'attempt.json',row)
-   signature={'purpose':a.purpose,'jar_sha256':protocol['engine_sha256'][label],'deck_sha256':protocol['deck_sha256'],'opponent_population':pop,'policy_models':models}
+   signature={'purpose':a.purpose,'jar_sha256':protocol['engine_sha256'][label],'deck_sha256':protocol['deck_sha256'],'opponent_population':pop,'policy_models':models,'engine_resources':protocol['engine_resources']}
    try:reports=inspect(root)
    except (ValueError,OSError,KeyError,TypeError):reports=[]
    gate=assess(root,row,reports,signature,{},None)
@@ -96,6 +107,7 @@ def run(a):
    if sha(jar)!=protocol['engine_sha256'][label] or any(sha(dragonmind.ROOT/'decks'/(n+'.dck'))!=h for n,h in protocol['deck_sha256'].items()):entry['complete']=False;entry['input_error']='Inputs changed during execution'
    try:verify_policy_inputs(a,out,models)
    except (OSError,ValueError) as error:entry['complete']=False;entry['input_error']=str(error)
+   if resource_fingerprint(a.engine)!=protocol['engine_resources']:entry['complete']=False;entry['input_error']='Engine resource bytes changed during execution'
    atomic_json(path,state);atomic_json(out/'summary.json',summary(state));print(label,row['status'],'complete=',entry['complete'],flush=True)
    if not entry['complete']:return 1
   atomic_json(out/'summary.json',summary(state));return 0
