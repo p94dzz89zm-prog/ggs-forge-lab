@@ -17,7 +17,7 @@ import java.lang.reflect.RecordComponent;
 public final class EngineEvidence {
  private static Game live;
  private static long next;
- private static List<JsonObject> reference;
+ private static java.io.BufferedReader reference;
  private static final List<JsonObject> pregameRandom=new ArrayList<>();
  private static final List<JsonObject> randomReference=new ArrayList<>();
  private static int referencePosition,randomPosition;
@@ -26,12 +26,17 @@ public final class EngineEvidence {
   pregameRandom.clear();randomReference.clear();reference=null;referencePosition=0;randomPosition=0;
   String file=System.getProperty("forge.referee.replayTape");
   if(file!=null)try {
-   byte[] bytes=Files.readAllBytes(Path.of(file));String expected=System.getProperty("forge.referee.replaySha256");
-   if(expected==null||!DurableEvidence.hash(bytes).equals(expected))throw new IllegalStateException("Replay tape hash mismatch");
-   reference=new ArrayList<>();for(String line:new String(bytes,java.nio.charset.StandardCharsets.UTF_8).split("\\n")) {
-    JsonObject row=JsonParser.parseString(line).getAsJsonObject();row.remove("evidence_game_id");row.remove("stream_sequence");reference.add(row);
-    if(row.get("kind").getAsString().equals("random_bits"))randomReference.add(row);
+   Path tape=Path.of(file);String expected=System.getProperty("forge.referee.replaySha256");
+   java.security.MessageDigest hash=java.security.MessageDigest.getInstance("SHA-256");
+   try(java.io.InputStream input=Files.newInputStream(tape)){byte[] buffer=new byte[65536];int n;while((n=input.read(buffer))!=-1)hash.update(buffer,0,n);}
+   if(expected==null||!HexFormat.of().formatHex(hash.digest()).equals(expected))throw new IllegalStateException("Replay tape hash mismatch");
+   try(java.io.BufferedReader input=Files.newBufferedReader(tape)) {
+    String line;while((line=input.readLine())!=null) {
+     JsonObject row=JsonParser.parseString(line).getAsJsonObject();
+     if(row.get("kind").getAsString().equals("random_bits"))randomReference.add(row);
+    }
    }
+   reference=Files.newBufferedReader(tape);
   }catch(Exception e){throw new IllegalStateException("Cannot load verified replay tape",e);}
  }
  public static synchronized int randomBits(int bits,int generated) {
@@ -71,15 +76,19 @@ public final class EngineEvidence {
   row.addProperty("format",1);row.addProperty("audience","offline_referee_only");
   row.addProperty("turn",live.getPhaseHandler().getTurn());row.addProperty("phase",String.valueOf(live.getPhaseHandler().getPhase()));
   if(reference!=null) {
-   if(referencePosition>=reference.size()||!reference.get(referencePosition).equals(row))throw new IllegalStateException("Replay event divergence at "+referencePosition+" kind="+row.get("kind"));
-   referencePosition++;
+   try {
+    String line=reference.readLine();JsonObject expected=line==null?null:JsonParser.parseString(line).getAsJsonObject();
+    if(expected!=null){expected.remove("evidence_game_id");expected.remove("stream_sequence");}
+    if(expected==null||!expected.equals(row))throw new IllegalStateException("Replay event divergence at "+referencePosition+" kind="+row.get("kind"));
+    referencePosition++;
+   }catch(java.io.IOException e){throw new IllegalStateException("Replay read failed",e);}
   }
   try {DurableEvidence.append(Path.of(dir,"referee-events.jsonl"),row.toString());}catch(Exception e){throw new IllegalStateException("Referee evidence failed",e);}
  }
  public static synchronized long enter(String hook,Object receiver,Object[] args) {
   if(live==null||busy.get())return 0;
   Game g=gameOf(receiver);if(g==null)for(Object a:args){g=gameOf(a);if(g!=null)break;}
-  // GameAction's game is deliberately resolved through the card arguments.
+  // Exclude cloned planning games; their speculative events are not live actions.
   if(g!=live)return 0;
   
   busy.set(true);
@@ -112,7 +121,7 @@ public final class EngineEvidence {
  }
  public static synchronized void finish() {
   if(!calls.isEmpty())throw new IllegalStateException("Incomplete referee calls: "+calls.size());
-  JsonObject row=new JsonObject();row.addProperty("kind","engine_tape_complete");row.addProperty("calls",next);row.addProperty("rules_approved",false);write(row);if(reference!=null&&referencePosition!=reference.size())throw new IllegalStateException("Unconsumed replay events");live=null;
+  JsonObject row=new JsonObject();row.addProperty("kind","engine_tape_complete");row.addProperty("calls",next);row.addProperty("rules_approved",false);write(row);if(reference!=null)try {if(reference.readLine()!=null)throw new IllegalStateException("Unconsumed replay events");reference.close();}catch(java.io.IOException e){throw new IllegalStateException(e);}live=null;
  }
  private static JsonArray ids(Iterable<?> values){JsonArray a=new JsonArray();for(Object v:values)if(v instanceof Player p)a.add(p.getId());return a;}
  private static JsonObject manaContext(Player p) {

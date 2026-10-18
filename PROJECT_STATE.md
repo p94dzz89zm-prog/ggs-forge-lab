@@ -5,6 +5,20 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Fresh provenance capture
+
+One newly allocated four-player development game completed under the evidence
+overlay. Original sealed bytes were externally saved, restored and verified.
+Its private tape has135197 records,65003 paired engine calls, one four-player
+initial state,49 visibility events,158 actual mana units paid and5190 RNG
+requests. Structural checks pass; typed stack/combat/delayed-reveal and other
+serialization gaps remain. Zero fully rules-approved games or comparisons.
+Replay reference and Python inspection now stream large tapes, avoiding whole
+JSON-tape materialization. The targeted fixture reexecution still passes.
+The batch protocol binds both evidence-reader source hashes for future runs.
+No old journal or sealed capture was rewritten. Next: compatibility verification
+reexecution of the exact saved game, then repair the specific unsupported types.
+
 ## Provenance milestone, October18
 
 The evidence-only overlay now instruments exact frozen engine classes for reveal

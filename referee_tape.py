@@ -9,9 +9,14 @@ from pathlib import Path
 
 
 def inspect(path, *, require_initial=True):
-    rows = [json.loads(line) for line in Path(path).read_bytes().splitlines()]
-    pending, entered, returned = {}, {}, set()
-    initial, terminal, visibility, paid, failed, random = [], [], [], 0, 0, []
+    with Path(path).open('rb') as stream:
+        return _inspect(stream, require_initial=require_initial)
+
+
+def _inspect(stream, *, require_initial):
+    pending, entered, returned = {}, set(), set()
+    records = 0
+    initial, terminal, visibility, paid, failed, random = [], [], [], 0, 0, 0
     unknown = collections.Counter()
 
     def gaps(value):
@@ -24,7 +29,9 @@ def inspect(path, *, require_initial=True):
             for child in value:
                 gaps(child)
 
-    for index, row in enumerate(rows):
+    for line in stream:
+        row = json.loads(line)
+        records += 1
         if row.get('format') != 1 or row.get('audience') != 'offline_referee_only':
             raise ValueError('Missing private referee schema/audience')
         kind = row.get('kind')
@@ -36,7 +43,8 @@ def inspect(path, *, require_initial=True):
                 raise ValueError('Duplicate or missing engine call')
             if row.get('parent_call_id', 0) != (next(reversed(pending)) if pending else 0):
                 raise ValueError('Invalid parent call order')
-            pending[call] = entered[call] = row
+            pending[call] = row
+            entered.add(call)
             if 'initial_state' in row:
                 initial.append(row['initial_state'])
             if 'visibility_operation' in row:
@@ -65,9 +73,9 @@ def inspect(path, *, require_initial=True):
                 raise ValueError('Invalid random bits')
             if bits < 32 and not 0 <= value < 2**bits:
                 raise ValueError('Random value outside bit range')
-            if row.get('random_index') != len(random) + 1:
+            if row.get('random_index') != random + 1:
                 raise ValueError('Random tape sequence gap')
-            random.append(row)
+            random += 1
         elif kind == 'engine_tape_complete':
             if pending or row.get('calls') != len(entered):
                 raise ValueError('Unfinished engine calls')
@@ -94,10 +102,10 @@ def inspect(path, *, require_initial=True):
             raise ValueError('Reveal to unregistered player')
         if row['visibility_operation'] == 'reveal_all' and not audience:
             raise ValueError('Empty public reveal audience')
-    return {'integrity_structure_passed': True, 'records': len(rows), 'calls': len(entered),
+    return {'integrity_structure_passed': True, 'records': records, 'calls': len(entered),
             'initial_states': len(initial), 'registered_players': len(player_ids),
             'visibility_events': len(visibility), 'actual_mana_units_paid': paid,
-            'failed_mana_unit_attempts': failed, 'random_requests': len(random),
+            'failed_mana_unit_attempts': failed, 'random_requests': random,
             'unencoded_types': dict(unknown), 'rules_approved': False,
             'replay_status': 'Not established by tape inspection', 'training_admission': False}
 
