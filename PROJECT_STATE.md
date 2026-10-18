@@ -64,3 +64,11 @@ expiry. These jobs do not execute private Forge games or train a model.
 A configured task or workflow is not proof of execution: inspect its actual
 run status. Private job schedules and outcomes must be recovered from private
 state, never inferred from conversation history or absent local processes.
+
+## Current bounded learning experiment
+
+An opt-in supervised tactical counter preference now has actual engine branch
+evidence and frozen unseen-card comparison. See TACTICAL_LEARNING.md.
+Controls and full regression acceptance must finish before closing the cycle.
+This changes learned local decisions only; no whole-game admission, broad
+strategic strength or incumbent promotion is established.
