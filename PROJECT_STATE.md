@@ -28,6 +28,13 @@ Check its hosted workflow result before calling it externally verified.
   keep pending rewards, held-out games and missing reviews out of learning.
 - Runtime checkpointing and readiness verification do not themselves train a
   policy or establish strategic improvement. Gameplay evidence remains private.
+- Regression finalization now reopens saved logs and rejects changed hashes,
+  missing/wrong/duplicate completion markers or incomplete suite coverage before
+  reporting success. Original suite observations remain intact for diagnosis.
+  129 Python tests pass on the integrated source. Separate frozen constructed
+  checks cover appended/deleted logs and a rehashed wrong marker. This guards
+  finalization-time drift, not later filesystem damage; saved archive readback
+  and semantic verification remain required. No gameplay policy changed.
 
 ## Open work
 

@@ -51,6 +51,35 @@ def completed_evidence(suites):
             'check_groups_passed':sum(s['expected'] for s in passed),
             'randomized_positions_passed':sum(s['expected'] for s in passed if s['suite']=='RandomCombatReferee')}
 
+def recheck_saved_logs(root, manifest):
+    """Reopen every suite before final success; earlier observations can go stale.
+
+    This catches drift present at finalization, not later filesystem damage.
+    Archive creation and post-save recovery must still verify their own bytes.
+    Keep original suite observations intact for diagnosing the incident.
+    """
+    errors=[]
+    for entry in manifest['suites']:
+        name=entry['suite']
+        try:
+            log=Path(root)/(name+'.log')
+            data=log.read_bytes()
+            if hashlib.sha256(data).hexdigest()!=entry['log_sha256']:
+                errors.append({'suite':name,'reason':'saved log hash changed'})
+                continue
+            lines=data.decode(errors='replace').splitlines()
+            if (not entry['passed'] or entry.get('returncode')!=0 or entry.get('timeout')
+                    or [l for l in lines if l.startswith('Checks passed:')]!=[f"Checks passed: {entry['expected']}"]
+                    or any('AssertionError' in l or 'Exception in thread' in l for l in lines)):
+                errors.append({'suite':name,'reason':'saved completion evidence failed'})
+        except OSError as error:
+            errors.append({'suite':name,'reason':'saved log unavailable: '+str(error)})
+    names=[entry['suite'] for entry in manifest['suites']]
+    if len(names)!=len(set(names)) or set(names)!=set(manifest['planned_suites']):
+        errors.append({'suite':None,'reason':'planned suite coverage mismatch'})
+    return {'status':'quarantined' if errors else 'verified','errors':errors,
+            'scope':'finalization-time recheck; later archive verification remains required'}
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     for name in ("jar","engine","testng","logs"):
@@ -128,7 +157,11 @@ def main():
             atomic_json(a.logs/"validation.json",manifest)
             print(f"{suite}: {'PASS' if passed else 'FAIL'}",flush=True)
             if not passed: raise SystemExit(1)
-    manifest["all_passed"]=True;atomic_json(a.logs/"validation.json",manifest)
+    manifest['post_run_evidence']=recheck_saved_logs(a.logs,manifest)
+    manifest['all_passed']=manifest['post_run_evidence']['status']=='verified'
+    atomic_json(a.logs/"validation.json",manifest)
+    if not manifest['all_passed']:
+        raise SystemExit('Saved suite evidence changed before finalization; retained for review')
 
 if __name__=="__main__": main()
 
