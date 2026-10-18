@@ -27,8 +27,8 @@ Fresh recovery verified25 suites /597 groups across attempts,128 NEW combat
 positions53072–53199,41planner groups and24 wrong-hash/zero-weight controls.
 One initialization exit0 without a marker was rejected and retained; only
 failed/unstarted suites were rerun. The intermittent startup-exit defect remains.
-Recovered Cycle22 source passed141 Python tests; eight new harness contracts
-bring the current verified total to149. Completed training was not replayed.
+Recovered Cycle22 source passed141 Python tests; sixteen new harness contracts
+bring the current verified total to157. Completed training was not replayed.
 Private artifact identities, hashes and saved-byte receipts stay in the ledger.
 
 ## Full-game work
@@ -42,10 +42,27 @@ commander_game_review.py checks records and hand/library visibility, but approve
 zero complete games. See FULL_GAME_VALIDATION.md for official rules references
 and the coverage limits.
 
-Next: allocate a small matched held-out pair using the preserved models,
-October17 Apex and archived pod proxies. Save each pair before another seed.
-Review real costs, priority, interactions and critical decisions before claiming
-rules-valid strategic results. Compare trajectories separately from outcomes.
+Cycle23 allocated two held-out seed/seat pairs. First pair recorded two Apex
+wins on logged turn46 with equal canonical gameplay events (timing excluded).
+Baseline has a verified durable checkpoint. Candidate is QUARANTINED: five
+outer-log/audit files changed after finalized hashes; four streams lost valid
+JSON tail rows. Original journal hashes and damaged bytes are retained. No
+second pair launched, no replay, no full-game admission or performance estimate.
+Neither stream contains the narrow Swan-context prefilter; activation is not
+instrumented. This does not demonstrate a learned decision change.
+
+commander_game_review.py now binds every review to finalized journal hashes,
+rejects missing, unsafe, extra or changed evidence, and rejects unfinalized
+attempts. It accepted the real baseline and rejected the actual damaged
+candidate. Four new regression contracts bring the suite to157 passing tests.
+The repair detects drift; the post-finalization truncation root cause remains
+unknown. Never rebuild candidate evidence from matching baseline streams.
+
+Next: diagnose post-finalization evidence mutation and implement a verified
+immutable per-side capture before any new game. Preserve the failed pair and
+the reserved second seed/seat allocation in the private ledger. Then complete
+substantive rules/critical-decision review of the intact baseline, and only
+after the evidence gate is reliable consider the second allocated pair.
 Longer survival alone is not stronger play. Do not train on held-out outcomes.
 
 ## Open limitations and deck research
@@ -72,6 +89,6 @@ An enabled task is not continuous compute. Update the guarded ledger and concise
 private state with exact next steps and preserve significant evidence privately.
 
 Dashboard: https://dragonmind-performance.symbols.chatgpt.site .
-Cycle22 refresh is being published; reconcile native deployment status and saved
-receipts before retrying. Browser visual QA is unavailable; static/data and
+Cycle22 publication succeeded with saved receipts. Cycle23 incident/results
+publication is pending; check native status and ledger before retrying. Browser visual QA is unavailable; static/data and
 refresh/failure/retry contracts pass.

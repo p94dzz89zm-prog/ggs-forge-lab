@@ -40,15 +40,39 @@ def audit_visibility(paths):
             'counter_context_prefilter_snapshots':contexts,'model_activation_count':None,
             'scope':'hand/library identity and viewer-stream integrity only; revealed-card and face-down semantics need separate review'}
 
+def saved_evidence(root):
+    """Bind a review to finalized hashes; truncated but valid JSON must fail."""
+    root=Path(root).resolve();issues=[];checked=0
+    try:
+        state=json.loads((root.parent/'state.json').read_text())
+        entries=[a for a in state['attempts'] if a.get('label')==root.name]
+        if len(entries)!=1 or entries[0].get('status')!='saved' or not entries[0].get('complete'):
+            raise ValueError('No unique finalized complete attempt for selected side')
+        expected=entries[0].get('evidence_sha256')
+        if not isinstance(expected,dict) or not expected:raise ValueError('Missing finalized evidence hashes')
+        for relative,want in expected.items():
+            path=root/relative
+            if Path(relative).is_absolute() or '..' in Path(relative).parts or path.is_symlink() or not path.resolve().is_relative_to(root):
+                raise ValueError('Unsafe finalized evidence path')
+            if not path.is_file():issues.append({'file':relative,'issue':'Finalized evidence missing'});continue
+            actual=sha(path);checked+=1
+            if actual!=want:issues.append({'file':relative,'issue':'Finalized evidence hash mismatch','expected_sha256':want,'actual_sha256':actual})
+        actual={str(p.relative_to(root)) for p in root.rglob('*') if p.is_file() and p.suffix in ('.json','.jsonl','.log') and 'runtime-home' not in p.parts}
+        for extra in sorted(actual-set(expected)):issues.append({'file':extra,'issue':'Unbound evidence file'})
+    except (OSError,ValueError,TypeError,KeyError) as error:
+        issues.append({'issue':str(error)})
+    return {'passed':not issues,'files_checked':checked,'issues':issues,
+            'scope':'Finalized journal binding; no repair, rehash acceptance or full-game rules approval'}
+
 def review(root):
-    root=Path(root);reports=inspect(root);audit=audit_visibility(sorted((root/'audit').rglob('seat-*.jsonl')))
+    root=Path(root);binding=saved_evidence(root);reports=inspect(root);audit=audit_visibility(sorted((root/'audit').rglob('seat-*.jsonl')))
     attempt=json.loads((root/'attempt.json').read_text());seats=attempt.get('seats',[])
     registered={f'Ai({i+1})-{name}' for i,name in enumerate(seats)}
-    issues=list(audit['visibility_or_record_errors'])
+    issues=list(binding['issues'])+list(audit['visibility_or_record_errors'])
     if set(audit['viewers'])!=registered:issues.append({'issue':'Missing/extra registered-seat audit coverage'})
     if len(reports)!=1 or not all(r['record_integrity_passed'] for r in reports):issues.append({'issue':'Canonical record integrity failed'})
     return {'scope':'full-game evidence preflight, not full-game approval','record_and_visibility_preflight_passed':not issues,
-            'issues':issues,'audit':audit,'canonical_reports':reports,'seed':attempt.get('seed'),
+            'issues':issues,'saved_evidence':binding,'audit':audit,'canonical_reports':reports,'seed':attempt.get('seed'),
             'recorded_status':attempt.get('status'),'recorded_winner':attempt.get('winner'),
             'last_logged_turn':attempt.get('last_logged_turn'),'reviewed_rules_valid_games':0,
             'strategic_review':'pending','learning_admission':False,
@@ -60,9 +84,9 @@ def review(root):
                 'Context-prefilter counts are not observed model activation or verified missed opportunities.']}
 
 def trajectory_digest(transcript):
-    """Compare recorded gameplay events, excluding only final timing metadata."""
+    """Compare recorded gameplay events, excluding only explicit timing/result metadata."""
     lines=Path(transcript).read_text().splitlines()
-    events=[line for line in lines if not line.startswith('DragonMind Result: ')]
+    events=[line for line in lines if not line.startswith(('DragonMind Result: ','Game Outcome: Match Duration '))]
     return hashlib.sha256(('\n'.join(events)+'\n').encode()).hexdigest()
 
 if __name__=='__main__':

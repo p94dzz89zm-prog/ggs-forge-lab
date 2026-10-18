@@ -23,6 +23,9 @@ and skipped. A partial pair is explicitly reported as incomplete.
 
 `commander_game_review.py` checks canonical record consistency, registered-seat
 audit coverage, hand/library identity isolation and per-viewer turn progression.
+It first checks all evidence against the finalized parent state journal; valid
+JSON tail loss still fails. Missing/extra/unsafe files or unknown attempts fail
+closed. Review output belongs outside the hashed per-side evidence directory.
 It emits review leads and explicitly approves zero full games. It does not
 verify every cost, priority window, target, block, trigger or replacement effect.
 An audit containing only public zones and the viewer's hand is necessary but
@@ -55,3 +58,15 @@ Not yet supplied: an independent action-level referee for entire arbitrary
 Commander games; complete priority/payment event instrumentation; verified
 specialist opponents; calibrated win-probability estimates; a sufficiently varied
 reviewed match population. GGS/ninjutsu scenario tests remain narrower evidence.
+
+## Cycle23 integrity incident
+
+One matched pair recorded Apex wins on both sides. The candidate later had five
+post-finalization hash mismatches, including four parseable but truncated audit
+streams. The baseline durable snapshot is intact. Preserve both the original
+journal and damaged evidence; do not rehash to bless it or reconstruct it from
+the matching baseline. The aggregate canonical gameplay events match when only
+explicit match-duration and final timing/result metadata are omitted, but this
+is not a valid fully reviewed performance comparison. No new training, no
+promotion, and no second allocated pair executed. Diagnose mutation/capture
+before scaling games. The new review gate rejects this real candidate.
