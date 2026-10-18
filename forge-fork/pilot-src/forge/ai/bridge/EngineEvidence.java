@@ -79,11 +79,29 @@ public final class EngineEvidence {
    try {
     String line=reference.readLine();JsonObject expected=line==null?null:JsonParser.parseString(line).getAsJsonObject();
     if(expected!=null){expected.remove("evidence_game_id");expected.remove("stream_sequence");}
-    if(expected==null||!expected.equals(row))throw new IllegalStateException("Replay event divergence at "+referencePosition+" kind="+row.get("kind"));
+    if(expected==null||!equivalent(expected,row)) {
+     JsonObject failure=new JsonObject();failure.addProperty("record_index",referencePosition);failure.add("expected",expected);failure.add("actual",row);
+     DurableEvidence.atomic(Path.of(dir,"referee-divergence.json"),failure.toString());
+     throw new IllegalStateException("Replay event divergence at "+referencePosition+" kind="+row.get("kind"));
+    }
     referencePosition++;
    }catch(java.io.IOException e){throw new IllegalStateException("Replay read failed",e);}
   }
   try {DurableEvidence.append(Path.of(dir,"referee-events.jsonl"),row.toString());}catch(Exception e){throw new IllegalStateException("Referee evidence failed",e);}
+ }
+ // Only this UI notification is derived from a Set<Card>. Its membership
+ // matters; its iteration order is not a game choice or zone order.
+ private static JsonElement normalizeNotifications(JsonElement value) {
+  if(value.isJsonArray()){JsonArray a=new JsonArray();for(JsonElement e:value.getAsJsonArray())a.add(normalizeNotifications(e));return a;}
+  if(!value.isJsonObject())return value;
+  JsonObject o=new JsonObject();for(var e:value.getAsJsonObject().entrySet())o.add(e.getKey(),normalizeNotifications(e.getValue()));
+  if(o.has("record_type")&&o.get("record_type").getAsString().equals("GameEventCardStatsChanged")&&o.has("cards")) {
+   List<JsonElement> cards=new ArrayList<>();o.getAsJsonArray("cards").forEach(cards::add);cards.sort(Comparator.comparing(JsonElement::toString));JsonArray a=new JsonArray();cards.forEach(a::add);o.add("cards",a);
+  }
+  return o;
+ }
+ private static boolean equivalent(JsonObject expected,JsonObject actual) {
+  return expected.equals(actual)||normalizeNotifications(expected).equals(normalizeNotifications(actual));
  }
  public static synchronized long enter(String hook,Object receiver,Object[] args) {
   if(live==null||busy.get())return 0;

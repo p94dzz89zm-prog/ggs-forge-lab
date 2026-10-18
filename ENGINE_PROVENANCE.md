@@ -44,7 +44,9 @@ Recording these fields is not proof the engine implements every current rule.
 
 The opt-in `forge.referee.replayTape` plus mandatory `forge.referee.replaySha256`
 loads a hash-bound reference tape. Recorded random bits drive a second execution;
-every serialized initial-state/event/call/result must match in order. Missing,
+every serialized initial-state/event/call/result must match in order. Only the
+Set-derived card-statistics UI notification compares card membership without
+iteration order; ordered zones and decisions remain strict. Missing,
 extra or different records fail closed. This is **event-checked policy
 reexecution**, not yet an engine loader driven entirely by recorded decisions.
 Unsupported serialized objects remain gaps even when both executions match.

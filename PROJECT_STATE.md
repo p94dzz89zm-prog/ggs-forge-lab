@@ -16,8 +16,13 @@ serialization gaps remain. Zero fully rules-approved games or comparisons.
 Replay reference and Python inspection now stream large tapes, avoiding whole
 JSON-tape materialization. The targeted fixture reexecution still passes.
 The batch protocol binds both evidence-reader source hashes for future runs.
-No old journal or sealed capture was rewritten. Next: compatibility verification
-reexecution of the exact saved game, then repair the specific unsupported types.
+No old journal or sealed capture was rewritten. Compatibility reexecution was attempted and rejected at opening-draw record445:
+a card-statistics UI notification is built from a Set, so its collection order
+is unstable. The original failure is retained. The comparator now treats only
+that notification's card membership as unordered; zone/choice order remains
+strict. Twelve targeted engine/comparator checks and fixture reexecution pass.
+A private expected/actual divergence record is now retained on failure. Next:
+a separately allocated verification of this specific fix, then typed gap repair.
 
 ## Provenance milestone, October18
 

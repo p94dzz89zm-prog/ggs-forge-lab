@@ -43,6 +43,12 @@ public class EngineProvenanceRegression extends AITest {
   JsonObject look=rows.stream().filter(r->r.has("visibility_operation")&&r.get("visibility_operation").getAsString().equals("look_specified")).findFirst().orElseThrow();Assert.assertEquals(look.getAsJsonArray("entitled_player_ids").size(),1);Assert.assertEquals(look.getAsJsonArray("entitled_player_ids").get(0).getAsInt(),other.getId());
   Assert.assertTrue(reveal.toString().contains("Demonic Tutor"));Assert.assertTrue(rows.stream().anyMatch(r->r.has("initial_state")));Assert.assertTrue(rows.stream().anyMatch(r->r.get("kind").getAsString().equals("engine_return")&&r.get("hook").getAsString().contains("tryPayCostWithMana")&&!r.get("result").getAsBoolean()));
   Assert.assertEquals(rows.get(rows.size()-1).get("kind").getAsString(),"engine_tape_complete");
-  System.out.println("Checks passed: 9");System.out.println("PASS actual reveal recipients, private visibility, source production, spent unit, failed payment, test flag, initial state and sealed tape");System.exit(0);
+  java.lang.reflect.Method equivalent=EngineEvidence.class.getDeclaredMethod("equivalent",JsonObject.class,JsonObject.class);equivalent.setAccessible(true);
+  JsonObject a=JsonParser.parseString("{\"arguments\":[{\"record_type\":\"GameEventCardStatsChanged\",\"cards\":[{\"view_id\":1},{\"view_id\":2}]}]}").getAsJsonObject();
+  JsonObject b=JsonParser.parseString("{\"arguments\":[{\"record_type\":\"GameEventCardStatsChanged\",\"cards\":[{\"view_id\":2},{\"view_id\":1}]}]}").getAsJsonObject();
+  Assert.assertTrue((Boolean)equivalent.invoke(null,a,b),"unordered notification membership");
+  b.getAsJsonArray("arguments").get(0).getAsJsonObject().addProperty("record_type","GameEventZone");Assert.assertFalse((Boolean)equivalent.invoke(null,a,b),"different event cannot compare equal");
+  a=JsonParser.parseString("{\"Library\":[1,2]}").getAsJsonObject();b=JsonParser.parseString("{\"Library\":[2,1]}").getAsJsonObject();Assert.assertFalse((Boolean)equivalent.invoke(null,a,b),"ordered zones remain order-sensitive");
+  System.out.println("Checks passed: 12");System.out.println("PASS actual reveal recipients, private visibility, source production, spent unit, failed payment, test flag, initial state and sealed tape");System.exit(0);
  }
 }
