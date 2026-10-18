@@ -89,6 +89,9 @@ An enabled task is not continuous compute. Update the guarded ledger and concise
 private state with exact next steps and preserve significant evidence privately.
 
 Dashboard: https://dragonmind-performance.symbols.chatgpt.site .
-Cycle22 publication succeeded with saved receipts. Cycle23 incident/results
-publication is pending; check native status and ledger before retrying. Browser visual QA is unavailable; static/data and
+Cycle22 and Cycle23 publications succeeded with saved receipts. The dashboard
+shows the quarantined candidate and zero admitted full-game comparisons.
+Verified code CI: run39108781493 (157 Python tests and launcher contracts).
+The private recovery task was updated to the integrity hold; next-run time
+remains unreported, so no continuous/private training claim. Browser visual QA is unavailable; static/data and
 refresh/failure/retry contracts pass.
