@@ -46,6 +46,14 @@ public final class DurableEvidence {
         } catch(Exception e){throw new IOException("Evidence append failed",e);}
     }
     public static String hash(byte[] data)throws Exception{return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(data));}
+    public static String hashFile(Path path)throws Exception {
+        MessageDigest hash=MessageDigest.getInstance("SHA-256");
+        try(java.io.InputStream input=Files.newInputStream(path)){
+            byte[] buffer=new byte[65536];int count;
+            while((count=input.read(buffer))!=-1)hash.update(buffer,0,count);
+        }
+        return HexFormat.of().formatHex(hash.digest());
+    }
     public static void syncDirectory(Path directory)throws IOException {
         try(FileChannel c=FileChannel.open(directory,StandardOpenOption.READ)){c.force(true);}
     }
@@ -64,7 +72,7 @@ public final class DurableEvidence {
             for(Stream s:streams.values()) {
                 s.channel.force(true);s.channel.close();
                 String want=HexFormat.of().formatHex(s.hash.digest());
-                if(Files.size(s.partial)!=s.bytes||!hash(Files.readAllBytes(s.partial)).equals(want))throw new IOException("Stream changed before finalization");
+                if(Files.size(s.partial)!=s.bytes||!hashFile(s.partial).equals(want))throw new IOException("Stream changed before finalization");
                 JsonObject receipt=new JsonObject();receipt.addProperty("format",1);receipt.addProperty("game_id",gameId);receipt.addProperty("records",s.rows);receipt.addProperty("bytes",s.bytes);receipt.addProperty("sha256",want);receipt.addProperty("write_status",complete?"complete":"interrupted");receipt.addProperty("file",directory.toAbsolutePath().getParent().getParent().relativize(s.target).toString());
                 if(complete){Files.move(s.partial,s.target,StandardCopyOption.ATOMIC_MOVE);syncDirectory(s.target.getParent());atomic(s.target.resolveSibling(s.target.getFileName()+".receipt.json"),receipt.toString());}
                 receipts.add(receipt);

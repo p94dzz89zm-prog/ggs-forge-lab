@@ -7,6 +7,24 @@ checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
 ## Typed provenance and independent mana checks
 
+A subsequent typed full-game attempt reached the engine terminal record but
+failed durable finalization: the old writer materialized the entire referee
+stream for checksum validation and exhausted its heap. It is rejected, not a
+completed capture. This establishes that attempt's failure, not the historical
+truncation cause. Workspace cleanup later removed its unsaved raw failure and
+an uncommitted repair; the private ledger explicitly records that retention gap.
+The original externally sealed captures and verified engine remain unchanged.
+
+Finalizer validation now hashes files incrementally. Checkpoint creation,
+verification and restoration also stream members, checking for source mutation
+between fingerprinting and sealing. A real old-writer control fails with heap
+exhaustion and no completion manifest; the repaired writer seals a96MiB stream
+under64MiB heap with384 records and matching checksum. Twenty-seven relevant
+checkpoint/isolation/writer tests pass, including192MiB create/verify/restore
+under128MiB address limit and a chunk-boundary completion marker. Only the two
+writer classes change in the pinned engine; all other executable entries are
+byte-identical. No strategy, model, deck, approval or learning change.
+
 The first new full development game completed verification reexecution:
 135197 recorded events, with4128 Set-derived UI notification rows differing only
 in iteration order. All1263 canonical gameplay lines match after duration/result
@@ -22,8 +40,9 @@ engine checks and record/reexecution fixtures pass with zero unencoded values
 in those fixtures. An independent Python mana-unit checker covers recorded pool
 membership, colored/generic/hybrid/snow cost transitions and color-conversion
 claims. Twenty-eight relevant Python checks pass. Full mana restrictions and
-whole-game rules remain separate review obligations. No new typed full game
-has run yet. Models and October17 baseline are unchanged; learning admissions0.
+whole-game rules remain separate review obligations. The first typed full game
+failed finalization as recorded above. Models and October17 baseline are unchanged;
+learning admissions0.
 
 ## Fresh provenance capture
 

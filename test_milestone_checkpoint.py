@@ -65,4 +65,53 @@ class CheckpointTests(unittest.TestCase):
         self.assertEqual(m['metadata']['attempt_status'],'unknown_in_flight')
         self.assertEqual(m['metadata']['trusted_training_updates'],0)
 
+class StreamingCheckpointTests(unittest.TestCase):
+    def test_marker_boundary_and_source_mutation(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            log = root / 'large.log'
+            marker = 'CROSS_BOUNDARY_COMPLETE'
+            log.write_bytes(b'x' * (1024 * 1024 - 5) + marker.encode() + b'x' * 100)
+            meta = {'milestone': 'boundary', 'source_commit': 'a' * 40}
+            receipt = cp.create(root, root / 'ok.zip', meta, ['large.log'], {'large.log': [marker]})
+            cp.verify(receipt['path'], receipt['sha256'])
+            original, calls = cp.scan, 0
+
+            def mutate(*args, **kwargs):
+                nonlocal calls
+                result = original(*args, **kwargs)
+                calls += 1
+                if calls == 1:
+                    log.write_text('changed after source fingerprint')
+                return result
+
+            with patch.object(cp, 'scan', side_effect=mutate):
+                with self.assertRaises(ValueError):
+                    cp.create(root, root / 'changed.zip', meta, ['large.log'])
+            self.assertFalse((root / 'changed.zip').exists())
+
+    def test_archive_larger_than_subprocess_memory_limit(self):
+        import subprocess
+        import sys
+        with tempfile.TemporaryDirectory() as temporary:
+            script = """
+import pathlib, resource, sys
+import milestone_checkpoint as cp
+resource.setrlimit(resource.RLIMIT_AS, (128*1024*1024, 128*1024*1024))
+root = pathlib.Path(sys.argv[1]); source = root/'large.log'
+with source.open('wb') as stream:
+    for index in range(192): stream.write(b'x'*(1024*1024))
+    stream.write(b'\\nLARGE_COMPLETE\\n')
+receipt = cp.create(root, root/'sealed.zip', {'milestone':'bounded', 'source_commit':'a'*40}, ['large.log'], {'large.log':['LARGE_COMPLETE']})
+cp.restore(receipt['path'], receipt['sha256'], root/'restored')
+assert cp.file_digest(source) == cp.file_digest(root/'restored/large.log')
+print('PASS192MiB record/create/verify/restore under128MiB address limit')
+"""
+            result = subprocess.run([sys.executable, '-c', script, temporary], capture_output=True,
+                                    text=True, timeout=60)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn('PASS192MiB', result.stdout)
+
+
 if __name__ == '__main__': unittest.main()

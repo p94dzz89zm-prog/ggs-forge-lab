@@ -17,6 +17,32 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def scan(stream, markers=(), destination=None):
+    """Bound memory while hashing/copying; detect markers across chunk boundaries."""
+    checksum = hashlib.sha256()
+    size = 0
+    needles = {marker: marker.encode() for marker in markers}
+    found = {marker for marker, needle in needles.items() if not needle}
+    overlap = max((len(needle) - 1 for needle in needles.values()), default=0)
+    tail = b''
+    while chunk := stream.read(1024 * 1024):
+        checksum.update(chunk)
+        size += len(chunk)
+        if destination is not None:
+            destination.write(chunk)
+        window = tail + chunk
+        found.update(marker for marker, needle in needles.items() if needle in window)
+        tail = window[-overlap:] if overlap else b''
+    if set(needles) - found:
+        raise ValueError('Missing completion marker')
+    return checksum.hexdigest(), size
+
+
+def file_digest(path):
+    with Path(path).open('rb') as stream:
+        return scan(stream)[0]
+
+
 def safe_name(name):
     p = PurePosixPath(name)
     if not name or p.is_absolute() or '..' in p.parts or '\\' in name or p.as_posix() != name:
@@ -25,8 +51,7 @@ def safe_name(name):
 
 
 def verify(path, expected_sha256):
-    raw = Path(path).read_bytes()
-    if digest(raw) != expected_sha256:
+    if file_digest(path) != expected_sha256:
         raise ValueError('Archive SHA256 mismatch')
     with zipfile.ZipFile(path) as z:
         names = z.namelist()
@@ -36,20 +61,19 @@ def verify(path, expected_sha256):
             safe_name(info.filename)
             if info.is_dir() or (info.external_attr >> 16) & 0o170000 == 0o120000:
                 raise ValueError('Only regular files permitted')
-        if z.testzip() is not None:
-            raise ValueError('ZIP CRC failure')
         m = json.loads(z.read('MANIFEST.json'))
         if m['format'] != 1 or not m['files']:
             raise ValueError('Invalid manifest')
         if set(names) != set(m['files']) | {'MANIFEST.json'}:
             raise ValueError('Unlisted or missing archive member')
         for name, entry in m['files'].items():
-            data = z.read(name)
-            if digest(data) != entry['sha256'] or len(data) != entry['bytes']:
+            try:
+                with z.open(name) as source:
+                    checksum, size = scan(source, entry.get('required_markers', []))
+            except zipfile.BadZipFile as error:
+                raise ValueError('ZIP CRC failure: ' + name) from error
+            if checksum != entry['sha256'] or size != entry['bytes']:
                 raise ValueError('Member hash/size mismatch: ' + name)
-            for marker in entry.get('required_markers', []):
-                if marker.encode() not in data:
-                    raise ValueError('Missing completion marker: ' + name)
         return m
 
 
@@ -60,15 +84,15 @@ def create(root, output, metadata, files, markers=None):
         raise ValueError('Explicit nonempty file list and bound markers required')
     if not metadata.get('milestone') or len(metadata.get('source_commit', '')) != 40:
         raise ValueError('Milestone and exact source commit required')
-    entries, payload = {}, {}
+    entries = {}
     for name in files:
         safe_name(name)
         p = root / name
         if name == 'MANIFEST.json' or name in entries or p.is_symlink() or not p.resolve().is_relative_to(root):
             raise ValueError('Unsafe, reserved or duplicate input')
-        data = p.read_bytes()
-        payload[name] = data
-        entries[name] = {'sha256': digest(data), 'bytes': len(data), 'required_markers': markers.get(name, [])}
+        with p.open('rb') as source:
+            checksum, size = scan(source, markers.get(name, []))
+        entries[name] = {'sha256': checksum, 'bytes': size, 'required_markers': markers.get(name, [])}
     manifest = {'format': 1, 'metadata': metadata, 'files': entries,
                 'learning_admission': 'Not granted by checkpoint verification'}
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -76,12 +100,15 @@ def create(root, output, metadata, files, markers=None):
     try:
         with os.fdopen(fd, 'w+b') as handle:
             with zipfile.ZipFile(handle, 'w', zipfile.ZIP_DEFLATED) as z:
-                for name, data in payload.items():
-                    z.writestr(name, data)
+                for name, entry in entries.items():
+                    with (root / name).open('rb') as source, z.open(name, 'w', force_zip64=True) as destination:
+                        checksum, size = scan(source, entry['required_markers'], destination)
+                    if checksum != entry['sha256'] or size != entry['bytes']:
+                        raise ValueError('Source changed while sealing: ' + name)
                 z.writestr('MANIFEST.json', json.dumps(manifest, sort_keys=True, indent=2))
             handle.flush()
             os.fsync(handle.fileno())
-        checksum = digest(Path(temp).read_bytes())
+        checksum = file_digest(temp)
         verify(temp, checksum)
         # Exclusive publication: an existing completed checkpoint is never replaced.
         os.link(temp, output)
@@ -108,7 +135,10 @@ def restore(archive, checksum, destination):
             for name in m['files']:
                 p = staging / name
                 p.parent.mkdir(parents=True, exist_ok=True)
-                p.write_bytes(z.read(name))
+                with z.open(name) as source, p.open('xb') as destination:
+                    checksum, size = scan(source, m['files'][name].get('required_markers', []), destination)
+                if checksum != m['files'][name]['sha256'] or size != m['files'][name]['bytes']:
+                    raise ValueError('Archive changed during restore: ' + name)
             (staging / 'MANIFEST.json').write_bytes(z.read('MANIFEST.json'))
         # Caller owns destination allocation; never merge restored and live evidence.
         if dest.exists():
