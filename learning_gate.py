@@ -6,6 +6,7 @@ of perfect Magic. Missing evidence or unresolved limits withhold learning.
 import hashlib
 import json
 from pathlib import Path
+from milestone_checkpoint import file_digest
 
 REVIEW_VERSION = 1
 FULL_SCOPE = 'full_game_rules_and_critical_decisions'
@@ -24,7 +25,7 @@ def fingerprint(root, game, signature, weights):
         path = (root / value).resolve()
         if not path.is_relative_to(root) or not path.is_file():
             raise ValueError('Evidence missing or outside attempt: ' + field)
-        files[path.relative_to(root).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
+        files[path.relative_to(root).as_posix()] = file_digest(path)
     audits = sorted((root / 'audit').rglob('*.jsonl'))
     if not audits:
         raise ValueError('Missing decision audit')
@@ -32,7 +33,7 @@ def fingerprint(root, game, signature, weights):
         resolved = path.resolve()
         if not resolved.is_relative_to(root):
             raise ValueError('Audit outside attempt')
-        files[resolved.relative_to(root).as_posix()] = hashlib.sha256(resolved.read_bytes()).hexdigest()
+        files[resolved.relative_to(root).as_posix()] = file_digest(resolved)
     payload = {'files': files, 'inputs': signature, 'weights': weights,
         'game': {key: game.get(key) for key in ('seed', 'status', 'winner', 'seats', 'variant', 'command')}}
     return hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()

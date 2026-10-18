@@ -29,7 +29,7 @@ def verify_live(root, entry):
         path = root / name
         if path.is_symlink() or not path.resolve().is_relative_to(root):
             raise ValueError('Unsafe finalized evidence path')
-        if hashlib.sha256(path.read_bytes()).hexdigest() != want:
+        if checkpoint.file_digest(path) != want:
             raise ValueError('Saved evidence changed: ' + name)
 
 
@@ -75,12 +75,12 @@ def capture(pair_root, entry, protocol, source_commit):
     with tempfile.TemporaryDirectory(prefix='side-capture-', dir=pair_root) as td:
         staging = Path(td)
         for n, want in frozen['evidence_sha256'].items():
-            data = (root / n).read_bytes()
-            if hashlib.sha256(data).hexdigest() != want:
-                raise ValueError('Evidence changed during capture: ' + n)
             dest = staging / 'evidence' / n
             dest.parent.mkdir(parents=True, exist_ok=True)
-            dest.write_bytes(data)
+            with (root / n).open('rb') as source, dest.open('xb') as destination:
+                actual, _ = checkpoint.scan(source, destination=destination)
+            if actual != want:
+                raise ValueError('Evidence changed during capture: ' + n)
         (staging / 'finalization.json').write_text(json.dumps(frozen, sort_keys=True))
         (staging / 'protocol.json').write_text(json.dumps(protocol, sort_keys=True))
         files = sorted(p.relative_to(staging).as_posix() for p in staging.rglob('*') if p.is_file())

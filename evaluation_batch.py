@@ -18,9 +18,10 @@ from population_protocol import specification
 from referee_games import inspect
 from learning_gate import assess
 from side_capture import capture, verify_capture, verify_live
+from milestone_checkpoint import file_digest
 
 
-def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def sha(path):return file_digest(path)
 def resource_fingerprint(engine):
  """Card definitions/editions/AI resources are inputs, not just the JAR."""
  root=Path(engine)/'res';digest=hashlib.sha256();count=0
@@ -147,7 +148,7 @@ def main():
  for slot in ('shared-counter','baseline','candidate'):p.add_argument('--'+slot+'-model',type=Path)
  p.add_argument('--max-new-games',type=int,choices=(1,2),default=2,help='Stop after this many NEW games so a caller can durably checkpoint each side; does not change game conditions')
  p.add_argument('--seed',type=int,required=True);p.add_argument('--rotation',type=int,choices=range(4),default=0);p.add_argument('--timeout',type=int,default=120);p.add_argument('--deck',default='GGS_Apex_20261017_v1');p.add_argument('--population',choices=('stock','diverse_training','unseen_evaluation'),default='diverse_training');p.add_argument('--purpose',choices=('development','heldout'),default='development');a=p.parse_args()
- if not 1<=a.timeout<=180:p.error('Budget must be1..180 seconds per game')
+ if not 1<=a.timeout<=600:p.error('Budget must be1..600 seconds per game; longer recording is explicit opt-in')
  if a.seed<0:p.error('Nonnegative allocated seed required')
  raise SystemExit(run_isolated_cli(a,sys.argv[1:]) if Path("/workspace") in a.output.resolve().parents else run(a))
 if __name__=='__main__':main()

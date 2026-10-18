@@ -6,8 +6,9 @@ replacement effects and strategic alternatives require substantive review.
 import argparse,hashlib,json
 from pathlib import Path
 from referee_games import inspect
+from milestone_checkpoint import file_digest
 
-def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def sha(path):return file_digest(path)
 def audit_visibility(paths):
     viewers=set();snapshots=0;errors=[];leads=[];last_turn={};last_seen={};contexts=0
     for path in paths:

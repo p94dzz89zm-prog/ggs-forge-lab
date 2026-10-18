@@ -7,6 +7,15 @@ checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
 ## Typed provenance and independent mana checks
 
+The first repaired-writer typed diagnostic reached turn37 but hit its explicit
+180-second engine limit. Its interrupted streams and writer receipt were sealed
+as rejected diagnostic evidence, externally saved and restored. It is not a
+completed game. Richer recording needs an explicitly larger time allowance;
+the collector now permits up to600 seconds while retaining its120-second
+default. Collector hashes, immutable-side copying and learning/review fingerprints
+now also stream large evidence instead of materializing each tape. Learning and
+rules gates are unchanged; the next fresh diagnostic remains separately allocated.
+
 A subsequent typed full-game attempt reached the engine terminal record but
 failed durable finalization: the old writer materialized the entire referee
 stream for checksum validation and exhausted its heap. It is rejected, not a

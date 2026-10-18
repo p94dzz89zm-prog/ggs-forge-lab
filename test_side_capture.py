@@ -10,6 +10,11 @@ import side_capture as s
 
 
 class SideCaptureTests(unittest.TestCase):
+    def test_capture_and_reverification_never_materialize_whole_files(self):
+        with patch.object(Path, 'read_bytes', side_effect=AssertionError('Whole file materialized')):
+            self.capture()
+            s.verify_live(self.side,self.entry)
+            s.verify_capture(self.root,self.entry,self.protocol)
     def setUp(self):
         t = tempfile.TemporaryDirectory()
         self.addCleanup(t.cleanup)
