@@ -3,8 +3,9 @@
 
 This is a contextual bandit over three bounded strategies, not a neural pilot
 or a system that learns Magic's rules. No mutation of decks or Java source.
-Training selects a profile, plays a game, measures a fixed utility vector and
-updates its preference automatically. Evaluation freezes preferences.
+Training records profiles and outcomes persistently. Only evidence-bound full
+reviews may influence selection; even sandbox observations cannot bypass this.
+Evaluation freezes preferences.
 """
 import argparse
 import hashlib
@@ -159,6 +160,7 @@ def main():
     p.add_argument("--seed",type=int,default=2026102100)
     p.add_argument("--decks",nargs="+",default=["GGS_Current"])
     p.add_argument("--mode",choices=["train","evaluate"],default="train")
+    p.add_argument("--opponent-population",choices=("stock","diverse_training","unseen_evaluation"),default="stock")
     p.add_argument("--pool",choices=["reviewed","sandbox"],default="reviewed",
         help="Default inference uses only reviewed experience; sandbox is explicitly provisional")
     p.add_argument("--timeout",type=int,default=300)
@@ -179,9 +181,13 @@ def main():
     hashes={}
     for name in all_decks:
         path=dragonmind.ROOT/"decks"/(name+".dck");validate_deck(path);hashes[name]=sha(path)
+    from population_protocol import specification
+    population=specification(a.engine,a.opponent_population)
+    if a.mode=="train" and a.opponent_population=="unseen_evaluation":p.error("Held-out opponent population cannot train")
     signature={"jar_sha256":sha(a.jar),"deck_sha256":hashes,"decks":decks,
         "mode":a.mode,"seed":a.seed,"timeout":a.timeout,"reward_version":reward_version,
         "model":str(a.model),"profiles":PROFILES,"pool":a.pool}
+    if a.opponent_population!="stock":signature["opponent_population"]=population
     # Normalize tuple/list before comparing a restored JSON manifest.
     signature=json.loads(json.dumps(signature))
     if a.audit:
@@ -207,10 +213,10 @@ def main():
             for idx in range(start,a.games):
                 deck=decks[idx%len(decks)];rotation=idx%4;seed=a.seed+idx
                 context=hashlib.sha256(json.dumps({"jar":signature["jar_sha256"],"reward":reward_version,
-                    "deck":hashes[deck],"pod":{n:hashes[n] for n in all_decks if n not in decks}},sort_keys=True).encode()).hexdigest()
+                    "deck":hashes[deck],"pod":{n:hashes[n] for n in all_decks if n not in decks},**({"opponent_population":population} if a.opponent_population!="stock" else {})},sort_keys=True).encode()).hexdigest()
                 if db.execute("SELECT 1 FROM episodes WHERE seed=? AND mode!=? LIMIT 1",(seed,a.mode)).fetchone():
                     raise ValueError("Training/evaluation seed overlap; use a disjoint seed range")
-                stats=statistics(db,context,a.pool=="reviewed")
+                stats=statistics(db,context,True)  # No pool may learn from unreviewed outcomes.
                 if db.execute("SELECT 1 FROM episodes WHERE context=? AND seed=? AND mode=? AND status IN ('completed','completed_draw') LIMIT 1",(context,seed,a.mode)).fetchone():
                     raise ValueError("Duplicate completed experience; choose new seeds")
                 if a.mode=="evaluate":
@@ -225,7 +231,7 @@ def main():
                 attempt=a.output/f"attempt-{idx:06d}";attempt.mkdir(exist_ok=False)
                 print(f"{idx+1}/{a.games}: {a.mode} {deck}, {profile}, seed {seed}",flush=True)
                 rows=dragonmind.batch(a.engine,a.jar,attempt,deck,rotation,[seed],a.timeout,True,a.audit,
-                    extra_jvm_flags=("-Ddragonmind.strategyProfile="+profile,"-Ddragonmind.boundedCombatForecast=true"),audit_all_seats=a.audit)
+                    extra_jvm_flags=("-Ddragonmind.strategyProfile="+profile,"-Ddragonmind.boundedCombatForecast=true"),audit_all_seats=a.audit,ai_profiles=population["profiles_by_unrotated_deck"])
                 if sha(a.jar)!=signature["jar_sha256"] or any(sha(dragonmind.ROOT/"decks"/(n+".dck"))!=h for n,h in hashes.items()):
                     raise ValueError("Engine or decks changed during game; refuse training")
                 row=rows[0];evidence={"game":row,"statistics_before":stats,"experimental":True,"pool":a.pool,"review_status":"pending","reward_version":reward_version}

@@ -58,3 +58,18 @@ counterfactual recovery does not establish whole-deck superiority. Keep that
 package experimental and repair payment planning before interpreting its
 simulated underuse as a card weakness. No new trusted outcome feedback was
 created by these mechanism checks.
+
+Cycle18 adds a scoped stock-chosen Whip payment reservation, verified using
+actual copied-game cast/return before live reservation, and separate fresh
+constructed comparisons. See forge-fork/WHIP_MANA.md. Native opponent
+personalities may now differ per deck and rotate with that deck; their hashes
+are part of recorded inputs. `diverse_training` and `unseen_evaluation` use
+separate opponent personalities. These are actual Forge heuristics, not six
+verified strategic specialists. Profile selection now uses reviewed statistics
+in every pool, including sandbox. Unreviewed outcomes remain observations.
+
+The private performance registry rejects a matching summary when actual log
+hashes/markers disagree. It uncovered a cycle17 archived MarchDefense log gap;
+that historical technical evidence is quarantined rather than repaired by
+rewriting a successful summary. Current independent checks retain their own
+provenance. Resume and automation boundaries are in RESUME_DRAGONMIND.md.

@@ -13,6 +13,7 @@ from referee_games import inspect
 class AdmissionTests(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup);self.root=Path(self.tmp.name)
+  (self.root/"res/ai").mkdir(parents=True);(self.root/"res/ai/Default.ai").write_text("PLAY_AGGRO=false\n")
   self.record={'seed':77,'status':'completed','winner':'Ai(1)-GGS_Current','engine_ms':12}
   self.game={**self.record,'variant':'GGS_Current','seats':['GGS_Current','Jaymie_Ezio','Gabe_Food','Destyn_Turtles'],'engine_record':'engine-records/game/77.json','engine_transcript':'engine-records/game/77.log','log':'game.log'}
   for name in ['engine-records/game','audit/game']:(self.root/name).mkdir(parents=True)

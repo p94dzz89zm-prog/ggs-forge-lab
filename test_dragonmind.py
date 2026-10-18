@@ -1,6 +1,12 @@
 import json, unittest
 from dragonmind import parse_results, java_runtime_flags
 
+def synthetic_profile(directory):
+    from pathlib import Path
+    p=Path(directory)/"res/ai";p.mkdir(parents=True,exist_ok=True)
+    (p/"Default.ai").write_text("PLAY_AGGRO=false\n")
+
+
 
 class DragonMindResults(unittest.TestCase):
     def test_failed_gate_does_not_submit_remaining_games(self):
@@ -29,12 +35,13 @@ class DragonMindResults(unittest.TestCase):
             return type('Process',(),{'returncode':0})()
         with tempfile.TemporaryDirectory() as directory,patch('dragonmind.subprocess.run',side_effect=process):
             for rotation in (0,1):
+                synthetic_profile(directory)
                 rows=batch(pathlib.Path(directory),pathlib.Path('test.jar'),pathlib.Path(directory),'GGS_Layered_v1',rotation,[4],1,False,False)
                 self.assertEqual(rows[0]['status'],'not_run')
         homes=[next(x for x in cmd if x.startswith('-Duser.home=')) for cmd in commands]
         self.assertNotEqual(homes[0],homes[1])
 
-    def engine_record_case(self, console_error=False, mismatch=False):
+    def engine_record_case(self, console_error=False, mismatch=False, profile_change=False):
         import pathlib,tempfile
         from unittest.mock import patch
         from dragonmind import batch
@@ -46,10 +53,17 @@ class DragonMindResults(unittest.TestCase):
             transcript=dict(row)
             if mismatch:transcript['engine_ms']=2
             (directory/'4.log').write_text('DragonMind Result: '+json.dumps(transcript)+'\n')
+            if profile_change:(pathlib.Path(kwargs['cwd'])/'res/ai/Default.ai').write_text('PLAY_AGGRO=true\n')
             if console_error:kwargs['stdout'].write('java.lang.IllegalStateException: engine fault\n')
             return type('Process',(),{'returncode':0})()
         with tempfile.TemporaryDirectory() as directory,patch('dragonmind.subprocess.run',side_effect=process):
+            synthetic_profile(directory)
             return batch(pathlib.Path(directory),pathlib.Path('test.jar'),pathlib.Path(directory),'GGS_Layered_v1',0,[4],1,False,False)[0]
+
+    def test_profile_change_invalidates_game_input_provenance(self):
+        row=self.engine_record_case(profile_change=True)
+        self.assertEqual(row['status'],'engine_error');self.assertIsNone(row['winner'])
+        self.assertIn('personality bytes changed',row['result_error'])
 
     def test_actual_engine_record_can_survive_missing_console_footer(self):
         row=self.engine_record_case()
@@ -123,6 +137,7 @@ class DragonMindResults(unittest.TestCase):
             kwargs['stdout'].write('DragonMind Result: {bad json}\n')
             return type('Process', (), {'returncode':0})()
         with tempfile.TemporaryDirectory() as directory, patch('dragonmind.subprocess.run', side_effect=process):
+            synthetic_profile(directory)
             rows=batch(pathlib.Path(directory),pathlib.Path('test.jar'),pathlib.Path(directory),'GGS_Layered_v1',0,[4,5],1,False,False)
         self.assertEqual([r['status'] for r in rows],['process_error','process_error'])
         self.assertTrue(all('result_error' in r for r in rows))

@@ -53,7 +53,12 @@ def java_runtime_flags(gc, jit):
     return [gc_flag,*jit_flags]
 
 
-def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc='parallel', jit='throughput', extra_jvm_flags=(), audit_all_seats=False):
+def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc='parallel', jit='throughput', extra_jvm_flags=(), audit_all_seats=False, ai_profiles=None):
+    from population_protocol import seat_profiles
+    profiles=seat_profiles(tuple(ai_profiles or ('Default',)*4),rotation)
+    for profile in profiles:
+        if not (engine/'res/ai'/(profile+'.ai')).is_file():raise ValueError('Missing actual AI profile: '+profile)
+    profile_hashes={name:hashlib.sha256((engine/'res/ai'/(name+'.ai')).read_bytes()).hexdigest() for name in set(profiles)}
     seats = [variant, 'Jaymie_Ezio', 'Gabe_Food', 'Destyn_Turtles']
     seats = seats[rotation:] + seats[:rotation]
     label = f'{variant}__seat{rotation}__seeds{seeds[0]}-{seeds[-1]}'
@@ -73,7 +78,7 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
     cmd = ['java', '-XX:-UsePerfData', '-Ddragonmind.consoleOnly=true', '-Duser.home='+str(runtime_home.resolve()), '-Xmx1536m', *java_runtime_flags(gc,jit), *extra_jvm_flags, '-Djava.awt.headless=true', *flags, '-jar', str(jar),
            'sim', '-D', str(ROOT/'decks'), '-d', *[s+'.dck' for s in seats],
            '-f', 'Commander', '-seeds', *map(str, seeds), '-c', str(timeout),
-           '-a', *(['Default']*4)]
+           '-a', *profiles]
     start = time.monotonic()
     process_timeout = False
     logpath = out/(label+'.log')
@@ -122,7 +127,10 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
             row['result_error'] = parse_error
         row.update(variant=variant, seat_rotation=rotation, seats=seats,
                    pilot='commander-aware' if pilot else 'stock', batch_wall_seconds=round(elapsed,3),
-                   batch_size=len(seeds), command=cmd, log=logpath.name)
+                   batch_size=len(seeds), command=cmd, log=logpath.name, ai_profiles=profiles,
+                   ai_profile_sha256=profile_hashes)
+        if any(hashlib.sha256((engine/'res/ai'/(name+'.ai')).read_bytes()).hexdigest()!=expected for name,expected in profile_hashes.items()):
+            row.update(status='engine_error',winner=None,result_error='AI personality bytes changed during game')
         records.append(row)
     # Keep a successful process exit with no structured result visibly invalid.
     # An exit status alone is never evidence that a game finished.
@@ -167,6 +175,7 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--engine',type=pathlib.Path,required=True,help='Directory containing res/')
     p.add_argument('--jar',type=pathlib.Path,required=True,help='Built DragonMind executable')
+    p.add_argument('--ai-profiles',nargs=4,help='Four actual Forge personalities in unrotated deck order; rotated with their decks')
     p.add_argument('--variant',default='GGS_Layered_v1')
     p.add_argument('--seed',type=int,default=20261011)
     p.add_argument('--seeds',type=int,default=2,help='Independent seeds per seat')
@@ -205,7 +214,7 @@ def main():
     def worker(job):
         r,seeds=job
         return batch(engine,jar,out,a.variant,r,seeds,a.timeout,not a.stock,a.audit,a.gc,a.jit,
-            ('-Ddragonmind.boundedCombatForecast='+str(a.forecast=='bounded').lower(),))
+            ('-Ddragonmind.boundedCombatForecast='+str(a.forecast=='bounded').lower(),), ai_profiles=a.ai_profiles)
     for records in run_jobs(jobs,worker,a.workers,a.stop_on_failure):
         results.extend(records)
         (out/'summary.json').write_text(json.dumps(results,indent=2)+'\n')

@@ -1,11 +1,26 @@
 name: runner-tests
 on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: dragonmind-evaluation-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m unittest discover -s . -p 'test_*.py'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Python admission, persistence, population and evaluation tests
+        run: python -m unittest discover -s . -p 'test_*.py'
+      - name: Compile pure-JDK failure-reporting contracts
+        run: javac -d /tmp/dragonmind-contracts forge-fork/RegressionLauncher.java forge-fork/RegressionLauncherRegression.java
+      - name: Verify subprocess failure reporting
+        run: java -cp /tmp/dragonmind-contracts RegressionLauncherRegression
