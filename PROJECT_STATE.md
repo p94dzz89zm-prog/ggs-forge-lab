@@ -77,8 +77,13 @@ groups across attempts, including 128 distinct combat positions. The initial
 combined run retained an exact-output launcher failure from a JVM environment
 banner; the remaining two suites passed with direct properties. No model or
 completed suite was replayed or altered to reconcile those checks.
-Dashboard refresh failed at source opening; the existing published snapshot is
-unchanged and new results are retained privately. See the latest ledger for
-checkpoint saving/readback status.
+Cycle 21 reproduced the launcher-banner failure before repair. Its exact-output
+self-test now isolates only its child JVM option environment; normal suite logs
+retain all warnings. Six launcher checks pass with all three ambient JVM option
+variables present, and 135 Python tests pass. CI includes this environment check.
+The engine runner accepts repeated explicit `--jvm-property NAME=VALUE` options
+and records them in its private manifest, avoiding compiler/child inheritance.
+Dashboard source recovery succeeded with a fresh credential; publication is
+pending the current evidence refresh. See the private ledger for saved receipts.
 This changes learned local decisions only; no whole-game admission, broad
 strategic strength or incumbent promotion is established.

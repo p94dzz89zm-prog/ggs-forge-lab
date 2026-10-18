@@ -34,6 +34,13 @@ jobs:
       - name: Verify subprocess failure reporting
         if: success()
         run: python .github/scripts/bounded_stage.py --stage launcher --seconds 60 -- java -cp /tmp/dragonmind-contracts RegressionLauncherRegression
+      - name: Verify exact-output fixture with ambient JVM banners
+        if: success()
+        env:
+          JAVA_TOOL_OPTIONS: -Ddragonmind.launcherProbe=true
+          JDK_JAVA_OPTIONS: -Ddragonmind.jdkProbe=true
+          _JAVA_OPTIONS: -Ddragonmind.legacyProbe=true
+        run: python .github/scripts/bounded_stage.py --stage launcher-environment --seconds 60 -- java -cp /tmp/dragonmind-contracts RegressionLauncherRegression
       - name: Preserve all available results on success or failure
         if: always()
         uses: actions/upload-artifact@v4

@@ -35,7 +35,15 @@ public final class RegressionLauncherRegression {
             Path.of(System.getProperty("java.home"), "bin", "java").toString(),
             "-XX:-UsePerfData", "-cp", System.getProperty("java.class.path")));
         command.addAll(Arrays.asList(args));
-        Process process = new ProcessBuilder(command).redirectErrorStream(true).start();
+        ProcessBuilder builder = new ProcessBuilder(command).redirectErrorStream(true);
+        // These children test an exact stdout/traceback contract. Ambient JVM
+        // options inject banners and unrelated agents before main executes.
+        // Isolate only this fixture; production/suite launchers retain their
+        // environment and never filter warning or failure text from logs.
+        for (String key : List.of("JAVA_TOOL_OPTIONS", "JDK_JAVA_OPTIONS", "_JAVA_OPTIONS")) {
+            builder.environment().remove(key);
+        }
+        Process process = builder.start();
         if (!process.waitFor(15, TimeUnit.SECONDS)) {
             process.destroyForcibly();
             throw new AssertionError("child process timed out");

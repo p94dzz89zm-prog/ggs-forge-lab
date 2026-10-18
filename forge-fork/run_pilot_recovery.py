@@ -8,6 +8,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import tempfile
@@ -92,7 +93,13 @@ def main():
     p.add_argument("--random-cases",type=int,default=64)
     p.add_argument("--random-start",type=int,default=0)
     p.add_argument('--suite',action='append',help='Run only the named suite(s); a focused new attempt, never an overwrite/resume of old evidence')
+    p.add_argument('--jvm-property',action='append',default=[],metavar='NAME=VALUE',
+        help='Explicit suite JVM property, recorded in private validation evidence; repeatable, never passed through the compiler environment')
     a=p.parse_args()
+    if any(not re.fullmatch(r'[A-Za-z][A-Za-z0-9_.-]*=[^\r\n]*',v) for v in a.jvm_property):
+        p.error('JVM properties must be NAME=VALUE without newlines')
+    if len({v.split('=',1)[0] for v in a.jvm_property})!=len(a.jvm_property):
+        p.error('Duplicate JVM property names are ambiguous')
     if a.random_cases<1:p.error("Positive random case count required")
     suites={**SUITES,"CombinedCounterRescueRegression":14,"MarchShieldRegression":11,"CounterFamilyRegression":28,"TrampleCounterRescueRegression":66,"StrikeCounterRescueRegression":24,"ExileCounterRescueRegression":12,"RegressionLauncherRegression":6,"StudentCopyRegression":6,"RandomCombatReferee":a.random_cases}
     compile_suites=dict(suites)  # Include shared base fixtures even in focused runs.
@@ -109,6 +116,7 @@ def main():
             "completed_evidence":completed_evidence([]),"suites":[]})
         raise SystemExit("Invalid engine input: "+str(error))
     manifest={"jar_sha256":frozen_hash,"input_zip_crc_passed":True,"suites":[],"all_passed":False,
+              "suite_jvm_properties":a.jvm_property,
               "planned_suites":suites,"planned_check_groups":sum(suites.values()),
               "planned_randomized_positions":suites.get('RandomCombatReferee',0),
               "completed_evidence":completed_evidence([]),"launcher_source_sha256":digest(ROOT/'RegressionLauncher.java'),
@@ -135,7 +143,7 @@ def main():
             with log.open("w") as stream:
                 try:
                     result=subprocess.run(["java","-XX:-UsePerfData","-Xmx1536m","-Djava.awt.headless=true","-Duser.home="+str(home),
-                        "-cp",cp+":"+compiled,'RegressionLauncher',suite,*([str(a.random_cases),str(a.random_start)] if suite=="RandomCombatReferee" else [])],cwd=a.engine.resolve(),stdout=stream,
+                        *['-D'+v for v in a.jvm_property],"-cp",cp+":"+compiled,'RegressionLauncher',suite,*([str(a.random_cases),str(a.random_start)] if suite=="RandomCombatReferee" else [])],cwd=a.engine.resolve(),stdout=stream,
                         stderr=subprocess.STDOUT,timeout=150)
                     rc=result.returncode
                 except subprocess.TimeoutExpired:
