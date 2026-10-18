@@ -16,6 +16,7 @@ from adaptive_pilot import atomic_json
 from population_protocol import specification
 from referee_games import inspect
 from learning_gate import assess
+from side_capture import capture, verify_capture, verify_live
 
 
 def sha(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -61,9 +62,7 @@ def verify_policy_inputs(a,out,spec):
  for slot,entry in spec.items():
   if sha(getattr(a,slot+'_model'))!=entry['sha256'] or sha(out/entry['snapshot'])!=entry['sha256']:raise ValueError('Model input changed during evaluation: '+slot)
 def verify_saved(root,entry):
- for relative,expected in entry['evidence_sha256'].items():
-  p=(root/relative).resolve()
-  if not p.is_relative_to(root.resolve()) or sha(p)!=expected:raise ValueError('Saved evidence changed: '+relative)
+ verify_live(root,entry)
 def summary(state):
  rows=state['attempts'];complete=[a for a in rows if a.get('complete')]
  return {'attempts':len(rows),'completed':len(complete),'independent_seed_clusters':len({a['game']['seed'] for a in complete}),
@@ -71,6 +70,8 @@ def summary(state):
   'trusted_training_updates':0,'strategic_strength_verdict':'Not established; full-game review and sufficient independent paired conditions required',
   'all_completed':len(complete)==2,'outcomes':[{'pilot':a['label'],'status':a.get('game',{}).get('status','running'),'winner':a.get('game',{}).get('winner'),'engine_ms':a.get('game',{}).get('engine_ms'),'review':a.get('learning_gate',{}).get('status','pending')} for a in rows]}
 def run(a):
+ source_commit=getattr(a,'source_commit',None)
+ if not isinstance(source_commit,str) or len(source_commit)!=40 or set(source_commit)-set('0123456789abcdef'):raise ValueError('Exact capture source commit required')
  for jar in (a.baseline,a.candidate):
   with zipfile.ZipFile(jar) as z:
    if z.testzip() is not None:raise ValueError('Corrupt engine input')
@@ -79,6 +80,7 @@ def run(a):
  models=policy_inputs(a)
  protocol={'format':2,'purpose':a.purpose,'seed':a.seed,'rotation':a.rotation,'timeout':a.timeout,'deck':a.deck,'deck_sha256':{n:sha(dragonmind.ROOT/'decks'/(n+'.dck')) for n in names},'engine_sha256':{k:sha(v) for k,v in builds.items()},'policy_models':models,'population':pop,'logging':'all_seats_private_offline','flags':['-Ddragonmind.boundedCombatForecast=true','-Ddragonmind.linePlanner=false'],'collector_source_sha256':sha(Path(dragonmind.__file__)),'batch_source_sha256':sha(Path(__file__))}
  protocol['engine_resources']=resource_fingerprint(a.engine)
+ protocol.update(format=3,capture_source_commit=source_commit,capture_source_sha256=sha(Path(__file__).with_name('side_capture.py')))
  if a.purpose=='heldout' and a.population!='unseen_evaluation':raise ValueError('Heldout batch requires heldout opponent population')
  with (out/'cycle.lock').open('a') as lock:
   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -89,6 +91,7 @@ def run(a):
    for entry in state['attempts']:
     if entry['status']=='running':raise RuntimeError('Unknown in-flight outcome; preserve and reconcile before resuming')
     verify_saved(out/entry['label'],entry)
+    verify_capture(out,entry,protocol)
    if any(not e['complete'] for e in state['attempts']):raise RuntimeError('Prior failed attempt retained; no automatic retry')
   else:state={'protocol':protocol,'attempts':[]};atomic_json(path,state)
   freeze_policy_inputs(a,out,models)
@@ -109,6 +112,10 @@ def run(a):
    try:verify_policy_inputs(a,out,models)
    except (OSError,ValueError) as error:entry['complete']=False;entry['input_error']=str(error)
    if resource_fingerprint(a.engine)!=protocol['engine_resources']:entry['complete']=False;entry['input_error']='Engine resource bytes changed during execution'
+   if entry['complete']:
+    try:entry['immutable_capture']=capture(out,entry,protocol,source_commit)
+    except (OSError,ValueError,KeyError,TypeError,zipfile.BadZipFile) as error:
+     entry.update(complete=False,status='capture_failed',capture_error=str(error))
    atomic_json(path,state);atomic_json(out/'summary.json',summary(state));print(label,row['status'],'complete=',entry['complete'],flush=True)
    if not entry['complete']:return 1
    launched+=1
@@ -118,6 +125,7 @@ def run(a):
 def main():
  p=argparse.ArgumentParser(description=__doc__)
  for key in ('engine','baseline','candidate','output'):p.add_argument('--'+key,type=Path,required=True)
+ p.add_argument('--source-commit',required=True,help='Exact source revision; source file hashes are also frozen')
  for slot in ('shared-counter','baseline','candidate'):p.add_argument('--'+slot+'-model',type=Path)
  p.add_argument('--max-new-games',type=int,choices=(1,2),default=2,help='Stop after this many NEW games so a caller can durably checkpoint each side; does not change game conditions')
  p.add_argument('--seed',type=int,required=True);p.add_argument('--rotation',type=int,choices=range(4),default=0);p.add_argument('--timeout',type=int,default=120);p.add_argument('--deck',default='GGS_Apex_20261017_v1');p.add_argument('--population',choices=('stock','diverse_training','unseen_evaluation'),default='diverse_training');p.add_argument('--purpose',choices=('development','heldout'),default='development');a=p.parse_args()
