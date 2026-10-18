@@ -13,7 +13,7 @@ import milestone_checkpoint as checkpoint
 
 def evidence_files(root):
     return {p.relative_to(root).as_posix() for p in root.rglob('*')
-            if p.is_file() and p.suffix in ('.json', '.jsonl', '.log')
+            if p.is_file() and p.suffix in ('.json', '.jsonl', '.log', '.partial')
             and 'runtime-home' not in p.parts}
 
 

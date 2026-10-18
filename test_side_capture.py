@@ -35,6 +35,15 @@ class SideCaptureTests(unittest.TestCase):
         self.assertEqual((dest / 'evidence/audit.jsonl').read_bytes(), self.file.read_bytes())
         self.assertEqual(json.loads((dest / 'finalization.json').read_text()), s.finalized_entry(self.entry))
 
+    def test_reappeared_staging_prefix_rejected_without_touching_sealed_capture(self):
+        self.capture()
+        ghost=self.file.with_name(self.file.name+'.partial')
+        ghost.write_text('{"turn":1}\n')
+        s.verify_capture(self.root,self.entry,self.protocol)
+        with self.assertRaisesRegex(ValueError,'unbound'):
+            s.verify_live(self.side,self.entry)
+        self.assertEqual(ghost.read_text(),'{"turn":1}\n')
+
     def test_parseable_tail_loss_before_capture_rejected(self):
         self.file.write_text('{"turn":1}\n')
         with self.assertRaisesRegex(ValueError, 'changed'):

@@ -226,6 +226,7 @@ public class SimulateMatch {
     }
 
     private static boolean simulateSingleMatch(final Match mc, int iGame, boolean outputGamelog, Long seed) {
+        if(seed!=null)try { forge.ai.bridge.DurableEvidence.begin(seed+":"+java.util.UUID.randomUUID()); } catch(java.io.IOException e){throw new IllegalStateException(e);}
         final StopWatch sw = new StopWatch();
         sw.start();
         String failure = null;
@@ -278,12 +279,7 @@ public class SimulateMatch {
                 try {
                     java.nio.file.Path directory = java.nio.file.Paths.get(recordDirectory);
                     java.nio.file.Files.createDirectories(directory);
-                    java.nio.file.Path text = directory.resolve(seed + ".log");
-                    java.nio.file.Path json = directory.resolve(seed + ".json");
-                    java.nio.file.Path temporary = directory.resolve(seed + ".json.tmp");
-                    java.nio.file.Files.writeString(text, transcript.toString(), java.nio.charset.StandardCharsets.UTF_8);
-                    java.nio.file.Files.writeString(temporary, result.toString(), java.nio.charset.StandardCharsets.UTF_8);
-                    java.nio.file.Files.move(temporary, json, java.nio.file.StandardCopyOption.ATOMIC_MOVE);
+                    forge.ai.bridge.DurableEvidence.finish(directory,seed,transcript.toString(),result);
                 } catch (java.io.IOException e) {
                     throw new IllegalStateException("Engine result persistence failed", e);
                 }

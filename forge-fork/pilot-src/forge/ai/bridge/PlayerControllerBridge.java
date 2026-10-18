@@ -34,7 +34,7 @@ public class PlayerControllerBridge extends PlayerControllerAi {
         String dir=System.getProperty("forge.audit.directory");if(dir==null)return;
         String selected=System.getProperty("forge.audit.player");if(selected!=null&&!selected.equals(player.getName()))return;
         JsonObject row=request(kind,new JsonArray());row.add("decision",detail);
-        try {BridgeChannel.append(Path.of(dir, "seat-"+player.getId()+".jsonl"),row.toString());}
+        try {DurableEvidence.append(Path.of(dir, "seat-"+player.getId()+".jsonl"),row.toString());}
         catch(java.io.IOException e){throw new IllegalStateException("Audit write failed",e);}
     }
     private boolean auto(JsonObject r){return r.has("auto") && r.get("auto").getAsBoolean();}

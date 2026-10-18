@@ -19,7 +19,7 @@ public final class BridgeAudit {
         // duplicating snapshots in the timed evaluator would distort its budget.
         row.addProperty("player_id",player.getId());row.addProperty("turn",player.getGame().getPhaseHandler().getTurn());
         row.addProperty("phase",String.valueOf(player.getGame().getPhaseHandler().getPhase()));
-        try {BridgeChannel.append(Path.of(dir,"evaluation-seat-"+player.getId()+".jsonl"),row.toString());}
+        try {DurableEvidence.append(Path.of(dir,"evaluation-seat-"+player.getId()+".jsonl"),row.toString());}
         catch(java.io.IOException e){throw new IllegalStateException("Decision audit failure",e);}
     }
 }

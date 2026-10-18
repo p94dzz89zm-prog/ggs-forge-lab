@@ -10,6 +10,7 @@ from dragonmind import parse_results, ENGINE_FAILURE
 def inspect(directory):
  reports=[]
  for record in sorted(directory.rglob("engine-records/*/*.json")):
+  if not record.stem.isdecimal():continue # Writer receipts are metadata, not games.
   trace=record.with_suffix(".log");issues=[];leads=[]
   expected=json.loads(record.read_text());text=trace.read_text(errors="replace")
   try:

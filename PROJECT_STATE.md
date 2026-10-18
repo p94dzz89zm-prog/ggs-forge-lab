@@ -5,6 +5,32 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Current engineering repair
+
+Local commits implement durable staged game evidence, writer receipts/counts,
+forced atomic finalization, ownership/control/zone fields and phased-out object
+coverage. See EVIDENCE_WRITER.md. Ownership regression passes14 actual-engine
+checks. Full Python suite passed179 before the final staging-resurrection guard;
+its24 targeted follow-up checks pass. Public push was rejected by automatic
+approval review; local commits are preserved privately, not claimed published.
+
+Two fresh four-player diagnostics completed. Both original sealed captures pass
+writer-origin counts/hashes, own-view visibility and ownership-field validation.
+The first also passed external saved-byte restoration. The second live directory
+later contained nine reappeared staging prefixes with the same game ID; original
+finalized hashes and sealed capture remain intact. Preserve the directory;
+resume rejects these unbound staging files without rewriting the journal.
+Restoration from the original sealed capture passes. This is a reproduced
+post-run retention symptom, not proof of its historical root cause.
+
+A reader integration defect mistook completion-receipt JSON for game records;
+fixed with a regression. No replay, game-evidence repair, learned promotion,
+training admission or fully rules-reviewed game. No candidate counterpart was
+launched after the live-directory anomaly. Historical quarantines remain.
+Next: diagnose staging resurrection across workspace/tool boundaries while
+using verified sealed captures for offline review. Complete all-seat rules and
+critical-decision review before any paired strategic claim.
+
 ## Cycle22 handoff, reconciled during Cycle23
 
 Preserved learning implementation: `266a3065add0efb8af455422043aacedb52785a2`.

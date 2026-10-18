@@ -55,6 +55,7 @@ def java_runtime_flags(gc, jit):
 
 def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc='parallel', jit='throughput', extra_jvm_flags=(), audit_all_seats=False, ai_profiles=None):
     from population_protocol import seat_profiles
+    if audit and len(seeds)!=1:raise ValueError("Durable audits require one game per JVM")
     profiles=seat_profiles(tuple(ai_profiles or ('Default',)*4),rotation)
     for profile in profiles:
         if not (engine/'res/ai'/(profile+'.ai')).is_file():raise ValueError('Missing actual AI profile: '+profile)
@@ -82,7 +83,8 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
     start = time.monotonic()
     process_timeout = False
     logpath = out/(label+'.log')
-    with logpath.open('w') as stream:
+    partial_log=logpath.with_suffix(logpath.suffix+'.partial')
+    with partial_log.open('x') as stream:
         try:
             proc = subprocess.run(cmd, cwd=engine, stdout=stream, stderr=subprocess.STDOUT,
                                   timeout=timeout*len(seeds)+45)
@@ -90,6 +92,14 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
         except subprocess.TimeoutExpired:
             rc = -1
             process_timeout = True
+        stream.flush();os.fsync(stream.fileno())
+    os.link(partial_log,logpath);partial_log.unlink()
+    from game_evidence import verify as verify_writer_evidence
+    writer_errors={}
+    if audit:
+        for seed in seeds:
+            try:verify_writer_evidence(out,record_dir,seed)
+            except (OSError,ValueError,KeyError,TypeError) as error:writer_errors[seed]=str(error)
     elapsed = time.monotonic()-start
     parse_error = None
     try:
@@ -119,6 +129,8 @@ def batch(engine, jar, out, variant, rotation, seeds, timeout, pilot, audit, gc=
     for seed in seeds:
         row = rows.get(seed, {'seed':seed, 'status':'not_run', 'winner':None})
         # An abnormal JVM exit means its emitted records cannot be trusted.
+        if seed in writer_errors:
+            row.update(status="evidence_error",winner=None,result_error=writer_errors[seed])
         if rc or parse_error:
             row = {'seed':seed, 'status':'process_timeout' if process_timeout else 'process_error', 'winner':None}
         if row['status'] == 'completed' and row['winner'] not in {f'Ai({i+1})-{name}' for i,name in enumerate(seats)}:

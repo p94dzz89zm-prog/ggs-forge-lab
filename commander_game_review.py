@@ -57,7 +57,7 @@ def saved_evidence(root):
             if not path.is_file():issues.append({'file':relative,'issue':'Finalized evidence missing'});continue
             actual=sha(path);checked+=1
             if actual!=want:issues.append({'file':relative,'issue':'Finalized evidence hash mismatch','expected_sha256':want,'actual_sha256':actual})
-        actual={str(p.relative_to(root)) for p in root.rglob('*') if p.is_file() and p.suffix in ('.json','.jsonl','.log') and 'runtime-home' not in p.parts}
+        actual={str(p.relative_to(root)) for p in root.rglob('*') if p.is_file() and p.suffix in ('.json','.jsonl','.log','.partial') and 'runtime-home' not in p.parts}
         for extra in sorted(actual-set(expected)):issues.append({'file':extra,'issue':'Unbound evidence file'})
     except (OSError,ValueError,TypeError,KeyError) as error:
         issues.append({'issue':str(error)})
