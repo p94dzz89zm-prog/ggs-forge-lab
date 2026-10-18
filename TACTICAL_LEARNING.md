@@ -36,3 +36,28 @@ experimental engine, the actual paid/resolved fixture
 training/review/model files. Freeze all input hashes before evaluation. Preserve
 all failed attempts and compare model-disabled and model-enabled controllers on
 the same executable and conditions. Do not tune from the evaluation results.
+
+## Cycle 21 frozen-model validation
+
+`LearnedCounterHeldoutRegression` extends the paid/resolved fixture with 12 new
+card identities and fixed seeds 2026120210–2026120221. It rejects player counts
+other than three or four. Run through `RegressionLauncher` with arguments
+`3 baseline`, `3 learned`, `4 baseline` and `4 learned`; only learned runs receive
+the exact model path/hash JVM properties. Use a new evidence directory per run.
+Compile both preference fixtures against the pinned runtime and candidate JAR.
+Baseline three-player execution includes both actual action branches per state.
+
+The unchanged Cycle20 model agreed with the predefined local-resource rubric
+in 24/24 new three-player conditions versus 12/24 with the model disabled.
+No observed preference regressions occurred. These are 12 card/seed clusters,
+not 24 independent games. The rubric is Codex review, not independent expert
+judgment. No population confidence interval or Commander win-rate estimate is
+supported by this purposive, same-family sample.
+
+Four-player checks expose the current deployment limitation: stock actions and
+resolved outcomes remain identical in all 24 matched conditions, and both builds
+agree with the local rubric only 12/24. The v1 policy intentionally declines
+four-player input. Its success at three players does not yet help a four-player
+Commander pod. Across the four runs, 144 paid/resolved branches passed resource
+and zone assertions. None are full games, training rows or evidence for card
+substitutions. Preserve these held-out card identities from future training.

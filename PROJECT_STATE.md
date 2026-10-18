@@ -83,7 +83,22 @@ retain all warnings. Six launcher checks pass with all three ambient JVM option
 variables present, and 135 Python tests pass. CI includes this environment check.
 The engine runner accepts repeated explicit `--jvm-property NAME=VALUE` options
 and records them in its private manifest, avoiding compiler/child inheritance.
+Hosted cycle21 launcher repair evaluation succeeded:
+https://github.com/p94dzz89zm-prog/ggs-forge-lab/actions/runs/39090808717 .
+The frozen Cycle20 model scored 24/24 against 12/24 baseline on 12 unseen-card
+clusters in three-player local-resource diagnostics. Four-player scope controls
+retained stock in all 24 conditions; both scored only 12/24. All 144 paid/resolved
+branches passed assertions. These are correlated constructed cases with a Codex
+rubric, not independent expert reviews, full games or a population estimate.
+Another 128 fresh combat-legality positions passed using explicit model JVM
+properties. No new model training, full-game reward admission or promotion.
 Dashboard source recovery succeeded with a fresh credential; publication is
 pending the current evidence refresh. See the private ledger for saved receipts.
 This changes learned local decisions only; no whole-game admission, broad
 strategic strength or incumbent promotion is established.
+
+Next resumable learning milestone: collect and review a separate four-player
+development set with opposing-creature survival/protection-dependency controls,
+then fit an immutable candidate and evaluate on new identities. Never train on
+Cycle20 or Cycle21 held-out identities. Keep v1 and the incumbent unchanged.
+Complete-game critical-decision review and specialist opponents remain open.
