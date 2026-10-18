@@ -1364,10 +1364,11 @@ public class AiController {
     }
 
     public List<SpellAbility> chooseSpellAbilityToPlay() {
-        return forge.ai.ggs.GgsLearnedCounterPreference.select(player,
+        return forge.ai.ggs.GgsMultiplayerCounterPreference.select(player,
+                forge.ai.ggs.GgsLearnedCounterPreference.select(player,
                 forge.ai.ggs.GgsWhipManaPolicy.select(player,
                 forge.ai.ggs.GgsKaitoThreatPolicy.select(player,
-                forge.ai.ggs.GgsLinePlanner.select(player, chooseStockSpellAbilityToPlay()))));
+                forge.ai.ggs.GgsLinePlanner.select(player, chooseStockSpellAbilityToPlay())))));
     }
 
     private List<SpellAbility> chooseStockSpellAbilityToPlay() {

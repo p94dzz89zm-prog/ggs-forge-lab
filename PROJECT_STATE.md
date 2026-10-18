@@ -113,4 +113,10 @@ controls passed (26 actual branches). They distinguish removing an immediate
 lethal attacker from preserving an opponent's attack-prevention permanent.
 An explicit public-stack-copy API avoids an omitted-stack forecast and leaves
 existing copier calls unchanged. Both early failed attempts are retained.
-See forge-fork/MULTIPLAYER_LEARNING.md. No new model fit or promotion yet.
+See forge-fork/MULTIPLAYER_LEARNING.md. A separate immutable two-feature survival
+model was then fitted from the12 reviewed pairs; unchanged v1 remains intact.
+On a frozen same-executable comparison with three unseen card identities, the
+new model improved conditional survival6/12 to12/12. Six local changes, no
+observed regressions; two correlated templates, not a full-game strength result.
+141 Python tests pass. Broad candidate engine/planner checks are in progress;
+recover their saved status before retrying. No default activation or promotion.
