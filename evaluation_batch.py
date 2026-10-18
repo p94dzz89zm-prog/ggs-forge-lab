@@ -9,6 +9,7 @@ import fcntl
 import hashlib
 import json
 import math
+import sys
 import zipfile
 from pathlib import Path
 import dragonmind
@@ -70,6 +71,7 @@ def summary(state):
   'trusted_training_updates':0,'strategic_strength_verdict':'Not established; full-game review and sufficient independent paired conditions required',
   'all_completed':len(complete)==2,'outcomes':[{'pilot':a['label'],'status':a.get('game',{}).get('status','running'),'winner':a.get('game',{}).get('winner'),'engine_ms':a.get('game',{}).get('engine_ms'),'review':a.get('learning_gate',{}).get('status','pending')} for a in rows]}
 def run(a):
+ if Path("/workspace") in a.output.resolve().parents:raise ValueError("Live evidence cannot run in synchronized workspace; use the isolating CLI")
  source_commit=getattr(a,'source_commit',None)
  if not isinstance(source_commit,str) or len(source_commit)!=40 or set(source_commit)-set('0123456789abcdef'):raise ValueError('Exact capture source commit required')
  for jar in (a.baseline,a.candidate):
@@ -122,6 +124,21 @@ def run(a):
    if launched>=getattr(a,'max_new_games',2):break
   atomic_json(out/'summary.json',summary(state));return 0
 
+def run_isolated_cli(a, arguments):
+ """Managed output is an immutable archive plus receipt, never a live tree."""
+ from isolated_evidence import run as isolated_run
+ out=a.output.resolve();out.mkdir(parents=True,exist_ok=False)
+ child=list(arguments);replaced=0
+ for i,value in enumerate(child):
+  if value=='--output':child[i+1]='{output}/pair';replaced+=1
+  elif value.startswith('--output='):child[i]='--output={output}/pair';replaced+=1
+ if replaced!=1:raise ValueError('Exactly one output allocation required')
+ atomic_json(out/'isolated-stage.json',{'status':'allocated','source_commit':a.source_commit,'arguments':arguments,'no_automatic_retry':True})
+ result=isolated_run([sys.executable,str(Path(__file__).resolve()),*child],out/'sealed-stage.zip',a.source_commit,timeout=a.timeout*getattr(a,'max_new_games',2)+180)
+ atomic_json(out/'isolated-stage.json',{'status':'sealed','result':result,'rules_approval':False,'learning_admission':False})
+ print(json.dumps(result,indent=2))
+ return 0 if result['producer']['stage_complete'] else 1
+
 def main():
  p=argparse.ArgumentParser(description=__doc__)
  for key in ('engine','baseline','candidate','output'):p.add_argument('--'+key,type=Path,required=True)
@@ -131,5 +148,5 @@ def main():
  p.add_argument('--seed',type=int,required=True);p.add_argument('--rotation',type=int,choices=range(4),default=0);p.add_argument('--timeout',type=int,default=120);p.add_argument('--deck',default='GGS_Apex_20261017_v1');p.add_argument('--population',choices=('stock','diverse_training','unseen_evaluation'),default='diverse_training');p.add_argument('--purpose',choices=('development','heldout'),default='development');a=p.parse_args()
  if not 1<=a.timeout<=180:p.error('Budget must be1..180 seconds per game')
  if a.seed<0:p.error('Nonnegative allocated seed required')
- raise SystemExit(run(a))
+ raise SystemExit(run_isolated_cli(a,sys.argv[1:]) if Path("/workspace") in a.output.resolve().parents else run(a))
 if __name__=='__main__':main()

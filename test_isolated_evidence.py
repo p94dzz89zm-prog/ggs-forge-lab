@@ -27,4 +27,22 @@ class IsolationTests(unittest.TestCase):
  def test_changed_archive_refuses_restore(self):
   r=self.run_stage('pass');self.archive.write_bytes(self.archive.read_bytes()[:-20])
   with self.assertRaises(ValueError):isolation.restore(self.archive,r['sha256'],self.root/'restore')
+class CollectorIsolationTests(unittest.TestCase):
+ def test_direct_managed_workspace_run_is_rejected_before_engine_use(self):
+  from types import SimpleNamespace
+  from evaluation_batch import run
+  with self.assertRaisesRegex(ValueError,'Live evidence'):
+   run(SimpleNamespace(output=Path('/workspace/never-create-live-game')))
+ def test_cli_routes_child_to_external_placeholder_and_retains_allocation(self):
+  from types import SimpleNamespace
+  from unittest.mock import patch
+  from evaluation_batch import run_isolated_cli
+  with tempfile.TemporaryDirectory() as td:
+   a=SimpleNamespace(output=Path(td)/'allocation',source_commit='a'*40,timeout=120,max_new_games=1)
+   with patch('isolated_evidence.run',return_value={'producer':{'stage_complete':True}}) as call:
+    self.assertEqual(run_isolated_cli(a,['--output','original','--seed','42']),0)
+    cmd=call.call_args.args[0];self.assertEqual(cmd[cmd.index('--output')+1],'{output}/pair');self.assertIn('42',cmd)
+   self.assertTrue((a.output/'isolated-stage.json').exists())
+   with self.assertRaises(FileExistsError):run_isolated_cli(a,['--output','original','--seed','42'])
+
 if __name__=='__main__':unittest.main()

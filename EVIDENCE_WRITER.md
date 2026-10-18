@@ -66,3 +66,19 @@ workspace; cross-filesystem publication fails closed. Restoration verifies the
 archive and creates a fresh external directory, never merges a stale live tree.
 Game commands must still use the writer, original-finalization, rules-review
 and learning gates. Stage exit0 alone is not a game or learning approval.
+
+## Substantive review evidence additions
+
+The first sealed-game reviews exposed missing counter counts, marked damage,
+chosen colors and explicit commander cast/damage history. Snapshots now export
+those public fields, including counters on face-down permanents without exposing
+identity. Seven targeted actual-engine checks validate the new fields and
+privacy. Existing sealed records are not backfilled or retroactively certified.
+Public reveal-event provenance and exact payment-choice recording still need
+coverage before whole-game rules admission; the admission gate is unchanged.
+
+The evaluation_batch CLI now routes managed-workspace output through this
+isolated stage automatically. Its managed output directory contains only the
+sealed archive and allocation/transport receipt. Direct run() calls aimed at
+/workspace are rejected. Existing allocations cannot be silently reused; a
+resume must verify and restore the saved archive externally before continuing.

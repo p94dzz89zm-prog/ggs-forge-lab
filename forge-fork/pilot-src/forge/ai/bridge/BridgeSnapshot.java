@@ -27,7 +27,14 @@ public final class BridgeSnapshot {
             if(!hidden) { out.addProperty("type",c.getType().toString());out.addProperty("mana_cost",c.getManaCost().toString()); }
             // Printed characteristics of an opponent's face-down card remain hidden.
             if(!privateZone) {out.addProperty("power",c.getNetPower());out.addProperty("toughness",c.getNetToughness());out.addProperty("summoning_sick",c.hasSickness());}
+            if(!privateZone) {
+                JsonObject counters=new JsonObject();
+                for(var counter:c.getCounters().entrySet())counters.addProperty(counter.getElement().getName(),counter.getCount());
+                out.add("counters",counters);out.addProperty("marked_damage",c.getDamage());
+            }
             if(!hidden) {
+                JsonArray chosen=new JsonArray();if(c.getChosenColors()!=null)for(String color:c.getChosenColors())chosen.add(color);
+                out.add("chosen_colors",chosen);
                 out.addProperty("commander",c.isCommander());
                 out.addProperty("entered_this_turn",c.enteredThisTurn());
                 // Formatting live abilities may inspect modal targets before an activating player exists.
@@ -55,6 +62,10 @@ public final class BridgeSnapshot {
         JsonArray players=new JsonArray();
         for(Player p:game.getPlayers()) {
             JsonObject po=new JsonObject();po.addProperty("id",p.getId());po.addProperty("name",p.getName());po.addProperty("life",p.getLife());
+            JsonObject commanderDamage=new JsonObject(),commanderCasts=new JsonObject();
+            for(var entry:p.getCommanderDamage())commanderDamage.addProperty(String.valueOf(entry.getKey().getId()),entry.getValue());
+            for(Card commander:p.getCommanders())commanderCasts.addProperty(String.valueOf(commander.getId()),p.getCommanderCast(commander));
+            po.add("commander_damage",commanderDamage);po.add("commander_casts",commanderCasts);
             po.addProperty("hand_count",p.getCardsIn(ZoneType.Hand).size());po.addProperty("library_count",p.getCardsIn(ZoneType.Library).size());
             for(ZoneType z:new ZoneType[]{ZoneType.Battlefield,ZoneType.Graveyard,ZoneType.Command}) {
                 JsonArray cs=new JsonArray();for(Card c:p.getCardsIn(z,false))cs.add(entity(c,viewer));po.add(z.name().toLowerCase(),cs);

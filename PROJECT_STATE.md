@@ -5,6 +5,29 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Current verified followup
+
+The approved engineering tree was published as81f0e2d and read back byte-for-byte
+against reviewed localbc7a821. The connected GitHub workflow changed commit
+metadata, not source. Isolation followup698dadb also passed hosted CI.
+
+Kernel-event diagnosis reproduced external synchronization recreating renamed
+staging files in two managed-workspace runs; an external temporary-root control
+did not reproduce it. This identifies the cause of staging resurrection, not
+necessarily the older truncation. Active evidence is now isolated outside the
+managed workspace, with exclusive atomic sealed-archive publication. Managed
+CLI evaluation uses isolation automatically; direct live output there is
+rejected. Five transport contracts and targeted collector integration pass.
+
+Both sealed diagnostic transcripts received substantive critical-rules review.
+Ninjutsu/Purphoros devotion changes, grouped GGS triggers, Ezio reflexive
+elimination and Ramses alternate victory were consistent in reconstructed
+states. Missing counter/damage/chosen-color/commander-history evidence was found
+and implemented for future recordings; seven engine checks pass. No existing
+game was backfilled or admitted. Explicit public reveal and exact payment-event
+provenance remain incomplete. Zero new games, training admissions, model updates
+or win-rate comparisons. Original captures and anomalous staging trees retained.
+
 ## Current engineering repair
 
 Local commits implement durable staged game evidence, writer receipts/counts,
