@@ -29,7 +29,11 @@
    per-log `markers`. `verify --archive NEW.zip --sha256 HASH` checks exact bytes.
    `restore --archive NEW.zip --sha256 HASH --destination NEW_DIRECTORY` restores
    without merging into existing work. This archive is local until durably saved.
-9. Save each private milestone externally, restore the saved copy and verify it
+9. For a learner snapshot, run `learning_checkpoint.py --model SOURCE.sqlite
+   --snapshot NEW.sqlite --report NEW.json`. It includes committed WAL data,
+   verifies SQLite integrity and reopens actual review evidence. Never copy a
+   live database file alone or reinterpret a checkpoint as a learning update.
+10. Save each private milestone externally, restore the saved copy and verify it
    before recording completion in the guarded ledger. Commit public source/tests,
    fetch the commit back and compare bytes. Reconcile concurrent branch/ledger
    changes without overwriting them; never force-push. Stop expensive work if

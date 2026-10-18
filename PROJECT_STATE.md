@@ -8,7 +8,9 @@ are in the private project-state document and authoritative private ledger.
 
 Repository: `p94dzz89zm-prog/ggs-forge-lab`.
 Approved branch: `fix/pilot-recovery-v35` (default `main` is older).
-Latest previously verified implementation: `a33579a92d4a6ee38e39e1023e1e3e611485eb86`.
+Latest previously verified implementation: `266b91f14c5c74f851b3e0fb85408ea4e63ed39a`.
+Hosted evaluation passed 118 Python tests and six launcher checks:
+https://github.com/p94dzz89zm-prog/ggs-forge-lab/actions/runs/39088100107 .
 The Git commit containing this file records the recovery infrastructure revision.
 Check its hosted workflow result before calling it externally verified.
 
@@ -21,8 +23,11 @@ Check its hosted workflow result before calling it externally verified.
 - Bounded CI stages persist status before execution and preserve failures,
   timeouts and partial logs. Completed stage artifacts upload immediately.
 - Session recovery and <=15-minute checkpoint cadence are required in AGENTS.md.
-- 118 Python tests passed locally for this recovery revision. Local JDK compiler
-  was unavailable; the hosted job installs Java and must verify its contracts.
+- Learning checkpoint utility uses SQLite online backup to retain committed WAL
+  transactions; immutable publication and an actual evidence-readiness audit
+  keep pending rewards, held-out games and missing reviews out of learning.
+- Runtime checkpointing and readiness verification do not themselves train a
+  policy or establish strategic improvement. Gameplay evidence remains private.
 
 ## Open work
 
