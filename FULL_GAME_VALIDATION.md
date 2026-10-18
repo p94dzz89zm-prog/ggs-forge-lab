@@ -17,6 +17,9 @@ The ordinary required engine/JAR/output/seed/rotation arguments still apply.
 Allocate each seed/seat pair durably before starting; never resume an unknown
 in-flight attempt, change its inputs, or replay a completed game. Save each
 completed pair before the next one. Timeouts and startup failures are not losses.
+Use `--max-new-games 1` to return after each new side. Save and restore its
+checkpoint before invoking the same pair again; completed sides are verified
+and skipped. A partial pair is explicitly reported as incomplete.
 
 `commander_game_review.py` checks canonical record consistency, registered-seat
 audit coverage, hand/library identity isolation and per-viewer turn progression.

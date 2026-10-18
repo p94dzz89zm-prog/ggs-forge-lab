@@ -93,6 +93,7 @@ def run(a):
   else:state={'protocol':protocol,'attempts':[]};atomic_json(path,state)
   freeze_policy_inputs(a,out,models)
   verify_policy_inputs(a,out,models)
+  launched=0
   for label,jar in builds.items():
    if any(e['label']==label for e in state['attempts']):continue
    root=out/label;root.mkdir(exist_ok=False);entry={'label':label,'status':'running'};state['attempts'].append(entry);atomic_json(path,state)
@@ -110,12 +111,15 @@ def run(a):
    if resource_fingerprint(a.engine)!=protocol['engine_resources']:entry['complete']=False;entry['input_error']='Engine resource bytes changed during execution'
    atomic_json(path,state);atomic_json(out/'summary.json',summary(state));print(label,row['status'],'complete=',entry['complete'],flush=True)
    if not entry['complete']:return 1
+   launched+=1
+   if launched>=getattr(a,'max_new_games',2):break
   atomic_json(out/'summary.json',summary(state));return 0
 
 def main():
  p=argparse.ArgumentParser(description=__doc__)
  for key in ('engine','baseline','candidate','output'):p.add_argument('--'+key,type=Path,required=True)
  for slot in ('shared-counter','baseline','candidate'):p.add_argument('--'+slot+'-model',type=Path)
+ p.add_argument('--max-new-games',type=int,choices=(1,2),default=2,help='Stop after this many NEW games so a caller can durably checkpoint each side; does not change game conditions')
  p.add_argument('--seed',type=int,required=True);p.add_argument('--rotation',type=int,choices=range(4),default=0);p.add_argument('--timeout',type=int,default=120);p.add_argument('--deck',default='GGS_Apex_20261017_v1');p.add_argument('--population',choices=('stock','diverse_training','unseen_evaluation'),default='diverse_training');p.add_argument('--purpose',choices=('development','heldout'),default='development');a=p.parse_args()
  if not 1<=a.timeout<=180:p.error('Budget must be1..180 seconds per game')
  if a.seed<0:p.error('Nonnegative allocated seed required')
