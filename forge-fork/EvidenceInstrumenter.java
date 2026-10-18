@@ -9,11 +9,11 @@ public final class EvidenceInstrumenter {
   if((access&(Opcodes.ACC_ABSTRACT|Opcodes.ACC_NATIVE|Opcodes.ACC_SYNTHETIC))!=0||name.startsWith("<"))return false;
   if(owner.startsWith("forge/game/ability/effects/"))return name.equals("resolve");
   if(owner.equals("forge/game/zone/MagicStack"))return Set.of("add","resolveStack","addAllTriggeredAbilitiesToStack").contains(name);
-  if(owner.equals("forge/game/Game"))return name.equals("fireEvent");
+  if(owner.equals("forge/game/Game"))return name.equals("fireEvent")||name.equals("onPlayerLost");
   if(owner.equals("forge/game/GameAction"))return name.equals("reveal")&&Type.getArgumentTypes(desc).length==6||name.equals("revealTo")&&Type.getArgumentTypes(desc).length==4;
   if(owner.equals("forge/game/mana/ManaPool"))return Set.of("addMana","addManaNoEvent","tryPayCostWithMana","clearPool","refundManaPaid").contains(name)&&!desc.startsWith("([");
   if(owner.equals("forge/game/cost/CostPayment"))return Set.of("payCost","payComputerCosts","refundPayment").contains(name);
-  if(owner.equals("forge/game/cost/CostAdjustment"))return name.equals("adjust");
+  if(owner.equals("forge/game/cost/CostAdjustment"))return name.equals("adjust")||name.startsWith("apply")||name.startsWith("adjustCostBy");
   if(owner.startsWith("forge/game/cost/Cost"))return name.equals("payAsDecided");
   if(owner.equals("forge/ai/ComputerUtilMana"))return name.equals("payManaCost")&&desc.startsWith("(Lforge/game/mana/ManaCostBeingPaid;Lforge/game/spellability/SpellAbility;Lforge/game/player/Player;ZZZ)");
   if(owner.equals("forge/ai/PlayerControllerAi")||owner.equals("forge/ai/bridge/PlayerControllerBridge")||owner.equals("forge/game/player/PlayerController"))return name.equals("reveal")||name.equals("tempShowCards")||name.equals("endTempShowCards")||name.startsWith("choose")||name.startsWith("confirm")||name.startsWith("order")||name.startsWith("declare")||name.startsWith("assign")||name.startsWith("arrange")||Set.of("getAbilityToPlay","payManaCost","playSpellAbilityForFree","playSaFromPlayEffect","mulliganKeepHand").contains(name);

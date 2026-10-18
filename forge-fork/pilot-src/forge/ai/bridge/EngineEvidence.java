@@ -52,8 +52,9 @@ public final class EngineEvidence {
   if(live==null)pregameRandom.add(row);else write(row);return result;
  }
  private static final Map<Long,Call> calls=new LinkedHashMap<>();
+ private static final Set<SpellAbility> describingAbilities=Collections.newSetFromMap(new IdentityHashMap<>());
  private static final ThreadLocal<Boolean> busy=ThreadLocal.withInitial(()->false);
- private record Call(String hook,Object receiver,Object[] args){}
+ private record Call(String hook,Object receiver,Object[] args,boolean speculative){}
  private EngineEvidence(){}
  public static synchronized void begin(Game game) {
   if(!calls.isEmpty())throw new IllegalStateException("Unfinished engine evidence calls");
@@ -74,7 +75,9 @@ public final class EngineEvidence {
  private static void write(JsonObject row) {
   String dir=System.getProperty("forge.audit.directory");if(dir==null)throw new IllegalStateException("Engine referee tape needs private audit directory");
   row.addProperty("format",1);row.addProperty("audience","offline_referee_only");
-  row.addProperty("turn",live.getPhaseHandler().getTurn());row.addProperty("phase",String.valueOf(live.getPhaseHandler().getPhase()));
+  row.addProperty("turn",live.getPhaseHandler().getTurn());
+  if(live.getPhaseHandler().getPriorityPlayer()!=null)row.addProperty("priority_player_id",live.getPhaseHandler().getPriorityPlayer().getId());
+  if(live.getPhaseHandler().getPlayerTurn()!=null)row.addProperty("turn_player_id",live.getPhaseHandler().getPlayerTurn().getId());row.addProperty("phase",String.valueOf(live.getPhaseHandler().getPhase()));
   if(reference!=null) {
    try {
     String line=reference.readLine();JsonObject expected=line==null?null:JsonParser.parseString(line).getAsJsonObject();
@@ -111,10 +114,11 @@ public final class EngineEvidence {
   
   busy.set(true);
   try {
-   boolean speculative=calls.values().stream().anyMatch(c->c.hook.startsWith("forge/ai/ComputerUtilMana.")&&Boolean.TRUE.equals(c.args[3]));
+   boolean speculative=calls.values().stream().anyMatch(c->c.speculative);
    if((hook.startsWith("forge/ai/ComputerUtilMana.")||hook.startsWith("forge/game/mana/ManaPool.tryPayCostWithMana"))&&Boolean.TRUE.equals(args[3]))speculative=true;
+   if(hook.startsWith("forge/game/cost/CostAdjustment.adjust(")&&args.length==6&&Boolean.TRUE.equals(args[4]))speculative=true;
    long parent=calls.isEmpty()?0:new ArrayList<>(calls.keySet()).get(calls.size()-1);
-   long id=++next;calls.put(id,new Call(hook,receiver,args.clone()));JsonObject row=new JsonObject();row.addProperty("kind","engine_call");row.addProperty("call_id",id);row.addProperty("hook",hook);row.addProperty("parent_call_id",parent);row.addProperty("speculative",speculative);
+   long id=++next;calls.put(id,new Call(hook,receiver,args.clone(),speculative));JsonObject row=new JsonObject();row.addProperty("kind","engine_call");row.addProperty("call_id",id);row.addProperty("hook",hook);row.addProperty("parent_call_id",parent);row.addProperty("speculative",speculative);
    row.add("receiver",value(receiver,0));row.add("arguments",value(args,0));
    Player payer=receiver instanceof PlayerController c?c.getPlayer():poolOwner(receiver);
    for(Object a:args)if(a instanceof SpellAbility sa&&sa.getActivatingPlayer()!=null)payer=sa.getActivatingPlayer();
@@ -123,7 +127,15 @@ public final class EngineEvidence {
     JsonArray entitled=new JsonArray();for(Player p:live.getPlayers())entitled.add(p.getId());row.add("entitled_player_ids",entitled);row.addProperty("visibility_operation","reveal_all");
    }else if(hook.startsWith("forge/game/GameAction.revealTo(")){row.add("entitled_player_ids",ids((Iterable<?>)args[1]));row.addProperty("visibility_operation","look_specified");}
    else if(hook.contains(".reveal(")&&receiver instanceof PlayerController c){JsonArray entitled=new JsonArray();entitled.add(c.getPlayer().getId());row.add("entitled_player_ids",entitled);row.addProperty("visibility_operation","delivery");}
-   if(hook.startsWith("forge/game/Game.fireEvent")&&args[0].getClass().getSimpleName().equals("GameEventGameStarted"))row.add("initial_state",initialState());
+   if(hook.startsWith("forge/game/Game.fireEvent")) {
+    if(args[0] instanceof forge.game.event.GameEventGameStarted)row.add("initial_state",initialState());
+    if(args[0] instanceof forge.game.event.GameEventCombatChanged)row.add("combat",value(live.getCombat(),0));
+    if(args[0] instanceof forge.game.event.GameEventSpellAbilityCast cast) {
+     JsonArray audience=new JsonArray();for(Player p:live.getPlayers())audience.add(p.getId());row.add("entitled_player_ids",audience);row.addProperty("visibility_operation","public_stack_announcement");
+     row.addProperty("source_identity_disclosed",!cast.sa().getHostCard().isFaceDown());row.add("announced_source",value(cast.sa().getHostCard(),0));
+     row.addProperty("visibility_duration_basis","CR601.2a/602.2a; hidden-zone ability source remains revealed until ability leaves stack");
+    }
+   }
    write(row);return id;
   }finally{busy.set(false);}
  }
@@ -134,12 +146,13 @@ public final class EngineEvidence {
    Call c=calls.remove(id);if(c==null)throw new IllegalStateException("Unpaired referee call");
    JsonObject row=new JsonObject();row.addProperty("kind","engine_return");row.addProperty("call_id",id);row.addProperty("hook",c.hook);row.add("result",value(result,0));row.add("arguments_after",value(c.args,0));
    if(c.receiver instanceof CostPayment p)row.add("ability_after",value(p.getAbility(),0));
+   if(c.hook.startsWith("forge/game/Game.onPlayerLost"))row.add("elimination_state_after",initialState());
    write(row);
   }finally{busy.set(false);}
  }
  public static synchronized void finish() {
   if(!calls.isEmpty())throw new IllegalStateException("Incomplete referee calls: "+calls.size());
-  JsonObject row=new JsonObject();row.addProperty("kind","engine_tape_complete");row.addProperty("calls",next);row.addProperty("rules_approved",false);write(row);if(reference!=null)try {if(reference.readLine()!=null)throw new IllegalStateException("Unconsumed replay events");reference.close();}catch(java.io.IOException e){throw new IllegalStateException(e);}live=null;
+  JsonObject row=new JsonObject();row.addProperty("kind","engine_tape_complete");row.addProperty("calls",next);row.addProperty("rules_approved",false);row.add("final_state",initialState());write(row);if(reference!=null)try {if(reference.readLine()!=null)throw new IllegalStateException("Unconsumed replay events");reference.close();}catch(java.io.IOException e){throw new IllegalStateException(e);}live=null;
  }
  private static JsonArray ids(Iterable<?> values){JsonArray a=new JsonArray();for(Object v:values)if(v instanceof Player p)a.add(p.getId());return a;}
  private static JsonObject manaContext(Player p) {
@@ -147,22 +160,31 @@ public final class EngineEvidence {
   for(Card c:p.getCardsIn(ZoneType.Battlefield,false))if(!c.getManaAbilities().isEmpty()) {
    JsonObject source=card(c);JsonArray abilities=new JsonArray();for(SpellAbility s:c.getManaAbilities())abilities.add(ability(s));source.add("mana_abilities",abilities);sources.add(source);
   }
+  JsonObject conversions=new JsonObject();for(byte color:new byte[]{1,2,4,8,16,0})conversions.addProperty(MagicColor.toShortString(color),p.getManaPool().getPossibleColorUses(color));o.add("possible_color_uses",conversions);o.addProperty("snow_for_color",p.getManaPool().isSnowForColor());
   o.add("potential_sources",sources);o.addProperty("availability_basis","current battlefield mana abilities; not a claim all are legally activatable");return o;
  }
  private static JsonObject initialState() {
   JsonObject o=new JsonObject();o.addProperty("format",live.getRules().getGameType().toString());JsonArray players=new JsonArray();
   for(Player p:live.getRegisteredPlayers()) {
-   JsonObject state=new JsonObject();state.addProperty("id",p.getId());state.addProperty("life",p.getLife());
+   JsonObject state=new JsonObject();state.addProperty("id",p.getId());state.addProperty("life",p.getLife());state.addProperty("active",live.getPlayers().contains(p));state.addProperty("lost",p.hasLost());state.addProperty("won",p.hasWon());state.addProperty("poison",p.getPoisonCounters());
+   if(p.getOutcome()!=null){state.addProperty("loss_reason",String.valueOf(p.getOutcome().lossState));state.addProperty("loss_source",p.getOutcome().loseConditionSpell);state.addProperty("alternate_win_source",p.getOutcome().altWinSourceName);}
+   JsonObject damage=new JsonObject(),casts=new JsonObject();for(var e:p.getCommanderDamage())damage.addProperty(String.valueOf(e.getKey().getId()),e.getValue());for(Card c:p.getCommanders())casts.addProperty(String.valueOf(c.getId()),p.getCommanderCast(c));state.add("commander_damage",damage);state.add("commander_casts",casts);
    for(ZoneType z:ZoneType.values()) {JsonArray cards=new JsonArray();for(Card c:p.getCardsIn(z,false))cards.add(card(c));state.add(z.name(),cards);}
    players.add(state);
   }
   o.add("players",players);o.addProperty("visibility","private ordered zones; never pilot input");return o;
  }
  private static JsonObject card(Card c) {
-  JsonObject o=new JsonObject();o.addProperty("card_id",c.getId());o.addProperty("name",c.getName());o.addProperty("owner_id",c.getOwner().getId());o.addProperty("controller_id",c.getController().getId());o.addProperty("zone",c.getZone()==null?null:c.getZone().getZoneType().name());o.addProperty("face_down",c.isFaceDown());o.addProperty("tapped",c.isTapped());o.addProperty("phased_out",c.isPhasedOut());o.addProperty("commander",c.isCommander());o.addProperty("mana_cost",c.getManaCost().toString());return o;
+  JsonObject o=new JsonObject();o.addProperty("card_id",c.getId());o.addProperty("name",c.getName());o.addProperty("owner_id",c.getOwner().getId());o.addProperty("controller_id",c.getZone()!=null&&(c.getZone().getZoneType()==ZoneType.Battlefield||c.getZone().getZoneType()==ZoneType.Stack)?c.getController().getId():c.getOwner().getId());o.addProperty("controller_basis",c.getZone()!=null&&(c.getZone().getZoneType()==ZoneType.Battlefield||c.getZone().getZoneType()==ZoneType.Stack)?"engine":"owner fallback outside battlefield/stack; CR108.4");o.addProperty("zone",c.getZone()==null?null:c.getZone().getZoneType().name());o.addProperty("face_down",c.isFaceDown());o.addProperty("tapped",c.isTapped());o.addProperty("phased_out",c.isPhasedOut());o.addProperty("commander",c.isCommander());o.addProperty("mana_cost",c.getManaCost().toString());
+  o.addProperty("private_original_name",c.getState(forge.card.CardStateName.Original).getName());o.addProperty("marked_damage",c.getDamage());JsonObject counters=new JsonObject();for(var e:c.getCounters().entrySet())counters.addProperty(e.getElement().getName(),e.getCount());o.add("counters",counters);
+  JsonArray viewers=new JsonArray();for(Player p:live.getPlayers())if(c.isFaceDown()?c.getView().canFaceDownBeShownTo(p.getView()):c.getView().canBeShownTo(p.getView()))viewers.add(p.getId());o.add("engine_identity_visible_to",viewers);o.addProperty("visibility_basis","engine permission at this event; temporary reveal entitlement is separately recorded");return o;
  }
  private static JsonObject ability(SpellAbility s) {
-  JsonObject o=new JsonObject();o.addProperty("ability_id",s.getId());o.add("source",card(s.getHostCard()));if(s.getActivatingPlayer()!=null)o.addProperty("activating_player_id",s.getActivatingPlayer().getId());o.addProperty("api",String.valueOf(s.getApi()));o.addProperty("description",s.getDescription());o.addProperty("pay_costs",String.valueOf(s.getPayCosts()));o.addProperty("spell",s.isSpell());o.addProperty("activated",s.isActivatedAbility());o.addProperty("trigger",s.isTrigger());o.addProperty("x",s.getXManaCostPaid());
+  if(!describingAbilities.add(s)){JsonObject ref=new JsonObject();ref.addProperty("ability_ref",s.getId());ref.addProperty("source_card_id",s.getHostCard().getId());return ref;}
+  try{return describeAbility(s);}finally{describingAbilities.remove(s);}
+ }
+ private static JsonObject describeAbility(SpellAbility s) {
+  JsonObject o=new JsonObject();o.addProperty("ability_id",s.getId());o.add("source",card(s.getHostCard()));if(s.getActivatingPlayer()!=null)o.addProperty("activating_player_id",s.getActivatingPlayer().getId());o.addProperty("api",String.valueOf(s.getApi()));o.add("parameters",value(s.getMapParams(),1));o.addProperty("description",s.getDescription());o.addProperty("pay_costs",String.valueOf(s.getPayCosts()));o.addProperty("spell",s.isSpell());o.addProperty("activated",s.isActivatedAbility());o.addProperty("trigger",s.isTrigger());o.addProperty("x",s.getXManaCostPaid());
   if(s.getManaPart()!=null){o.addProperty("mana_produced_spec",s.getManaPart().getOrigProduced());o.addProperty("mana_restrictions",s.getManaPart().getManaRestrictions());o.addProperty("mana_extra_restrictions",s.getManaPart().getExtraManaRestriction());}
   JsonArray alts=new JsonArray();for(AlternativeCost a:AlternativeCost.values())if(s.isAlternativeCost(a))alts.add(a.name());o.add("alternative_costs",alts);JsonArray opts=new JsonArray();for(OptionalCost a:s.getOptionalCosts())opts.add(a.name());o.add("optional_costs",opts);o.add("targets",value(s.getUniqueTargets(),1));o.add("paying_mana",value(s.getPayingMana(),1));
   if(s.getHostCard().isCommander()&&s.getActivatingPlayer()!=null)o.addProperty("prior_commander_casts",s.getActivatingPlayer().getCommanderCast(s.getHostCard()));return o;
@@ -179,11 +201,27 @@ public final class EngineEvidence {
   if(v instanceof PlayerController c)return value(c.getPlayer(),depth+1);
   if(v instanceof SpellAbility s)return ability(s);
   if(v instanceof Mana m){JsonObject o=new JsonObject();o.addProperty("color",MagicColor.toShortString(m.getColor()));o.addProperty("source_card_id",m.getSourceCard().getId());o.addProperty("snow",m.isSnow());o.addProperty("restricted",m.isRestricted());if(m.getManaAbility()!=null)o.addProperty("restrictions",m.getManaAbility().getManaRestrictions()+";"+m.getManaAbility().getExtraManaRestriction());return o;}
+  if(v instanceof SpellAbilityStackInstance s){JsonObject o=new JsonObject();o.addProperty("stack_instance_id",s.getId());o.add("ability",ability(s.getSpellAbility()));o.add("targets",value(s.getTargetChoices(),depth+1));o.add("activating_player",value(s.getActivatingPlayer(),depth+1));return o;}
+  if(v instanceof SpellAbilityView s){JsonObject o=new JsonObject();o.addProperty("ability_id",s.getId());o.add("source",value(s.getHostCard(),depth+1));o.addProperty("description",s.getDescription());o.addProperty("spell",s.isSpell());return o;}
+  if(v instanceof StackItemView s){JsonObject o=new JsonObject();o.addProperty("stack_instance_id",s.getId());o.add("source",value(s.getSourceCard(),depth+1));o.add("activating_player",value(s.getActivatingPlayer(),depth+1));o.add("target_cards",value(s.getTargetCards(),depth+1));o.add("target_players",value(s.getTargetPlayers(),depth+1));o.addProperty("text",s.getText());return o;}
+  if(v instanceof DelayedReveal d){JsonObject o=new JsonObject();o.add("cards",value(d.getCards(),depth+1));o.add("zones",value(d.getZone(),depth+1));o.add("owner",value(d.getOwner(),depth+1));o.addProperty("message",d.getMessagePrefix());return o;}
+  if(v instanceof forge.game.combat.Combat combat){JsonObject o=new JsonObject();o.add("attacking_player",value(combat.getAttackingPlayer(),depth+1));JsonArray attacks=new JsonArray();for(Card c:combat.getAttackers()){JsonObject attack=new JsonObject();attack.add("attacker",card(c));attack.add("defender",value(combat.getDefenderByAttacker(c),depth+1));attack.add("blockers",value(combat.getBlockers(c),depth+1));attack.addProperty("blocked",combat.isBlocked(c));attacks.add(attack);}o.add("attacks",attacks);return o;}
+  if(v instanceof org.apache.commons.lang3.tuple.Pair<?,?> pair){JsonObject o=new JsonObject();o.add("left",value(pair.getLeft(),depth+1));o.add("right",value(pair.getRight(),depth+1));return o;}
+  if(v instanceof com.google.common.collect.Multimap<?,?> map)return value(map.asMap(),depth+1);
+  if(v instanceof CardTraitBase t){JsonObject o=new JsonObject();o.addProperty("trait_type",v.getClass().getName());o.add("source",card(t.getHostCard()));o.add("parameters",value(t.getMapParams(),depth+1));return o;}
+  if(v instanceof CostDecisionMakerBase d){JsonObject o=new JsonObject();o.addProperty("decision_maker_type",v.getClass().getName());o.add("player",value(d.getPlayer(),depth+1));o.addProperty("effect",d.isEffect());o.addProperty("pays_right_after_decision",d.paysRightAfterDecision());return o;}
+  if(v instanceof forge.game.ability.SpellAbilityEffect){JsonObject o=new JsonObject();o.addProperty("effect_implementation",v.getClass().getName());return o;}
+  if(v instanceof Game||v instanceof GameAction){JsonObject o=new JsonObject();o.addProperty("context_type",v.getClass().getName());return o;}
+  if(v instanceof CardView c){JsonObject o=new JsonObject();o.addProperty("view_id",c.getId());o.addProperty("name",c.getName());o.add("owner",value(c.getOwner(),depth+1));o.add("controller",value(c.getController(),depth+1));o.addProperty("zone",String.valueOf(c.getZone()));o.addProperty("face_down",c.isFaceDown());o.addProperty("power",c.getCurrentState().getPower());o.addProperty("toughness",c.getCurrentState().getToughness());return o;}
+  if(v instanceof ManaCostBeingPaid cost){JsonObject o=new JsonObject();o.addProperty("cost",cost.toString());o.addProperty("generic",cost.getGenericManaAmount());o.addProperty("remaining_mana_value",cost.getConvertedManaCost());o.add("unpaid_shards",value(cost.getUnpaidShards(),depth+1));return o;}
   if(v instanceof CostPayment p){JsonObject o=new JsonObject();o.addProperty("base_cost",p.getCost().toString());o.add("ability",ability(p.getAbility()));return o;}
   if(v instanceof PaymentDecision p){JsonObject o=new JsonObject();o.addProperty("count",p.c);o.addProperty("type",p.type);o.add("cards",value(p.cards,depth+1));o.add("mana",value(p.mana,depth+1));o.add("players",value(p.players,depth+1));o.add("abilities",value(p.sp,depth+1));return o;}
   if(v instanceof CostPartWithList p){JsonObject o=new JsonObject();o.addProperty("cost",p.toString());o.add("paid_cards",value(p.getCardList(),depth+1));o.add("lki_cards",value(p.getLKIList(),depth+1));return o;}
-  if(v instanceof Cost||v instanceof CostPart||v instanceof ManaCostBeingPaid)return new JsonPrimitive(v.toString());
-  if(v instanceof Map<?,?> m){JsonObject o=new JsonObject();for(var e:m.entrySet())o.add(String.valueOf(e.getKey()),value(e.getValue(),depth+1));return o;}
+  if(v instanceof Cost||v instanceof CostPart)return new JsonPrimitive(v.toString());
+  if(v instanceof Map<?,?> m){
+   if(m.keySet().stream().allMatch(k->k instanceof String||k instanceof Enum<?>||k instanceof Number)){JsonObject o=new JsonObject();for(var e:m.entrySet())o.add(String.valueOf(e.getKey()),value(e.getValue(),depth+1));return o;}
+   JsonArray entries=new JsonArray();for(var e:m.entrySet()){JsonObject pair=new JsonObject();pair.add("key",value(e.getKey(),depth+1));pair.add("value",value(e.getValue(),depth+1));entries.add(pair);}JsonObject o=new JsonObject();o.add("map_entries",entries);return o;
+  }
   if(v instanceof Iterable<?> it){JsonArray a=new JsonArray();for(Object x:it)a.add(value(x,depth+1));return a;}
   if(v instanceof Object[] array)return value(Arrays.asList(array),depth+1);
   if(v.getClass().isRecord()) {JsonObject o=new JsonObject();o.addProperty("record_type",v.getClass().getSimpleName());try{for(RecordComponent c:v.getClass().getRecordComponents())o.add(c.getName(),value(c.getAccessor().invoke(v),depth+1));}catch(Exception e){throw new IllegalStateException(e);}return o;}

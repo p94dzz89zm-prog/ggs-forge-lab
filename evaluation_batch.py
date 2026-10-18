@@ -82,7 +82,7 @@ def run(a):
  models=policy_inputs(a)
  protocol={'format':2,'purpose':a.purpose,'seed':a.seed,'rotation':a.rotation,'timeout':a.timeout,'deck':a.deck,'deck_sha256':{n:sha(dragonmind.ROOT/'decks'/(n+'.dck')) for n in names},'engine_sha256':{k:sha(v) for k,v in builds.items()},'policy_models':models,'population':pop,'logging':'all_seats_private_offline','flags':['-Ddragonmind.boundedCombatForecast=true','-Ddragonmind.linePlanner=false'],'collector_source_sha256':sha(Path(dragonmind.__file__)),'batch_source_sha256':sha(Path(__file__))}
  protocol['engine_resources']=resource_fingerprint(a.engine)
- protocol['evidence_reader_source_sha256']={n:sha(Path(__file__).with_name(n)) for n in ('game_evidence.py','referee_tape.py')}
+ protocol['evidence_reader_source_sha256']={n:sha(Path(__file__).with_name(n)) for n in ('game_evidence.py','referee_tape.py','mana_unit_audit.py')}
  protocol.update(format=3,capture_source_commit=source_commit,capture_source_sha256=sha(Path(__file__).with_name('side_capture.py')))
  if a.purpose=='heldout' and a.population!='unseen_evaluation':raise ValueError('Heldout batch requires heldout opponent population')
  with (out/'cycle.lock').open('a') as lock:

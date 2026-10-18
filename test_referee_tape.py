@@ -12,7 +12,7 @@ class RefereeTapeTests(unittest.TestCase):
         self.rows=[{'kind':'engine_call','call_id':1,'parent_call_id':0,'hook':'start','initial_state':initial},
                    {'kind':'engine_return','call_id':1,'hook':'start'},
                    {'kind':'engine_call','call_id':2,'parent_call_id':0,'hook':'forge/game/mana/ManaPool.tryPayCostWithMana(x)','arguments':[{},'1',{'source_card_id':7},False],'speculative':False},
-                   {'kind':'engine_return','call_id':2,'hook':'forge/game/mana/ManaPool.tryPayCostWithMana(x)','result':True},
+                   {'kind':'engine_return','call_id':2,'hook':'forge/game/mana/ManaPool.tryPayCostWithMana(x)','result':True,'arguments_after':[{},'0',{},False]},
                    {'kind':'engine_tape_complete','calls':2}]
         for r in self.rows:r.update(format=1,audience='offline_referee_only')
     def check(self,rows):

@@ -53,3 +53,15 @@ Unsupported serialized objects remain gaps even when both executions match.
 `referee_tape.py` checks structure and reports those gaps without granting rules
 approval. No synthetic test or equal reexecution can independently approve a
 whole game. Whole-game review and the strict learning gate remain mandatory.
+
+Typed followup records stack/view targets, combat attacks/blocks, delayed reveal
+payloads, replacement/static traits, structured map keys, priority owners,
+engine visibility permissions, elimination states and the final state. Engine
+permissions are evidence of implementation behavior, not independent rules
+entitlement. Cost modifier hooks record source and before/after costs, including
+reduction order. Color conversion and snow-spending flags are recorded.
+`mana_unit_audit.py` independently checks pool membership and normal/generic/
+hybrid/snow shard transitions; it does not certify mana-source restrictions,
+entire payment transactions, ability timing or the whole game. Unsupported
+cost representations stay explicit. Source hashes for both readers and this
+checker are bound in future batch protocols.

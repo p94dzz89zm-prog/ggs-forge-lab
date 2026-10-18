@@ -37,11 +37,27 @@ public class EngineProvenanceRegression extends AITest {
   // Test-only planning is explicitly marked, rather than counted as a paid spell.
   me.getManaPool().addMana(new Mana(MagicColor.BLUE,island,produce.getManaPart(),me));
   Assert.assertTrue(me.getManaPool().tryPayCostWithMana(sa,new ManaCostBeingPaid(ManaCost.get(1)),me.getManaPool().iterator().next(),true));
+  // Exercise stack/effect/visibility encoders through actual casting and resolution.
+  t.addCard("Island",me);g.getPhaseHandler().devModeSet(PhaseType.MAIN1,me,false);
+  Assert.assertTrue(ComputerUtil.handlePlayingSpellAbility(me,sa,null));
+  g.getStack().resolveStack();Assert.assertTrue(me.getCardsIn(ZoneType.Graveyard).stream().anyMatch(c->c.getName().equals("Opt")),"resolved physical card in graveyard");
+  t.addCard("Sapphire Medallion",me);t.addCard("Island",me);t.addCard("Island",me);
+  Card draw=t.addCardToZone("Divination",me,ZoneType.Hand);SpellAbility drawSa=draw.getFirstSpellAbility();drawSa.setActivatingPlayer(me);
+  long tappedBefore=me.getLandsInPlay().stream().filter(Card::isTapped).count();Assert.assertTrue(ComputerUtil.handlePlayingSpellAbility(me,drawSa,null));g.getStack().resolveStack();Assert.assertEquals(me.getLandsInPlay().stream().filter(Card::isTapped).count()-tappedBefore,2L,"actual reduced Divination payment");
+  Card attacker=t.addCard("Runeclaw Bear",me);attacker.setSickness(false);
+  forge.game.combat.Combat combat=new forge.game.combat.Combat(me);combat.addAttacker(attacker,other);combat.setBlocked(attacker,false);g.getPhaseHandler().setCombat(combat);g.getPhaseHandler().devModeSet(PhaseType.COMBAT_DECLARE_BLOCKERS,me,false);
+  g.fireEvent(new forge.game.event.GameEventCombatChanged());
+  other.loseConditionMet(GameLossReason.Conceded,null);g.onPlayerLost(other);
   EngineEvidence.finish();JsonObject result=new JsonObject();result.addProperty("seed",91);result.addProperty("status","completed");DurableEvidence.finish(root.resolve("engine-records/fixture"),91,"fixture\nDragonMind Result: "+result+"\n",result);
   List<JsonObject> rows=new ArrayList<>();for(String l:Files.readAllLines(root.resolve("audit/fixture/referee-events.jsonl")))rows.add(JsonParser.parseString(l).getAsJsonObject());
   JsonObject reveal=rows.stream().filter(r->r.has("visibility_operation")&&r.get("visibility_operation").getAsString().equals("reveal_all")).findFirst().orElseThrow();Assert.assertEquals(reveal.getAsJsonArray("entitled_player_ids").size(),3);
   JsonObject look=rows.stream().filter(r->r.has("visibility_operation")&&r.get("visibility_operation").getAsString().equals("look_specified")).findFirst().orElseThrow();Assert.assertEquals(look.getAsJsonArray("entitled_player_ids").size(),1);Assert.assertEquals(look.getAsJsonArray("entitled_player_ids").get(0).getAsInt(),other.getId());
   Assert.assertTrue(reveal.toString().contains("Demonic Tutor"));Assert.assertTrue(rows.stream().anyMatch(r->r.has("initial_state")));Assert.assertTrue(rows.stream().anyMatch(r->r.get("kind").getAsString().equals("engine_return")&&r.get("hook").getAsString().contains("tryPayCostWithMana")&&!r.get("result").getAsBoolean()));
+  Assert.assertTrue(rows.stream().anyMatch(r->r.has("hook")&&r.get("hook").getAsString().contains("applyReduceCostAbility")&&r.toString().contains("Sapphire Medallion")),"named applied cost modifier provenance");
+  JsonObject finalState=rows.get(rows.size()-1).getAsJsonObject("final_state");Assert.assertEquals(finalState.getAsJsonArray("players").size(),3);Assert.assertTrue(rows.stream().anyMatch(r->r.has("elimination_state_after")));
+  Assert.assertTrue(rows.stream().anyMatch(r->r.has("combat")&&!r.get("combat").isJsonNull()));
+  Assert.assertTrue(rows.stream().anyMatch(r->r.has("visibility_operation")&&r.get("visibility_operation").getAsString().equals("public_stack_announcement")));
+  Assert.assertFalse(rows.toString().contains("\"unencoded\":\"forge.game.spellability.SpellAbilityStackInstance\""));
   Assert.assertEquals(rows.get(rows.size()-1).get("kind").getAsString(),"engine_tape_complete");
   java.lang.reflect.Method equivalent=EngineEvidence.class.getDeclaredMethod("equivalent",JsonObject.class,JsonObject.class);equivalent.setAccessible(true);
   JsonObject a=JsonParser.parseString("{\"arguments\":[{\"record_type\":\"GameEventCardStatsChanged\",\"cards\":[{\"view_id\":1},{\"view_id\":2}]}]}").getAsJsonObject();
@@ -49,6 +65,6 @@ public class EngineProvenanceRegression extends AITest {
   Assert.assertTrue((Boolean)equivalent.invoke(null,a,b),"unordered notification membership");
   b.getAsJsonArray("arguments").get(0).getAsJsonObject().addProperty("record_type","GameEventZone");Assert.assertFalse((Boolean)equivalent.invoke(null,a,b),"different event cannot compare equal");
   a=JsonParser.parseString("{\"Library\":[1,2]}").getAsJsonObject();b=JsonParser.parseString("{\"Library\":[2,1]}").getAsJsonObject();Assert.assertFalse((Boolean)equivalent.invoke(null,a,b),"ordered zones remain order-sensitive");
-  System.out.println("Checks passed: 12");System.out.println("PASS actual reveal recipients, private visibility, source production, spent unit, failed payment, test flag, initial state and sealed tape");System.exit(0);
+  System.out.println("Checks passed: 19");System.out.println("PASS actual reveal recipients, private visibility, source production, spent unit, failed payment, test flag, initial state and sealed tape");System.exit(0);
  }
 }

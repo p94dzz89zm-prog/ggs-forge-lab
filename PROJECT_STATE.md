@@ -5,6 +5,26 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Typed provenance and independent mana checks
+
+The first new full development game completed verification reexecution:
+135197 recorded events, with4128 Set-derived UI notification rows differing only
+in iteration order. All1263 canonical gameplay lines match after duration/result
+timing is omitted. This remains same-policy reexecution, not decision-driven
+replay or independent whole-game rules approval. Original failure retained.
+
+Future recordings now type stack instances/views/targets, combat assignments,
+delayed reveals, static/replacement traits and structured maps. They include
+priority/turn owners, visibility permissions and public stack announcements,
+elimination snapshots and final state. Cost-modifier hooks identify source and
+before/after costs; nested speculative payments remain marked. Nineteen actual
+engine checks and record/reexecution fixtures pass with zero unencoded values
+in those fixtures. An independent Python mana-unit checker covers recorded pool
+membership, colored/generic/hybrid/snow cost transitions and color-conversion
+claims. Twenty-eight relevant Python checks pass. Full mana restrictions and
+whole-game rules remain separate review obligations. No new typed full game
+has run yet. Models and October17 baseline are unchanged; learning admissions0.
+
 ## Fresh provenance capture
 
 One newly allocated four-player development game completed under the evidence

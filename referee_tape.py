@@ -16,6 +16,7 @@ def inspect(path, *, require_initial=True):
 def _inspect(stream, *, require_initial):
     pending, entered, returned = {}, set(), set()
     records = 0
+    mana_verified, mana_unsupported = 0, collections.Counter()
     initial, terminal, visibility, paid, failed, random = [], [], [], 0, 0, 0
     unknown = collections.Counter()
 
@@ -65,6 +66,11 @@ def _inspect(stream, *, require_initial):
                 if len(args) != 4 or type(args[3]) is not bool or type(row.get('result')) is not bool:
                     raise ValueError('Ambiguous mana payment/test status')
                 if not args[3] and not entry.get('speculative', False):
+                    if row['result'] is True:
+                        from mana_unit_audit import check
+                        issue=check(args[1],row['arguments_after'][1],args[2],entry.get('mana_context',{}))
+                        if issue:mana_unsupported[issue]+=1
+                        else:mana_verified+=1
                     paid += row['result'] is True
                     failed += row['result'] is False
         elif kind == 'random_bits':
@@ -106,7 +112,7 @@ def _inspect(stream, *, require_initial):
             'initial_states': len(initial), 'registered_players': len(player_ids),
             'visibility_events': len(visibility), 'actual_mana_units_paid': paid,
             'failed_mana_unit_attempts': failed, 'random_requests': random,
-            'unencoded_types': dict(unknown), 'rules_approved': False,
+            'unencoded_types': dict(unknown), 'mana_unit_transition_checks':mana_verified, 'mana_unit_transition_gaps':dict(mana_unsupported), 'rules_approved': False,
             'replay_status': 'Not established by tape inspection', 'training_admission': False}
 
 
