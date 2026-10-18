@@ -5,6 +5,23 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Provenance milestone, October18
+
+The evidence-only overlay now instruments exact frozen engine classes for reveal
+recipients, mana production and unit payments, cost adjustment/non-mana costs,
+controller decisions, effects, stack and engine events. A private referee tape
+records ordered initial zones and RNG bits separately from pilot observations.
+Nine actual-engine provenance checks pass. A separate fresh-process fixture
+reexecution consumed recorded RNG and matched all62 serialized records; this is
+not yet a decision-driven game replay or independent rules certification.
+Eighteen relevant Python tape/writer contracts pass. The first bytecode-verifier
+failure and subsequent frame-loader build failure are retained privately; frames
+are now regenerated with the application class loader. New games0, full-game
+approvals0, training updates0. Unsupported serialized values remain explicit.
+See ENGINE_PROVENANCE.md. Next: run one newly allocated isolated full-game
+recording, diagnose its exact gaps, and verify reexecution before substantive
+whole-game approval. No batch scaling or strategy/deck/model change.
+
 ## Current verified followup
 
 The approved engineering tree was published as81f0e2d and read back byte-for-byte

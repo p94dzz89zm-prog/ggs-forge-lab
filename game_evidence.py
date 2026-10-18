@@ -11,13 +11,16 @@ def verify(root,record_dir,seed,require_ownership=True):
  if sha(transcript)!=m['transcript_sha256'] or len(transcript.splitlines())!=m['transcript_records'] or sha(result)!=m['result_sha256']:raise ValueError('Canonical evidence changed')
  if json.loads(result).get('status') not in ('completed','completed_draw'):raise ValueError('Incomplete game result')
  if sum(l.startswith(b'DragonMind Result: ') for l in transcript.splitlines())!=1:raise ValueError('Missing or duplicate result marker')
- listed=set();snapshots=0;seat_files=set();owners={}
+ listed=set();snapshots=0;seat_files=set();owners={};referee_report=None
  for receipt in m['streams']:
   name=receipt['file'];relative=Path(name);p=root/relative
   if relative.is_absolute() or '..' in relative.parts or p.is_symlink() or not p.resolve().is_relative_to(root) or name in listed:raise ValueError('Unsafe or duplicate evidence path')
   listed.add(name);data=p.read_bytes()
   if receipt.get('game_id')!=m['game_id'] or receipt.get('write_status')!='complete' or sha(data)!=receipt['sha256'] or len(data)!=receipt['bytes']:raise ValueError('Stream hash/size/status mismatch')
   if json.loads(p.with_name(p.name+'.receipt.json').read_text())!=receipt:raise ValueError('Stream receipt mismatch')
+  if p.name=='referee-events.jsonl':
+   from referee_tape import inspect
+   referee_report=inspect(p)
   lines=data.splitlines()
   if len(lines)!=receipt['records'] or not data.endswith(b'\n'):raise ValueError('Stream record count/tail mismatch')
   for number,line in enumerate(lines,1):
@@ -43,4 +46,4 @@ def verify(root,record_dir,seed,require_ownership=True):
  if actual!=listed:raise ValueError('Unbound or missing audit stream')
  if len(seat_files)!=4:raise ValueError('Missing four-seat snapshot coverage')
  if list((root/'audit').rglob('*.partial')):raise ValueError('Unfinalized audit stream')
- return {'passed':True,'game_id':m['game_id'],'streams':len(listed),'snapshots':snapshots,'ownership_fields_verified':require_ownership,'rules_validated':False,'learning_admission':False}
+ return {'passed':True,'game_id':m['game_id'],'streams':len(listed),'snapshots':snapshots,'ownership_fields_verified':require_ownership,'referee_tape':referee_report,'rules_validated':False,'learning_admission':False}

@@ -94,7 +94,7 @@ public class SimulateMatch {
         Long seed = null;
         if (params.containsKey("s")) {
             seed = Long.parseLong(params.get("s").get(0));
-            MyRandom.setRandom(new Random(seed));
+            MyRandom.setRandom(System.getProperty("forge.audit.directory")==null?new Random(seed):new forge.ai.bridge.EvidenceRandom(seed));
         }
 
         GameType type = GameType.Constructed;
@@ -181,7 +181,7 @@ public class SimulateMatch {
             }
             for (String value : params.get("seeds")) {
                 long gameSeed = Long.parseLong(value);
-                MyRandom.setRandom(new Random(gameSeed));
+                MyRandom.setRandom(System.getProperty("forge.audit.directory")==null?new Random(gameSeed):new forge.ai.bridge.EvidenceRandom(gameSeed));
                 if (!simulateSingleMatch(new Match(rules, pp, "DragonMind"), 0, outputGamelog, gameSeed)) return;
             }
             return;
@@ -233,6 +233,7 @@ public class SimulateMatch {
 
         final Game g1 = mc.createGame();
         g1.setNoGUIUser();
+        if(seed!=null&&System.getProperty("forge.audit.directory")!=null)forge.ai.bridge.EngineEvidence.begin(g1);
         // will run match in the same thread
         try {
             TimeLimitedCodeBlock.runWithTimeout(() -> {
@@ -279,6 +280,7 @@ public class SimulateMatch {
                 try {
                     java.nio.file.Path directory = java.nio.file.Paths.get(recordDirectory);
                     java.nio.file.Files.createDirectories(directory);
+                    if(System.getProperty("forge.audit.directory")!=null&&result.get("status").getAsString().startsWith("completed"))forge.ai.bridge.EngineEvidence.finish();
                     forge.ai.bridge.DurableEvidence.finish(directory,seed,transcript.toString(),result);
                 } catch (java.io.IOException e) {
                     throw new IllegalStateException("Engine result persistence failed", e);

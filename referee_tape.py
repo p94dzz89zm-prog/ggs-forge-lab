@@ -1,0 +1,109 @@
+"""Validate private engine call evidence. This is not a Magic rules oracle.
+
+No row from this omniscient tape is a permitted pilot observation or training
+example. Sealed writer receipts must be checked separately before this reader.
+"""
+import collections
+import json
+from pathlib import Path
+
+
+def inspect(path, *, require_initial=True):
+    rows = [json.loads(line) for line in Path(path).read_bytes().splitlines()]
+    pending, entered, returned = {}, {}, set()
+    initial, terminal, visibility, paid, failed, random = [], [], [], 0, 0, []
+    unknown = collections.Counter()
+
+    def gaps(value):
+        if isinstance(value, dict):
+            if 'unencoded' in value:
+                unknown[value['unencoded']] += 1
+            for child in value.values():
+                gaps(child)
+        elif isinstance(value, list):
+            for child in value:
+                gaps(child)
+
+    for index, row in enumerate(rows):
+        if row.get('format') != 1 or row.get('audience') != 'offline_referee_only':
+            raise ValueError('Missing private referee schema/audience')
+        kind = row.get('kind')
+        if terminal:
+            raise ValueError('Data after referee completion')
+        if kind == 'engine_call':
+            call = row['call_id']
+            if type(call) is not int or call != len(entered) + 1:
+                raise ValueError('Duplicate or missing engine call')
+            if row.get('parent_call_id', 0) != (next(reversed(pending)) if pending else 0):
+                raise ValueError('Invalid parent call order')
+            pending[call] = entered[call] = row
+            if 'initial_state' in row:
+                initial.append(row['initial_state'])
+            if 'visibility_operation' in row:
+                entitled = row.get('entitled_player_ids')
+                if not isinstance(entitled, list) or len(set(entitled)) != len(entitled) or any(type(p) is not int for p in entitled):
+                    raise ValueError('Missing or ambiguous reveal audience')
+                visibility.append(row)
+        elif kind == 'engine_return':
+            call = row['call_id']
+            if call not in pending or call in returned or call != next(reversed(pending)):
+                raise ValueError('Missing, duplicate or unordered engine return')
+            entry = pending.pop(call)
+            if row.get('hook') != entry['hook']:
+                raise ValueError('Return hook changed')
+            returned.add(call)
+            if 'ManaPool.tryPayCostWithMana(' in row['hook']:
+                args = entry['arguments']
+                if len(args) != 4 or type(args[3]) is not bool or type(row.get('result')) is not bool:
+                    raise ValueError('Ambiguous mana payment/test status')
+                if not args[3] and not entry.get('speculative', False):
+                    paid += row['result'] is True
+                    failed += row['result'] is False
+        elif kind == 'random_bits':
+            bits, value = row.get('bits'), row.get('value')
+            if type(bits) is not int or not 1 <= bits <= 32 or type(value) is not int or not (-2**31 <= value < 2**31):
+                raise ValueError('Invalid random bits')
+            if bits < 32 and not 0 <= value < 2**bits:
+                raise ValueError('Random value outside bit range')
+            if row.get('random_index') != len(random) + 1:
+                raise ValueError('Random tape sequence gap')
+            random.append(row)
+        elif kind == 'engine_tape_complete':
+            if pending or row.get('calls') != len(entered):
+                raise ValueError('Unfinished engine calls')
+            terminal.append(row)
+        else:
+            raise ValueError('Unknown referee row kind')
+        gaps(row)
+    if not terminal or pending:
+        raise ValueError('Incomplete referee tape')
+    if require_initial and len(initial) != 1:
+        raise ValueError('Missing or ambiguous recorded initial state')
+    player_ids = set()
+    if initial:
+        players = initial[0].get('players', [])
+        player_ids = {p['id'] for p in players}
+        if len(player_ids) != len(players):
+            raise ValueError('Duplicate initial player identity')
+        for player in players:
+            if 'Library' not in player or 'Hand' not in player or 'Command' not in player:
+                raise ValueError('Missing initial ordered zones')
+    for row in visibility:
+        audience = set(row['entitled_player_ids'])
+        if initial and not audience <= player_ids:
+            raise ValueError('Reveal to unregistered player')
+        if row['visibility_operation'] == 'reveal_all' and not audience:
+            raise ValueError('Empty public reveal audience')
+    return {'integrity_structure_passed': True, 'records': len(rows), 'calls': len(entered),
+            'initial_states': len(initial), 'registered_players': len(player_ids),
+            'visibility_events': len(visibility), 'actual_mana_units_paid': paid,
+            'failed_mana_unit_attempts': failed, 'random_requests': len(random),
+            'unencoded_types': dict(unknown), 'rules_approved': False,
+            'replay_status': 'Not established by tape inspection', 'training_admission': False}
+
+
+if __name__ == '__main__':
+    import argparse
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('tape', type=Path)
+    print(json.dumps(inspect(p.parse_args().tape), indent=2))
