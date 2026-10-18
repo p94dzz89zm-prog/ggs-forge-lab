@@ -71,6 +71,13 @@ public class GameCopier {
         return makeCopy(null, null);
     }
     public Game makeCopy(PhaseType advanceToPhase, Player aiPlayer) {
+        return makeCopy(advanceToPhase, aiPlayer, false);
+    }
+
+    /** Explicit stack projection without changing GameSimulator's global flag.
+     * Caller still controls public information masking through PlannerContext.
+     */
+    public Game makeCopy(PhaseType advanceToPhase, Player aiPlayer, boolean includeVisibleStack) {
         if (origGame.EXPERIMENTAL_RESTORE_SNAPSHOT) {
             if (PlannerContext.active()) throw new IllegalArgumentException("Planner snapshot mode unsupported");
             // How do we advance to phase when using restores?
@@ -179,7 +186,7 @@ public class GameCopier {
         newGame.getAction().checkStateEffects(true); //ensure state based effects and triggers are updated
         newGame.getTriggerHandler().resetActiveTriggers();
 
-        if (GameSimulator.COPY_STACK)
+        if (GameSimulator.COPY_STACK || includeVisibleStack)
             copyStack(origGame, newGame, gameObjectMap);
 
         // TODO update thisTurnCast

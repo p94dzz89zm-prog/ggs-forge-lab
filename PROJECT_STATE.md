@@ -107,3 +107,10 @@ development set with opposing-creature survival/protection-dependency controls,
 then fit an immutable candidate and evaluate on new identities. Never train on
 Cycle20 or Cycle21 held-out identities. Keep v1 and the incumbent unchanged.
 Complete-game critical-decision review and specialist opponents remain open.
+
+Cycle22 evidence milestone: twelve four-player action pairs and two hidden-hand
+controls passed (26 actual branches). They distinguish removing an immediate
+lethal attacker from preserving an opponent's attack-prevention permanent.
+An explicit public-stack-copy API avoids an omitted-stack forecast and leaves
+existing copier calls unchanged. Both early failed attempts are retained.
+See forge-fork/MULTIPLAYER_LEARNING.md. No new model fit or promotion yet.
