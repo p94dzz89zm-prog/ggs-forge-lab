@@ -8,11 +8,11 @@ are in the private project-state document and authoritative private ledger.
 
 Repository: `p94dzz89zm-prog/ggs-forge-lab`.
 Approved branch: `fix/pilot-recovery-v35` (default `main` is older).
-Latest previously verified implementation: `266b91f14c5c74f851b3e0fb85408ea4e63ed39a`.
-Hosted evaluation passed 118 Python tests and six launcher checks:
-https://github.com/p94dzz89zm-prog/ggs-forge-lab/actions/runs/39088100107 .
-The Git commit containing this file records the recovery infrastructure revision.
-Check its hosted workflow result before calling it externally verified.
+Latest verified learning implementation: `e64115895fe9a61bca4ba0e9e75c00c61e04ebaa`.
+Hosted evaluation passed 135 Python tests and six launcher checks:
+https://github.com/p94dzz89zm-prog/ggs-forge-lab/actions/runs/39089201096 .
+The current containing commit may update documentation only; recover exact
+runtime/model provenance and completion state from the private ledger.
 
 ## Completed public milestones
 
@@ -69,6 +69,16 @@ state, never inferred from conversation history or absent local processes.
 
 An opt-in supervised tactical counter preference now has actual engine branch
 evidence and frozen unseen-card comparison. See TACTICAL_LEARNING.md.
-Controls and full regression acceptance must finish before closing the cycle.
+All scope/corruption controls passed. The supervised model agreed with local
+review preferences in four unseen-card constructed conditions versus two for
+the model-disabled baseline. This is a narrow learned choice change, not a
+full-game accuracy or win-rate result. Engine coverage verified 25 suites / 597
+groups across attempts, including 128 distinct combat positions. The initial
+combined run retained an exact-output launcher failure from a JVM environment
+banner; the remaining two suites passed with direct properties. No model or
+completed suite was replayed or altered to reconcile those checks.
+Dashboard refresh failed at source opening; the existing published snapshot is
+unchanged and new results are retained privately. See the latest ledger for
+checkpoint saving/readback status.
 This changes learned local decisions only; no whole-game admission, broad
 strategic strength or incumbent promotion is established.
