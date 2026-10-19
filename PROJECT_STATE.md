@@ -5,6 +5,31 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Selected mana, commander payment and original prefix189
+
+Conditional coverage1749/1985; original prefix189 choices reconstructed from
+recorded choices, with686 engine RNG requests and matching canonical gameplay.
+Payment184 now executes Command Tower's selected black mana and Brushland's
+selected white mana plus its actual1 self-damage subability. No pool, damage or
+zone outcomes are copied. Nested color choices check live production legality,
+the offered domain and original choice. Unsupported subabilities still reject.
+Live Commander permission selection explicitly binds the recorded ephemeral
+ability identity to the actual copied spell before subsequent payment checks.
+
+Actual first-cast, taxed-cast and illegal-color controls pass. The taxed cast
+pays2WB from four actual units; illegal color rejects before tap/damage. Initial
+tax fixture omitted the2 in the already adjusted component; failure retained,
+corrected control passes. First original replay found the copied-ability ID
+binding gap; failure retained, corrected replay reaches189. Separate checker
+validates5 actual-prefix and6 fixture paid-unit pool/shard transitions, recorded
+commander tax counts and nested color choices. These remain scoped checks.
+The first fixture harness omitted durable finalization; only affected positives
+were repeated with explicit fixture seals. Final compiled produced-color guards
+pass floating-mana and tax controls, plus the original189-decision replay;
+95 canonical gameplay lines match. All earlier failures/partial streams retained.
+Next stop189 is orderAndPlaySimultaneousSa;54 trigger-order roots unsupported.
+Fully approved games0; full-game replay/independent legality still pending.
+
 ## Command-zone selection and original prefix184
 
 Conditional coverage1742/1985 includes ten plain command-zone permanent-spell

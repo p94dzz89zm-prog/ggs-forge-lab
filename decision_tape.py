@@ -109,18 +109,27 @@ def encode(entry, returned, index, call_line, return_line):
             if (ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}
                 and ability.get('spell') is True and ability.get('x') is None and ability.get('targets') == []
                 and ability.get('paying_mana') == [] and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
-                and ability['source'].get('commander') is False and ability['source'].get('zone') == 'Stack'
+                and (ability['source'].get('commander') is False or (ability['source'].get('commander') is True and type(ability.get('prior_commander_casts')) is int and ability['prior_commander_casts'] >= 0)) and ability['source'].get('zone') == 'Stack'
                 and 'X' not in args[0] and args[0] != '{0}' and before_without_mana == after_without_mana
                 and entry.get('mana_context', {}).get('pool') == [] and entry.get('replay_payment_unknown_random_requests', 0) == 0
                 and len(ids) == len(set(ids)) and ids and spent and not (spending - capacity) and all(step.get('valid') is True for step in activations)
                 and spent == after.get('paying_mana') and all(m['source_card_id'] in ids and not m['snow'] and not m['restricted'] for m in spent)):
-                row.update(kind='decision', decision_type='fixed_tap_mana' if any(step.get('card_name') == 'Sol Ring' for step in activations) else 'basic_land_mana', component=args[0],
+                row.update(kind='decision', decision_type='selected_tap_mana' if ability['source'].get('commander') or any(step.get('card_name') in ('Command Tower', 'Brushland') for step in activations) else 'fixed_tap_mana' if any(step.get('card_name') == 'Sol Ring' for step in activations) else 'basic_land_mana', component=args[0],
                            source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),
                            ability_api=ability['api'], operations=operations,
                            recorded_random_requests=entry.get('replay_payment_random_requests', 0),
                            random_scope='ComputerUtilMana selector only; actual effect scopes excluded',
                            payment_basis='Recorded tap-payment decisions and individual attempted mana-spending arguments; execute actual engine actions')
                 row.pop('reason', None)
+                row['commander'] = ability['source'].get('commander')
+                if row['commander']:
+                    row.update(prior_commander_casts=ability['prior_commander_casts'], commander_tax=2*ability['prior_commander_casts'])
+                row['adjusted_cost'] = entry.get('replay_payment_adjusted_cost')
+                for step in activations:
+                    if step.get('parameters', {}).get('Produced', '').startswith('Combo '):
+                        color = step.get('color_choice')
+                        if not color or color.get('selected_color') not in ('W', 'U', 'B', 'R', 'G'):
+                            row.update(kind='unsupported_decision', reason='missing_selected_mana_color')
                 return row
         if len(args) == 5 and args == returned.get('arguments_after'):
             ability = args[1]
@@ -263,13 +272,19 @@ def extract(source, expected_sha256, output):
                             payer, payment, ability, effect = row['arguments']; source = ability['source']; params = ability['parameters']
                             entry.setdefault('replay_payment_operations', []).append(dict(op='activate_basic',
                                 card_id=source['card_id'], card_name=source['name'], parameters=params,
-                                valid=(source['name'] in ('Plains', 'Island', 'Swamp', 'Mountain', 'Forest', 'Wastes', 'Sol Ring')
-                                       and ability['api'] == 'Mana' and params.get('Produced') in ('W', 'U', 'B', 'R', 'G', 'C')
+                                valid=(source['name'] in ('Plains', 'Island', 'Swamp', 'Mountain', 'Forest', 'Wastes', 'Sol Ring', 'Command Tower', 'Brushland')
+                                       and ability['api'] == 'Mana' and (params.get('Produced') in ('W', 'U', 'B', 'R', 'G', 'C') or (source['name'] == 'Command Tower' and params.get('Produced') == 'Combo ColorIdentity') or (source['name'] == 'Brushland' and params.get('Produced') == 'Combo G W'))
                                        and params.get('Amount', '1') in ('1', '2')
                                        and effect is False and ability['pay_costs'] == '{T}' and source['controller_id'] == payer['player_id'] == entry['receiver']['player_id']
                                        and payment == dict(count=0, type=None, cards=[], mana=None, players=None, abilities=None))))
                         elif row['hook'].startswith('forge/game/mana/ManaPool.tryPayCostWithMana(') and row['arguments'][3] is False:
+                            entry.setdefault('replay_payment_adjusted_cost', row['arguments'][1])
                             entry.setdefault('replay_payment_operations', []).append(dict(op='spend', mana=row['arguments'][2], source_call_id=row['call_id']))
+                        elif row['hook'].endswith('.chooseColor(Ljava/lang/String;Lforge/game/spellability/SpellAbility;Lforge/card/ColorSet;)B'):
+                            title, ability, offered = row['arguments']
+                            for operation in entry.get('replay_payment_operations', []):
+                                if operation.get('op') == 'activate_basic' and operation['card_id'] == ability['source']['card_id']:
+                                    operation['color_choice'] = dict(call_id=row['call_id'], hook=row['hook'], title=title, offered=offered)
                 elif kind == 'engine_return':
                     if not stack or (row['call_id'], row['hook']) != (stack[-1][0], stack[-1][2]):
                         raise ValueError('Unpaired/out-of-order return')
@@ -279,6 +294,8 @@ def extract(source, expected_sha256, output):
                             for operation in entry.get('replay_payment_operations', []):
                                 if operation.get('source_call_id') == row['call_id']:
                                     operation['expected_success'] = row['result']
+                                if operation.get('color_choice', {}).get('call_id') == row['call_id']:
+                                    operation['color_choice'].update(selected_mask=row['result'], selected_color={1:'W',2:'U',4:'B',8:'R',16:'G'}.get(row['result']))
                     if row['call_id'] in roots:
                         entry, start = roots.pop(row['call_id']); decision = encode(entry, row, count, start, records)
                         (supported if decision['kind'] == 'decision' else unsupported)[decision['hook']] += 1

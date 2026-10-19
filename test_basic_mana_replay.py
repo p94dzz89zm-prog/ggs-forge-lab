@@ -45,6 +45,27 @@ class BasicManaEncodingTest(unittest.TestCase):
         entry['replay_payment_operations'][0]['valid'] = False
         self.assertEqual(encode(entry, returned, 0, 1, 2)['kind'], 'unsupported_decision')
 
+    def test_commander_color_production_requires_actual_recorded_choice(self):
+        unit = dict(color='B', source_card_id=2, snow=False, restricted=False)
+        ability = dict(api='PermanentCreature', parameters={}, spell=True, x=None, targets=[],
+                       paying_mana=[], alternative_costs=[], optional_costs=[], ability_id=4,
+                       prior_commander_casts=0, source=dict(card_id=1, commander=True, zone='Stack'))
+        args = ['{B}', ability, None, None, False]
+        operation = dict(op='activate_basic', card_id=2, card_name='Command Tower', valid=True,
+                         parameters=dict(Produced='Combo ColorIdentity'))
+        entry = dict(hook='forge/game/player/PlayerController'+PAYMENT, call_id=1,
+                     receiver=dict(player_id=0), arguments=args, mana_context=dict(pool=[]),
+                     replay_payment_operations=[operation, dict(op='spend', mana=unit)])
+        returned = dict(result=True, arguments_after=copy.deepcopy(args))
+        returned['arguments_after'][1]['paying_mana'] = [unit]
+        self.assertEqual(encode(entry, returned, 0, 1, 2)['reason'], 'missing_selected_mana_color')
+        operation['color_choice'] = dict(selected_color='B', selected_mask=4)
+        row = encode(entry, returned, 0, 1, 2)
+        self.assertEqual(row['decision_type'], 'selected_tap_mana')
+        self.assertEqual(row['commander_tax'], 0)
+        ability['prior_commander_casts'] = None
+        self.assertEqual(encode(entry, returned, 0, 1, 2)['kind'], 'unsupported_decision')
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -29,6 +29,10 @@ public final class DecisionReplay {
  private static MessageDigest randomDigest;
  private static String randomHash;
  private static long randomConsumed;
+ private static JsonObject activeManaColor;
+ private static SpellAbility activeManaAbility;
+ private static final Map<String,String> selectedAbilityBindings=new HashMap<>();
+ private static String produced(SpellAbility ability,JsonObject step){return step.has("color_choice")?step.getAsJsonObject("color_choice").get("selected_color").getAsString():ability.getParam("Produced");}
  private DecisionReplay(){}
  public static boolean enabled(){return System.getProperty("forge.decision.replayTape")!=null;}
  public static synchronized int engineRandom(int bits,int generated){
@@ -84,9 +88,12 @@ public final class DecisionReplay {
   JsonObject row=new JsonObject();row.addProperty("trait_type",effect.getClass().getName());row.addProperty("source_card_id",effect.getHostCard().getId());JsonObject params=new JsonObject();effect.getMapParams().forEach(params::addProperty);row.add("parameters",params);return row;
  }
  private static Object complete(String hook,Object receiver,Object[] args,Object result){long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,result);consumed++;return result;}
- private static void bindAbility(JsonObject row,SpellAbility ability){JsonElement expected=row.get("source_ability");if(expected==null||!Objects.equals(expected.isJsonNull()?null:expected.getAsString(),source(ability)))throw new IllegalStateException("Effect source ability diverged");}
+ private static void bindAbility(JsonObject row,SpellAbility ability){JsonElement expected=row.get("source_ability");String id=expected==null||expected.isJsonNull()?null:expected.getAsString();if(!Objects.equals(selectedAbilityBindings.getOrDefault(id,id),source(ability)))throw new IllegalStateException("Effect source ability diverged");}
  public static synchronized Object invoke(String hook,Object receiver,Object[] args) {
   if(failed)throw new IllegalStateException("Decision replay already failed");
+  if(activeManaColor!=null){
+   try{JsonObject color=activeManaColor;if(!hook.equals(color.get("hook").getAsString())||args.length!=3||args[1]!=activeManaAbility||!Objects.equals(args[0],color.get("title").getAsString())||!args[2].toString().equals(color.get("offered").getAsString())||!(receiver instanceof PlayerController pc)||pc.getPlayer()!=activeManaAbility.getActivatingPlayer())throw new IllegalStateException("Nested mana color context diverged");byte selected=(byte)integer(color.get("selected_mask"));if(Integer.bitCount(Byte.toUnsignedInt(selected))!=1||!((ColorSet)args[2]).hasAnyColor(selected)||!MagicColor.toShortString(selected).equals(color.get("selected_color").getAsString()))throw new IllegalStateException("Illegal nested mana color");activeManaColor=null;long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,selected);return selected;}catch(RuntimeException error){failed=true;throw error;}
+  }
   boolean number=hook.endsWith(".chooseNumber(Lforge/game/spellability/SpellAbility;Ljava/lang/String;II)I");
   boolean cards=hook.endsWith(".chooseCardsForEffect(Lforge/game/card/CardCollectionView;Lforge/game/spellability/SpellAbility;Ljava/lang/String;IIZLjava/util/Map;)Lforge/game/card/CardCollectionView;");
   boolean priority=hook.endsWith(".chooseSpellAbilityToPlay()Ljava/util/List;");
@@ -104,23 +111,29 @@ public final class DecisionReplay {
    if("unsupported_decision".equals(row.get("kind").getAsString()))throw new IllegalStateException("Unsupported recorded decision row: "+row.get("reason"));
    if(!row.get("kind").getAsString().equals("decision")||integer(row.get("index"))!=consumed||!row.get("hook").getAsString().equals(hook)||integer(row.get("actor_id"))!=controller.getPlayer().getId())throw new IllegalStateException("Decision order/actor/hook diverged");
    if(payment){
-    if(Set.of("basic_land_mana","fixed_tap_mana").contains(row.get("decision_type").getAsString())){
+    if(Set.of("basic_land_mana","fixed_tap_mana","selected_tap_mana").contains(row.get("decision_type").getAsString())){
      SpellAbility ability=(SpellAbility)args[1];Player player=controller.getPlayer();var game=player.getGame();CostPartMana part=(CostPartMana)args[0];bindAbility(row,ability);
-     if(args[2]!=null||args[3]!=null||!Boolean.FALSE.equals(args[4])||player.hasLost()||ability.getActivatingPlayer()!=player||!ability.isSpell()||ability.getHostCard().isCommander()||!ability.getHostCard().isInZone(ZoneType.Stack)||!player.getManaPool().isEmpty()||!part.toString().equals(row.get("component").getAsString())||part.getAmountOfX()!=0||ability.getXManaCostPaid()!=null||ability.getMaxWaterbend()!=null||ability.usesTargeting()||!ability.getMapParams().isEmpty()||!ability.getPayingMana().isEmpty()||ability.getPayCosts()==null||!ability.getPayCosts().isOnlyManaCost()||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Unsupported basic-land payment context");
+     if(!part.toString().equals(row.get("component").getAsString()))throw new IllegalStateException("Mana component diverged: actual "+part+" expected "+row.get("component"));
+     if(args[2]!=null||args[3]!=null||!Boolean.FALSE.equals(args[4])||player.hasLost()||ability.getActivatingPlayer()!=player||!ability.isSpell()||!ability.getHostCard().isInZone(ZoneType.Stack)||!player.getManaPool().isEmpty()||!part.toString().equals(row.get("component").getAsString())||part.getAmountOfX()!=0||ability.getXManaCostPaid()!=null||ability.getMaxWaterbend()!=null||ability.usesTargeting()||!ability.getMapParams().isEmpty()||!ability.getPayingMana().isEmpty()||ability.getPayCosts()==null||!ability.getPayCosts().isOnlyManaCost()||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Unsupported tap-mana payment context");
+     if(ability.getHostCard().isCommander()&&(!row.has("commander")||!row.get("commander").getAsBoolean()||player.getCommanderCast(ability.getHostCard())!=integer(row.get("prior_commander_casts"))||integer(row.get("commander_tax"))!=2L*player.getCommanderCast(ability.getHostCard())||ability.getMayPlay()==null||!ability.getMayPlay().getHostCard().getName().equals("Commander Effect")))throw new IllegalStateException("Commander payment provenance diverged");
      ManaCostBeingPaid adjusted=new ManaCostBeingPaid(part.getManaCostFor(ability));CostAdjustment.adjust(adjusted,ability,player,null,false,false);
-     ManaCostBeingPaid preview=new ManaCostBeingPaid(adjusted);Map<Integer,SpellAbility> sources=new LinkedHashMap<>();Map<Integer,Integer> remaining=new LinkedHashMap<>();
+     if(row.has("adjusted_cost")&&!row.get("adjusted_cost").isJsonNull()){JsonObject cost=row.getAsJsonObject("adjusted_cost");JsonArray shards=new JsonArray();adjusted.getUnpaidShards().forEach(s->shards.add(s.toString()));if(!adjusted.toString().equals(cost.get("cost").getAsString())||adjusted.getGenericManaAmount()!=integer(cost.get("generic"))||!shards.equals(cost.get("unpaid_shards")))throw new IllegalStateException("Adjusted cost/tax differs from recorded payment choices");}
+     ManaCostBeingPaid preview=new ManaCostBeingPaid(adjusted);Map<Integer,SpellAbility> sources=new LinkedHashMap<>();Map<Integer,Integer> remaining=new LinkedHashMap<>();Map<Integer,String> productionColors=new LinkedHashMap<>();
      for(JsonElement item:row.getAsJsonArray("operations")){
       JsonObject step=item.getAsJsonObject();String operation=step.get("op").getAsString();
       if(operation.equals("activate_basic")){
        int id=Math.toIntExact(integer(step.get("card_id")));Card card=null;for(Card candidate:player.getCardsIn(ZoneType.Battlefield))if(candidate.getId()==id)card=candidate;
-       if(card==null||!(card.getType().isBasicLand()||card.getName().equals("Sol Ring"))||card.isCreature()||card.isTapped()||card.isPhasedOut()||card.getController()!=player||!card.getName().equals(step.get("card_name").getAsString())||sources.containsKey(id))throw new IllegalStateException("Unavailable basic mana source");
+       if(card==null||!(card.getType().isBasicLand()||Set.of("Sol Ring","Command Tower","Brushland").contains(card.getName()))||card.isCreature()||card.isTapped()||card.isPhasedOut()||card.getController()!=player||!card.getName().equals(step.get("card_name").getAsString())||sources.containsKey(id))throw new IllegalStateException("Unavailable basic mana source");
        SpellAbility chosen=null;for(SpellAbility candidate:card.getManaAbilities()){JsonObject params=new JsonObject();candidate.getMapParams().forEach(params::addProperty);if(params.equals(step.get("parameters"))){if(chosen!=null)throw new IllegalStateException("Ambiguous basic mana ability");chosen=candidate;}}
-       if(chosen==null||!chosen.isManaAbility()||chosen.getSubAbility()!=null||chosen.getPayCosts()==null||chosen.getPayCosts().getCostParts().size()!=1||!(chosen.getPayCosts().getCostParts().get(0) instanceof CostTap)||!Set.of("W","U","B","R","G","C").contains(chosen.getParam("Produced")))throw new IllegalStateException("Unsupported basic mana activation");
+       if(chosen==null||!chosen.isManaAbility()||chosen.getPayCosts()==null||chosen.getPayCosts().getCostParts().size()!=1||!(chosen.getPayCosts().getCostParts().get(0) instanceof CostTap))throw new IllegalStateException("Unsupported basic mana activation");
+       if(chosen.getSubAbility()!=null){SpellAbility sub=chosen.getSubAbility();if(!card.getName().equals("Brushland")||!String.valueOf(sub.getApi()).equals("DealDamage")||sub.getSubAbility()!=null||sub.usesTargeting()||!sub.getMapParams().equals(Map.of("DB","DealDamage","NumDmg","1","Defined","You")))throw new IllegalStateException("Unsupported mana subability");}
+       if(!Set.of("W","U","B","R","G","C").contains(produced(chosen,step)))throw new IllegalStateException("Unsupported production color");
+       chosen.setActivatingPlayer(player);if(step.has("color_choice")){String spec=chosen.getParam("Produced");if(!(card.getName().equals("Command Tower")&&spec.equals("Combo ColorIdentity")||card.getName().equals("Brushland")&&spec.equals("Combo G W"))||!chosen.getManaPart().canProduce(produced(chosen,step),chosen))throw new IllegalStateException("Illegal selected production color");}
        String amount=chosen.getParamOrDefault("Amount","1");if(!Set.of("1","2").contains(amount))throw new IllegalStateException("Unsupported mana production amount");
-       chosen.setActivatingPlayer(player);if(!chosen.canPlay()||!chosen.getPayCosts().canPay(chosen,player,false))throw new IllegalStateException("Illegal basic mana activation");sources.put(id,chosen);remaining.put(id,Integer.parseInt(amount));
+       chosen.setActivatingPlayer(player);if(!chosen.canPlay()||!chosen.getPayCosts().canPay(chosen,player,false))throw new IllegalStateException("Illegal basic mana activation");sources.put(id,chosen);remaining.put(id,Integer.parseInt(amount));productionColors.put(id,produced(chosen,step));
       }else if(operation.equals("spend")){
        JsonObject mana=step.getAsJsonObject("mana");int id=Math.toIntExact(integer(mana.get("source_card_id")));SpellAbility source=sources.get(id);
-       if(source==null||remaining.getOrDefault(id,0)<=0||mana.get("snow").getAsBoolean()||mana.get("restricted").getAsBoolean()||!source.getParam("Produced").equals(mana.get("color").getAsString()))throw new IllegalStateException("Illegal selected basic mana unit");
+       if(source==null||remaining.getOrDefault(id,0)<=0||mana.get("snow").getAsBoolean()||mana.get("restricted").getAsBoolean()||!Objects.equals(productionColors.get(id),mana.get("color").getAsString()))throw new IllegalStateException("Illegal selected basic mana unit");
        Mana predicted=new Mana(MagicColor.fromName(mana.get("color").getAsString()),source.getHostCard(),source.getManaPart(),player);
        boolean expected=!step.has("expected_success")||step.get("expected_success").getAsBoolean();if(preview.isNeeded(predicted,player.getManaPool())!=expected)throw new IllegalStateException("Recorded mana attempt legality diverged");if(expected){if(!preview.payMana(predicted,player.getManaPool()))throw new IllegalStateException("Selected mana cannot pay adjusted cost");remaining.put(id,remaining.get(id)-1);}
       }else throw new IllegalStateException("Unsupported payment operation");
@@ -132,13 +145,14 @@ public final class DecisionReplay {
       if(step.get("op").getAsString().equals("activate_basic")){
        SpellAbility source=sources.get(Math.toIntExact(integer(step.get("card_id"))));CostTap tap=source.getPayCosts().getCostPartByType(CostTap.class);
        if(!tap.canPay(source,player,false)||!tap.payAsDecided(player,PaymentDecision.number(0),source,false))throw new IllegalStateException("Basic mana tap payment failed");
-       game.getStack().add(source);ability.getPayingManaAbilities().add(source);
+       if(step.has("color_choice")){activeManaColor=step.getAsJsonObject("color_choice");activeManaAbility=source;source.getManaPart().setExpressChoice(activeManaColor.get("selected_color").getAsString());}
+       try{game.getStack().add(source);if(activeManaColor!=null)throw new IllegalStateException("Recorded mana color choice not requested");}finally{activeManaColor=null;activeManaAbility=null;source.getManaPart().clearExpressChoice();}ability.getPayingManaAbilities().add(source);
       }else{
        JsonObject expected=step.getAsJsonObject("mana");Mana selected=null;for(Mana mana:player.getManaPool())if(mana.getSourceCard().getId()==integer(expected.get("source_card_id"))&&MagicColor.toShortString(mana.getColor()).equals(expected.get("color").getAsString())&&!mana.isSnow()&&!mana.isRestricted()){selected=mana;break;}
        if(selected==null)throw new IllegalStateException("Actual selected mana is unavailable");boolean expectedSuccess=!step.has("expected_success")||step.get("expected_success").getAsBoolean();boolean actualSuccess=player.getManaPool().tryPayCostWithMana(ability,adjusted,selected,false);if(actualSuccess!=expectedSuccess)throw new IllegalStateException("Actual selected mana payment result diverged");if(actualSuccess)ability.getPayingMana().add(selected);
       }
      }
-     Map<Integer,Integer> observed=new LinkedHashMap<>();for(Mana mana:player.getManaPool()){int id=mana.getSourceCard().getId();if(!sources.containsKey(id)||mana.isSnow()||mana.isRestricted()||!MagicColor.toShortString(mana.getColor()).equals(sources.get(id).getParam("Produced")))throw new IllegalStateException("Unexpected remaining mana");observed.merge(id,1,Integer::sum);}
+     Map<Integer,Integer> observed=new LinkedHashMap<>();for(Mana mana:player.getManaPool()){int id=mana.getSourceCard().getId();if(!sources.containsKey(id)||mana.isSnow()||mana.isRestricted()||!Objects.equals(productionColors.get(id),MagicColor.toShortString(mana.getColor())))throw new IllegalStateException("Unexpected remaining mana");observed.merge(id,1,Integer::sum);}
      remaining.entrySet().removeIf(entry->entry.getValue()==0);if(!adjusted.isPaid()||!remaining.equals(observed))throw new IllegalStateException("Actual payment or remaining pool diverged");
      EngineEvidence.leave(token,true);consumed++;return true;
     }
@@ -183,6 +197,7 @@ public final class DecisionReplay {
       if(permission==null)throw new IllegalStateException("Missing live commander cast permission");selected=selected.copy();selected.setMayPlay(permission);
      }
      selected.setActivatingPlayer(player);if(!selected.canPlay())throw new IllegalStateException("Illegal permanent spell restrictions");
+     if(commander&&row.has("original_ability_id")){String original=card.getId()+":"+integer(row.get("original_ability_id"));String previous=selectedAbilityBindings.putIfAbsent(original,source(selected));if(previous!=null&&!previous.equals(source(selected)))throw new IllegalStateException("Recorded commander ability binding reused ambiguously");}
      // Only select the actual live spell. Normal casting and payment must still
      // execute; this return does not move the card or grant a legal cast result.
      return complete(hook,receiver,args,Collections.singletonList(selected));

@@ -23,7 +23,7 @@ def extract(source, source_sha256, decisions, output):
             'replacement_choice', 'counter_choice', 'color_choice', 'zero_effect_mana', 'command_permanent_spell'}
     prefix = []
     for row in rows:
-        reviewed_selector_only = row.get('decision_type') in ('basic_land_mana', 'fixed_tap_mana') and row.get('random_scope') == 'ComputerUtilMana selector only; actual effect scopes excluded'
+        reviewed_selector_only = row.get('decision_type') in ('basic_land_mana', 'fixed_tap_mana', 'selected_tap_mana') and row.get('random_scope') == 'ComputerUtilMana selector only; actual effect scopes excluded'
         if row['kind'] != 'decision' or (row.get('decision_type') not in pure and not reviewed_selector_only):
             break
         prefix.append(row)
