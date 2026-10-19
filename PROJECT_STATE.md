@@ -5,6 +5,31 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Encountered priority-pass replay
+
+Driver-contract coverage is1534/1985 recorded decisions: empty-mana-pool priority
+passes now use recorded choices, not recomputed AI decisions. The driver checks
+the live actor, turn, phase and priority holder; wrong context and wrong holder
+reject with reproducible private diagnostics and cannot complete. An actual
+four-player controller fixture passes even with a spell available, leaving
+resources/stack unchanged. Two actual invalid-context controls reject. This is
+row-level supported coverage, not1985 decisions executed in a continuous replay.
+Original-game replayed decisions remain0; whole-game approvals0.
+
+Of1634 priority roots,1543 pass and91 select actions. Nine passes retain mana
+and remain unsupported until public mana-announcement provenance is implemented.
+All1985 roots retain mechanic, transition, rules obligations and support status.
+The independent priority consistency check trusts the recorded priority holder;
+deriving global priority, stack readiness, pending state-based actions and
+triggers remains unresolved. It cannot confer full rules approval.
+
+Next continue with the encountered142 payment roots and91 selected priority
+actions, including ability identity/clone/land binding, targets, modes, X and
+non-return mutations; starting-player/mulligan, triggers, combat, replacement
+and effect choices also remain. Do not replace these actions with recorded
+outcomes, drop unsupported rows, or train from this evidence. Policies/models,
+decks, historical archives and reserved seeds are unchanged.
+
 ## Complete-capture decision coverage
 
 The new streaming extractor retains every non-speculative root controller

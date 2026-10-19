@@ -15,6 +15,10 @@ CONTROLLERS = ('forge/ai/PlayerControllerAi.', 'forge/ai/bridge/PlayerController
                'forge/game/player/PlayerController.')
 NUMBER = '.chooseNumber(Lforge/game/spellability/SpellAbility;Ljava/lang/String;II)I'
 CARDS = '.chooseCardsForEffect(Lforge/game/card/CardCollectionView;Lforge/game/spellability/SpellAbility;Ljava/lang/String;IIZLjava/util/Map;)Lforge/game/card/CardCollectionView;'
+PRIORITY = '.chooseSpellAbilityToPlay()Ljava/util/List;'
+PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_ATTACKERS',
+                   'COMBAT_DECLARE_BLOCKERS', 'COMBAT_FIRST_STRIKE_DAMAGE', 'COMBAT_DAMAGE',
+                   'COMBAT_END', 'MAIN2', 'END_OF_TURN'}
 
 
 def choice(hook):
@@ -26,6 +30,21 @@ def encode(entry, returned, index, call_line, return_line):
     row = {'kind': 'unsupported_decision', 'index': index, 'hook': hook,
            'actor_id': entry['receiver'].get('player_id'), 'source_call_id': entry['call_id'],
            'source_call_record': call_line, 'source_return_record': return_line}
+    if hook.endswith(PRIORITY):
+        if args != [] or returned.get('arguments_after') != []:
+            row['reason'] = 'priority_argument_mutation'
+        elif returned['result'] is not None and returned['result'] != []:
+            row['reason'] = 'selected_ability_requires_choices_and_mutations'
+        elif entry.get('priority_player_id') != row['actor_id'] or entry['receiver'].get('lost') is not False or entry.get('phase') not in PRIORITY_PHASES:
+            row['reason'] = 'priority_entitlement_or_phase_unverified'
+        elif entry.get('mana_context', {}).get('pool') != []:
+            row['reason'] = 'nonempty_pool_requires_public_mana_announcement'
+        else:
+            row.update(kind='decision', decision_type='priority_pass',
+                       pass_return='null' if returned['result'] is None else 'empty_list',
+                       empty_mana_pool=True,
+                       context={key: entry[key] for key in ('turn', 'phase', 'priority_player_id', 'turn_player_id')})
+        return row
     if not (hook.endswith(NUMBER) or hook.endswith(CARDS)):
         row['reason'] = 'unsupported_hook'
         return row
