@@ -85,6 +85,11 @@ public final class DecisionReplay {
   if(expected==null||integer(expected.get("turn"))!=phase.getTurn()||!expected.get("phase").getAsString().equals(String.valueOf(phase.getPhase()))||integer(expected.get("priority_player_id"))!=player.getId()||phase.getPlayerTurn()==null||integer(expected.get("turn_player_id"))!=phase.getPlayerTurn().getId())throw new IllegalStateException("Priority replay context diverged");
   if(!Set.of("UPKEEP","DRAW","MAIN1","COMBAT_BEGIN","COMBAT_DECLARE_ATTACKERS","COMBAT_DECLARE_BLOCKERS","COMBAT_FIRST_STRIKE_DAMAGE","COMBAT_DAMAGE","COMBAT_END","MAIN2","END_OF_TURN").contains(String.valueOf(phase.getPhase())))throw new IllegalStateException("Unsupported priority step");
  }
+ private static boolean supportedSpellParameters(SpellAbility ability,JsonObject row){
+  if(ability.getMapParams().isEmpty())return !row.has("ability_parameters");
+  if(!ability.getHostCard().getName().equals("Rampant Growth")||!String.valueOf(ability.getApi()).equals("ChangeZone")||!row.has("ability_parameters"))return false;
+  JsonObject actual=new JsonObject();ability.getMapParams().forEach(actual::addProperty);return actual.equals(row.get("ability_parameters"))&&ability.getMapParams().equals(Map.of("Origin","Library","ChangeTypeDesc","basic land","Destination","Battlefield","ChangeType","Land.Basic","SpellDescription","Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.","ChangeNum","1","SP","ChangeZone","Tapped","True","StackDescription","Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle."));
+ }
  private static JsonArray poolInventory(Player player){JsonArray result=new JsonArray();for(Mana mana:player.getManaPool()){JsonObject unit=new JsonObject();unit.addProperty("color",MagicColor.toShortString(mana.getColor()));unit.addProperty("source_card_id",mana.getSourceCard().getId());unit.addProperty("snow",mana.isSnow());unit.addProperty("restricted",mana.isRestricted());result.add(unit);}return result;}
  private static void priorityContext(JsonObject row,PlayerController controller){turnContext(row,controller);Player player=controller.getPlayer();if(!row.has("empty_mana_pool")||!row.get("empty_mana_pool").getAsJsonPrimitive().isBoolean())throw new IllegalStateException("Missing mana pool expectation");if(row.get("empty_mana_pool").getAsBoolean()){if(!player.getManaPool().isEmpty())throw new IllegalStateException("Unexpected floating mana");}else if(!poolInventory(player).equals(row.get("expected_pool")))throw new IllegalStateException("Priority floating mana inventory diverged");}
  private static JsonObject traitIdentity(ReplacementEffect effect){
@@ -168,7 +173,7 @@ public final class DecisionReplay {
     if(Set.of("basic_land_mana","fixed_tap_mana","selected_tap_mana").contains(row.get("decision_type").getAsString())){
      SpellAbility ability=(SpellAbility)args[1];Player player=controller.getPlayer();var game=player.getGame();CostPartMana part=(CostPartMana)args[0];bindAbility(row,ability);
      if(!part.toString().equals(row.get("component").getAsString()))throw new IllegalStateException("Mana component diverged: actual "+part+" expected "+row.get("component"));
-     if(args[2]!=null||args[3]!=null||!Boolean.FALSE.equals(args[4])||player.hasLost()||ability.getActivatingPlayer()!=player||!ability.isSpell()||!ability.getHostCard().isInZone(ZoneType.Stack)||!player.getManaPool().isEmpty()||!part.toString().equals(row.get("component").getAsString())||part.getAmountOfX()!=0||ability.getXManaCostPaid()!=null||ability.getMaxWaterbend()!=null||ability.usesTargeting()||!ability.getMapParams().isEmpty()||!ability.getPayingMana().isEmpty()||ability.getPayCosts()==null||!ability.getPayCosts().isOnlyManaCost()||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Unsupported tap-mana payment context");
+     if(args[2]!=null||args[3]!=null||!Boolean.FALSE.equals(args[4])||player.hasLost()||ability.getActivatingPlayer()!=player||!ability.isSpell()||!ability.getHostCard().isInZone(ZoneType.Stack)||!player.getManaPool().isEmpty()||!part.toString().equals(row.get("component").getAsString())||part.getAmountOfX()!=0||ability.getXManaCostPaid()!=null||ability.getMaxWaterbend()!=null||ability.usesTargeting()||!supportedSpellParameters(ability,row)||!ability.getPayingMana().isEmpty()||ability.getPayCosts()==null||!ability.getPayCosts().isOnlyManaCost()||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Unsupported tap-mana payment context");
      if(ability.getHostCard().isCommander()&&(!row.has("commander")||!row.get("commander").getAsBoolean()||player.getCommanderCast(ability.getHostCard())!=integer(row.get("prior_commander_casts"))||integer(row.get("commander_tax"))!=2L*player.getCommanderCast(ability.getHostCard())||ability.getMayPlay()==null||!ability.getMayPlay().getHostCard().getName().equals("Commander Effect")))throw new IllegalStateException("Commander payment provenance diverged");
      ManaCostBeingPaid adjusted=new ManaCostBeingPaid(part.getManaCostFor(ability));CostAdjustment.adjust(adjusted,ability,player,null,false,false);
      if(row.has("adjusted_cost")&&!row.get("adjusted_cost").isJsonNull()){JsonObject cost=row.getAsJsonObject("adjusted_cost");JsonArray shards=new JsonArray();adjusted.getUnpaidShards().forEach(s->shards.add(s.toString()));if(!adjusted.toString().equals(cost.get("cost").getAsString())||adjusted.getGenericManaAmount()!=integer(cost.get("generic"))||!shards.equals(cost.get("unpaid_shards")))throw new IllegalStateException("Adjusted cost/tax differs from recorded payment choices");}
@@ -233,7 +238,7 @@ public final class DecisionReplay {
     boolean keep=row.get("keep").getAsBoolean();if(!keep&&(!player.canMulligan()||player.getCardsIn(ZoneType.Hand).isEmpty()))throw new IllegalStateException("Illegal mulligan of empty/ineligible hand");return complete(hook,receiver,args,keep);
    }
    if(priority){
-    if(args.length==0&&Set.of("plain_hand_permanent_spell","command_permanent_spell").contains(row.get("decision_type").getAsString())){
+    if(args.length==0&&Set.of("plain_hand_permanent_spell","command_permanent_spell","rampant_growth_spell").contains(row.get("decision_type").getAsString())){
      turnContext(row,controller);Player player=controller.getPlayer();var game=player.getGame();
      if(game.getPhaseHandler().getPlayerTurn()!=player||!game.getStack().isEmpty()||!Set.of("MAIN1","MAIN2").contains(String.valueOf(game.getPhaseHandler().getPhase())))throw new IllegalStateException("Unsupported permanent spell timing");
      boolean commander=row.get("decision_type").getAsString().equals("command_permanent_spell");Card card=null;for(Card candidate:player.getCardsIn(commander?ZoneType.Command:ZoneType.Hand))if(candidate.getId()==integer(row.get("source_card_id")))card=candidate;
@@ -241,7 +246,7 @@ public final class DecisionReplay {
      if(commander&&(!card.isCommander()||!player.getCommanders().contains(card)||player.getCommanderCast(card)!=integer(row.get("prior_commander_casts"))||integer(row.get("commander_tax"))!=2L*player.getCommanderCast(card)))throw new IllegalStateException("Commander designation or cast count diverged");
      SpellAbility selected=null;
      for(SpellAbility candidate:card.getSpellAbilities()){
-      if(!candidate.isSpell()||!String.valueOf(candidate.getApi()).equals(row.get("selected_api").getAsString())||!candidate.getMapParams().isEmpty())continue;
+      if(!candidate.isSpell()||!String.valueOf(candidate.getApi()).equals(row.get("selected_api").getAsString())||!supportedSpellParameters(candidate,row))continue;
       if(selected!=null)throw new IllegalStateException("Ambiguous permanent spell identity");selected=candidate;
      }
      if(selected==null||selected.getSubAbility()!=null||selected.usesTargeting()||selected.getPayCosts()==null||!selected.getPayCosts().isOnlyManaCost()||!selected.getPayCosts().getTotalMana().equals(card.getManaCost()))throw new IllegalStateException("Unsupported permanent spell choices or costs");
@@ -251,7 +256,7 @@ public final class DecisionReplay {
       if(permission==null)throw new IllegalStateException("Missing live commander cast permission");selected=selected.copy();selected.setMayPlay(permission);
      }
      selected.setActivatingPlayer(player);if(!selected.canPlay())throw new IllegalStateException("Illegal permanent spell restrictions");
-     if(commander&&row.has("original_ability_id")){String original=card.getId()+":"+integer(row.get("original_ability_id"));String previous=selectedAbilityBindings.putIfAbsent(original,source(selected));if(previous!=null&&!previous.equals(source(selected)))throw new IllegalStateException("Recorded commander ability binding reused ambiguously");}
+     if((commander||row.get("decision_type").getAsString().equals("rampant_growth_spell"))&&row.has("original_ability_id")){String original=card.getId()+":"+integer(row.get("original_ability_id"));String previous=selectedAbilityBindings.putIfAbsent(original,source(selected));if(previous!=null&&!previous.equals(source(selected)))throw new IllegalStateException("Recorded commander ability binding reused ambiguously");}
      // Only select the actual live spell. Normal casting and payment must still
      // execute; this return does not move the card or grant a legal cast result.
      return complete(hook,receiver,args,Collections.singletonList(selected));

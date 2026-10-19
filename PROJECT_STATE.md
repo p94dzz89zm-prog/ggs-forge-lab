@@ -5,6 +5,29 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Targetless Rampant Growth casting and actual payment
+
+Conditional coverage1771/1985; original consecutive prefix303,774 engine RNG
+requests and146 canonical gameplay lines agree. The exact targetless Rampant
+Growth definition is supported for live hand-spell selection and actual mana
+payment, with source/parameters, timing, restrictions, alternative/additional
+cost and X exclusions. Actual engine casting creates the stack object; its
+library effect is not copied or assumed resolved. Original299 pays Command
+Tower green and Plains white for1G. Four targeted actual four-player controls
+pass: valid selection, missing source, altered definition, and real1G payment
+from Island/Forest. Affected encoder test passes. The original prefix verifies
+unchanged earlier casting/payment paths as well.
+
+Independent pool/shard checker validates2 fixture and8 original-prefix paid
+mana units and nested green choice. Initial checker expectation7 omitted the
+Phoenix cast's earlier unit; corrected to8 with all arithmetic guards intact.
+No whole-game rules certificate. Next303 is Swan Song selected in response to
+Rampant Growth; historical public stack announcement identifies its target,
+while legacy targets[] omits it. Need live stack-target reconstruction, actual
+blue payment, counter resolution, Bird creation and independent legality.
+214 original roots still lack contracts; approved games0, training0, eligible
+pilot comparisons0. Historical archives remain unchanged.
+
 ## First actual combat reconstructed
 
 Conditional driver contracts1769/1985; consecutive original replay298/1985.

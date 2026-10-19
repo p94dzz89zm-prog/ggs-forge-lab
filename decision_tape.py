@@ -32,6 +32,13 @@ PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_AT
                    'COMBAT_END', 'MAIN2', 'END_OF_TURN'}
 
 
+RAMPANT_PARAMETERS = dict(Origin='Library',ChangeTypeDesc='basic land',Destination='Battlefield',ChangeType='Land.Basic',SpellDescription='Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.',ChangeNum='1',SP='ChangeZone',Tapped='True',StackDescription='Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.')
+
+
+def rampant(ability):
+    return ability.get('api')=='ChangeZone' and ability.get('source',{}).get('name')=='Rampant Growth' and ability.get('parameters')==RAMPANT_PARAMETERS
+
+
 def choice(hook):
     return hook.startswith(CONTROLLERS) and not any('.' + name + '(' in hook for name in ('reveal', 'tempShowCards', 'endTempShowCards'))
 
@@ -123,18 +130,20 @@ def encode(entry, returned, index, call_line, return_line):
             selected = returned['result']
             if isinstance(selected, list) and len(selected) == 1:
                 ability = selected[0]; source = ability.get('source', {})
-                if (ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}
+                if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability))
                     and ability.get('spell') is True and ability.get('activated') is False and ability.get('trigger') is False
                     and ability.get('x') is None and ability.get('targets') == [] and ability.get('paying_mana') == []
                     and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
                     and (source.get('zone') == 'Hand' or (source.get('zone') == 'Command' and source.get('commander') is True and type(ability.get('prior_commander_casts')) is int and ability['prior_commander_casts'] >= 0)) and source.get('owner_id') == row['actor_id']
                     and entry.get('priority_player_id') == row['actor_id'] == entry.get('turn_player_id')
                     and entry.get('phase') in ('MAIN1', 'MAIN2') and 'X' not in source.get('mana_cost', 'X')):
-                    row.update(kind='decision', decision_type='command_permanent_spell' if source['zone'] == 'Command' else 'plain_hand_permanent_spell',
+                    row.update(kind='decision', decision_type='rampant_growth_spell' if rampant(ability) else 'command_permanent_spell' if source['zone'] == 'Command' else 'plain_hand_permanent_spell',
                                source_card_id=source['card_id'], source_name=source['name'],
                                selected_api=ability['api'], mana_cost=source['mana_cost'],
                                original_ability_id=ability['ability_id'],
                                context={key: entry[key] for key in ('turn', 'phase', 'priority_player_id', 'turn_player_id')})
+                    if rampant(ability):
+                        row['ability_parameters']=ability['parameters']
                     if source['zone'] == 'Command':
                         row.update(prior_commander_casts=ability['prior_commander_casts'], commander_tax=2*ability['prior_commander_casts'])
                     return row
@@ -181,7 +190,7 @@ def encode(entry, returned, index, call_line, return_line):
             ids = [step['card_id'] for step in activations]
             capacity = Counter({step['card_id']: {'1': 1, '2': 2}.get(step.get('parameters', {}).get('Amount', '1'), 0) for step in activations})
             spending = Counter(m['source_card_id'] for m in spent)
-            if (ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}
+            if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability))
                 and ability.get('spell') is True and ability.get('x') is None and ability.get('targets') == []
                 and ability.get('paying_mana') == [] and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
                 and (ability['source'].get('commander') is False or (ability['source'].get('commander') is True and type(ability.get('prior_commander_casts')) is int and ability['prior_commander_casts'] >= 0)) and ability['source'].get('zone') == 'Stack'
@@ -196,6 +205,8 @@ def encode(entry, returned, index, call_line, return_line):
                            random_scope='ComputerUtilMana selector only; actual effect scopes excluded',
                            payment_basis='Recorded tap-payment decisions and individual attempted mana-spending arguments; execute actual engine actions')
                 row.pop('reason', None)
+                if rampant(ability):
+                    row['ability_parameters']=ability['parameters']
                 row['commander'] = ability['source'].get('commander')
                 if row['commander']:
                     row.update(prior_commander_casts=ability['prior_commander_casts'], commander_tax=2*ability['prior_commander_casts'])

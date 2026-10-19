@@ -19,7 +19,7 @@ def extract(source, source_sha256, decisions, output):
         raise ValueError('Unbound decision input')
     if terminal['decisions'] != len(rows) or [r['index'] for r in rows] != list(range(len(rows))):
         raise ValueError('Decision count/order mismatch')
-    pure = {'starting_player', 'mulligan_keep', 'priority_pass', 'play_land', 'plain_hand_permanent_spell',
+    pure = {'starting_player', 'mulligan_keep', 'priority_pass', 'play_land', 'plain_hand_permanent_spell', 'rampant_growth_spell',
             'replacement_choice', 'counter_choice', 'color_choice', 'zero_effect_mana', 'command_permanent_spell', 'single_player_effect', 'confirm_action', 'empty_partner_search'}
     prefix = []
     for row in rows:
