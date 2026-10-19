@@ -195,6 +195,9 @@ public final class EngineEvidence {
   if(v instanceof Number n)return new JsonPrimitive(n);
   if(v instanceof Boolean b)return new JsonPrimitive(b);
   if(v instanceof String||v instanceof Enum<?>)return new JsonPrimitive(v.toString());
+  // A player view is a finite identity leaf. Preserve it even when the enclosing
+  // blocker multimap reaches the recursion limit; do not expand player graphs.
+  if(v instanceof PlayerView p){JsonObject o=new JsonObject();o.addProperty("view_id",p.getId());o.addProperty("name",p.getName());return o;}
   if(depth>7){JsonObject o=new JsonObject();o.addProperty("unencoded",v.getClass().getName());o.addProperty("reason","depth");return o;}
   if(v instanceof Card c)return card(c);
   if(v instanceof Player p){JsonObject o=new JsonObject();o.addProperty("player_id",p.getId());o.addProperty("life",p.getLife());o.addProperty("lost",p.hasLost());return o;}

@@ -1,4 +1,4 @@
-"""Replace only the durable writer in the hash-pinned typed evidence engine."""
+"""Overlay one evidence component on its exact verified executable; no policy change."""
 import argparse
 import hashlib
 import json
@@ -24,22 +24,26 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--component', choices=('writer', 'recorder'), default='writer')
     args = parser.parse_args()
-    if digest(args.base) != BASE:
+    expected = BASE if args.component == 'writer' else '0d1ee30d3bba14e9ff71a9d1363abf5528b474df027e1c593b7c36ea10083e05'
+    if digest(args.base) != expected:
         raise ValueError('Exact verified typed-recorder executable required')
     if args.output.exists():
         raise FileExistsError(args.output)
     if Path('/workspace') in args.output.resolve().parents:
         raise ValueError('Active build output must be outside synchronized workspace')
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    source = ROOT / 'pilot-src/forge/ai/bridge/DurableEvidence.java'
+    component = 'DurableEvidence' if args.component == 'writer' else 'EngineEvidence'
+    source = ROOT / ('pilot-src/forge/ai/bridge/' + component + '.java')
     with tempfile.TemporaryDirectory(dir=args.output.parent) as temporary:
         root = Path(temporary)
         subprocess.run(['java', '-XX:-UsePerfData', '-m', 'jdk.compiler/com.sun.tools.javac.Main',
                         '-cp', str(args.base.resolve()), '-d', str(root), str(source)], check=True)
         classes = {p.relative_to(root).as_posix(): p.read_bytes() for p in root.rglob('*.class')}
-        if set(classes) != {'forge/ai/bridge/DurableEvidence.class',
-                            'forge/ai/bridge/DurableEvidence$Stream.class'}:
+        nested = 'Stream' if args.component == 'writer' else 'Call'
+        if set(classes) != {'forge/ai/bridge/' + component + '.class',
+                            'forge/ai/bridge/' + component + '$' + nested + '.class'}:
             raise ValueError('Unexpected writer overlay classes')
         staged = root / 'streaming-finalizer.jar'
         with zipfile.ZipFile(args.base) as old, zipfile.ZipFile(staged, 'w', zipfile.ZIP_DEFLATED) as new:
@@ -59,7 +63,7 @@ def main():
             os.fsync(directory)
         finally:
             os.close(directory)
-    manifest = {'base_sha256': BASE, 'sha256': digest(args.output), 'classes': sorted(classes),
+    manifest = {'base_sha256': expected, 'component': args.component, 'sha256': digest(args.output), 'classes': sorted(classes),
                 'source_sha256': digest(source), 'builder_sha256': digest(Path(__file__)),
                 'other_entries_byte_identical': True, 'policy_changed': False, 'promotion': False}
     args.output.with_suffix('.build.json').write_text(json.dumps(manifest, indent=2) + '\n')

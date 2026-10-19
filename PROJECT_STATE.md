@@ -7,6 +7,27 @@ checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
 ## Typed provenance and independent mana checks
 
+One new typed four-player development capture now completed with149802 referee
+records and its615764572-byte stream sealed by the repaired writer. Original
+bytes were saved externally, restored and verified. Scoped independent checks
+find stable ownership across417 card identities, no unpaid shards after348
+successful actual mana-payment calls and a consistent52-event life chain.
+Substantive critical-sequence review reconciles commander-tax increments,
+ninjutsu/GGS trigger timing and the final post-blocking menace/trample/lifelink
+sequence against official rules. These findings are not whole-game approval.
+Same-policy verification matches all149802 events and the canonical gameplay
+digest. The157 spent mana units pass independent pool/color/shard checks; five
+failed payment attempts are retained, not counted as spent units. Decision-driven
+replay and complete action-by-action legality review remain outstanding. Learning0.
+
+The actual capture exposed depth-truncated player-view leaves in nested blocker
+notifications. Direct combat state retains those card identities. A finite
+player-identity leaf now bypasses only the recursion cutoff, without traversing
+the player graph. An actual old/new nested-blocker event regression reproduces
+the old omission and verifies preserved owner/controller IDs after repair.
+Only the two recorder classes change in the pinned writer-corrected executable;
+all other entries remain byte-identical. Original captures are not backfilled.
+
 The first repaired-writer typed diagnostic reached turn37 but hit its explicit
 180-second engine limit. Its interrupted streams and writer receipt were sealed
 as rejected diagnostic evidence, externally saved and restored. It is not a
