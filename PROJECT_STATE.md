@@ -5,6 +5,26 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Plain hand-permanent spell selection
+
+Driver-contract coverage is1714/1985, adding20 plain fixed-cost hand permanent
+spell selections. The driver binds the actual live card and its unique spell
+ability using source/API/parameters/cost, verifies timing and engine restrictions,
+and returns that object without copying a stack or battlefield outcome. X,
+alternate costs, modes, targeting, subabilities and command-zone casts remain
+unsupported by this family. Three actual four-player selection/invalid-source
+controls pass. Targeted encoding/projection tests pass; an observed file-handle
+warning was repaired and the projection check rerun specifically for closure.
+
+The original game now consumes67 decisions and684 engine random requests,
+including selection of its actual Sol Ring object/ability. Initial recorded
+state fields and35 canonical gameplay lines agree. It stops at payment decision67
+with an explicit diagnostic, engine_error result and retained partial stream.
+The next boundary is actual resource-changing payment, not spell resolution.
+Fully approved games0, training0; no new natural game or pilot improvement.
+CR601.2a–h distinguishes spell proposal, cost determination and payment; this
+selection support does not certify that the spell has been legally cast.
+
 ## Original-game decision-driven opening replay
 
 The original four-player Commander game now executes66 recorded decisions

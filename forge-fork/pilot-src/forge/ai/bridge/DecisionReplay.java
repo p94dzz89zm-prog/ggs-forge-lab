@@ -124,6 +124,22 @@ public final class DecisionReplay {
     boolean keep=row.get("keep").getAsBoolean();if(!keep&&(!player.canMulligan()||player.getCardsIn(ZoneType.Hand).isEmpty()))throw new IllegalStateException("Illegal mulligan of empty/ineligible hand");return complete(hook,receiver,args,keep);
    }
    if(priority){
+    if(args.length==0&&"plain_hand_permanent_spell".equals(row.get("decision_type").getAsString())){
+     turnContext(row,controller);Player player=controller.getPlayer();var game=player.getGame();
+     if(game.getPhaseHandler().getPlayerTurn()!=player||!game.getStack().isEmpty()||!Set.of("MAIN1","MAIN2").contains(String.valueOf(game.getPhaseHandler().getPhase())))throw new IllegalStateException("Unsupported permanent spell timing");
+     Card card=null;for(Card candidate:player.getCardsIn(ZoneType.Hand))if(candidate.getId()==integer(row.get("source_card_id")))card=candidate;
+     if(card==null||card.getOwner()!=player||!card.getName().equals(row.get("source_name").getAsString())||!card.getManaCost().toString().equals(row.get("mana_cost").getAsString())||card.getManaCost().countX()!=0||card.isFaceDown())throw new IllegalStateException("Illegal recorded spell source");
+     SpellAbility selected=null;
+     for(SpellAbility candidate:card.getSpellAbilities()){
+      if(!candidate.isSpell()||!String.valueOf(candidate.getApi()).equals(row.get("selected_api").getAsString())||!candidate.getMapParams().isEmpty())continue;
+      if(selected!=null)throw new IllegalStateException("Ambiguous permanent spell identity");selected=candidate;
+     }
+     if(selected==null||selected.getSubAbility()!=null||selected.usesTargeting()||selected.getPayCosts()==null||!selected.getPayCosts().isOnlyManaCost()||!selected.getPayCosts().getTotalMana().equals(card.getManaCost()))throw new IllegalStateException("Unsupported permanent spell choices or costs");
+     selected.setActivatingPlayer(player);if(!selected.canPlay())throw new IllegalStateException("Illegal permanent spell restrictions");
+     // Only select the actual live spell. Normal casting and payment must still
+     // execute; this return does not move the card or grant a legal cast result.
+     return complete(hook,receiver,args,Collections.singletonList(selected));
+    }
     if(args.length==0&&"play_land".equals(row.get("decision_type").getAsString())){
      turnContext(row,controller);Player player=controller.getPlayer();var game=player.getGame();String phase=String.valueOf(game.getPhaseHandler().getPhase());
      if(game.getPhaseHandler().getPlayerTurn()!=player||!game.getStack().isEmpty()||!(phase.equals("MAIN1")||phase.equals("MAIN2")))throw new IllegalStateException("Illegal land special-action timing");

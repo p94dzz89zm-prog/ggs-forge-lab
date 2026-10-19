@@ -58,12 +58,13 @@ def classify(decision, entry, returned):
                original_game_decision_executed=False, full_rules_approved=False)
     if name == 'chooseSpellAbilityToPlay':
         land = decision.get('decision_type') == 'play_land'
-        if land:
+        spell = decision.get('decision_type') == 'plain_hand_permanent_spell'
+        if land or spell:
             source = returned['result'][0]['source']
-            issue = None if (source['card_id'] == decision['land_card_id'] and source['zone'] == 'Hand' and source['owner_id'] == entry['receiver']['player_id'] == entry.get('priority_player_id') == entry.get('turn_player_id') and entry.get('phase') in ('MAIN1', 'MAIN2')) else 'recorded_land_context_inconsistent'
+            issue = None if (source['card_id'] == decision['land_card_id' if land else 'source_card_id'] and source['zone'] == 'Hand' and source['owner_id'] == entry['receiver']['player_id'] == entry.get('priority_player_id') == entry.get('turn_player_id') and entry.get('phase') in ('MAIN1', 'MAIN2')) else 'recorded_hand_action_context_inconsistent'
         else:
             issue = local_priority_check(entry, returned)
-        row['independent_local_check'] = issue or ('recorded_land_context_consistent; live type/limit checks required' if land else 'recorded_entitlement_and_empty_pool_consistent')
+        row['independent_local_check'] = issue or ('recorded_hand_action_context_consistent; live legality and payment checks required' if land or spell else 'recorded_entitlement_and_empty_pool_consistent')
         if row['support'] == 'driver_contract' and issue:
             raise ValueError('Driver coverage contradicts local priority check: ' + issue)
     if row['support'] == 'driver_contract' and name in ('chooseSingleReplacementEffect', 'chooseCounterType', 'chooseColors'):

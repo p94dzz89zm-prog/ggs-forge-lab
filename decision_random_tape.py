@@ -12,13 +12,14 @@ import tempfile
 
 
 def extract(source, source_sha256, decisions, output):
-    rows = [json.loads(line) for line in decisions.open()]
+    with decisions.open() as stream:
+        rows = [json.loads(line) for line in stream]
     terminal = rows.pop()
     if terminal.get('kind') != 'decision_tape_complete' or terminal['source_sha256'] != source_sha256:
         raise ValueError('Unbound decision input')
     if terminal['decisions'] != len(rows) or [r['index'] for r in rows] != list(range(len(rows))):
         raise ValueError('Decision count/order mismatch')
-    pure = {'starting_player', 'mulligan_keep', 'priority_pass', 'play_land',
+    pure = {'starting_player', 'mulligan_keep', 'priority_pass', 'play_land', 'plain_hand_permanent_spell',
             'replacement_choice', 'counter_choice', 'color_choice', 'zero_effect_mana'}
     prefix = []
     for row in rows:
@@ -30,29 +31,30 @@ def extract(source, source_sha256, decisions, output):
     boundary = rows[len(prefix)]['source_call_record']
     ranges = {r['source_call_record']: r for r in prefix}
     active = None; kept = []; skipped = 0; checksum = hashlib.sha256(); random_index = 0
-    for n, line in enumerate(source.open('rb'), 1):
-        checksum.update(line)
-        if n >= boundary:
-            continue
-        row = json.loads(line)
-        if n in ranges:
-            if active is not None:
-                raise ValueError('Overlapping root ranges')
-            active = ranges[n]
-        if row['kind'] == 'random_bits':
-            random_index += 1
-            if row['random_index'] != random_index or type(row['bits']) is not int or not 1 <= row['bits'] <= 32:
-                raise ValueError('Random index/width mismatch')
-            value = row['value']; bits = row['bits']
-            if type(value) is not int or not (-(1 << 31) <= value < (1 << 31) if bits == 32 else 0 <= value < (1 << bits)):
-                raise ValueError('Random value out of range')
-            if active is None:
-                kept.append(dict(kind='engine_random_bits', index=len(kept), bits=bits, value=value,
-                                 source_record=n, source_random_index=random_index))
-            else:
-                skipped += 1
-        if active is not None and n == active['source_return_record']:
-            active = None
+    with source.open('rb') as stream:
+        for n, line in enumerate(stream, 1):
+            checksum.update(line)
+            if n >= boundary:
+                continue
+            row = json.loads(line)
+            if n in ranges:
+                if active is not None:
+                    raise ValueError('Overlapping root ranges')
+                active = ranges[n]
+            if row['kind'] == 'random_bits':
+                random_index += 1
+                if row['random_index'] != random_index or type(row['bits']) is not int or not 1 <= row['bits'] <= 32:
+                    raise ValueError('Random index/width mismatch')
+                value = row['value']; bits = row['bits']
+                if type(value) is not int or not (-(1 << 31) <= value < (1 << 31) if bits == 32 else 0 <= value < (1 << bits)):
+                    raise ValueError('Random value out of range')
+                if active is None:
+                    kept.append(dict(kind='engine_random_bits', index=len(kept), bits=bits, value=value,
+                                     source_record=n, source_random_index=random_index))
+                else:
+                    skipped += 1
+            if active is not None and n == active['source_return_record']:
+                active = None
     if active is not None or checksum.hexdigest() != source_sha256:
         raise ValueError('Unclosed prefix or source checksum mismatch')
     kept.append(dict(kind='engine_random_complete', requests=len(kept), prefix_decisions=len(prefix),
