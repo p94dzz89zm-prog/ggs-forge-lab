@@ -5,6 +5,25 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Command-zone selection and original prefix184
+
+Conditional coverage1742/1985 includes ten plain command-zone permanent-spell
+selections. Actual original replay reaches184 consecutive choices and stops
+before payment184, following its successful live Frodo selection. It consumes
+686 engine RNG requests and matches the initial state and canonical transcript.
+The driver checks designation, owner, prior cast count and2-per-cast metadata,
+then binds the live Commander Effect permission with full mana cost. It neither
+copies a zone transition nor grants payment. Official CR903.8 and702.124d
+require commander-specific cast counts, including separate partner counts.
+
+Actual selection, missing-source and wrong-count controls pass. The first
+positive control failed because a raw hand-zone ability lacked the engine's
+live command-zone permission; that failure is retained. The corrected positive
+binds the actual permission and passes; the affected encoding test passes.
+Next payment184 uses Command Tower color choice and Brushland color choice
+plus damage subability. These are unsupported, explicitly rejected; no silent
+approximation. Fully rules-approved0; full independent legality remains pending.
+
 ## Partial mana spending and original prefix183
 
 Driver-contract coverage1732/1985; continuous original replay183 decisions,

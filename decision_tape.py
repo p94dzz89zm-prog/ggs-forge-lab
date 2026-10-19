@@ -52,14 +52,16 @@ def encode(entry, returned, index, call_line, return_line):
                     and ability.get('spell') is True and ability.get('activated') is False and ability.get('trigger') is False
                     and ability.get('x') is None and ability.get('targets') == [] and ability.get('paying_mana') == []
                     and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
-                    and source.get('zone') == 'Hand' and source.get('owner_id') == row['actor_id']
+                    and (source.get('zone') == 'Hand' or (source.get('zone') == 'Command' and source.get('commander') is True and type(ability.get('prior_commander_casts')) is int and ability['prior_commander_casts'] >= 0)) and source.get('owner_id') == row['actor_id']
                     and entry.get('priority_player_id') == row['actor_id'] == entry.get('turn_player_id')
                     and entry.get('phase') in ('MAIN1', 'MAIN2') and 'X' not in source.get('mana_cost', 'X')):
-                    row.update(kind='decision', decision_type='plain_hand_permanent_spell',
+                    row.update(kind='decision', decision_type='command_permanent_spell' if source['zone'] == 'Command' else 'plain_hand_permanent_spell',
                                source_card_id=source['card_id'], source_name=source['name'],
                                selected_api=ability['api'], mana_cost=source['mana_cost'],
                                original_ability_id=ability['ability_id'],
                                context={key: entry[key] for key in ('turn', 'phase', 'priority_player_id', 'turn_player_id')})
+                    if source['zone'] == 'Command':
+                        row.update(prior_commander_casts=ability['prior_commander_casts'], commander_tax=2*ability['prior_commander_casts'])
                     return row
                 if (ability.get('api') == 'null' and ability.get('parameters') == {} and ability.get('pay_costs') == 'no cost'
                     and ability.get('spell') is False and ability.get('activated') is False and ability.get('trigger') is False

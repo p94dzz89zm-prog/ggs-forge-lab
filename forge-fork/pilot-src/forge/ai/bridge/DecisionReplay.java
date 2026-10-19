@@ -165,17 +165,23 @@ public final class DecisionReplay {
     boolean keep=row.get("keep").getAsBoolean();if(!keep&&(!player.canMulligan()||player.getCardsIn(ZoneType.Hand).isEmpty()))throw new IllegalStateException("Illegal mulligan of empty/ineligible hand");return complete(hook,receiver,args,keep);
    }
    if(priority){
-    if(args.length==0&&"plain_hand_permanent_spell".equals(row.get("decision_type").getAsString())){
+    if(args.length==0&&Set.of("plain_hand_permanent_spell","command_permanent_spell").contains(row.get("decision_type").getAsString())){
      turnContext(row,controller);Player player=controller.getPlayer();var game=player.getGame();
      if(game.getPhaseHandler().getPlayerTurn()!=player||!game.getStack().isEmpty()||!Set.of("MAIN1","MAIN2").contains(String.valueOf(game.getPhaseHandler().getPhase())))throw new IllegalStateException("Unsupported permanent spell timing");
-     Card card=null;for(Card candidate:player.getCardsIn(ZoneType.Hand))if(candidate.getId()==integer(row.get("source_card_id")))card=candidate;
+     boolean commander=row.get("decision_type").getAsString().equals("command_permanent_spell");Card card=null;for(Card candidate:player.getCardsIn(commander?ZoneType.Command:ZoneType.Hand))if(candidate.getId()==integer(row.get("source_card_id")))card=candidate;
      if(card==null||card.getOwner()!=player||!card.getName().equals(row.get("source_name").getAsString())||!card.getManaCost().toString().equals(row.get("mana_cost").getAsString())||card.getManaCost().countX()!=0||card.isFaceDown())throw new IllegalStateException("Illegal recorded spell source");
+     if(commander&&(!card.isCommander()||!player.getCommanders().contains(card)||player.getCommanderCast(card)!=integer(row.get("prior_commander_casts"))||integer(row.get("commander_tax"))!=2L*player.getCommanderCast(card)))throw new IllegalStateException("Commander designation or cast count diverged");
      SpellAbility selected=null;
      for(SpellAbility candidate:card.getSpellAbilities()){
       if(!candidate.isSpell()||!String.valueOf(candidate.getApi()).equals(row.get("selected_api").getAsString())||!candidate.getMapParams().isEmpty())continue;
       if(selected!=null)throw new IllegalStateException("Ambiguous permanent spell identity");selected=candidate;
      }
      if(selected==null||selected.getSubAbility()!=null||selected.usesTargeting()||selected.getPayCosts()==null||!selected.getPayCosts().isOnlyManaCost()||!selected.getPayCosts().getTotalMana().equals(card.getManaCost()))throw new IllegalStateException("Unsupported permanent spell choices or costs");
+     if(commander){
+      forge.game.card.CardPlayOption permission=null;
+      for(var option:card.mayPlay(player))if(option.getHost().getName().equals("Commander Effect")&&option.getHost().getController()==player&&option.getHost().isInZone(ZoneType.Command)&&option.getPayManaCost()==forge.game.card.CardPlayOption.PayManaCost.YES&&option.getAltManaCost()==null&&!option.isIgnoreManaCostColor()&&!option.isIgnoreManaCostType()&&!option.isWithFlash()&&"Command".equals(option.getAbility().getParam("AffectedZone"))&&"Card.IsCommander+YouOwn".equals(option.getAbility().getParam("Affected"))){if(permission!=null)throw new IllegalStateException("Ambiguous commander cast permission");permission=option;}
+      if(permission==null)throw new IllegalStateException("Missing live commander cast permission");selected=selected.copy();selected.setMayPlay(permission);
+     }
      selected.setActivatingPlayer(player);if(!selected.canPlay())throw new IllegalStateException("Illegal permanent spell restrictions");
      // Only select the actual live spell. Normal casting and payment must still
      // execute; this return does not move the card or grant a legal cast result.

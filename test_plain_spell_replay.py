@@ -19,6 +19,13 @@ class PlainSpellEncodingTest(unittest.TestCase):
             ability[key] = old
         ability['source']['zone'] = 'Command'
         self.assertEqual(encode(e, r, 0, 1, 2)['kind'], 'unsupported_decision')
+        ability['source']['commander'] = True
+        ability['prior_commander_casts'] = 2
+        row = encode(e, r, 0, 1, 2)
+        self.assertEqual(row['decision_type'], 'command_permanent_spell')
+        self.assertEqual(row['commander_tax'], 4)
+        ability['prior_commander_casts'] = None
+        self.assertEqual(encode(e, r, 0, 1, 2)['kind'], 'unsupported_decision')
 
 
 if __name__ == '__main__':

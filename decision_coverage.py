@@ -58,10 +58,11 @@ def classify(decision, entry, returned):
                original_game_decision_executed=False, full_rules_approved=False)
     if name == 'chooseSpellAbilityToPlay':
         land = decision.get('decision_type') == 'play_land'
-        spell = decision.get('decision_type') == 'plain_hand_permanent_spell'
+        spell = decision.get('decision_type') in ('plain_hand_permanent_spell', 'command_permanent_spell')
         if land or spell:
             source = returned['result'][0]['source']
-            issue = None if (source['card_id'] == decision['land_card_id' if land else 'source_card_id'] and source['zone'] == 'Hand' and source['owner_id'] == entry['receiver']['player_id'] == entry.get('priority_player_id') == entry.get('turn_player_id') and entry.get('phase') in ('MAIN1', 'MAIN2')) else 'recorded_hand_action_context_inconsistent'
+            zone = 'Command' if decision.get('decision_type') == 'command_permanent_spell' else 'Hand'
+            issue = None if (source['card_id'] == decision['land_card_id' if land else 'source_card_id'] and source['zone'] == zone and source['owner_id'] == entry['receiver']['player_id'] == entry.get('priority_player_id') == entry.get('turn_player_id') and entry.get('phase') in ('MAIN1', 'MAIN2')) else 'recorded_spell_or_land_context_inconsistent'
         else:
             issue = local_priority_check(entry, returned)
             if issue == 'mana_announcement_unverified' and decision.get('empty_mana_pool') is False:
