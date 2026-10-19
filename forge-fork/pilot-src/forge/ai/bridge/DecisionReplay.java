@@ -23,8 +23,28 @@ public final class DecisionReplay {
  private static boolean failed;
  private static MessageDigest readDigest;
  private static String boundHash;
+ private static BufferedReader randomInput;
+ private static MessageDigest randomDigest;
+ private static String randomHash;
+ private static long randomConsumed;
  private DecisionReplay(){}
  public static boolean enabled(){return System.getProperty("forge.decision.replayTape")!=null;}
+ public static synchronized int engineRandom(int bits,int generated){
+  String file=System.getProperty("forge.decision.engineRandomTape");if(file==null)return generated;
+  try{
+   if(!enabled()||System.getProperty("forge.referee.replayTape")!=null||failed)throw new IllegalStateException("Incompatible or failed decision RNG replay");
+   if(randomInput==null){
+    randomHash=System.getProperty("forge.decision.engineRandomSha256");MessageDigest check=MessageDigest.getInstance("SHA-256");
+    try(InputStream stream=Files.newInputStream(Path.of(file))){byte[] b=new byte[65536];int n;while((n=stream.read(b))!=-1)check.update(b,0,n);}
+    if(randomHash==null||!HexFormat.of().formatHex(check.digest()).equals(randomHash))throw new IllegalStateException("Engine RNG tape hash mismatch");
+    randomDigest=MessageDigest.getInstance("SHA-256");randomInput=new BufferedReader(new InputStreamReader(new DigestInputStream(Files.newInputStream(Path.of(file)),randomDigest),java.nio.charset.StandardCharsets.UTF_8));
+   }
+   String line=randomInput.readLine();JsonObject row=line==null?null:JsonParser.parseString(line).getAsJsonObject();
+   if(row==null||!"engine_random_bits".equals(row.get("kind").getAsString())||integer(row.get("index"))!=randomConsumed||integer(row.get("bits"))!=bits)throw new IllegalStateException("Engine RNG request diverged at "+randomConsumed);
+   long value=integer(row.get("value"));if(bits<1||bits>32||value<(bits==32?Integer.MIN_VALUE:0)||value>=(bits==32?1L<<31:1L<<bits))throw new IllegalStateException("Engine RNG value out of range");
+   randomConsumed++;return (int)value;
+  }catch(Exception e){failed=true;diagnose("engine_random",null,e);throw new IllegalStateException("Decision engine RNG failed",e);}
+ }
  private static void open()throws Exception {
   if(input!=null)return;
   Path path=Path.of(System.getProperty("forge.decision.replayTape"));
@@ -45,6 +65,7 @@ public final class DecisionReplay {
   try{
    Path root=Path.of(directory);Files.createDirectories(root);JsonObject row=new JsonObject();
    row.addProperty("decision_index",consumed);row.addProperty("hook",hook);row.addProperty("reason",failure.getMessage());
+   row.addProperty("engine_random_requests_consumed",randomConsumed);
    if(receiver instanceof PlayerController controller)row.addProperty("actor_id",controller.getPlayer().getId());
    row.addProperty("rules_approved",false);Files.writeString(root.resolve("decision-failure-"+consumed+".json"),row+"\n",StandardOpenOption.CREATE_NEW);
   }catch(Exception evidenceFailure){failure.addSuppressed(evidenceFailure);}
@@ -166,6 +187,7 @@ public final class DecisionReplay {
    JsonObject row=JsonParser.parseString(line).getAsJsonObject();
    if(!row.get("kind").getAsString().equals("decision_tape_complete")||integer(row.get("decisions"))!=consumed||input.readLine()!=null)throw new IllegalStateException("Unconsumed/incomplete decision tape");
    if(!HexFormat.of().formatHex(readDigest.digest()).equals(boundHash))throw new IllegalStateException("Decision input changed after hash verification");
+   if(randomInput!=null){String last=randomInput.readLine();JsonObject terminal=last==null?null:JsonParser.parseString(last).getAsJsonObject();if(terminal==null||!"engine_random_complete".equals(terminal.get("kind").getAsString())||integer(terminal.get("requests"))!=randomConsumed||randomInput.readLine()!=null||!HexFormat.of().formatHex(randomDigest.digest()).equals(randomHash))throw new IllegalStateException("Incomplete or altered engine RNG input");randomInput.close();randomInput=null;}
   }catch(Exception e){failed=true;throw e;}finally{input.close();input=null;}
  }
 }

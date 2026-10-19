@@ -32,7 +32,7 @@ def main():
         classes.mkdir(); inputs.mkdir(); overlay.mkdir()
         source = ROOT / 'pilot-src/forge/ai/bridge/DecisionReplay.java'
         subprocess.run(['java', '-m', 'jdk.compiler/com.sun.tools.javac.Main', *EXPORTS,
-                        '-cp', str(args.base), '-d', str(classes), str(source),
+                        '-cp', str(args.base), '-d', str(classes), str(source), str(ROOT / 'pilot-src/forge/ai/bridge/EvidenceRandom.java'),
                         str(ROOT / 'EvidenceInstrumenter.java'), str(ROOT / 'DecisionReplayInstrumenter.java')], check=True)
         controllers = ['forge/ai/PlayerControllerAi.class', 'forge/ai/bridge/PlayerControllerBridge.class',
                        'forge/game/player/PlayerController.class']
@@ -44,6 +44,7 @@ def main():
                         'DecisionReplayInstrumenter', str(inputs), str(overlay)], check=True)
         changes = {name: (overlay / name).read_bytes() for name in controllers}
         changes['forge/ai/bridge/DecisionReplay.class'] = (classes / 'forge/ai/bridge/DecisionReplay.class').read_bytes()
+        changes['forge/ai/bridge/EvidenceRandom.class'] = (classes / 'forge/ai/bridge/EvidenceRandom.class').read_bytes()
         staged = root / 'engine.jar'
         with zipfile.ZipFile(args.base) as old, zipfile.ZipFile(staged, 'w', zipfile.ZIP_DEFLATED) as new:
             for entry in old.infolist():

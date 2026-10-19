@@ -5,6 +5,31 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Original-game decision-driven opening replay
+
+The original four-player Commander game now executes66 recorded decisions
+without recomputing AI choices. Its684 engine random requests replay separately
+from43 requests inside skipped pure-choice AI scopes. Registered initial-state
+fields and the canonical gameplay prefix agree; only three previously added,
+nullable cast-provenance fields are new. Replay stops at decision66, the first
+unsupported selected spell (Sol Ring), before its payment. The retained result
+is engine_error with a partial stream and an explicit decision/RNG diagnostic,
+not a complete game. No full-game seal or approval is granted.
+
+Randomness projection is deliberately restricted to the supported pure-choice
+prefix. Mixed controller actions may execute actual effects, so their random
+requests must not automatically be discarded as AI work. Width, value, checksum
+and exhaustion controls reject; one targeted projection test passes. The engine
+RNG provider cannot combine with strict same-policy event replay, and remains
+disabled unless explicitly configured. Choice-contract coverage stays1694/1985;
+continuous original decisions executed66, fully approved games0, learning0.
+
+Next implement selected spell/ability reconstruction and actual mana/resource
+decisions at the observed boundary, then extend the causally reviewed prefix.
+Full priority, triggers, combat, visibility and independent legality still need
+review. Production replay also needs an explicit decision/RNG terminal check at
+successful game finalization before any whole-game replay certificate.
+
 ## Explicit zero-mana acknowledgments
 
 Driver-contract coverage is1694/1985, adding79 zero-only effect payment choices.
