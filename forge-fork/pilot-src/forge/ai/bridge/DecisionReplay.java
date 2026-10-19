@@ -7,6 +7,8 @@ import forge.game.spellability.*;
 import forge.game.replacement.ReplacementEffect;
 import forge.card.ColorSet;
 import forge.game.zone.ZoneType;
+import forge.game.cost.*;
+import forge.game.mana.ManaCostBeingPaid;
 import java.nio.file.*;
 import java.io.*;
 import java.util.*;
@@ -69,13 +71,27 @@ public final class DecisionReplay {
   boolean colors=hook.endsWith(".chooseColors(Ljava/lang/String;Lforge/game/spellability/SpellAbility;IILforge/card/ColorSet;)Lforge/card/ColorSet;");
   boolean start=hook.endsWith(".chooseStartingPlayer(Z)Lforge/game/player/Player;");
   boolean mulligan=hook.endsWith(".mulliganKeepHand(Lforge/game/player/Player;I)Z");
+  boolean payment=hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z");
   try {
-   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan)throw new IllegalStateException("Unsupported recorded decision: "+hook);
+   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment)throw new IllegalStateException("Unsupported recorded decision: "+hook);
    if(!(receiver instanceof PlayerController controller))throw new IllegalStateException("Missing controller");
    open();String line=input.readLine();if(line==null)throw new IllegalStateException("Decision tape exhausted");
    JsonObject row=JsonParser.parseString(line).getAsJsonObject();
    if("unsupported_decision".equals(row.get("kind").getAsString()))throw new IllegalStateException("Unsupported recorded decision row: "+row.get("reason"));
    if(!row.get("kind").getAsString().equals("decision")||integer(row.get("index"))!=consumed||!row.get("hook").getAsString().equals(hook)||integer(row.get("actor_id"))!=controller.getPlayer().getId())throw new IllegalStateException("Decision order/actor/hook diverged");
+   if(payment){
+    if(!"zero_effect_mana".equals(row.get("decision_type").getAsString())||!"pay".equals(row.get("payment_choice").getAsString())||args.length!=5||args[2]!=null||args[3]!=null||!Boolean.TRUE.equals(args[4]))throw new IllegalStateException("Unsupported mana payment choice");
+    SpellAbility ability=(SpellAbility)args[1];CostPartMana part=(CostPartMana)args[0];Player player=controller.getPlayer();bindAbility(row,ability);
+    JsonObject params=new JsonObject();ability.getMapParams().forEach(params::addProperty);
+    if(player.hasLost()||ability.getActivatingPlayer()!=player||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString())||!params.equals(row.get("ability_parameters")))throw new IllegalStateException("Payment actor/source/domain diverged");
+    Cost cost=ability.getPayCosts();
+    if(cost==null||!cost.isOnlyManaCost()||!cost.getTotalMana().isZero()||part.getAmountOfX()!=0||!part.getManaCostFor(ability).isZero()||ability.getXManaCostPaid()!=null||ability.getMaxWaterbend()!=null||ability.hasParam("Announce")||!ability.getPayingMana().isEmpty())throw new IllegalStateException("Unsupported nonzero or resource-changing payment");
+    // Mirror the engine's actual mana adjustment, with no AI payment selection.
+    // Effect costs bypass spell taxes; waterbend and all non-mana costs reject above.
+    ManaCostBeingPaid adjusted=new ManaCostBeingPaid(part.getManaCostFor(ability));CostAdjustment.adjust(adjusted,ability,player,null,false,true);
+    if(!adjusted.isPaid()||adjusted.getXcounter()!=0)throw new IllegalStateException("Adjusted mana cost is not zero");
+    return complete(hook,receiver,args,true);
+   }
    if(start||mulligan){
     Player player=controller.getPlayer();var game=player.getGame();if(game.getPhaseHandler().getTurn()!=0||game.getPhaseHandler().getPhase()!=null||player.hasLost())throw new IllegalStateException("Illegal pregame decision context");
     if(start){

@@ -5,6 +5,27 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Explicit zero-mana acknowledgments
+
+Driver-contract coverage is1694/1985, adding79 zero-only effect payment choices.
+CR118.5 requires acknowledgment even when no resources are required. The driver
+uses the recorded pay choice, binds the live source/parameters/actor, verifies
+both component and entire ability cost are zero-only, then runs actual engine
+mana adjustment and requires no unpaid shards. X, waterbend, announcements,
+non-mana costs, prior spending and non-effect calls reject. It invokes no AI
+mana selection. The other63 payment roots remain explicitly unsupported.
+Three new actual four-player fixtures pass: zero payment without resource
+transfer and rejection of nonzero and non-mana payment cases. One targeted
+Python test covers exclusion of resource-changing and announce/X cases.
+Official September25,2026 CR107.4d,118.3a and118.5 support this narrow scope.
+No spell/activation is inferred legal from its zero mana component.
+
+Original-game decisions executed0; fully approved games0. Next address actual
+resource-changing payments and spell/ability choices, including deterministic
+ability identity and engine-versus-AI RNG separation. Trigger order54 and other
+effect/combat families remain. Models, training gates and sealed captures remain
+unchanged. A successful fixture is not a fully replayed or rules-approved game.
+
 ## Land actions and pregame choices
 
 Driver-contract coverage is1615/1985: the preceding1575 plus32 hand-land

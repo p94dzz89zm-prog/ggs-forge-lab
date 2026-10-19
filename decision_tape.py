@@ -21,6 +21,7 @@ COUNTER = '.chooseCounterType(Ljava/util/List;Lforge/game/spellability/SpellAbil
 COLORS = '.chooseColors(Ljava/lang/String;Lforge/game/spellability/SpellAbility;IILforge/card/ColorSet;)Lforge/card/ColorSet;'
 START = '.chooseStartingPlayer(Z)Lforge/game/player/Player;'
 MULLIGAN = '.mulliganKeepHand(Lforge/game/player/Player;I)Z'
+PAYMENT = '.payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z'
 PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_ATTACKERS',
                    'COMBAT_DECLARE_BLOCKERS', 'COMBAT_FIRST_STRIKE_DAMAGE', 'COMBAT_DAMAGE',
                    'COMBAT_END', 'MAIN2', 'END_OF_TURN'}
@@ -69,6 +70,22 @@ def encode(entry, returned, index, call_line, return_line):
                        pass_return='null' if returned['result'] is None else 'empty_list',
                        empty_mana_pool=True,
                        context={key: entry[key] for key in ('turn', 'phase', 'priority_player_id', 'turn_player_id')})
+        return row
+    if hook.endswith(PAYMENT):
+        row['reason'] = 'payment_requires_actual_resource_choices'
+        if len(args) == 5 and args == returned.get('arguments_after'):
+            ability = args[1]
+            if (args[0] == '{0}' and args[2] is None and args[3] is None and args[4] is True
+                and returned['result'] is True and ability.get('pay_costs') == '{0}'
+                and ability.get('x') is None and ability.get('paying_mana') == []
+                and not ability.get('alternative_costs') and not ability.get('optional_costs')
+                and 'Announce' not in ability.get('parameters', {})):
+                row.update(kind='decision', decision_type='zero_effect_mana',
+                           source_ability=str(ability['source']['card_id']) + ':' + str(ability['ability_id']),
+                           ability_api=ability['api'], ability_parameters=ability['parameters'],
+                           payment_choice='pay', effect=True, component='{0}',
+                           adjustment_requirement='live zero component and zero-only ability cost; reject X, waterbend and announce')
+                row.pop('reason', None)
         return row
     if hook.endswith((START, MULLIGAN)):
         try:
