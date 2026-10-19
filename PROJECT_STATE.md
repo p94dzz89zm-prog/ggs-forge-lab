@@ -5,6 +5,35 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Swan Song and a created-object identity blocker
+
+Driver contracts1773/1985. The engine executes348 consecutive recorded
+choices, matches172 canonical gameplay lines and779 engine RNG requests.
+This is not complete-state replay verification: the first actual Bird Token is
+original card412 but replay card406. No identity mismatch is silently accepted.
+Actual target choice is independently recovered from original public cast
+announcement15114 (Swan Song242 targets Rampant Growth381), applied to a live
+legal stack spell, and paid with actual Island blue. Native resolution moves
+both spells to their owners' graveyards and creates a2/2 Bird Token owned and
+controlled by the countered spell's controller. Scoped legality/ownership
+checks pass; exact created-object identity comparison fails and is retained.
+
+Four corrected actual four-player controls pass: real selection/payment/
+counter/token, missing target, illegal artifact target and tapped mana source.
+Three fixture setup/assertion failures retained: stack isn't a player zone,
+stack setup resets priority, and zone moves invalidate old Card references;
+current-zone IDs are checked instead. Affected encoder test rejects missing
+or ambiguous public target provenance. Independent pool/shard arithmetic
+checks1 fixture and12 original-prefix paid units. No unrelated suites rerun.
+
+Two gaps now need work: causal identity allocation/mapping for created objects
+(Bird412→406), then next controller root348 Sam Partner trigger coordinator.
+Original and actual token creation are both nested in TokenEffect.resolve;
+matching effects/characteristics alone do not prove allocation-cause history.
+AI speculative allocations are a hypothesis until instrumented.212 roots
+remain unsupported; complete independent rules approval0, training0 and
+eligible comparisons0. Existing sealed evidence remains unchanged.
+
 ## Targetless Rampant Growth casting and actual payment
 
 Conditional coverage1771/1985; original consecutive prefix303,774 engine RNG

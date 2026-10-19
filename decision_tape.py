@@ -8,6 +8,7 @@ from collections import Counter
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import tempfile
 
@@ -33,6 +34,18 @@ PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_AT
 
 
 RAMPANT_PARAMETERS = dict(Origin='Library',ChangeTypeDesc='basic land',Destination='Battlefield',ChangeType='Land.Basic',SpellDescription='Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.',ChangeNum='1',SP='ChangeZone',Tapped='True',StackDescription='Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.')
+
+
+SWAN_PARAMETERS = dict(SpellDescription='Counter target enchantment, instant or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.',TargetType='Spell',ValidTgts='Enchantment,Instant,Sorcery',SubAbility='DBToken',TgtPrompt='Select target enchantment, instant or sorcery spell',SP='Counter')
+
+
+def swan(ability):
+    return ability.get('api')=='Counter' and ability.get('source',{}).get('name')=='Swan Song' and ability.get('parameters')==SWAN_PARAMETERS
+
+
+def counter_target(entry,ability):
+    hints=entry.get('replay_counter_announcements',{}).get(str(ability['source']['card_id'])+':'+str(ability['ability_id']),[])
+    return hints[0] if len(hints)==1 else None
 
 
 def rampant(ability):
@@ -130,7 +143,14 @@ def encode(entry, returned, index, call_line, return_line):
             selected = returned['result']
             if isinstance(selected, list) and len(selected) == 1:
                 ability = selected[0]; source = ability.get('source', {})
-                if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability))
+                target=counter_target(entry,ability) if swan(ability) else None
+                if (target and ability.get('spell') is True and ability.get('activated') is False and ability.get('trigger') is False and ability.get('x') is None
+                    and ability.get('targets')==[] and ability.get('paying_mana')==[] and ability.get('alternative_costs')==[] and ability.get('optional_costs')==[]
+                    and source.get('zone')=='Hand' and source.get('owner_id')==row['actor_id'] and entry.get('priority_player_id')==row['actor_id']):
+                    row.update(kind='decision',decision_type='swan_song_spell',source_card_id=source['card_id'],source_name=source['name'],selected_api='Counter',mana_cost=source['mana_cost'],original_ability_id=ability['ability_id'],ability_parameters=ability['parameters'],
+                               target_spell_card_id=target['card_id'],target_spell_name=target['name'],target_provenance=target,context={k:entry[k] for k in ('turn','phase','priority_player_id','turn_player_id')})
+                    return row
+                if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability) or (swan(ability) and counter_target(entry,ability)))
                     and ability.get('spell') is True and ability.get('activated') is False and ability.get('trigger') is False
                     and ability.get('x') is None and ability.get('targets') == [] and ability.get('paying_mana') == []
                     and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
@@ -190,7 +210,7 @@ def encode(entry, returned, index, call_line, return_line):
             ids = [step['card_id'] for step in activations]
             capacity = Counter({step['card_id']: {'1': 1, '2': 2}.get(step.get('parameters', {}).get('Amount', '1'), 0) for step in activations})
             spending = Counter(m['source_card_id'] for m in spent)
-            if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability))
+            if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability) or (swan(ability) and counter_target(entry,ability)))
                 and ability.get('spell') is True and ability.get('x') is None and ability.get('targets') == []
                 and ability.get('paying_mana') == [] and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
                 and (ability['source'].get('commander') is False or (ability['source'].get('commander') is True and type(ability.get('prior_commander_casts')) is int and ability['prior_commander_casts'] >= 0)) and ability['source'].get('zone') == 'Stack'
@@ -205,8 +225,10 @@ def encode(entry, returned, index, call_line, return_line):
                            random_scope='ComputerUtilMana selector only; actual effect scopes excluded',
                            payment_basis='Recorded tap-payment decisions and individual attempted mana-spending arguments; execute actual engine actions')
                 row.pop('reason', None)
-                if rampant(ability):
+                if rampant(ability) or swan(ability):
                     row['ability_parameters']=ability['parameters']
+                if swan(ability):
+                    target=counter_target(entry,ability);row.update(target_spell_card_id=target['card_id'],target_spell_name=target['name'],target_provenance=target)
                 row['commander'] = ability['source'].get('commander')
                 if row['commander']:
                     row.update(prior_commander_casts=ability['prior_commander_casts'], commander_tax=2*ability['prior_commander_casts'])
@@ -327,6 +349,19 @@ def extract(source, expected_sha256, output):
             if 'initial_state' in candidate:
                 initial_players = [p['id'] for p in candidate['initial_state'].get('players', []) if p['active'] and not p['lost']]
                 break
+    counter_announcements = {}
+    with Path(source).open('rb') as announcements:
+        for record,raw in enumerate(announcements,1):
+            item=json.loads(raw)
+            if item.get('kind')!='engine_call' or not item.get('hook','').startswith('forge/game/Game.fireEvent('):continue
+            event=item['arguments'][0]
+            if not isinstance(event,dict) or event.get('record_type')!='GameEventSpellAbilityCast':continue
+            ability=event['sa'];stack_item=event['si']
+            if ability['source']['name']!='Swan Song':continue
+            match=re.fullmatch(r'Swan Song \((\d+)\) - Counter Rampant Growth \((\d+)\)\. ',stack_item['text'])
+            if not match or int(match[1])!=ability['source']['view_id'] or stack_item['target_cards'] or stack_item['target_players']:continue
+            key=str(ability['source']['view_id'])+':'+str(ability['ability_id'])
+            counter_announcements.setdefault(key,[]).append(dict(card_id=int(match[2]),name='Rampant Growth',source_record=record,basis='Public original GameEventSpellAbilityCast stack announcement; no resolution outcomes used'))
     supported, unsupported = Counter(), Counter()
     fd, temporary = tempfile.mkstemp(dir=output.parent, prefix='.decision-extract-')
     try:
@@ -342,6 +377,7 @@ def extract(source, expected_sha256, output):
                         raise ValueError('Call sequence/parent gap')
                     is_choice = choice(row['hook'])
                     if is_choice and not row.get('speculative', False) and not any(item[1] for item in stack):
+                        row['replay_counter_announcements']=counter_announcements
                         roots[row['call_id']] = (row, records)
                     stack.append((row['call_id'], is_choice, row['hook']))
                     initial += 'initial_state' in row
