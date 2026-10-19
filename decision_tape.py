@@ -24,6 +24,7 @@ MULLIGAN = '.mulliganKeepHand(Lforge/game/player/Player;I)Z'
 PAYMENT = '.payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z'
 TRIGGER_STACK = '.orderAndPlaySimultaneousSa(Ljava/util/List;)V'
 SINGLE_PLAYER = '.chooseSingleEntityForEffect(Lforge/util/collect/FCollectionView;Lforge/game/player/DelayedReveal;Lforge/game/spellability/SpellAbility;Ljava/lang/String;ZLforge/game/player/Player;Ljava/util/Map;)Lforge/game/GameEntity;'
+CONFIRM_ACTION = '.confirmAction(Lforge/game/spellability/SpellAbility;Lforge/game/player/PlayerActionConfirmMode;Ljava/lang/String;Ljava/util/Map;)Z'
 PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_ATTACKERS',
                    'COMBAT_DECLARE_BLOCKERS', 'COMBAT_FIRST_STRIKE_DAMAGE', 'COMBAT_DAMAGE',
                    'COMBAT_END', 'MAIN2', 'END_OF_TURN'}
@@ -43,6 +44,14 @@ def encode(entry, returned, index, call_line, return_line):
     row = {'kind': 'unsupported_decision', 'index': index, 'hook': hook,
            'actor_id': entry['receiver'].get('player_id'), 'source_call_id': entry['call_id'],
            'source_call_record': call_line, 'source_return_record': return_line}
+    if hook.endswith(CONFIRM_ACTION):
+        row['reason']='confirmation_context_or_mutation_unsupported'
+        if len(args)==4 and args==returned.get('arguments_after') and args[3] is None and isinstance(args[0],dict) and isinstance(args[1],str) and isinstance(args[2],str) and type(returned['result']) is bool:
+            ability=args[0]
+            row.update(kind='decision',decision_type='confirm_action',source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),
+                       ability_api=ability['api'],ability_parameters=ability['parameters'],mode=args[1],title=args[2],accept=returned['result'])
+            row.pop('reason',None)
+        return row
     if hook.endswith(SINGLE_PLAYER):
         row['reason'] = 'entity_domain_reveal_or_context_unsupported'
         if len(args) == 7 and args == returned.get('arguments_after') and args[1] is None and args[5:] == [None,None] and type(args[4]) is bool:

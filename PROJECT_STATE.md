@@ -5,6 +5,19 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Explicit optional-action confirmations
+
+Conditional coverage1766/1985 includes ten immutable confirmAction choices.
+The recorded boolean is returned only after checking actual source identity,
+API/parameters, enum mode, prompt and absent extra context. The caller performs
+the actual effect; confirmation copies no library/search/zone outcome. Actual
+four-player accept, decline and wrong-prompt rejection pass; the affected
+encoding check passes. The original game reaches197 consecutive choices,
+686 engine RNG requests and matching canonical gameplay. It stops before
+chooseSingleCardForZoneChange197: optional empty Partner search with a delayed
+library reveal. Reveal entitlement/delivery and shuffle must be reconstructed,
+not skipped to manufacture a pass. Full approvals0; no training or pilot claim.
+
 ## Recorded player-entity choices
 
 Conditional driver coverage1756/1985 includes six pure player choices with no

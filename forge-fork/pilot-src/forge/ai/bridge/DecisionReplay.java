@@ -111,13 +111,18 @@ public final class DecisionReplay {
   boolean payment=hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z");
   boolean triggerStack=hook.endsWith(".orderAndPlaySimultaneousSa(Ljava/util/List;)V");
   boolean singlePlayer=hook.endsWith(".chooseSingleEntityForEffect(Lforge/util/collect/FCollectionView;Lforge/game/player/DelayedReveal;Lforge/game/spellability/SpellAbility;Ljava/lang/String;ZLforge/game/player/Player;Ljava/util/Map;)Lforge/game/GameEntity;");
+  boolean confirmation=hook.endsWith(".confirmAction(Lforge/game/spellability/SpellAbility;Lforge/game/player/PlayerActionConfirmMode;Ljava/lang/String;Ljava/util/Map;)Z");
   try {
-   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack&&!singlePlayer)throw new IllegalStateException("Unsupported recorded decision: "+hook);
+   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack&&!singlePlayer&&!confirmation)throw new IllegalStateException("Unsupported recorded decision: "+hook);
    if(!(receiver instanceof PlayerController controller))throw new IllegalStateException("Missing controller");
    open();String line=input.readLine();if(line==null)throw new IllegalStateException("Decision tape exhausted");
    JsonObject row=JsonParser.parseString(line).getAsJsonObject();
    if("unsupported_decision".equals(row.get("kind").getAsString()))throw new IllegalStateException("Unsupported recorded decision row: "+row.get("reason"));
    if(!row.get("kind").getAsString().equals("decision")||integer(row.get("index"))!=consumed||!row.get("hook").getAsString().equals(hook)||integer(row.get("actor_id"))!=controller.getPlayer().getId())throw new IllegalStateException("Decision order/actor/hook diverged");
+   if(confirmation){
+    if(!row.get("decision_type").getAsString().equals("confirm_action")||args.length!=4||args[3]!=null||!(args[1] instanceof PlayerActionConfirmMode mode)||!mode.name().equals(row.get("mode").getAsString())||!Objects.equals(args[2],row.get("title").getAsString()))throw new IllegalStateException("Confirmation prompt/mode/context diverged");
+    SpellAbility ability=(SpellAbility)args[0];bindAbility(row,ability);JsonObject params=new JsonObject();ability.getMapParams().forEach(params::addProperty);if(!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString())||!row.get("accept").getAsJsonPrimitive().isBoolean())throw new IllegalStateException("Confirmation source or choice diverged");return complete(hook,receiver,args,row.get("accept").getAsBoolean());
+   }
    if(singlePlayer){
     if(!row.get("decision_type").getAsString().equals("single_player_effect")||args.length!=7||args[1]!=null||args[5]!=null||args[6]!=null||!Objects.equals(args[3],row.get("title").getAsString())||!Objects.equals(args[4],row.get("optional").getAsBoolean()))throw new IllegalStateException("Unsupported player choice prompt/reveal/context");
     SpellAbility ability=(SpellAbility)args[2];bindAbility(row,ability);JsonObject params=new JsonObject();ability.getMapParams().forEach(params::addProperty);if(!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Player choice source parameters diverged");
