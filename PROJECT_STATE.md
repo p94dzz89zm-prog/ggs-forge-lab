@@ -5,6 +5,36 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Land actions and pregame choices
+
+Driver-contract coverage is1615/1985: the preceding1575 plus32 hand-land
+special actions, one starting-player choice and seven mulligan choices.
+Land choices rebind actual hand cards, check live type/ownership/priority,
+main-phase timing, empty stack and engine land-play restrictions, then execute
+through the normal engine. All32 recorded land names independently match the
+pinned card database. The starting-player domain uses only registered player
+identities from the later GameStarted record, never its resulting game state.
+The mulligan hook's Player argument identifies the starting player, not the
+choosing player. The caller still performs reshuffles and London bottoming.
+
+Five new actual four-player fixtures pass: legal land execution, illegal second
+land rejection, pregame choices with a different starting player, unavailable
+starting-player rejection and empty-hand mulligan rejection. Seven relevant
+Python tests pass after the extractor's initial-state scan changed. These
+fixtures are not complete Commander games. Original-game decisions executed0;
+fully approved games0. CR103.1,103.5/103.5c and305.1–305.2a were checked against
+the official September25,2026 Comprehensive Rules. Full pregame ordering,
+reshuffle/bottoming and global action-by-action legality remain to be verified.
+
+Recovery also found a local runtime ZIP truncated to an exact prefix of its
+intact saved original. A fresh copy restored the expected full checksum.
+This establishes a local cache-retention anomaly after interruption, not the
+cause of historical game-log truncation. Historical sealed evidence is intact.
+Next implement real payment decisions and selected spells/abilities;54 trigger
+orders and remaining effect/combat choices also need support. Continuous replay
+must separate engine randomness from skipped AI randomness and rebind dynamic
+ability identities. No training, pilot comparison or new game was run.
+
 ## Encountered effect choices
 
 Driver-contract coverage is now1575/1985:1534 empty-pool priority passes plus25

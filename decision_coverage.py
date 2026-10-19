@@ -57,8 +57,13 @@ def classify(decision, entry, returned):
                source_call_record=decision['source_call_record'], source_return_record=decision['source_return_record'],
                original_game_decision_executed=False, full_rules_approved=False)
     if name == 'chooseSpellAbilityToPlay':
-        issue = local_priority_check(entry, returned)
-        row['independent_local_check'] = issue or 'recorded_entitlement_and_empty_pool_consistent'
+        land = decision.get('decision_type') == 'play_land'
+        if land:
+            source = returned['result'][0]['source']
+            issue = None if (source['card_id'] == decision['land_card_id'] and source['zone'] == 'Hand' and source['owner_id'] == entry['receiver']['player_id'] == entry.get('priority_player_id') == entry.get('turn_player_id') and entry.get('phase') in ('MAIN1', 'MAIN2')) else 'recorded_land_context_inconsistent'
+        else:
+            issue = local_priority_check(entry, returned)
+        row['independent_local_check'] = issue or ('recorded_land_context_consistent; live type/limit checks required' if land else 'recorded_entitlement_and_empty_pool_consistent')
         if row['support'] == 'driver_contract' and issue:
             raise ValueError('Driver coverage contradicts local priority check: ' + issue)
     if row['support'] == 'driver_contract' and name in ('chooseSingleReplacementEffect', 'chooseCounterType', 'chooseColors'):

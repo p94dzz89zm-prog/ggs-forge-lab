@@ -19,6 +19,8 @@ PRIORITY = '.chooseSpellAbilityToPlay()Ljava/util/List;'
 REPLACEMENT = '.chooseSingleReplacementEffect(Ljava/util/List;)Lforge/game/replacement/ReplacementEffect;'
 COUNTER = '.chooseCounterType(Ljava/util/List;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Ljava/util/Map;)Lforge/game/card/CounterType;'
 COLORS = '.chooseColors(Ljava/lang/String;Lforge/game/spellability/SpellAbility;IILforge/card/ColorSet;)Lforge/card/ColorSet;'
+START = '.chooseStartingPlayer(Z)Lforge/game/player/Player;'
+MULLIGAN = '.mulliganKeepHand(Lforge/game/player/Player;I)Z'
 PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_ATTACKERS',
                    'COMBAT_DECLARE_BLOCKERS', 'COMBAT_FIRST_STRIKE_DAMAGE', 'COMBAT_DAMAGE',
                    'COMBAT_END', 'MAIN2', 'END_OF_TURN'}
@@ -42,6 +44,21 @@ def encode(entry, returned, index, call_line, return_line):
         if args != [] or returned.get('arguments_after') != []:
             row['reason'] = 'priority_argument_mutation'
         elif returned['result'] is not None and returned['result'] != []:
+            selected = returned['result']
+            if isinstance(selected, list) and len(selected) == 1:
+                ability = selected[0]; source = ability.get('source', {})
+                if (ability.get('api') == 'null' and ability.get('parameters') == {} and ability.get('pay_costs') == 'no cost'
+                    and ability.get('spell') is False and ability.get('activated') is False and ability.get('trigger') is False
+                    and ability.get('x') is None and ability.get('targets') == [] and ability.get('paying_mana') == []
+                    and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
+                    and source.get('zone') == 'Hand' and source.get('owner_id') == row['actor_id']
+                    and entry.get('priority_player_id') == row['actor_id'] == entry.get('turn_player_id')
+                    and entry.get('phase') in ('MAIN1', 'MAIN2')):
+                    row.update(kind='decision', decision_type='play_land', land_card_id=source['card_id'],
+                               land_name=source['name'], land_owner_id=source['owner_id'],
+                               ability_identity_basis='live hand land special action; ephemeral ability ID is not object identity',
+                               context={key: entry[key] for key in ('turn', 'phase', 'priority_player_id', 'turn_player_id')})
+                    return row
             row['reason'] = 'selected_ability_requires_choices_and_mutations'
         elif entry.get('priority_player_id') != row['actor_id'] or entry['receiver'].get('lost') is not False or entry.get('phase') not in PRIORITY_PHASES:
             row['reason'] = 'priority_entitlement_or_phase_unverified'
@@ -52,6 +69,23 @@ def encode(entry, returned, index, call_line, return_line):
                        pass_return='null' if returned['result'] is None else 'empty_list',
                        empty_mana_pool=True,
                        context={key: entry[key] for key in ('turn', 'phase', 'priority_player_id', 'turn_player_id')})
+        return row
+    if hook.endswith((START, MULLIGAN)):
+        try:
+            if args != returned.get('arguments_after') or entry.get('turn') != 0 or entry.get('phase') != 'null':
+                raise ValueError('pregame_context_or_arguments_diverged')
+            if hook.endswith(START):
+                eligible = entry.get('replay_initial_player_ids', [])
+                selected = returned['result']['player_id']
+                if type(args[0]) is not bool or selected not in eligible or returned['result'].get('lost') is not False:
+                    raise ValueError('starting_player_domain_unverified')
+                row.update(kind='decision', decision_type='starting_player', first_game=args[0], eligible_player_ids=eligible, selected_player_id=selected)
+            else:
+                if type(args[0].get('player_id')) is not int or type(args[1]) is not int or args[1] < 0 or type(returned['result']) is not bool:
+                    raise ValueError('invalid_mulligan_prompt_or_choice')
+                row.update(kind='decision', decision_type='mulligan_keep', starting_player_id=args[0]['player_id'], mulligan_count=args[1], keep=returned['result'])
+        except (KeyError, TypeError, ValueError) as error:
+            row['reason'] = str(error)
         return row
     if hook.endswith((REPLACEMENT, COUNTER, COLORS)):
         try:
@@ -123,6 +157,15 @@ def extract(source, expected_sha256, output):
     output = Path(output)
     checksum, stack, roots = hashlib.sha256(), [], {}
     count, calls, initial, terminal, records = 0, 0, 0, False, 0
+    initial_players = []
+    # Registered identities are immutable pregame input, not copied outcomes.
+    # Forge emits GameStarted after its first pregame controller choices.
+    with Path(source).open('rb') as header:
+        for raw in header:
+            candidate = json.loads(raw)
+            if 'initial_state' in candidate:
+                initial_players = [p['id'] for p in candidate['initial_state'].get('players', []) if p['active'] and not p['lost']]
+                break
     supported, unsupported = Counter(), Counter()
     fd, temporary = tempfile.mkstemp(dir=output.parent, prefix='.decision-extract-')
     try:
@@ -141,6 +184,12 @@ def extract(source, expected_sha256, output):
                         roots[row['call_id']] = (row, records)
                     stack.append((row['call_id'], is_choice, row['hook']))
                     initial += 'initial_state' in row
+                    if 'initial_state' in row:
+                        observed_players = [p['id'] for p in row['initial_state'].get('players', []) if p['active'] and not p['lost']]
+                        if observed_players != initial_players:
+                            raise ValueError('Initial registered-player identities changed during extraction')
+                    if row['call_id'] in roots and row['hook'].endswith(START):
+                        row['replay_initial_player_ids'] = initial_players
                 elif kind == 'engine_return':
                     if not stack or (row['call_id'], row['hook']) != (stack[-1][0], stack[-1][2]):
                         raise ValueError('Unpaired/out-of-order return')

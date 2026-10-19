@@ -6,6 +6,7 @@ import forge.game.player.*;
 import forge.game.spellability.*;
 import forge.game.replacement.ReplacementEffect;
 import forge.card.ColorSet;
+import forge.game.zone.ZoneType;
 import java.nio.file.*;
 import java.io.*;
 import java.util.*;
@@ -46,13 +47,13 @@ public final class DecisionReplay {
    row.addProperty("rules_approved",false);Files.writeString(root.resolve("decision-failure-"+consumed+".json"),row+"\n",StandardOpenOption.CREATE_NEW);
   }catch(Exception evidenceFailure){failure.addSuppressed(evidenceFailure);}
  }
- private static void priorityContext(JsonObject row,PlayerController controller){
+ private static void turnContext(JsonObject row,PlayerController controller){
   Player player=controller.getPlayer();var game=player.getGame();var phase=game.getPhaseHandler();JsonObject expected=row.getAsJsonObject("context");
   if(player.hasLost()||!game.getPlayers().contains(player)||phase.getPriorityPlayer()!=player)throw new IllegalStateException("Illegal priority pass: actor does not hold priority");
-  if(!row.has("empty_mana_pool")||!row.get("empty_mana_pool").getAsJsonPrimitive().isBoolean()||!row.get("empty_mana_pool").getAsBoolean()||!player.getManaPool().isEmpty())throw new IllegalStateException("Priority pass with mana requires public announcement support");
   if(expected==null||integer(expected.get("turn"))!=phase.getTurn()||!expected.get("phase").getAsString().equals(String.valueOf(phase.getPhase()))||integer(expected.get("priority_player_id"))!=player.getId()||phase.getPlayerTurn()==null||integer(expected.get("turn_player_id"))!=phase.getPlayerTurn().getId())throw new IllegalStateException("Priority replay context diverged");
   if(!Set.of("UPKEEP","DRAW","MAIN1","COMBAT_BEGIN","COMBAT_DECLARE_ATTACKERS","COMBAT_DECLARE_BLOCKERS","COMBAT_FIRST_STRIKE_DAMAGE","COMBAT_DAMAGE","COMBAT_END","MAIN2","END_OF_TURN").contains(String.valueOf(phase.getPhase())))throw new IllegalStateException("Unsupported priority step");
  }
+ private static void priorityContext(JsonObject row,PlayerController controller){turnContext(row,controller);Player player=controller.getPlayer();if(!row.has("empty_mana_pool")||!row.get("empty_mana_pool").getAsJsonPrimitive().isBoolean()||!row.get("empty_mana_pool").getAsBoolean()||!player.getManaPool().isEmpty())throw new IllegalStateException("Priority pass with mana requires public announcement support");}
  private static JsonObject traitIdentity(ReplacementEffect effect){
   JsonObject row=new JsonObject();row.addProperty("trait_type",effect.getClass().getName());row.addProperty("source_card_id",effect.getHostCard().getId());JsonObject params=new JsonObject();effect.getMapParams().forEach(params::addProperty);row.add("parameters",params);return row;
  }
@@ -66,14 +67,33 @@ public final class DecisionReplay {
   boolean replacement=hook.endsWith(".chooseSingleReplacementEffect(Ljava/util/List;)Lforge/game/replacement/ReplacementEffect;");
   boolean counter=hook.endsWith(".chooseCounterType(Ljava/util/List;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Ljava/util/Map;)Lforge/game/card/CounterType;");
   boolean colors=hook.endsWith(".chooseColors(Ljava/lang/String;Lforge/game/spellability/SpellAbility;IILforge/card/ColorSet;)Lforge/card/ColorSet;");
+  boolean start=hook.endsWith(".chooseStartingPlayer(Z)Lforge/game/player/Player;");
+  boolean mulligan=hook.endsWith(".mulliganKeepHand(Lforge/game/player/Player;I)Z");
   try {
-   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors)throw new IllegalStateException("Unsupported recorded decision: "+hook);
+   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan)throw new IllegalStateException("Unsupported recorded decision: "+hook);
    if(!(receiver instanceof PlayerController controller))throw new IllegalStateException("Missing controller");
    open();String line=input.readLine();if(line==null)throw new IllegalStateException("Decision tape exhausted");
    JsonObject row=JsonParser.parseString(line).getAsJsonObject();
    if("unsupported_decision".equals(row.get("kind").getAsString()))throw new IllegalStateException("Unsupported recorded decision row: "+row.get("reason"));
    if(!row.get("kind").getAsString().equals("decision")||integer(row.get("index"))!=consumed||!row.get("hook").getAsString().equals(hook)||integer(row.get("actor_id"))!=controller.getPlayer().getId())throw new IllegalStateException("Decision order/actor/hook diverged");
+   if(start||mulligan){
+    Player player=controller.getPlayer();var game=player.getGame();if(game.getPhaseHandler().getTurn()!=0||game.getPhaseHandler().getPhase()!=null||player.hasLost())throw new IllegalStateException("Illegal pregame decision context");
+    if(start){
+     if(!row.get("first_game").getAsJsonPrimitive().isBoolean()||row.get("first_game").getAsBoolean()!=(Boolean)args[0])throw new IllegalStateException("Starting player prompt diverged");
+     JsonArray eligible=new JsonArray();Player selected=null;for(Player candidate:game.getPlayers()){eligible.add(candidate.getId());if(candidate.getId()==integer(row.get("selected_player_id")))selected=candidate;}
+     if(!eligible.equals(row.get("eligible_player_ids"))||selected==null||selected.hasLost())throw new IllegalStateException("Illegal recorded starting player");return complete(hook,receiver,args,selected);
+    }
+    if(!(args[0] instanceof Player first)||first.getGame()!=game||first.getId()!=integer(row.get("starting_player_id"))||integer(row.get("mulligan_count"))!=(Integer)args[1]||(Integer)args[1]<0||!row.get("keep").getAsJsonPrimitive().isBoolean())throw new IllegalStateException("Mulligan prompt diverged");
+    boolean keep=row.get("keep").getAsBoolean();if(!keep&&(!player.canMulligan()||player.getCardsIn(ZoneType.Hand).isEmpty()))throw new IllegalStateException("Illegal mulligan of empty/ineligible hand");return complete(hook,receiver,args,keep);
+   }
    if(priority){
+    if(args.length==0&&"play_land".equals(row.get("decision_type").getAsString())){
+     turnContext(row,controller);Player player=controller.getPlayer();var game=player.getGame();String phase=String.valueOf(game.getPhaseHandler().getPhase());
+     if(game.getPhaseHandler().getPlayerTurn()!=player||!game.getStack().isEmpty()||!(phase.equals("MAIN1")||phase.equals("MAIN2")))throw new IllegalStateException("Illegal land special-action timing");
+     Card selected=null;for(Card card:player.getCardsIn(ZoneType.Hand))if(card.getId()==integer(row.get("land_card_id"))){if(selected!=null)throw new IllegalStateException("Ambiguous live land object");selected=card;}
+     if(selected==null||!selected.isLand()||selected.getOwner()!=player||selected.getOwner().getId()!=integer(row.get("land_owner_id"))||!selected.getName().equals(row.get("land_name").getAsString()))throw new IllegalStateException("Illegal recorded hand land");
+     LandAbility land=new LandAbility(selected,selected.getCurrentState());land.setActivatingPlayer(player);if(!land.canPlay())throw new IllegalStateException("Illegal land play limit or restriction");return complete(hook,receiver,args,Collections.singletonList(land));
+    }
     if(args.length!=0||!"priority_pass".equals(row.get("decision_type").getAsString()))throw new IllegalStateException("Unsupported priority selection");
     priorityContext(row,controller);String kind=row.get("pass_return").getAsString();Object result;
     if(kind.equals("null"))result=null;else if(kind.equals("empty_list"))result=Collections.emptyList();else throw new IllegalStateException("Invalid priority pass encoding");
