@@ -4,6 +4,7 @@ This transports changed entries only. The pinned base must remain independently
 archived. It never edits that base or overwrites a restored executable.
 """
 import argparse
+import copy
 import hashlib
 import json
 import os
@@ -34,17 +35,24 @@ def publish(staged, output):
 def create(base, target, output):
     base_hash, target_hash = digest(base), digest(target)
     with zipfile.ZipFile(base) as old, zipfile.ZipFile(target) as new:
-        if old.namelist() != new.namelist() or len(set(old.namelist())) != len(old.namelist()):
-            raise ValueError('Entry inventory/order changed or duplicate names')
-        changes = {name: new.read(name) for name in old.namelist() if old.read(name) != new.read(name)}
-    manifest = {'format': 1, 'base_sha256': base_hash, 'target_sha256': target_hash,
+        old_names, new_names = old.namelist(), new.namelist()
+        if new_names[:len(old_names)] != old_names or len(set(new_names)) != len(new_names) or len(set(old_names)) != len(old_names):
+            raise ValueError('Removed/reordered entries or duplicate names')
+        additions = new_names[len(old_names):]
+        changes = {name: new.read(name) for name in new_names if name in additions or old.read(name) != new.read(name)}
+        added_info = {name: copy.copy(new.getinfo(name)) for name in additions}
+    manifest = {'format': 2, 'base_sha256': base_hash, 'target_sha256': target_hash,
+                'appended_entries': additions,
                 'entries': {name: hashlib.sha256(data).hexdigest() for name, data in changes.items()}}
     with tempfile.TemporaryDirectory(dir=output.parent) as temporary:
         staged = Path(temporary) / 'delta.zip'
         with zipfile.ZipFile(staged, 'w', zipfile.ZIP_DEFLATED) as archive:
             archive.writestr('manifest.json', json.dumps(manifest, sort_keys=True))
             for name, data in changes.items():
-                archive.writestr('entries/' + name, data)
+                info = added_info.get(name)
+                if info is not None:
+                    info.filename = 'entries/' + name
+                archive.writestr(info if info is not None else 'entries/' + name, data)
         # ZIP metadata/encoding differences cannot silently yield a usable delta.
         restored = Path(temporary) / 'restored.jar'
         restore(base, staged, restored)
@@ -57,23 +65,30 @@ def create(base, target, output):
 def restore(base, delta, output):
     with zipfile.ZipFile(delta) as archive:
         manifest = json.loads(archive.read('manifest.json'))
-        if manifest['format'] != 1 or digest(base) != manifest['base_sha256']:
+        if manifest['format'] not in (1, 2) or digest(base) != manifest['base_sha256']:
             raise ValueError('Wrong base executable')
         names = archive.namelist()
         expected = {'manifest.json'} | {'entries/' + name for name in manifest['entries']}
         if len(names) != len(set(names)) or set(names) != expected:
             raise ValueError('Unexpected delta members')
         changes = {name: archive.read('entries/' + name) for name in manifest['entries']}
+        additions = manifest.get('appended_entries', [])
+        if len(set(additions)) != len(additions) or not set(additions) <= set(changes):
+            raise ValueError('Invalid appended inventory')
+        added_info = {name: copy.copy(archive.getinfo('entries/' + name)) for name in additions}
         for name, data in changes.items():
             if hashlib.sha256(data).hexdigest() != manifest['entries'][name]:
                 raise ValueError('Changed executable entry: ' + name)
     with tempfile.TemporaryDirectory(dir=output.parent) as temporary:
         staged = Path(temporary) / 'restored.jar'
         with zipfile.ZipFile(base) as old, zipfile.ZipFile(staged, 'w', zipfile.ZIP_DEFLATED) as new:
-            if len(set(old.namelist())) != len(old.namelist()) or not set(changes) <= set(old.namelist()):
+            if len(set(old.namelist())) != len(old.namelist()) or set(additions) & set(old.namelist()) or not set(changes) <= set(old.namelist()) | set(additions):
                 raise ValueError('Invalid base entry inventory')
             for entry in old.infolist():
                 new.writestr(entry, changes.get(entry.filename, old.read(entry.filename)))
+            for name in additions:
+                info = added_info[name]; info.filename = name
+                new.writestr(info, changes[name])
         if digest(staged) != manifest['target_sha256']:
             raise ValueError('Restored executable checksum differs')
         publish(staged, output)

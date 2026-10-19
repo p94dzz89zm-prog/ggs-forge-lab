@@ -5,6 +5,29 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Bounded recorded-decision driver
+
+A new disabled-by-default driver intercepts110 inventoried controller hooks.
+Bounded number and cards-for-effect choices can now come from a hash-bound
+recorded decision tape, with exact hook/actor/source/prompt/bounds matching.
+Card IDs must match the current engine-offered inventory and rebind to its
+actual live objects. Choice counts, optionality and duplicate selections are
+checked. Unsupported inventoried hooks fail before AI execution; a failed
+replay cannot report completion. Exact consumed-input hashing and an explicit
+counted terminal marker are required. Fractional, quoted and overflowing integer
+choices are rejected rather than rounded. This is not a complete replay driver.
+
+An actual-controller fixture records its choices, then reconstructs the same
+initial fixture in a fresh JVM and returns those recorded choices, including
+live card identity. The unsupported-overload negative control rejects without
+AI fallback or completion. Only these two choice families are implemented.
+Priority ability selection/mutations, targets/modes/X, mana and other costs,
+mulligans, combat/void decisions and remaining controller coverage still block
+full-game replay. Per-action independent legality/visibility certification also
+remains. No new full game, approval, training or comparison is claimed.
+Executable delta recovery now also preserves appended class metadata and checks
+the exact reconstructed whole-JAR hash; the earlier delta format remains readable.
+
 ## Storage recovery and announced X provenance
 
 The previously unsaved verification bundle is now saved, retrieved and restored

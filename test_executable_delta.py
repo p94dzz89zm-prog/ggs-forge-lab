@@ -18,6 +18,7 @@ class ExecutableDeltaTest(unittest.TestCase):
             with zipfile.ZipFile(base) as old, zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED) as new:
                 for entry in old.infolist():
                     new.writestr(entry, b'new' if entry.filename == 'recorder.class' else old.read(entry))
+                new.writestr('decision_driver.class', b'new driver')
             create(base, target, delta)
             restore(base, delta, recovered)
             self.assertEqual(target.read_bytes(), recovered.read_bytes())
