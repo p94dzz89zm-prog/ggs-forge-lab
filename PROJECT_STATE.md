@@ -5,6 +5,33 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Encountered effect choices
+
+Driver-contract coverage is now1575/1985:1534 empty-pool priority passes plus25
+replacement-effect,14 counter-type and2 color choices. Offered replacement
+identities must be unique and bind to actual live effects; the chosen effect
+must not have run and its engine requirements must hold. Counter choices bind
+to offered enum objects with source/prompt/parameter checks. Color choices
+preserve permitted colors and cardinality, including excluded colors.
+An actual Cinder Glade/Hydra/Thriving Grove fixture checks all three families
+without applying copied outcomes. Three invalid-choice controls reject and
+retain exact diagnostics. Three new targeted Python tests pass. Four launch
+failures after a fixture compile error were retained; only those unstarted
+fixtures were retried after correcting the Iterable check.
+
+All142 payment roots return true;90 have zero-mana components without recorded
+argument mutation, while52 mutate arguments. Returning true for the latter
+would skip actual resource changes. Even zero components need adjusted-cost
+validation before support. The91 selected priority actions include32 apparent
+land special actions, with spell/activated ability choices still requiring
+proper reconstruction. No payment/cast outcome is copied to gain coverage.
+
+Independent checks confirm original offered-domain membership for the41 newly
+supported effect choices. They still trust the offered domain; independent
+replacement applicability, pending actions and continuous full-game replay
+remain unresolved. Original-game decisions executed0; full approvals0. Models,
+decks, historical evidence and training admissions remain unchanged.
+
 ## Encountered priority-pass replay
 
 Driver-contract coverage is1534/1985 recorded decisions: empty-mana-pool priority

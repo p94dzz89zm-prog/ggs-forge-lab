@@ -16,6 +16,9 @@ CONTROLLERS = ('forge/ai/PlayerControllerAi.', 'forge/ai/bridge/PlayerController
 NUMBER = '.chooseNumber(Lforge/game/spellability/SpellAbility;Ljava/lang/String;II)I'
 CARDS = '.chooseCardsForEffect(Lforge/game/card/CardCollectionView;Lforge/game/spellability/SpellAbility;Ljava/lang/String;IIZLjava/util/Map;)Lforge/game/card/CardCollectionView;'
 PRIORITY = '.chooseSpellAbilityToPlay()Ljava/util/List;'
+REPLACEMENT = '.chooseSingleReplacementEffect(Ljava/util/List;)Lforge/game/replacement/ReplacementEffect;'
+COUNTER = '.chooseCounterType(Ljava/util/List;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Ljava/util/Map;)Lforge/game/card/CounterType;'
+COLORS = '.chooseColors(Ljava/lang/String;Lforge/game/spellability/SpellAbility;IILforge/card/ColorSet;)Lforge/card/ColorSet;'
 PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_ATTACKERS',
                    'COMBAT_DECLARE_BLOCKERS', 'COMBAT_FIRST_STRIKE_DAMAGE', 'COMBAT_DAMAGE',
                    'COMBAT_END', 'MAIN2', 'END_OF_TURN'}
@@ -23,6 +26,11 @@ PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_AT
 
 def choice(hook):
     return hook.startswith(CONTROLLERS) and not any('.' + name + '(' in hook for name in ('reveal', 'tempShowCards', 'endTempShowCards'))
+
+
+def trait_identity(value):
+    return {'trait_type': value['trait_type'], 'source_card_id': value['source']['card_id'],
+            'parameters': value['parameters']}
 
 
 def encode(entry, returned, index, call_line, return_line):
@@ -44,6 +52,37 @@ def encode(entry, returned, index, call_line, return_line):
                        pass_return='null' if returned['result'] is None else 'empty_list',
                        empty_mana_pool=True,
                        context={key: entry[key] for key in ('turn', 'phase', 'priority_player_id', 'turn_player_id')})
+        return row
+    if hook.endswith((REPLACEMENT, COUNTER, COLORS)):
+        try:
+            if args != returned.get('arguments_after'):
+                raise ValueError('effect_choice_argument_mutation')
+            if hook.endswith(REPLACEMENT):
+                offered = [trait_identity(item) for item in args[0]]
+                selected = trait_identity(returned['result'])
+                if len({json.dumps(item, sort_keys=True) for item in offered}) != len(offered) or selected not in offered:
+                    raise ValueError('ambiguous_or_unoffered_replacement')
+                row.update(kind='decision', decision_type='replacement_choice', available_effects=offered, selected_effect=selected)
+            else:
+                ability = args[1]
+                row['source_ability'] = None if ability is None else str(ability['source']['card_id']) + ':' + str(ability['ability_id'])
+                if hook.endswith(COUNTER):
+                    offered, selected = args[0], returned['result']
+                    if not all(type(item) is str for item in offered) or type(selected) is not str or len(set(offered)) != len(offered) or selected not in offered:
+                        raise ValueError('unoffered_or_ambiguous_counter')
+                    if not isinstance(args[3], dict) or any(value is not None for value in args[3].values()):
+                        raise ValueError('non_null_counter_parameters_need_binding')
+                    row.update(kind='decision', decision_type='counter_choice', title=args[2], available_counters=offered, selected_counter=selected, null_parameter_keys=sorted(args[3]))
+                else:
+                    allowed, selected = args[4], returned['result']
+                    if not all(type(text) is str and text and set(text) <= set('WUBRGC') and len(text) == len(set(text)) for text in (allowed, selected)):
+                        raise ValueError('unencoded_color_set')
+                    min_, max_ = args[2:4]; colors = set(selected) - {'C'}
+                    if type(min_) is not int or type(max_) is not int or not min_ <= len(colors) <= max_ or not colors <= set(allowed):
+                        raise ValueError('illegal_color_choice')
+                    row.update(kind='decision', decision_type='color_choice', title=args[0], min=min_, max=max_, allowed_colors=allowed, selected_colors=selected)
+        except (KeyError, TypeError, ValueError) as error:
+            row['kind'] = 'unsupported_decision'; row['reason'] = str(error)
         return row
     if not (hook.endswith(NUMBER) or hook.endswith(CARDS)):
         row['reason'] = 'unsupported_hook'

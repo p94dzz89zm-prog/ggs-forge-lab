@@ -61,9 +61,25 @@ def classify(decision, entry, returned):
         row['independent_local_check'] = issue or 'recorded_entitlement_and_empty_pool_consistent'
         if row['support'] == 'driver_contract' and issue:
             raise ValueError('Driver coverage contradicts local priority check: ' + issue)
+    if row['support'] == 'driver_contract' and name in ('chooseSingleReplacementEffect', 'chooseCounterType', 'chooseColors'):
+        args, selected = entry['arguments'], returned['result']
+        if args != returned['arguments_after']:
+            raise ValueError('Effect choice mutated arguments')
+        if name == 'chooseSingleReplacementEffect':
+            # Equality here includes the original full source state; the driver
+            # separately rebinds a stable trait fingerprint to a live object.
+            if sum(item == selected for item in args[0]) != 1:
+                raise ValueError('Replacement not uniquely offered')
+        elif name == 'chooseCounterType':
+            if sum(item == selected for item in args[0]) != 1:
+                raise ValueError('Counter not uniquely offered')
+        elif not (set(selected) - {'C'} <= set(args[4]) and args[2] <= len(set(selected) - {'C'}) <= args[3]):
+            raise ValueError('Color outside permitted domain/cardinality')
+        row['independent_local_check'] = 'original_offered_domain_and_pure_return_consistent'
     row['remaining_global_obligations'] = ['independently reconstruct state, priority, stack and visibility',
                                           'execute recorded choices against live legal options',
-                                          'verify resulting transitions and outcome']
+                                          'verify resulting transitions and outcome',
+                                          'derive effect/replacement applicability independently of offered list']
     return row
 
 

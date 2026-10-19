@@ -4,6 +4,8 @@ import com.google.gson.*;
 import forge.game.card.*;
 import forge.game.player.*;
 import forge.game.spellability.*;
+import forge.game.replacement.ReplacementEffect;
+import forge.card.ColorSet;
 import java.nio.file.*;
 import java.io.*;
 import java.util.*;
@@ -51,13 +53,21 @@ public final class DecisionReplay {
   if(expected==null||integer(expected.get("turn"))!=phase.getTurn()||!expected.get("phase").getAsString().equals(String.valueOf(phase.getPhase()))||integer(expected.get("priority_player_id"))!=player.getId()||phase.getPlayerTurn()==null||integer(expected.get("turn_player_id"))!=phase.getPlayerTurn().getId())throw new IllegalStateException("Priority replay context diverged");
   if(!Set.of("UPKEEP","DRAW","MAIN1","COMBAT_BEGIN","COMBAT_DECLARE_ATTACKERS","COMBAT_DECLARE_BLOCKERS","COMBAT_FIRST_STRIKE_DAMAGE","COMBAT_DAMAGE","COMBAT_END","MAIN2","END_OF_TURN").contains(String.valueOf(phase.getPhase())))throw new IllegalStateException("Unsupported priority step");
  }
+ private static JsonObject traitIdentity(ReplacementEffect effect){
+  JsonObject row=new JsonObject();row.addProperty("trait_type",effect.getClass().getName());row.addProperty("source_card_id",effect.getHostCard().getId());JsonObject params=new JsonObject();effect.getMapParams().forEach(params::addProperty);row.add("parameters",params);return row;
+ }
+ private static Object complete(String hook,Object receiver,Object[] args,Object result){long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,result);consumed++;return result;}
+ private static void bindAbility(JsonObject row,SpellAbility ability){JsonElement expected=row.get("source_ability");if(expected==null||!Objects.equals(expected.isJsonNull()?null:expected.getAsString(),source(ability)))throw new IllegalStateException("Effect source ability diverged");}
  public static synchronized Object invoke(String hook,Object receiver,Object[] args) {
   if(failed)throw new IllegalStateException("Decision replay already failed");
   boolean number=hook.endsWith(".chooseNumber(Lforge/game/spellability/SpellAbility;Ljava/lang/String;II)I");
   boolean cards=hook.endsWith(".chooseCardsForEffect(Lforge/game/card/CardCollectionView;Lforge/game/spellability/SpellAbility;Ljava/lang/String;IIZLjava/util/Map;)Lforge/game/card/CardCollectionView;");
   boolean priority=hook.endsWith(".chooseSpellAbilityToPlay()Ljava/util/List;");
+  boolean replacement=hook.endsWith(".chooseSingleReplacementEffect(Ljava/util/List;)Lforge/game/replacement/ReplacementEffect;");
+  boolean counter=hook.endsWith(".chooseCounterType(Ljava/util/List;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Ljava/util/Map;)Lforge/game/card/CounterType;");
+  boolean colors=hook.endsWith(".chooseColors(Ljava/lang/String;Lforge/game/spellability/SpellAbility;IILforge/card/ColorSet;)Lforge/card/ColorSet;");
   try {
-   if(!number&&!cards&&!priority)throw new IllegalStateException("Unsupported recorded decision: "+hook);
+   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors)throw new IllegalStateException("Unsupported recorded decision: "+hook);
    if(!(receiver instanceof PlayerController controller))throw new IllegalStateException("Missing controller");
    open();String line=input.readLine();if(line==null)throw new IllegalStateException("Decision tape exhausted");
    JsonObject row=JsonParser.parseString(line).getAsJsonObject();
@@ -67,7 +77,29 @@ public final class DecisionReplay {
     if(args.length!=0||!"priority_pass".equals(row.get("decision_type").getAsString()))throw new IllegalStateException("Unsupported priority selection");
     priorityContext(row,controller);String kind=row.get("pass_return").getAsString();Object result;
     if(kind.equals("null"))result=null;else if(kind.equals("empty_list"))result=Collections.emptyList();else throw new IllegalStateException("Invalid priority pass encoding");
-    long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,result);consumed++;return result;
+    return complete(hook,receiver,args,result);
+   }
+   if(replacement){
+    if(!"replacement_choice".equals(row.get("decision_type").getAsString()))throw new IllegalStateException("Wrong replacement decision type");
+    JsonArray offered=new JsonArray();List<ReplacementEffect> live=new ArrayList<>();
+    for(Object value:(List<?>)args[0]){ReplacementEffect effect=(ReplacementEffect)value;JsonObject identity=traitIdentity(effect);for(JsonElement prior:offered)if(prior.equals(identity))throw new IllegalStateException("Ambiguous replacement identity");live.add(effect);offered.add(identity);}
+    if(!offered.equals(row.get("available_effects")))throw new IllegalStateException("Replacement legal domain diverged");
+    ReplacementEffect selected=null;for(ReplacementEffect effect:live)if(traitIdentity(effect).equals(row.get("selected_effect")))selected=effect;
+    if(selected==null||selected.hasRun()||!selected.requirementsCheck(controller.getPlayer().getGame()))throw new IllegalStateException("Illegal recorded replacement choice");
+    return complete(hook,receiver,args,selected);
+   }
+   if(counter){
+    bindAbility(row,(SpellAbility)args[1]);if(!row.get("title").getAsString().equals(args[2]))throw new IllegalStateException("Counter prompt diverged");
+    JsonArray offered=new JsonArray();Map<String,CounterType> live=new LinkedHashMap<>();for(Object item:(List<?>)args[0]){if(!(item instanceof CounterType type)||!(item instanceof Enum<?>))throw new IllegalStateException("Unsupported custom counter identity");String id=item.toString();if(live.put(id,type)!=null)throw new IllegalStateException("Ambiguous counter identity");offered.add(id);}
+    if(!offered.equals(row.get("available_counters")))throw new IllegalStateException("Counter legal domain diverged");
+    Map<?,?> params=(Map<?,?>)args[3];JsonArray keys=new JsonArray();List<String> sorted=new ArrayList<>();for(var entry:params.entrySet()){if(entry.getValue()!=null)throw new IllegalStateException("Unsupported non-null counter parameter");sorted.add((String)entry.getKey());}Collections.sort(sorted);sorted.forEach(keys::add);
+    if(!keys.equals(row.get("null_parameter_keys")))throw new IllegalStateException("Counter parameters diverged");CounterType selected=live.get(row.get("selected_counter").getAsString());if(selected==null)throw new IllegalStateException("Illegal recorded counter choice");return complete(hook,receiver,args,selected);
+   }
+   if(colors){
+    bindAbility(row,(SpellAbility)args[1]);ColorSet allowed=(ColorSet)args[4];
+    if(!row.get("title").getAsString().equals(args[0])||integer(row.get("min"))!=(Integer)args[2]||integer(row.get("max"))!=(Integer)args[3]||!allowed.toString().equals(row.get("allowed_colors").getAsString()))throw new IllegalStateException("Color prompt/domain diverged");
+    ColorSet selected=ColorSet.valueOf(row.get("selected_colors").getAsString());int count=Integer.bitCount(selected.getColor());
+    if(!selected.hasNoColorsExcept(allowed)||count<(Integer)args[2]||count>(Integer)args[3])throw new IllegalStateException("Illegal recorded color choice");return complete(hook,receiver,args,selected);
    }
    int offset=number?0:1;SpellAbility ability=(SpellAbility)args[offset];String title=(String)args[offset+1];
    JsonElement binding=row.get("source_ability");
@@ -87,7 +119,7 @@ public final class DecisionReplay {
     if(selected.size()>max||(selected.size()<min&&!(optional&&selected.isEmpty())))throw new IllegalStateException("Illegal recorded card count");
     result=selected;
    }
-   long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,result);consumed++;return result;
+   return complete(hook,receiver,args,result);
   }catch(RuntimeException e){failed=true;diagnose(hook,receiver,e);throw e;}catch(Exception e){failed=true;diagnose(hook,receiver,e);throw new IllegalStateException("Decision replay failed",e);}
  }
  public static synchronized void finish()throws Exception {
