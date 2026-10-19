@@ -5,6 +5,31 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Complete-capture decision coverage
+
+The new streaming extractor retains every non-speculative root controller
+decision, including explicit unsupported records and original call/return record
+references. It checks source bytes against the archived checksum, call/return
+nesting, initial state and completion before exclusive publication. Nested AI
+implementation choices are not double-counted. Mutated arguments require explicit
+driver support; they cannot silently become pure return-value decisions.
+
+Applied to the existing149802-record complete capture, it retains1985 root
+decisions across17 hook signatures. Priority selection accounts for1634,
+mana payment142, simultaneous-ability ordering54, attack/block declarations43
+and combat damage assignment19. Neither of the two currently implemented bounded
+fixture families occurs in this game: current driving coverage is0/1985.
+This explicitly limits the preceding fixture result. Do not infer full-game
+replay readiness from that result or repeat those fixtures unchanged.
+
+Next implement the encountered priority-selection return types and recorded
+ability mutations (including targets, modes and X), with live legal-candidate
+binding. Starting-player/mulligan, payment, triggers, combat and all other
+encountered choices also remain. No unsupported row may be dropped. Five new
+extractor tests cover nested roots, unsupported preservation, mutation/invalid
+choice rejection, source integrity and incomplete/unpaired evidence rejection.
+No new simulation, training, full-game approval or pilot comparison.
+
 ## Bounded recorded-decision driver
 
 A new disabled-by-default driver intercepts110 inventoried controller hooks.

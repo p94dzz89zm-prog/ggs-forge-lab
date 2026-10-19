@@ -1,0 +1,125 @@
+"""Extract private root controller choices without dropping unsupported decisions.
+
+Input must be an already sealed referee tape, pinned by its archived SHA256.
+This checks extraction structure, not rules legality or admission to learning.
+"""
+import argparse
+from collections import Counter
+import hashlib
+import json
+import os
+from pathlib import Path
+import tempfile
+
+CONTROLLERS = ('forge/ai/PlayerControllerAi.', 'forge/ai/bridge/PlayerControllerBridge.',
+               'forge/game/player/PlayerController.')
+NUMBER = '.chooseNumber(Lforge/game/spellability/SpellAbility;Ljava/lang/String;II)I'
+CARDS = '.chooseCardsForEffect(Lforge/game/card/CardCollectionView;Lforge/game/spellability/SpellAbility;Ljava/lang/String;IIZLjava/util/Map;)Lforge/game/card/CardCollectionView;'
+
+
+def choice(hook):
+    return hook.startswith(CONTROLLERS) and not any('.' + name + '(' in hook for name in ('reveal', 'tempShowCards', 'endTempShowCards'))
+
+
+def encode(entry, returned, index, call_line, return_line):
+    hook, args = entry['hook'], entry['arguments']
+    row = {'kind': 'unsupported_decision', 'index': index, 'hook': hook,
+           'actor_id': entry['receiver'].get('player_id'), 'source_call_id': entry['call_id'],
+           'source_call_record': call_line, 'source_return_record': return_line}
+    if not (hook.endswith(NUMBER) or hook.endswith(CARDS)):
+        row['reason'] = 'unsupported_hook'
+        return row
+    if args != returned.get('arguments_after'):
+        row['reason'] = 'recorded_argument_mutation_requires_driver_support'
+        return row
+    try:
+        offset = 0 if hook.endswith(NUMBER) else 1
+        ability = args[offset]
+        binding = None if ability is None else str(ability['source']['card_id']) + ':' + str(ability['ability_id'])
+        row.update(source_ability=binding, title=args[offset + 1], min=args[offset + 2], max=args[offset + 3])
+        if type(row['min']) is not int or type(row['max']) is not int or type(row['title']) is not str or type(row['actor_id']) is not int:
+            raise ValueError('Unencoded prompt/bounds/controller')
+        if hook.endswith(NUMBER):
+            n = returned['result']
+            if type(n) is not int or not row['min'] <= n <= row['max']:
+                raise ValueError('Illegal recorded number')
+            row['number'] = n
+        else:
+            available = [c['card_id'] for c in args[0]]
+            selected = [c['card_id'] for c in returned['result']]
+            optional = args[5]
+            if type(optional) is not bool or any(type(c) is not int for c in available + selected):
+                raise ValueError('Unencoded card choice')
+            if len(set(available)) != len(available) or len(set(selected)) != len(selected) or not set(selected) <= set(available):
+                raise ValueError('Invalid or duplicate card choice')
+            if len(selected) > row['max'] or (len(selected) < row['min'] and not (optional and not selected)):
+                raise ValueError('Illegal recorded card count')
+            row.update(available_card_ids=available, selected_card_ids=selected, optional=optional)
+        row['kind'] = 'decision'
+    except (KeyError, TypeError, ValueError) as error:
+        row['reason'] = str(error)
+    return row
+
+
+def extract(source, expected_sha256, output):
+    output = Path(output)
+    checksum, stack, roots = hashlib.sha256(), [], {}
+    count, calls, initial, terminal, records = 0, 0, 0, False, 0
+    supported, unsupported = Counter(), Counter()
+    fd, temporary = tempfile.mkstemp(dir=output.parent, prefix='.decision-extract-')
+    try:
+        with os.fdopen(fd, 'w') as result, Path(source).open('rb') as stream:
+            for records, line in enumerate(stream, 1):
+                checksum.update(line); row = json.loads(line)
+                if terminal or row.get('format') != 1 or row.get('audience') != 'offline_referee_only':
+                    raise ValueError('Invalid/late referee record')
+                kind = row['kind']
+                if kind == 'engine_call':
+                    calls += 1
+                    if row['call_id'] != calls or row.get('parent_call_id', 0) != (stack[-1][0] if stack else 0):
+                        raise ValueError('Call sequence/parent gap')
+                    is_choice = choice(row['hook'])
+                    if is_choice and not row.get('speculative', False) and not any(item[1] for item in stack):
+                        roots[row['call_id']] = (row, records)
+                    stack.append((row['call_id'], is_choice, row['hook']))
+                    initial += 'initial_state' in row
+                elif kind == 'engine_return':
+                    if not stack or (row['call_id'], row['hook']) != (stack[-1][0], stack[-1][2]):
+                        raise ValueError('Unpaired/out-of-order return')
+                    stack.pop()
+                    if row['call_id'] in roots:
+                        entry, start = roots.pop(row['call_id']); decision = encode(entry, row, count, start, records)
+                        (supported if decision['kind'] == 'decision' else unsupported)[decision['hook']] += 1
+                        result.write(json.dumps(decision, separators=(',', ':')) + '\n'); count += 1
+                elif kind == 'engine_tape_complete':
+                    if stack or row['calls'] != calls:
+                        raise ValueError('Incomplete calls at completion')
+                    terminal = True
+                elif kind != 'random_bits':
+                    raise ValueError('Unknown referee record')
+            if not terminal or initial != 1 or stack or roots or checksum.hexdigest() != expected_sha256:
+                raise ValueError('Missing initial/completion state or source checksum mismatch')
+            result.write(json.dumps({'kind': 'decision_tape_complete', 'decisions': count,
+                                     'source_sha256': expected_sha256, 'unsupported_decisions': sum(unsupported.values()),
+                                     'rules_approved': False}) + '\n')
+            result.flush(); os.fsync(result.fileno())
+        os.link(temporary, output)
+        directory = os.open(output.parent, os.O_DIRECTORY)
+        try:
+            os.fsync(directory)
+        finally:
+            os.close(directory)
+    finally:
+        Path(temporary).unlink(missing_ok=True)
+    return {'source_sha256': expected_sha256, 'records': records, 'root_decisions': count,
+            'supported': dict(supported), 'unsupported': dict(unsupported),
+            'all_root_choices_retained': True, 'full_game_replay': False, 'rules_approved': False}
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--source', type=Path, required=True)
+    parser.add_argument('--sha256', required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    args = parser.parse_args()
+    print(json.dumps(extract(args.source, args.sha256, args.output), indent=2))
