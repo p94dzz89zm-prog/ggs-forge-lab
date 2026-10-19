@@ -5,6 +5,33 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Empty Partner search and private look delivery
+
+Conditional coverage1767/1985; actual original prefix264 decisions,774 engine
+RNG requests and126 canonical gameplay lines match. Decision197 reconstructs
+the optional empty Frodo Partner library search from live source/target,
+destination/origin, offered domain, complete library order, ownership and look
+recipient. It invokes actual controller delivery, returns the recorded null
+choice and lets the caller execute the real shuffle. All three native delivery
+calls show the same89 cards only to the searching player. No recorded zone or
+shuffle outcome is copied. Official CR effective September25,2026:701.20e,
+701.23a–b and702.124j govern private looking, search/fail-to-find and Partner.
+
+Targeted four-player valid, wrong-recipient and wrong-library-domain controls
+pass; affected encoder test passes. Three fixture setup failures are retained:
+controller interception class changed with early audit setup, and the pinned
+single-zone DelayedReveal constructor discards its message argument. The
+corrected fixture uses the actual Set-zone constructor matching this capture.
+No unrelated suites rerun. Original archives and prior checkpoints unchanged.
+
+Next original decision264: first declareAttackers, actor2 during turn7.
+Attack declarations and defender choice require independent combat legality,
+actual declared attackers and subsequent trigger/damage reconstruction.218
+original decisions remain outside driver contracts. Whole-game independent
+priority/APNAP, costs, combat, visibility, ownership/elimination and terminal
+outcome verification are still incomplete. Full approvals0, training0 and
+eligible comparisons0. Historical truncation cause remains unproven.
+
 ## Explicit optional-action confirmations
 
 Conditional coverage1766/1985 includes ten immutable confirmAction choices.

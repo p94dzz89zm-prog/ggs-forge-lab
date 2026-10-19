@@ -111,14 +111,25 @@ public final class DecisionReplay {
   boolean payment=hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z");
   boolean triggerStack=hook.endsWith(".orderAndPlaySimultaneousSa(Ljava/util/List;)V");
   boolean singlePlayer=hook.endsWith(".chooseSingleEntityForEffect(Lforge/util/collect/FCollectionView;Lforge/game/player/DelayedReveal;Lforge/game/spellability/SpellAbility;Ljava/lang/String;ZLforge/game/player/Player;Ljava/util/Map;)Lforge/game/GameEntity;");
+  boolean emptySearch=hook.endsWith(".chooseSingleCardForZoneChange(Lforge/game/zone/ZoneType;Ljava/util/List;Lforge/game/spellability/SpellAbility;Lforge/game/card/CardCollection;Lforge/game/player/DelayedReveal;Ljava/lang/String;ZLforge/game/player/Player;)Lforge/game/card/Card;");
   boolean confirmation=hook.endsWith(".confirmAction(Lforge/game/spellability/SpellAbility;Lforge/game/player/PlayerActionConfirmMode;Ljava/lang/String;Ljava/util/Map;)Z");
   try {
-   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack&&!singlePlayer&&!confirmation)throw new IllegalStateException("Unsupported recorded decision: "+hook);
+   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack&&!singlePlayer&&!confirmation&&!emptySearch)throw new IllegalStateException("Unsupported recorded decision: "+hook);
    if(!(receiver instanceof PlayerController controller))throw new IllegalStateException("Missing controller");
    open();String line=input.readLine();if(line==null)throw new IllegalStateException("Decision tape exhausted");
    JsonObject row=JsonParser.parseString(line).getAsJsonObject();
    if("unsupported_decision".equals(row.get("kind").getAsString()))throw new IllegalStateException("Unsupported recorded decision row: "+row.get("reason"));
    if(!row.get("kind").getAsString().equals("decision")||integer(row.get("index"))!=consumed||!row.get("hook").getAsString().equals(hook)||integer(row.get("actor_id"))!=controller.getPlayer().getId())throw new IllegalStateException("Decision order/actor/hook diverged");
+   if(emptySearch){
+    Player player=controller.getPlayer();
+    if(!row.get("decision_type").getAsString().equals("empty_partner_search")||args.length!=8||args[0]!=ZoneType.Hand||!Objects.equals(args[1],List.of(ZoneType.Library))||!(args[3] instanceof CardCollection offered)||!offered.isEmpty()||!(args[4] instanceof DelayedReveal reveal)||!Boolean.TRUE.equals(args[6])||args[7]!=player||player.hasLost()||!Objects.equals(args[5],row.get("title").getAsString())||!row.get("selected_card_id").isJsonNull())throw new IllegalStateException("Unsupported empty Partner search context");
+    SpellAbility ability=(SpellAbility)args[2];bindAbility(row,ability);JsonObject params=new JsonObject();ability.getMapParams().forEach(params::addProperty);
+    if(!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals("ChangeZone")||!ability.getHostCard().getName().equals("Frodo, Adventurous Hobbit")||!ability.getTargets().contains(player)||ability.getTargets().size()!=1)throw new IllegalStateException("Partner search source or target diverged");
+    if(reveal.getOwner()!=player.getView()||integer(row.get("reveal_owner_id"))!=player.getId()||!reveal.getZone().equals(Set.of(ZoneType.Library))||!Objects.equals(reveal.getMessagePrefix(),row.get("reveal_message").getAsString()))throw new IllegalStateException("Search reveal owner/zone/message diverged");
+    JsonArray ids=new JsonArray();for(CardView card:reveal.getCards()){if(card.getOwner()!=player.getView()||card.getZone()!=ZoneType.Library)throw new IllegalStateException("Search reveal card ownership/zone diverged");ids.add(card.getId());}
+    JsonArray live=new JsonArray();for(Card card:player.getCardsIn(ZoneType.Library))live.add(card.getId());if(!ids.equals(live)||!ids.equals(row.get("reveal_card_ids")))throw new IllegalStateException("Search reveal library order/domain diverged");
+    long token=EngineEvidence.enter(hook,receiver,args);controller.reveal(reveal);EngineEvidence.leave(token,null);consumed++;return null;
+   }
    if(confirmation){
     if(!row.get("decision_type").getAsString().equals("confirm_action")||args.length!=4||args[3]!=null||!(args[1] instanceof PlayerActionConfirmMode mode)||!mode.name().equals(row.get("mode").getAsString())||!Objects.equals(args[2],row.get("title").getAsString()))throw new IllegalStateException("Confirmation prompt/mode/context diverged");
     SpellAbility ability=(SpellAbility)args[0];bindAbility(row,ability);JsonObject params=new JsonObject();ability.getMapParams().forEach(params::addProperty);if(!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString())||!row.get("accept").getAsJsonPrimitive().isBoolean())throw new IllegalStateException("Confirmation source or choice diverged");return complete(hook,receiver,args,row.get("accept").getAsBoolean());

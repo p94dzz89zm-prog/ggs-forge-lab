@@ -24,6 +24,7 @@ MULLIGAN = '.mulliganKeepHand(Lforge/game/player/Player;I)Z'
 PAYMENT = '.payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z'
 TRIGGER_STACK = '.orderAndPlaySimultaneousSa(Ljava/util/List;)V'
 SINGLE_PLAYER = '.chooseSingleEntityForEffect(Lforge/util/collect/FCollectionView;Lforge/game/player/DelayedReveal;Lforge/game/spellability/SpellAbility;Ljava/lang/String;ZLforge/game/player/Player;Ljava/util/Map;)Lforge/game/GameEntity;'
+ZONE_EMPTY = '.chooseSingleCardForZoneChange(Lforge/game/zone/ZoneType;Ljava/util/List;Lforge/game/spellability/SpellAbility;Lforge/game/card/CardCollection;Lforge/game/player/DelayedReveal;Ljava/lang/String;ZLforge/game/player/Player;)Lforge/game/card/Card;'
 CONFIRM_ACTION = '.confirmAction(Lforge/game/spellability/SpellAbility;Lforge/game/player/PlayerActionConfirmMode;Ljava/lang/String;Ljava/util/Map;)Z'
 PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_ATTACKERS',
                    'COMBAT_DECLARE_BLOCKERS', 'COMBAT_FIRST_STRIKE_DAMAGE', 'COMBAT_DAMAGE',
@@ -44,6 +45,20 @@ def encode(entry, returned, index, call_line, return_line):
     row = {'kind': 'unsupported_decision', 'index': index, 'hook': hook,
            'actor_id': entry['receiver'].get('player_id'), 'source_call_id': entry['call_id'],
            'source_call_record': call_line, 'source_return_record': return_line}
+    if hook.endswith(ZONE_EMPTY):
+        row['reason']='hidden_search_domain_reveal_or_choice_unsupported'
+        if len(args)==8 and args==returned.get('arguments_after') and returned['result'] is None and args[0:2]==['Hand',['Library']] and args[3]==[] and args[6] is True and entry.get('replay_hidden_random_requests',0)==0:
+            ability=args[2]; reveal=args[4]; chooser=args[7]
+            parameters=dict(DB='ChangeZone',Origin='Library',Destination='Hand',Chooser='Targeted',Optional='True',ChangeType='Card.namedSam; Loyal Attendant',ValidTgts='Player',Hidden='True')
+            if (ability['source']['name']=='Frodo, Adventurous Hobbit' and ability['api']=='ChangeZone' and ability['parameters']==parameters and isinstance(reveal,dict) and reveal['zones']==['Library']
+                and reveal['owner']['view_id']==chooser['player_id']==row['actor_id'] and chooser['lost'] is False
+                and all(c['zone']=='Library' and c['owner']['view_id']==row['actor_id'] for c in reveal['cards'])):
+                ids=[c['view_id'] for c in reveal['cards']]
+                if len(ids)==len(set(ids)):
+                    row.update(kind='decision',decision_type='empty_partner_search',source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),ability_api=ability['api'],ability_parameters=parameters,
+                               reveal_card_ids=ids,reveal_owner_id=row['actor_id'],reveal_message=reveal['message'],title=args[5],selected_card_id=None,recorded_random_requests=0)
+                    row.pop('reason',None)
+        return row
     if hook.endswith(CONFIRM_ACTION):
         row['reason']='confirmation_context_or_mutation_unsupported'
         if len(args)==4 and args==returned.get('arguments_after') and args[3] is None and isinstance(args[0],dict) and isinstance(args[1],str) and isinstance(args[2],str) and type(returned['result']) is bool:
@@ -363,6 +378,9 @@ def extract(source, expected_sha256, output):
                         raise ValueError('Incomplete calls at completion')
                     terminal = True
                 elif kind == 'random_bits':
+                    for entry, _ in roots.values():
+                        if entry['hook'].endswith(ZONE_EMPTY):
+                            entry['replay_hidden_random_requests']=entry.get('replay_hidden_random_requests',0)+1
                     for entry, _ in roots.values():
                         if entry['hook'].endswith(TRIGGER_STACK) and entry.get('replay_trigger_effects_started'):
                             entry['replay_trigger_unknown_rng'] = entry.get('replay_trigger_unknown_rng',0)+1

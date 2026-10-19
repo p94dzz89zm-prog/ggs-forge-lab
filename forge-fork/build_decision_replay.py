@@ -56,7 +56,7 @@ def main():
         hooks = (overlay / 'decision-hooks.txt').read_text()
         args.output.with_suffix('.hooks.txt').write_text(hooks)
     manifest = {'base_sha256': BASE, 'sha256': digest(args.output), 'classes': sorted(changes),
-                'default_enabled': False, 'supported_families': ['bounded_number', 'cards_for_effect', 'priority_pass', 'replacement_choice', 'counter_choice', 'color_choice', 'play_land', 'starting_player', 'mulligan_keep', 'zero_effect_mana', 'plain_hand_permanent_spell', 'basic_land_mana', 'fixed_tap_mana', 'command_permanent_spell', 'selected_tap_mana', 'partner_trigger_stack', 'single_player_effect', 'confirm_action'],
+                'default_enabled': False, 'supported_families': ['bounded_number', 'cards_for_effect', 'priority_pass', 'replacement_choice', 'counter_choice', 'color_choice', 'play_land', 'starting_player', 'mulligan_keep', 'zero_effect_mana', 'plain_hand_permanent_spell', 'basic_land_mana', 'fixed_tap_mana', 'command_permanent_spell', 'selected_tap_mana', 'partner_trigger_stack', 'single_player_effect', 'confirm_action', 'empty_partner_search'],
                 'unsupported_decisions': 'fatal; no AI fallback', 'full_game_replay': False,
                 'source_sha256': digest(source)}
     args.output.with_suffix('.build.json').write_text(json.dumps(manifest, indent=2) + '\n')
