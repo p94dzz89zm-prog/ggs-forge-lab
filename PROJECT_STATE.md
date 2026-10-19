@@ -5,6 +5,33 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## First actual combat reconstructed
+
+Conditional driver contracts1769/1985; consecutive original replay298/1985.
+774 engine RNG requests and143 canonical gameplay lines match. Two recorded
+single-Phoenix player-attack declarations now have bounded contracts. The live
+actor/turn/step/empty stack, untapped controlled creature, haste/sickness,
+legal opponent/defender, native attack restrictions/requirements and absent
+attack costs are checked. Recorded attacker/defender choices are applied to
+actual Combat; the caller performs tapping, triggers and damage. Invalid
+self-defender and tapped attacker reject before combat mutation. The positive
+four-player fixture and affected encoder test pass. A fourth actual native-AI
+fixture traces defender-selector RNG; static review also identifies attack
+aggression percent choices. Only controller declarations and cost-estimation
+calls are allowed inside the bounded original selector scope; unknown effects
+remain unsupported. No broad AI fallback or recorded outcome copying.
+
+A separate checker confirms real caller tap,1 combat damage, defender life
+39→38 and no blockers, matching all4 relevant original public events. This is
+scoped arithmetic/provenance verification, not independent full combat or
+whole-game approval. Official CR508.1a–f governs declaration, defenders,
+restrictions/requirements and tapping; additional attack costs remain rejected.
+
+Next298: Rampant Growth hand-spell selection (ChangeZone API), followed by
+actual mana payment and hidden-library selection/reveal/shuffle.216 original
+roots remain unsupported. No complete replay or independently approved game;
+training and pilot comparisons remain gated. Original evidence is unchanged.
+
 ## Empty Partner search and private look delivery
 
 Conditional coverage1767/1985; actual original prefix264 decisions,774 engine

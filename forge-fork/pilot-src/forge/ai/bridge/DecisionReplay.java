@@ -111,15 +111,24 @@ public final class DecisionReplay {
   boolean payment=hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z");
   boolean triggerStack=hook.endsWith(".orderAndPlaySimultaneousSa(Ljava/util/List;)V");
   boolean singlePlayer=hook.endsWith(".chooseSingleEntityForEffect(Lforge/util/collect/FCollectionView;Lforge/game/player/DelayedReveal;Lforge/game/spellability/SpellAbility;Ljava/lang/String;ZLforge/game/player/Player;Ljava/util/Map;)Lforge/game/GameEntity;");
+  boolean attack=hook.endsWith(".declareAttackers(Lforge/game/player/Player;Lforge/game/combat/Combat;)V");
   boolean emptySearch=hook.endsWith(".chooseSingleCardForZoneChange(Lforge/game/zone/ZoneType;Ljava/util/List;Lforge/game/spellability/SpellAbility;Lforge/game/card/CardCollection;Lforge/game/player/DelayedReveal;Ljava/lang/String;ZLforge/game/player/Player;)Lforge/game/card/Card;");
   boolean confirmation=hook.endsWith(".confirmAction(Lforge/game/spellability/SpellAbility;Lforge/game/player/PlayerActionConfirmMode;Ljava/lang/String;Ljava/util/Map;)Z");
   try {
-   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack&&!singlePlayer&&!confirmation&&!emptySearch)throw new IllegalStateException("Unsupported recorded decision: "+hook);
+   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack&&!singlePlayer&&!confirmation&&!emptySearch&&!attack)throw new IllegalStateException("Unsupported recorded decision: "+hook);
    if(!(receiver instanceof PlayerController controller))throw new IllegalStateException("Missing controller");
    open();String line=input.readLine();if(line==null)throw new IllegalStateException("Decision tape exhausted");
    JsonObject row=JsonParser.parseString(line).getAsJsonObject();
    if("unsupported_decision".equals(row.get("kind").getAsString()))throw new IllegalStateException("Unsupported recorded decision row: "+row.get("reason"));
    if(!row.get("kind").getAsString().equals("decision")||integer(row.get("index"))!=consumed||!row.get("hook").getAsString().equals(hook)||integer(row.get("actor_id"))!=controller.getPlayer().getId())throw new IllegalStateException("Decision order/actor/hook diverged");
+   if(attack){
+    Player player=controller.getPlayer();var game=player.getGame();var phase=game.getPhaseHandler();JsonObject context=row.getAsJsonObject("context");
+    if(!row.get("decision_type").getAsString().equals("single_phoenix_attack")||args.length!=2||args[0]!=player||!(args[1] instanceof forge.game.combat.Combat combat)||combat.getAttackingPlayer()!=player||!combat.getAttackers().isEmpty()||player.hasLost()||phase.getPlayerTurn()!=player||!String.valueOf(phase.getPhase()).equals("COMBAT_DECLARE_ATTACKERS")||!game.getStack().isEmpty()||integer(context.get("turn"))!=phase.getTurn()||integer(context.get("turn_player_id"))!=player.getId()||!context.get("phase").getAsString().equals("COMBAT_DECLARE_ATTACKERS"))throw new IllegalStateException("Attack declaration turn/context diverged");
+    Card attacker=null;for(Card card:player.getCardsIn(ZoneType.Battlefield))if(card.getId()==integer(row.get("attacker_id")))attacker=card;Player defender=null;for(Player opponent:player.getOpponents())if(opponent.getId()==integer(row.get("defender_player_id")))defender=opponent;
+    if(attacker==null||!attacker.getName().equals("Phoenix Chick")||!attacker.isCreature()||attacker.getController()!=player||attacker.isTapped()||attacker.isPhasedOut()||attacker.isSick()||defender==null||defender.hasLost()||!combat.getDefenders().contains(defender)||!forge.game.combat.CombatUtil.canAttack(attacker,defender))throw new IllegalStateException("Illegal attack creature/defender choice");
+    if(forge.game.combat.CombatUtil.getAttackCost(game,attacker,defender)!=null)throw new IllegalStateException("Attack cost requires unsupported payment choices");
+    long token=EngineEvidence.enter(hook,receiver,args);combat.addAttacker(attacker,defender);if(!forge.game.combat.CombatUtil.validateAttackers(combat)){combat.clearAttackers();throw new IllegalStateException("Attack restrictions/requirements violated");}EngineEvidence.leave(token,null);consumed++;return null;
+   }
    if(emptySearch){
     Player player=controller.getPlayer();
     if(!row.get("decision_type").getAsString().equals("empty_partner_search")||args.length!=8||args[0]!=ZoneType.Hand||!Objects.equals(args[1],List.of(ZoneType.Library))||!(args[3] instanceof CardCollection offered)||!offered.isEmpty()||!(args[4] instanceof DelayedReveal reveal)||!Boolean.TRUE.equals(args[6])||args[7]!=player||player.hasLost()||!Objects.equals(args[5],row.get("title").getAsString())||!row.get("selected_card_id").isJsonNull())throw new IllegalStateException("Unsupported empty Partner search context");

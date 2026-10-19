@@ -24,6 +24,7 @@ MULLIGAN = '.mulliganKeepHand(Lforge/game/player/Player;I)Z'
 PAYMENT = '.payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z'
 TRIGGER_STACK = '.orderAndPlaySimultaneousSa(Ljava/util/List;)V'
 SINGLE_PLAYER = '.chooseSingleEntityForEffect(Lforge/util/collect/FCollectionView;Lforge/game/player/DelayedReveal;Lforge/game/spellability/SpellAbility;Ljava/lang/String;ZLforge/game/player/Player;Ljava/util/Map;)Lforge/game/GameEntity;'
+ATTACK = '.declareAttackers(Lforge/game/player/Player;Lforge/game/combat/Combat;)V'
 ZONE_EMPTY = '.chooseSingleCardForZoneChange(Lforge/game/zone/ZoneType;Ljava/util/List;Lforge/game/spellability/SpellAbility;Lforge/game/card/CardCollection;Lforge/game/player/DelayedReveal;Ljava/lang/String;ZLforge/game/player/Player;)Lforge/game/card/Card;'
 CONFIRM_ACTION = '.confirmAction(Lforge/game/spellability/SpellAbility;Lforge/game/player/PlayerActionConfirmMode;Ljava/lang/String;Ljava/util/Map;)Z'
 PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_ATTACKERS',
@@ -45,6 +46,19 @@ def encode(entry, returned, index, call_line, return_line):
     row = {'kind': 'unsupported_decision', 'index': index, 'hook': hook,
            'actor_id': entry['receiver'].get('player_id'), 'source_call_id': entry['call_id'],
            'source_call_record': call_line, 'source_return_record': return_line}
+    if hook.endswith(ATTACK):
+        row['reason']='attack_costs_banding_or_declaration_unsupported'
+        after=returned.get('arguments_after',[])
+        if len(args)==2 and len(after)==2 and args[0]==after[0] and args[1]['attacks']==[] and returned['result'] is None and entry.get('replay_attack_unknown_calls',0)==0:
+            attacks=after[1]['attacks']
+            if len(attacks)==1 and after[1]['attacking_player']==args[1]['attacking_player']==args[0] and args[0]['player_id']==row['actor_id']:
+                attack=attacks[0]; card=attack['attacker']; defender=attack['defender']
+                if (card['name']=='Phoenix Chick' and card['controller_id']==row['actor_id'] and card['zone']=='Battlefield' and not card['tapped'] and not card['phased_out'] and attack['blockers']==[] and attack['blocked'] is False
+                    and type(defender.get('player_id')) is int and defender['player_id']!=row['actor_id'] and defender['lost'] is False):
+                    row.update(kind='decision',decision_type='single_phoenix_attack',attacker_id=card['card_id'],defender_player_id=defender['player_id'],
+                               context={k:entry[k] for k in ('turn','phase','turn_player_id')},random_scope='Reviewed attack-selector only; no effect calls; live attack costs rejected')
+                    row.pop('reason',None)
+        return row
     if hook.endswith(ZONE_EMPTY):
         row['reason']='hidden_search_domain_reveal_or_choice_unsupported'
         if len(args)==8 and args==returned.get('arguments_after') and returned['result'] is None and args[0:2]==['Hand',['Library']] and args[3]==[] and args[6] is True and entry.get('replay_hidden_random_requests',0)==0:
@@ -327,6 +341,8 @@ def extract(source, expected_sha256, output):
                     if row['call_id'] in roots and row['hook'].endswith(START):
                         row['replay_initial_player_ids'] = initial_players
                     for entry, _ in roots.values():
+                        if entry['hook'].endswith(ATTACK) and not (row['hook'].endswith(ATTACK) or row['hook'].startswith('forge/game/cost/CostAdjustment.adjust(')):
+                            entry['replay_attack_unknown_calls']=entry.get('replay_attack_unknown_calls',0)+1
                         if entry['hook'].endswith(TRIGGER_STACK):
                             if row['hook'].startswith('forge/game/cost/CostAdjustment.adjust('):
                                 entry['replay_trigger_effects_started'] = True
