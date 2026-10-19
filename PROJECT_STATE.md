@@ -5,6 +5,34 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Causal allocation instrumentation and explicit identity audit
+
+Default-off diagnostic overlay observes Game.nextCardId and post-sync counters
+without changing their values. Three actual four-player diagnostics are sealed.
+Native selection declined Rampant Growth and allocated0; recorded selection
+allocated0. Six direct actual TokenAi.spawnToken previews advanced the live
+counter43→49 through TokenInfo.getProtoType→CardFactory.getCard→Game.nextCardId.
+No actual spell was cast; sealed final battlefield states are identical across
+all3 controls. This establishes a reproducible allocator-pollution mechanism,
+not the precise allocation history of the old capture, which was not traced.
+
+New replay_identity_audit.py binds the original tape hash, pairs live token
+births by TokenEffect source/parameters/turn/effect ordinal/birth ordinal and
+checks name/owner/control/zone/PT. The actual first birth matches this causal
+fingerprint but has original ID412 versus replay406. The report keeps that
+mismatch unresolved; no driver aliases are installed, no evidence is rewritten,
+and no full-state replay certificate is granted. A targeted test rejects
+changed or duplicate births. Decoder coverage remains1773/1985, actual original
+execution prefix348, complete independent approval0. No original prefix rerun
+was needed for this diagnostic stage.
+
+Next engineering priority: prevent AI prototype evaluation from consuming the
+live identity allocator and introduce reviewed, collision-safe causal identity
+handling for historical created objects. Then continue Sam trigger348 and the
+remaining212 unsupported roots. Exact historical ID-drift attribution and
+historical game-tail truncation both remain unproven. No training or pilot
+comparison is admitted.
+
 ## Swan Song and a created-object identity blocker
 
 Driver contracts1773/1985. The engine executes348 consecutive recorded
