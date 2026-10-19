@@ -23,6 +23,7 @@ START = '.chooseStartingPlayer(Z)Lforge/game/player/Player;'
 MULLIGAN = '.mulliganKeepHand(Lforge/game/player/Player;I)Z'
 PAYMENT = '.payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z'
 TRIGGER_STACK = '.orderAndPlaySimultaneousSa(Ljava/util/List;)V'
+SINGLE_PLAYER = '.chooseSingleEntityForEffect(Lforge/util/collect/FCollectionView;Lforge/game/player/DelayedReveal;Lforge/game/spellability/SpellAbility;Ljava/lang/String;ZLforge/game/player/Player;Ljava/util/Map;)Lforge/game/GameEntity;'
 PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_ATTACKERS',
                    'COMBAT_DECLARE_BLOCKERS', 'COMBAT_FIRST_STRIKE_DAMAGE', 'COMBAT_DAMAGE',
                    'COMBAT_END', 'MAIN2', 'END_OF_TURN'}
@@ -42,6 +43,20 @@ def encode(entry, returned, index, call_line, return_line):
     row = {'kind': 'unsupported_decision', 'index': index, 'hook': hook,
            'actor_id': entry['receiver'].get('player_id'), 'source_call_id': entry['call_id'],
            'source_call_record': call_line, 'source_return_record': return_line}
+    if hook.endswith(SINGLE_PLAYER):
+        row['reason'] = 'entity_domain_reveal_or_context_unsupported'
+        if len(args) == 7 and args == returned.get('arguments_after') and args[1] is None and args[5:] == [None,None] and type(args[4]) is bool:
+            offered = args[0]; selected = returned['result']
+            if offered and all(isinstance(p,dict) and type(p.get('player_id')) is int and p.get('lost') is False for p in offered):
+                ids = [p['player_id'] for p in offered]
+                chosen = None if selected is None else selected.get('player_id')
+                if len(ids) == len(set(ids)) and (chosen in ids or (selected is None and args[4])):
+                    ability=args[2]
+                    row.update(kind='decision',decision_type='single_player_effect',available_player_ids=ids,selected_player_id=chosen,
+                               source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),ability_api=ability['api'],
+                               ability_parameters=ability['parameters'],title=args[3],optional=args[4])
+                    row.pop('reason',None)
+        return row
     if hook.endswith(TRIGGER_STACK):
         row['reason'] = 'trigger_preparation_or_targets_unsupported'
         offered = args[0] if len(args) == 1 else []

@@ -110,13 +110,20 @@ public final class DecisionReplay {
   boolean mulligan=hook.endsWith(".mulliganKeepHand(Lforge/game/player/Player;I)Z");
   boolean payment=hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z");
   boolean triggerStack=hook.endsWith(".orderAndPlaySimultaneousSa(Ljava/util/List;)V");
+  boolean singlePlayer=hook.endsWith(".chooseSingleEntityForEffect(Lforge/util/collect/FCollectionView;Lforge/game/player/DelayedReveal;Lforge/game/spellability/SpellAbility;Ljava/lang/String;ZLforge/game/player/Player;Ljava/util/Map;)Lforge/game/GameEntity;");
   try {
-   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack)throw new IllegalStateException("Unsupported recorded decision: "+hook);
+   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack&&!singlePlayer)throw new IllegalStateException("Unsupported recorded decision: "+hook);
    if(!(receiver instanceof PlayerController controller))throw new IllegalStateException("Missing controller");
    open();String line=input.readLine();if(line==null)throw new IllegalStateException("Decision tape exhausted");
    JsonObject row=JsonParser.parseString(line).getAsJsonObject();
    if("unsupported_decision".equals(row.get("kind").getAsString()))throw new IllegalStateException("Unsupported recorded decision row: "+row.get("reason"));
    if(!row.get("kind").getAsString().equals("decision")||integer(row.get("index"))!=consumed||!row.get("hook").getAsString().equals(hook)||integer(row.get("actor_id"))!=controller.getPlayer().getId())throw new IllegalStateException("Decision order/actor/hook diverged");
+   if(singlePlayer){
+    if(!row.get("decision_type").getAsString().equals("single_player_effect")||args.length!=7||args[1]!=null||args[5]!=null||args[6]!=null||!Objects.equals(args[3],row.get("title").getAsString())||!Objects.equals(args[4],row.get("optional").getAsBoolean()))throw new IllegalStateException("Unsupported player choice prompt/reveal/context");
+    SpellAbility ability=(SpellAbility)args[2];bindAbility(row,ability);JsonObject params=new JsonObject();ability.getMapParams().forEach(params::addProperty);if(!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Player choice source parameters diverged");
+    JsonArray ids=new JsonArray();Map<Integer,Player> offered=new LinkedHashMap<>();for(Object item:(Iterable<?>)args[0]){if(!(item instanceof Player player)||player.hasLost()||player.getGame()!=controller.getPlayer().getGame()||offered.put(player.getId(),player)!=null)throw new IllegalStateException("Invalid offered player domain");ids.add(player.getId());}
+    if(!ids.equals(row.get("available_player_ids")))throw new IllegalStateException("Player choice legal domain diverged");JsonElement chosen=row.get("selected_player_id");Player selected=chosen.isJsonNull()?null:offered.get(Math.toIntExact(integer(chosen)));if(selected==null&&(!chosen.isJsonNull()||!row.get("optional").getAsBoolean()))throw new IllegalStateException("Unavailable selected player");return complete(hook,receiver,args,selected);
+   }
    if(triggerStack){
     if(!row.get("decision_type").getAsString().equals("partner_trigger_stack")||args.length!=1||!(args[0] instanceof List<?> offered)||offered.size()!=1||!(offered.get(0) instanceof forge.game.trigger.WrappedAbility wrapper))throw new IllegalStateException("Unsupported simultaneous trigger domain");
     Player player=controller.getPlayer();var game=player.getGame();Card card=wrapper.getHostCard();SpellAbility inner=wrapper.getWrappedAbility();

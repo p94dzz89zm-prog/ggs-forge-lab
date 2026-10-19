@@ -5,6 +5,21 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Recorded player-entity choices
+
+Conditional driver coverage1756/1985 includes six pure player choices with no
+delayed reveal, extra context or argument mutation. Offered IDs must be unique
+and match the actual live domain; source/API/parameters, prompt and optionality
+must agree. The driver returns the selected live Player, or null only when
+optional; it applies no effect outcome. Card-entity choices remain unsupported.
+Actual four-player selected-player, unoffered-player rejection and optional
+decline controls pass; one affected encoding check passes. Separate checks
+confirm membership of all six original choices, not independent derivation of
+the offered domain. The original replay reaches196 consecutive decisions,
+686 engine RNG requests and matching canonical gameplay, then stops at
+confirmAction196: the optional Partner library search. Full approvals0;
+no natural games, training or strategic improvement from this stage.
+
 ## Partner trigger and direct target provenance
 
 Conditional driver coverage1750/1985; original replay195 consecutive decisions,
