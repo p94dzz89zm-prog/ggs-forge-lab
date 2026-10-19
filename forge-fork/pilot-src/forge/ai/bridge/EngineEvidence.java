@@ -211,6 +211,8 @@ public final class EngineEvidence {
   o.addProperty("pay_costs",String.valueOf(s.getPayCosts()));o.addProperty("spell",s.isSpell());o.addProperty("activated",s.isActivatedAbility());o.addProperty("trigger",s.isTrigger());o.addProperty("x",chosen);o.addProperty("chosen_x",chosen);o.addProperty("chosen_x_basis","SpellAbility.getXManaCostPaid; never infer from cached description or card cast history");
   if(s.getManaPart()!=null){o.addProperty("mana_produced_spec",s.getManaPart().getOrigProduced());o.addProperty("mana_restrictions",s.getManaPart().getManaRestrictions());o.addProperty("mana_extra_restrictions",s.getManaPart().getExtraManaRestriction());}
   JsonArray alts=new JsonArray();for(AlternativeCost a:AlternativeCost.values())if(s.isAlternativeCost(a))alts.add(a.name());o.add("alternative_costs",alts);JsonArray opts=new JsonArray();for(OptionalCost a:s.getOptionalCosts())opts.add(a.name());o.add("optional_costs",opts);o.add("targets",value(s.getUniqueTargets(),1));o.add("paying_mana",value(s.getPayingMana(),1));
+  o.add("direct_targets",value(s.getTargets(),1));o.addProperty("legacy_targets_basis","SpellAbility.getUniqueTargets traverses parents; direct_targets records this ability");
+  if(s instanceof forge.game.trigger.WrappedAbility wrapper){o.addProperty("wrapper",true);o.add("wrapped_ability",ability(wrapper.getWrappedAbility()));}
   if(s.getHostCard().isCommander()&&s.getActivatingPlayer()!=null)o.addProperty("prior_commander_casts",s.getActivatingPlayer().getCommanderCast(s.getHostCard()));return o;
  }
  private static JsonElement value(Object v,int depth) {

@@ -5,6 +5,35 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Partner trigger and direct target provenance
+
+Conditional driver coverage1750/1985; original replay195 consecutive decisions,
+686 engine RNG requests and96 canonical gameplay lines match the saved original.
+The next explicit failure195 is chooseSingleEntityForEffect during Partner
+resolution. One Partner trigger coordinator now reconstructs recorded order and
+the player target from the original public stack announcement, validates the
+live underlying ability's target domain, and executes actual zero payment and
+stack addition. The other53 trigger coordinators remain unsupported.
+
+Recorder defect established: SpellAbility.getUniqueTargets traverses parent
+abilities, omitting this ability's own targets. New direct_targets records the
+actual local target choices; wrapped_ability records the underlying trigger.
+Legacy targets retain their documented ancestor meaning; historical evidence
+is unchanged. Separate review confirms original/replayed source99, actor0,
+target0 and public entitlement, with explicit direct underlying target evidence.
+Official September25,2026 CR603.3b/d,603.5 and702.124j guide this bounded review;
+global APNAP/trigger/visibility and whole-game legality are not approved.
+
+Actual four-player target/stack and invalid-target controls pass. A native AI
+trace identifies pre-payment randomness in ChangeZoneAi.hiddenTriggerAI's
+preferred-defender target selector. Only bounded Partner preparation randomness
+is projected out; effect-scope randomness excludes support. Opt-in RNG-origin
+diagnostics remain default-off. Initial trace reset during an active game was
+correctly rejected; corrected setup before recording passes, failure retained.
+An affected encoding check passes; no unrelated suites repeated. Recovery used
+the last saved189 prefix; interrupted unsaved195 observations were not assumed.
+Fully rules-approved0, training0, measurable pilot improvement unestablished.
+
 ## Selected mana, commander payment and original prefix189
 
 Conditional coverage1749/1985; original prefix189 choices reconstructed from

@@ -32,6 +32,9 @@ public final class DecisionReplay {
  private static JsonObject activeManaColor;
  private static SpellAbility activeManaAbility;
  private static final Map<String,String> selectedAbilityBindings=new HashMap<>();
+ private static SpellAbility activeTriggerPayment;
+ private static int triggerPayments;
+ private static final Set<SpellAbility> boundTriggerInnerAbilities=Collections.newSetFromMap(new IdentityHashMap<>());
  private static String produced(SpellAbility ability,JsonObject step){return step.has("color_choice")?step.getAsJsonObject("color_choice").get("selected_color").getAsString():ability.getParam("Produced");}
  private DecisionReplay(){}
  public static boolean enabled(){return System.getProperty("forge.decision.replayTape")!=null;}
@@ -88,9 +91,12 @@ public final class DecisionReplay {
   JsonObject row=new JsonObject();row.addProperty("trait_type",effect.getClass().getName());row.addProperty("source_card_id",effect.getHostCard().getId());JsonObject params=new JsonObject();effect.getMapParams().forEach(params::addProperty);row.add("parameters",params);return row;
  }
  private static Object complete(String hook,Object receiver,Object[] args,Object result){long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,result);consumed++;return result;}
- private static void bindAbility(JsonObject row,SpellAbility ability){JsonElement expected=row.get("source_ability");String id=expected==null||expected.isJsonNull()?null:expected.getAsString();if(!Objects.equals(selectedAbilityBindings.getOrDefault(id,id),source(ability)))throw new IllegalStateException("Effect source ability diverged");}
+ private static void bindAbility(JsonObject row,SpellAbility ability){JsonElement expected=row.get("source_ability");if(expected==null)throw new IllegalStateException("Missing effect source identity");String id=expected.isJsonNull()?null:expected.getAsString();if(!Objects.equals(selectedAbilityBindings.getOrDefault(id,id),source(ability))){JsonObject params=new JsonObject();if(ability!=null)ability.getMapParams().forEach(params::addProperty);if(ability==null||!boundTriggerInnerAbilities.contains(ability)||id==null||!id.startsWith(ability.getHostCard().getId()+":")||!row.has("ability_parameters")||!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Effect source ability diverged");String prior=selectedAbilityBindings.putIfAbsent(id,source(ability));if(prior!=null&&!prior.equals(source(ability)))throw new IllegalStateException("Ambiguous underlying trigger identity");}}
  public static synchronized Object invoke(String hook,Object receiver,Object[] args) {
   if(failed)throw new IllegalStateException("Decision replay already failed");
+  if(activeTriggerPayment!=null&&hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z")){
+   try{if(args[1]!=activeTriggerPayment||args[2]!=null||args[3]!=null||!Boolean.FALSE.equals(args[4])||!(receiver instanceof PlayerController pc)||pc.getPlayer()!=activeTriggerPayment.getActivatingPlayer()||!(args[0] instanceof CostPartMana part)||part.getAmountOfX()!=0||!part.getManaCostFor(activeTriggerPayment).isZero())throw new IllegalStateException("Nested trigger payment differs");ManaCostBeingPaid zero=new ManaCostBeingPaid(part.getManaCostFor(activeTriggerPayment));CostAdjustment.adjust(zero,activeTriggerPayment,pc.getPlayer(),null,false,false);if(!zero.isPaid())throw new IllegalStateException("Trigger adjusted payment is not zero");long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,true);triggerPayments++;return true;}catch(RuntimeException error){failed=true;throw error;}
+  }
   if(activeManaColor!=null){
    try{JsonObject color=activeManaColor;if(!hook.equals(color.get("hook").getAsString())||args.length!=3||args[1]!=activeManaAbility||!Objects.equals(args[0],color.get("title").getAsString())||!args[2].toString().equals(color.get("offered").getAsString())||!(receiver instanceof PlayerController pc)||pc.getPlayer()!=activeManaAbility.getActivatingPlayer())throw new IllegalStateException("Nested mana color context diverged");byte selected=(byte)integer(color.get("selected_mask"));if(Integer.bitCount(Byte.toUnsignedInt(selected))!=1||!((ColorSet)args[2]).hasAnyColor(selected)||!MagicColor.toShortString(selected).equals(color.get("selected_color").getAsString()))throw new IllegalStateException("Illegal nested mana color");activeManaColor=null;long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,selected);return selected;}catch(RuntimeException error){failed=true;throw error;}
   }
@@ -103,13 +109,29 @@ public final class DecisionReplay {
   boolean start=hook.endsWith(".chooseStartingPlayer(Z)Lforge/game/player/Player;");
   boolean mulligan=hook.endsWith(".mulliganKeepHand(Lforge/game/player/Player;I)Z");
   boolean payment=hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z");
+  boolean triggerStack=hook.endsWith(".orderAndPlaySimultaneousSa(Ljava/util/List;)V");
   try {
-   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment)throw new IllegalStateException("Unsupported recorded decision: "+hook);
+   if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack)throw new IllegalStateException("Unsupported recorded decision: "+hook);
    if(!(receiver instanceof PlayerController controller))throw new IllegalStateException("Missing controller");
    open();String line=input.readLine();if(line==null)throw new IllegalStateException("Decision tape exhausted");
    JsonObject row=JsonParser.parseString(line).getAsJsonObject();
    if("unsupported_decision".equals(row.get("kind").getAsString()))throw new IllegalStateException("Unsupported recorded decision row: "+row.get("reason"));
    if(!row.get("kind").getAsString().equals("decision")||integer(row.get("index"))!=consumed||!row.get("hook").getAsString().equals(hook)||integer(row.get("actor_id"))!=controller.getPlayer().getId())throw new IllegalStateException("Decision order/actor/hook diverged");
+   if(triggerStack){
+    if(!row.get("decision_type").getAsString().equals("partner_trigger_stack")||args.length!=1||!(args[0] instanceof List<?> offered)||offered.size()!=1||!(offered.get(0) instanceof forge.game.trigger.WrappedAbility wrapper))throw new IllegalStateException("Unsupported simultaneous trigger domain");
+    Player player=controller.getPlayer();var game=player.getGame();Card card=wrapper.getHostCard();SpellAbility inner=wrapper.getWrappedAbility();
+    if(card.getId()!=integer(row.get("source_card_id"))||!card.getName().equals(row.get("source_name").getAsString())||!Set.of("Frodo, Adventurous Hobbit","Sam, Loyal Attendant").contains(card.getName())||wrapper.getActivatingPlayer()!=player||!wrapper.isTrigger()||wrapper.isSpell()||wrapper.isCopied()||!String.valueOf(inner.getApi()).equals("ChangeZone")||inner.getSubAbility()!=null||inner.getPayCosts()==null||!inner.getPayCosts().isOnlyManaCost()||!inner.getPayCosts().getTotalMana().isZero()||inner.getXManaCostPaid()!=null||!inner.getTargets().isEmpty())throw new IllegalStateException("Partner trigger identity or preparation differs");
+    String partner=card.getName().equals("Frodo, Adventurous Hobbit")?"Card.namedSam; Loyal Attendant":"Card.namedFrodo; Adventurous Hobbit";
+    if(!inner.getMapParams().equals(Map.of("DB","ChangeZone","Origin","Library","Destination","Hand","Chooser","Targeted","Optional","True","ChangeType",partner,"ValidTgts","Player","Hidden","True")))throw new IllegalStateException("Unsupported partner trigger definition");
+    JsonArray targets=row.getAsJsonArray("target_player_ids");if(targets.size()!=1)throw new IllegalStateException("Illegal partner target count");Player target=null;for(Player candidate:game.getPlayers())if(candidate.getId()==integer(targets.get(0)))target=candidate;
+    if(target==null||target.hasLost()||!inner.canTarget(target))throw new IllegalStateException("Illegal partner target player");
+    inner.getTargets().add(target);if(!inner.isTargetNumberValid()){inner.resetTargets();throw new IllegalStateException("Partner target restrictions failed");}
+    boundTriggerInnerAbilities.add(inner);
+    String original=card.getId()+":"+integer(row.get("original_ability_id"));String previous=selectedAbilityBindings.putIfAbsent(original,source(wrapper));if(previous!=null&&!previous.equals(source(wrapper)))throw new IllegalStateException("Ambiguous trigger identity binding");
+    long token=EngineEvidence.enter(hook,receiver,args);activeTriggerPayment=wrapper;triggerPayments=0;
+    try{if(!forge.ai.ComputerUtil.playStack(wrapper,player,game)||triggerPayments!=1)throw new IllegalStateException("Actual partner stack/payment failed");}finally{activeTriggerPayment=null;}
+    EngineEvidence.leave(token,null);consumed++;return null;
+   }
    if(payment){
     if(Set.of("basic_land_mana","fixed_tap_mana","selected_tap_mana").contains(row.get("decision_type").getAsString())){
      SpellAbility ability=(SpellAbility)args[1];Player player=controller.getPlayer();var game=player.getGame();CostPartMana part=(CostPartMana)args[0];bindAbility(row,ability);

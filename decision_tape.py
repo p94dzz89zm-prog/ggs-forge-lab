@@ -22,6 +22,7 @@ COLORS = '.chooseColors(Ljava/lang/String;Lforge/game/spellability/SpellAbility;
 START = '.chooseStartingPlayer(Z)Lforge/game/player/Player;'
 MULLIGAN = '.mulliganKeepHand(Lforge/game/player/Player;I)Z'
 PAYMENT = '.payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z'
+TRIGGER_STACK = '.orderAndPlaySimultaneousSa(Ljava/util/List;)V'
 PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_ATTACKERS',
                    'COMBAT_DECLARE_BLOCKERS', 'COMBAT_FIRST_STRIKE_DAMAGE', 'COMBAT_DAMAGE',
                    'COMBAT_END', 'MAIN2', 'END_OF_TURN'}
@@ -41,6 +42,27 @@ def encode(entry, returned, index, call_line, return_line):
     row = {'kind': 'unsupported_decision', 'index': index, 'hook': hook,
            'actor_id': entry['receiver'].get('player_id'), 'source_call_id': entry['call_id'],
            'source_call_record': call_line, 'source_return_record': return_line}
+    if hook.endswith(TRIGGER_STACK):
+        row['reason'] = 'trigger_preparation_or_targets_unsupported'
+        offered = args[0] if len(args) == 1 else []
+        announcements = entry.get('replay_trigger_announcements', [])
+        if len(offered) == 1 and len(announcements) == 1 and entry.get('replay_trigger_order') == offered and entry.get('replay_trigger_unknown_rng', 0) == 0:
+            ability = offered[0]; source = ability['source']; event = announcements[0]; stack = event['si']
+            targets = stack.get('target_players', [])
+            if (source['name'] in ('Frodo, Adventurous Hobbit', 'Sam, Loyal Attendant') and ability['api'] == 'ChangeZone'
+                and ability['trigger'] is True and ability['spell'] is False and ability['x'] is None and ability['pay_costs'] == '{0}'
+                and ability['targets'] == [] and ability['paying_mana'] == [] and ability['alternative_costs'] == [] and ability['optional_costs'] == []
+                and event['sa']['ability_id'] == ability['ability_id'] and stack['source']['view_id'] == source['card_id']
+                and stack['activating_player']['view_id'] == row['actor_id'] and not stack['target_cards'] and len(targets) == 1
+                and returned['arguments_after'] == args and returned['result'] is None
+                and entry.get('replay_trigger_zero_payments') == 1):
+                row.update(kind='decision', decision_type='partner_trigger_stack', source_card_id=source['card_id'], source_name=source['name'],
+                           original_ability_id=ability['ability_id'], selected_api='ChangeZone', target_player_ids=[t['view_id'] for t in targets],
+                           target_provenance='Original public GameEventSpellAbilityCast stack announcement; apply choices to live underlying ability',
+                           random_scope='Partner target selector before actual zero-cost stack payment; actual effect scopes excluded',
+                           context={k:entry[k] for k in ('turn','phase','priority_player_id','turn_player_id')})
+                row.pop('reason', None)
+        return row
     if hook.endswith(PRIORITY):
         if args != [] or returned.get('arguments_after') != []:
             row['reason'] = 'priority_argument_mutation'
@@ -266,6 +288,13 @@ def extract(source, expected_sha256, output):
                     if row['call_id'] in roots and row['hook'].endswith(START):
                         row['replay_initial_player_ids'] = initial_players
                     for entry, _ in roots.values():
+                        if entry['hook'].endswith(TRIGGER_STACK):
+                            if row['hook'].startswith('forge/game/cost/CostAdjustment.adjust('):
+                                entry['replay_trigger_effects_started'] = True
+                            if row['hook'].startswith('forge/game/Game.fireEvent('):
+                                event = row['arguments'][0]
+                                if isinstance(event, dict) and event.get('record_type') == 'GameEventSpellAbilityCast':
+                                    entry.setdefault('replay_trigger_announcements', []).append(event)
                         if not entry['hook'].endswith(PAYMENT) or row.get('speculative', False):
                             continue
                         if row['hook'].startswith('forge/game/cost/CostTap.payAsDecided('):
@@ -290,6 +319,11 @@ def extract(source, expected_sha256, output):
                         raise ValueError('Unpaired/out-of-order return')
                     stack.pop()
                     for entry, _ in roots.values():
+                        if entry['hook'].endswith(TRIGGER_STACK):
+                            if row['hook'].endswith('.orderSimultaneousSa(Ljava/util/List;)Ljava/util/List;'):
+                                entry['replay_trigger_order'] = row['result']
+                            if row['hook'].startswith('forge/game/player/PlayerController.payManaCost(') and row['arguments_after'][0] == '{0}' and row['arguments_after'][2:] == [None,None,False] and row['result'] is True:
+                                entry['replay_trigger_zero_payments'] = entry.get('replay_trigger_zero_payments',0)+1
                         if entry['hook'].endswith(PAYMENT):
                             for operation in entry.get('replay_payment_operations', []):
                                 if operation.get('source_call_id') == row['call_id']:
@@ -306,6 +340,8 @@ def extract(source, expected_sha256, output):
                     terminal = True
                 elif kind == 'random_bits':
                     for entry, _ in roots.values():
+                        if entry['hook'].endswith(TRIGGER_STACK) and entry.get('replay_trigger_effects_started'):
+                            entry['replay_trigger_unknown_rng'] = entry.get('replay_trigger_unknown_rng',0)+1
                         if entry['hook'].endswith(PAYMENT):
                             entry['replay_payment_random_requests'] = entry.get('replay_payment_random_requests', 0) + 1
                             if not stack or not stack[-1][2].startswith('forge/ai/ComputerUtilMana.payManaCost('):
