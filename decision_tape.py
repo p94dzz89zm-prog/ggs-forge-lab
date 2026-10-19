@@ -86,6 +86,30 @@ def encode(entry, returned, index, call_line, return_line):
         return row
     if hook.endswith(PAYMENT):
         row['reason'] = 'payment_requires_actual_resource_choices'
+        operations = entry.get('replay_payment_operations', [])
+        if len(args) == 5 and args[2:] == [None, None, False] and returned['result'] is True and operations:
+            ability = args[1]; after = returned['arguments_after'][1]
+            before_without_mana = {k: v for k, v in ability.items() if k != 'paying_mana'}
+            after_without_mana = {k: v for k, v in after.items() if k != 'paying_mana'}
+            activations = [step for step in operations if step['op'] == 'activate_basic']
+            spent = [step['mana'] for step in operations if step['op'] == 'spend']
+            ids = [step['card_id'] for step in activations]
+            if (ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}
+                and ability.get('spell') is True and ability.get('x') is None and ability.get('targets') == []
+                and ability.get('paying_mana') == [] and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
+                and ability['source'].get('commander') is False and ability['source'].get('zone') == 'Stack'
+                and 'X' not in args[0] and args[0] != '{0}' and before_without_mana == after_without_mana
+                and entry.get('mana_context', {}).get('pool') == [] and entry.get('replay_payment_unknown_random_requests', 0) == 0
+                and len(ids) == len(set(ids)) == len(spent) and ids and all(step.get('valid') is True for step in activations)
+                and spent == after.get('paying_mana') and all(m['source_card_id'] in ids and not m['snow'] and not m['restricted'] for m in spent)):
+                row.update(kind='decision', decision_type='basic_land_mana', component=args[0],
+                           source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),
+                           ability_api=ability['api'], operations=operations,
+                           recorded_random_requests=entry.get('replay_payment_random_requests', 0),
+                           random_scope='ComputerUtilMana selector only; actual effect scopes excluded',
+                           payment_basis='Recorded tap-payment decisions and individual attempted mana-spending arguments; execute actual engine actions')
+                row.pop('reason', None)
+                return row
         if len(args) == 5 and args == returned.get('arguments_after'):
             ability = args[1]
             if (args[0] == '{0}' and args[2] is None and args[3] is None and args[4] is True
@@ -220,6 +244,19 @@ def extract(source, expected_sha256, output):
                             raise ValueError('Initial registered-player identities changed during extraction')
                     if row['call_id'] in roots and row['hook'].endswith(START):
                         row['replay_initial_player_ids'] = initial_players
+                    for entry, _ in roots.values():
+                        if not entry['hook'].endswith(PAYMENT) or row.get('speculative', False):
+                            continue
+                        if row['hook'].startswith('forge/game/cost/CostTap.payAsDecided('):
+                            payer, payment, ability, effect = row['arguments']; source = ability['source']; params = ability['parameters']
+                            entry.setdefault('replay_payment_operations', []).append(dict(op='activate_basic',
+                                card_id=source['card_id'], card_name=source['name'], parameters=params,
+                                valid=(source['name'] in ('Plains', 'Island', 'Swamp', 'Mountain', 'Forest', 'Wastes')
+                                       and ability['api'] == 'Mana' and params.get('Produced') in ('W', 'U', 'B', 'R', 'G', 'C')
+                                       and effect is False and ability['pay_costs'] == '{T}' and source['controller_id'] == payer['player_id'] == entry['receiver']['player_id']
+                                       and payment == dict(count=0, type=None, cards=[], mana=None, players=None, abilities=None))))
+                        elif row['hook'].startswith('forge/game/mana/ManaPool.tryPayCostWithMana(') and row['arguments'][3] is False:
+                            entry.setdefault('replay_payment_operations', []).append(dict(op='spend', mana=row['arguments'][2]))
                 elif kind == 'engine_return':
                     if not stack or (row['call_id'], row['hook']) != (stack[-1][0], stack[-1][2]):
                         raise ValueError('Unpaired/out-of-order return')
@@ -232,7 +269,13 @@ def extract(source, expected_sha256, output):
                     if stack or row['calls'] != calls:
                         raise ValueError('Incomplete calls at completion')
                     terminal = True
-                elif kind != 'random_bits':
+                elif kind == 'random_bits':
+                    for entry, _ in roots.values():
+                        if entry['hook'].endswith(PAYMENT):
+                            entry['replay_payment_random_requests'] = entry.get('replay_payment_random_requests', 0) + 1
+                            if not stack or not stack[-1][2].startswith('forge/ai/ComputerUtilMana.payManaCost('):
+                                entry['replay_payment_unknown_random_requests'] = entry.get('replay_payment_unknown_random_requests', 0) + 1
+                else:
                     raise ValueError('Unknown referee record')
             if not terminal or initial != 1 or stack or roots or checksum.hexdigest() != expected_sha256:
                 raise ValueError('Missing initial/completion state or source checksum mismatch')

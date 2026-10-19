@@ -1,0 +1,28 @@
+import copy
+import unittest
+from decision_tape import encode, PAYMENT
+
+
+class BasicManaEncodingTest(unittest.TestCase):
+    def test_actual_operations_and_selector_only_randomness_required(self):
+        unit = dict(color='U', source_card_id=2, snow=False, restricted=False)
+        ability = dict(api='PermanentNoncreature', parameters={}, spell=True, x=None, targets=[],
+                       paying_mana=[], alternative_costs=[], optional_costs=[], ability_id=4,
+                       source=dict(card_id=1, commander=False, zone='Stack'))
+        args = ['{1}', ability, None, None, False]
+        entry = dict(hook='forge/game/player/PlayerController'+PAYMENT, call_id=1,
+                     receiver=dict(player_id=0), arguments=args, mana_context=dict(pool=[]),
+                     replay_payment_random_requests=1,
+                     replay_payment_operations=[dict(op='activate_basic', card_id=2, valid=True), dict(op='spend', mana=unit)])
+        returned = dict(result=True, arguments_after=copy.deepcopy(args))
+        returned['arguments_after'][1]['paying_mana'] = [unit]
+        self.assertEqual(encode(entry, returned, 0, 1, 2)['decision_type'], 'basic_land_mana')
+        entry['replay_payment_unknown_random_requests'] = 1
+        self.assertEqual(encode(entry, returned, 0, 1, 2)['kind'], 'unsupported_decision')
+        entry.pop('replay_payment_unknown_random_requests')
+        entry['replay_payment_operations'][0]['valid'] = False
+        self.assertEqual(encode(entry, returned, 0, 1, 2)['kind'], 'unsupported_decision')
+
+
+if __name__ == '__main__':
+    unittest.main()

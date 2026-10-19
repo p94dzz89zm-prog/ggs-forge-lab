@@ -5,6 +5,41 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Recorded basic-land mana execution
+
+Driver-contract coverage is1720/1985, adding six fixed-cost permanent-spell
+payments using recorded basic-land tap and individual mana-spending choices.
+The extractor retains the actual nested choice arguments. The driver prechecks
+live source abilities and adjusted cost, then pays the tap cost, resolves the
+actual mana ability and spends the actual produced unit through engine APIs.
+It copies no tapped, pool, payment or spell-resolution outcomes. Other payment
+sources, extra production, conversions, X and ambiguous identities remain gated.
+
+The original four-player game now executes112 recorded decisions, including
+two actual Island/Sol Ring payment-and-resolution sequences. Its684 engine
+random requests and56 canonical gameplay lines agree; it safely stops at the
+next unsupported payment, decision112. Partial stream/error result retained.
+Independent arithmetic checks six recorded payment color/count plans; two
+actual replay pool/shard transitions pass the separate mana checker. These are
+scoped checks, not independent whole-game legality or complete game approval.
+
+Three live controls pass: actual payment/cast/resolution, tapped-source rejection
+and wrong-color rejection. An initial fixture assertion inspected the pre-stack
+ability instead of the actual stacked copy; failure retained and only that
+fixture retried against the stacked object. One relative-path compile failed
+before launching; retained. Seven relevant Python tests pass after extraction
+of nested payment choices changed. No unrelated passing engine suite repeated.
+
+Payment-selector RNG is distinguished from actual effect RNG. The pinned
+ComputerUtilMana disassembly's sole random invocation is its source-reservation
+preference. Only requests with that innermost selector scope are skipped;
+instrumented game-effect randomness excludes this family. This is a bounded,
+causally reviewed prefix; not a general rule to discard RNG inside payments.
+Remaining265 decisions include57 payments,48 priority actions,54 trigger orders
+and the remaining effect/combat families. Fully approved games0, training0.
+Next reconstruct the fixed nonbasic/artifact mana sources at decision112 and
+preserve any floating mana with required public announcement provenance.
+
 ## Plain hand-permanent spell selection
 
 Driver-contract coverage is1714/1985, adding20 plain fixed-cost hand permanent
