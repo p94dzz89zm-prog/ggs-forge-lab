@@ -131,6 +131,9 @@ public final class EngineEvidence {
     if(args[0] instanceof forge.game.event.GameEventGameStarted)row.add("initial_state",initialState());
     if(args[0] instanceof forge.game.event.GameEventCombatChanged)row.add("combat",value(live.getCombat(),0));
     if(args[0] instanceof forge.game.event.GameEventSpellAbilityCast cast) {
+     SpellAbility announced=announcedAbility(cast.sa().getId());
+     if(announced!=null)row.add("announced_ability",ability(announced));
+     row.addProperty("announced_ability_available",announced!=null);
      JsonArray audience=new JsonArray();for(Player p:live.getPlayers())audience.add(p.getId());row.add("entitled_player_ids",audience);row.addProperty("visibility_operation","public_stack_announcement");
      row.addProperty("source_identity_disclosed",!cast.sa().getHostCard().isFaceDown());row.add("announced_source",value(cast.sa().getHostCard(),0));
      row.addProperty("visibility_duration_basis","CR601.2a/602.2a; hidden-zone ability source remains revealed until ability leaves stack");
@@ -155,6 +158,11 @@ public final class EngineEvidence {
   JsonObject row=new JsonObject();row.addProperty("kind","engine_tape_complete");row.addProperty("calls",next);row.addProperty("rules_approved",false);row.add("final_state",initialState());write(row);if(reference!=null)try {if(reference.readLine()!=null)throw new IllegalStateException("Unconsumed replay events");reference.close();}catch(java.io.IOException e){throw new IllegalStateException(e);}live=null;
  }
  private static JsonArray ids(Iterable<?> values){JsonArray a=new JsonArray();for(Object v:values)if(v instanceof Player p)a.add(p.getId());return a;}
+ private static SpellAbility announcedAbility(int id) {
+  for(SpellAbilityStackInstance instance:live.getStack())if(instance.getSpellAbility().getId()==id)return instance.getSpellAbility();
+  for(Call call:calls.values())for(Object arg:call.args)if(arg instanceof SpellAbility s&&s.getId()==id)return s;
+  return null;
+ }
  private static JsonObject manaContext(Player p) {
   JsonObject o=new JsonObject();o.add("pool",value(p.getManaPool(),0));JsonArray sources=new JsonArray();
   for(Card c:p.getCardsIn(ZoneType.Battlefield,false))if(!c.getManaAbilities().isEmpty()) {
@@ -176,7 +184,10 @@ public final class EngineEvidence {
  }
  private static JsonObject card(Card c) {
   JsonObject o=new JsonObject();o.addProperty("card_id",c.getId());o.addProperty("name",c.getName());o.addProperty("owner_id",c.getOwner().getId());o.addProperty("controller_id",c.getZone()!=null&&(c.getZone().getZoneType()==ZoneType.Battlefield||c.getZone().getZoneType()==ZoneType.Stack)?c.getController().getId():c.getOwner().getId());o.addProperty("controller_basis",c.getZone()!=null&&(c.getZone().getZoneType()==ZoneType.Battlefield||c.getZone().getZoneType()==ZoneType.Stack)?"engine":"owner fallback outside battlefield/stack; CR108.4");o.addProperty("zone",c.getZone()==null?null:c.getZone().getZoneType().name());o.addProperty("face_down",c.isFaceDown());o.addProperty("tapped",c.isTapped());o.addProperty("phased_out",c.isPhasedOut());o.addProperty("commander",c.isCommander());o.addProperty("mana_cost",c.getManaCost().toString());
-  o.addProperty("private_original_name",c.getState(forge.card.CardStateName.Original).getName());o.addProperty("marked_damage",c.getDamage());JsonObject counters=new JsonObject();for(var e:c.getCounters().entrySet())counters.addProperty(e.getElement().getName(),e.getCount());o.add("counters",counters);
+  o.addProperty("private_original_name",c.getState(forge.card.CardStateName.Original).getName());
+  SpellAbility cast=c.getCastSA();o.addProperty("cast_ability_id",cast==null?null:cast.getId());o.addProperty("cast_chosen_x",cast==null?null:cast.getXManaCostPaid());
+  o.addProperty("cast_x_basis","card cast-SA history; null means unavailable, not zero; current announced X is on the spell ability");
+  o.addProperty("marked_damage",c.getDamage());JsonObject counters=new JsonObject();for(var e:c.getCounters().entrySet())counters.addProperty(e.getElement().getName(),e.getCount());o.add("counters",counters);
   JsonArray viewers=new JsonArray();for(Player p:live.getPlayers())if(c.isFaceDown()?c.getView().canFaceDownBeShownTo(p.getView()):c.getView().canBeShownTo(p.getView()))viewers.add(p.getId());o.add("engine_identity_visible_to",viewers);o.addProperty("visibility_basis","engine permission at this event; temporary reveal entitlement is separately recorded");return o;
  }
  private static JsonObject ability(SpellAbility s) {
@@ -184,7 +195,11 @@ public final class EngineEvidence {
   try{return describeAbility(s);}finally{describingAbilities.remove(s);}
  }
  private static JsonObject describeAbility(SpellAbility s) {
-  JsonObject o=new JsonObject();o.addProperty("ability_id",s.getId());o.add("source",card(s.getHostCard()));if(s.getActivatingPlayer()!=null)o.addProperty("activating_player_id",s.getActivatingPlayer().getId());o.addProperty("api",String.valueOf(s.getApi()));o.add("parameters",value(s.getMapParams(),1));o.addProperty("description",s.getDescription());o.addProperty("pay_costs",String.valueOf(s.getPayCosts()));o.addProperty("spell",s.isSpell());o.addProperty("activated",s.isActivatedAbility());o.addProperty("trigger",s.isTrigger());o.addProperty("x",s.getXManaCostPaid());
+  JsonObject o=new JsonObject();o.addProperty("ability_id",s.getId());o.add("source",card(s.getHostCard()));if(s.getActivatingPlayer()!=null)o.addProperty("activating_player_id",s.getActivatingPlayer().getId());o.addProperty("api",String.valueOf(s.getApi()));o.add("parameters",value(s.getMapParams(),1));
+  String description=s.getDescription();Integer chosen=s.getXManaCostPaid();
+  o.addProperty("engine_description",description);
+  o.addProperty("description",chosen==null?description:description.replaceAll("\\(X=[0-9]+\\)","(X="+chosen+")"));
+  o.addProperty("pay_costs",String.valueOf(s.getPayCosts()));o.addProperty("spell",s.isSpell());o.addProperty("activated",s.isActivatedAbility());o.addProperty("trigger",s.isTrigger());o.addProperty("x",chosen);o.addProperty("chosen_x",chosen);o.addProperty("chosen_x_basis","SpellAbility.getXManaCostPaid; never infer from cached description or card cast history");
   if(s.getManaPart()!=null){o.addProperty("mana_produced_spec",s.getManaPart().getOrigProduced());o.addProperty("mana_restrictions",s.getManaPart().getManaRestrictions());o.addProperty("mana_extra_restrictions",s.getManaPart().getExtraManaRestriction());}
   JsonArray alts=new JsonArray();for(AlternativeCost a:AlternativeCost.values())if(s.isAlternativeCost(a))alts.add(a.name());o.add("alternative_costs",alts);JsonArray opts=new JsonArray();for(OptionalCost a:s.getOptionalCosts())opts.add(a.name());o.add("optional_costs",opts);o.add("targets",value(s.getUniqueTargets(),1));o.add("paying_mana",value(s.getPayingMana(),1));
   if(s.getHostCard().isCommander()&&s.getActivatingPlayer()!=null)o.addProperty("prior_commander_casts",s.getActivatingPlayer().getCommanderCast(s.getHostCard()));return o;

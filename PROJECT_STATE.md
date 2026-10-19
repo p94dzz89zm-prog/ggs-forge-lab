@@ -5,6 +5,33 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Storage recovery and announced X provenance
+
+The previously unsaved verification bundle is now saved, retrieved and restored
+with all outer and nested manifest checks passing. Cleanup removed only a
+byte-verified redundant transport prefix; its complete master and all unique
+sealed archives remain preserved. Capacity remains tight. New executable
+checkpoints can carry a small delta bound to the exact archived base JAR and
+the full reconstructed JAR checksum, without rewriting historical archives.
+Recovery rejects wrong bases, altered entries, wrong target hashes and overwrite.
+
+The Hydra metadata discrepancy is traced to a cached description using card
+cast history before that history exists. The original structured chosen X,
+effective cost, actual mana payment and entry counter agree. Future recording
+retains the original engine description, separately records announced X and
+nullable card cast history, and captures the live ability at stack announcement.
+An actual-engine X=2 Hydra cast pays {2}{G}{G}, preserves X=2 on the stack and
+enters with two counters before its ETB trigger resolves. This is a targeted
+provenance regression, not a new complete game or whole-game rules approval.
+Only evidence recording changes; policies, models and decks remain unchanged.
+
+Current counts since the earlier recovery checkpoint remain two complete
+development captures, two rejected attempts, zero fully rules-approved games,
+zero training admissions and zero eligible learned-pilot comparisons. The next
+engineering blocker is decision-driven replay: recorded choices must drive the
+engine with live-object rebinding and legality checks, rather than rerunning AI
+choices. Complete action-by-action rules and visibility review is also required.
+
 ## Typed provenance and independent mana checks
 
 One new typed four-player development capture now completed with149802 referee

@@ -24,9 +24,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
-    parser.add_argument('--component', choices=('writer', 'recorder'), default='writer')
+    parser.add_argument('--component', choices=('writer', 'recorder', 'x-provenance'), default='writer')
     args = parser.parse_args()
-    expected = BASE if args.component == 'writer' else '0d1ee30d3bba14e9ff71a9d1363abf5528b474df027e1c593b7c36ea10083e05'
+    expected = {'writer': BASE, 'recorder': '0d1ee30d3bba14e9ff71a9d1363abf5528b474df027e1c593b7c36ea10083e05',
+                'x-provenance': '555749119214e4a35b902631d0b4924dd77760ec2f354d57409dde552ead63ab'}[args.component]
     if digest(args.base) != expected:
         raise ValueError('Exact verified typed-recorder executable required')
     if args.output.exists():
