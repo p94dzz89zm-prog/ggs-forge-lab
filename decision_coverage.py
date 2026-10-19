@@ -64,6 +64,11 @@ def classify(decision, entry, returned):
             issue = None if (source['card_id'] == decision['land_card_id' if land else 'source_card_id'] and source['zone'] == 'Hand' and source['owner_id'] == entry['receiver']['player_id'] == entry.get('priority_player_id') == entry.get('turn_player_id') and entry.get('phase') in ('MAIN1', 'MAIN2')) else 'recorded_hand_action_context_inconsistent'
         else:
             issue = local_priority_check(entry, returned)
+            if issue == 'mana_announcement_unverified' and decision.get('empty_mana_pool') is False:
+                pool = [{k: m[k] for k in ('color', 'source_card_id', 'snow', 'restricted')} for m in entry['mana_context']['pool']]
+                if pool == decision.get('expected_pool'):
+                    issue = None
+                    row['visibility_audit_obligation'] = 'Original announcement unproven; replay must disclose remaining pool publicly'
         row['independent_local_check'] = issue or ('recorded_hand_action_context_consistent; live legality and payment checks required' if land or spell else 'recorded_entitlement_and_empty_pool_consistent')
         if row['support'] == 'driver_contract' and issue:
             raise ValueError('Driver coverage contradicts local priority check: ' + issue)

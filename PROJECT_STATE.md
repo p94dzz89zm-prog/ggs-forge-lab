@@ -5,6 +5,31 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Partial mana spending and original prefix183
+
+Driver-contract coverage1732/1985; continuous original replay183 decisions,
+684 engine RNG requests and89 canonical gameplay lines match. Fixed tap-only
+Sol Ring production now yields2C, spends actual selected units and preserves
+the remaining1C. The original payment includes a second failed attempt after
+the cost is paid; replay executes and checks it without spending that unit.
+Floating-pool passes check live inventory. Production, payment, pool-after and
+public count-only announcements are recorded separately; private referee
+context is not declared public. CR106.4/106.4a/106.4b and118.3a guide these
+scoped checks (official September25,2026 Comprehensive Rules).
+
+Two actual four-player fixtures pass: partial spending and multiple sources,
+both with a failed redundant attempt, priority/resolve persistence and actual
+PhaseHandler.onPhaseEnd clearing. Five affected Python tests pass; two payment
+encoding tests rerun after failed-attempt support changed. An initial test
+fixture insertion error is retained and corrected. Original state/canonical
+prefix consistency and separate mana arithmetic pass; no full rules approval.
+New original replay stops explicitly at decision183: first command-zone cast
+of Frodo, Adventurous Hobbit. Command-zone spell selection and commander cost
+payment remain unsupported. Original announcement provenance is still an
+independent audit obligation; replay announcements do not repair old evidence.
+Fully rules-approved games0; training admissions0; pilot improvement unmeasured.
+Original sealed archives, decklists, models and atomic recovery remain unchanged.
+
 ## Recorded basic-land mana execution
 
 Driver-contract coverage is1720/1985, adding six fixed-cost permanent-spell

@@ -32,7 +32,7 @@ def main():
         classes.mkdir(); inputs.mkdir(); overlay.mkdir()
         source = ROOT / 'pilot-src/forge/ai/bridge/DecisionReplay.java'
         subprocess.run(['java', '-m', 'jdk.compiler/com.sun.tools.javac.Main', *EXPORTS,
-                        '-cp', str(args.base), '-d', str(classes), str(source), str(ROOT / 'pilot-src/forge/ai/bridge/EvidenceRandom.java'),
+                        '-cp', str(args.base), '-d', str(classes), str(source), str(ROOT / 'pilot-src/forge/ai/bridge/EvidenceRandom.java'), str(ROOT / 'pilot-src/forge/ai/bridge/EngineEvidence.java'),
                         str(ROOT / 'EvidenceInstrumenter.java'), str(ROOT / 'DecisionReplayInstrumenter.java')], check=True)
         controllers = ['forge/ai/PlayerControllerAi.class', 'forge/ai/bridge/PlayerControllerBridge.class',
                        'forge/game/player/PlayerController.class']
@@ -45,6 +45,8 @@ def main():
         changes = {name: (overlay / name).read_bytes() for name in controllers}
         changes['forge/ai/bridge/DecisionReplay.class'] = (classes / 'forge/ai/bridge/DecisionReplay.class').read_bytes()
         changes['forge/ai/bridge/EvidenceRandom.class'] = (classes / 'forge/ai/bridge/EvidenceRandom.class').read_bytes()
+        for path in classes.glob('forge/ai/bridge/EngineEvidence*.class'):
+            changes['forge/ai/bridge/'+path.name] = path.read_bytes()
         staged = root / 'engine.jar'
         with zipfile.ZipFile(args.base) as old, zipfile.ZipFile(staged, 'w', zipfile.ZIP_DEFLATED) as new:
             for entry in old.infolist():
@@ -54,7 +56,7 @@ def main():
         hooks = (overlay / 'decision-hooks.txt').read_text()
         args.output.with_suffix('.hooks.txt').write_text(hooks)
     manifest = {'base_sha256': BASE, 'sha256': digest(args.output), 'classes': sorted(changes),
-                'default_enabled': False, 'supported_families': ['bounded_number', 'cards_for_effect', 'priority_pass', 'replacement_choice', 'counter_choice', 'color_choice', 'play_land', 'starting_player', 'mulligan_keep', 'zero_effect_mana', 'plain_hand_permanent_spell', 'basic_land_mana'],
+                'default_enabled': False, 'supported_families': ['bounded_number', 'cards_for_effect', 'priority_pass', 'replacement_choice', 'counter_choice', 'color_choice', 'play_land', 'starting_player', 'mulligan_keep', 'zero_effect_mana', 'plain_hand_permanent_spell', 'basic_land_mana', 'fixed_tap_mana'],
                 'unsupported_decisions': 'fatal; no AI fallback', 'full_game_replay': False,
                 'source_sha256': digest(source)}
     args.output.with_suffix('.build.json').write_text(json.dumps(manifest, indent=2) + '\n')

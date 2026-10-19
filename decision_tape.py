@@ -77,7 +77,15 @@ def encode(entry, returned, index, call_line, return_line):
         elif entry.get('priority_player_id') != row['actor_id'] or entry['receiver'].get('lost') is not False or entry.get('phase') not in PRIORITY_PHASES:
             row['reason'] = 'priority_entitlement_or_phase_unverified'
         elif entry.get('mana_context', {}).get('pool') != []:
-            row['reason'] = 'nonempty_pool_requires_public_mana_announcement'
+            pool = entry.get('mana_context', {}).get('pool')
+            if isinstance(pool, list) and all(m.get('snow') is False and m.get('restricted') is False for m in pool):
+                row.update(kind='decision', decision_type='priority_pass',
+                           pass_return='null' if returned['result'] is None else 'empty_list', empty_mana_pool=False,
+                           expected_pool=[{k: m[k] for k in ('color', 'source_card_id', 'snow', 'restricted')} for m in pool],
+                           context={key: entry[key] for key in ('turn', 'phase', 'priority_player_id', 'turn_player_id')},
+                           visibility_requirement='Replay emits public pool announcement; original announcement remains a separate audit obligation')
+            else:
+                row['reason'] = 'restricted_or_unrecorded_mana_pool'
         else:
             row.update(kind='decision', decision_type='priority_pass',
                        pass_return='null' if returned['result'] is None else 'empty_list',
@@ -92,17 +100,19 @@ def encode(entry, returned, index, call_line, return_line):
             before_without_mana = {k: v for k, v in ability.items() if k != 'paying_mana'}
             after_without_mana = {k: v for k, v in after.items() if k != 'paying_mana'}
             activations = [step for step in operations if step['op'] == 'activate_basic']
-            spent = [step['mana'] for step in operations if step['op'] == 'spend']
+            spent = [step['mana'] for step in operations if step['op'] == 'spend' and step.get('expected_success', True)]
             ids = [step['card_id'] for step in activations]
+            capacity = Counter({step['card_id']: {'1': 1, '2': 2}.get(step.get('parameters', {}).get('Amount', '1'), 0) for step in activations})
+            spending = Counter(m['source_card_id'] for m in spent)
             if (ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}
                 and ability.get('spell') is True and ability.get('x') is None and ability.get('targets') == []
                 and ability.get('paying_mana') == [] and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
                 and ability['source'].get('commander') is False and ability['source'].get('zone') == 'Stack'
                 and 'X' not in args[0] and args[0] != '{0}' and before_without_mana == after_without_mana
                 and entry.get('mana_context', {}).get('pool') == [] and entry.get('replay_payment_unknown_random_requests', 0) == 0
-                and len(ids) == len(set(ids)) == len(spent) and ids and all(step.get('valid') is True for step in activations)
+                and len(ids) == len(set(ids)) and ids and spent and not (spending - capacity) and all(step.get('valid') is True for step in activations)
                 and spent == after.get('paying_mana') and all(m['source_card_id'] in ids and not m['snow'] and not m['restricted'] for m in spent)):
-                row.update(kind='decision', decision_type='basic_land_mana', component=args[0],
+                row.update(kind='decision', decision_type='fixed_tap_mana' if any(step.get('card_name') == 'Sol Ring' for step in activations) else 'basic_land_mana', component=args[0],
                            source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),
                            ability_api=ability['api'], operations=operations,
                            recorded_random_requests=entry.get('replay_payment_random_requests', 0),
@@ -251,16 +261,22 @@ def extract(source, expected_sha256, output):
                             payer, payment, ability, effect = row['arguments']; source = ability['source']; params = ability['parameters']
                             entry.setdefault('replay_payment_operations', []).append(dict(op='activate_basic',
                                 card_id=source['card_id'], card_name=source['name'], parameters=params,
-                                valid=(source['name'] in ('Plains', 'Island', 'Swamp', 'Mountain', 'Forest', 'Wastes')
+                                valid=(source['name'] in ('Plains', 'Island', 'Swamp', 'Mountain', 'Forest', 'Wastes', 'Sol Ring')
                                        and ability['api'] == 'Mana' and params.get('Produced') in ('W', 'U', 'B', 'R', 'G', 'C')
+                                       and params.get('Amount', '1') in ('1', '2')
                                        and effect is False and ability['pay_costs'] == '{T}' and source['controller_id'] == payer['player_id'] == entry['receiver']['player_id']
                                        and payment == dict(count=0, type=None, cards=[], mana=None, players=None, abilities=None))))
                         elif row['hook'].startswith('forge/game/mana/ManaPool.tryPayCostWithMana(') and row['arguments'][3] is False:
-                            entry.setdefault('replay_payment_operations', []).append(dict(op='spend', mana=row['arguments'][2]))
+                            entry.setdefault('replay_payment_operations', []).append(dict(op='spend', mana=row['arguments'][2], source_call_id=row['call_id']))
                 elif kind == 'engine_return':
                     if not stack or (row['call_id'], row['hook']) != (stack[-1][0], stack[-1][2]):
                         raise ValueError('Unpaired/out-of-order return')
                     stack.pop()
+                    for entry, _ in roots.values():
+                        if entry['hook'].endswith(PAYMENT):
+                            for operation in entry.get('replay_payment_operations', []):
+                                if operation.get('source_call_id') == row['call_id']:
+                                    operation['expected_success'] = row['result']
                     if row['call_id'] in roots:
                         entry, start = roots.pop(row['call_id']); decision = encode(entry, row, count, start, records)
                         (supported if decision['kind'] == 'decision' else unsupported)[decision['hook']] += 1

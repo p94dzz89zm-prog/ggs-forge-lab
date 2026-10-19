@@ -127,6 +127,7 @@ public final class EngineEvidence {
     JsonArray entitled=new JsonArray();for(Player p:live.getPlayers())entitled.add(p.getId());row.add("entitled_player_ids",entitled);row.addProperty("visibility_operation","reveal_all");
    }else if(hook.startsWith("forge/game/GameAction.revealTo(")){row.add("entitled_player_ids",ids((Iterable<?>)args[1]));row.addProperty("visibility_operation","look_specified");}
    else if(hook.contains(".reveal(")&&receiver instanceof PlayerController c){JsonArray entitled=new JsonArray();entitled.add(c.getPlayer().getId());row.add("entitled_player_ids",entitled);row.addProperty("visibility_operation","delivery");}
+   if(hook.startsWith("forge/game/player/Player.announceManaPool(")){row.add("entitled_player_ids",ids(live.getPlayers()));row.addProperty("visibility_operation","public_mana_pool_announcement");row.addProperty("rules_basis","CR106.4a/106.4b/118.3a");JsonObject payload=new JsonObject();payload.add("counts",value(args[1],0));payload.addProperty("reason",(String)args[0]);payload.addProperty("player_id",((Player)receiver).getId());row.add("public_payload",payload);row.addProperty("visibility_scope","Only public_payload is disclosed; surrounding context is private referee evidence");}
    if(hook.startsWith("forge/game/Game.fireEvent")) {
     if(args[0] instanceof forge.game.event.GameEventGameStarted)row.add("initial_state",initialState());
     if(args[0] instanceof forge.game.event.GameEventCombatChanged)row.add("combat",value(live.getCombat(),0));
@@ -144,14 +145,22 @@ public final class EngineEvidence {
  }
  public static synchronized void leave(long id,Object result) {
   if(id==0)return;
+  Player announcementPlayer=null;String announcementReason=null;
   busy.set(true);
   try {
    Call c=calls.remove(id);if(c==null)throw new IllegalStateException("Unpaired referee call");
    JsonObject row=new JsonObject();row.addProperty("kind","engine_return");row.addProperty("call_id",id);row.addProperty("hook",c.hook);row.add("result",value(result,0));row.add("arguments_after",value(c.args,0));
    if(c.receiver instanceof CostPayment p)row.add("ability_after",value(p.getAbility(),0));
    if(c.hook.startsWith("forge/game/Game.onPlayerLost"))row.add("elimination_state_after",initialState());
+   Player poolPlayer=poolOwner(c.receiver);if(poolPlayer!=null)row.add("mana_pool_after",value(poolPlayer.getManaPool(),0));
    write(row);
+   if(c.receiver instanceof PlayerController controller&&!controller.getPlayer().getManaPool().isEmpty()){
+    boolean paid=c.hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z")&&Boolean.TRUE.equals(result);
+    boolean passed=c.hook.endsWith(".chooseSpellAbilityToPlay()Ljava/util/List;")&&(result==null||result instanceof Collection<?> collection&&collection.isEmpty())&&calls.values().stream().noneMatch(other->other.hook.endsWith(".chooseSpellAbilityToPlay()Ljava/util/List;"));
+    if(paid||passed){announcementPlayer=controller.getPlayer();announcementReason=paid?"after_cost_payment":"priority_pass";}
+   }
   }finally{busy.set(false);}
+  if(announcementPlayer!=null){Map<String,Integer> counts=new TreeMap<>();for(Mana mana:announcementPlayer.getManaPool())counts.merge(MagicColor.toShortString(mana.getColor()),1,Integer::sum);long token=enter("forge/game/player/Player.announceManaPool(Ljava/lang/String;Ljava/util/Map;)V",announcementPlayer,new Object[]{announcementReason,counts});leave(token,null);}
  }
  public static synchronized void finish() {
   if(!calls.isEmpty())throw new IllegalStateException("Incomplete referee calls: "+calls.size());

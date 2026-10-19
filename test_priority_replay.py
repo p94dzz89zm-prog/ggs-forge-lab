@@ -25,6 +25,14 @@ class PriorityReplayEncodingTest(unittest.TestCase):
             entry, result = self.fixture(); entry[key] = value
             self.assertEqual(encode(entry, result, 0, 1, 2)['kind'], 'unsupported_decision')
 
+    def test_floating_pool_requires_exact_inventory_and_new_public_announcement(self):
+        entry, result = self.fixture()
+        entry['mana_context']['pool'] = [dict(color='C', source_card_id=5, snow=False, restricted=False)]
+        row = encode(entry, result, 0, 1, 2)
+        self.assertFalse(row['empty_mana_pool'])
+        self.assertEqual(row['expected_pool'], entry['mana_context']['pool'])
+        self.assertIn('original announcement', row['visibility_requirement'])
+
 
 if __name__ == '__main__':
     unittest.main()
