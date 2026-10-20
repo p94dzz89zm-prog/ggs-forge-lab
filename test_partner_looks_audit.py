@@ -17,7 +17,7 @@ class PartnerLooksAuditTest(unittest.TestCase):
         rows=self.rows();self.assertEqual(self.audit(rows)[0]['deliveries'],1)
         wrong=copy.deepcopy(rows);wrong[1]['entitled_player_ids']=[0,1]
         with self.assertRaisesRegex(ValueError,'unauthorized'):self.audit(wrong)
-        wrong=copy.deepcopy(rows);wrong[1]['arguments'][0][0]['view_id']=99
+        wrong=copy.deepcopy(rows);wrong[1]['arguments']=copy.deepcopy(wrong[1]['arguments']);wrong[1]['arguments'][0][0]['view_id']=99
         with self.assertRaisesRegex(ValueError,'domain/order'):self.audit(wrong)
         with self.assertRaisesRegex(ValueError,'Missing look'):self.audit([rows[0],rows[-1]])
 

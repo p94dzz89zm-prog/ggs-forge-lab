@@ -5,8 +5,12 @@ from decision_tape import ZONE_EMPTY
 from executable_delta import digest
 
 def searches(path):
+    with Path(path).open() as stream:
+        return _searches(stream)
+
+def _searches(stream):
     stack=[];active=None;results=[]
-    for line in Path(path).open():
+    for line in stream:
         row=json.loads(line)
         if row['kind']=='engine_call':
             if active is None and row['hook'].endswith(ZONE_EMPTY):
