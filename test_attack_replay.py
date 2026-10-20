@@ -10,6 +10,8 @@ class AttackEncodingTest(unittest.TestCase):
         entry=dict(hook='forge/ai/bridge/PlayerControllerBridge'+ATTACK,call_id=1,receiver=actor,arguments=before,turn=7,phase='COMBAT_DECLARE_ATTACKERS',turn_player_id=0)
         returned=dict(result=None,arguments_after=after)
         self.assertEqual(encode(entry,returned,0,1,2)['attacker_id'],8)
+        attack['attacker']['name']='Frodo, Adventurous Hobbit'
+        self.assertEqual(encode(entry,returned,0,1,2)['decision_type'],'single_frodo_attack')
         entry['replay_attack_unknown_calls']=1
         self.assertEqual(encode(entry,returned,0,1,2)['kind'],'unsupported_decision')
         entry.pop('replay_attack_unknown_calls');attack['defender']['player_id']=0

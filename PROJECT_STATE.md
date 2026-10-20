@@ -5,6 +5,29 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Frodo single-attack declaration reconstructed
+
+Conditional contracts1781/1985;406 completed consecutive original choices
+and868 validated engine RNG requests. The single-creature declaration now
+supports Frodo as well as Phoenix, using live ownership/control/zone/sickness,
+opponent eligibility, native canAttack, attack-cost rejection and full native
+restriction/requirement validation. Actual caller remains responsible for tap,
+attack triggers and damage; recorded outcomes are not copied.
+
+Three four-player Frodo valid/summoning-sick/self controls pass (legacy positive
+fixture console label still says Phoenix; its explicit frodo argument, decision
+type and sealed actual state identify Frodo). Affected encoding test passes.
+One original diagnostic advances from371 through405, including actual Frodo
+combat and turn transition.0 new natural games,0 full game replays,0 rules
+approvals/training/pilot comparisons. Full-state reconstruction remains false.
+
+Next406 is Hidden Hideout155's enter-tapped replacement payment, original
+ability1990 versus live1459. Its zero cost and Tap/ETB/Self parameters are
+recognized, but instance provenance is not bound; driver correctly rejects
+rather than accepting matching text/parameters alone.204 unsupported roots
+are separate from this supported-family instance failure. Establish causal
+replacement-effect ability identity, then resume sequential reconstruction.
+
 ## Sam Food trigger reconstructed
 
 Conditional coverage1780/1985;371 completed consecutive original controller

@@ -84,9 +84,9 @@ def encode(entry, returned, index, call_line, return_line):
             attacks=after[1]['attacks']
             if len(attacks)==1 and after[1]['attacking_player']==args[1]['attacking_player']==args[0] and args[0]['player_id']==row['actor_id']:
                 attack=attacks[0]; card=attack['attacker']; defender=attack['defender']
-                if (card['name']=='Phoenix Chick' and card['controller_id']==row['actor_id'] and card['zone']=='Battlefield' and not card['tapped'] and not card['phased_out'] and attack['blockers']==[] and attack['blocked'] is False
+                if (card['name'] in ('Phoenix Chick','Frodo, Adventurous Hobbit') and card['controller_id']==row['actor_id'] and card['zone']=='Battlefield' and not card['tapped'] and not card['phased_out'] and attack['blockers']==[] and attack['blocked'] is False
                     and type(defender.get('player_id')) is int and defender['player_id']!=row['actor_id'] and defender['lost'] is False):
-                    row.update(kind='decision',decision_type='single_phoenix_attack',attacker_id=card['card_id'],defender_player_id=defender['player_id'],
+                    row.update(kind='decision',decision_type='single_phoenix_attack' if card['name']=='Phoenix Chick' else 'single_frodo_attack',attacker_id=card['card_id'],defender_player_id=defender['player_id'],
                                context={k:entry[k] for k in ('turn','phase','turn_player_id')},random_scope='Reviewed attack-selector only; no effect calls; live attack costs rejected')
                     row.pop('reason',None)
         return row
