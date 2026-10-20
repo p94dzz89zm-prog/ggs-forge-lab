@@ -1,0 +1,15 @@
+{
+  "base_sha256": "b1521760e6448630079102e9917ecd74293300e34ab577140ccc0de67b8e8762",
+  "sha256": "e9d2f5802c5d6c690f99fe4be423d57546a71161d6ac7b107479dca68d5cbeb2",
+  "changed_classes": {
+    "forge/game/phase/PhaseHandler.class": "f78d535dc7fe281113a2315f38d6fabcfacd04b23b3b52bddd714b536395c722",
+    "forge/ai/bridge/ReadinessTrace.class": "941dce3f1d2cda288f3ac11a2fdf1141339470af621eb4740ba9d6498e18a33e"
+  },
+  "source_sha256": {
+    "ReadinessInstrumenter.java": "d4c8446312d34541d4c4dd8cab3f8fe1a3afe687bc8d9249ef82e04b9e5fe75a",
+    "pilot-src/forge/ai/bridge/ReadinessTrace.java": "687eec0aa72648daad1f4dfc83a8f92dd0b7962d4a79f404b03a08d58bb79644"
+  },
+  "other_entries_byte_identical": true,
+  "default_enabled": false,
+  "rules_approved": false
+}

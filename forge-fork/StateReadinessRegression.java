@@ -62,6 +62,8 @@ public class StateReadinessRegression extends AITest {
         require(Boolean.FALSE.equals(ready.invoke(game.getPhaseHandler())) && game.getStack().isEmpty(),
                 "Post-resolution readiness not stable");
         if (System.getProperty("dragonmind.readinessTrace") != null)
+            game.getPhaseHandler().mainLoopStep(); // Actual controller-action boundary.
+        if (System.getProperty("dragonmind.readinessTrace") != null)
             Class.forName("forge.ai.bridge.ReadinessTrace").getMethod("finish", Game.class).invoke(null, game);
         System.out.println("PASS StateReadinessRegression: lethal damage, indestructible, zero toughness, death trigger staging, deferred resolution, token ownership, stable readiness");
         System.out.println("SCOPE native constructed four-player fixture; no complete game or independent global priority approval");
