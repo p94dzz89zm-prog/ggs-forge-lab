@@ -373,7 +373,7 @@ public final class DecisionReplay {
       if(permission==null)throw new IllegalStateException("Missing live commander cast permission");selected=selected.copy();selected.setMayPlay(permission);
      }
      selected.setActivatingPlayer(player);if(!selected.canPlay())throw new IllegalStateException("Illegal permanent spell restrictions");
-     if((commander||Set.of("rampant_growth_spell","cultivate_spell").contains(row.get("decision_type").getAsString()))&&row.has("original_ability_id")){String original=card.getId()+":"+integer(row.get("original_ability_id"));String previous=selectedAbilityBindings.putIfAbsent(original,source(selected));if(previous!=null&&!previous.equals(source(selected)))throw new IllegalStateException("Recorded commander ability binding reused ambiguously");}
+     if(row.has("original_ability_id")){String original=card.getId()+":"+integer(row.get("original_ability_id"));String previous=selectedAbilityBindings.putIfAbsent(original,source(selected));if(previous!=null&&!previous.equals(source(selected)))throw new IllegalStateException("Recorded selected spell ability binding reused ambiguously");}
      // Only select the actual live spell. Normal casting and payment must still
      // execute; this return does not move the card or grant a legal cast result.
      return complete(hook,receiver,args,Collections.singletonList(selected));

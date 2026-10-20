@@ -5,6 +5,23 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Plain permanent selected-ability binding repaired
+
+Conditional coverage remains1790/1985;466 original choices now execute,
+1043 engine RNG requests and223 canonical lines agree. Plain-permanent spells
+now retain original-to-live ability identity at the already checked actual
+selection, just like commander and other supported spells. Payment still needs
+that exact binding; no generic parameter-only alias is introduced. Actual
+different-ID selection/payment/resolution and unselected-ID rejection pass;
+independent scoped mana arithmetic checks the real fixture payment. The same
+different-ID fixture on the previous executable reproduces source divergence.
+
+Next466 is Goro-Goro and Satoru's first commander casting payment: Arcane Signet
+black plus Island blue and Mountain red. Arcane Signet's commander-color
+mana-source/color-choice family is not yet supported.195 unsupported roots plus
+full independent state/rules/terminal audit remain.0 complete replay/approved
+games, no new natural games/training/comparisons. Models/originals unchanged.
+
 ## Misty sacrificed-source search and actual copy provenance reconstructed
 
 Conditional support1790/1985;460 consecutive original choices,1040 engine RNG

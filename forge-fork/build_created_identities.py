@@ -13,7 +13,8 @@ BASES={'748a6d2d3c66f847402d43a0ea09e24e081f07c8ebdc078742104fb819f0c5f8',
        '0b47f08f481ecea1caf66abbc206d27ec1e8c0a69f101e03a71a6a75e85cf055',
        '63e111769dcd5f12e8ba5c480efb0c5c0252427cd9c42134de89014299aa64aa',
        '6e1b652d4e44d720b5cbd4416cf20f9744eb04eade1125acb5b5389d4c585797',
-       '252dd1d85f8a3bce45915b6d418980981ea5552c0f3a56ed23e1e969e15c1109'}
+       '252dd1d85f8a3bce45915b6d418980981ea5552c0f3a56ed23e1e969e15c1109',
+       'cbcb7c949b064a348386459e79afa61869bb6cc32a0b35248eea97f297e3f7d6'}
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--base',required=True,type=Path);p.add_argument('--output',required=True,type=Path);a=p.parse_args()
     base=digest(a.base)
