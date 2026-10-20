@@ -6,6 +6,7 @@ example. Sealed writer receipts must be checked separately before this reader.
 import collections
 import json
 from pathlib import Path
+from priority_pass_audit import PriorityPassAudit, CHOICE
 
 
 def inspect(path, *, require_initial=True):
@@ -20,6 +21,7 @@ def _inspect(stream, *, require_initial):
     pool_verified, pool_unsupported = 0, collections.Counter()
     initial, terminal, visibility, paid, failed, random = [], [], [], 0, 0, 0
     unknown = collections.Counter()
+    priority = PriorityPassAudit()
 
     def gaps(value):
         if isinstance(value, dict):
@@ -39,6 +41,7 @@ def _inspect(stream, *, require_initial):
         kind = row.get('kind')
         if terminal:
             raise ValueError('Data after referee completion')
+        priority.next_row(row)
         if kind == 'engine_call':
             call = row['call_id']
             if type(call) is not int or call != len(entered) + 1:
@@ -67,6 +70,8 @@ def _inspect(stream, *, require_initial):
             if row.get('hook') != entry['hook']:
                 raise ValueError('Return hook changed')
             returned.add(call)
+            priority.returned(entry, row, nested_priority=any(
+                p.get('hook', '').endswith(CHOICE) for p in pending.values()))
             if 'ManaPool.tryPayCostWithMana(' in row['hook']:
                 args = entry['arguments']
                 if len(args) != 4 or type(args[3]) is not bool or type(row.get('result')) is not bool:
@@ -121,7 +126,7 @@ def _inspect(stream, *, require_initial):
             raise ValueError('Reveal to unregistered player')
         if row['visibility_operation'] == 'reveal_all' and not audience:
             raise ValueError('Empty public reveal audience')
-    return {'integrity_structure_passed': True, 'records': records, 'calls': len(entered),
+    return {**priority.report(), 'integrity_structure_passed': True, 'records': records, 'calls': len(entered),
             'initial_states': len(initial), 'registered_players': len(player_ids),
             'visibility_events': len(visibility), 'actual_mana_units_paid': paid,
             'failed_mana_unit_attempts': failed, 'random_requests': random,

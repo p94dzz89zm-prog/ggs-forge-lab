@@ -5,6 +5,16 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Scoped priority-pass verification
+
+Independent observer checks nonspeculative outer priority passes and actual
+recorded public floating-mana announcements, including counts and recorded active
+recipients after elimination. Missing disclosures remain gaps.270 Python tests
+pass; archived writer-hash-bound tape has1543 passes consistent with recorded
+priority fields and9 missing announcement gaps. Zero priority-derivation/game
+approvals or training. See PRIORITY_PASS_VALIDATION.md. Stage48 remains reserved
+and untouched;466 remains the verified gameplay recovery boundary.
+
 ## Independent referee foundations maintenance
 
 Strict evidence identity/count types prevent boolean/decimal aliasing of call
