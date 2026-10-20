@@ -30,6 +30,17 @@ class ManaUnitAuditTests(unittest.TestCase):
     def test_no_unexplained_multi_unit_payment(self):
         with self.assertRaises(ValueError):self.run_check(cost('{U}','{U}'),cost())
 
+    def test_malformed_conversion_masks_cannot_approve_payment(self):
+        for mask in (-1, -64, 64, 65, True, 1.0, '1', None):
+            with self.subTest(mask=mask):
+                with self.assertRaises(ValueError):
+                    self.run_check(cost('{W}'),cost(),uses=mask)
+
+    def test_valid_conversion_boundaries(self):
+        with self.assertRaises(ValueError):
+            self.run_check(cost('{1}'),cost(),uses=0)
+        self.assertIsNone(self.run_check(cost('{C}'),cost(),uses=63))
+
     def test_snow_conversion_does_not_make_non_snow_mana_snow(self):
         unit={'color':'C','source_card_id':9,'snow':True}
         context={'pool':[unit],'possible_color_uses':{'C':32},'snow_for_color':True}

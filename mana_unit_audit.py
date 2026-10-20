@@ -13,6 +13,10 @@ def check(before, after, unit, context):
     if not isinstance(conversions,dict) or unit.get('color') not in conversions:
         return 'Missing mana conversion/restriction matrix'
     uses=conversions[unit['color']]
+    # Only the six recorded mana bits are meaningful. Python negative integers
+    # have infinitely many leading set bits and would otherwise pay any color.
+    if type(uses) is not int or uses < 0 or uses & ~63:
+        raise ValueError('Invalid mana conversion bitmask')
     if unit.get('snow') and context.get('snow_for_color'):
         uses |= 31
     old,new=Counter(before['unpaid_shards']),Counter(after['unpaid_shards'])

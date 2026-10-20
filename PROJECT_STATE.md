@@ -7,6 +7,13 @@ checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
 ## Plain permanent selected-ability binding repaired
 
+Independent audit maintenance: negative or malformed mana-conversion bitmasks
+now fail closed before color arithmetic. A negative-mask U-to-W false approval
+was reproduced; 42 affected audit/evidence/learning-gate tests pass after repair.
+See MANA_AUDIT_MASK_VALIDATION.md. Stage48 remains separately reserved and its
+unpublished local results are not adopted or rerun here. No gameplay/training
+was executed for this maintenance milestone.
+
 Conditional coverage remains1790/1985;466 original choices now execute,
 1043 engine RNG requests and223 canonical lines agree. Plain-permanent spells
 now retain original-to-live ability identity at the already checked actual
