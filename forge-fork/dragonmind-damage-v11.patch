@@ -1,0 +1,246 @@
+diff --git a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+--- a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
++++ b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+@@ -56,7 +56,9 @@
+         final Map<ReplacementType, CardCollection> sources = new EnumMap<>(ReplacementType.class);
+         final Map<ZoneType, CardCollection[]> combatTraits = new EnumMap<>(ZoneType.class);
+         final Map<Player, Map<ApiType, CardCollection>> combatDefenses = new IdentityHashMap<>();
++        CardCollectionView combatAllRuleSources;
+         CardCollection combatRuleSources;
++        CardCollection combatReplacementRuleSources;
+         ManaSources parent;
+         boolean combat;
+         boolean invalidated;
+@@ -136,6 +138,19 @@
+         return snapshot.invalidated ? game.getCardsIn(zone) : sources[triggers ? 1 : 0];
+     }
+ 
++    /** Ordered complete source snapshot for callers whose extra-source dedup priority matters. */
++    public CardCollectionView getReadOnlyCombatAllRuleSources() {
++        ManaSources snapshot = manaInspection.get();
++        if (snapshot == null || snapshot.invalidated || !snapshot.combat
++                || Boolean.getBoolean("dragonmind.disableCombatRuleIndex")) {
++            return game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES);
++        }
++        if (snapshot.combatAllRuleSources == null) {
++            snapshot.combatAllRuleSources = game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES);
++        }
++        return snapshot.combatAllRuleSources;
++    }
++
+     /** Share ordered rule hosts in one forecast; applicability remains live. */
+     public CardCollectionView getReadOnlyCombatRuleSources() {
+         ManaSources snapshot = manaInspection.get();
+@@ -146,13 +161,31 @@
+         if (snapshot.combatRuleSources == null) {
+             CardCollection hosts = new CardCollection();
+             // Preserve the original zone/player ordering and phased-card rules.
+-            for (Card card : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++            for (Card card : getReadOnlyCombatAllRuleSources()) {
+                 if (!card.getStaticAbilities().isEmpty()) hosts.add(card);
+             }
+             if (!snapshot.invalidated) snapshot.combatRuleSources = hosts;
+         }
+         return snapshot.invalidated ? game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)
+             : snapshot.combatRuleSources;
++    }
++
++    /** Share ordered replacement hosts; modes, zones, amounts and conditions stay live. */
++    public CardCollectionView getReadOnlyCombatReplacementRuleSources() {
++        ManaSources snapshot = manaInspection.get();
++        if (snapshot == null || snapshot.invalidated || !snapshot.combat
++                || Boolean.getBoolean("dragonmind.disableCombatReplacementRuleIndex")) {
++            return game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES);
++        }
++        if (snapshot.combatReplacementRuleSources == null) {
++            CardCollection hosts = new CardCollection();
++            for (Card card : getReadOnlyCombatAllRuleSources()) {
++                if (!card.getReplacementEffects().isEmpty()) hosts.add(card);
++            }
++            if (!snapshot.invalidated) snapshot.combatReplacementRuleSources = hosts;
++        }
++        return snapshot.invalidated ? game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)
++                : snapshot.combatReplacementRuleSources;
+     }
+ 
+     /** Share defensive-ability hosts in a bounded forecast, not costs or targets. */
+@@ -1099,7 +1132,7 @@
+     public final boolean isPreventCombatDamageThisTurn() {
+         // a fog effect can only be active from a zone in STATIC_ABILITIES_SOURCE_ZONES
+         // (zonesCheck below rejects other zones), so don't scan libraries and hands
+-        for (final Card c : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card c : getReadOnlyCombatReplacementRuleSources()) {
+             for (final ReplacementEffect re : c.getReplacementEffects()) {
+                 if (re.getMode() == ReplacementType.DamageDone
+                         && re.getLayer() == ReplacementLayer.Other
+diff --git a/forge-game/src/main/java/forge/game/GameEntity.java b/forge-game/src/main/java/forge/game/GameEntity.java
+--- a/forge-game/src/main/java/forge/game/GameEntity.java
++++ b/forge-game/src/main/java/forge/game/GameEntity.java
+@@ -103,7 +103,7 @@
+             }
+         }
+ 
+-        for (final Card ca : getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : getGame().getReplacementHandler().getReadOnlyCombatReplacementRuleSources()) {
+             for (final ReplacementEffect re : ca.getReplacementEffects()) {
+                 if (!re.getMode().equals(ReplacementType.DamageDone) ||
+                         (!re.hasParam("PreventionEffect") && !re.hasParam("Prevent"))) {
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -517,4 +517,95 @@
+         Assert.assertTrue(host.getHiddenStaticAbilities().isEmpty());
+     }
+ 
++    @Test public void damageRuleQueriesKeepModesAndValidityFresh() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCard("Grizzly Bears",player),body=addCard("Grizzly Bears",player);
++        var handler=game.getReplacementHandler();
++        for (String mode : List.of("AssignNoCombatDamage","CombatDamageToughness","CombatDamageNegatePower","AssignCombatDamageAsUnblocked","CantPreventDamage")) {
++            var ability=host.addStaticAbility("Mode$ "+mode+" | ValidCard$ Card.Other | ValidSource$ Card.Other");
++            try(var scope=handler.beginReadOnlyCombatInspection()) {
++                Assert.assertTrue(damageRuleQuery(mode,body));
++                ability.putParam("ValidCard","Card.Self");ability.putParam("ValidSource","Card.Self");
++                Assert.assertFalse(damageRuleQuery(mode,body));
++                ability.putParam("ValidCard","Card.Other");ability.putParam("ValidSource","Card.Other");
++                Assert.assertTrue(damageRuleQuery(mode,body));
++                ability.setMode(java.util.EnumSet.of(forge.game.staticability.StaticAbilityMode.CantAttack));
++                Assert.assertFalse(damageRuleQuery(mode,body));
++            }
++            host.getCurrentState().removeStaticAbility(ability);
++        }
++    }
++    private boolean damageRuleQuery(String mode,Card card) {
++        return switch(mode) {
++            case "AssignNoCombatDamage" -> card.assignNoCombatDamage();
++            case "CombatDamageToughness" -> card.toughnessAssignsDamage();
++            case "CombatDamageNegatePower" -> card.negateCombatAssignedDamage();
++            case "CantPreventDamage" -> !card.canDamagePrevented(true);
++            default -> forge.game.staticability.StaticAbilityAssignCombatDamageAsUnblocked.assignCombatDamageAsUnblocked(card,false);
++        };
++    }
++    @Test public void damageRuleQueriesPreserveOriginalPriorityForVirtualSelfSources() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card body=addCard("Grizzly Bears",player);var virtual=forge.game.card.CardCopyService.getLKICopy(body);
++        virtual.addStaticAbility("Mode$ AssignNoCombatDamage | ValidCard$ Card.Self");
++        virtual.addStaticAbility("Mode$ CantPreventDamage | ValidSource$ Card.Self");
++        try(var scope=game.getReplacementHandler().beginReadOnlyCombatInspection()) {
++            // The original complete-zone list keeps the real card before the same-id LKI.
++            Assert.assertFalse(virtual.assignNoCombatDamage());Assert.assertTrue(virtual.canDamagePrevented(true));
++            Assert.assertFalse(body.assignNoCombatDamage());Assert.assertTrue(body.canDamagePrevented(true));
++        }
++    }
++    @Test public void replacementRuleSourcesPreserveOrderPhasingAndNestedAdditions() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCard("Grizzly Bears",player),empty=addCard("Grizzly Bears",player);
++        Card command=addCardToZone("Grizzly Bears",player,ZoneType.Command);
++        host.addReplacementEffect(forge.game.replacement.ReplacementHandler.parseReplacement("Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True",host,false,null));
++        command.addReplacementEffect(forge.game.replacement.ReplacementHandler.parseReplacement("Event$ DamageDone | ActiveZones$ Command | Prevent$ True",command,false,null));
++        var handler=game.getReplacementHandler();
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertEquals(new ArrayList<>(handler.getReadOnlyCombatReplacementRuleSources()),List.of(host,command));
++            try(var nested=handler.beginReadOnlyCombatInspection()) {
++                empty.addReplacementEffect(forge.game.replacement.ReplacementHandler.parseReplacement("Event$ DamageDone | ActiveZones$ Battlefield | Prevent$ True",empty,false,null));
++            }
++            Assert.assertTrue(handler.getReadOnlyCombatReplacementRuleSources().contains(empty));
++            empty.setPhasedOut(player);Assert.assertFalse(handler.getReadOnlyCombatReplacementRuleSources().contains(empty));
++            empty.setPhasedOut(null);Assert.assertTrue(handler.getReadOnlyCombatReplacementRuleSources().contains(empty));
++            player.getZone(ZoneType.Battlefield).remove(empty);Assert.assertFalse(handler.getReadOnlyCombatReplacementRuleSources().contains(empty));
++        }
++    }
++    @Test public void preventionRuleIndexKeepsAmountsConditionsAndOptOutFresh() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card target=addCard("Grizzly Bears",player),source=addCard("Grizzly Bears",player);
++        var effect=forge.game.replacement.ReplacementHandler.parseReplacement("Event$ DamageDone | ActiveZones$ Battlefield | PreventionEffect$ True | ValidTarget$ Card.Self",target,false,null);
++        var ability=forge.game.ability.AbilityFactory.getAbility("DB$ ReplaceDamage | Amount$ 2",target);
++        effect.setOverridingAbility(ability);target.addReplacementEffect(effect);
++        var handler=game.getReplacementHandler();
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertEquals(target.staticDamagePrevention(5,0,source,true,false),3);
++            ability.putParam("Amount","4");Assert.assertEquals(target.staticDamagePrevention(5,0,source,true,false),1);
++            effect.putParam("ValidTarget","Card.Other");Assert.assertEquals(target.staticDamagePrevention(5,0,source,true,false),5);
++            String previous=System.getProperty("dragonmind.disableCombatReplacementRuleIndex");
++            try {
++                System.setProperty("dragonmind.disableCombatReplacementRuleIndex","true");
++                Assert.assertEquals(new ArrayList<>(handler.getReadOnlyCombatReplacementRuleSources()),new ArrayList<>(game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)));
++                Assert.assertEquals(target.staticDamagePrevention(5,0,source,true,false),5);
++            } finally {
++                if(previous==null)System.clearProperty("dragonmind.disableCombatReplacementRuleIndex");else System.setProperty("dragonmind.disableCombatReplacementRuleIndex",previous);
++            }
++        }
++    }
++
++    @Test public void fogRuleIndexRechecksCombatFlagsAndActiveZones() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCardToZone("Grizzly Bears",player,ZoneType.Command);
++        var effect=forge.game.replacement.ReplacementHandler.parseReplacement("Event$ DamageDone | ActiveZones$ Command | Prevent$ True | IsCombat$ True",host,false,null);
++        host.addReplacementEffect(effect);var handler=game.getReplacementHandler();
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertTrue(handler.isPreventCombatDamageThisTurn());
++            effect.putParam("IsCombat","False");Assert.assertFalse(handler.isPreventCombatDamageThisTurn());
++            effect.putParam("IsCombat","True");Assert.assertTrue(handler.isPreventCombatDamageThisTurn());
++            effect.setActiveZone(java.util.EnumSet.of(ZoneType.Exile));Assert.assertFalse(handler.isPreventCombatDamageThisTurn());
++        }
++    }
++
+ }
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityAssignCombatDamageAsUnblocked.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityAssignCombatDamageAsUnblocked.java
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityAssignCombatDamageAsUnblocked.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityAssignCombatDamageAsUnblocked.java
+@@ -12,7 +12,7 @@
+ 
+     public static boolean assignCombatDamageAsUnblocked(final Card card, final boolean optional)  {
+         final Game game = card.getGame();
+-        for (final Card ca : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.AssignCombatDamageAsUnblocked)) {
+                     continue;
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityCantPreventDamage.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityCantPreventDamage.java
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityCantPreventDamage.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityCantPreventDamage.java
+@@ -7,7 +7,7 @@
+ public class StaticAbilityCantPreventDamage {
+ 
+     public static boolean cantPreventDamage(final Card source, final boolean isCombat) {
+-        CardCollection list = new CardCollection(source.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
++        CardCollection list = new CardCollection(source.getGame().getReplacementHandler().getReadOnlyCombatAllRuleSources());
+         list.add(source);
+         for (final Card ca : list) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityAssignNoCombatDamage.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityAssignNoCombatDamage.java
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityAssignNoCombatDamage.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityAssignNoCombatDamage.java
+@@ -7,7 +7,7 @@
+ public class StaticAbilityAssignNoCombatDamage {
+ 
+     public static boolean assignNoCombatDamage(final Card card) {
+-        CardCollection list = new CardCollection(card.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
++        CardCollection list = new CardCollection(card.getGame().getReplacementHandler().getReadOnlyCombatAllRuleSources());
+         list.add(card);
+         for (final Card ca : list) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityCombatDamageToughness.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityCombatDamageToughness.java
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityCombatDamageToughness.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityCombatDamageToughness.java
+@@ -8,7 +8,7 @@
+ 
+     public static boolean combatDamageToughness(final Card card)  {
+         final Game game = card.getGame();
+-        for (final Card ca : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.CombatDamageToughness)) {
+                     continue;
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityCombatDamageNegatePower.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityCombatDamageNegatePower.java
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityCombatDamageNegatePower.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityCombatDamageNegatePower.java
+@@ -7,7 +7,7 @@
+ public class StaticAbilityCombatDamageNegatePower {
+     public static boolean combatDamageNegatePower(final Card card)  {
+         final Game game = card.getGame();
+-        for (final Card ca : game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES)) {
++        for (final Card ca : game.getReplacementHandler().getReadOnlyCombatRuleSources()) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkConditions(StaticAbilityMode.CombatDamageNegatePower)) {
+                     continue;

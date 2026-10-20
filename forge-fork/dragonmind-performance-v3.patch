@@ -1,0 +1,201 @@
+diff --git a/forge-game/src/main/java/forge/game/card/Card.java b/forge-game/src/main/java/forge/game/card/Card.java
+index 4e2a924..a0405e6 100644
+--- a/forge-game/src/main/java/forge/game/card/Card.java
++++ b/forge-game/src/main/java/forge/game/card/Card.java
+@@ -6996,6 +6996,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+     }
+ 
+     public final FCollectionView<StaticAbility> getHiddenStaticAbilities() {
++        if (counterTypeKeywordStatic.isEmpty() && (!isInPlay() || !isSuspected())) return FCollection.getEmpty();
+         FCollection<StaticAbility> result = new FCollection<>();
+         if (this.isInPlay() && this.isSuspected()) {
+             result.add(suspectedStatic);
+diff --git a/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java b/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
+index 3c0d7aa..857b06b 100644
+--- a/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
++++ b/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
+@@ -21,10 +21,9 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+     private final Multimap<Keyword, KeywordInterface> map = MultimapBuilder.hashKeys()
+             .linkedHashSetValues().build();
+ 
+-    // Cache membership, not the mutable traits inside each keyword. Live public
+-    // collection views disable caching because their later mutations are invisible.
++    // Cache membership, not mutable trait contents. Public live views invalidate
++    // membership on mutation, including through retained iterators and bulk edits.
+     private KeywordInterface[] iterationCache;
+-    private boolean liveViewExposed;
+     private void membershipChanged() { iterationCache = null; }
+     private KeywordInterface[] members() {
+         if (iterationCache == null) iterationCache = map.values().toArray(new KeywordInterface[0]);
+@@ -45,21 +44,13 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+ 
+     public boolean hasStaticAbilities() {
+         if (map.isEmpty()) return false;
+-        if (liveViewExposed) {
+-            for (KeywordInterface k : map.values()) if (!k.getStaticAbilities().isEmpty()) return true;
+-        } else {
+-            for (KeywordInterface k : members()) if (!k.getStaticAbilities().isEmpty()) return true;
+-        }
++        for (KeywordInterface k : members()) if (!k.getStaticAbilities().isEmpty()) return true;
+         return false;
+     }
+ 
+     public boolean hasReplacementEffects() {
+         if (map.isEmpty()) return false;
+-        if (liveViewExposed) {
+-            for (KeywordInterface k : map.values()) if (!k.getReplacements().isEmpty()) return true;
+-        } else {
+-            for (KeywordInterface k : members()) if (!k.getReplacements().isEmpty()) return true;
+-        }
++        for (KeywordInterface k : members()) if (!k.getReplacements().isEmpty()) return true;
+         return false;
+     }
+ 
+@@ -182,16 +173,41 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         return amount;
+     }
+ 
++    /** Preserve the live-view contract while tracking every supported mutation. */
++    private Collection<KeywordInterface> trackedView(Collection<KeywordInterface> backing) {
++        return new java.util.AbstractCollection<>() {
++            @Override public int size() { return backing.size(); }
++            @Override public boolean contains(Object value) { return backing.contains(value); }
++            @Override public Iterator<KeywordInterface> iterator() {
++                Iterator<KeywordInterface> delegate = backing.iterator();
++                return new Iterator<>() {
++                    public boolean hasNext() { return delegate.hasNext(); }
++                    public KeywordInterface next() { return delegate.next(); }
++                    public void remove() { delegate.remove(); membershipChanged(); }
++                };
++            }
++            @Override public boolean add(KeywordInterface value) {
++                boolean changed = backing.add(value);
++                if (changed) membershipChanged();
++                return changed;
++            }
++            @Override public boolean remove(Object value) {
++                boolean changed = backing.remove(value);
++                if (changed) membershipChanged();
++                return changed;
++            }
++            @Override public void clear() {
++                backing.clear(); membershipChanged();
++            }
++        };
++    }
++
+     public Collection<KeywordInterface> getValues() {
+-        liveViewExposed = true;
+-        membershipChanged();
+-        return map.values();
++        return trackedView(map.values());
+     }
+ 
+     public Collection<KeywordInterface> getValues(final Keyword keyword) {
+-        liveViewExposed = true;
+-        membershipChanged();
+-        return map.get(keyword);
++        return trackedView(map.get(keyword));
+     }
+ 
+     public List<String> asStringList() {
+@@ -228,11 +244,7 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         if (map.isEmpty()) {
+             return list;
+         }
+-        if (liveViewExposed) {
+-            for (KeywordInterface k : map.values()) k.applySpellAbility(list);
+-        } else {
+-            for (KeywordInterface k : members()) k.applySpellAbility(list);
+-        }
++        for (KeywordInterface k : members()) k.applySpellAbility(list);
+         return list;
+     }
+     @Override
+@@ -240,11 +252,7 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         if (map.isEmpty()) {
+             return list;
+         }
+-        if (liveViewExposed) {
+-            for (KeywordInterface k : map.values()) k.applyTrigger(list);
+-        } else {
+-            for (KeywordInterface k : members()) k.applyTrigger(list);
+-        }
++        for (KeywordInterface k : members()) k.applyTrigger(list);
+         return list;
+     }
+     @Override
+@@ -252,11 +260,7 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         if (map.isEmpty()) {
+             return list;
+         }
+-        if (liveViewExposed) {
+-            for (KeywordInterface k : map.values()) k.applyReplacementEffect(list);
+-        } else {
+-            for (KeywordInterface k : members()) k.applyReplacementEffect(list);
+-        }
++        for (KeywordInterface k : members()) k.applyReplacementEffect(list);
+         return list;
+     }
+     @Override
+@@ -266,11 +270,7 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         if (map.isEmpty()) {
+             return list;
+         }
+-        if (liveViewExposed) {
+-            for (KeywordInterface k : map.values()) k.applyStaticAbility(list);
+-        } else {
+-            for (KeywordInterface k : members()) k.applyStaticAbility(list);
+-        }
++        for (KeywordInterface k : members()) k.applyStaticAbility(list);
+         return list;
+     }
+     @Override
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+index 7acc036..c33cbf6 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -174,4 +174,43 @@ public class DragonMindPerformanceTest extends AITest {
+         }
+     }
+ 
++
++    @Test public void trackedLiveViewsInvalidateAfterBulkAndIteratorEdits() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        var collection=new KeywordCollection();var flying=collection.add("Flying");flying.addStaticAbility(trait(host,"Creature"));
++        var values=collection.getValues();Assert.assertEquals(applied(collection).size(),1);
++        values.removeIf(k->true);Assert.assertTrue(applied(collection).isEmpty());
++        var keyed=collection.getValues(forge.game.keyword.Keyword.FLYING);keyed.add(flying);Assert.assertEquals(applied(collection).size(),1);
++        var iterator=keyed.iterator();iterator.next();iterator.remove();Assert.assertTrue(applied(collection).isEmpty());
++        keyed.addAll(List.of(flying));Assert.assertEquals(applied(collection).size(),1);
++        values.retainAll(List.of());Assert.assertTrue(applied(collection).isEmpty());
++        keyed.add(flying);Assert.assertEquals(applied(collection).size(),1);keyed.removeAll(List.of(flying));Assert.assertTrue(applied(collection).isEmpty());
++    }
++    @Test public void mutableKeywordTraitsRemainFreshThroughRetainedSublists() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        var collection=new KeywordCollection();var keyword=collection.add("Flying");var first=trait(host,"Creature");var second=trait(host,"Creature.YouCtrl");
++        Assert.assertFalse(collection.hasStaticAbilities());
++        var traits=(List<StaticAbility>)keyword.getStaticAbilities();traits.add(first);Assert.assertEquals(applied(collection),List.of(first));
++        traits.subList(0,1).set(0,second);Assert.assertEquals(applied(collection),List.of(second));
++        traits.listIterator().add(first);Assert.assertEquals(applied(collection),List.of(first,second));
++        traits.subList(0,1).clear();Assert.assertEquals(applied(collection),List.of(second));
++        var it=traits.iterator();it.next();it.remove();Assert.assertFalse(collection.hasStaticAbilities());
++        var replacements=(List<ReplacementEffect>)keyword.getReplacements();var effect=replacement(host);
++        Assert.assertFalse(collection.hasReplacementEffects());replacements.add(effect);Assert.assertTrue(collection.hasReplacementEffects());
++        Assert.assertEquals(collection.applyReplacementEffect(new ArrayList<>()),List.of(effect));
++        replacements.removeIf(e->true);Assert.assertFalse(collection.hasReplacementEffects());
++        var copied=keyword.copy(host,true);collection.clear();collection.insert(copied);Assert.assertFalse(collection.hasStaticAbilities());
++        copied.addStaticAbility(first);Assert.assertEquals(applied(collection),List.of(first));
++    }
++
++    @Test public void hiddenStaticFastPathStillSeesSuspicionAndKeywordCounters() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        Assert.assertTrue(host.getHiddenStaticAbilities().isEmpty());host.setSuspected(true);
++        Assert.assertFalse(host.getHiddenStaticAbilities().isEmpty());host.setSuspected(false);
++        Assert.assertTrue(host.getHiddenStaticAbilities().isEmpty());
++        host.createCounterStatic(CounterType.getType("Flying"));host.setCounters(CounterType.getType("Flying"),1);
++        Assert.assertFalse(host.getHiddenStaticAbilities().isEmpty());host.setCounters(CounterType.getType("Flying"),0);
++        Assert.assertTrue(host.getHiddenStaticAbilities().isEmpty());
++    }
++
+ }

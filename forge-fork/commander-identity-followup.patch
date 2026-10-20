@@ -1,0 +1,221 @@
+diff --git a/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java b/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java
+index c261513..e98a052 100644
+--- a/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java
++++ b/forge-ai/src/main/java/forge/ai/bridge/BridgeSnapshot.java
+@@ -22,6 +22,19 @@ public final class BridgeSnapshot {
+             if(!hidden) { out.addProperty("type",c.getType().toString());out.addProperty("mana_cost",c.getManaCost().toString()); }
+             // Printed characteristics of an opponent's face-down card remain hidden.
+             if(!privateZone) {out.addProperty("power",c.getNetPower());out.addProperty("toughness",c.getNetToughness());out.addProperty("summoning_sick",c.hasSickness());}
++            if(!hidden) {
++                out.addProperty("commander",c.isCommander());
++                out.addProperty("entered_this_turn",c.enteredThisTurn());
++                out.addProperty("rules_text",c.getAbilityText());
++                out.addProperty("phased_out",c.isPhasedOut());
++                JsonArray keywords=new JsonArray();
++                for(var keyword:c.getKeywords())keywords.add(keyword.getOriginal());
++                out.add("keywords",keywords);
++                if(c.getAttachedTo()!=null)out.addProperty("attached_to",c.getAttachedTo().getId());
++                JsonArray attached=new JsonArray();
++                for(Card attachment:c.getAttachedCards())attached.add(attachment.getId());
++                out.add("attachments",attached);
++            }
+         } else { out.addProperty("name",entity.getName()); }
+         return out;
+     }
+diff --git a/forge-ai/src/main/java/forge/ai/bridge/PlayerControllerBridge.java b/forge-ai/src/main/java/forge/ai/bridge/PlayerControllerBridge.java
+index 0e6abf7..bed6e3f 100644
+--- a/forge-ai/src/main/java/forge/ai/bridge/PlayerControllerBridge.java
++++ b/forge-ai/src/main/java/forge/ai/bridge/PlayerControllerBridge.java
+@@ -115,6 +115,29 @@ public class PlayerControllerBridge extends PlayerControllerAi {
+         for(JsonElement e:r.getAsJsonArray("indices")){int i=e.getAsInt();if(i<0||i>=list.size()||!seen.add(i))throw new IllegalArgumentException("Invalid card index");selected.add(list.get(i));}
+         if(selected.size()>max || (selected.size()<min && !(optional && selected.isEmpty())))throw new IllegalArgumentException("Wrong number of cards");return selected;
+     }
++    @Override public Card chooseSingleCardForZoneChange(ZoneType destination,List<ZoneType> origin,
++            SpellAbility sa,CardCollection fetchList,DelayedReveal reveal,String prompt,boolean optional,Player decider){
++        if(!remote)return super.chooseSingleCardForZoneChange(destination,origin,sa,fetchList,reveal,prompt,optional,decider);
++        if(reveal!=null)reveal(reveal);
++        List<Card> list=new ArrayList<>();for(Card card:fetchList)list.add(card);
++        JsonObject q=request("entity",options(list));q.addProperty("title",prompt);q.addProperty("optional",optional);
++        JsonObject r=channel.ask(q);
++        if(auto(r))return super.chooseSingleCardForZoneChange(destination,origin,sa,fetchList,null,prompt,optional,decider);
++        int i=index(r,list.size(),optional);return i==-1?null:list.get(i);
++    }
++    @Override public SpellAbility chooseSingleSpellForEffect(List<SpellAbility> spells,SpellAbility sa,
++            String title,Map<String,Object> params){
++        if(!remote)return super.chooseSingleSpellForEffect(spells,sa,title,params);
++        JsonArray choices=new JsonArray();
++        for(int i=0;i<spells.size();i++){
++            JsonObject option=new JsonObject();option.addProperty("index",i);
++            option.addProperty("name",spells.get(i).getDescription());choices.add(option);
++        }
++        JsonObject q=request("entity",choices);q.addProperty("title",title);q.addProperty("optional",false);
++        JsonObject r=channel.ask(q);
++        if(auto(r))return super.chooseSingleSpellForEffect(spells,sa,title,params);
++        return spells.get(index(r,spells.size(),false));
++    }
+     @Override public boolean confirmAction(SpellAbility sa,PlayerActionConfirmMode mode,String message,List<String> opts,Card card,Map<String,Object> params){
+         if(!remote)return super.confirmAction(sa,mode,message,opts,card,params);
+         JsonObject q=request("confirm",new JsonArray());q.addProperty("message",message);JsonObject r=channel.ask(q);
+diff --git a/forge-ai/src/main/java/forge/ai/ggs/CommanderEngineProfile.java b/forge-ai/src/main/java/forge/ai/ggs/CommanderEngineProfile.java
+new file mode 100644
+index 0000000..b44da4f
+--- /dev/null
++++ b/forge-ai/src/main/java/forge/ai/ggs/CommanderEngineProfile.java
+@@ -0,0 +1,23 @@
++package forge.ai.ggs;
++
++import forge.game.card.Card;
++import forge.game.trigger.TriggerType;
++
++/** Reads rules conditions rather than treating the commander as a generic body.
++ * Deliberately narrow: identifies the fresh-creature combat-token engine family.
++ * Other commander plans require additional interpreters, not guessed bonuses.
++ */
++public final class CommanderEngineProfile {
++    private CommanderEngineProfile() {}
++    public static boolean needsFreshCombatConnection(Card card) {
++        if(card.isPhasedOut())return false;
++        for(var trigger:card.getTriggers()) {
++            if(trigger.getMode()==TriggerType.DamageDoneOnce
++                    && "True".equals(trigger.getParamOrDefault("CombatDamage","False"))
++                    && trigger.getParamOrDefault("ValidSource","").contains("Creature.YouCtrl+ThisTurnEntered")
++                    && "Player".equals(trigger.getParamOrDefault("ValidTarget",""))
++                    && card.getSVar(trigger.getParamOrDefault("Execute","")).contains("TokenScript$ r_5_5_dragon_spirit_flying"))return true;
++        }
++        return false;
++    }
++}
+diff --git a/forge-ai/src/main/java/forge/ai/ggs/GgsNinjutsuPolicy.java b/forge-ai/src/main/java/forge/ai/ggs/GgsNinjutsuPolicy.java
+index bacb5cb..bd855cb 100644
+--- a/forge-ai/src/main/java/forge/ai/ggs/GgsNinjutsuPolicy.java
++++ b/forge-ai/src/main/java/forge/ai/ggs/GgsNinjutsuPolicy.java
+@@ -28,18 +28,20 @@ public final class GgsNinjutsuPolicy {
+         Card incoming = sa.getHostCard();
+         if (!incoming.ignoreLegendRule() && incoming.getType().isLegendary()
+                 && ai.isCardInPlay(incoming.getName())) return null;
+-        if (phase == PhaseType.COMBAT_FIRST_STRIKE_DAMAGE && incoming.hasKeyword(Keyword.FIRST_STRIKE)
+-                && !incoming.hasKeyword(Keyword.DOUBLE_STRIKE)) return null;
++        // A Ninja entering after first-strike damage was not present for that batch,
++        // so it still deals regular combat damage even when it has first strike.
+         java.util.List<Card> ggsCards = new java.util.ArrayList<>();
+         for (Card c : ai.getCreaturesInPlay()) {
+-            if (c.getName().equals("Goro-Goro and Satoru") && !c.isPhasedOut()) {
+-                for (var t : c.getTriggers()) if (t.getMode() == TriggerType.DamageDoneOnce) {ggsCards.add(c); break;}
+-            }
++            if (CommanderEngineProfile.needsFreshCombatConnection(c)) ggsCards.add(c);
+         }
+         Plan best = null;
+         for (Card outgoing : candidates) {
+             if (outgoing.getController() != ai || !combat.isAttacking(outgoing)
+                     || !combat.getUnblockedAttackers().contains(outgoing) || outgoing.isPhasedOut()) continue;
++            // This policy only proposes offensive swaps. Removing the commander removes
++            // the deck's repeatable engine, so a local damage/card advantage score cannot
++            // justify it. Rescue/redeployment exceptions require a separate threat model.
++            if (outgoing.isCommander() || CommanderEngineProfile.needsFreshCombatConnection(outgoing)) continue;
+             // Before first strike, preserve double-strike attackers: two damage batches and
+             // repeated triggers need a fuller forecast than this one-connection heuristic.
+             if (phase == PhaseType.COMBAT_DECLARE_BLOCKERS && outgoing.hasKeyword(Keyword.DOUBLE_STRIKE)) continue;
+@@ -67,7 +69,7 @@ public final class GgsNinjutsuPolicy {
+                         && damageRemaining(other, opponent, phase) > 0) freshConnection = true;
+             }
+             boolean ggs = ggsCards.stream().anyMatch(c -> c != outgoing);
+-            if (body.getName().equals("Goro-Goro and Satoru") && body.getTriggers().anyMatch(t -> t.getMode() == TriggerType.DamageDoneOnce)) ggs = true;
++            if (CommanderEngineProfile.needsFreshCombatConnection(body)) ggs = true;
+             int dragon = ggs && !freshConnection ? 90 : 0;
+             int combatValue = hitValue(incoming, opponent, combat, outgoing) - (outgoingDamage > 0 ? hitValue(outgoing, opponent, combat, outgoing) : 0);
+             int score = 10 * (incomingDamage - outgoingDamage) + combatValue + dragon
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java b/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
+index 1d14311..76b4c3a 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/bridge/BridgeEngineTest.java
+@@ -4,6 +4,7 @@ import com.google.gson.*;
+ import forge.ai.AITest;
+ import forge.game.Game;
+ import forge.game.card.Card;
++import forge.game.card.CardCollection;
+ import forge.game.combat.Combat;
+ import forge.game.phase.PhaseType;
+ import forge.game.player.Player;
+@@ -51,6 +52,38 @@ public class BridgeEngineTest extends AITest {
+         String state=BridgeSnapshot.forPlayer(me).toString();Assert.assertTrue(state.contains("Lightning Bolt"));
+         for(String secret:new String[]{"Demonic Tutor","Thassa's Oracle","Force of Will"})Assert.assertFalse(state.contains(secret),secret);
+     }
++    @Test public void snapshotShowsCommanderAndRelevantCombatAbilities(){
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1);
++        Card commander=addCard("Goro-Goro and Satoru",me);commander.setCommander(true);
++        Card aya=addCard("Aya of Alexandria",me);
++        var view=BridgeSnapshot.entity(commander,me);
++        Assert.assertTrue(view.get("commander").getAsBoolean());
++        Assert.assertTrue(view.has("entered_this_turn"));
++        Assert.assertTrue(view.get("rules_text").getAsString().contains("Dragon"));
++        Assert.assertTrue(BridgeSnapshot.entity(aya,me).get("keywords").toString().contains("Menace"));
++    }
++    @Test public void externalFetchSelectsUntappedLandInsteadOfDelegating()throws Exception{
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1);
++        Card island=addCardToZone("Island",me,ZoneType.Library),lounge=addCardToZone("Xander's Lounge",me,ZoneType.Library);
++        Card delta=addCard("Polluted Delta",me);
++        Path dir=Files.createTempDirectory("forge-bridge-fetch");PlayerControllerBridge bridge=remote(me,dir);
++        Future<?> client=reply(dir,q->{
++            Assert.assertEquals(q.getAsJsonArray("options").get(0).getAsJsonObject().get("name").getAsString(),"Island");
++            JsonObject r=new JsonObject();r.addProperty("index",0);return r;
++        },1);
++        CardCollection list=new CardCollection(List.of(island,lounge));
++        Card chosen=bridge.chooseSingleCardForZoneChange(ZoneType.Battlefield,List.of(ZoneType.Library),delta.getSpellAbilities().get(0),list,null,"Fetch land",false,me);
++        client.get(15,TimeUnit.SECONDS);Assert.assertEquals(chosen,island);
++    }
++    @Test public void externalModeChoiceDoesNotDelegateToStockAi()throws Exception{
++        Game game=initAndCreateGame();Player me=game.getPlayers().get(1);
++        Card bolt=addCardToZone("Lightning Bolt",me,ZoneType.Hand),offer=addCardToZone("An Offer You Can't Refuse",me,ZoneType.Hand);
++        SpellAbility first=bolt.getSpellAbilities().get(0),second=offer.getSpellAbilities().get(0);
++        Path dir=Files.createTempDirectory("forge-bridge-mode");PlayerControllerBridge bridge=remote(me,dir);
++        Future<?> client=reply(dir,q->{JsonObject r=new JsonObject();r.addProperty("index",1);return r;},1);
++        Assert.assertEquals(bridge.chooseSingleSpellForEffect(List.of(first,second),first,"Choose mode",Map.of()),second);
++        client.get(15,TimeUnit.SECONDS);
++    }
+     @Test public void snapshotHidesOpponentFaceDownIdentity(){
+         Game game=initAndCreateGame();Player me=game.getPlayers().get(1),opp=game.getPlayers().get(0);
+         Card c=addCard("Fallen Shinobi",opp);c.turnFaceDown(true);
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/ggs/GgsPilotTest.java b/forge-gui-desktop/src/test/java/forge/ai/ggs/GgsPilotTest.java
+index 48ba96a..643963e 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/ggs/GgsPilotTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/ggs/GgsPilotTest.java
+@@ -70,11 +70,11 @@ public class GgsPilotTest extends AITest {
+         SpellAbility sa=ninja(ai,"Moon-Circuit Hacker");g.getPhaseHandler().devModeSet(PhaseType.COMBAT_DAMAGE,ai,false);
+         Assert.assertNull(GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)));
+     }
+-    @Test public void firstStrikeOnlyIncomingCannotHitAfterFirstStrikeStep(){
++    @Test public void firstStrikeIncomingCanHitAfterFirstStrikeStep(){
+         Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));
+         SpellAbility sa=ninja(ai,"Moon-Circuit Hacker");sa.getHostCard().addIntrinsicKeyword("First strike");
+         g.getPhaseHandler().devModeSet(PhaseType.COMBAT_FIRST_STRIKE_DAMAGE,ai,false);
+-        Assert.assertNull(GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)));
++        Assert.assertNotNull(GgsNinjutsuPolicy.choose(ai,sa,List.of(bear)));
+     }
+     @Test public void refusesDuplicateLegend(){
+         Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);addCard("Higure, the Still Wind",ai);Card bear=addCard("Runeclaw Bear",ai);attack(g,ai,bear,g.getPlayers().get(0));
+@@ -118,7 +118,24 @@ public class GgsPilotTest extends AITest {
+     @Test public void returningCommanderDoesNotCreatePhantomDragonOrWasteEngineForDraw(){
+         Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);Card ggs=addCard("Goro-Goro and Satoru",ai);attack(g,ai,ggs,g.getPlayers().get(0));
+         var plan=GgsNinjutsuPolicy.choose(ai,ninja(ai,"Moon-Circuit Hacker"),List.of(ggs));
+-        Assert.assertNotNull(plan);Assert.assertEquals(plan.dragonBonus(),0);Assert.assertTrue(plan.score()<=0);
++        Assert.assertNull(plan);
++    }
++
++    @Test public void preservesCommanderAgainstHighPayoffOrochiSwap(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1);
++        Card ggs=addCard("Goro-Goro and Satoru",ai);ggs.setCommander(true);
++        attack(g,ai,ggs,g.getPlayers().get(0));
++        Assert.assertNull(GgsNinjutsuPolicy.choose(ai,ninja(ai,"Orochi Soul-Reaver"),List.of(ggs)));
++    }
++
++    @Test public void usesSmallCarrierWhilePreservingCommander(){
++        Game g=initAndCreateGame();Player ai=g.getPlayers().get(1),opp=g.getPlayers().get(0);
++        Card ggs=addCard("Goro-Goro and Satoru",ai);ggs.setCommander(true);
++        Combat combat=attack(g,ai,ggs,opp);
++        Card chick=addCard("Phoenix Chick",ai);chick.setTurnInZone(g.getPhaseHandler().getTurn()-1);
++        combat.addAttacker(chick,opp);combat.setBlocked(chick,false);
++        var plan=GgsNinjutsuPolicy.choose(ai,ninja(ai,"Orochi Soul-Reaver"),List.of(ggs,chick));
++        Assert.assertNotNull(plan);Assert.assertEquals(plan.returned(),chick);Assert.assertEquals(plan.dragonBonus(),90);
+     }
+ 
+     @Test public void infiltratorDoesNotCountZeroPowerNinjaAsDraw(){

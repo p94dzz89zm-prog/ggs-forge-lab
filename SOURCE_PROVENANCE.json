@@ -1,0 +1,2220 @@
+{
+  "compared_commits": {
+    "earlier": "12a30d0",
+    "published": "f6dd1b07cbb5154fecde1352a55a7737b61c3347",
+    "recovered": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+  },
+  "files": {
+    ".gitattributes": {
+      "original_blob": "3582c1a1551cc2d84168d2d1f04655edc93440e5",
+      "original_sha256": "f9e38ac6f658b3455e46c346cf5f48d57a42548643dae4d25e506d7e455a1cd4",
+      "sha256": "f9e38ac6f658b3455e46c346cf5f48d57a42548643dae4d25e506d7e455a1cd4",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    ".github/scripts/bounded_stage.py": {
+      "original_blob": "635d6e0de5b029d9b7c7280aa039dcea0b69ab96",
+      "original_sha256": "e463dad6ee0b0d34636676169137c9d361c4abb68e512759759e84f1984550db",
+      "sha256": "e463dad6ee0b0d34636676169137c9d361c4abb68e512759759e84f1984550db",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    ".github/workflows/tests.yml": {
+      "original_blob": "4aece0d90461bdb765d2cbbf6f1d836ee1d96bff",
+      "original_sha256": "7b236fb55315d31bcf54dfbc58860a3d34bd8b3325faaa9c3c408fb664698def",
+      "sha256": "7b236fb55315d31bcf54dfbc58860a3d34bd8b3325faaa9c3c408fb664698def",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    ".gitignore": {
+      "original_blob": "3123cc459404f825414b3f356b1835bad143c091",
+      "original_sha256": "e0e403ca5985d6d274e65e9e0b71cf553fe8405b850d1edb558a26de0661d969",
+      "sha256": "048979d4c6d5a76dd95d2af1eb91d796f0e35edb49b8822a180a8e69cab9b3a9",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "AGENTS.md": {
+      "original_blob": "a75478c76c8c6b0d398bb79983bdde9658efc88f",
+      "original_sha256": "802e678142bfa26a220baef4611d6df3ec2976677f59a2a76fa11eca0237d736",
+      "sha256": "802e678142bfa26a220baef4611d6df3ec2976677f59a2a76fa11eca0237d736",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "DAY_CYCLES.md": {
+      "original_blob": "ac29d43158f065968f1e988d41182a554d401ab3",
+      "original_sha256": "476020497585d07965c42d31490011a89ea56f9a7af4338b8aa405b4f30dc9e3",
+      "sha256": "476020497585d07965c42d31490011a89ea56f9a7af4338b8aa405b4f30dc9e3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "DECISION_REVIEW_GUIDE.md": {
+      "original_blob": "83a527dbb7c368d23a7cec3fbe772b8966655c0f",
+      "original_sha256": "03d23879410137483eae0ffc844e24ab4ce5844306a94aed5a0d3948783ba135",
+      "sha256": "03d23879410137483eae0ffc844e24ab4ce5844306a94aed5a0d3948783ba135",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "ENGINE_PROVENANCE.md": {
+      "original_blob": "985d48fe4ca1c2cb150911f7637e270fd03b7d9a",
+      "original_sha256": "f19180ff5a92eb038738f8e3e222085422b08fff9f543f0b14ab84119b3f2150",
+      "sha256": "f19180ff5a92eb038738f8e3e222085422b08fff9f543f0b14ab84119b3f2150",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "EVIDENCE_ADMISSION.md": {
+      "original_blob": "8f30d46338e2a7cdf87ede85058415aea651f33f",
+      "original_sha256": "41d48780f0e7b978a5a468b256a7aa420028c5f351e2852801ccf3051505169a",
+      "sha256": "41d48780f0e7b978a5a468b256a7aa420028c5f351e2852801ccf3051505169a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "EVIDENCE_WRITER.md": {
+      "original_blob": "7d87168fe5a6a2d0693c71d8093724c139f8b7bd",
+      "original_sha256": "1afa4de8744c7c7c47e5f99e697bc22472179265c34a56e870cd3282c498ecdc",
+      "sha256": "1afa4de8744c7c7c47e5f99e697bc22472179265c34a56e870cd3282c498ecdc",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "FULL_GAME_VALIDATION.md": {
+      "original_blob": "41147522b833bdde8ecc446937d36f30e069ffef",
+      "original_sha256": "0b86f3342fd1ba516b45bcecc482c2fa06d4ca4fa326182d60f6dc5d5b3e39c0",
+      "sha256": "0b86f3342fd1ba516b45bcecc482c2fa06d4ca4fa326182d60f6dc5d5b3e39c0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "LICENSE": {
+      "original_blob": "791b7c468ecdd09e0ffc8c83baba4c72ff00cda0",
+      "original_sha256": "15f5f93a6ae1c8750e9c6fff3bf355f9a8375288491c205e72d8b09f62259c05",
+      "sha256": "15f5f93a6ae1c8750e9c6fff3bf355f9a8375288491c205e72d8b09f62259c05",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "PILOT_ARCHITECTURES_VALIDATION.md": {
+      "original_blob": "527b387e66a74d1f4035fe8d54b1aa38d05ba427",
+      "original_sha256": "0b53e80615157ab6c821a0e00dd173e032dbe51356b07d48f026b8e959ad5076",
+      "sha256": "0b53e80615157ab6c821a0e00dd173e032dbe51356b07d48f026b8e959ad5076",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "POLICY_RESEARCH.md": {
+      "original_blob": "131a0656ef94c5e22bd935055dd18b34244a630e",
+      "original_sha256": "a8ceba58f4b19a4e7f3726375104f4240d6ab445fea363f133bec465329d53c8",
+      "sha256": "a8ceba58f4b19a4e7f3726375104f4240d6ab445fea363f133bec465329d53c8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "PROJECT_STATE.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "a0f7e0a430490b9ea822323badde6929d4b70086033ea1aa24e48976d1d14ab2"
+    },
+    "README.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "75015088ac92f4d91190c0d2866d030d94fa989f5ddde3ebd280d301bd474906"
+    },
+    "RESUME_DRAGONMIND.md": {
+      "original_blob": "0786e5ebf0dfba418e011d80da69b835296cbfdf",
+      "original_sha256": "e5321f56535db23b4ff6d4d0de76eecaee42a8b4f1e8753ff84c8b1a034a7ab0",
+      "sha256": "e5321f56535db23b4ff6d4d0de76eecaee42a8b4f1e8753ff84c8b1a034a7ab0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "SOURCE_RECOVERY.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "5bd8ffbc54330b2970a90b01105b49e7014d6bef6c647939233b17efa869f040"
+    },
+    "TRAINING_PROTOCOL.md": {
+      "original_blob": "e93fb1d1af475307cd0deb3f9a99f08238787c64",
+      "original_sha256": "03e6f1e0bde7d246ea6bc384ee7ad07aa1e2ff5376b25638f4d1b61d613488d0",
+      "sha256": "03e6f1e0bde7d246ea6bc384ee7ad07aa1e2ff5376b25638f4d1b61d613488d0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "adaptive_pilot.py": {
+      "original_blob": "586dfd9ea7406a0f8f910bbdf3f73301ce8c19af",
+      "original_sha256": "b92a5cceecd0fe7e38989976039a9b112df89b602e6f2145db5b0f6f585d056c",
+      "sha256": "b92a5cceecd0fe7e38989976039a9b112df89b602e6f2145db5b0f6f585d056c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "adaptive_report.py": {
+      "original_blob": "3fce96b70d44ff0e5a778e31b1b996e2bead5bb8",
+      "original_sha256": "5c1ee4ad173541507974a262c091b612c0dcdab0e96608de35ba1dbc66c0884c",
+      "sha256": "5c1ee4ad173541507974a262c091b612c0dcdab0e96608de35ba1dbc66c0884c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "apex_roles.py": {
+      "original_blob": "11a9aea2e49b20625d0e21e3095e6fb92b1f55b4",
+      "original_sha256": "b23350e99e1f6fb2d01d3013a3cd380fad03c2a9ae99bee179600690824806ea",
+      "sha256": "b23350e99e1f6fb2d01d3013a3cd380fad03c2a9ae99bee179600690824806ea",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "apex_static_audit.py": {
+      "original_blob": "da46be5c9bce1542529de999841384fa8b7aa7a1",
+      "original_sha256": "d6e75f57c69fa6d9782f5850309a0f55e13a50dcda2f8ba640b0bcbe6d408236",
+      "sha256": "d6e75f57c69fa6d9782f5850309a0f55e13a50dcda2f8ba640b0bcbe6d408236",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "audit_cultivate_reveal.py": {
+      "original_blob": "a786eb9d044a20016b2dc497d8c1fe05ec9bf536",
+      "original_sha256": "9260721885d5bc4aa6e4ed7a1d7ef9861ee6d1b38f951876798f1ef45e768435",
+      "sha256": "9260721885d5bc4aa6e4ed7a1d7ef9861ee6d1b38f951876798f1ef45e768435",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "audit_misty_costs.py": {
+      "original_blob": "733b28637fa7178cfeed1bc1f1cd474788435c54",
+      "original_sha256": "207251a317cddaafa8266f41641df853871564aa0f8ad47d8761a9c2d1d955c0",
+      "sha256": "207251a317cddaafa8266f41641df853871564aa0f8ad47d8761a9c2d1d955c0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "audit_misty_search.py": {
+      "original_blob": "41fb6fe5ad1593b72dc1233979dfdc7750ead76c",
+      "original_sha256": "c708e35d08aaa7455cdb8ef09c781a2c4015520cdf6edcca989870b9861fc9b3",
+      "sha256": "c708e35d08aaa7455cdb8ef09c781a2c4015520cdf6edcca989870b9861fc9b3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "audit_partner_looks.py": {
+      "original_blob": "00ff8c69f5be83e0a5059718aa8fc53ae4bbd71a",
+      "original_sha256": "2d1d5aeccffbb4817284467c55514a808e4849d95a6682771509c76fb7f1db7f",
+      "sha256": "2d1d5aeccffbb4817284467c55514a808e4849d95a6682771509c76fb7f1db7f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "audit_pilot_cycle.py": {
+      "original_blob": "c6c78f7fd25bb6187d5995fef32e7192b11eaf34",
+      "original_sha256": "e6c5d1f2d1bf5972f37a1dc52dfe325ddcc07bd6cf8e3470e206ae951bbac2c7",
+      "sha256": "e6c5d1f2d1bf5972f37a1dc52dfe325ddcc07bd6cf8e3470e206ae951bbac2c7",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "build_research_snapshot.py": {
+      "original_blob": "e0c1026d6ad4a9f1c7c6f92d1e43429d3ecd43bc",
+      "original_sha256": "e70659cb73dc7ca14a77fb01b7499f84d04c68188efb88704151ff4183e48a13",
+      "sha256": "e70659cb73dc7ca14a77fb01b7499f84d04c68188efb88704151ff4183e48a13",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "commander_game_review.py": {
+      "original_blob": "f486b51d0bf848f0fd0d39bdd4b080db48123590",
+      "original_sha256": "66698d0718b85b2a7c6c1b34e8c00fa7f9c6e72735039a96da01579e104d8ce7",
+      "sha256": "66698d0718b85b2a7c6c1b34e8c00fa7f9c6e72735039a96da01579e104d8ce7",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "compare_batch.py": {
+      "original_blob": "1ad04a6e1a93c5d116a549b6f9e05435289be385",
+      "original_sha256": "077dee02864d667344e6cfdf592dded40431cecbff2a9b3aa4d75ece818b8a03",
+      "sha256": "077dee02864d667344e6cfdf592dded40431cecbff2a9b3aa4d75ece818b8a03",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "created_identity_tape.py": {
+      "original_blob": "e4b44059891069ac373b3bfc07a632c7fc0069a5",
+      "original_sha256": "7eb3d2f9c0d3ff7a0a4bee9bec489666a1e150c6c6b287beb24f3c5a8e3fcbab",
+      "sha256": "7eb3d2f9c0d3ff7a0a4bee9bec489666a1e150c6c6b287beb24f3c5a8e3fcbab",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "day_training_cycle.py": {
+      "original_blob": "83e643eb355b088dd73f1946e29f4b384485c742",
+      "original_sha256": "71fd408c8abd1ac0b05585ce36cfca6c22bd988436ff2073efa866a0e66a0138",
+      "sha256": "71fd408c8abd1ac0b05585ce36cfca6c22bd988436ff2073efa866a0e66a0138",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "decision_coverage.py": {
+      "original_blob": "aeec10801f1728ef3f5f16a12faca5fc400ff640",
+      "original_sha256": "4bd45d13c835d539568e763cefb39dd0facd0c3bcfb3a58c441f8c8eb52f3b89",
+      "sha256": "4bd45d13c835d539568e763cefb39dd0facd0c3bcfb3a58c441f8c8eb52f3b89",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "decision_random_tape.py": {
+      "original_blob": "4ce06d21248a1e8995038b30ba62d2f07746cc4f",
+      "original_sha256": "bb3bd42cca725c2e5dc2b0707f3c28c9d00f3fc147d8a7d67e255d82a2279153",
+      "sha256": "bb3bd42cca725c2e5dc2b0707f3c28c9d00f3fc147d8a7d67e255d82a2279153",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "decision_tape.py": {
+      "original_blob": "e98161313d28c50031a66720c6686cf22400036b",
+      "original_sha256": "feb6154ed1d57eae341c218447971b13c669f4884b3b97a872332331b3c0dc47",
+      "sha256": "feb6154ed1d57eae341c218447971b13c669f4884b3b97a872332331b3c0dc47",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/CombatWorkProfiler.java": {
+      "original_blob": "b17f20a2ddf50a0c6c0c3307edc96661189a0cab",
+      "original_sha256": "6b104d9b255bebfacb1e4bb785076889894fac9ddaa0a874d73f164b3dcc1116",
+      "sha256": "6b104d9b255bebfacb1e4bb785076889894fac9ddaa0a874d73f164b3dcc1116",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/DecisionProfiler.java": {
+      "original_blob": "337a933cf1d74cbede1b5f6c4ee3693b940b0a52",
+      "original_sha256": "ab343eb4a24cb22697e335bd277ef12cb3e240836c3f7a04f7243e3633905ec8",
+      "sha256": "ab343eb4a24cb22697e335bd277ef12cb3e240836c3f7a04f7243e3633905ec8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/JfrDecisionPaths.java": {
+      "original_blob": "658de5002f4e9227a99bea6ddebcff7374383ab6",
+      "original_sha256": "5a66056ab1e7ac5e3b91f5688297d7daaf0e3f533626660d135f2c355a9f07fa",
+      "sha256": "5a66056ab1e7ac5e3b91f5688297d7daaf0e3f533626660d135f2c355a9f07fa",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/MemoryRetentionCheck.java": {
+      "original_blob": "f45e99752993f4400622fe3c42363b00e2d60aba",
+      "original_sha256": "2ce04599c73065bf5a9e2e54b16f3c03e89f096a667abbd91948338bb462d98e",
+      "sha256": "2ce04599c73065bf5a9e2e54b16f3c03e89f096a667abbd91948338bb462d98e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/ReconstructionProfiler.java": {
+      "original_blob": "43fef2df87e56e72f52f852e5f6a68c61d145479",
+      "original_sha256": "dd0ca197aca9411c5c6d022747b81c0f2450a826a1ec8c106273089c4ba91706",
+      "sha256": "dd0ca197aca9411c5c6d022747b81c0f2450a826a1ec8c106273089c4ba91706",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/StackEligibilityProfiler.java": {
+      "original_blob": "4280433c526b7dd8c4e6278ed9608a9453ab1829",
+      "original_sha256": "c072307fc1d3ff61f92d10d20950696a156a4ac1f1ec7b718c8c9c3935e17c98",
+      "sha256": "c072307fc1d3ff61f92d10d20950696a156a4ac1f1ec7b718c8c9c3935e17c98",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/StackEligibilityShadowTest.java": {
+      "original_blob": "20ac88c38c551f865890edeed7c77394ab18a7a8",
+      "original_sha256": "e4f2eb5ff97d233a0550536c61311d23bfc02c7e3c790601df4e37d868f05542",
+      "sha256": "e4f2eb5ff97d233a0550536c61311d23bfc02c7e3c790601df4e37d868f05542",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/analyze_apex_layered_pod.py": {
+      "original_blob": "576c99a7a7a39136d396bda6c06a4b6fd946f27c",
+      "original_sha256": "d26d23072e77ff599cb4e13fc012ac6cef98a7351dcbe2139e3d562d46d577f5",
+      "sha256": "d26d23072e77ff599cb4e13fc012ac6cef98a7351dcbe2139e3d562d46d577f5",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/analyze_five_pod_games.py": {
+      "original_blob": "814c372470c5eefe4fcecfded38830c9cd216919",
+      "original_sha256": "182ca5bdd6bc9d49f4216e828a4b03e5b7c2a92123f5c943b3ff0014f9ad9cc3",
+      "sha256": "182ca5bdd6bc9d49f4216e828a4b03e5b7c2a92123f5c943b3ff0014f9ad9cc3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/analyze_matched_pod_collection.py": {
+      "original_blob": "8833b425124eb577b7452749e748f6f1cbc3641a",
+      "original_sha256": "567146d29b24960926ce1a21e8cf3f272f7d631c36b21ae356b56197c8100ca5",
+      "sha256": "567146d29b24960926ce1a21e8cf3f272f7d631c36b21ae356b56197c8100ca5",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/analyze_rotated_pod_games.py": {
+      "original_blob": "bfe13f2f1d3814695156939b60b3567871df5bea",
+      "original_sha256": "b56469f6fadd012273f63ad2f6e70c89aec0dc2c5a1428ebe57fc40ca3e45119",
+      "sha256": "b56469f6fadd012273f63ad2f6e70c89aec0dc2c5a1428ebe57fc40ca3e45119",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/batch_audit_benchmark.py": {
+      "original_blob": "1278a78a94c4b21bcc69f834d618a7b59d9f829e",
+      "original_sha256": "b5d487f7f9c4848b3d97209efcbc1e096f5c07c962ed0cd1d2e7b8a5fffdd954",
+      "sha256": "b5d487f7f9c4848b3d97209efcbc1e096f5c07c962ed0cd1d2e7b8a5fffdd954",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/benchmark_cost_sources.py": {
+      "original_blob": "7502717c818a4297edece7e617e21b1d5cd10975",
+      "original_sha256": "af04bb0e58112d251d1a3b70ef866676dcde3a2dfa308eeebe77762a2c5d6903",
+      "sha256": "af04bb0e58112d251d1a3b70ef866676dcde3a2dfa308eeebe77762a2c5d6903",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/benchmark_seed_expansion.py": {
+      "original_blob": "b9842bce3e5b4b284b572489e6a88fc9b6575dc9",
+      "original_sha256": "4005601689ee5635963e5b4909b811d29c6a57f64f54308e1351f2469b2abf43",
+      "sha256": "4005601689ee5635963e5b4909b811d29c6a57f64f54308e1351f2469b2abf43",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/benchmark_stack_eligibility.py": {
+      "original_blob": "952eef8f155426e8fb59ac07523b3cb284a7097c",
+      "original_sha256": "cb5af6a325710fc22dc7edcc48ca97692b73e82d13ca11914766320fa846c341",
+      "sha256": "cb5af6a325710fc22dc7edcc48ca97692b73e82d13ca11914766320fa846c341",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/benchmark_worker_throughput.py": {
+      "original_blob": "305fad0dd5c63a164a58b50bca6c133cef086e92",
+      "original_sha256": "451de9c44dbe71bf9e6f4f76bb819e32dae6f6acfe912e62db037f4dc8faf1e0",
+      "sha256": "451de9c44dbe71bf9e6f4f76bb819e32dae6f6acfe912e62db037f4dc8faf1e0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/build_combat_profile.py": {
+      "original_blob": "071068245b520272cdb10001267f5c08369d05c4",
+      "original_sha256": "6f5d7bb2274a4e1b6b62da60d6614ad399eca1c1a4cd4f6ac5a1274a20272bcc",
+      "sha256": "6f5d7bb2274a4e1b6b62da60d6614ad399eca1c1a4cd4f6ac5a1274a20272bcc",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/build_decision_profile.py": {
+      "original_blob": "5a3a5ce56c282ba305c8a563744e1325277e8cbf",
+      "original_sha256": "3dd793c470325d849ab249cf76a395fd40b7b968e900900aff06d721996ee733",
+      "sha256": "3dd793c470325d849ab249cf76a395fd40b7b968e900900aff06d721996ee733",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/build_memory_audit.py": {
+      "original_blob": "203d4ad5e7a17759fee1e370b53859627c494257",
+      "original_sha256": "7950974f374c019fcc65a4716a3a3c777b692502224eb77c3ede3d5fac0a1f42",
+      "sha256": "7950974f374c019fcc65a4716a3a3c777b692502224eb77c3ede3d5fac0a1f42",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/build_reconstruction_profile.py": {
+      "original_blob": "1c9553bdb9323cff64b3f0b8cefa3a2ec62bcdb8",
+      "original_sha256": "29ba3ed93dc2d0b188f73da9d3f6a126f9bafbce730d3b96b9e27f56a6cced6a",
+      "sha256": "29ba3ed93dc2d0b188f73da9d3f6a126f9bafbce730d3b96b9e27f56a6cced6a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/build_stack_eligibility_profile.py": {
+      "original_blob": "a8749460904b9241f8582f7ce06c27df4035ad52",
+      "original_sha256": "e51b3541d01720092bb7364acdb89e3daa3c5124e8400b32db2c4f8372a50247",
+      "sha256": "e51b3541d01720092bb7364acdb89e3daa3c5124e8400b32db2c4f8372a50247",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/export_public_events.py": {
+      "original_blob": "5dd14cc2195181188406d4caf89e8aae381b4c38",
+      "original_sha256": "3770694f44c38543e6bec32711961d755c9abbca52c3adcfc9ee58577b3b9910",
+      "sha256": "3770694f44c38543e6bec32711961d755c9abbca52c3adcfc9ee58577b3b9910",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/multipart_pod_save.py": {
+      "original_blob": "6159f9a5af55ab37a8041aa28dee7fd30edcbc0f",
+      "original_sha256": "1422e7020293c66edd2d09725db4be27a8d8bbafc547c36d08f15b858b4e9733",
+      "sha256": "1422e7020293c66edd2d09725db4be27a8d8bbafc547c36d08f15b858b4e9733",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/run_matched_pod_collection.py": {
+      "original_blob": "16b507beb9e6b6ed5621f5a6ae18dd632c942ddb",
+      "original_sha256": "b2a441383ea855f50522a6e1d7312edc6a218b12b2232bf8d08c60721b02d9dd",
+      "sha256": "b2a441383ea855f50522a6e1d7312edc6a218b12b2232bf8d08c60721b02d9dd",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/stage_rotated_pod_games.py": {
+      "original_blob": "3ea9277f7ba8db13b4c86cb9b73ff5abad0ed20f",
+      "original_sha256": "fbe3799010073619def840b26f4dd87cbe7f176876d2863513fd7d6d3e3f15e5",
+      "sha256": "fbe3799010073619def840b26f4dd87cbe7f176876d2863513fd7d6d3e3f15e5",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/summarize_decision_profile.py": {
+      "original_blob": "62ab270eed66d09fc4c538baf91ae6254a599046",
+      "original_sha256": "cbb678fdc0165f731e78362d57e88749331c35f012079c761fa48f4123788fa5",
+      "sha256": "cbb678fdc0165f731e78362d57e88749331c35f012079c761fa48f4123788fa5",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/test_matched_pods.py": {
+      "original_blob": "211bc45e0982674cbf3272f8f7f86512db2507c6",
+      "original_sha256": "c8c8023995352031f8cc427174343187b9870905beeb10819aa7b559090a5ddf",
+      "sha256": "c8c8023995352031f8cc427174343187b9870905beeb10819aa7b559090a5ddf",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/test_multipart_pod_save.py": {
+      "original_blob": "ce8798acabc3ea9f709957eb6d14bd3548043d8e",
+      "original_sha256": "2f1b935697d516f6cfbca6be4517b6f033e7188a7a049937d2c9d06f7dc9628b",
+      "sha256": "2f1b935697d516f6cfbca6be4517b6f033e7188a7a049937d2c9d06f7dc9628b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/test_trace_compare.py": {
+      "original_blob": "5a092d252ccc8f9a51199671796847aeeb9214bf",
+      "original_sha256": "8f297e72e640ebc248e9eee16b52a9aa4b7ea03784c3733e22198a7fd8ff22ed",
+      "sha256": "8f297e72e640ebc248e9eee16b52a9aa4b7ea03784c3733e22198a7fd8ff22ed",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/trace_compare.py": {
+      "original_blob": "cee4e69977f1fc0ca0fe55dfc7d846a9fcb3ceb7",
+      "original_sha256": "dd88c14a7b541101faf246bd079558bfdc191a8bdea0e5c51bfd07191a9bad44",
+      "sha256": "dd88c14a7b541101faf246bd079558bfdc191a8bdea0e5c51bfd07191a9bad44",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "diagnostics/watch_matched_pod_collection.py": {
+      "original_blob": "5bc53cf3202a4372172dfb80e8e21777000652bf",
+      "original_sha256": "1eea4a60c4754621b55ca8f52adc41ac8d3b0ac1df9f05027635de293c9d76e2",
+      "sha256": "1eea4a60c4754621b55ca8f52adc41ac8d3b0ac1df9f05027635de293c9d76e2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "dragonmind.py": {
+      "original_blob": "0a70a2901fad8ccfec756b646401c7bd6b24650d",
+      "original_sha256": "53d35ee6c8c5728366b5ed861070e997b1e698cf2fd8de456c786a612337f7e6",
+      "sha256": "53d35ee6c8c5728366b5ed861070e997b1e698cf2fd8de456c786a612337f7e6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "evaluation_batch.py": {
+      "original_blob": "f072a1bde1b36df9c3772b004ba7d534c9f6176b",
+      "original_sha256": "5cfcc3414dec05c223a0f1144e2aff54b969b6d1b1b3843d505af5cb9278b166",
+      "sha256": "5cfcc3414dec05c223a0f1144e2aff54b969b6d1b1b3843d505af5cb9278b166",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "executable_delta.py": {
+      "original_blob": "4a54184c7151df0f5390c6933368c8568c66664f",
+      "original_sha256": "0442896dfb02f0244b04e3a4fa1586070d03562bf433827951ab24e7109a50fa",
+      "sha256": "0442896dfb02f0244b04e3a4fa1586070d03562bf433827951ab24e7109a50fa",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/.gitignore": {
+      "original_blob": "7e0eea3549302b6f4acd451354f912628c806135",
+      "original_sha256": "5ddee0894bcf357de89336cd7050a709425f454ece02bdeff87e0e01c2a7b3c0",
+      "sha256": "5ddee0894bcf357de89336cd7050a709425f454ece02bdeff87e0e01c2a7b3c0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/AccessPackageRegression.java": {
+      "original_blob": "07990e129778d534f2fecbf5717e0aec2239d3bc",
+      "original_sha256": "a1adc392d1cff15e09f52db3ef681456df5d4cdf8928939bcb27c446b8b6edc0",
+      "sha256": "a1adc392d1cff15e09f52db3ef681456df5d4cdf8928939bcb27c446b8b6edc0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/AiPrototypeInstrumenter.java": {
+      "original_blob": "c7af967f3f7f9315a02c87d1f68d8003c2674c0d",
+      "original_sha256": "47e84fcc3f6a9e2905ae467622cc9942e45f9ebf09e179dadf2a023f7f19e64d",
+      "sha256": "47e84fcc3f6a9e2905ae467622cc9942e45f9ebf09e179dadf2a023f7f19e64d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/AiPrototypeRegression.java": {
+      "original_blob": "89d3b2c5b8cf10ba510fccf76d53513492e4203f",
+      "original_sha256": "1aec853d7d46fb2e0632f35f9bb7d7c9614642346b5e23bd183f98bfa3dd8255",
+      "sha256": "1aec853d7d46fb2e0632f35f9bb7d7c9614642346b5e23bd183f98bfa3dd8255",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/AllocationCausalityRegression.java": {
+      "original_blob": "e008954a5eb38e40c794e466d847f3a9e6707ed1",
+      "original_sha256": "f15b1bb4d93e18219e031d1bb220c3215049a27b86396bd05fef7a689665884a",
+      "sha256": "f15b1bb4d93e18219e031d1bb220c3215049a27b86396bd05fef7a689665884a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/AttackLimitRegression.java": {
+      "original_blob": "506ebd3887ce4c7a7e445720a7a85a4e1288911c",
+      "original_sha256": "1232bd17dd33b45ced58f221631cbb4151d809a5231b202a8b69890211de21d5",
+      "sha256": "1232bd17dd33b45ced58f221631cbb4151d809a5231b202a8b69890211de21d5",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/AttackReplayRegression.java": {
+      "original_blob": "7659cdf2ee00b0a25bbb202c0b66ffac6affe13d",
+      "original_sha256": "b8e46785d90926b9f4ed08b044968c026e0e9011024b74c0a2fec874b8ed8490",
+      "sha256": "b8e46785d90926b9f4ed08b044968c026e0e9011024b74c0a2fec874b8ed8490",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/AuditScopeRegression.java": {
+      "original_blob": "239bb0f387c672c219553bef91d1b7c9a91a14c6",
+      "original_sha256": "46b82c691519d493aec1c351fa6383e81876ea0f143c3b04396f363a67d850f2",
+      "sha256": "46b82c691519d493aec1c351fa6383e81876ea0f143c3b04396f363a67d850f2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/BasicManaReplayRegression.java": {
+      "original_blob": "4f729fbe5237d0aabcca0ccb684c38eace7fc14f",
+      "original_sha256": "c5f5f6cde3fbd9a6f0308896bbcac24072474eb7fc521f3e585faab94677bead",
+      "sha256": "c5f5f6cde3fbd9a6f0308896bbcac24072474eb7fc521f3e585faab94677bead",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/BoundedForecastRegression.java": {
+      "original_blob": "578a2f8b06b5a031166e918f15f334e00d3cfe88",
+      "original_sha256": "6525db62651afe3d20914a132d7ce0f527be47a00759cea0c0caf6a23ba030cf",
+      "sha256": "6525db62651afe3d20914a132d7ce0f527be47a00759cea0c0caf6a23ba030cf",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/COPYING": {
+      "original_blob": "e72bfddabc15be5718a7cc061ac10e47741d8219",
+      "original_sha256": "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b",
+      "sha256": "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CardAllocationTraceInstrumenter.java": {
+      "original_blob": "04cfd2e8b47e453890d6a0ae080a8c5f53bf5c33",
+      "original_sha256": "8adc8b5d754e240d5fbe9544402cc93ddac5e5f42a76d6c4bd0845ce9fffc632",
+      "sha256": "8adc8b5d754e240d5fbe9544402cc93ddac5e5f42a76d6c4bd0845ce9fffc632",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CombatRecoveryRegression.java": {
+      "original_blob": "00269deab8219379be7dfc4ba934b17049e6de47",
+      "original_sha256": "ebcdd4ff87010f627a22bb1df6aa918e3eb31e0ca3086f4947efd21e5b91830a",
+      "sha256": "ebcdd4ff87010f627a22bb1df6aa918e3eb31e0ca3086f4947efd21e5b91830a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CombinedCounterRescueHeldoutRegression.java": {
+      "original_blob": "0e3e64bffea754cf1ed5a8069fe0053e48cf000d",
+      "original_sha256": "906c099afe25a9e313f3cccfa072b7fe00317ec12e61be04369bd29417c086dd",
+      "sha256": "906c099afe25a9e313f3cccfa072b7fe00317ec12e61be04369bd29417c086dd",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CombinedCounterRescueRegression.java": {
+      "original_blob": "b0d86cde1f5a31381c979308505ba7506521f539",
+      "original_sha256": "c606abea49bf8acfad128ed09f6f1a7fa5521dfed4c2536277b8931bdc9e20d6",
+      "sha256": "c606abea49bf8acfad128ed09f6f1a7fa5521dfed4c2536277b8931bdc9e20d6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CombinedLethalRegression.java": {
+      "original_blob": "1d17ba9c030020ae77a4826ef1bc46c164258c25",
+      "original_sha256": "d1a6ef96d949260c0fa7885f173442d0dbed0b8b9fa07ef42db534596af4cfad",
+      "sha256": "d1a6ef96d949260c0fa7885f173442d0dbed0b8b9fa07ef42db534596af4cfad",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CommanderPlannerHeldoutRegression.java": {
+      "original_blob": "a8c7772ae6ec474fe3589b26d617a62400a176da",
+      "original_sha256": "deaba63488ba06ba5e14d02118ca6187927d3ba6235e3874521cedd5209b0ee4",
+      "sha256": "deaba63488ba06ba5e14d02118ca6187927d3ba6235e3874521cedd5209b0ee4",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CommanderPlannerScopeRegression.java": {
+      "original_blob": "77f05675d71103a300605db16a9930e7df5fe196",
+      "original_sha256": "bad5cad1ecc2b997db2c80f6963540c301856f3e3c4a8eed0c995c42238d1c8d",
+      "sha256": "bad5cad1ecc2b997db2c80f6963540c301856f3e3c4a8eed0c995c42238d1c8d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CommanderSelectionRegression.java": {
+      "original_blob": "3f289187b3d4cf336118f2e5c74d74e8871230c9",
+      "original_sha256": "f047ce69199607650a6dbd692d4d8dc60299d0de20a2c3cc3d4c69631b8b582f",
+      "sha256": "f047ce69199607650a6dbd692d4d8dc60299d0de20a2c3cc3d4c69631b8b582f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ConfirmationReplayRegression.java": {
+      "original_blob": "f84f98ef396a75c7d52cccf9bd600630a87abb3b",
+      "original_sha256": "755b15d18bb65d0e2f2bc0d4b9971e0894ca6e55c7efa89163ca80cc0ce6c0fa",
+      "sha256": "755b15d18bb65d0e2f2bc0d4b9971e0894ca6e55c7efa89163ca80cc0ce6c0fa",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CounterFamilyHeldoutRegression.java": {
+      "original_blob": "894d8fbe5b5dc14240f56c6b4518819804bea585",
+      "original_sha256": "da06370325a7944ad479b2a06e414eb0f19ae77d763ff0870c323a3c6f413b8d",
+      "sha256": "da06370325a7944ad479b2a06e414eb0f19ae77d763ff0870c323a3c6f413b8d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CounterFamilyRegression.java": {
+      "original_blob": "ef44a0aa872955c22e1660e001a05c95c231e643",
+      "original_sha256": "d830e8c46ac53a4a3228e05f00c4b34718c1971a94c8573fdc3adfb5153b12ac",
+      "sha256": "d830e8c46ac53a4a3228e05f00c4b34718c1971a94c8573fdc3adfb5153b12ac",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CounterRescuePaymentRegression.java": {
+      "original_blob": "a6e2054869b640d73d66bdefbb0fb37afbec4c9e",
+      "original_sha256": "fd2d1813ce5b92bef4059a69b6fbb31bf161c4d4fd9b11bfd117c6cd431218ea",
+      "sha256": "fd2d1813ce5b92bef4059a69b6fbb31bf161c4d4fd9b11bfd117c6cd431218ea",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CounterRescueRegression.java": {
+      "original_blob": "a92d685cc62474080427b8cf4f20a335b9563e9f",
+      "original_sha256": "90296c4e524b9118e4ef7205216568e5b588eed6c53e061740d259ddbd95d1fd",
+      "sha256": "90296c4e524b9118e4ef7205216568e5b588eed6c53e061740d259ddbd95d1fd",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CreatedIdentityRegression.java": {
+      "original_blob": "0ac137f96f29926dbdf37cec5e3828ab3a5e4659",
+      "original_sha256": "97df4cb4122a73958c429b7e1d89cb2307ec9ad06d57c830eec0217e74210270",
+      "sha256": "97df4cb4122a73958c429b7e1d89cb2307ec9ad06d57c830eec0217e74210270",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CultivateCastReplayRegression.java": {
+      "original_blob": "ba2c2e7bac9d6b6f47960013434d5cc801680267",
+      "original_sha256": "eae3aa4b3481d9d561c5c5685e00f7d2e8c490f00eaada463d25d2bfd81ad4c3",
+      "sha256": "eae3aa4b3481d9d561c5c5685e00f7d2e8c490f00eaada463d25d2bfd81ad4c3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/CultivateResolutionReplayRegression.java": {
+      "original_blob": "9f737c67400c633a46f9a91f7912b490eca9bde3",
+      "original_sha256": "4bcbdcc7363b6c4224444f3cc9eb19e7650686b8b9ae3e18caa3eb2dd9704f79",
+      "sha256": "4bcbdcc7363b6c4224444f3cc9eb19e7650686b8b9ae3e18caa3eb2dd9704f79",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/DecisionIntegerRegression.java": {
+      "original_blob": "2408a6ef0a248cbc15d484750ee0de2118a668e9",
+      "original_sha256": "46e5f67aefc7d3decfae9fc6ed775c32338f5a121b95c0f061608a0339fc170c",
+      "sha256": "46e5f67aefc7d3decfae9fc6ed775c32338f5a121b95c0f061608a0339fc170c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/DecisionRandomRegression.java": {
+      "original_blob": "a333bfb8f53502bdfd2a4b6f35011dcedcdb15f3",
+      "original_sha256": "5ee32d58d702e8c34ae3a5798f418fb63aa4c09f08e4d2b58dedc9106d869e61",
+      "sha256": "5ee32d58d702e8c34ae3a5798f418fb63aa4c09f08e4d2b58dedc9106d869e61",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/DecisionReplayInstrumenter.java": {
+      "original_blob": "c533fc8e2ddb44fb82babe768dc5b38ce699925a",
+      "original_sha256": "f6868bca71df533cc2bd33c27bbfc36e87a83bc10b5b390c72b6123afd7a02ed",
+      "sha256": "f6868bca71df533cc2bd33c27bbfc36e87a83bc10b5b390c72b6123afd7a02ed",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/DecisionReplayRegression.java": {
+      "original_blob": "fbe9ea269c52092d7698d8800644a05d0f3a5be3",
+      "original_sha256": "b6528f06cfd3b8d3ddd02c4942ac26fa2df3d342facfabc7c7bc5aa2d0b19b1b",
+      "sha256": "b6528f06cfd3b8d3ddd02c4942ac26fa2df3d342facfabc7c7bc5aa2d0b19b1b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/DecisionWeightsRegression.java": {
+      "original_blob": "96b1f0e54565546540c35994ac25ccde036bfd67",
+      "original_sha256": "9b7b9bfd0bf55ac5d98f89d3501747ee1ac2eadeced7be5f9c803dbf7c224f0e",
+      "sha256": "9b7b9bfd0bf55ac5d98f89d3501747ee1ac2eadeced7be5f9c803dbf7c224f0e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/DurableEvidenceRegression.java": {
+      "original_blob": "8b5e7e7a867a822165d4309caa4afd65d5f87236",
+      "original_sha256": "504270ecaa2280ac96db1ab577ae2b180c1e48f8a169f88319c79bd25c102057",
+      "sha256": "504270ecaa2280ac96db1ab577ae2b180c1e48f8a169f88319c79bd25c102057",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/EffectReplayRegression.java": {
+      "original_blob": "4b51d338f75b3f41f576d445118086bb608859a7",
+      "original_sha256": "385d313cf13caeddb5eb07937a849b7bebd0dc034d2685fcd237aa55201ee735",
+      "sha256": "385d313cf13caeddb5eb07937a849b7bebd0dc034d2685fcd237aa55201ee735",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/EngineProvenanceRegression.java": {
+      "original_blob": "f5d14d0817ed26dfe126240749367231756815b5",
+      "original_sha256": "436d847126c30d99cdbcbc850c3bf2947a30670c1e115f6736b5fba69b4f82d8",
+      "sha256": "436d847126c30d99cdbcbc850c3bf2947a30670c1e115f6736b5fba69b4f82d8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/EvidenceInstrumenter.java": {
+      "original_blob": "1e2038f6783ca3d0338cb2980f76603d7e76b7e3",
+      "original_sha256": "e80f7417f301a28f3d12321921d332da450869be19c865609bd7e9d72ddfa37d",
+      "sha256": "e80f7417f301a28f3d12321921d332da450869be19c865609bd7e9d72ddfa37d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ExileCounterHeldoutRegression.java": {
+      "original_blob": "7279bdd8f3c77212c531dced53b84af1e8789294",
+      "original_sha256": "3ce07ab4c901696f1241f23f2c9503ddd0f9bf093f41ea4f51da03727658108f",
+      "sha256": "3ce07ab4c901696f1241f23f2c9503ddd0f9bf093f41ea4f51da03727658108f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ExileCounterRescueRegression.java": {
+      "original_blob": "1065ee330adae2284cf78c405c5fd9ba3cbe9c22",
+      "original_sha256": "01669fd4a06a1a8b8d245945e3a02c833cd40e69a06a03c6f7dac3f932dafdb1",
+      "sha256": "01669fd4a06a1a8b8d245945e3a02c833cd40e69a06a03c6f7dac3f932dafdb1",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/FireworkPilotRegression.java": {
+      "original_blob": "559b263dad2bc8d507230875289c4ac6d5c68731",
+      "original_sha256": "b3c7fe752f86e73432967b52d01151973dff34657ee1194fe2d0e0b77d15c4e9",
+      "sha256": "b3c7fe752f86e73432967b52d01151973dff34657ee1194fe2d0e0b77d15c4e9",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/FloatingManaReplayRegression.java": {
+      "original_blob": "a6817089fc9bb9de3a22cb0930ba5f8cef0f7203",
+      "original_sha256": "b8ed55d8e1f8feef1ff7d2015cf55f057dbc76cf121c307e165ef9bb38db8f57",
+      "sha256": "b8ed55d8e1f8feef1ff7d2015cf55f057dbc76cf121c307e165ef9bb38db8f57",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/FoodTriggerReplayRegression.java": {
+      "original_blob": "ff958bba9c2659a49bf97a03259d2f6df7f48d46",
+      "original_sha256": "bd1c9eb084204de9a2112c938ebd62605efe70060c91fa91f4e7ce3dfe2918b9",
+      "sha256": "bd1c9eb084204de9a2112c938ebd62605efe70060c91fa91f4e7ce3dfe2918b9",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/FrostcliffRegression.java": {
+      "original_blob": "0857a6e2e6c9d5ba76ab55620e110c3f21b0d616",
+      "original_sha256": "032601ab37ae4e8f17ba484a47522d4dd4eddd55915605dab6423734de6aece8",
+      "sha256": "032601ab37ae4e8f17ba484a47522d4dd4eddd55915605dab6423734de6aece8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/HasteEconomyRegression.java": {
+      "original_blob": "413e72cb1bdaab980cdb7040b2350e27ed7c5992",
+      "original_sha256": "43eec8fa1a59442d3aada7241b4ce9cf7f560661eab4e6d3501b0c7f4e51fdb4",
+      "sha256": "43eec8fa1a59442d3aada7241b4ce9cf7f560661eab4e6d3501b0c7f4e51fdb4",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/HiddenSearchReplayRegression.java": {
+      "original_blob": "e9a60917864523139dbcebfc3577b74e799a0027",
+      "original_sha256": "2e2c0f5c3b3c432d3c261d8a7a1694562838ca827c611b496f149c153ca5671d",
+      "sha256": "2e2c0f5c3b3c432d3c261d8a7a1694562838ca827c611b496f149c153ca5671d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/InitialLandReplayRegression.java": {
+      "original_blob": "e8b60be00b0453bfe0260e09d877a261876abfd0",
+      "original_sha256": "67bf17b429564d3641911c1f26fd5cb6389d241c095dd09a61ed0192bae3c459",
+      "sha256": "67bf17b429564d3641911c1f26fd5cb6389d241c095dd09a61ed0192bae3c459",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/KaitoMixedManaEvaluation.java": {
+      "original_blob": "5e1f2f724dc539deb2c08761dfbefb6deda6cfce",
+      "original_sha256": "b2621f8afb7af1af94373f29044d3a98571e8b52a6eb3afc1872dfe05732c20e",
+      "sha256": "b2621f8afb7af1af94373f29044d3a98571e8b52a6eb3afc1872dfe05732c20e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/KaitoMixedManaFreshEvaluation.java": {
+      "original_blob": "bf4324de785479c529031f0a6a9872a70a3843f6",
+      "original_sha256": "c358384fbd6d1cb2dc2c0dd15e003344c97fdd94bfb81b489da387d77acfc6f1",
+      "sha256": "c358384fbd6d1cb2dc2c0dd15e003344c97fdd94bfb81b489da387d77acfc6f1",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/KaitoMixedManaRegression.java": {
+      "original_blob": "878a08115a3b33185822be9865da3c57d35f45bf",
+      "original_sha256": "56ea8cfd6951e7072451bc975cc3e9bd6743d5a8c032b9e66078db6ef40e5bb7",
+      "sha256": "56ea8cfd6951e7072451bc975cc3e9bd6743d5a8c032b9e66078db6ef40e5bb7",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/KaitoThreatEvaluation.java": {
+      "original_blob": "317fbdde44b14f5b6a8cf114d308a61d5dff12ce",
+      "original_sha256": "7950746a61cdc4b0363ec15c933e6452b89b1050d2ee996345d2c89a6e088a74",
+      "sha256": "7950746a61cdc4b0363ec15c933e6452b89b1050d2ee996345d2c89a6e088a74",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/KaitoThreatReviewRegression.java": {
+      "original_blob": "02a7de4f541a47fc975dff35cd3cc1f11a068b85",
+      "original_sha256": "ffb048b68f00cfa75df21c5a504f9ce02947c92491a4395b436ea03a0b605dfe",
+      "sha256": "ffb048b68f00cfa75df21c5a504f9ce02947c92491a4395b436ea03a0b605dfe",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/LargeEvidenceRegression.java": {
+      "original_blob": "c7ee20b20d8e9734a2de28d02b511b578a37641c",
+      "original_sha256": "9df3f6fd51383717f3d6e97bebe7953e55f61f0f91aace0e6e77053fac2f3d4c",
+      "sha256": "9df3f6fd51383717f3d6e97bebe7953e55f61f0f91aace0e6e77053fac2f3d4c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/LearnedCounterHeldoutRegression.java": {
+      "original_blob": "2105e590651f8a40c553673b9486bc754727f56e",
+      "original_sha256": "b8351341a24a0591f5702802cdbb1fe799b04619bfd429f080f6c82e2b579bd5",
+      "sha256": "b8351341a24a0591f5702802cdbb1fe799b04619bfd429f080f6c82e2b579bd5",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/LearnedCounterPreferenceRegression.java": {
+      "original_blob": "4553d64158851e94a694d70d7834b6f68210df5a",
+      "original_sha256": "6680a0602bdf35c79f375b752879159a037fc05b0c8c4f10de766bb0bd9f847f",
+      "sha256": "6680a0602bdf35c79f375b752879159a037fc05b0c8c4f10de766bb0bd9f847f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/LibraryChoiceReplayRegression.java": {
+      "original_blob": "42282209ab8ca0f81d914c51ccc395d0fd4c47db",
+      "original_sha256": "9790f8185fc67214364b8caf140213a9c7768c7ebb83d33dd01a1c6a5ae27c33",
+      "sha256": "9790f8185fc67214364b8caf140213a9c7768c7ebb83d33dd01a1c6a5ae27c33",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/LinePlannerHeldoutRegression.java": {
+      "original_blob": "b1d78a39031d6c3ede90b787e2fbcf0b47436806",
+      "original_sha256": "5270d6a7331e8df2e6774908659465bcffe10132bc957ddb3717efd697d5c6ba",
+      "sha256": "5270d6a7331e8df2e6774908659465bcffe10132bc957ddb3717efd697d5c6ba",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/LinePlannerRegression.java": {
+      "original_blob": "eaea0a8c9f1c20bd2a3966f1babcf1b5faacc4ab",
+      "original_sha256": "afc2c55c3d8ea978dde1433edcec27ab1eae1aca07db87b6a7f45b9e8857868a",
+      "sha256": "afc2c55c3d8ea978dde1433edcec27ab1eae1aca07db87b6a7f45b9e8857868a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/MarchDefenseRegression.java": {
+      "original_blob": "a5963269e0d1adcd0fe4c4f0df6f826f65bd5e71",
+      "original_sha256": "cfa53b6661a4fe899321c4bb4d1b454e7390613837182d5d293e2f05bbeae23a",
+      "sha256": "cfa53b6661a4fe899321c4bb4d1b454e7390613837182d5d293e2f05bbeae23a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/MarchShieldHeldoutRegression.java": {
+      "original_blob": "11d09920d0d127cfb27eb76233105bb034972bae",
+      "original_sha256": "fcdc151ecead3c848e5831e70597b9b923dd229926fcff285d33a52f19e15fb9",
+      "sha256": "fcdc151ecead3c848e5831e70597b9b923dd229926fcff285d33a52f19e15fb9",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/MarchShieldRegression.java": {
+      "original_blob": "c3e98fc1eb96e5cd294ea491e85bc996c2e40227",
+      "original_sha256": "29bc711abc520690fd4006ddc77a7e4a318200004c891efffd89b754935d3327",
+      "sha256": "29bc711abc520690fd4006ddc77a7e4a318200004c891efffd89b754935d3327",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/MarchTrampleRegression.java": {
+      "original_blob": "85e3ae8f63dcf3316b9f3e9c1ef98f05d78260d0",
+      "original_sha256": "08c953e8e195df51891aa4fb179969aecc369f776d2bd1887755cfde7f3c4236",
+      "sha256": "08c953e8e195df51891aa4fb179969aecc369f776d2bd1887755cfde7f3c4236",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/MistyActivationReplayRegression.java": {
+      "original_blob": "62768c6cb63fc9a1b882a20270bbbac14a2c48a5",
+      "original_sha256": "c4cae2fed2f8c6dc5b91b211429d32c297151a6eb0c3776d484026be7c6bf4e5",
+      "sha256": "c4cae2fed2f8c6dc5b91b211429d32c297151a6eb0c3776d484026be7c6bf4e5",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/MistySearchReplayRegression.java": {
+      "original_blob": "1ee8a7b501ca1b7f60825f93eb59f2a62149c5fc",
+      "original_sha256": "e14a5f9afc4d91e4b875fb897111a2647709e3edfc1d76c6cf1a6b9ad5ae8905",
+      "sha256": "e14a5f9afc4d91e4b875fb897111a2647709e3edfc1d76c6cf1a6b9ad5ae8905",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/MultiplayerCounterEvidence.java": {
+      "original_blob": "9b328fde0f7407a2b54e15e3193b6205b8aac142",
+      "original_sha256": "e81b7960eea6aaebe420bac6fcc2dd3e03788eb3bb011753a99b0b2af84233df",
+      "sha256": "e81b7960eea6aaebe420bac6fcc2dd3e03788eb3bb011753a99b0b2af84233df",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/NestedBlockerEvidenceRegression.java": {
+      "original_blob": "92cd047a15cfe61fe89510fc1a78274fdce8518e",
+      "original_sha256": "042457a648fb1d20f4a63f0f04141e43cc6f3bf5dde1f310d101270cd59c9ecf",
+      "sha256": "042457a648fb1d20f4a63f0f04141e43cc6f3bf5dde1f310d101270cd59c9ecf",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/OwnershipEvidenceRegression.java": {
+      "original_blob": "77b0ea95a8d4a7d177e292eef726f2f2b8628026",
+      "original_sha256": "ab538bf7e17170ca8d12b3e9d3be71f64de16c207aa8b695e7a206a2b542eed2",
+      "sha256": "ab538bf7e17170ca8d12b3e9d3be71f64de16c207aa8b695e7a206a2b542eed2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/PackageRecoveryRegression.java": {
+      "original_blob": "be540449fd462656b8f86c840c786f09c177ce8b",
+      "original_sha256": "1494885cb6c0a9e946b1fd1b630d19de6fb1d1cdf05b26d8d149450d1ab53977",
+      "sha256": "1494885cb6c0a9e946b1fd1b630d19de6fb1d1cdf05b26d8d149450d1ab53977",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/PartnerTriggerReplayRegression.java": {
+      "original_blob": "6fd69d7554667277d22226af767d06219cec689b",
+      "original_sha256": "9fbe243fa1ca9976d67012693249e28f50697d61d671a319f34702be795480d3",
+      "sha256": "9fbe243fa1ca9976d67012693249e28f50697d61d671a319f34702be795480d3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/PilotRecoveryRegression.java": {
+      "original_blob": "d76cad69497db70234b4ad0b62ad72c2aedb5415",
+      "original_sha256": "034a5dbc4e85dc89683119ad845d785f2b6f6b1882954efefca2ebacc5966a25",
+      "sha256": "034a5dbc4e85dc89683119ad845d785f2b6f6b1882954efefca2ebacc5966a25",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/PlainSpellReplayRegression.java": {
+      "original_blob": "c1f26d67a78ce21de9771c0eb0cbeaa149aeb673",
+      "original_sha256": "2bcbd97055df90f8545bd0d34a160db9e279ab9f80219d37ac10a2596413ca5e",
+      "sha256": "2bcbd97055df90f8545bd0d34a160db9e279ab9f80219d37ac10a2596413ca5e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/PlannerForkRegression.java": {
+      "original_blob": "0f4a67582b310fe061b8b2611291b902a454850b",
+      "original_sha256": "03e74847b6d6d3f3968eb5d4ea3ca541b09b28edcde58b8d23f866981dbcf7cc",
+      "sha256": "03e74847b6d6d3f3968eb5d4ea3ca541b09b28edcde58b8d23f866981dbcf7cc",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/PlannerManaAuditRegression.java": {
+      "original_blob": "e7c7305d9d996633005ac3426ba427a4ef98fb34",
+      "original_sha256": "43255b92fcbc78e928ece50151c65d280989d74f7a275a6ff15c0aab57a57706",
+      "sha256": "43255b92fcbc78e928ece50151c65d280989d74f7a275a6ff15c0aab57a57706",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/PriorityReplayRegression.java": {
+      "original_blob": "addb1adc042534706c7b62c710bc3cd82b0c9ef7",
+      "original_sha256": "bcbd3c7acd1bb7b5f0c1585ab65bcc2a0f5239e08fdd311630f8bd10ca050afe",
+      "sha256": "bcbd3c7acd1bb7b5f0c1585ab65bcc2a0f5239e08fdd311630f8bd10ca050afe",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ProtectionManaHeldoutRegression.java": {
+      "original_blob": "43d184fe6c890bf8608ad95e425f16c0c6029b50",
+      "original_sha256": "5e325c4f4d0946a00b490cdc9881f9322eac0d11ba858c3ae77c443637d8c1d3",
+      "sha256": "5e325c4f4d0946a00b490cdc9881f9322eac0d11ba858c3ae77c443637d8c1d3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ProtectionManaRegression.java": {
+      "original_blob": "1128720d4ff4912c44c6328e220393921752abfd",
+      "original_sha256": "2a08220cbdff37cde16c0776efb1ee52ea266d208f7640a1e5c1c1b002ee07fc",
+      "sha256": "2a08220cbdff37cde16c0776efb1ee52ea266d208f7640a1e5c1c1b002ee07fc",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/README.md": {
+      "original_blob": "0f6c1363556b6c1fd2a1c6290bc219b208b806ef",
+      "original_sha256": "1f559518488e174a74bc3744119beb7c40145d0436358abb097f9876bc1f99d7",
+      "sha256": "1883a0d78c0c741c896cfc4adc0facb0b0aedde68439b34bcfcc3ab9b09a7a57",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/RUNTIME_RELIABILITY.md": {
+      "original_blob": "4e08190b6f7bc4407d6da4d25fe5434d3e4570e8",
+      "original_sha256": "e0ff2a856661ed132177db3a66d691b1c2886ebb2ddd2d7cc57c19b851c1989a",
+      "sha256": "e0ff2a856661ed132177db3a66d691b1c2886ebb2ddd2d7cc57c19b851c1989a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/RampantPaymentReplayRegression.java": {
+      "original_blob": "52172512e0d55f46a005270c85f35fe6180e6acc",
+      "original_sha256": "58c201775163fbb0e5750d9956e3ab02fc8f767c1f3a2e1ac71a22e2a21037da",
+      "sha256": "58c201775163fbb0e5750d9956e3ab02fc8f767c1f3a2e1ac71a22e2a21037da",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/RampantSelectionReplayRegression.java": {
+      "original_blob": "5324723136912050c2ad9d724aedc7ddc0dc1e20",
+      "original_sha256": "d81c7565ea4926d9a0093e09403b1fea9441fe617c276e31940c426c181f9aa3",
+      "sha256": "d81c7565ea4926d9a0093e09403b1fea9441fe617c276e31940c426c181f9aa3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/RandomCombatReferee.java": {
+      "original_blob": "7b156186547e2b61e0cc64523616893d2b0f7ce8",
+      "original_sha256": "bdef3e219373e509693652de506f7edb2ee6856ebecf29fe10dd6ee33efa04c1",
+      "sha256": "bdef3e219373e509693652de506f7edb2ee6856ebecf29fe10dd6ee33efa04c1",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ReadinessInstrumenter.java": {
+      "original_blob": "a155afbd7abbebeb2e9e9d7f72ab5a6aa6f91dac",
+      "original_sha256": "d4c8446312d34541d4c4dd8cab3f8fe1a3afe687bc8d9249ef82e04b9e5fe75a",
+      "sha256": "d4c8446312d34541d4c4dd8cab3f8fe1a3afe687bc8d9249ef82e04b9e5fe75a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/RegressionLauncher.java": {
+      "original_blob": "24e35c88dc81ae170bd9764b629f45abdff24639",
+      "original_sha256": "f9b0185dcb902aa0caafc01a13aa97ba8217eea5e073dba40440cf555d36857c",
+      "sha256": "f9b0185dcb902aa0caafc01a13aa97ba8217eea5e073dba40440cf555d36857c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/RegressionLauncherRegression.java": {
+      "original_blob": "31ccabaa207a15b222394f6ae804ec8d64705c95",
+      "original_sha256": "1b91c21d9815349fb3b0bf8bb434cb8a95f50ee27dfcbf64a6516a10d517225e",
+      "sha256": "1b91c21d9815349fb3b0bf8bb434cb8a95f50ee27dfcbf64a6516a10d517225e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ReplacementAbilityReplayRegression.java": {
+      "original_blob": "7482e7d4864ca1a4a0e34b202b8ba7d4a64c7d10",
+      "original_sha256": "12fc2206ec48597780a32db9225e3f87fbb68723f760d485a6372413ef98254e",
+      "sha256": "12fc2206ec48597780a32db9225e3f87fbb68723f760d485a6372413ef98254e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/SelectedManaReplayRegression.java": {
+      "original_blob": "7dc53490e1a80dc447555301c31a9757fc19e561",
+      "original_sha256": "38e3ea1edf6515f2c2035bd9fdd2a34f98412eb213ffe06f0c0b5585741451e0",
+      "sha256": "38e3ea1edf6515f2c2035bd9fdd2a34f98412eb213ffe06f0c0b5585741451e0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/SinglePlayerReplayRegression.java": {
+      "original_blob": "9aa4d5f94859faa76a1679bc9e738e37a44c7c8d",
+      "original_sha256": "bb1740a24d8c84f9fc230d2eb2e10486c76f22eaa11ccdecbc4fe71db3a545a2",
+      "sha256": "bb1740a24d8c84f9fc230d2eb2e10486c76f22eaa11ccdecbc4fe71db3a545a2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/SnapshotEvidenceRegression.java": {
+      "original_blob": "d01e7784ea1d867ff3dcb7a4dcdb5c73b75be252",
+      "original_sha256": "94f2e1dc8a8e6db3c33b78539592d923629d4165eb401259e57b0928ccffecde",
+      "sha256": "94f2e1dc8a8e6db3c33b78539592d923629d4165eb401259e57b0928ccffecde",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/SneakVarietyRegression.java": {
+      "original_blob": "688f61ea844d2fc50a8c70d3d87c978d425e23b4",
+      "original_sha256": "420734044e5c9898b4cccdf5ab192f5e80b9374b0108be6d480319c659c1d049",
+      "sha256": "420734044e5c9898b4cccdf5ab192f5e80b9374b0108be6d480319c659c1d049",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/StateReadinessRegression.java": {
+      "original_blob": "7cb1f9feb39560b0fe8e35f961ced81314d45eb1",
+      "original_sha256": "28bf3c6fedbd127e7c3cf95c6f0f69ff43606c572f827fe81844a6477bd8ef07",
+      "sha256": "28bf3c6fedbd127e7c3cf95c6f0f69ff43606c572f827fe81844a6477bd8ef07",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/StrikeCounterHeldoutRegression.java": {
+      "original_blob": "3300faa6269925501de3cdefeb715b8349c26d04",
+      "original_sha256": "f78d75cae338d1a97065fc83d8804b5b0d9fa2d8afbb71d305dd0c7eee86ef58",
+      "sha256": "f78d75cae338d1a97065fc83d8804b5b0d9fa2d8afbb71d305dd0c7eee86ef58",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/StrikeCounterRescueRegression.java": {
+      "original_blob": "abc848c86d3573865e0c4302e793d03c42a16605",
+      "original_sha256": "5ab6649621865f5be197eafd9aaffe0e77518db8fcd86ec5c32702976537051d",
+      "sha256": "5ab6649621865f5be197eafd9aaffe0e77518db8fcd86ec5c32702976537051d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/StudentCopyRegression.java": {
+      "original_blob": "0e16d277eae2a1d78e76a6c4b55e65acf89be64e",
+      "original_sha256": "a64edf2ff6b0e60dfb6d0ef69403b812f30421d1d6495ea256d9246d636ab9ed",
+      "sha256": "a64edf2ff6b0e60dfb6d0ef69403b812f30421d1d6495ea256d9246d636ab9ed",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/SwanSongReplayRegression.java": {
+      "original_blob": "750dd0996b8219b586352fff8ec1f78ebd34c7a2",
+      "original_sha256": "014ab5acffc818cf8f75ff4b6c1f9526c3bd8fe6d219c8d11957bb8363c67a57",
+      "sha256": "014ab5acffc818cf8f75ff4b6c1f9526c3bd8fe6d219c8d11957bb8363c67a57",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/TetsukoLifelinkRegression.java": {
+      "original_blob": "f2ba67830d5bda6ebb67db5c331c99e6fe4be490",
+      "original_sha256": "beb13aa8bfe0f0a977e3c24dbd038f78e7338ccfb2d2dd1a13c7b558e3dbb667",
+      "sha256": "beb13aa8bfe0f0a977e3c24dbd038f78e7338ccfb2d2dd1a13c7b558e3dbb667",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/TrampleCounterHeldoutRegression.java": {
+      "original_blob": "637844cc9fab7981a9525c5d2b00d579386ca17b",
+      "original_sha256": "2467593fa0f861d4c81150a2c257799c7d661e8e4cf18612d2c9f5fd8e202fda",
+      "sha256": "2467593fa0f861d4c81150a2c257799c7d661e8e4cf18612d2c9f5fd8e202fda",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/TrampleCounterRescueRegression.java": {
+      "original_blob": "b07360019d831737e40740a5f23372cd39bb4d7b",
+      "original_sha256": "f1bf631fc29d6893f845f0845ce3a0f8e1e45f580599d2fe9559375d2dbdb2cf",
+      "sha256": "f1bf631fc29d6893f845f0845ce3a0f8e1e45f580599d2fe9559375d2dbdb2cf",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/WhipManaFreshEvaluation.java": {
+      "original_blob": "d3175af3149bb544229d9ce98a2075d6cf512993",
+      "original_sha256": "467b3c371e4228f77d446ff22d42ac757a1be785b355acf541f87d4532774d24",
+      "sha256": "467b3c371e4228f77d446ff22d42ac757a1be785b355acf541f87d4532774d24",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/WhipManaReservationRegression.java": {
+      "original_blob": "0d51f732d67184f9b74aca12ad7da893d3197d6f",
+      "original_sha256": "3584972c534b5ef7645afda68f36413f08f9ec47f674179c83eeaa71ca1d52b3",
+      "sha256": "3584972c534b5ef7645afda68f36413f08f9ec47f674179c83eeaa71ca1d52b3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/WhipMixedLandProbe.java": {
+      "original_blob": "f70baf698a93f8c242d130b106af9c85d87e0ddc",
+      "original_sha256": "e5da06dae2b8a14bcf4d28183dd4a8a2ac25be47e2bfb2757f0358518381b8a2",
+      "sha256": "e5da06dae2b8a14bcf4d28183dd4a8a2ac25be47e2bfb2757f0358518381b8a2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/WhipProtectionPaymentRegression.java": {
+      "original_blob": "b40c4a710d2230168086ad28b56cfb045578507e",
+      "original_sha256": "1c8bbd6f68795adccc5f8fb092da55bbe7709015713d9e5208a99d9818fec9a0",
+      "sha256": "1c8bbd6f68795adccc5f8fb092da55bbe7709015713d9e5208a99d9818fec9a0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/WhipRecoveryDecisionRegression.java": {
+      "original_blob": "f2a755934ed63c2e29cc97369907621ceb535aef",
+      "original_sha256": "f9f67bf4f33fc4767bfbada5c62f3b3d693bb74ed7c237b3ecf7ebcf7f93d79d",
+      "sha256": "f9f67bf4f33fc4767bfbada5c62f3b3d693bb74ed7c237b3ecf7ebcf7f93d79d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/XCostEvidenceRegression.java": {
+      "original_blob": "12f65c8e2e91e192604f2bd9310134c3cc4c1ec6",
+      "original_sha256": "eb7de035a1a8b4fa9930f197caa437ad8e8be8bde35f2b06bee87715fc53dc8a",
+      "sha256": "eb7de035a1a8b4fa9930f197caa437ad8e8be8bde35f2b06bee87715fc53dc8a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ZeroPaymentReplayRegression.java": {
+      "original_blob": "d8c3304a09844e1220866ca404942db9c8450fdd",
+      "original_sha256": "7ddb188e63387fbf7dea7d2c1d6208654847042144cb105235b7ed8f17e1cd03",
+      "sha256": "7ddb188e63387fbf7dea7d2c1d6208654847042144cb105235b7ed8f17e1cd03",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/access-src/forge/ai/ability/ChooseGenericAi.java": {
+      "original_blob": "0af0e997c6d5095ee80b0126aa1794b176bee315",
+      "original_sha256": "99ef1469315046dd2b6ac2261791b2952b678fdf02cc5bbf8c5f677a9bde3643",
+      "sha256": "99ef1469315046dd2b6ac2261791b2952b678fdf02cc5bbf8c5f677a9bde3643",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/access-src/forge/ai/ability/EffectAi.java": {
+      "original_blob": "bb56da02d1241914f75254025b6ed06fa95b42b9",
+      "original_sha256": "fe79826e24446760bb609d2131ea0c78fb4ac11a999a3cda262a94bfc770809d",
+      "sha256": "fe79826e24446760bb609d2131ea0c78fb4ac11a999a3cda262a94bfc770809d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/access-src/forge/ai/ggs/FireworkAccessPolicy.java": {
+      "original_blob": "92f47f85e9c11667570de01572b24a1cd0af78fb",
+      "original_sha256": "37be8061b5d1eef61e631a7f89d0bd6733b64dabd6b5838a936eded92e904951",
+      "sha256": "37be8061b5d1eef61e631a7f89d0bd6733b64dabd6b5838a936eded92e904951",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/access-src/forge/view/Main.java": {
+      "original_blob": "816a08a66bcec0a0235319ec7b38a5c161635887",
+      "original_sha256": "5cdf8d60f7f0b72518a229646b8d962e95f0219a3b837840ba4bc63b85c4bf76",
+      "sha256": "5cdf8d60f7f0b72518a229646b8d962e95f0219a3b837840ba4bc63b85c4bf76",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/access-src/forge/view/SimulateMatch.java": {
+      "original_blob": "7c4766db41166f0037f686fef94a325472cac49b",
+      "original_sha256": "81eb927d366448091245a4e3b2ac4295bf20e25983a450b3babfd81e8434bb3b",
+      "sha256": "81eb927d366448091245a4e3b2ac4295bf20e25983a450b3babfd81e8434bb3b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-ai/src/main/java/forge/ai/AiBlockController.java": {
+      "original_blob": "20e5ff9957c22edfabd23435e14176fde363d21d",
+      "original_sha256": "6ac12bb5763e04d344bb228c4cd8c352fe3f2b7eec2f84effca51315d941ec68",
+      "sha256": "6ac12bb5763e04d344bb228c4cd8c352fe3f2b7eec2f84effca51315d941ec68",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-ai/src/main/java/forge/ai/AiController.java": {
+      "original_blob": "e1c12812db5fe738f4966c7f206cf96f941b071f",
+      "original_sha256": "448a8aada029509e0a21fa81288611bd0da02d07f77248e39f417447ecea3cd4",
+      "sha256": "448a8aada029509e0a21fa81288611bd0da02d07f77248e39f417447ecea3cd4",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-ai/src/main/java/forge/ai/ComputerUtil.java": {
+      "original_blob": "1cf074b9b68dde79b90d7f99eb41bbecf5c207a6",
+      "original_sha256": "4398aa2df357716be7d6af2c6e583f34de29e78df05f3b40524b44c533474667",
+      "sha256": "4398aa2df357716be7d6af2c6e583f34de29e78df05f3b40524b44c533474667",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-ai/src/main/java/forge/ai/ComputerUtilCard.java": {
+      "original_blob": "8b670a54c2e81c548ea231be3134ef132a90509e",
+      "original_sha256": "2d901b904432ea49e18ac6a6408f13df0b9c4057a53e83ef381d73c9297b8786",
+      "sha256": "2d901b904432ea49e18ac6a6408f13df0b9c4057a53e83ef381d73c9297b8786",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-ai/src/main/java/forge/ai/ComputerUtilCombat.java": {
+      "original_blob": "8a69f8ff60fa865a942da10273ab9fe79cdd3030",
+      "original_sha256": "1dba31e1703e1f6ec4a0be6b7ccad5347e5f7af986fb4585035fe4c0b019a44a",
+      "sha256": "1dba31e1703e1f6ec4a0be6b7ccad5347e5f7af986fb4585035fe4c0b019a44a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-ai/src/main/java/forge/ai/ability/ChangeZoneAi.java": {
+      "original_blob": "38c6aa1f46de24e35c63a0e511c6cf2173c150fc",
+      "original_sha256": "cd51a76ae88fec114db47a0d5b06e6d6a67737eb38d6f63e25fdf8cd7b07e49a",
+      "sha256": "cd51a76ae88fec114db47a0d5b06e6d6a67737eb38d6f63e25fdf8cd7b07e49a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-ai/src/main/java/forge/ai/ability/PhasesAi.java": {
+      "original_blob": "8456024ab439b2388778ae6c7785f509f3ca4972",
+      "original_sha256": "fd0ecbbbec0dfee4252aaaf577130f95434808e330cfa6ed1d07731289e583eb",
+      "sha256": "fd0ecbbbec0dfee4252aaaf577130f95434808e330cfa6ed1d07731289e583eb",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-ai/src/main/java/forge/ai/ggs/FireworkPilotPolicy.java": {
+      "original_blob": "8335ba652abf5767c2a9170670d2f7e7aaf59ed6",
+      "original_sha256": "bf3c0fd5cad6e239ed023c010d0d7af57ce91f505044f870e01dc51a7b9136d2",
+      "sha256": "bf3c0fd5cad6e239ed023c010d0d7af57ce91f505044f870e01dc51a7b9136d2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-game/src/main/java/forge/game/combat/CombatUtil.java": {
+      "original_blob": "ddcaa75d085f8c1d1ec32e334f4743af4739af61",
+      "original_sha256": "e1d4f9f3d41e9421d42aa113caa621709e326f05353c4cba886ca0804f4dddb3",
+      "sha256": "e1d4f9f3d41e9421d42aa113caa621709e326f05353c4cba886ca0804f4dddb3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/baseline-src/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java": {
+      "original_blob": "5ca3681c7c8c5c0dbfc6bc8a3dfd74fea7c69baf",
+      "original_sha256": "d3d06361e331f47ed2a391c539c8f0619fe990764780ec6487c1c90478d233bb",
+      "sha256": "d3d06361e331f47ed2a391c539c8f0619fe990764780ec6487c1c90478d233bb",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/bridge_client.py": {
+      "original_blob": "50a1e40efd0b920d641963afc4316e2188c5bcd4",
+      "original_sha256": "8d886dcf4957e09fb1e068cb0547793bdae222a982c8fec2984bd34179568ecb",
+      "sha256": "8d886dcf4957e09fb1e068cb0547793bdae222a982c8fec2984bd34179568ecb",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_access_repair.py": {
+      "original_blob": "df3cc64aa5bc06f7a72d966c90491b6e009301ae",
+      "original_sha256": "2eb1bf0c64a8bca2f798cc7529b8b0b0d3f72708d617d8783eda3d828d45770d",
+      "sha256": "2eb1bf0c64a8bca2f798cc7529b8b0b0d3f72708d617d8783eda3d828d45770d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_ai_prototypes.py": {
+      "original_blob": "7817b35c77c4f265f259690f79cdf9dde38060fd",
+      "original_sha256": "9fdd4d813459657190cf31eacc87489609df299abaee0f956cf76cfbdddd51fb",
+      "sha256": "9fdd4d813459657190cf31eacc87489609df299abaee0f956cf76cfbdddd51fb",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_allocation_trace.py": {
+      "original_blob": "23e36c7a2f926960c4aa32aa0b2b66d1b0c53a50",
+      "original_sha256": "a3eaaa1ef4581b552f6be67e60f6921a51c3d0f6045a2d82d57f9fa08cf48d3f",
+      "sha256": "a3eaaa1ef4581b552f6be67e60f6921a51c3d0f6045a2d82d57f9fa08cf48d3f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_bridge.py": {
+      "original_blob": "e24373d83408d5581d04e652da7be2bc31a5215c",
+      "original_sha256": "f4c13659e60bc6c160479a1713a15713b0675262714ce19a6bec75d4f594cdce",
+      "sha256": "f4c13659e60bc6c160479a1713a15713b0675262714ce19a6bec75d4f594cdce",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_combined_counter.py": {
+      "original_blob": "2e69a1e6ba03a5423f3189fff80bd6aa975f2997",
+      "original_sha256": "71f9da43637e7338667c22172a1909216cb43e3e0a36bee20b9235d2d9c9dbd8",
+      "sha256": "71f9da43637e7338667c22172a1909216cb43e3e0a36bee20b9235d2d9c9dbd8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_counter_exile.py": {
+      "original_blob": "55762ad9f5ae43ef29a43e7c0216a3b64936b903",
+      "original_sha256": "784a901eacef1bd2143b4c7f4bb871bd5af95fa0e95f146706b88843dc9d3071",
+      "sha256": "784a901eacef1bd2143b4c7f4bb871bd5af95fa0e95f146706b88843dc9d3071",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_counter_family.py": {
+      "original_blob": "b2c368683a9c2075c24d229b0af4f23ec43d692a",
+      "original_sha256": "681f8b8970733a93224ac9b21db0a3580d803d0f0ad524cac19bd27909e3de67",
+      "sha256": "681f8b8970733a93224ac9b21db0a3580d803d0f0ad524cac19bd27909e3de67",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_counter_rescue.py": {
+      "original_blob": "16a637267b9d1d828113cc058eccb23363ca73cf",
+      "original_sha256": "8267ecc2e1c8f6e04d32b10512025a40dd7564b888a4b29ef52b8b20a1bb8b7f",
+      "sha256": "8267ecc2e1c8f6e04d32b10512025a40dd7564b888a4b29ef52b8b20a1bb8b7f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_counter_strike.py": {
+      "original_blob": "08969303adc050c117547d1f64543cda8a5b9b76",
+      "original_sha256": "74041f1aa1fbd7c6a951c243567f72ec9da1100754ab07731191bd1daffb817a",
+      "sha256": "74041f1aa1fbd7c6a951c243567f72ec9da1100754ab07731191bd1daffb817a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_counter_trample.py": {
+      "original_blob": "e3b75f02ffa50906e313265b15741670e680bba7",
+      "original_sha256": "bb8c2408164e6ec6a0be30f6b38999b834726351636b2af61b0327ae80366456",
+      "sha256": "bb8c2408164e6ec6a0be30f6b38999b834726351636b2af61b0327ae80366456",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_created_identities.py": {
+      "original_blob": "07eb03d24eb543be2b374b48cebbf6f11134e2f0",
+      "original_sha256": "aed4b584fa5804422fb90b2be861f00e35d9acea68ff3cc0301b8e12682a2e85",
+      "sha256": "aed4b584fa5804422fb90b2be861f00e35d9acea68ff3cc0301b8e12682a2e85",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_decision_replay.py": {
+      "original_blob": "10fd50181ca3eacedcbcf1d285a8b15a0912a1dc",
+      "original_sha256": "4225dcc0ab5552202e8a3b857c6665604aab574d97401a425227b7fb6c9a98b8",
+      "sha256": "4225dcc0ab5552202e8a3b857c6665604aab574d97401a425227b7fb6c9a98b8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_evidence.py": {
+      "original_blob": "9f5e32b5b15f32c30d7ebe5c2b4358ba64b7ea7e",
+      "original_sha256": "8b6be50910899e5e11e2fb9c6cb83d1ffb1b171eaeffc8d6522880822608b23e",
+      "sha256": "8b6be50910899e5e11e2fb9c6cb83d1ffb1b171eaeffc8d6522880822608b23e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_kaito_threat.py": {
+      "original_blob": "158629bfc71c552ca3ac38519878541e08d0786a",
+      "original_sha256": "d5effe5629f7210094d2d3fd5cea516c62ef870127d3e0770f8ebad5168bc041",
+      "sha256": "d5effe5629f7210094d2d3fd5cea516c62ef870127d3e0770f8ebad5168bc041",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_learned_counter.py": {
+      "original_blob": "5c5c743b97156d4a991cf5997b6299ca78f1b4ba",
+      "original_sha256": "31b2e229b360f0dfd6173c30031469e32442596128c1f88505cd18267d1be2e9",
+      "sha256": "31b2e229b360f0dfd6173c30031469e32442596128c1f88505cd18267d1be2e9",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_line_planner.py": {
+      "original_blob": "367b9f62fee8b19c5bf465a24b62cf7ea511cf3a",
+      "original_sha256": "2e96bacb6063b48c3c5593d3cf8281066a2eea455d8e3a5e00f4f74cf1eb3f57",
+      "sha256": "2e96bacb6063b48c3c5593d3cf8281066a2eea455d8e3a5e00f4f74cf1eb3f57",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_march_defense.py": {
+      "original_blob": "68768650c03f96052f2d605e5a9f524349ffffcf",
+      "original_sha256": "890611274e24c4b978ab296f0bef8fb638482c53920415cf841eb8b6ab7bb42e",
+      "sha256": "890611274e24c4b978ab296f0bef8fb638482c53920415cf841eb8b6ab7bb42e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_march_shield.py": {
+      "original_blob": "f8caf8815d7081cdfcd54e720a3928a5bbc43244",
+      "original_sha256": "84d47aebdb391a4123f8584a662aa67f2b8fcc5b09098e9d8fadbfed44196a44",
+      "sha256": "84d47aebdb391a4123f8584a662aa67f2b8fcc5b09098e9d8fadbfed44196a44",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_march_trample.py": {
+      "original_blob": "59612905af94d561af01bcebe12a34439fe13085",
+      "original_sha256": "2f0554cc4cbc96d75640a1dabfc1ef7324f3d2206ed5ffd3bcd3b0ad16eddd3b",
+      "sha256": "2f0554cc4cbc96d75640a1dabfc1ef7324f3d2206ed5ffd3bcd3b0ad16eddd3b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_multiplayer_counter.py": {
+      "original_blob": "448dc7d04bb773ced087f22c9acff3a0cf5825a2",
+      "original_sha256": "5dd7c642495f16b05a594192e9ba057048ed6e0dcc818a983a4dd422cb95babe",
+      "sha256": "5dd7c642495f16b05a594192e9ba057048ed6e0dcc818a983a4dd422cb95babe",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_pilot_recovery.py": {
+      "original_blob": "b0feba2bceb370c481d59b438b1da2af7c989345",
+      "original_sha256": "bd0cf1faff2ab77b714038ac37d9e118a7e19385dcff59478119b6188a79a74f",
+      "sha256": "bd0cf1faff2ab77b714038ac37d9e118a7e19385dcff59478119b6188a79a74f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_readiness_trace.py": {
+      "original_blob": "3c35af5773c246a5247e8a12ddb81daba9a50b20",
+      "original_sha256": "3dbc8b92ccdf6963f1a509ed1c00de8bc7e0bf658919f02de2f8b7e8faae71d5",
+      "sha256": "3dbc8b92ccdf6963f1a509ed1c00de8bc7e0bf658919f02de2f8b7e8faae71d5",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_replay.py": {
+      "original_blob": "fa3199f8703a3dcd711085bab1cabfb40b1dbb5f",
+      "original_sha256": "68da2e902825f4ac148a8f468961336e30cef9237efabe1ede26be0e053ac94c",
+      "sha256": "68da2e902825f4ac148a8f468961336e30cef9237efabe1ede26be0e053ac94c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_streaming_finalizer.py": {
+      "original_blob": "4dc0aa794b389412d6859c7f8f28c39dfb19bc6c",
+      "original_sha256": "b1c1af535065a1e08bfe91e2aff806e437211ec9653e4a6bb86b86c43fc6bb55",
+      "sha256": "b1c1af535065a1e08bfe91e2aff806e437211ec9653e4a6bb86b86c43fc6bb55",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_student_copy.py": {
+      "original_blob": "8f92877e5a9d8a36eab3a5d2c959d208c8b900d0",
+      "original_sha256": "fc0cf27f094944e2e2b431f673a85b0e4b8f5d64ac43e20b9d97695d5193ca63",
+      "sha256": "fc0cf27f094944e2e2b431f673a85b0e4b8f5d64ac43e20b9d97695d5193ca63",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_whip_mana.py": {
+      "original_blob": "c1f52073b5fb56cb518f0e4423637a9b48d53e04",
+      "original_sha256": "5f93eb4d560a97d57138fb42bf0e1884f2b962bbc837b7ed9d04c7782ad51c2b",
+      "sha256": "5f93eb4d560a97d57138fb42bf0e1884f2b962bbc837b7ed9d04c7782ad51c2b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/commander-identity-followup.patch": {
+      "original_blob": "ae781f523f03f88d440dfe5228ae9e7d6c509740",
+      "original_sha256": "8aa3c3c14319d5c5f790dd1ce385e636c84ec4777fa3d8efaef1f1d2972c2e26",
+      "sha256": "8aa3c3c14319d5c5f790dd1ce385e636c84ec4777fa3d8efaef1f1d2972c2e26",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-blocking-v9.patch": {
+      "original_blob": "046fa33a1ecf46bfac49e4f6aa3e12fe3c4d233e",
+      "original_sha256": "b2d1b2f951ba62bdad91bb01775b39a33811fb02ea055e0b99cac71fa9f1751c",
+      "sha256": "b2d1b2f951ba62bdad91bb01775b39a33811fb02ea055e0b99cac71fa9f1751c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-borrowed-subtype-v15.patch": {
+      "original_blob": "7aaf4e2c06bf8269aed81f75a9c526e61c518653",
+      "original_sha256": "8d09b3e554761ad0abbcc05e393ef3243a529dfeacbde0e17bd7969a69ef3ab4",
+      "sha256": "8d09b3e554761ad0abbcc05e393ef3243a529dfeacbde0e17bd7969a69ef3ab4",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-combat-audit-v17.patch": {
+      "original_blob": "07060ea1a2f43b43fea290f1fc345f44a3d11a48",
+      "original_sha256": "a3f5f3b26d3b3d4ae5f646cd0564b9b73e10b36db0ab62213ee34002f8531074",
+      "sha256": "a3f5f3b26d3b3d4ae5f646cd0564b9b73e10b36db0ab62213ee34002f8531074",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-combat-v6.patch": {
+      "original_blob": "dc9437278f0376eb3211fe9e401af0099beb3655",
+      "original_sha256": "8e836b3aa916c844e357d6aa0860ccbcc75cb367ba1b44fbf0d265b067240cbd",
+      "sha256": "8e836b3aa916c844e357d6aa0860ccbcc75cb367ba1b44fbf0d265b067240cbd",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-commander-property-v13.patch": {
+      "original_blob": "a9036ed2e553be6a47c6dc8f5d8a4fe5f48bb951",
+      "original_sha256": "eefb3c7c6d76a8af0f4732da8110f728dfeda8554e0c76761d198fb8fa399dae",
+      "sha256": "eefb3c7c6d76a8af0f4732da8110f728dfeda8554e0c76761d198fb8fa399dae",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-damage-v11.patch": {
+      "original_blob": "a79aa5348b0bf280a9e7db9cabc4b15e0ecff9b5",
+      "original_sha256": "f7b8f1c88ddb585dc1bf29b5a6ee373f93cd213bd0e3b33e59e9bb9cf13d55ed",
+      "sha256": "f7b8f1c88ddb585dc1bf29b5a6ee373f93cd213bd0e3b33e59e9bb9cf13d55ed",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-decision-architecture-v4.patch": {
+      "original_blob": "7b6041649ee4ec46d371965c66f7457d15411b4c",
+      "original_sha256": "6b860248bb966a05211b90ff78d66b57549875a9905514494514b109f30511c6",
+      "sha256": "6b860248bb966a05211b90ff78d66b57549875a9905514494514b109f30511c6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-defense-v7.patch": {
+      "original_blob": "02b06ee962d817d091b7bbd26c2b0f36438ac58a",
+      "original_sha256": "0c0723a04292b621acc9b10c3a7f49b69799c1e5b095b36c38758c6510fe746d",
+      "sha256": "0c0723a04292b621acc9b10c3a7f49b69799c1e5b095b36c38758c6510fe746d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-discovery-v5.patch": {
+      "original_blob": "d07435d6fcfc6a14b519747737293ff5fbafab84",
+      "original_sha256": "6304021c0ee0b0679434cced0a61a9d0b1f3f6a988acb38a97943975d022b30b",
+      "sha256": "6304021c0ee0b0679434cced0a61a9d0b1f3f6a988acb38a97943975d022b30b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-performance-v3.patch": {
+      "original_blob": "64cb6cf9387646ac5179373e2ac98f454c4d984a",
+      "original_sha256": "e3361dadfee9817c2f4778c5dee2459601cef91fa52e78e160776566a212969c",
+      "sha256": "e3361dadfee9817c2f4778c5dee2459601cef91fa52e78e160776566a212969c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-performance.patch": {
+      "original_blob": "74ffd841666cb2c78e4183404aeed532184e4fdd",
+      "original_sha256": "3408a7ce07e338896b9e417a8dad2a363c870466f5decdb33c13c295c37f2063",
+      "sha256": "3408a7ce07e338896b9e417a8dad2a363c870466f5decdb33c13c295c37f2063",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-rules-performance-v2.patch": {
+      "original_blob": "e531aa01d27d0665ac55f9b25c858a5a2ee8711d",
+      "original_sha256": "ee8d8a8fb1479ac334b5625254fc0fdbff290ee45518b03c242124efef72fae8",
+      "sha256": "ee8d8a8fb1479ac334b5625254fc0fdbff290ee45518b03c242124efef72fae8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-runtime-v10.patch": {
+      "original_blob": "31854502b9192c39c55cb7175d053caa6c6be4b9",
+      "original_sha256": "8697d049ead91acdc01dd9dc05703906367b01d0b4d259ebb1a503effaba5114",
+      "sha256": "8697d049ead91acdc01dd9dc05703906367b01d0b4d259ebb1a503effaba5114",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-stack-eligibility-v14.patch": {
+      "original_blob": "c7fe1344373e4068895ca48672f265efac7b92cf",
+      "original_sha256": "0c620b6ed11b8f956dcb4a60b2a13e2d5e699fec3cae60caf8b1e78cc0707fa6",
+      "sha256": "0c620b6ed11b8f956dcb4a60b2a13e2d5e699fec3cae60caf8b1e78cc0707fa6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-stack-v8.patch": {
+      "original_blob": "573c6fc75dd84f8b1a03fcfb6790117ee4e8318c",
+      "original_sha256": "6198b58c6be39db738a474bf3d1b1bf22fb50bf4e61189bd92c0639b8ef2f588",
+      "sha256": "6198b58c6be39db738a474bf3d1b1bf22fb50bf4e61189bd92c0639b8ef2f588",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/dragonmind-static-v12.patch": {
+      "original_blob": "b3e72313cdab420cb421d981b8ba2c56480bd337",
+      "original_sha256": "c087fbc4c848895681efd4355ba40653ac090d3786f043f6d3185148673d7925",
+      "sha256": "c087fbc4c848895681efd4355ba40653ac090d3786f043f6d3185148673d7925",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/forge.patch": {
+      "original_blob": "cfae7e8c717dba24dd37881f203fefee7904a568",
+      "original_sha256": "034e3633937124a47b0460e0bf2fe9e32d5db4dbb7ec4152c8c4829b99cfd44c",
+      "sha256": "034e3633937124a47b0460e0bf2fe9e32d5db4dbb7ec4152c8c4829b99cfd44c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ggs-commander-deployment-v16.patch": {
+      "original_blob": "b36ce3a8802fca62361259725e105c3f92ccad52",
+      "original_sha256": "13d68c1511b1e20bebb54460b8d11650c585ce0446b14f69ea6a1f9a9d51505d",
+      "sha256": "13d68c1511b1e20bebb54460b8d11650c585ce0446b14f69ea6a1f9a9d51505d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/AiAttackController.java": {
+      "original_blob": "eef64d0a3fe20b86f1a99b4bc39e66465ce1206b",
+      "original_sha256": "09f64916495de04a0b7fe71d622b2817f45629b2b9ff25731c2189323b1b7650",
+      "sha256": "09f64916495de04a0b7fe71d622b2817f45629b2b9ff25731c2189323b1b7650",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/AiController.java": {
+      "original_blob": "1057c4696061305da35e70b66e1b9dc889156a0c",
+      "original_sha256": "3137c8c38eeb786f7b3413c82f9d690a9e349c3e1642fb003117c4257f338235",
+      "sha256": "3137c8c38eeb786f7b3413c82f9d690a9e349c3e1642fb003117c4257f338235",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ComputerUtil.java": {
+      "original_blob": "c598982d3461d996b948e3c2ac9806f3c99e2ea1",
+      "original_sha256": "2de737135a6229e63fb48f46f3750859e09010db42398636a6231e4655fc05bf",
+      "sha256": "2de737135a6229e63fb48f46f3750859e09010db42398636a6231e4655fc05bf",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ability/PermanentCreatureAi.java": {
+      "original_blob": "0fbcdbe3aa76f65f6264becda804a95fdca286e1",
+      "original_sha256": "9ce63dd2970f6ef2a9ec8f355e2fda8011c9182cf603ba6169fc54d9bc11cfc6",
+      "sha256": "9ce63dd2970f6ef2a9ec8f355e2fda8011c9182cf603ba6169fc54d9bc11cfc6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ability/PumpAi.java": {
+      "original_blob": "dd19e1015edd59c472dfb1196c29308d0cce884b",
+      "original_sha256": "6fee573b692c8fad571f8c8eca4b491f34de31b933a670107c056f2487cbb5ca",
+      "sha256": "6fee573b692c8fad571f8c8eca4b491f34de31b933a670107c056f2487cbb5ca",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ability/UntapAllAi.java": {
+      "original_blob": "6235f6ed2b194250af4658afe7748d24fe203954",
+      "original_sha256": "d566e904ed82610e297be2a8a50464de295b793a203981758d6e84b56f91307b",
+      "sha256": "d566e904ed82610e297be2a8a50464de295b793a203981758d6e84b56f91307b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/AiTokenPrototypes.java": {
+      "original_blob": "0c56dab8262a8ba776a4c33c1028a3bee405c51e",
+      "original_sha256": "0be97471fb0579f642ae274f662185415b67196b814501428af415e4b964a30f",
+      "sha256": "0be97471fb0579f642ae274f662185415b67196b814501428af415e4b964a30f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/BridgeAudit.java": {
+      "original_blob": "7e4b8779ce904ea91759d93bb318e255f59644b8",
+      "original_sha256": "d7c04e0a2669efc900375e17747ab07597d128c9ef8269ea00f13178fd961521",
+      "sha256": "d7c04e0a2669efc900375e17747ab07597d128c9ef8269ea00f13178fd961521",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/BridgeSnapshot.java": {
+      "original_blob": "d85fa29492cb4b85d9719dfaba4eb4c7d08d4b97",
+      "original_sha256": "42c17981237ffae2203bf255973134fa72780f1e9d252d82e8d60e8c775fdd23",
+      "sha256": "42c17981237ffae2203bf255973134fa72780f1e9d252d82e8d60e8c775fdd23",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/CardAllocationTrace.java": {
+      "original_blob": "3e1c753356e4bac88fdbb70b51f2c69a16ae79d3",
+      "original_sha256": "5178baf61c08cd80183b52ec7ab6c3315d63327c2593579a8b848f5e9f825d6a",
+      "sha256": "5178baf61c08cd80183b52ec7ab6c3315d63327c2593579a8b848f5e9f825d6a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/DecisionReplay.java": {
+      "original_blob": "2e49a90521fb40d3b6a7827253a989145d556a4b",
+      "original_sha256": "5e7caa83a7d214793b5ccf7f7f9bac5b2185051068f1ae4c83483d47aa8b2a57",
+      "sha256": "5e7caa83a7d214793b5ccf7f7f9bac5b2185051068f1ae4c83483d47aa8b2a57",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/DurableEvidence.java": {
+      "original_blob": "61bb82f7ef367578f2403339264d326072b6b78c",
+      "original_sha256": "2aee5133df01c680101206a18a32ff8b80151ef7cc9f290230475ab7c5830633",
+      "sha256": "2aee5133df01c680101206a18a32ff8b80151ef7cc9f290230475ab7c5830633",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/EngineEvidence.java": {
+      "original_blob": "18b6db6d2a949ae8dc1d6f1f4b46996b23438e0d",
+      "original_sha256": "2a0ae219ca1fb07f037dfef9cd31facc7258dd7202a9b850c31173afc5a08ce5",
+      "sha256": "2a0ae219ca1fb07f037dfef9cd31facc7258dd7202a9b850c31173afc5a08ce5",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/EvidenceRandom.java": {
+      "original_blob": "26289a62ee3d0c9c2aee711f8661325953564c1d",
+      "original_sha256": "e9278e592f3c3532a386d8608768302373972ba4dfd48a984afe5e4566be3d1e",
+      "sha256": "e9278e592f3c3532a386d8608768302373972ba4dfd48a984afe5e4566be3d1e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/PlayerControllerBridge.java": {
+      "original_blob": "1d7beb3d239d0aa91e0ac6844e5d5137ec1345ed",
+      "original_sha256": "ab59a3f0235ce27fe84223bf7f0e470dc503943ab958c1bd217daba986523213",
+      "sha256": "ab59a3f0235ce27fe84223bf7f0e470dc503943ab958c1bd217daba986523213",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/ReadinessTrace.java": {
+      "original_blob": "6e626aaa7df1e5270f031ef94313450f01b5d088",
+      "original_sha256": "687eec0aa72648daad1f4dfc83a8f92dd0b7962d4a79f404b03a08d58bb79644",
+      "sha256": "687eec0aa72648daad1f4dfc83a8f92dd0b7962d4a79f404b03a08d58bb79644",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/ReplayCardIdentities.java": {
+      "original_blob": "716a7e5a380ce500ae0e3e4a2c51a425273ed5d9",
+      "original_sha256": "6efcae6fc25fe47dbeab3246431c39c0e0a308fce20b2eea3e118bdcc0e98f4d",
+      "sha256": "6efcae6fc25fe47dbeab3246431c39c0e0a308fce20b2eea3e118bdcc0e98f4d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/AdaptiveStrategy.java": {
+      "original_blob": "6d13e20efae731989c502c96bde6bed2916827ff",
+      "original_sha256": "16cfea7f092c73f541adde944f2c88ae2daf74b6cdc2e48f2eee25dba869f5c9",
+      "sha256": "16cfea7f092c73f541adde944f2c88ae2daf74b6cdc2e48f2eee25dba869f5c9",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/AttackLimitRecovery.java": {
+      "original_blob": "a3b3ac76b169eaa931f899579e3c0ed2d6c90fbc",
+      "original_sha256": "60f1a5a4f8597e781d4b584b57bff1bd8cdf9cb34c324c2f3ea6d1d63788c6bb",
+      "sha256": "60f1a5a4f8597e781d4b584b57bff1bd8cdf9cb34c324c2f3ea6d1d63788c6bb",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/DecisionWeights.java": {
+      "original_blob": "5d3557ca723baac3235db2823e03347b47b5a242",
+      "original_sha256": "3d4a2d0bda2d24bfd954b1fcd9f155cf5097496dda2b08b01914a6e2314e28b6",
+      "sha256": "3d4a2d0bda2d24bfd954b1fcd9f155cf5097496dda2b08b01914a6e2314e28b6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsCounterRescuePolicy.java": {
+      "original_blob": "fd04aa9de3fb096ab9faa77a2542a38d0a875a8b",
+      "original_sha256": "90b8422fa13492331791e7a16c9402de039274ab9f0d868f61dcca0dce5ec685",
+      "sha256": "90b8422fa13492331791e7a16c9402de039274ab9f0d868f61dcca0dce5ec685",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsFreshAttackPolicy.java": {
+      "original_blob": "594a5bb35d0a700849a88b673054a9bdab4e7d7e",
+      "original_sha256": "d75b37ef281862e1a09a233fccc523e561c4810bd7cbdd4b7087f22b84dab6b2",
+      "sha256": "d75b37ef281862e1a09a233fccc523e561c4810bd7cbdd4b7087f22b84dab6b2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsKaitoThreatPolicy.java": {
+      "original_blob": "999d0621618a7c05eac18e64aa1a8c30e47c86e5",
+      "original_sha256": "87fc124c8c0b8ade47cec76a4d771ab015b1561554968e3f713f6272c7b3c082",
+      "sha256": "87fc124c8c0b8ade47cec76a4d771ab015b1561554968e3f713f6272c7b3c082",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsLearnedCounterPreference.java": {
+      "original_blob": "809c15e58450d539e9455ead857b4171530e21a1",
+      "original_sha256": "d42422a31e7d62e8b599513872211a835ef6e6527efa2012f07164a3c6e09a9c",
+      "sha256": "d42422a31e7d62e8b599513872211a835ef6e6527efa2012f07164a3c6e09a9c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsMultiplayerCounterFeatures.java": {
+      "original_blob": "a5c45cdf64cc8626cc43608045c64cc3c6db11db",
+      "original_sha256": "dde7b01b458f07754051622a8e654a092368a6350d887f6b74237146d50489e6",
+      "sha256": "dde7b01b458f07754051622a8e654a092368a6350d887f6b74237146d50489e6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsMultiplayerCounterPreference.java": {
+      "original_blob": "88c68d06b534c3dabcce532f41ea95c5823d8de7",
+      "original_sha256": "20c1678762e07dc4479d031612b582a616c1ee4e2d950e2488a9f78e86aa1443",
+      "sha256": "20c1678762e07dc4479d031612b582a616c1ee4e2d950e2488a9f78e86aa1443",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsNinjutsuPolicy.java": {
+      "original_blob": "c3ee1d97cfffffc8596d86003a65ed0b800afa3b",
+      "original_sha256": "0fd2d340f24e003936f743e17ab06227cc30a21cbc9d2b49ff8e64f488a77142",
+      "sha256": "0fd2d340f24e003936f743e17ab06227cc30a21cbc9d2b49ff8e64f488a77142",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsRecoveryPolicy.java": {
+      "original_blob": "52584b8cceae635c90c33eb7de017cfb36e2bff4",
+      "original_sha256": "3cbe36b968f213b739e03ad7301429101a5390333f0ef5e1f51cfcba09a901c6",
+      "sha256": "3cbe36b968f213b739e03ad7301429101a5390333f0ef5e1f51cfcba09a901c6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsSneakPolicy.java": {
+      "original_blob": "26e6f66c77d83d1f467d67f51fe9db40dad9a666",
+      "original_sha256": "6d9d9dfc8c63fd4790bca3e95d81da7057707ac300ec73acb293719e0db7eda8",
+      "sha256": "6d9d9dfc8c63fd4790bca3e95d81da7057707ac300ec73acb293719e0db7eda8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/ggs/GgsWhipManaPolicy.java": {
+      "original_blob": "97eb9eb79e5df98de5eb2e57256189468bcb5a0f",
+      "original_sha256": "627345a8ad609ee4d8c81d775070c89c7d341bc54d4912692230d51d9fce90c2",
+      "sha256": "627345a8ad609ee4d8c81d775070c89c7d341bc54d4912692230d51d9fce90c2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot_duel_smoke.py": {
+      "original_blob": "b86ae7e829deb4080cb328960d6c3037a5f53ede",
+      "original_sha256": "40069a1823ca493fcf1e8dbf3edf4bab344b48d700bd49cad42a038e37f3a7a1",
+      "sha256": "40069a1823ca493fcf1e8dbf3edf4bab344b48d700bd49cad42a038e37f3a7a1",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/planner-src/forge/ai/ggs/GgsLinePlanner.java": {
+      "original_blob": "edcc4b3bde729888e5c2b5f17475d19a33b53c5e",
+      "original_sha256": "67b622aa5cfb6e5ab8cde2800614976ed85b54cc50d84c292e5f44bfa18ee82c",
+      "sha256": "67b622aa5cfb6e5ab8cde2800614976ed85b54cc50d84c292e5f44bfa18ee82c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/planner-src/forge/ai/ggs/GgsProtectionReserve.java": {
+      "original_blob": "bb8d11865a12792a19b7946460726954a5424fb1",
+      "original_sha256": "c2b294a03b0c65b8908bf994adea50f8626a2eb09d5d7f73afbb1d4b6d834cc7",
+      "sha256": "c2b294a03b0c65b8908bf994adea50f8626a2eb09d5d7f73afbb1d4b6d834cc7",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/planner-src/forge/ai/ggs/PlannerContext.java": {
+      "original_blob": "99577e24fd3eb246f00414ec350a273c70c8e099",
+      "original_sha256": "56267b8894f840f61b7925cabf8b1551cf8a4d205d84c889dc9d41135e9a867f",
+      "sha256": "56267b8894f840f61b7925cabf8b1551cf8a4d205d84c889dc9d41135e9a867f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/planner-src/forge/ai/ggs/PlannerSnapshot.java": {
+      "original_blob": "e1612bfd61f20aa0f1f12dcc57fa3c96f41ed786",
+      "original_sha256": "5ca9a9e7317670cfcb2e9ba46536ab67711f4cc3e29f8cd0b7d0c12cacf406b1",
+      "sha256": "5ca9a9e7317670cfcb2e9ba46536ab67711f4cc3e29f8cd0b7d0c12cacf406b1",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/planner-src/forge/ai/ggs/PlannerTrace.java": {
+      "original_blob": "d55b31fb70d6a3332057c258a0d0aaae5ba573cc",
+      "original_sha256": "d48e7b051e5177c76aa66863092a989ed3d999c9937fe45105c7acb82b443fc8",
+      "sha256": "d48e7b051e5177c76aa66863092a989ed3d999c9937fe45105c7acb82b443fc8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/planner-src/forge/ai/simulation/GameCopier.java": {
+      "original_blob": "30fc41c39b41e05a436acdbda1cdc560068f8ddc",
+      "original_sha256": "6311a8da10b1a97ee208f08944b96bb5ad1a2f58023969ef6699fdb9a27c9dfd",
+      "sha256": "6311a8da10b1a97ee208f08944b96bb5ad1a2f58023969ef6699fdb9a27c9dfd",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/run_access_regressions.py": {
+      "original_blob": "b724cd6c5f2272b14e9a35ff49fd35569849428c",
+      "original_sha256": "59c59ab1a02b153ad1adbf88cb882882007e2d4b07e325eef882c7812444de17",
+      "sha256": "59c59ab1a02b153ad1adbf88cb882882007e2d4b07e325eef882c7812444de17",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/run_large_finalizer_regression.py": {
+      "original_blob": "f50148428c9b2f84640cae1b03c833ed3f8eb035",
+      "original_sha256": "d51c27b4c3caa566ae071b97d608b5fbfbb3063983c8de91d4e0c5d45ee404c4",
+      "sha256": "d51c27b4c3caa566ae071b97d608b5fbfbb3063983c8de91d4e0c5d45ee404c4",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/run_line_planner.py": {
+      "original_blob": "e5b48351d9c56af04e9dd367035b9ee1b01e887e",
+      "original_sha256": "8c1701df4d20076bdec7d57b6f6fe09b7b880f085ca2d2cda2fe3aaeaf392428",
+      "sha256": "8c1701df4d20076bdec7d57b6f6fe09b7b880f085ca2d2cda2fe3aaeaf392428",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/run_pilot_recovery.py": {
+      "original_blob": "87d6daf54417c2d45705d3c866df3e723df81f68",
+      "original_sha256": "c7f161fd27c6d22def34d4f2557f6f0cbfedef7a70ce1adc6e8b0ad5ea3e0c16",
+      "sha256": "c7f161fd27c6d22def34d4f2557f6f0cbfedef7a70ce1adc6e8b0ad5ea3e0c16",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/test_bridge_client.py": {
+      "original_blob": "0fa1f7d6be8c6c0bfd3059330bcc08e343761f8e",
+      "original_sha256": "3f34b11ddba21abbbb4f8a4564061106ecd4bc7816d665e7a5bde2bd22e25329",
+      "sha256": "3f34b11ddba21abbbb4f8a4564061106ecd4bc7816d665e7a5bde2bd22e25329",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/test_replay.py": {
+      "original_blob": "94e706489001232bffe47674f39b6c1963226989",
+      "original_sha256": "7069f9e4b4547b2fc7338a33994f27473d0962eeeb173eaf119391d6d8008bf7",
+      "sha256": "7069f9e4b4547b2fc7338a33994f27473d0962eeeb173eaf119391d6d8008bf7",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/verify_firework_runtime.py": {
+      "original_blob": "1177030bff7e30caa6b4d3f20b0c8ff84623e15b",
+      "original_sha256": "d1fdde25fafeb8889ea52a0ae0579eb2a6baf20165f6d041b564e8e83d55ad83",
+      "sha256": "d1fdde25fafeb8889ea52a0ae0579eb2a6baf20165f6d041b564e8e83d55ad83",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "game_evidence.py": {
+      "original_blob": "679133f31e9816401ec86489078cf3b839da105b",
+      "original_sha256": "65f1032dee732ff8b6ffd9c18fd84452764c093f6fad34c0bc0587c0dfede918",
+      "sha256": "65f1032dee732ff8b6ffd9c18fd84452764c093f6fad34c0bc0587c0dfede918",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "inspect_card.py": {
+      "original_blob": "d966bb8dc46b31e86e5eb681a12d8e8c5dc748fc",
+      "original_sha256": "3e9f6f5738d36f17259f3d7361154ebe14dd1cd2db48ce3c36fcd63204647e65",
+      "sha256": "3e9f6f5738d36f17259f3d7361154ebe14dd1cd2db48ce3c36fcd63204647e65",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "isolated_evidence.py": {
+      "original_blob": "2e4da42894cc284240314f5ca1a86b97e43596bc",
+      "original_sha256": "72b204654a25e1f3f16e2c7881dd78eaffc8b4f877e4de275aa32d3c608c8b6f",
+      "sha256": "72b204654a25e1f3f16e2c7881dd78eaffc8b4f877e4de275aa32d3c608c8b6f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "learning_checkpoint.py": {
+      "original_blob": "c386fb9a4e762a7dfd8bf2ec306c9d12a497f9b1",
+      "original_sha256": "5eb67f2d8c5901ea02d6b2f0cadac3432810e320aa6633c091cd6b156de33e8e",
+      "sha256": "5eb67f2d8c5901ea02d6b2f0cadac3432810e320aa6633c091cd6b156de33e8e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "learning_gate.py": {
+      "original_blob": "d3ffa5b5977697f858def56129539df0824aeb2e",
+      "original_sha256": "88ac7f71b472716cffc6a1697c680fee6da1575811bd2fbfd0d089f383e70b2a",
+      "sha256": "88ac7f71b472716cffc6a1697c680fee6da1575811bd2fbfd0d089f383e70b2a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "mana_unit_audit.py": {
+      "original_blob": "c00838ccbd96d8d2fe0fd13f48e609f145f147d0",
+      "original_sha256": "3ea565a9802c0910b977a693ad4880ca7d5e2dbdfccf210be7383a184b568007",
+      "sha256": "3ea565a9802c0910b977a693ad4880ca7d5e2dbdfccf210be7383a184b568007",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "milestone_checkpoint.py": {
+      "original_blob": "9ddf94c1de6c634f0a6db72c53200366bddf8037",
+      "original_sha256": "191da27c34f00cc51d47d9fdc552896b382a0966226ee5cbf0cfb2cfbf4511d8",
+      "sha256": "191da27c34f00cc51d47d9fdc552896b382a0966226ee5cbf0cfb2cfbf4511d8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "monitor_batch.py": {
+      "original_blob": "e7beef37a4a8482d27fc8b9ed3bccca7e99da33c",
+      "original_sha256": "337ab3877cba4cea859bfc770cfa2593624dca7a27c7a70b3a07cf319ee8c344",
+      "sha256": "337ab3877cba4cea859bfc770cfa2593624dca7a27c7a70b3a07cf319ee8c344",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "multiplayer_preference.py": {
+      "original_blob": "ddb5f663785c85919731a0683b38acb97238ddfe",
+      "original_sha256": "f6bba4a548d8c890abb5e257b4b9acaf854b8a38b78413884ee7ee4a84a40409",
+      "sha256": "f6bba4a548d8c890abb5e257b4b9acaf854b8a38b78413884ee7ee4a84a40409",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "natural_game_diagnostic.py": {
+      "original_blob": "924e1af243565f35e0b868c29292f2523e449135",
+      "original_sha256": "e0041e05feb59d13729231b901f76bf5012d2b0e8d23ae5d2f980395f1ca26e0",
+      "sha256": "e0041e05feb59d13729231b901f76bf5012d2b0e8d23ae5d2f980395f1ca26e0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "natural_game_inputs.py": {
+      "original_blob": "ee827f40c5cdc926c06ca4d8a9783d234b99e03b",
+      "original_sha256": "d75fdf1a2c7bd601e90b045c293484051cae54838e823a7718cdd1463da33288",
+      "sha256": "d75fdf1a2c7bd601e90b045c293484051cae54838e823a7718cdd1463da33288",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "package_snapshot.py": {
+      "original_blob": "ef381e84cb2ff0705f89c7600207176261721537",
+      "original_sha256": "3312aa41425aa2c861b905348f5883b64d52b8fec34fcd4797c9f323a0cf7cbf",
+      "sha256": "3312aa41425aa2c861b905348f5883b64d52b8fec34fcd4797c9f323a0cf7cbf",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "performance_registry.py": {
+      "original_blob": "484f6aaa2b2f1eff1c757e757d5b7ab70ce5e460",
+      "original_sha256": "92b6a6103950e7810f251eb30521916f205c4b0646beede5a27e779a00db0570",
+      "sha256": "92b6a6103950e7810f251eb30521916f205c4b0646beede5a27e779a00db0570",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "pilot_architectures.py": {
+      "original_blob": "fd0888a95f6d42de3ba45737e9c4e4c4e76fc077",
+      "original_sha256": "790003788315507579f8016b5fcd6cfec0f0d32d54210509a8ef7deef8464695",
+      "sha256": "790003788315507579f8016b5fcd6cfec0f0d32d54210509a8ef7deef8464695",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "policy_search.py": {
+      "original_blob": "eba68e4f706d9fc829169f2c371fe3116a13eacf",
+      "original_sha256": "f925fedc28840ff04a66d5e0300949c8579f4fb924922b304f304e95032b7a5a",
+      "sha256": "f925fedc28840ff04a66d5e0300949c8579f4fb924922b304f304e95032b7a5a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "population_protocol.py": {
+      "original_blob": "d35f8af7fa0c02d057649033b72d094dcd692e41",
+      "original_sha256": "abcfbae6bd94a20a727509d8729b6d2ede7bdc35d38b611861142ebff8cb5d75",
+      "sha256": "abcfbae6bd94a20a727509d8729b6d2ede7bdc35d38b611861142ebff8cb5d75",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "priority_pass_audit.py": {
+      "original_blob": "5741b597e4c9698e3943037d940c612e584561ad",
+      "original_sha256": "18608ffe13585923a34a9af450f5185c0b3be947125b9ee77cb46f8f2e3e97d4",
+      "sha256": "18608ffe13585923a34a9af450f5185c0b3be947125b9ee77cb46f8f2e3e97d4",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "readiness_trace_audit.py": {
+      "original_blob": "8926588d89170f8a3c08607688f7e683b884750f",
+      "original_sha256": "ae70dde8ca8ae62d7a12524567d3a8dc2b069a140137a31cdd83e8b158e22fba",
+      "sha256": "ae70dde8ca8ae62d7a12524567d3a8dc2b069a140137a31cdd83e8b158e22fba",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "referee_games.py": {
+      "original_blob": "8f14f4d4c1a4b2d1203ddbe009670e47e8fef1c2",
+      "original_sha256": "b461f50587343d008917886700f5c1ef9716b513ab2881fbc1f692177a31558b",
+      "sha256": "b461f50587343d008917886700f5c1ef9716b513ab2881fbc1f692177a31558b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "referee_tape.py": {
+      "original_blob": "4d3589cb8809a3b9ca798f09ca18eeefc2343c86",
+      "original_sha256": "42c7b0eaf4a29ecfb84045f6fc9eeaf122e0bc24265bfa1e596f31ae2656dfb1",
+      "sha256": "42c7b0eaf4a29ecfb84045f6fc9eeaf122e0bc24265bfa1e596f31ae2656dfb1",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "replay_identity_audit.py": {
+      "original_blob": "73e38b6dd63b6f5f0105578ce4e53fb647ceb0fb",
+      "original_sha256": "3232bc903888e78adbce6e38432daf1e9345975dd7bb4d09f4c504a01be23e75",
+      "sha256": "3232bc903888e78adbce6e38432daf1e9345975dd7bb4d09f4c504a01be23e75",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "research_tools.py": {
+      "original_blob": "d806c321c7de7d1be4eba634e677b5388c3d3cdd",
+      "original_sha256": "523a8714f901a7a0b18dbee054d4f7b341c4cfa054f6d7adf63f791e296c8cde",
+      "sha256": "523a8714f901a7a0b18dbee054d4f7b341c4cfa054f6d7adf63f791e296c8cde",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "review_experience.py": {
+      "original_blob": "b77e4d30320520b203caa80e22ceee9c767ecda4",
+      "original_sha256": "b2c9e0e5e78f35ef3302cd73902a32f99e14ab6209522e26b821d9e81aaff5f8",
+      "sha256": "b2c9e0e5e78f35ef3302cd73902a32f99e14ab6209522e26b821d9e81aaff5f8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "run_games.py": {
+      "original_blob": "62fe3d0240e759b3ac727a0b59c522cbe26b1bb1",
+      "original_sha256": "ce0ae5bb6238b69f98b5c46011a5f41488fe8c39f4cfc5f536202bc5bc57a034",
+      "sha256": "ce0ae5bb6238b69f98b5c46011a5f41488fe8c39f4cfc5f536202bc5bc57a034",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "side_capture.py": {
+      "original_blob": "ac3a3ad80bfbd66df731166eaa7f6fe743455ce2",
+      "original_sha256": "70f3ee8161da0529f68c0bba64fc9c95e19d9a3487c48bdfb66149a6979d760f",
+      "sha256": "70f3ee8161da0529f68c0bba64fc9c95e19d9a3487c48bdfb66149a6979d760f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "summarize.py": {
+      "original_blob": "9b3f7e10643f7338cada34cf7a81d847d6ca852f",
+      "original_sha256": "00a814d021e4b466694a15ca35e36c4b742b64b0ac6425066ececf179cd23407",
+      "sha256": "00a814d021e4b466694a15ca35e36c4b742b64b0ac6425066ececf179cd23407",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "summarize_all.py": {
+      "original_blob": "7cced0d3c8ed6bab1512b9ac483b288ee57e78e9",
+      "original_sha256": "05859f2f8af1f98baedf33ae8fa35a1f5a628c776eb0875d7952a8d8df199842",
+      "sha256": "05859f2f8af1f98baedf33ae8fa35a1f5a628c776eb0875d7952a8d8df199842",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "tactical_preference.py": {
+      "original_blob": "99d0de5d16a7f623176e0f38f24e9ac25e3f44e9",
+      "original_sha256": "f7c4408a5b7870b2c0948764b833f2597599845d2247a80b75e9bb1265c2687d",
+      "sha256": "f7c4408a5b7870b2c0948764b833f2597599845d2247a80b75e9bb1265c2687d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_adaptive_pilot.py": {
+      "original_blob": "097cb2f777f01afe3bb1562d95266395799d873e",
+      "original_sha256": "7a35c365b1f961404c44f86a9c4483fcf5f052d18a773a37ab371ea82bb6ac2d",
+      "sha256": "7a35c365b1f961404c44f86a9c4483fcf5f052d18a773a37ab371ea82bb6ac2d",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_apex_static_audit.py": {
+      "original_blob": "38f6ca91411748bd7b7f18df56073c9f17a4f5e9",
+      "original_sha256": "58f78de480923a2fe7879c598e2d26774bedac6f51aaebf4b3d250b830ffb0b6",
+      "sha256": "58f78de480923a2fe7879c598e2d26774bedac6f51aaebf4b3d250b830ffb0b6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_attack_replay.py": {
+      "original_blob": "0ae1fed3f2e3c86fdf2d80b4343ca794bef78ea1",
+      "original_sha256": "a5053b206339cfea174a699c575204a3fa5a04e8d2d18f2155de68d81b064c44",
+      "sha256": "a5053b206339cfea174a699c575204a3fa5a04e8d2d18f2155de68d81b064c44",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_basic_mana_replay.py": {
+      "original_blob": "70d8d70abc1a37408d00947d8e0a81cd58d81faf",
+      "original_sha256": "2f3ca78206a2c8166f879652bbd2766ffa75d6eb78f4c48d2fb62febebbd9146",
+      "sha256": "2f3ca78206a2c8166f879652bbd2766ffa75d6eb78f4c48d2fb62febebbd9146",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_bounded_stage.py": {
+      "original_blob": "3586adbb6f7c0a54bdbd54090902b4ccc6b7c5b0",
+      "original_sha256": "07b88fda8526bcc7f986bc4745408e88492c59121e3fbc45e3d3c4c08b87c1e2",
+      "sha256": "07b88fda8526bcc7f986bc4745408e88492c59121e3fbc45e3d3c4c08b87c1e2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_commander_game_review.py": {
+      "original_blob": "605a8fc3903f47793802dfcb59531c259ffc319d",
+      "original_sha256": "292efea4737078a39ad092ee059b0a50eafa5f8ec38dcccc6271cca561998a5a",
+      "sha256": "292efea4737078a39ad092ee059b0a50eafa5f8ec38dcccc6271cca561998a5a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_comparison.py": {
+      "original_blob": "226f5073195b69d4e5dc3aea400a9475e4700d68",
+      "original_sha256": "299673636907fb91f98895257b1e2159bed7cc0b82226c2ee655c159e9860dfa",
+      "sha256": "299673636907fb91f98895257b1e2159bed7cc0b82226c2ee655c159e9860dfa",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_confirmation_replay.py": {
+      "original_blob": "a8b0f1a7c774f3c4c9922ae995a80e4364da6374",
+      "original_sha256": "5045056cbcfec3bb1275b107deef0ab9b522a54b21119fc85197dc88b2b910ba",
+      "sha256": "5045056cbcfec3bb1275b107deef0ab9b522a54b21119fc85197dc88b2b910ba",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_cultivate_cast_replay.py": {
+      "original_blob": "5ac616b645fc8b3feae8e67da5ee9c868e0ce090",
+      "original_sha256": "982826bf6b58271fb4163402976a389d62a48f039deddab64dace24912ac161c",
+      "sha256": "982826bf6b58271fb4163402976a389d62a48f039deddab64dace24912ac161c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_cultivate_library_choice.py": {
+      "original_blob": "5a752b2147c6e9cfc3e18ced9fcfdd6f6152326f",
+      "original_sha256": "148394a4ccfc49ab475e4ab6f1afc9355494ea6ed3b4187e8ee0ea5fd5aca801",
+      "sha256": "148394a4ccfc49ab475e4ab6f1afc9355494ea6ed3b4187e8ee0ea5fd5aca801",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_cultivate_remembered.py": {
+      "original_blob": "cb9a0b9f5b34f0379cc69f152b84f52300e958b1",
+      "original_sha256": "b53ed47f6d511f13331b5cf604d0b95728750f1d530950727065d01c6f439211",
+      "sha256": "b53ed47f6d511f13331b5cf604d0b95728750f1d530950727065d01c6f439211",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_cultivate_reveal_audit.py": {
+      "original_blob": "03b9424903cfcaa6c3dbaad9803a87e09f6ceb7c",
+      "original_sha256": "c7bbcff5bdb7b7ff4b0c1f4e959840020758a48e37b7b81c827140f130ab9070",
+      "sha256": "c7bbcff5bdb7b7ff4b0c1f4e959840020758a48e37b7b81c827140f130ab9070",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_decision_random_tape.py": {
+      "original_blob": "a709d9ac5273d58d0c693efcee54eb88e0c897f3",
+      "original_sha256": "483b2fe540351c4f37f98dc43bf8a48013aa4fd77d38d86fe69d564951ad5e2c",
+      "sha256": "483b2fe540351c4f37f98dc43bf8a48013aa4fd77d38d86fe69d564951ad5e2c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_decision_tape.py": {
+      "original_blob": "939b87b0f5a41b5a10e79b4f53d09750cee9e84f",
+      "original_sha256": "aaab6460f0158466cbe90bb03b1f0cf33605e662d48eaf298e3343fce3cacea7",
+      "sha256": "aaab6460f0158466cbe90bb03b1f0cf33605e662d48eaf298e3343fce3cacea7",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_dragonmind.py": {
+      "original_blob": "7a560eda5b65492bd8ff92e558996e065a079627",
+      "original_sha256": "0dcdcb10e630a017301338b48cbd6db6543e4797e5c48359a97ea3b1fa87afb6",
+      "sha256": "0dcdcb10e630a017301338b48cbd6db6543e4797e5c48359a97ea3b1fa87afb6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_effect_replay.py": {
+      "original_blob": "5dd50ca8e32c7e8bf279e8bffee4568450c2472c",
+      "original_sha256": "091d97c3778327649da6616958bc9e63abbaba6acfc84c5d9c2798da4cd7f1b2",
+      "sha256": "091d97c3778327649da6616958bc9e63abbaba6acfc84c5d9c2798da4cd7f1b2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_evaluation_batch.py": {
+      "original_blob": "be1caa1af4b351c6368d9919c2665d75ba7c2434",
+      "original_sha256": "b3e5d56b707325834fb82bfa16117f9a65b53c2bfea6413c33baa5fcd2a63646",
+      "sha256": "b3e5d56b707325834fb82bfa16117f9a65b53c2bfea6413c33baa5fcd2a63646",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_executable_delta.py": {
+      "original_blob": "82316423284c7d3dbfa406508d603fce24f8ae76",
+      "original_sha256": "35a67ac1730511fa257641713e5e9c13f033fcd889b6ddaa26b19b59586d9e89",
+      "sha256": "35a67ac1730511fa257641713e5e9c13f033fcd889b6ddaa26b19b59586d9e89",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_final_log_integrity.py": {
+      "original_blob": "ed172786bbe643782301564c51c7d4a5dfef1b40",
+      "original_sha256": "7f9dd18cfe7fdca1d260cdfe5cb15b0d7cbed91a4d380287efd1d6c950038d5c",
+      "sha256": "7f9dd18cfe7fdca1d260cdfe5cb15b0d7cbed91a4d380287efd1d6c950038d5c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_food_trigger_replay.py": {
+      "original_blob": "81a64f524d86c36f6b3100b50a8bdd898d8e1bbf",
+      "original_sha256": "5c4f22810ac392b8f7c78b6314478d3b3d2d87e8111412642b7a1c488e0b26b8",
+      "sha256": "5c4f22810ac392b8f7c78b6314478d3b3d2d87e8111412642b7a1c488e0b26b8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_game_evidence.py": {
+      "original_blob": "dec99f8d6fba2711a964b1fd2c843d44663b4634",
+      "original_sha256": "577a735359466c513ec6c857e6b5bcf3ed4c2e75a904de71c3d15f8cd966748b",
+      "sha256": "577a735359466c513ec6c857e6b5bcf3ed4c2e75a904de71c3d15f8cd966748b",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_hidden_search_replay.py": {
+      "original_blob": "1c0a88fbde6345ff2c0e4319a88e27e7d6013567",
+      "original_sha256": "d0da89b24173c4bdf517aab813a0246c99ce95287302673ae4be0ff8e4e3a4a8",
+      "sha256": "d0da89b24173c4bdf517aab813a0246c99ce95287302673ae4be0ff8e4e3a4a8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_initial_land_replay.py": {
+      "original_blob": "31773f173d66c891795a3307b101afc0d7a319fb",
+      "original_sha256": "1e725d6b05491fd6af209cf32f7b18f2a2a0a92f834dd330290782028b052f21",
+      "sha256": "1e725d6b05491fd6af209cf32f7b18f2a2a0a92f834dd330290782028b052f21",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_isolated_evidence.py": {
+      "original_blob": "092ff0cf37bf2755e7146cf188113e1a819ec30a",
+      "original_sha256": "2b52e2bd64121c6e5c5ce39ad96566e181ad9a9de7973dd84238891259711212",
+      "sha256": "2b52e2bd64121c6e5c5ce39ad96566e181ad9a9de7973dd84238891259711212",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_learning_checkpoint.py": {
+      "original_blob": "beba1b1071e5d8dd7fe33d3aa2a9a3e340f76315",
+      "original_sha256": "bfcc464b5a895eade1870a36020d99edcd2c69ad3dea38c438622d6133bca385",
+      "sha256": "bfcc464b5a895eade1870a36020d99edcd2c69ad3dea38c438622d6133bca385",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_learning_gate.py": {
+      "original_blob": "c79a731b2fdf3b1406d4e7a126e144942c5e374f",
+      "original_sha256": "18fec5d103404f06cdca991dd557dda71aee9d101474cfafb05d686317968b6e",
+      "sha256": "18fec5d103404f06cdca991dd557dda71aee9d101474cfafb05d686317968b6e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_mana_pool_audit.py": {
+      "original_blob": "2d36fb77b56ddb0b9ef4b710ef80f28f75fec9db",
+      "original_sha256": "d073c00f5db54d0ffb61a0f07b31a0ab21bed4a3136c42326e928fe63247ab5a",
+      "sha256": "d073c00f5db54d0ffb61a0f07b31a0ab21bed4a3136c42326e928fe63247ab5a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_mana_unit_audit.py": {
+      "original_blob": "a39a4dffc2e9105596f4c4144c145954113e4ed0",
+      "original_sha256": "3b7bb912dafb3c29812509fdb9735c61074ca46680082e79519680f0f04068d3",
+      "sha256": "3b7bb912dafb3c29812509fdb9735c61074ca46680082e79519680f0f04068d3",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_milestone_checkpoint.py": {
+      "original_blob": "b8888f26ea133d5ccc9004a9de7c4adcfd5d794d",
+      "original_sha256": "246659e99905fc4091e717e566e7193e836b358b19b6aa8ca3da9bdcf7778950",
+      "sha256": "246659e99905fc4091e717e566e7193e836b358b19b6aa8ca3da9bdcf7778950",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_misty_activation.py": {
+      "original_blob": "3db8e02eb49ad9ff5587cbaa26b03cf5c5e8928c",
+      "original_sha256": "da157ca029d2fd498e5057e849590d0bb7b2ba0900a708c6d402dd786161b50c",
+      "sha256": "da157ca029d2fd498e5057e849590d0bb7b2ba0900a708c6d402dd786161b50c",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_misty_search_audit.py": {
+      "original_blob": "cab6fcf442976b79687bbb07e7a6d3ec9f9240e3",
+      "original_sha256": "d3db196b811166e5e8ab5743ff7c152bca752a76b7771dfd4dd037d9d752d62e",
+      "sha256": "d3db196b811166e5e8ab5743ff7c152bca752a76b7771dfd4dd037d9d752d62e",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_model_evaluation_inputs.py": {
+      "original_blob": "4ce9a49acc0e1d401f26da76fe06cd7c381abffb",
+      "original_sha256": "85df461c306df68d0c49e8c516e54938700b359d2f5e480c9508419f0b9eb421",
+      "sha256": "85df461c306df68d0c49e8c516e54938700b359d2f5e480c9508419f0b9eb421",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_multiplayer_preference.py": {
+      "original_blob": "e05669986b56b8d1324741415d92d8a18cc8473f",
+      "original_sha256": "c265bbb5baada6c9daaaf311d1ff2ddf12d43af414177fd17b24380ad86823db",
+      "sha256": "c265bbb5baada6c9daaaf311d1ff2ddf12d43af414177fd17b24380ad86823db",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_natural_game_diagnostic.py": {
+      "original_blob": "38c69e62979e1a97a83ce0b6b59cfe9681bc60e1",
+      "original_sha256": "5999ff47bbfc4723fa14d34d8c38002df80bb6372fc1fa3c001cfefb21f11df8",
+      "sha256": "5999ff47bbfc4723fa14d34d8c38002df80bb6372fc1fa3c001cfefb21f11df8",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_natural_game_inputs.py": {
+      "original_blob": "a8c3d82231a9f9dc21399bd1b793b8d1f04f4841",
+      "original_sha256": "2d922541e254a20301ab8de82c8a2fe3940fa8782c0861859bcc3c1119618bdd",
+      "sha256": "2d922541e254a20301ab8de82c8a2fe3940fa8782c0861859bcc3c1119618bdd",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_pair_checkpoint_resume.py": {
+      "original_blob": "fdef8bf4788b556fdcc644b686d883fd4dd58e78",
+      "original_sha256": "523d49e28e7bf11b708243b0af8d9eeab83e30e070416e93622d8312a15df531",
+      "sha256": "523d49e28e7bf11b708243b0af8d9eeab83e30e070416e93622d8312a15df531",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_partner_looks_audit.py": {
+      "original_blob": "7b3d0391ae173f74ffe7b02b2ba3e8a375aeee62",
+      "original_sha256": "fc359d7d3115aa02fa94344ee0fd1c15e6be5619b07df80cab8d4a50cf746790",
+      "sha256": "fc359d7d3115aa02fa94344ee0fd1c15e6be5619b07df80cab8d4a50cf746790",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_partner_trigger_replay.py": {
+      "original_blob": "7183183e61cb61f6ea313479993a981f5f6e2919",
+      "original_sha256": "98665060b97b7e79b6d06c11b1f42de7651d4e3ad56b68a38c4152b34e456b64",
+      "sha256": "98665060b97b7e79b6d06c11b1f42de7651d4e3ad56b68a38c4152b34e456b64",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_performance_registry.py": {
+      "original_blob": "107e1407946c9d93d8fbaad40a6b14ddfaf9c02b",
+      "original_sha256": "f5be49c6a4d09ddd2b5e579a17fee86cb409ebf1efb2bc11b59ae567b1f7ba2a",
+      "sha256": "f5be49c6a4d09ddd2b5e579a17fee86cb409ebf1efb2bc11b59ae567b1f7ba2a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_pilot_architectures.py": {
+      "original_blob": "35f9d02beaa64025a61bd5ec9691cfc0cd244fc9",
+      "original_sha256": "ce56f86638e41dae1cc40395a7f4da5e8b66f75c86600deced7005b4dfdde5a4",
+      "sha256": "ce56f86638e41dae1cc40395a7f4da5e8b66f75c86600deced7005b4dfdde5a4",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_plain_spell_replay.py": {
+      "original_blob": "e4788813f479e7d01864d152c7bdfb4378c910dd",
+      "original_sha256": "d365bdb8e0248af34295e0333a72c75c777ef44015f758edd6f80aa364a08980",
+      "sha256": "d365bdb8e0248af34295e0333a72c75c777ef44015f758edd6f80aa364a08980",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_population_protocol.py": {
+      "original_blob": "b7c14215c8b2b590e8b285711a8827cfb59344aa",
+      "original_sha256": "fdfa4d1b6235347b2818633ba7e2e37f5bfb0f40aa0044d4f10b7aa72763ecf2",
+      "sha256": "fdfa4d1b6235347b2818633ba7e2e37f5bfb0f40aa0044d4f10b7aa72763ecf2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_priority_pass_audit.py": {
+      "original_blob": "43c406dbb044a6db41b353444d75b58a88a60db5",
+      "original_sha256": "6cc97f07049ffa615ff90f2dda3fea86caec34477fcc474be686d1aef1876212",
+      "sha256": "6cc97f07049ffa615ff90f2dda3fea86caec34477fcc474be686d1aef1876212",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_priority_replay.py": {
+      "original_blob": "bd88ab95fc1ad79045eeb8285583ecb2319c4511",
+      "original_sha256": "5f00e823d952f55c83aa47198fd00d149308c8c5ce1d55ccc70023ceb009a73f",
+      "sha256": "5f00e823d952f55c83aa47198fd00d149308c8c5ce1d55ccc70023ceb009a73f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_rampant_replay.py": {
+      "original_blob": "0445c5804a9af2638cb1f2a0db539ea233de503a",
+      "original_sha256": "3b8177cfb33bca09bfac0b5839cc507e1695422fae5962474d6de13e6e1b63bf",
+      "sha256": "3b8177cfb33bca09bfac0b5839cc507e1695422fae5962474d6de13e6e1b63bf",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_readiness_trace_audit.py": {
+      "original_blob": "57ab036b2b7a4182c7fdc000cfcc7d9622ae4ab2",
+      "original_sha256": "4af7a13ca24a820818f8a9d23a36c033b6d18f914c18989e29a3400fb95cdd07",
+      "sha256": "4af7a13ca24a820818f8a9d23a36c033b6d18f914c18989e29a3400fb95cdd07",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_referee_tape.py": {
+      "original_blob": "4827f0f0b0bdaeb43faad1fe3e03fdfb82b5c54f",
+      "original_sha256": "0fdeed401f8bc1c68b3ab5d3cf2427d5b42e14f7c96718234c9371c2ea6d471f",
+      "sha256": "0fdeed401f8bc1c68b3ab5d3cf2427d5b42e14f7c96718234c9371c2ea6d471f",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_referee_tape_types.py": {
+      "original_blob": "0f84acb34a9172c177d60823e243d170bff7f25d",
+      "original_sha256": "99bbc4a70bfe872398c91f0e6c8bf2bc7bc7f0018b6fd52a1a10b8debebf3fd1",
+      "sha256": "99bbc4a70bfe872398c91f0e6c8bf2bc7bc7f0018b6fd52a1a10b8debebf3fd1",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_replay_identity_audit.py": {
+      "original_blob": "900f3923ef8c57daa923f2634eda8e4dec20a8ef",
+      "original_sha256": "69ccb029caefe7b672465c30713ba9b47321b3bdb8683ce30f850fc56cbe69f4",
+      "sha256": "69ccb029caefe7b672465c30713ba9b47321b3bdb8683ce30f850fc56cbe69f4",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_research_snapshot.py": {
+      "original_blob": "27788d9f594504e1439de962927d5f8b96d12e31",
+      "original_sha256": "ce8c4bce870caa116598b02c00a1044d2c8e534e7ffa92451f55ad0476f43f3a",
+      "sha256": "ce8c4bce870caa116598b02c00a1044d2c8e534e7ffa92451f55ad0476f43f3a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_research_tools.py": {
+      "original_blob": "67de229b4c8556d0437f6b915bb8b3a26fad1d07",
+      "original_sha256": "8fb1690a9a1312229bd91880dd6cd31815f02ffce604486063b609917187dce0",
+      "sha256": "8fb1690a9a1312229bd91880dd6cd31815f02ffce604486063b609917187dce0",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_runner.py": {
+      "original_blob": "e5ec0444484e35b7dbdfffb21b3b7b09f1cdec21",
+      "original_sha256": "b117cde4b4c13b9f538fb581e83eac1af72d229aff09720c8512a767cf337726",
+      "sha256": "b117cde4b4c13b9f538fb581e83eac1af72d229aff09720c8512a767cf337726",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_runtime_integrity.py": {
+      "original_blob": "3f16f6a8928c3f0cd54fc2904a95f3af157f773f",
+      "original_sha256": "737757c7438d1ca38aab120170661ebaf11f5fdbea234c7afbf0ab27c4dabb30",
+      "sha256": "737757c7438d1ca38aab120170661ebaf11f5fdbea234c7afbf0ab27c4dabb30",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_saved_game_evidence.py": {
+      "original_blob": "687a9d9dbba5db47dc18c8ea89c6df6c75843ed3",
+      "original_sha256": "a347a1f6f1b0aae50a5d0f64025889ba8f433d40772c5a7f4e1c128372ab07ff",
+      "sha256": "a347a1f6f1b0aae50a5d0f64025889ba8f433d40772c5a7f4e1c128372ab07ff",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_side_capture.py": {
+      "original_blob": "af6b5c843cf0db97d517d63594bfefc123d373a6",
+      "original_sha256": "ed5fc8b315caa1f3c483a87a91ede7040c1ed0809e6b76ccc817177e487435ee",
+      "sha256": "ed5fc8b315caa1f3c483a87a91ede7040c1ed0809e6b76ccc817177e487435ee",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_single_player_replay.py": {
+      "original_blob": "fac2d78f589593216fdb65c1eaba4b47590239dd",
+      "original_sha256": "958ed891bfb3ba6d5394e9d70491369f7c9fadc90b8042b4f3eb159a25646971",
+      "sha256": "958ed891bfb3ba6d5394e9d70491369f7c9fadc90b8042b4f3eb159a25646971",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_source_inventory.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "9a4c63dc7db1f212404a8c69c34f5171ed0f8ac6ce184883591c05511d540cb9"
+    },
+    "test_swan_replay.py": {
+      "original_blob": "07e182de096e97734d2a1fd4a40ebb31902c532f",
+      "original_sha256": "d2a0a815e0698db0da6e08ebb82120869f55e8624a6729bb29ffec6892155326",
+      "sha256": "d2a0a815e0698db0da6e08ebb82120869f55e8624a6729bb29ffec6892155326",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_tactical_preference.py": {
+      "original_blob": "346e3fa81766fc19c997c3ca30f43d07e6412714",
+      "original_sha256": "abc91816f6567c368bb1668771b17210b19fb69316c9beb87553e3607c6c0cec",
+      "sha256": "abc91816f6567c368bb1668771b17210b19fb69316c9beb87553e3607c6c0cec",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_validation_evidence.py": {
+      "original_blob": "087494287dd040d7b7ed7b1178c30b8a94443795",
+      "original_sha256": "9937195a442b1b2cb6df606586433d52fa5f6986212e7eaec8bbbf29f37273c6",
+      "sha256": "9937195a442b1b2cb6df606586433d52fa5f6986212e7eaec8bbbf29f37273c6",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_zero_payment_replay.py": {
+      "original_blob": "f65d5538c71d491612ded5d40d35808af6dfac81",
+      "original_sha256": "35004e15e143a319e5c787ce6206ab9f992c545561462b3c941d23024342477a",
+      "sha256": "35004e15e143a319e5c787ce6206ab9f992c545561462b3c941d23024342477a",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "train_pilot_cycle.py": {
+      "original_blob": "fe38899a7ef7b8f303bff182181a6248048f507a",
+      "original_sha256": "5cf23b64b6a114057b53da46a8591397d065a809825b8e57f760602d39784575",
+      "sha256": "5cf23b64b6a114057b53da46a8591397d065a809825b8e57f760602d39784575",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "verify_created_identity_binding.py": {
+      "original_blob": "7c365945bbe411961d5d87e6e6dac968a5d963d6",
+      "original_sha256": "3989a028512f7df731e32bea8519ab5e4758392bb462d2c1a83f4b80ed07c1ef",
+      "sha256": "3989a028512f7df731e32bea8519ab5e4758392bb462d2c1a83f4b80ed07c1ef",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "verify_decision_prefix.py": {
+      "original_blob": "940803b63f9424c29748b89b9b88f7ccce67327b",
+      "original_sha256": "c6091d13faa262b90e1dd574ce3b96f185e1e1a60f22190c16b94c7f534fbfe2",
+      "sha256": "c6091d13faa262b90e1dd574ce3b96f185e1e1a60f22190c16b94c7f534fbfe2",
+      "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "verify_source_inventory.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "c6034ec8c31c614946636f0828c89d4229ec20c357acddd85faa816d65817b4c"
+    }
+  },
+  "format": 2
+}

@@ -1,0 +1,350 @@
+diff --git a/forge-ai/src/main/java/forge/ai/ComputerUtilCombat.java b/forge-ai/src/main/java/forge/ai/ComputerUtilCombat.java
+index 0c917c4..3a0a5d3 100644
+--- a/forge-ai/src/main/java/forge/ai/ComputerUtilCombat.java
++++ b/forge-ai/src/main/java/forge/ai/ComputerUtilCombat.java
+@@ -893,7 +893,7 @@ public class ComputerUtilCombat {
+ 
+         final Game game = attacker.getGame();
+         // look out for continuous static abilities that only care for blocking creatures
+-        final CardCollectionView cardList = CardCollection.combine(game.getCardsIn(ZoneType.Battlefield), game.getCardsIn(ZoneType.Command));
++        final CardCollectionView cardList = CardCollection.combine(game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Battlefield, false), game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Command, false));
+         for (final Card card : cardList) {
+             for (final StaticAbility stAb : card.getStaticAbilities()) {
+                 if (!stAb.checkMode(StaticAbilityMode.Continuous)) {
+@@ -913,10 +913,10 @@ public class ComputerUtilCombat {
+         }
+ 
+         final FCollection<Trigger> theTriggers = new FCollection<>();
+-        for (Card card : game.getCardsIn(ZoneType.Battlefield)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Battlefield, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+-        for (Card card : game.getCardsIn(ZoneType.Command)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Command, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+         theTriggers.addAll(attacker.getTriggers());
+@@ -1022,10 +1022,10 @@ public class ComputerUtilCombat {
+ 
+         final Game game = attacker.getGame();
+         final FCollection<Trigger> theTriggers = new FCollection<>();
+-        for (Card card : game.getCardsIn(ZoneType.Battlefield)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Battlefield, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+-        for (Card card : game.getCardsIn(ZoneType.Command)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Command, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+         theTriggers.addAll(attacker.getTriggers());
+@@ -1157,10 +1157,10 @@ public class ComputerUtilCombat {
+ 
+         final Game game = attacker.getGame();
+         final FCollection<Trigger> theTriggers = new FCollection<>();
+-        for (Card card : game.getCardsIn(ZoneType.Battlefield)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Battlefield, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+-        for (Card card : game.getCardsIn(ZoneType.Command)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Command, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+         // if the defender has first strike and wither the attacker will deal
+@@ -1179,7 +1179,7 @@ public class ComputerUtilCombat {
+ 
+         // look out for continuous static abilities that only care for attacking creatures
+         if (!withoutCombatStaticAbilities) {
+-            final CardCollectionView cardList = CardCollection.combine(game.getCardsIn(ZoneType.Battlefield), game.getCardsIn(ZoneType.Command));
++            final CardCollectionView cardList = CardCollection.combine(game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Battlefield, false), game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Command, false));
+             for (final Card card : cardList) {
+                 for (final StaticAbility stAb : card.getStaticAbilities()) {
+                     if (!stAb.checkMode(StaticAbilityMode.Continuous)) {
+@@ -1357,10 +1357,10 @@ public class ComputerUtilCombat {
+ 
+         final Game game = attacker.getGame();
+         final FCollection<Trigger> theTriggers = new FCollection<>();
+-        for (Card card : game.getCardsIn(ZoneType.Battlefield)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Battlefield, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+-        for (Card card : game.getCardsIn(ZoneType.Command)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Command, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+         if (blocker != null) {
+@@ -1369,7 +1369,7 @@ public class ComputerUtilCombat {
+ 
+         // look out for continuous static abilities that only care for attacking creatures
+         if (!withoutCombatStaticAbilities) {
+-            final CardCollectionView cardList = game.getCardsIn(ZoneType.Battlefield);
++            final CardCollectionView cardList = game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Battlefield, false);
+             for (final Card card : cardList) {
+                 for (final StaticAbility stAb : card.getStaticAbilities()) {
+                     if (!stAb.checkMode(StaticAbilityMode.Continuous)) {
+@@ -1567,7 +1567,7 @@ public class ComputerUtilCombat {
+ 
+         // check Destroy triggers (Cockatrice and friends)
+         final FCollection<Trigger> theTriggers = new FCollection<>();
+-        for (Card card : attacker.getGame().getCardsIn(ZoneType.Battlefield)) {
++        for (Card card : attacker.getGame().getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Battlefield, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+         for (Trigger trigger : theTriggers) {
+@@ -1824,7 +1824,7 @@ public class ComputerUtilCombat {
+ 
+         final Game game = blocker.getGame();
+         final FCollection<Trigger> theTriggers = new FCollection<>();
+-        for (Card card : game.getCardsIn(ZoneType.Battlefield)) {
++        for (Card card : game.getReplacementHandler().getReadOnlyCombatTraitSources(ZoneType.Battlefield, true)) {
+             theTriggers.addAll(card.getTriggers());
+         }
+         for (Trigger trigger : theTriggers) {
+diff --git a/forge-game/src/main/java/forge/game/card/CardState.java b/forge-game/src/main/java/forge/game/card/CardState.java
+index 6bad6e1..31550ac 100644
+--- a/forge-game/src/main/java/forge/game/card/CardState.java
++++ b/forge-game/src/main/java/forge/game/card/CardState.java
+@@ -686,6 +686,8 @@ public class CardState implements GameObject, IHasSVars, ITranslatable {
+     }
+ 
+     public final FCollectionView<Trigger> getTriggers() {
++        if (triggers.isEmpty() && !hasCombinedSplitTraits()
++                && !card.hasChangedTraitEffects() && !cachedKeywords.hasTriggers()) return FCollection.getEmpty();
+         FCollection<Trigger> result = new FCollection<>(triggers);
+         if (getStateName().equals(CardStateName.Original)) {
+             if (getCard().hasState(CardStateName.LeftSplit))
+@@ -711,6 +713,7 @@ public class CardState implements GameObject, IHasSVars, ITranslatable {
+     }
+ 
+     public final boolean addTrigger(final Trigger t) {
++        card.invalidateReplacementInspection();
+         return triggers.add(t);
+     }
+ 
+@@ -730,9 +733,11 @@ public class CardState implements GameObject, IHasSVars, ITranslatable {
+         return result;
+     }
+     public final boolean addStaticAbility(StaticAbility stab) {
++        card.invalidateReplacementInspection();
+         return staticAbilities.add(stab);
+     }
+     public final boolean removeStaticAbility(StaticAbility stab) {
++        card.invalidateReplacementInspection();
+         return staticAbilities.remove(stab);
+     }
+ 
+diff --git a/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java b/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
+index 857b06b..54d7f20 100644
+--- a/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
++++ b/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
+@@ -48,6 +48,12 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         return false;
+     }
+ 
++    public boolean hasTriggers() {
++        if (map.isEmpty()) return false;
++        for (KeywordInterface k : members()) if (!k.getTriggers().isEmpty()) return true;
++        return false;
++    }
++
+     public boolean hasReplacementEffects() {
+         if (map.isEmpty()) return false;
+         for (KeywordInterface k : members()) if (!k.getReplacements().isEmpty()) return true;
+diff --git a/forge-game/src/main/java/forge/game/keyword/KeywordInstance.java b/forge-game/src/main/java/forge/game/keyword/KeywordInstance.java
+index 9f2b486..ac1fd14 100644
+--- a/forge-game/src/main/java/forge/game/keyword/KeywordInstance.java
++++ b/forge-game/src/main/java/forge/game/keyword/KeywordInstance.java
+@@ -166,6 +166,7 @@ public abstract class KeywordInstance<T extends KeywordInstance<?>> implements K
+      * @see forge.game.keyword.KeywordInterface#addTrigger(forge.game.trigger.Trigger)
+      */
+     public final void addTrigger(final Trigger trg) {
++        if (trg.getHostCard() != null) trg.getHostCard().invalidateReplacementInspection();
+         trg.setKeyword(this);
+         triggers.add(trg);
+     }
+@@ -193,6 +194,7 @@ public abstract class KeywordInstance<T extends KeywordInstance<?>> implements K
+      * @see forge.game.keyword.KeywordInterface#addStaticAbility(forge.game.staticability.StaticAbility)
+      */
+     public final void addStaticAbility(final StaticAbility st) {
++        if (st.getHostCard() != null) st.getHostCard().invalidateReplacementInspection();
+         st.setKeyword(this);
+         staticAbilities.add(st);
+     }
+diff --git a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+index 667505f..4bf4015 100644
+--- a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
++++ b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+@@ -54,6 +54,7 @@ public class ReplacementHandler {
+     private final Game game;
+     private static final class ManaSources {
+         final Map<ReplacementType, CardCollection> sources = new EnumMap<>(ReplacementType.class);
++        final Map<ZoneType, CardCollection[]> combatTraits = new EnumMap<>(ZoneType.class);
+         ManaSources parent;
+         boolean combat;
+         boolean invalidated;
+@@ -115,6 +116,24 @@ public class ReplacementHandler {
+         return new ManaInspection(previous);
+     }
+ 
++    /** Scoped host discovery only; callers still read current traits and conditions. */
++    public CardCollectionView getReadOnlyCombatTraitSources(ZoneType zone, boolean triggers) {
++        ManaSources snapshot = manaInspection.get();
++        if (snapshot == null || snapshot.invalidated || !snapshot.combat
++                || Boolean.getBoolean("dragonmind.disableCombatTraitIndex")) return game.getCardsIn(zone);
++        CardCollection[] sources = snapshot.combatTraits.get(zone);
++        if (sources == null) {
++            sources = new CardCollection[]{new CardCollection(), new CardCollection()};
++            for (Card card : game.getCardsIn(zone)) {
++                if (!card.getStaticAbilities().isEmpty()) sources[0].add(card);
++                if (!card.getTriggers().isEmpty()) sources[1].add(card);
++            }
++            if (!snapshot.invalidated) snapshot.combatTraits.put(zone, sources);
++        }
++        // Trait synthesis can invalidate the enclosing query while discovering hosts.
++        return snapshot.invalidated ? game.getCardsIn(zone) : sources[triggers ? 1 : 0];
++    }
++
+     private Set<ReplacementEffect> hasRun = Sets.newHashSet();
+ 
+     // List of all replacement effect candidates for DamageDone event, in APNAP order
+diff --git a/forge-game/src/main/java/forge/game/zone/PlayerZone.java b/forge-game/src/main/java/forge/game/zone/PlayerZone.java
+index 8559dd0..4f7873c 100644
+--- a/forge-game/src/main/java/forge/game/zone/PlayerZone.java
++++ b/forge-game/src/main/java/forge/game/zone/PlayerZone.java
+@@ -83,6 +83,7 @@ public class PlayerZone extends Zone {
+ 
+     @Override
+     protected void onChanged() {
++        super.onChanged();
+         if (getZoneType() == ZoneType.Hand && player.getController().isOrderedZone()) {
+             sort();
+         }
+diff --git a/forge-game/src/main/java/forge/game/zone/Zone.java b/forge-game/src/main/java/forge/game/zone/Zone.java
+index d34f712..32ecc88 100644
+--- a/forge-game/src/main/java/forge/game/zone/Zone.java
++++ b/forge-game/src/main/java/forge/game/zone/Zone.java
+@@ -70,6 +70,7 @@ public class Zone implements java.io.Serializable, Iterable<Card> {
+     }
+ 
+     protected void onChanged() {
++        if (game != null) game.getReplacementHandler().invalidateReadOnlyManaInspection();
+     }
+ 
+     public Player getPlayer() { // generic zones like stack have no player associated
+@@ -83,6 +84,7 @@ public class Zone implements java.io.Serializable, Iterable<Card> {
+     public final void reorder(final Card c, final int index) {
+         cardList.remove(c);
+         cardList.add(index, c);
++        if (game != null) game.getReplacementHandler().invalidateReadOnlyManaInspection();
+     }
+ 
+     public final void add(final Card c) {
+@@ -178,6 +180,7 @@ public class Zone implements java.io.Serializable, Iterable<Card> {
+ 
+     public final void removeAllCards(boolean forcedWithoutEvents) {
+         if (forcedWithoutEvents) {
++            if (game != null) game.getReplacementHandler().invalidateReadOnlyManaInspection();
+             cardList.clear();
+         } else {
+             for (Card c : cardList) {
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+index 27ce24c..52d286a 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -20,6 +20,97 @@ import org.testng.Assert;
+ import org.testng.annotations.Test;
+ 
+ public class DragonMindPerformanceTest extends AITest {
++    @Test public void emptyTriggerFastPathSeesIntrinsicKeywordAndChangedTriggers() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCard("Grizzly Bears",player);
++        Assert.assertTrue(host.getTriggers().isEmpty());
++        var trigger=forge.game.trigger.TriggerHandler.parseTrigger("Mode$ Attacks | ValidCard$ Card.Self",host,true);
++        host.addTrigger(trigger);Assert.assertTrue(host.getTriggers().contains(trigger));
++        Card other=addCard("Grizzly Bears",player);Assert.assertTrue(other.getTriggers().isEmpty());
++        other.addIntrinsicKeyword("Exalted");Assert.assertFalse(other.getTriggers().isEmpty());
++        Card changed=addCard("Grizzly Bears",player);Assert.assertTrue(changed.getTriggers().isEmpty());
++        var granted=forge.game.trigger.TriggerHandler.parseTrigger("Mode$ Attacks | ValidCard$ Card.Self",changed,true);
++        changed.addChangedCardTraits(List.of(),List.of(granted),List.of(),List.of(),null,1L,1L,false);
++        Assert.assertTrue(changed.getTriggers().contains(granted));
++        changed.removeChangedCardTraits(1L,1L);Assert.assertTrue(changed.getTriggers().isEmpty());
++    }
++
++    @Test public void combatTraitSourcesInvalidateNestedAdditionsAndZoneChanges() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCard("Grizzly Bears",player);var handler=game.getReplacementHandler();
++        try(var outer=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertFalse(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,true).contains(host));
++            try(var inner=handler.beginReadOnlyCombatInspection()) {
++                host.addTrigger(forge.game.trigger.TriggerHandler.parseTrigger("Mode$ Attacks | ValidCard$ Card.Self",host,true));
++            }
++            Assert.assertTrue(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,true).contains(host));
++        }
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertTrue(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,true).contains(host));
++            player.getZone(ZoneType.Battlefield).remove(host);
++            Assert.assertFalse(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,true).contains(host));
++            player.getZone(ZoneType.Battlefield).add(host);
++            Assert.assertTrue(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,true).contains(host));
++        }
++        Card empty=addCard("Grizzly Bears",player);
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertFalse(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,false).contains(empty));
++            empty.addStaticAbility(trait(empty,"Creature.attacking"));
++            Assert.assertTrue(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,false).contains(empty));
++        }
++    }
++
++    @Test public void combatTriggerDiscoverySeesRetainedKeywordEditsAndSplitStates() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCard("Grizzly Bears",player);host.addIntrinsicKeyword("Flying");
++        var keyword=host.getKeywords().stream().filter(k->k.getOriginal().equals("Flying")).findFirst().orElseThrow();
++        var handler=game.getReplacementHandler();
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            Assert.assertFalse(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,true).contains(host));
++            var granted=forge.game.trigger.TriggerHandler.parseTrigger("Mode$ Attacks | ValidCard$ Card.Self",host,true);
++            keyword.addTrigger(granted);
++            Assert.assertTrue(host.getTriggers().contains(granted));
++            Assert.assertTrue(handler.getReadOnlyCombatTraitSources(ZoneType.Battlefield,true).contains(host));
++        }
++        Card split=addCard("Fire",player);
++        Assert.assertTrue(split.getTriggers().isEmpty());
++        var right=split.getState(CardStateName.RightSplit);
++        var trigger=forge.game.trigger.TriggerHandler.parseTrigger("Mode$ Attacks | ValidCard$ Card.Self",split,true,right);
++        right.addTrigger(trigger);Assert.assertTrue(split.getTriggers().contains(trigger));
++    }
++
++    @Test public void combatForecastUsesLiveTraitsAndMatchesUnindexedSearch() {
++        var game=initAndCreateGame();var ai=game.getPlayers().get(0);var opponent=game.getPlayers().get(1);
++        Card attacker=addCard("Grizzly Bears",opponent),blocker=addCard("Serene Master",ai),host=addCard("Grizzly Bears",opponent);
++        var bonus=trait(host,"Creature.attacking");host.addStaticAbility(bonus);
++        var combat=new forge.game.combat.Combat(opponent);combat.addAttacker(attacker,ai);
++        var handler=game.getReplacementHandler();
++        String previous=System.getProperty("dragonmind.disableCombatTraitIndex");
++        try(var scope=handler.beginReadOnlyCombatInspection()) {
++            int first=ComputerUtilCombat.predictPowerBonusOfAttacker(attacker,blocker,combat,true,false);
++            bonus.putParam("AddPower","7");
++            Assert.assertEquals(ComputerUtilCombat.predictPowerBonusOfAttacker(attacker,blocker,combat,true,false),first+6);
++            for(boolean withoutAbilities:List.of(false,true)) {
++                var indexed=combatPairResults(ai,attacker,blocker,combat,withoutAbilities);
++                System.setProperty("dragonmind.disableCombatTraitIndex","true");
++                Assert.assertEquals(indexed,combatPairResults(ai,attacker,blocker,combat,withoutAbilities));
++                System.clearProperty("dragonmind.disableCombatTraitIndex");
++            }
++        } finally {
++            if(previous==null)System.clearProperty("dragonmind.disableCombatTraitIndex");
++            else System.setProperty("dragonmind.disableCombatTraitIndex",previous);
++        }
++    }
++
++    private List<Object> combatPairResults(forge.game.player.Player ai,Card attacker,Card blocker,forge.game.combat.Combat combat,boolean withoutAbilities) {
++        return List.of(ComputerUtilCombat.predictPowerBonusOfAttacker(attacker,blocker,combat,withoutAbilities,false),
++            ComputerUtilCombat.predictToughnessBonusOfAttacker(attacker,blocker,combat,withoutAbilities,false),
++            ComputerUtilCombat.predictPowerBonusOfBlocker(attacker,blocker,withoutAbilities),
++            ComputerUtilCombat.predictToughnessBonusOfBlocker(attacker,blocker,withoutAbilities),
++            ComputerUtilCombat.canDestroyAttacker(ai,attacker,blocker,combat,withoutAbilities,false),
++            ComputerUtilCombat.canDestroyBlocker(ai,blocker,attacker,combat,withoutAbilities,false));
++    }
++
+     @Test public void emptyCollectionBulkCopyPreservesOrderAndIndependentMembership() {
+         for (int size : List.of(0, 1, 8, 32, 128)) {
+             FCollection<Integer> source = new FCollection<>(), destination = new FCollection<>();

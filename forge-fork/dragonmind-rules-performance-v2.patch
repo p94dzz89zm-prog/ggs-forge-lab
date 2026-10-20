@@ -1,0 +1,643 @@
+diff --git a/forge-ai/src/main/java/forge/ai/ComputerUtilMana.java b/forge-ai/src/main/java/forge/ai/ComputerUtilMana.java
+index 5f96dea..e6f471f 100644
+--- a/forge-ai/src/main/java/forge/ai/ComputerUtilMana.java
++++ b/forge-ai/src/main/java/forge/ai/ComputerUtilMana.java
+@@ -1497,10 +1497,19 @@ public class ComputerUtilMana {
+     }
+ 
+     private static ListMultimap<Integer, SpellAbility> groupSourcesByManaColor(final Player ai, boolean checkPlayable) {
++        final List<Card> sources = getAvailableManaSources(ai, checkPlayable);
++        if (sources.isEmpty()) return ArrayListMultimap.create();
++        try (var inspection = ai.getGame().getReplacementHandler().beginReadOnlyManaInspection()) {
++            return inspectSourcesByManaColor(ai, checkPlayable, sources);
++        }
++    }
++
++    private static ListMultimap<Integer, SpellAbility> inspectSourcesByManaColor(final Player ai, boolean checkPlayable,
++            final List<Card> sources) {
+         final ListMultimap<Integer, SpellAbility> manaMap = ArrayListMultimap.create();
+         final Game game = ai.getGame();
+ 
+-        for (final Card sourceCard : getAvailableManaSources(ai, checkPlayable)) {
++        for (final Card sourceCard : sources) {
+             if (DEBUG_MANA_PAYMENT) {
+                 System.out.println("DEBUG_MANA_PAYMENT: groupSourcesByManaColor sourceCard = " + sourceCard);
+             }
+diff --git a/forge-core/src/main/java/forge/util/collect/FCollection.java b/forge-core/src/main/java/forge/util/collect/FCollection.java
+index d066772..82985db 100644
+--- a/forge-core/src/main/java/forge/util/collect/FCollection.java
++++ b/forge-core/src/main/java/forge/util/collect/FCollection.java
+@@ -103,6 +103,18 @@ public class FCollection<T> implements List<T>, /*Set<T>,*/ FCollectionView<T>,
+         this.addAll(i);
+     }
+ 
++    /** Filter an already-unique collection without deduplicating every survivor again. */
++    public FCollection(final Iterable<? extends T> source, final Predicate<? super T> filter) {
++        if (source instanceof FCollection) {
++            for (T value : ((FCollection<? extends T>) source).list) {
++                if (filter.test(value)) list.add(value);
++            }
++            if (list.size() > HASH_THRESHOLD) hashed();
++        } else {
++            for (T value : source) if (filter.test(value)) add(value);
++        }
++    }
++
+     /**
+      * Create an {@link FCollection} from an {@link FCollectionReader}.
+      *
+@@ -742,4 +754,4 @@ public class FCollection<T> implements List<T>, /*Set<T>,*/ FCollectionView<T>,
+             return "[]";
+         }
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/forge-game/src/main/java/forge/game/GameAction.java b/forge-game/src/main/java/forge/game/GameAction.java
+index 0a7ca0f..85f0f49 100644
+--- a/forge-game/src/main/java/forge/game/GameAction.java
++++ b/forge-game/src/main/java/forge/game/GameAction.java
+@@ -1074,6 +1074,7 @@ public class GameAction {
+         checkStaticAbilities(runEvents, Sets.newHashSet(), CardCollection.EMPTY);
+     }
+     public final void checkStaticAbilities(final boolean runEvents, final Set<Card> affectedCards, final CardCollectionView preList) {
++        game.getReplacementHandler().invalidateReadOnlyManaInspection();
+         if (isCheckingStaticAbilitiesOnHold()) {
+             return;
+         }
+diff --git a/forge-game/src/main/java/forge/game/card/Card.java b/forge-game/src/main/java/forge/game/card/Card.java
+index 7c6c6c9..4e2a924 100644
+--- a/forge-game/src/main/java/forge/game/card/Card.java
++++ b/forge-game/src/main/java/forge/game/card/Card.java
+@@ -570,6 +570,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+         return setState(state, updateView, false);
+     }
+     public boolean setState(final CardStateName state, boolean updateView, boolean forceUpdate) {
++        invalidateReplacementInspection();
+         boolean rollback = state == CardStateName.Original
+                 && (currentStateName == CardStateName.Flipped || currentStateName == CardStateName.Backside);
+         boolean transform = state == CardStateName.Flipped || state == CardStateName.Backside || state == CardStateName.Meld;
+@@ -4880,6 +4881,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+         return changedCardTraitsByText;
+     }
+     public final void setChangedCardTraitsByText(Table<Long, Long, CardTraitChanges> changes) {
++        invalidateReplacementInspection();
+         changedCardTraitsByText.clear();
+         for (Table.Cell<Long, Long, CardTraitChanges> e : changes.cellSet()) {
+             changedCardTraitsByText.put(e.getRowKey(), e.getColumnKey(), e.getValue().copy(this, true));
+@@ -4887,6 +4889,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+     }
+     public final void addChangedCardTraitsByText(Collection<SpellAbility> spells,
+             Collection<Trigger> trigger, Collection<ReplacementEffect> replacements, Collection<StaticAbility> statics, long timestamp, long staticId) {
++        invalidateReplacementInspection();
+         changedCardTraitsByText.put(timestamp, staticId, new CardTraitChanges(
+             spells, trigger, replacements, statics, e -> true
+         ));
+@@ -4911,6 +4914,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+         return addChangedCardTraits(result, timestamp, staticId, updateView);
+     }
+     public final ICardTraitChanges addChangedCardTraits(ICardTraitChanges changes, long timestamp, long staticId, boolean updateView) {
++        invalidateReplacementInspection();
+         changedCardTraits.put(timestamp, staticId, changes);
+         if (updateView) {
+             updateAbilityTextForView();
+@@ -4919,9 +4923,11 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+     }
+ 
+     public final boolean removeChangedCardTraits(long timestamp, long staticId) {
++        invalidateReplacementInspection();
+         return changedCardTraits.remove(timestamp, staticId) != null;
+     }
+     public final boolean removeChangedCardTraitsByText(long timestamp, long staticId) {
++        invalidateReplacementInspection();
+         return changedCardTraitsByText.remove(timestamp, staticId) != null;
+     }
+ 
+@@ -4936,11 +4942,21 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+         );
+     }
+ 
++    public void invalidateReplacementInspection() {
++        if (game != null) game.getReplacementHandler().invalidateReadOnlyManaInspection();
++    }
++
++    /** Conservative guard for empty effective-trait fast paths. */
++    public boolean hasChangedTraitEffects() {
++        return !changedCardTraitsByText.isEmpty() || !changedCardTraits.isEmpty();
++    }
++
+     public final Table<Long, Long, ICardTraitChanges> getChangedCardTraits() {
+         return changedCardTraits;
+     }
+ 
+     public final void setChangedCardTraits(Table<Long, Long, ICardTraitChanges> changes) {
++        invalidateReplacementInspection();
+         changedCardTraits.clear();
+         for (Table.Cell<Long, Long, ICardTraitChanges> e : changes.cellSet()) {
+             changedCardTraits.put(e.getRowKey(), e.getColumnKey(), e.getValue().copy(this, true));
+@@ -4948,6 +4964,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+     }
+ 
+     public boolean clearChangedCardTraits() {
++        invalidateReplacementInspection();
+         boolean changed = false;
+         if (!changedCardTraitsByText.isEmpty()) {
+             changed = true;
+@@ -5176,9 +5193,11 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+     }
+ 
+     public final void updateKeywordsCache() {
++        invalidateReplacementInspection();
+         updateKeywordsCache(getCurrentState());
+     }
+     public final void updateKeywordsCache(final CardState state) {
++        invalidateReplacementInspection();
+         KeywordCollection keywords = new KeywordCollection();
+ 
+         // Layer 1
+@@ -5712,48 +5731,56 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+         return false;
+     }
+ 
++    // Cache syntax only: every type/property test still reads current game state.
++    private record ParsedValidity(String inclusive, boolean negated, String[] properties) {}
++    private static final com.google.common.cache.LoadingCache<String, ParsedValidity> VALIDITY_SYNTAX =
++        com.google.common.cache.CacheBuilder.newBuilder().maximumSize(8192).build(
++            new com.google.common.cache.CacheLoader<String, ParsedValidity>() {
++                public ParsedValidity load(String text) {
++                    String[] parts = text.split("\\.", 2);
++                    boolean negated = parts[0].startsWith("!");
++                    return new ParsedValidity(negated ? parts[0].substring(1) : parts[0], negated,
++                        parts.length > 1 ? parts[1].split("\\+") : null);
++                }
++            });
++
+     // Takes one argument like Permanent.Blue+withFlying
+     @Override
+     public final boolean isValid(final String restriction, final Player sourceController, final Card source, CardTraitBase spellAbility) {
+-        // Inclusive restrictions are Card types
+-        final String[] incR = restriction.split("\\.", 2);
+-
+-        boolean testFailed = false;
+-        if (incR[0].startsWith("!")) {
+-            testFailed = true; // a bit counter logical))
+-            incR[0] = incR[0].substring(1); // consume negation sign
+-        }
++        ParsedValidity parsed = VALIDITY_SYNTAX.getUnchecked(restriction);
++        final String inclusive = parsed.inclusive();
++        final boolean testFailed = parsed.negated();
+ 
+         // need to filter out prepared spells for other cards
+         if (getCurrentStateName() == CardStateName.PreparedSpell && isInZone(ZoneType.Exile)) {
+             return testFailed;
+         }
+ 
+-        if (incR[0].equals("Spell")) {
++        if (inclusive.equals("Spell")) {
+             if (!isSpell()) {
+                 return testFailed;
+             }
+-        } else if (incR[0].equals("Permanent")) {
++        } else if (inclusive.equals("Permanent")) {
+             if (!isPermanent()) {
+                 return testFailed;
+             }
+-        } else if (incR[0].equals("Effect")) {
++        } else if (inclusive.equals("Effect")) {
+             if (!isImmutable()) {
+                 return testFailed;
+             }
+-        } else if (incR[0].equals("Emblem")) {
++        } else if (inclusive.equals("Emblem")) {
+             if (!isEmblem()) {
+                 return testFailed;
+             }
+-        } else if (incR[0].equals("Boon")) {
++        } else if (inclusive.equals("Boon")) {
+             if (!isBoon()) {
+                 return testFailed;
+             }
+-        } else if (incR[0].equals("card") || incR[0].equals("Card")) {
++        } else if (inclusive.equals("card") || inclusive.equals("Card")) {
+             if (isImmutable()) {
+                 return testFailed;
+             }
+-        } else if (incR[0].equals("Any")) {
++        } else if (inclusive.equals("Any")) {
+             if (!(isCreature() || isPlaneswalker() || isBattle())) {
+                 return false;
+             }
+@@ -5763,14 +5790,12 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+             ApiType apiType = ((SpellAbility) spellAbility).getApi();
+             if (!(ApiType.DealDamage.equals(apiType) || ApiType.PreventDamage.equals(apiType)))
+                 return false;*/
+-        } else if (!getType().hasStringType(incR[0])) {
++        } else if (!getType().hasStringType(inclusive)) {
+             return testFailed; // Check for wrong type
+         }
+ 
+-        if (incR.length > 1) {
+-            final String excR = incR[1];
+-            final String[] exRs = excR.split("\\+"); // Exclusive Restrictions are ...
+-            for (String exR : exRs) {
++        if (parsed.properties() != null) {
++            for (String exR : parsed.properties()) {
+                 if (!hasProperty(exR, sourceController, source, spellAbility)) {
+                     return testFailed;
+                 }
+diff --git a/forge-game/src/main/java/forge/game/card/CardCollection.java b/forge-game/src/main/java/forge/game/card/CardCollection.java
+index 95fe63a..aa28997 100644
+--- a/forge-game/src/main/java/forge/game/card/CardCollection.java
++++ b/forge-game/src/main/java/forge/game/card/CardCollection.java
+@@ -118,6 +118,10 @@ public class CardCollection extends FCollection<Card> implements CardCollectionV
+         super(cards);
+     }
+ 
++    public CardCollection(final Iterable<Card> cards, final Predicate<? super Card> filter) {
++        super(cards, filter);
++    }
++
+     public CardCollection(final Stream<Card> cards) {
+         this(cards::iterator);
+     }
+@@ -135,9 +139,7 @@ public class CardCollection extends FCollection<Card> implements CardCollectionV
+      * the given predicate.
+      */
+     public CardCollection filter(Predicate<? super Card> test) {
+-        CardCollection out = new CardCollection();
+-        this.stream().filter(test).forEach(out::add);
+-        return out;
++        return new CardCollection(this, test);
+     }
+ 
+     /**
+diff --git a/forge-game/src/main/java/forge/game/card/CardLists.java b/forge-game/src/main/java/forge/game/card/CardLists.java
+index 30abe93..b5a7a37 100644
+--- a/forge-game/src/main/java/forge/game/card/CardLists.java
++++ b/forge-game/src/main/java/forge/game/card/CardLists.java
+@@ -328,11 +328,11 @@ public class CardLists {
+      *         criteria; may be empty, but never null.
+      */
+     public static CardCollection filter(Iterable<Card> cardList, Predicate<Card> filt) {
+-        return new CardCollection(IterableUtil.filter(cardList, filt));
++        return new CardCollection(cardList, filt);
+     }
+ 
+     public static CardCollection filter(Iterable<Card> cardList, Predicate<Card> f1, Predicate<Card> f2) {
+-        return new CardCollection(IterableUtil.filter(cardList, f1.and(f2)));
++        return new CardCollection(cardList, f1.and(f2));
+     }
+ 
+     public static CardCollection filter(Iterable<Card> cardList, Iterable<Predicate<Card>> filt) {
+diff --git a/forge-game/src/main/java/forge/game/card/CardState.java b/forge-game/src/main/java/forge/game/card/CardState.java
+index 58f5192..6bad6e1 100644
+--- a/forge-game/src/main/java/forge/game/card/CardState.java
++++ b/forge-game/src/main/java/forge/game/card/CardState.java
+@@ -715,6 +715,10 @@ public class CardState implements GameObject, IHasSVars, ITranslatable {
+     }
+ 
+     public final FCollectionView<StaticAbility> getStaticAbilities() {
++        if (staticAbilities.isEmpty() && !hasCombinedSplitTraits()
++                && !card.hasChangedTraitEffects() && !cachedKeywords.hasStaticAbilities()) {
++            return FCollection.getEmpty();
++        }
+         FCollection<StaticAbility> result = new FCollection<>(staticAbilities);
+         if (getStateName().equals(CardStateName.Original)) {
+             if (getCard().hasState(CardStateName.LeftSplit))
+@@ -736,6 +740,14 @@ public class CardState implements GameObject, IHasSVars, ITranslatable {
+         return getReplacementEffects(true);
+     }
+     public FCollectionView<ReplacementEffect> getReplacementEffects(boolean rulesHost) {
++        CardTypeView effectiveType = getTypeWithChanges();
++        if (replacementEffects.isEmpty() && !hasCombinedSplitTraits()
++                && !card.hasChangedTraitEffects() && !cachedKeywords.hasReplacementEffects()
++                && !effectiveType.isPlaneswalker() && !effectiveType.isBattle() && !effectiveType.isSaga()
++                && (!rulesHost || (card.getCounters().isEmpty()
++                    && !type.hasSubtype("Adventure") && !type.hasSubtype("Omen")))) {
++            return FCollection.getEmpty();
++        }
+         FCollection<ReplacementEffect> result = new FCollection<>(replacementEffects);
+         // add Split to Original
+         if (getStateName().equals(CardStateName.Original)) {
+@@ -767,7 +779,12 @@ public class CardState implements GameObject, IHasSVars, ITranslatable {
+ 
+         return result;
+     }
++    private boolean hasCombinedSplitTraits() {
++        return getStateName() == CardStateName.Original
++            && (card.hasState(CardStateName.LeftSplit) || card.hasState(CardStateName.RightSplit));
++    }
+     public boolean addReplacementEffect(final ReplacementEffect replacementEffect) {
++        card.invalidateReplacementInspection();
+         return replacementEffects.add(replacementEffect);
+     }
+ 
+diff --git a/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java b/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
+index 2397972..3c0d7aa 100644
+--- a/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
++++ b/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
+@@ -43,6 +43,26 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         return map.isEmpty();
+     }
+ 
++    public boolean hasStaticAbilities() {
++        if (map.isEmpty()) return false;
++        if (liveViewExposed) {
++            for (KeywordInterface k : map.values()) if (!k.getStaticAbilities().isEmpty()) return true;
++        } else {
++            for (KeywordInterface k : members()) if (!k.getStaticAbilities().isEmpty()) return true;
++        }
++        return false;
++    }
++
++    public boolean hasReplacementEffects() {
++        if (map.isEmpty()) return false;
++        if (liveViewExposed) {
++            for (KeywordInterface k : map.values()) if (!k.getReplacements().isEmpty()) return true;
++        } else {
++            for (KeywordInterface k : members()) if (!k.getReplacements().isEmpty()) return true;
++        }
++        return false;
++    }
++
+     public int size() {
+         return map.values().size();
+     }
+diff --git a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+index 4d9877f..e0b5a72 100644
+--- a/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
++++ b/forge-game/src/main/java/forge/game/replacement/ReplacementHandler.java
+@@ -52,6 +52,46 @@ import forge.util.Visitor;
+ 
+ public class ReplacementHandler {
+     private final Game game;
++    private static final class ManaSources {
++        final Map<ReplacementType, CardCollection> sources = new EnumMap<>(ReplacementType.class);
++        boolean invalidated;
++    }
++    private final ThreadLocal<ManaSources> manaInspection = new ThreadLocal<>();
++
++    public final class ManaInspection implements AutoCloseable {
++        private final ManaSources previous;
++        private boolean closed;
++        private ManaInspection(ManaSources previous) { this.previous = previous; }
++        @Override public void close() {
++            if (closed) return;
++            closed = true;
++            if (previous == null) manaInspection.remove(); else manaInspection.set(previous);
++        }
++    }
++
++    /** Scoped to AI source inspection before payment; never retains results across actions. */
++    public ManaInspection beginReadOnlyManaInspection() {
++        ManaSources previous = manaInspection.get();
++        if (previous == null) {
++            ManaSources snapshot = new ManaSources();
++            snapshot.sources.put(ReplacementType.Tap, new CardCollection());
++            snapshot.sources.put(ReplacementType.ProduceMana, new CardCollection());
++            game.forEachCardInGame(card -> {
++                for (ReplacementEffect effect : card.getReplacementEffects()) {
++                    CardCollection list = snapshot.sources.get(effect.getMode());
++                    if (list != null) list.add(card);
++                }
++                return true;
++            });
++            manaInspection.set(snapshot);
++        }
++        return new ManaInspection(previous);
++    }
++
++    public void invalidateReadOnlyManaInspection() {
++        ManaSources snapshot = manaInspection.get();
++        if (snapshot != null) snapshot.invalidated = true;
++    }
+ 
+     private Set<ReplacementEffect> hasRun = Sets.newHashSet();
+ 
+@@ -67,6 +107,35 @@ public class ReplacementHandler {
+     }
+ 
+     public List<ReplacementEffect> getReplacementList(final ReplacementType event, final Map<AbilityKey, Object> runParams, final ReplacementLayer layer) {
++        ManaSources snapshot = manaInspection.get();
++        CardCollectionView sources = snapshot == null || snapshot.invalidated ? null : snapshot.sources.get(event);
++        return getReplacementList(event, runParams, layer, sources);
++    }
++
++    /** Sources for one read-only mana-source inspection, never a cross-action cache. */
++    public CardCollectionView getManaReplacementSources() {
++        CardCollection sources = new CardCollection();
++        game.forEachCardInGame(card -> {
++            for (ReplacementEffect effect : card.getReplacementEffects()) {
++                if (effect.getMode() == ReplacementType.ProduceMana) {
++                    sources.add(card);
++                    break;
++                }
++            }
++            return true;
++        });
++        return sources;
++    }
++
++    /** Conditions are reevaluated for every source and ability; only source membership is reused. */
++    public List<ReplacementEffect> getManaReplacementList(final Map<AbilityKey, Object> runParams,
++            final CardCollectionView sources) {
++        return getReplacementList(ReplacementType.ProduceMana, runParams, ReplacementLayer.Other, sources);
++    }
++
++    private List<ReplacementEffect> getReplacementList(final ReplacementType event,
++            final Map<AbilityKey, Object> runParams, final ReplacementLayer layer,
++            final CardCollectionView candidateSources) {
+         final CardCollection preList = new CardCollection();
+         Card affectedLKI = null;
+         Card affectedCard = null;
+@@ -101,7 +170,7 @@ public class ReplacementHandler {
+         final List<ReplacementEffect> possibleReplacers = Lists.newArrayList();
+ 
+         // Round up Static replacement effects
+-        game.forEachCardInGame(crd -> {
++        Visitor<Card> inspect = crd -> {
+             Card c = preList.get(crd);
+             Zone cardZone = game.getZoneOf(c);
+ 
+@@ -148,7 +217,12 @@ public class ReplacementHandler {
+                 }
+             }
+             return true;
+-        }, affectedCard != null && affectedCard.isInZone(ZoneType.Sideboard));
++        };
++        if (candidateSources == null) {
++            game.forEachCardInGame(inspect, affectedCard != null && affectedCard.isInZone(ZoneType.Sideboard));
++        } else {
++            inspect.visitAll(candidateSources);
++        }
+ 
+         if (affectedLKI != null) {
+             // need to set the Host Card there so it is not connected to LKI anymore?
+@@ -185,6 +259,7 @@ public class ReplacementHandler {
+      * @return ReplacementResult, an enum that represents what happened to the replacement effect.
+      */
+     public ReplacementResult run(ReplacementType event, final Map<AbilityKey, Object> runParams) {
++        invalidateReadOnlyManaInspection();
+         final Object affected = runParams.get(AbilityKey.Affected);
+         Player decider = null;
+ 
+diff --git a/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java b/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java
+index 92635f4..0dd8fcf 100644
+--- a/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java
++++ b/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java
+@@ -38,6 +38,9 @@ import forge.util.storage.IStorage;
+ public class SimulateMatch {
+     public static void simulate(String[] args) {
+         FModel.initialize(null, null);
++        // DragonMind uses the full rules paths even if a GUI preference enabled
++        // Forge's optional approximation/performance mode in another session.
++        forge.game.spellability.Spell.setPerformanceMode(false);
+ 
+         System.out.println("Simulation mode");
+         if (args.length < 4) {
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+index 258f5f4..7acc036 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -1,6 +1,16 @@
+ package forge.ai;
+ 
+ import forge.game.card.Card;
++import forge.game.card.CounterEnumType;
++import forge.game.card.CounterType;
++import forge.card.CardStateName;
++import forge.game.replacement.ReplacementHandler;
++import forge.game.replacement.ReplacementEffect;
++import forge.game.replacement.ReplacementType;
++import forge.game.replacement.ReplacementLayer;
++import forge.game.ability.AbilityKey;
++import forge.game.zone.ZoneType;
++import forge.util.collect.FCollection;
+ import forge.game.keyword.KeywordCollection;
+ import forge.game.keyword.KeywordInterface;
+ import forge.game.staticability.StaticAbility;
+@@ -10,6 +20,9 @@ import org.testng.Assert;
+ import org.testng.annotations.Test;
+ 
+ public class DragonMindPerformanceTest extends AITest {
++    private ReplacementEffect replacement(Card host) {
++        return ReplacementHandler.parseReplacement("Event$ Destroy | ActiveZones$ Battlefield | ValidCard$ Card.Self | Prevent$ True",host,false,null);
++    }
+     private StaticAbility trait(Card host, String affected) {
+         return StaticAbility.create("Mode$ Continuous | Affected$ "+affected+" | AddPower$ 1",host,host.getCurrentState(),true);
+     }
+@@ -51,4 +64,114 @@ public class DragonMindPerformanceTest extends AITest {
+             Assert.assertEquals(method.invoke(null,trait(host,restriction)),expected,restriction);
+         }
+     }
++
++    @Test public void emptyTraitsBecomeVisibleAfterIntrinsicAddition() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        Assert.assertTrue(host.getStaticAbilities().isEmpty());Assert.assertTrue(host.getReplacementEffects().isEmpty());
++        var staticAbility=trait(host,"Creature");var replace=replacement(host);
++        host.addStaticAbility(staticAbility);host.addReplacementEffect(replace);
++        Assert.assertTrue(host.getStaticAbilities().contains(staticAbility));Assert.assertTrue(host.getReplacementEffects().contains(replace));
++    }
++    @Test public void changedTraitsRemainVisibleAndCanBeRemoved() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        Assert.assertTrue(host.getStaticAbilities().isEmpty());Assert.assertTrue(host.getReplacementEffects().isEmpty());
++        var staticAbility=trait(host,"Creature");var replace=replacement(host);
++        host.addChangedCardTraits(List.of(),List.of(),List.of(replace),List.of(staticAbility),null,1L,1L,false);
++        Assert.assertTrue(host.getStaticAbilities().contains(staticAbility));Assert.assertTrue(host.getReplacementEffects().contains(replace));
++        host.removeChangedCardTraits(1L,1L);
++        Assert.assertTrue(host.getStaticAbilities().isEmpty());Assert.assertTrue(host.getReplacementEffects().isEmpty());
++    }
++    @Test public void counterReplacementsAreNeverSkipped() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        for(var type:List.of(CounterEnumType.SHIELD,CounterEnumType.STUN,CounterEnumType.FINALITY)) {
++            host.clearCounters();Assert.assertTrue(host.getReplacementEffects().isEmpty());
++            host.setCounters(type,1);Assert.assertFalse(host.getReplacementEffects().isEmpty(),type.toString());
++            Assert.assertTrue(host.getCurrentState().getReplacementEffects(false).isEmpty());
++        }
++    }
++    @Test public void rulesTypeReplacementsAreNeverSkipped() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        for(String name:List.of("Jace Beleren","Invasion of Zendikar","The Eldest Reborn","Murderous Rider")) {
++            Card host=addCard(name,player);
++            if (name.equals("Murderous Rider")) host.setState(CardStateName.Secondary,false);
++            Assert.assertFalse(host.getReplacementEffects().isEmpty(),name);
++        }
++    }
++    @Test public void splitCardTraitsStillCombine() {
++        var game=initAndCreateGame();Card host=addCard("Fire",game.getPlayers().get(0));
++        var right=host.getState(CardStateName.RightSplit);var staticAbility=trait(host,"Creature");var replace=replacement(host);
++        right.addStaticAbility(staticAbility);right.addReplacementEffect(replace);
++        Assert.assertTrue(host.getState(CardStateName.Original).getStaticAbilities().contains(staticAbility));
++        Assert.assertTrue(host.getState(CardStateName.Original).getReplacementEffects().contains(replace));
++    }
++    @Test public void keywordTraitsRemainVisibleAfterEmptyFastPath() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        Assert.assertTrue(host.getStaticAbilities().isEmpty());
++        host.addIntrinsicKeyword("Hexproof");Assert.assertFalse(host.getStaticAbilities().isEmpty());
++    }
++    @Test public void manaSourceFilteringMatchesFullLookupAndRechecksState() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card contamination=addCard("Contamination",player),mountain=addCard("Mountain",player),ring=addCard("Sol Ring",player);
++        var handler=game.getReplacementHandler();var sources=handler.getManaReplacementSources();
++        for(Card source:List.of(mountain,ring)) {
++            var manaAbility=source.getManaAbilities().get(0);manaAbility.setActivatingPlayer(player);
++            var params=AbilityKey.mapFromAffected(source);params.put(AbilityKey.Mana,"R");params.put(AbilityKey.Activator,player);params.put(AbilityKey.AbilityMana,manaAbility);
++            var full=handler.getReplacementList(ReplacementType.ProduceMana,params,ReplacementLayer.Other);
++            Assert.assertEquals(handler.getManaReplacementList(params,sources),full);
++            Assert.assertEquals(full.isEmpty(),source==ring);
++        }
++        var manaAbility=mountain.getManaAbilities().get(0);manaAbility.setActivatingPlayer(player);
++        var params=AbilityKey.mapFromAffected(mountain);params.put(AbilityKey.Mana,"R");params.put(AbilityKey.Activator,player);params.put(AbilityKey.AbilityMana,manaAbility);
++        var re=handler.getManaReplacementList(params,sources).get(0);re.setHasRun(true);
++        Assert.assertTrue(handler.getManaReplacementList(params,sources).isEmpty());re.setHasRun(false);
++        game.getAction().moveToGraveyard(contamination,null);
++        Assert.assertTrue(handler.getManaReplacementList(params,sources).isEmpty());
++        Assert.assertTrue(handler.getManaReplacementSources().contains(contamination));
++    }
++    @Test public void cachedValiditySyntaxStillReadsCurrentState() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);var opponent=game.getPlayers().get(1);
++        Card host=addCard("Grizzly Bears",player);
++        for(int i=0;i<10;i++) {
++            Assert.assertTrue(host.isValid("Creature.YouCtrl",player,host,null));
++            Assert.assertFalse(host.isValid("Creature.YouCtrl",opponent,host,null));
++            Assert.assertFalse(host.isValid("!Creature.YouCtrl",player,host,null));
++            Assert.assertTrue(host.isValid("!Creature.YouCtrl",opponent,host,null));
++        }
++        Assert.assertFalse(host.isValid("Card.IsCommander",player,host,null));host.setCommander(true);
++        Assert.assertTrue(host.isValid("Card.IsCommander",player,host,null));host.setCommander(false);
++        Assert.assertFalse(host.isValid("Card.IsCommander",player,host,null));
++        Assert.assertFalse(host.isValid("Creature.withFlying",player,host,null));host.addIntrinsicKeyword("Flying");
++        Assert.assertTrue(host.isValid("Creature.withFlying",player,host,null));host.removeIntrinsicKeyword(forge.game.keyword.Keyword.FLYING);
++        Assert.assertFalse(host.isValid("Creature.withFlying",player,host,null));
++    }
++    @Test public void uniqueFilteringPreservesOrderAndMutationMembership() {
++        var input=new FCollection<Integer>(List.of(3,1,2,3,4,5,6,7,8,9,10,11,12));
++        var filtered=new FCollection<Integer>(input,n->n!=2);
++        Assert.assertEquals(new ArrayList<>(filtered),List.of(3,1,4,5,6,7,8,9,10,11,12));
++        Assert.assertFalse(filtered.add(3));Assert.assertTrue(filtered.remove(Integer.valueOf(3)));
++        Assert.assertTrue(filtered.add(3));Assert.assertEquals(filtered.getLast(),Integer.valueOf(3));
++        var duplicateInput=new FCollection<Integer>(List.of(2,1,2,3,1),n->n<3);
++        Assert.assertEquals(new ArrayList<>(duplicateInput),List.of(2,1));
++    }
++    @Test public void scopedManaInspectionRechecksFlagsAndInvalidatesOnNewEffects() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card mountain=addCard("Mountain",player),host=addCard("Grizzly Bears",player);
++        var handler=game.getReplacementHandler();var ability=mountain.getManaAbilities().get(0);ability.setActivatingPlayer(player);
++        var params=AbilityKey.mapFromAffected(mountain);params.put(AbilityKey.Mana,"R");params.put(AbilityKey.Activator,player);params.put(AbilityKey.AbilityMana,ability);
++        try(var scope=handler.beginReadOnlyManaInspection()) {
++            Assert.assertTrue(handler.getReplacementList(ReplacementType.ProduceMana,params,ReplacementLayer.Other).isEmpty());
++            var effect=forge.game.replacement.ReplacementHandler.parseReplacement("Event$ ProduceMana | ActiveZones$ Battlefield | ValidCard$ Land | Prevent$ True",host,false,null);
++            host.addReplacementEffect(effect);
++            Assert.assertTrue(handler.getReplacementList(ReplacementType.ProduceMana,params,ReplacementLayer.Other).contains(effect));
++            effect.setHasRun(true);Assert.assertTrue(handler.getReplacementList(ReplacementType.ProduceMana,params,ReplacementLayer.Other).isEmpty());effect.setHasRun(false);
++            try(var nested=handler.beginReadOnlyManaInspection()) {
++                Assert.assertTrue(handler.getReplacementList(ReplacementType.ProduceMana,params,ReplacementLayer.Other).contains(effect));
++            }
++        }
++        game.getAction().moveToGraveyard(host,null);
++        try(var scope=handler.beginReadOnlyManaInspection()) {
++            Assert.assertTrue(handler.getReplacementList(ReplacementType.ProduceMana,params,ReplacementLayer.Other).isEmpty());
++        }
++    }
++
+ }

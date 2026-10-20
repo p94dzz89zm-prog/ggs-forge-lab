@@ -1,0 +1,42 @@
+--- a/forge-game/src/main/java/forge/game/staticability/StackCandidateEligibility.java
++++ b/forge-game/src/main/java/forge/game/staticability/StackCandidateEligibility.java
+@@ -125,7 +125,7 @@
+     }
+     private static Prediction inspect(Card candidate,Player activator){
+         if(candidate.isLKI())return new Prediction(false,"lki-candidate");
+-        if(candidate.getController()!=activator)return new Prediction(false,"borrowed-candidate");
++        if(candidate.getController()!=activator&&candidate.getType().hasCreatureType("Assassin"))return new Prediction(false,"borrowed-candidate");
+         // Existing nonintrinsic keyword spells need not have come from a presently visible stack grant.
+         for(var keyword:candidate.getUnhiddenKeywords())if(!keyword.isIntrinsic())return new Prediction(false,"extrinsic-candidate-keyword");
+         List<StaticAbility> grants=new ArrayList<>();Set<String> hazards=new TreeSet<>();
+--- a/forge-gui-desktop/src/test/java/forge/ai/StackCandidateEligibilityTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/StackCandidateEligibilityTest.java
+@@ -191,10 +191,10 @@
+         var game=initAndCreateGame();var p=game.getPlayers().get(0);var other=game.getPlayers().get(1);
+         addCard("Ezio Auditore da Firenze",p);
+         Card bear=hand("Grizzly Bears",p),assassin=hand("Basim Ibn Ishaq",p),opposing=hand("Basim Ibn Ishaq",other);
+-        compareOriginal(bear,p);compareOriginal(assassin,p);compareOriginal(opposing,other);compareOriginal(opposing,p);
++        compareOriginal(bear,p);compareOriginal(bear,other);compareOriginal(assassin,p);compareOriginal(opposing,other);compareOriginal(opposing,p);
+         Card changer=addCard("Grizzly Bears",p);
+         changer.addStaticAbility("Mode$ Continuous | Affected$ Card.YouCtrl | AffectedZone$ Stack | AddType$ Assassin");
+-        compareOriginal(bear,p);
++        compareOriginal(bear,p);compareOriginal(bear,other);
+     }
+     private void compareOriginal(Card card,forge.game.player.Player player){
+         var sa=card.getFirstSpellAbility();sa.setActivatingPlayer(player);
+@@ -205,6 +205,15 @@
+             System.clearProperty("dragonmind.disableStackCandidateEligibility");
+             Assert.assertEquals(signature(forge.game.GameActionUtil.getAlternativeCosts(sa,player,false)),expected);
+         }finally{if(previous==null)System.clearProperty("dragonmind.disableStackCandidateEligibility");else System.setProperty("dragonmind.disableStackCandidateEligibility",previous);}
++    }
++    @Test public void borrowedNonAssassinExclusionKeepsTypeChangingFallback(){
++        var game=initAndCreateGame();var p=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        addCard("Ezio Auditore da Firenze",p);Card candidate=hand("Grizzly Bears",other);
++        Assert.assertTrue(StackCandidateEligibility.predict(candidate,p).skip());
++        compareOriginal(candidate,p);
++        candidate.addStaticAbility("Mode$ Continuous | EffectZone$ Stack | AffectedDefined$ Self | AddType$ Assassin");
++        Assert.assertFalse(StackCandidateEligibility.predict(candidate,p).skip());
++        compareOriginal(candidate,p);
+     }
+     @Test public void metadataScopesReleaseReferencesOnNestedAndExceptionalExit()throws Exception{
+         var game=initAndCreateGame();var p=game.getPlayers().get(0);addCard("Ezio Auditore da Firenze",p);Card candidate=hand("Grizzly Bears",p);

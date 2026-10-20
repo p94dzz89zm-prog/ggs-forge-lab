@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+*.jar
+forge-installed/
+
+learning-runs/**/evidence*.zip
+
+ci-results/
+
+# Runtime inputs and evidence live outside the source-only recovery tree.
+*.jsonl
+*.jsonl.*
+*.log
+*.log.*
+*.sqlite*
+*.db
+*.dck
+*.zip
+*.bundle
+forge-fork/evidence/
+forge-fork/validation/
+results/
+learning-runs/
+performance/
+decks/
+baselines/
