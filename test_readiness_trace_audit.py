@@ -38,6 +38,21 @@ class ReadinessTraceAuditTests(unittest.TestCase):
         rows = copy.deepcopy(self.rows);rows[7]['priority'] = 1
         with self.assertRaises(ValueError):audit_rows(rows)
 
+    def test_zero_toughness_only_rejected_at_settled_boundary(self):
+        rows = copy.deepcopy(self.rows)
+        card = dict(creature=True, phased_out=False, toughness=0, indestructible=True)
+        rows[1]['players'] = [dict(battlefield=[card])]
+        self.assertTrue(audit_rows(rows)['protocol_verified'])
+        rows[6]['players'] = [dict(battlefield=[card])]
+        with self.assertRaises(ValueError):audit_rows(rows)
+
+    def test_phased_out_or_noncreature_zero_toughness_not_sba_failure(self):
+        for card in (dict(creature=True, phased_out=True, toughness=0),
+                     dict(creature=False, phased_out=False, toughness=0)):
+            rows = copy.deepcopy(self.rows)
+            rows[6]['players'] = rows[7]['players'] = [dict(battlefield=[card])]
+            self.assertTrue(audit_rows(rows)['protocol_verified'])
+
     def test_no_overlapping_or_duplicate_priority(self):
         for index, kind in ((2, 'readiness_enter'), (8, 'priority_offer')):
             rows = copy.deepcopy(self.rows);rows[index]['kind'] = kind
@@ -46,6 +61,13 @@ class ReadinessTraceAuditTests(unittest.TestCase):
     def test_partial_and_post_terminal_streams_rejected(self):
         with self.assertRaises(ValueError):audit_rows(self.rows[:-1])
         with self.assertRaises(ValueError):audit_rows(self.rows + [self.rows[0]])
+
+    def test_explicit_prefix_inspection_cannot_certify_completion(self):
+        for rows in (self.rows[:-1], self.rows[:3], self.rows):
+            result = audit_rows(rows, require_complete=False)
+            self.assertFalse(result['protocol_verified'])
+            self.assertTrue(result['prefix_protocol_checked'])
+            self.assertFalse(result['rules_approved'])
 
     def test_typed_sequence_and_result_required(self):
         for field, value in (('sequence', True), ('sequence', 1.0), ('result', 0), ('format', True)):

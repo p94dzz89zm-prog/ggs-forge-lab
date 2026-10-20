@@ -5,6 +5,18 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Natural readiness diagnostic: interrupted, not approved
+
+One independently allocated native four-player Commander attempt reached turn64
+and timed out at180engine seconds. Neither engine/readiness stream is sealed;
+two engine calls remain open. Prefix-only audit checks360 mana cost/pool
+transitions,7 public mana announcements,3262 readiness/action boundaries and
+44524 repeated current-creature zero-toughness observations at settled snapshots.
+No complete-game/integrity certificate, win/loss comparison or training update.
+281 Python tests pass. See NATURAL_READINESS_VALIDATION.md for actual scope,
+input-provenance gaps and the private evidence boundary. Stage48 untouched;
+Stage47 remains at466 verified choices. No new natural complete game approved.
+
 ## Causal readiness capture overlay
 
 Default-off native overlay captures readiness loop/SBA/trigger returns and the
