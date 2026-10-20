@@ -14,6 +14,11 @@ snapshots report explicit gaps. All259 Python tests pass. Read-only inspection
 of the sealed Signet fixture verifies2 cost and2 pool transitions. No gameplay,
 training or whole-game approval. See REFEREE_FOUNDATIONS_VALIDATION.md.
 
+Read-only archived full-game audit: original writer hash/count checked over
+615764572bytes/149802records.157 cost transitions pass; all157 historical pool
+transitions lack after-snapshots and report gaps, not passes.5 failed attempts
+and240 unencoded PlayerView values remain. No evidence rewritten or reexecuted.
+
 Stage48 ownership remains unresolved: ledger194 has no stage-specific owner,
 heartbeat or release; no local collector was observed. Its513-choice report is
 still provisional and its prefix referee stream is partial/in-progress. Do not

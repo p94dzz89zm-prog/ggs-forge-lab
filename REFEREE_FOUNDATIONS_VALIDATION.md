@@ -59,6 +59,23 @@ test_referee_tape and test_mana_unit_audit: 28 tests passed.
 The added regression modules include the malformed-ID and retained-mana cases;
 the existing successful-payment controls remain unchanged.
 
+## Archived natural-game audit
+
+A read-only streaming audit of the previously saved full-game tape verified
+its archive manifest digest and the tape writer's original615764572-byte digest
+and record count. The259-test source inspected149802 records/68425 paired calls,
+one initial state and four registered players. All157 recorded actual mana
+cost transitions pass, with5 failed payment attempts retained separately.
+
+None of those157 older payments records a post-payment mana-pool snapshot.
+The new checker therefore reports157 explicit pool-transition gaps and zero
+pool-transition passes for this tape. It does not infer removal from a reduced
+cost, copy values from a replay, or rewrite historical evidence. The tape also
+retains240 unencoded PlayerView values. Current recorder source already emits
+post-payment pool snapshots; the separate sealed fixture proves that path for
+two payments, not retroactively for the old game. Full rules approval and
+training admission remain false. No new game or reexecution occurred.
+
 ## Dashboard
 
 | Metric | Verified status |
@@ -67,6 +84,7 @@ the existing successful-payment controls remain unchanged.
 | Stage48 | Reserved; 513 locally reported choices remain uncheckpointed |
 | Independent additional checks | Typed call causality; exact mana pool removal |
 | Existing sealed fixture inspected | 127 records; 2 cost transitions and 2 pool transitions pass; no gaps |
+| Archived natural-game payment audit | 157 cost transitions pass; all157 pool transitions explicitly uncovered by missing historical snapshots |
 | Complete rules-approved games | 0 |
 | New games / training / pilot promotions | 0 / 0 / 0 |
 | Card implementation coverage | Not established by this work; distinct from indexing and replay contracts |
