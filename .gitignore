@@ -1,8 +1,0 @@
-__pycache__/
-*.pyc
-*.jar
-forge-installed/
-
-learning-runs/**/evidence*.zip
-
-ci-results/

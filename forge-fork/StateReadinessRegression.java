@@ -38,6 +38,8 @@ public class StateReadinessRegression extends AITest {
         require(bear.getNetToughness() == 2 && myr.getNetToughness() == 1 && zero.getNetToughness() == 0,
                 "Fixture characteristics differ");
         require(myr.hasKeyword("Indestructible") && zero.hasKeyword("Indestructible"), "Missing indestructible control");
+        if (System.getProperty("dragonmind.readinessTrace") != null)
+            Class.forName("forge.ai.bridge.ReadinessTrace").getMethod("begin", Game.class).invoke(null, game);
 
         // Invoke the same native readiness routine used before controller priority.
         Method ready = PhaseHandler.class.getDeclaredMethod("checkStateBasedEffects");
@@ -59,6 +61,8 @@ public class StateReadinessRegression extends AITest {
                 "Resolved token ownership/controller or stack differs");
         require(Boolean.FALSE.equals(ready.invoke(game.getPhaseHandler())) && game.getStack().isEmpty(),
                 "Post-resolution readiness not stable");
+        if (System.getProperty("dragonmind.readinessTrace") != null)
+            Class.forName("forge.ai.bridge.ReadinessTrace").getMethod("finish", Game.class).invoke(null, game);
         System.out.println("PASS StateReadinessRegression: lethal damage, indestructible, zero toughness, death trigger staging, deferred resolution, token ownership, stable readiness");
         System.out.println("SCOPE native constructed four-player fixture; no complete game or independent global priority approval");
         System.exit(0);
