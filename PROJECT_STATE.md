@@ -7,6 +7,19 @@ checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
 ## Cultivate basic-land choices and reveal provenance reconstructed
 
+Stage44 follow-up: conditional contracts1787/1985,450 consecutive original
+choices,953 actual engine RNG requests and215 canonical transcript lines agree.
+Cultivate's remembered choices require actual root/subability object identity,
+the preceding selected IDs and real remembered/library membership. Native
+resolution, not copied outcomes, moves one land tapped to battlefield and the
+other to hand, then shuffles/cleans up. Actual four-player resolution and invalid
+remembered-card controls pass; affected encoder controls reject changed domains,
+owners, definitions and effect boundaries. Fixture is resolution-only, not a
+fully cast complete game; stage42 separately tested actual casting/payment.
+0 complete decision replays or independent whole-game approvals/training.
+Next450 is an activated ability selection after Misty Rainforest enters.
+198 unsupported roots and independent full-state/rules/terminal audit remain.
+
 Conditional support1785/1985;431 consecutive original choices,868 validated
 engine RNG requests and206 canonical transcript lines agree. The two recorded
 Cultivate basic-land choices execute against actual legal Library cards.

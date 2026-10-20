@@ -168,6 +168,24 @@ public final class DecisionReplay {
     long token=EngineEvidence.enter(hook,receiver,args);combat.addAttacker(attacker,defender);if(!forge.game.combat.CombatUtil.validateAttackers(combat)){combat.clearAttackers();throw new IllegalStateException("Attack restrictions/requirements violated");}EngineEvidence.leave(token,null);consumed++;return null;
    }
    if(emptySearch){
+    if(row.get("decision_type").getAsString().equals("cultivate_remembered_choice")){
+     Player player=controller.getPlayer();
+     if(args.length!=8||!Objects.equals(args[1],List.of(ZoneType.Library))||!(args[2] instanceof SpellAbility ability)||!(args[3] instanceof CardCollection offered)||args[4]!=null||!Boolean.FALSE.equals(args[6])||args[7]!=player||player.hasLost()||ability.getActivatingPlayer()!=player||!ability.getHostCard().isInZone(ZoneType.Stack)||!Objects.equals(args[5],row.get("title").getAsString()))throw new IllegalStateException("Unsupported Cultivate remembered context");
+     SpellAbility root=ability.getRootAbility();boolean battlefield=args[0]==ZoneType.Battlefield;
+     if(!cultivateChain(root)||!cultivateSelections.containsKey(root)||(battlefield?root.getSubAbility():root.getSubAbility().getSubAbility())!=ability||(!battlefield&&args[0]!=ZoneType.Hand)||!row.get("destination").getAsString().equals(String.valueOf(args[0]))||!Objects.equals(args[5],ability.getParam("SelectPrompt")))throw new IllegalStateException("Cultivate native subability provenance differs");
+     JsonObject parameters=new JsonObject();ability.getMapParams().forEach(parameters::addProperty);String original=row.get("source_ability").getAsString();
+     if(!original.startsWith(ability.getHostCard().getId()+":")||!parameters.equals(row.get("ability_parameters"))||!row.get("ability_api").getAsString().equals("ChangeZone"))throw new IllegalStateException("Cultivate remembered definition differs");
+     TreeSet<Integer> remembered=new TreeSet<>();for(Object object:root.getHostCard().getRemembered()){if(!(object instanceof Card card)||card.getOwner()!=player||!card.getType().isBasicLand()||!remembered.add(card.getId()))throw new IllegalStateException("Cultivate remembered provenance differs");}
+     if(!remembered.equals(new TreeSet<>(cultivateSelections.get(root))))throw new IllegalStateException("Cultivate remembered selections differ");
+     TreeMap<Integer,Card> live=new TreeMap<>();for(Card card:offered)if(!remembered.contains(card.getId())||!card.isInZone(ZoneType.Library)||card.getOwner()!=player||!card.getType().isBasicLand()||live.put(card.getId(),card)!=null)throw new IllegalStateException("Illegal Cultivate remembered inventory");
+     TreeSet<Integer> eligible=new TreeSet<>();for(Card card:player.getCardsIn(ZoneType.Library))if(remembered.contains(card.getId()))eligible.add(card.getId());JsonArray ids=new JsonArray();live.keySet().forEach(ids::add);
+     if(!live.keySet().equals(eligible)||!ids.equals(row.get("available_card_ids")))throw new IllegalStateException("Cultivate remembered domain differs");
+     Card selected=live.get(Math.toIntExact(integer(row.get("selected_card_id"))));if(selected==null)throw new IllegalStateException("Unavailable Cultivate remembered card");
+     String previous=selectedAbilityBindings.putIfAbsent(original,source(ability));if(previous!=null&&!previous.equals(source(ability)))throw new IllegalStateException("Ambiguous Cultivate native subability");
+     // Return a legal live choice only. Native ChangeZoneEffect performs moves,
+     // tapping, cleanup and shuffle; none of those outcomes are copied here.
+     return complete(hook,receiver,args,selected);
+    }
     if(row.get("decision_type").getAsString().equals("cultivate_library_choice")){
      Player player=controller.getPlayer();
      if(args.length!=8||args[0]!=ZoneType.Library||!Objects.equals(args[1],List.of(ZoneType.Library))||!(args[2] instanceof SpellAbility ability)||!(args[3] instanceof CardCollection offered)||!Boolean.TRUE.equals(args[6])||args[7]!=player||player.hasLost()||ability.getActivatingPlayer()!=player||!ability.getHostCard().isInZone(ZoneType.Stack)||!cultivateChain(ability)||!Objects.equals(args[5],row.get("title").getAsString()))throw new IllegalStateException("Unsupported Cultivate library context");

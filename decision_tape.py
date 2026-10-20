@@ -35,6 +35,8 @@ PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_AT
 
 RAMPANT_PARAMETERS = dict(Origin='Library',ChangeTypeDesc='basic land',Destination='Battlefield',ChangeType='Land.Basic',SpellDescription='Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.',ChangeNum='1',SP='ChangeZone',Tapped='True',StackDescription='Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.')
 CULTIVATE_PARAMETERS=dict(Origin='Library',Destination='Library',Shuffle='False',RememberChanged='True',ChangeTypeDesc='basic land',ChangeType='Land.Basic',SpellDescription='Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.',ChangeNum='2',SubAbility='DBChangeZone1',SP='ChangeZone',Reveal='True',StackDescription='SpellDescription')
+CULTIVATE_BATTLEFIELD=dict(DB='ChangeZone',Origin='Library',Destination='Battlefield',ChangeType='Land.IsRemembered',ChangeNum='1',Mandatory='True',NoLooking='True',SelectPrompt='Select a card to put onto the battlefield',Tapped='True',Shuffle='False',SubAbility='DBChangeZone2',StackDescription='None')
+CULTIVATE_HAND=dict(DB='ChangeZone',Origin='Library',Destination='Hand',ChangeType='Land.IsRemembered',Mandatory='True',NoLooking='True',SelectPrompt='Select a card to put into your hand',StackDescription='None',SubAbility='DBCleanup')
 
 def cultivate(ability):
     return ability.get('api')=='ChangeZone' and ability.get('source',{}).get('name')=='Cultivate' and ability.get('parameters')==CULTIVATE_PARAMETERS
@@ -97,6 +99,16 @@ def encode(entry, returned, index, call_line, return_line):
     if hook.endswith(ZONE_EMPTY):
         row['reason']='hidden_search_domain_reveal_or_choice_unsupported'
         after=returned.get('arguments_after',[])
+        if len(args)==8 and len(after)==8 and args[:3]==after[:3] and args[4:]==after[4:] and args[1]==['Library'] and args[4] is None and args[6] is False and entry.get('replay_search_effect_calls',0)==0:
+            ability=args[2];offered=args[3];chosen=returned['result'];owner=row['actor_id'];params=ability.get('parameters');destination=args[0]
+            expected=CULTIVATE_BATTLEFIELD if destination=='Battlefield' else CULTIVATE_HAND if destination=='Hand' else None
+            if (expected is not None and params==expected and ability.get('api')=='ChangeZone' and ability.get('source',{}).get('name')=='Cultivate' and ability['source'].get('zone')=='Stack'
+                and args[5]==expected['SelectPrompt'] and args[7].get('player_id')==owner and args[7].get('lost') is False and offered and isinstance(chosen,dict)
+                and all(card['zone']=='Library' and card['owner_id']==owner and card['name'] in ('Plains','Island','Swamp','Mountain','Forest','Wastes') for card in offered)):
+                ids=sorted(card['card_id'] for card in offered)
+                if len(ids)==len(set(ids)) and ids==sorted(card['card_id'] for card in after[3]) and chosen.get('card_id') in ids:
+                    row.update(kind='decision',decision_type='cultivate_remembered_choice',source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),ability_api=ability['api'],ability_parameters=params,available_card_ids=ids,selected_card_id=chosen['card_id'],destination=destination,title=args[5],random_scope='Reviewed choice-inventory selector only; actual private look preserved; no effect calls')
+                    row.pop('reason',None);return row
         if len(args)==8 and len(after)==8 and args[:3]==after[:3] and args[4:]==after[4:] and args[0:2]==['Library',['Library']] and cultivate(args[2]) and args[6] is True and entry.get('replay_search_effect_calls',0)==0:
             offered=args[3];chosen=returned['result'];reveal=args[4];owner=row['actor_id'];match=re.fullmatch(r'Select a card from your library \(([12]) / 2\)',args[5])
             if (match and args[7].get('player_id')==owner and args[7].get('lost') is False and offered
