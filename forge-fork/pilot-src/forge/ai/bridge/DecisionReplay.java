@@ -36,6 +36,10 @@ public final class DecisionReplay {
  private static SpellAbility activeTriggerPayment;
  private static int triggerPayments;
  private static final Set<SpellAbility> boundTriggerInnerAbilities=Collections.newSetFromMap(new IdentityHashMap<>());
+ private record ReplacementBinding(long choiceIndex,JsonObject identity){}
+ private static final Map<ReplacementEffect,ReplacementBinding> selectedReplacements=new IdentityHashMap<>();
+ private static final Map<SpellAbility,JsonObject> replacementSourceEvidence=new IdentityHashMap<>();
+ public static JsonObject replacementSourceEvidence(SpellAbility ability){JsonObject row=replacementSourceEvidence.get(ability);return row==null?null:row.deepCopy();}
  private static String produced(SpellAbility ability,JsonObject step){return step.has("color_choice")?step.getAsJsonObject("color_choice").get("selected_color").getAsString():ability.getParam("Produced");}
  private DecisionReplay(){}
  public static boolean enabled(){return System.getProperty("forge.decision.replayTape")!=null;}
@@ -104,7 +108,18 @@ public final class DecisionReplay {
   JsonObject row=new JsonObject();row.addProperty("trait_type",effect.getClass().getName());row.addProperty("source_card_id",effect.getHostCard().getId());JsonObject params=new JsonObject();effect.getMapParams().forEach(params::addProperty);row.add("parameters",params);return row;
  }
  private static Object complete(String hook,Object receiver,Object[] args,Object result){long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,result);consumed++;return result;}
- private static void bindAbility(JsonObject row,SpellAbility ability){JsonElement expected=row.get("source_ability");if(expected==null)throw new IllegalStateException("Missing effect source identity");String id=expected.isJsonNull()?null:expected.getAsString();if(!Objects.equals(selectedAbilityBindings.getOrDefault(id,id),source(ability))){JsonObject params=new JsonObject();if(ability!=null)ability.getMapParams().forEach(params::addProperty);if(ability==null||!boundTriggerInnerAbilities.contains(ability)||id==null||!id.startsWith(ability.getHostCard().getId()+":")||!row.has("ability_parameters")||!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Effect source ability diverged");String prior=selectedAbilityBindings.putIfAbsent(id,source(ability));if(prior!=null&&!prior.equals(source(ability)))throw new IllegalStateException("Ambiguous underlying trigger identity");}}
+ private static void bindAbility(JsonObject row,SpellAbility ability){
+  JsonElement expected=row.get("source_ability");if(expected==null)throw new IllegalStateException("Missing effect source identity");String id=expected.isJsonNull()?null:expected.getAsString();
+  if(Objects.equals(selectedAbilityBindings.getOrDefault(id,id),source(ability)))return;
+  JsonObject params=new JsonObject();if(ability!=null)ability.getMapParams().forEach(params::addProperty);
+  if(ability==null||id==null||!id.startsWith(ability.getHostCard().getId()+":")||!row.has("ability_parameters")||!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Effect source ability diverged");
+  if(!boundTriggerInnerAbilities.contains(ability)){
+   ReplacementEffect effect=ability.getReplacementEffect();ReplacementBinding binding=selectedReplacements.get(effect);Card host=ability.getHostCard();
+   if(binding==null||binding.choiceIndex!=consumed-1||effect.getOverridingAbility()!=ability||effect.getHostCard()!=host||!effect.hasRun()||!ability.isReplacementAbility()||!host.getName().equals("Hidden Hideout")||!String.valueOf(ability.getApi()).equals("Tap")||!ability.getMapParams().equals(Map.of("DB","Tap","Defined","Self","ETB","True"))||!effect.getMapParams().equals(Map.of("Event","Moved","ValidCard","Card.Self","Destination","Battlefield","ReplacementResult","Updated","ReplaceWith","ETBTapped","Description","This land enters tapped."))||!(ability.getReplacingObject(forge.game.ability.AbilityKey.Card) instanceof Card affected)||affected.getId()!=host.getId()||affected.getGame()!=host.getGame()||!traitIdentity(effect).equals(binding.identity))throw new IllegalStateException("Effect source ability diverged; no exact selected replacement instance");
+   JsonObject evidence=new JsonObject();evidence.addProperty("original_source_ability",id);evidence.addProperty("live_source_ability",source(ability));evidence.addProperty("replacement_choice_index",binding.choiceIndex);evidence.add("selected_effect",binding.identity.deepCopy());evidence.addProperty("actual_overriding_instance_equal",true);evidence.addProperty("affected_card_id",affected.getId());replacementSourceEvidence.put(ability,evidence);selectedReplacements.remove(effect);
+  }
+  String prior=selectedAbilityBindings.putIfAbsent(id,source(ability));if(prior!=null&&!prior.equals(source(ability)))throw new IllegalStateException("Ambiguous causal ability identity");
+ }
  public static synchronized Object invoke(String hook,Object receiver,Object[] args) {
   if(failed||completionVerified)throw new IllegalStateException("Decision replay already failed or completed");
   if(activeTriggerPayment!=null&&hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z")){
@@ -313,6 +328,7 @@ public final class DecisionReplay {
     if(!offered.equals(row.get("available_effects")))throw new IllegalStateException("Replacement legal domain diverged");
     ReplacementEffect selected=null;for(ReplacementEffect effect:live)if(traitIdentity(effect).equals(row.get("selected_effect")))selected=effect;
     if(selected==null||selected.hasRun()||!selected.requirementsCheck(controller.getPlayer().getGame()))throw new IllegalStateException("Illegal recorded replacement choice");
+    selectedReplacements.put(selected,new ReplacementBinding(consumed,traitIdentity(selected)));
     return complete(hook,receiver,args,selected);
    }
    if(counter){

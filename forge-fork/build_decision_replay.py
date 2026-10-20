@@ -46,6 +46,8 @@ def main():
         changes['forge/ai/bridge/DecisionReplay.class'] = (classes / 'forge/ai/bridge/DecisionReplay.class').read_bytes()
         changes['forge/ai/bridge/EvidenceRandom.class'] = (classes / 'forge/ai/bridge/EvidenceRandom.class').read_bytes()
         changes['forge/ai/bridge/ReplayCardIdentities.class'] = (classes / 'forge/ai/bridge/ReplayCardIdentities.class').read_bytes()
+        for path in classes.glob('forge/ai/bridge/DecisionReplay$*.class'):
+            changes['forge/ai/bridge/'+path.name] = path.read_bytes()
         for path in classes.glob('forge/ai/bridge/EngineEvidence*.class'):
             changes['forge/ai/bridge/'+path.name] = path.read_bytes()
         staged = root / 'engine.jar'
@@ -54,6 +56,8 @@ def main():
                 new.writestr(entry, changes.get(entry.filename, old.read(entry.filename)))
             new.writestr('forge/ai/bridge/DecisionReplay.class', changes['forge/ai/bridge/DecisionReplay.class'])
             new.writestr('forge/ai/bridge/ReplayCardIdentities.class', changes['forge/ai/bridge/ReplayCardIdentities.class'])
+            for name,data in changes.items():
+                if name.startswith('forge/ai/bridge/DecisionReplay$') and name not in old.namelist():new.writestr(name,data)
         publish(staged, args.output)
         hooks = (overlay / 'decision-hooks.txt').read_text()
         args.output.with_suffix('.hooks.txt').write_text(hooks)

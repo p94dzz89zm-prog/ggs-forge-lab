@@ -214,6 +214,8 @@ public final class EngineEvidence {
   if(s.getManaPart()!=null){o.addProperty("mana_produced_spec",s.getManaPart().getOrigProduced());o.addProperty("mana_restrictions",s.getManaPart().getManaRestrictions());o.addProperty("mana_extra_restrictions",s.getManaPart().getExtraManaRestriction());}
   JsonArray alts=new JsonArray();for(AlternativeCost a:AlternativeCost.values())if(s.isAlternativeCost(a))alts.add(a.name());o.add("alternative_costs",alts);JsonArray opts=new JsonArray();for(OptionalCost a:s.getOptionalCosts())opts.add(a.name());o.add("optional_costs",opts);o.add("targets",value(s.getUniqueTargets(),1));o.add("paying_mana",value(s.getPayingMana(),1));
   o.add("direct_targets",value(s.getTargets(),1));o.addProperty("legacy_targets_basis","SpellAbility.getUniqueTargets traverses parents; direct_targets records this ability");
+  if(s.getReplacementEffect()!=null){o.add("replacement_effect",value(s.getReplacementEffect(),1));o.addProperty("replacement_overriding_instance_equal",s.getReplacementEffect().getOverridingAbility()==s);o.add("replacement_affected",value(s.getReplacingObject(forge.game.ability.AbilityKey.Card),1));}
+  JsonObject replacementBinding=DecisionReplay.replacementSourceEvidence(s);if(replacementBinding!=null)o.add("causal_replacement_binding",replacementBinding);
   if(s instanceof forge.game.trigger.WrappedAbility wrapper){o.addProperty("wrapper",true);o.add("wrapped_ability",ability(wrapper.getWrappedAbility()));}
   if(s.getHostCard().isCommander()&&s.getActivatingPlayer()!=null)o.addProperty("prior_commander_casts",s.getActivatingPlayer().getCommanderCast(s.getHostCard()));return o;
  }

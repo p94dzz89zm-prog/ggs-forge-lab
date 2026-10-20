@@ -5,6 +5,33 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Hidden Hideout replacement ability provenance reconstructed
+
+Conditional coverage remains1781/1985;423 consecutive original choices now
+complete,868 validated engine RNG requests and203 canonical transcript lines
+agree. Hidden Hideout155 enters tapped through native replacement resolution.
+Its original1990/live1459 ability correspondence requires the immediately
+preceding selected replacement object, exact live overriding-ability reference,
+hasRun, host, affected-card identity and the pinned ETB Tap/Self definition.
+Matching parameters alone cannot install a binding. The recorder independently
+captures actual replacement trait, overriding reference equality and affected
+card, plus an explicit original/live/choice-index binding in private evidence.
+
+Three actual four-player valid/missing-selection/wrong-instance controls pass.
+All3 initial fixtures mistakenly encoded ETB True as a JSON boolean rather than
+the engine's string and failed before exercising the guard; corrected fixtures
+pass and all failed attempts are retained. The original diagnostic uses the
+same driver inputs as stage40, not a recaptured or edited game. Bytecode review
+confirms native executeReplacement uses ensureAbility without copying, marks
+the selected object hasRun, and supplies its replacement reference and affected
+card to the live ability. No exact-ID counters are forced.
+
+Next423: Cultivate selection. Its three-part search/reveal/tapped-land/hand
+sequence is not yet supported;204 unsupported roots remain.0 complete decision
+replays or independently approved games. No new natural game/training/pilot
+comparison; frozen baseline and original sealed archives unchanged. Dashboard
+owner-private stage40 publication succeeded; latest423 refresh follows saving.
+
 ## Frodo single-attack declaration reconstructed
 
 Conditional contracts1781/1985;406 completed consecutive original choices
