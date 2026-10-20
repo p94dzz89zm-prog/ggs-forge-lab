@@ -13,9 +13,14 @@ Stage47 remains466 matching replayed choices. Stage48 has an unresolved allocate
 reservation and must remain untouched. A missing local process does not release
 ownership. Check the authoritative private ledger before compute or seeds.
 
+Native Pilot A overlay and deterministic four-controller integration fixture now
+pass; two399-row engine tapes are byte-identical,2 actual mana cost/pool checks
+pass with0 gaps, and default-off behavior is preserved. See
+NATIVE_VALIDATION_PILOT.md for delegated choices and limits. Native game0.
+
 Experimental Python Pilot A provides deterministic interaction coverage. Pilot B
 provides a separate offline fixed scorer with position-evidence gating. Native
-Forge integration is the next implementation step. Neither policy decides game
+Forge integration has begun; combat/targets retain stock assistance. Neither policy decides game
 legality. Native candidate prompts currently need later cost/target validation.
 
 The saved natural diagnostic reached64 turns and timed out at180 engine seconds.

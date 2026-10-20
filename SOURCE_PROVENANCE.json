@@ -77,6 +77,10 @@
       "sha256": "15f5f93a6ae1c8750e9c6fff3bf355f9a8375288491c205e72d8b09f62259c05",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "NATIVE_VALIDATION_PILOT.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "9b515e3dbf5ded17b241826a940e60bbf0be46faf21f256f70c70c01a70757b6"
+    },
     "PILOT_ARCHITECTURES_VALIDATION.md": {
       "original_blob": "527b387e66a74d1f4035fe8d54b1aa38d05ba427",
       "original_sha256": "0b53e80615157ab6c821a0e00dd173e032dbe51356b07d48f026b8e959ad5076",
@@ -91,7 +95,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "a0f7e0a430490b9ea822323badde6929d4b70086033ea1aa24e48976d1d14ab2"
+      "sha256": "bbda4bd6c9a55e4579617d585a344af5e49240ad75611f9c7056a3756bdf4f91"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -917,6 +921,10 @@
       "sha256": "12fc2206ec48597780a32db9225e3f87fbb68723f760d485a6372413ef98254e",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/RulesValidationPilotRegression.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "7ab8ec12b90f405327f5e411aed02168b7bd5d703135a2d9d321e62a2ce01041"
+    },
     "forge-fork/SelectedManaReplayRegression.java": {
       "original_blob": "7dc53490e1a80dc447555301c31a9757fc19e561",
       "original_sha256": "38e3ea1edf6515f2c2035bd9fdd2a34f98412eb213ffe06f0c0b5585741451e0",
@@ -988,6 +996,10 @@
       "original_sha256": "f1bf631fc29d6893f845f0845ce3a0f8e1e45f580599d2fe9559375d2dbdb2cf",
       "sha256": "f1bf631fc29d6893f845f0845ce3a0f8e1e45f580599d2fe9559375d2dbdb2cf",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ValidationPilotInstrumenter.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "8c27290d81a1a108e101f887608a59f643bb7f23dd414ec81542265b9061bf86"
     },
     "forge-fork/WhipManaFreshEvaluation.java": {
       "original_blob": "d3175af3149bb544229d9ce98a2075d6cf512993",
@@ -1276,6 +1288,10 @@
       "original_sha256": "fc0cf27f094944e2e2b431f673a85b0e4b8f5d64ac43e20b9d97695d5193ca63",
       "sha256": "fc0cf27f094944e2e2b431f673a85b0e4b8f5d64ac43e20b9d97695d5193ca63",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_validation_pilot.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "f66e84bfb1e1edbdbabcacc9472833df487297b626f6957853448b11ae2a620d"
     },
     "forge-fork/build_whip_mana.py": {
       "original_blob": "c1f52073b5fb56cb518f0e4423637a9b48d53e04",
@@ -1576,6 +1592,10 @@
       "original_sha256": "627345a8ad609ee4d8c81d775070c89c7d341bc54d4912692230d51d9fce90c2",
       "sha256": "627345a8ad609ee4d8c81d775070c89c7d341bc54d4912692230d51d9fce90c2",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/validation/RulesValidationController.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "3d82b674ec33aceef5cb4b04d9f970b9b6f8716cb4d24c72ee662c044b361744"
     },
     "forge-fork/pilot_duel_smoke.py": {
       "original_blob": "b86ae7e829deb4080cb328960d6c3037a5f53ede",
