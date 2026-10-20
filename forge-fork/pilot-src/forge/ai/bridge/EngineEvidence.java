@@ -215,6 +215,14 @@ public final class EngineEvidence {
   if(s.getManaPart()!=null){o.addProperty("mana_produced_spec",s.getManaPart().getOrigProduced());o.addProperty("mana_restrictions",s.getManaPart().getManaRestrictions());o.addProperty("mana_extra_restrictions",s.getManaPart().getExtraManaRestriction());}
   JsonArray alts=new JsonArray();for(AlternativeCost a:AlternativeCost.values())if(s.isAlternativeCost(a))alts.add(a.name());o.add("alternative_costs",alts);JsonArray opts=new JsonArray();for(OptionalCost a:s.getOptionalCosts())opts.add(a.name());o.add("optional_costs",opts);o.add("targets",value(s.getUniqueTargets(),1));o.add("paying_mana",value(s.getPayingMana(),1));
   o.add("direct_targets",value(s.getTargets(),1));o.addProperty("legacy_targets_basis","SpellAbility.getUniqueTargets traverses parents; direct_targets records this ability");
+  if(!s.getOptionalKeywords().isEmpty()){
+   JsonArray payments=new JsonArray();
+   for(forge.game.keyword.Keyword type:s.getOptionalKeywords())for(forge.game.keyword.KeywordInterface k:s.getHostCard().getKeywords(type)){
+    JsonObject payment=new JsonObject();payment.add("keyword",value(k,1));
+    payment.addProperty("amount",s.getOptionalKeywordAmount(k));payments.add(payment);
+   }
+   o.add("optional_keyword_payments",payments);
+  }
   if(s.getReplacementEffect()!=null){o.add("replacement_effect",value(s.getReplacementEffect(),1));o.addProperty("replacement_overriding_instance_equal",s.getReplacementEffect().getOverridingAbility()==s);o.add("replacement_affected",value(s.getReplacingObject(forge.game.ability.AbilityKey.Card),1));}
   JsonObject replacementBinding=DecisionReplay.replacementSourceEvidence(s);if(replacementBinding!=null)o.add("causal_replacement_binding",replacementBinding);
   if(s instanceof forge.game.trigger.WrappedAbility wrapper){o.addProperty("wrapper",true);o.add("wrapped_ability",ability(wrapper.getWrappedAbility()));}
@@ -232,6 +240,16 @@ public final class EngineEvidence {
   if(v instanceof PlayerView p){JsonObject o=new JsonObject();o.addProperty("view_id",p.getId());o.addProperty("name",p.getName());return o;}
   if(depth>7){JsonObject o=new JsonObject();o.addProperty("unencoded",v.getClass().getName());o.addProperty("reason","depth");return o;}
   if(v instanceof Card c)return card(c);
+  if(v instanceof forge.game.keyword.KeywordInterface k){
+   JsonObject o=new JsonObject();o.addProperty("keyword_type",v.getClass().getName());
+   o.addProperty("keyword",k.getKeyword().name());o.addProperty("original",k.getOriginal());
+   o.add("source",value(k.getHostCard(),depth+1));o.addProperty("intrinsic",k.isIntrinsic());
+   if(k instanceof forge.game.keyword.KeywordWithCostInterface c){
+    o.addProperty("cost_string",c.getCostString());o.addProperty("cost_text",c.getCost().toString());
+    o.add("mana_cost",c.getCost().getCostMana()==null?JsonNull.INSTANCE:value(new ManaCostBeingPaid(c.getCost().getCostMana().getMana()),depth+1));
+   }
+   return o;
+  }
   if(v instanceof Player p){JsonObject o=new JsonObject();o.addProperty("player_id",p.getId());o.addProperty("life",p.getLife());o.addProperty("lost",p.hasLost());return o;}
   if(v instanceof PlayerController c)return value(c.getPlayer(),depth+1);
   if(v instanceof SpellAbility s)return ability(s);

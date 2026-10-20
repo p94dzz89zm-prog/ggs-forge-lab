@@ -29,6 +29,10 @@
       "sha256": "048979d4c6d5a76dd95d2af1eb91d796f0e35edb49b8822a180a8e69cab9b3a9",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "ACTIVATION_KEYWORD_VALIDATION.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "656cb134f7dafda63858319cb2bee60a3ef961e68550f4fb540bf1a2d532b53f"
+    },
     "AGENTS.md": {
       "original_blob": "a75478c76c8c6b0d398bb79983bdde9658efc88f",
       "original_sha256": "802e678142bfa26a220baef4611d6df3ec2976677f59a2a76fa11eca0237d736",
@@ -103,7 +107,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "ca7bb39434d32e5a13998272c58aba9f6b8b8432a14d802e3cebc678ac2d24e1"
+      "sha256": "4eb13007e8e9257f4e0298a59fb92d2e4e7167bf5abab5bf5b7c8666b00c1ae3"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -653,6 +657,10 @@
       "sha256": "436d847126c30d99cdbcbc850c3bf2947a30670c1e115f6736b5fba69b4f82d8",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/EquipmentPaymentRegression.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "e176cd11841b097f08db8e20921a199a7c12493caa2c1c33199e2d1101490cf6"
+    },
     "forge-fork/EvidenceInstrumenter.java": {
       "original_blob": "1e2038f6783ca3d0338cb2980f76603d7e76b7e3",
       "original_sha256": "e80f7417f301a28f3d12321921d332da450869be19c865609bd7e9d72ddfa37d",
@@ -969,6 +977,10 @@
       "sha256": "420734044e5c9898b4cccdf5ab192f5e80b9374b0108be6d480319c659c1d049",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/SquadKeywordRegression.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "9946c22489bb92629373fa4548bcf9afefa2facf22c6930c7aa6a03fb6c1c681"
+    },
     "forge-fork/StateReadinessRegression.java": {
       "original_blob": "7cb1f9feb39560b0fe8e35f961ced81314d45eb1",
       "original_sha256": "28bf3c6fedbd127e7c3cf95c6f0f69ff43606c572f827fe81844a6477bd8ef07",
@@ -1251,6 +1263,10 @@
       "sha256": "d5effe5629f7210094d2d3fd5cea516c62ef870127d3e0770f8ebad5168bc041",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/build_keyword_evidence.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "26bdcb9730fef2463309ef12bccea1701cd9559e71a33dd0e28abd9dcee00963"
+    },
     "forge-fork/build_learned_counter.py": {
       "original_blob": "5c5c743b97156d4a991cf5997b6299ca78f1b4ba",
       "original_sha256": "31b2e229b360f0dfd6173c30031469e32442596128c1f88505cd18267d1be2e9",
@@ -1520,7 +1536,7 @@
     "forge-fork/pilot-src/forge/ai/bridge/EngineEvidence.java": {
       "original_blob": "18b6db6d2a949ae8dc1d6f1f4b46996b23438e0d",
       "original_sha256": "2a0ae219ca1fb07f037dfef9cd31facc7258dd7202a9b850c31173afc5a08ce5",
-      "sha256": "cae5601f98f846599ea5d61ed161c9114908956c1508dd2845c073e1a3603beb",
+      "sha256": "c9eb72506c5cbda90c24fa90b6600fd94a0a75d79f1c214c6cd72115881b42ef",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "forge-fork/pilot-src/forge/ai/bridge/EvidenceRandom.java": {

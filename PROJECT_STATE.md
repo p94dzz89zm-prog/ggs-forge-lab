@@ -54,3 +54,11 @@ Next: reproduce the failed activation minimally, enforce the actual house
 configuration, and close event/independent-audit gaps. Full-game review must cover
 casting, costs, targets, priority, stack, triggers, combat, zones, SBAs, commander
 mechanics and terminal conditions. Scoped prefix checks cannot approve a game.
+
+Keyword follow-up identifies both unencoded values as one Squad choice's
+entry/return. Typed keyword/cost and per-instance optional-payment recording
+now pass native zero/one/two Squad-payment tests and source-removal control:
+22 independent mana transitions, no gaps/unencoded values. The existing399-row
+controller tape remains unchanged;309 Python tests pass. Simple equipment
+controls succeed or refuse reserved sources before execution, so the original
+late equip-payment failure remains unresolved. See ACTIVATION_KEYWORD_VALIDATION.md.
