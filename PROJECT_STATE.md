@@ -798,3 +798,24 @@ commander tax/damage/zone choices, politics, blocking/prevention and responses
 need more evidence. Historical unknown attempts and damaged logs stay quarantined.
 GGS remains the centerpiece; resilience is deck-level insurance. Physical
 Mistblade displacement and land inventory remain unresolved. The ranked
+APEX_RESEARCH_BACKLOG.md treats Whip as a hypothesis, not a proven upgrade.
+
+## Persistence and automation
+
+Use <=15-minute independently resumable stages. Commit public source/tests and
+verify readback; save private evidence and restore saved bytes before closing
+a stage. Stop expensive work on save failure. Never overwrite a successful
+checkpoint or publish private hands, raw logs or models to public GitHub.
+
+GitHub push/PR/manual code jobs have10-minute limits, read-only permissions and
+90-day artifacts; they do not run private training. Check actual execution.
+An enabled task is not continuous compute. Update the guarded ledger and concise
+private state with exact next steps and preserve significant evidence privately.
+
+Dashboard: https://dragonmind-performance.symbols.chatgpt.site .
+Cycle22 and Cycle23 publications succeeded with saved receipts. The dashboard
+shows the quarantined candidate and zero admitted full-game comparisons.
+Verified code CI: run39108781493 (157 Python tests and launcher contracts).
+The private recovery task was updated to the integrity hold; next-run time
+remains unreported, so no continuous/private training claim. Browser visual QA is unavailable; static/data and
+refresh/failure/retry contracts pass.
