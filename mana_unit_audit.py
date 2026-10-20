@@ -5,6 +5,34 @@ import json
 COLORS = {'W':1,'U':2,'B':4,'R':8,'G':16,'C':32}
 
 
+def check_rejected_transition(before, after, pool_before, pool_after):
+    """A refused tryPayCostWithMana unit must not consume resources.
+
+    This is the single-unit API contract, not rollback certification for an
+    entire failed spell or activation. Legacy missing evidence is a gap.
+    """
+    if not isinstance(before, dict) or not isinstance(after, dict):
+        return 'Missing rejected mana cost transition snapshot'
+    if pool_before is None or pool_after is None:
+        return 'Missing rejected mana pool transition snapshot'
+    if not isinstance(pool_before, list) or not isinstance(pool_after, list):
+        raise ValueError('Malformed rejected mana pool transition snapshot')
+    # Preserve multiplicity and every recorded restriction; pool order is not
+    # resource identity. Never treat equal-looking units as a set.
+    def units(pool):
+        for unit in pool:
+            if (not isinstance(unit, dict) or unit.get('color') not in COLORS
+                    or type(unit.get('source_card_id')) is not int
+                    or type(unit.get('snow')) is not bool):
+                raise ValueError('Malformed rejected mana unit snapshot')
+        return Counter(json.dumps(unit, sort_keys=True, allow_nan=False) for unit in pool)
+    if units(pool_before) != units(pool_after):
+        raise ValueError('Rejected mana payment changed the recorded pool')
+    if json.dumps(before, sort_keys=True, allow_nan=False) != json.dumps(after, sort_keys=True, allow_nan=False):
+        raise ValueError('Rejected mana payment changed the unpaid cost')
+    return None
+
+
 def check_pool_transition(before, after, unit):
     """A successful actual unit payment removes exactly that unit (CR118.3a).
 

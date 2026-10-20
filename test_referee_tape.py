@@ -20,6 +20,26 @@ class RefereeTapeTests(unittest.TestCase):
             p=Path(td)/'tape.jsonl';p.write_text(''.join(json.dumps(r)+'\n' for r in rows));return inspect(p)
     def test_payments_are_not_rules_approval(self):
         r=self.check(self.rows);self.assertEqual(r['actual_mana_units_paid'],1);self.assertEqual(r['registered_players'],4);self.assertFalse(r['rules_approved'])
+    def test_rejected_payment_is_checked_without_counting_as_spent(self):
+        rows=copy.deepcopy(self.rows)
+        unit={'color':'C','source_card_id':7,'snow':False}
+        unpaid={'unpaid_shards':['{R}'],'generic':0}
+        rows[2]['arguments'][1]=unpaid
+        rows[2]['mana_context']={'pool':[unit]}
+        rows[3].update(result=False,arguments_after=[{},copy.deepcopy(unpaid),unit,False],mana_pool_after=[unit])
+        report=self.check(rows)
+        self.assertEqual(report['rejected_mana_transition_checks'],1)
+        self.assertEqual(report['failed_mana_unit_attempts'],1)
+        self.assertEqual(report['actual_mana_units_paid'],0)
+        self.assertFalse(report['rules_approved'])
+        rows[3]['mana_pool_after']=[]
+        with self.assertRaises(ValueError):self.check(rows)
+
+    def test_rejected_payment_without_snapshots_stays_unverified(self):
+        rows=copy.deepcopy(self.rows);rows[3]['result']=False
+        report=self.check(rows)
+        self.assertEqual(report['rejected_mana_transition_checks'],0)
+        self.assertTrue(report['rejected_mana_transition_gaps'])
     def test_speculative_and_test_units_do_not_count(self):
         for field in ('speculative','test'):
             rows=copy.deepcopy(self.rows)

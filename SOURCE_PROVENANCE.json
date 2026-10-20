@@ -77,6 +77,10 @@
       "sha256": "15f5f93a6ae1c8750e9c6fff3bf355f9a8375288491c205e72d8b09f62259c05",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "NATIVE_NATURAL_VALIDATION.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "0401c560a014f391518c1bf778221e8915720e57202a08920555f90b91d1aa79"
+    },
     "NATIVE_VALIDATION_PILOT.md": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "9b515e3dbf5ded17b241826a940e60bbf0be46faf21f256f70c70c01a70757b6"
@@ -99,7 +103,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "8e83dfa9c744c781aa70d339ed1ac19ea5f31e650d8c4939f23350d4fabe682c"
+      "sha256": "ca7bb39434d32e5a13998272c58aba9f6b8b8432a14d802e3cebc678ac2d24e1"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -1742,7 +1746,7 @@
     "mana_unit_audit.py": {
       "original_blob": "c00838ccbd96d8d2fe0fd13f48e609f145f147d0",
       "original_sha256": "3ea565a9802c0910b977a693ad4880ca7d5e2dbdfccf210be7383a184b568007",
-      "sha256": "3ea565a9802c0910b977a693ad4880ca7d5e2dbdfccf210be7383a184b568007",
+      "sha256": "3907bb2d8b85aa6e9294f6a1388976c0eb110e92534d1f8cc0682ce24077042b",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "milestone_checkpoint.py": {
@@ -1830,7 +1834,7 @@
     "referee_tape.py": {
       "original_blob": "4d3589cb8809a3b9ca798f09ca18eeefc2343c86",
       "original_sha256": "42c7b0eaf4a29ecfb84045f6fc9eeaf122e0bc24265bfa1e596f31ae2656dfb1",
-      "sha256": "42c7b0eaf4a29ecfb84045f6fc9eeaf122e0bc24265bfa1e596f31ae2656dfb1",
+      "sha256": "1912ab35ce34941408b153af958a1ecd5d067ec5dafab88eae55558c0e59b3a9",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "replay_identity_audit.py": {
@@ -2050,7 +2054,7 @@
     "test_mana_unit_audit.py": {
       "original_blob": "a39a4dffc2e9105596f4c4144c145954113e4ed0",
       "original_sha256": "3b7bb912dafb3c29812509fdb9735c61074ca46680082e79519680f0f04068d3",
-      "sha256": "3b7bb912dafb3c29812509fdb9735c61074ca46680082e79519680f0f04068d3",
+      "sha256": "b11afb50cf05f1e16496080975672a7ed7f1eaed0446adb5c3f922e7e4c94b9e",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "test_milestone_checkpoint.py": {
@@ -2168,7 +2172,7 @@
     "test_referee_tape.py": {
       "original_blob": "4827f0f0b0bdaeb43faad1fe3e03fdfb82b5c54f",
       "original_sha256": "0fdeed401f8bc1c68b3ab5d3cf2427d5b42e14f7c96718234c9371c2ea6d471f",
-      "sha256": "0fdeed401f8bc1c68b3ab5d3cf2427d5b42e14f7c96718234c9371c2ea6d471f",
+      "sha256": "186ce767f63688fd4aa36c24710ad7d865de5d6fb9435bff9b588a634ed13c49",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "test_referee_tape_types.py": {

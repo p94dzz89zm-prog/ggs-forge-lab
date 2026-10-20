@@ -1,10 +1,28 @@
 import unittest
-from mana_unit_audit import check
+from mana_unit_audit import check, check_rejected_transition
 
 
 def cost(*shards):return {'unpaid_shards':list(shards),'generic':shards.count('{1}')}
 
 class ManaUnitAuditTests(unittest.TestCase):
+    def test_rejected_unit_preserves_cost_and_multiset(self):
+        a={'color':'C','source_card_id':9,'snow':False}
+        b={'color':'U','source_card_id':10,'snow':False}
+        self.assertIsNone(check_rejected_transition(cost('{R}'),cost('{R}'),[a,a,b],[b,a,a]))
+        for after in ([a,b],[a,a,a,b]):
+            with self.assertRaises(ValueError):
+                check_rejected_transition(cost('{R}'),cost('{R}'),[a,a,b],after)
+
+    def test_rejected_unit_cannot_reduce_cost_or_change_restrictions(self):
+        a={'color':'C','source_card_id':9,'snow':False,'restrictions':'Artifact'}
+        with self.assertRaises(ValueError):check_rejected_transition(cost('{R}'),cost(),[a],[a])
+        with self.assertRaises(ValueError):check_rejected_transition(cost('{R}'),cost('{R}'),[a],[{**a,'restrictions':''}])
+
+    def test_rejected_unit_missing_evidence_is_gap_and_malformed_rejected(self):
+        self.assertIsNotNone(check_rejected_transition('legacy','legacy',[],[]))
+        self.assertIsNotNone(check_rejected_transition(cost(),cost(),None,[]))
+        with self.assertRaises(ValueError):check_rejected_transition(cost(),cost(),[{}],[{}])
+
     def run_check(self,before,after,color='U',snow=False,uses=None):
         unit={'color':color,'source_card_id':9,'snow':snow}
         context={'pool':[unit], 'possible_color_uses':{color:uses if uses is not None else {'U':2,'W':1,'C':32}[color]}}

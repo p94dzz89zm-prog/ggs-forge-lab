@@ -16,7 +16,8 @@ ownership. Check the authoritative private ledger before compute or seeds.
 Native Pilot A overlay and deterministic four-controller integration fixture now
 pass; two399-row engine tapes are byte-identical,2 actual mana cost/pool checks
 pass with0 gaps, and default-off behavior is preserved. See
-NATIVE_VALIDATION_PILOT.md for delegated choices and limits. Native game0.
+NATIVE_VALIDATION_PILOT.md for delegated choices and limits. One native Pilot A
+natural diagnostic has since completed; full-game approvals remain0.
 
 Experimental Python Pilot A provides deterministic interaction coverage. Pilot B
 provides a separate offline fixed scorer with position-evidence gating. Native
@@ -39,7 +40,17 @@ writer compatibility/nonfinite controls, interrupted/post-seal controls and96MiB
 finalization under64MiB heap pass. Recorder microbenchmark observed lower times
 on one corpus; no whole-game speedup claim. See STRUCTURED_WRITER_VALIDATION.md.
 
-Next: native Pilot A adapter/regressions, then a separately allocated profiled
-game with frozen inputs and enforced configuration. Full-game review must cover
+Native Pilot A completed a fresh natural four-player diagnostic on turn36 in
+48.505s wall/41.442s engine. All6 writer receipts and frozen runtime inputs
+verify.131 successful mana cost/pool transitions and1 rejected-unit resource
+transition check pass; the rejected unit was colorless against a red cost.
+A separate equip-payment failure remains unexplained. The auditor now checks
+rejected units for changed cost/pool, closing a verification blind spot;309 root
+Python tests pass. Two unencoded keyword values and incomplete terminal/rules
+derivation still block approval. See NATIVE_NATURAL_VALIDATION.md. These differing
+seed/policy runs do not establish a whole-game speedup or strategic improvement.
+
+Next: reproduce the failed activation minimally, enforce the actual house
+configuration, and close event/independent-audit gaps. Full-game review must cover
 casting, costs, targets, priority, stack, triggers, combat, zones, SBAs, commander
 mechanics and terminal conditions. Scoped prefix checks cannot approve a game.
