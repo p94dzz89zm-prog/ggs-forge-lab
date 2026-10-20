@@ -5,6 +5,30 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Cultivate casting and payment reconstructed; search still blocked
+
+Conditional contracts1783/1985;429 consecutive original choices complete,
+868 validated engine RNG requests and206 canonical gameplay lines agree.
+Cultivate selection checks its exact root and all three live subabilities,
+including reveal/tapped-land/hand/cleanup parameters. Actual casting pays
+Cinder Glade green plus both Sol Ring colorless units; no saved pool or cost
+outcome is copied. Full Cultivate subability provenance is now recorded.
+
+Three four-player cast/modified-chain/tapped-source controls pass. Independent
+mana-unit arithmetic verifies all3 actual fixture payments, with zero gaps and
+zero unencoded values. Default full-game reader initially rejected this
+deliberate cast-only fixture's missing GameStarted state; corrected scoped
+require_initial=false review is explicitly not whole-game verification.
+The actual original prefix stops before429's basic-land search selection.
+Search, reveal, remembered-card choices and final shuffle are not certified.
+
+Next429: Cultivate chooseSingleCardForZoneChange, a nonempty private library
+choice; preserve actual eligible domain, searcher-only look, selected identities,
+subability provenance, public reveal and native moves/shuffle. Remaining202
+unsupported roots/global independent state/rules/terminal audit.0 complete
+decision replays or independently approved games; no natural games, training,
+eligible comparisons or general strategic improvement claim.
+
 ## Hidden Hideout replacement ability provenance reconstructed
 
 Conditional coverage remains1781/1985;423 consecutive original choices now

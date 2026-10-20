@@ -8,11 +8,12 @@ BASES={'748a6d2d3c66f847402d43a0ea09e24e081f07c8ebdc078742104fb819f0c5f8',
        '8335712a7f805cfba996611988ce039870222f4ef3a6a6cb6086e2eb9f5771d6',
        '81dfab791e69ac76efd44010a2220ac51c3890e2eabdbdde96f471a4a6170b81',
        '16e8bcb9abc037a2ac2601fa35a5c026a988b152ca6272b5b64979938eb09563',
-       '8a2f0149d266ea1407b221c1a1c874d581c9367af768ee4501e72da9465496ec'}
+       '8a2f0149d266ea1407b221c1a1c874d581c9367af768ee4501e72da9465496ec',
+       '22b04e01aebdc51fef4e19dee328bb50cecde063fbf0650e50307c0c5b5b79e0'}
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--base',required=True,type=Path);p.add_argument('--output',required=True,type=Path);a=p.parse_args()
     base=digest(a.base)
-    if base not in BASES:raise ValueError('Exact saved stage36–40 executable required')
+    if base not in BASES:raise ValueError('Exact saved stage36–41 executable required')
     if a.output.exists() or Path('/workspace') in a.output.resolve().parents:raise ValueError('Fresh nonsynchronized output required')
     sources=[ROOT/'pilot-src/forge/ai/bridge'/name for name in ('ReplayCardIdentities.java','EngineEvidence.java','DecisionReplay.java')]
     a.output.parent.mkdir(parents=True,exist_ok=True)

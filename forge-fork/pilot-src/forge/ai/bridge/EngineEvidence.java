@@ -217,6 +217,7 @@ public final class EngineEvidence {
   if(s.getReplacementEffect()!=null){o.add("replacement_effect",value(s.getReplacementEffect(),1));o.addProperty("replacement_overriding_instance_equal",s.getReplacementEffect().getOverridingAbility()==s);o.add("replacement_affected",value(s.getReplacingObject(forge.game.ability.AbilityKey.Card),1));}
   JsonObject replacementBinding=DecisionReplay.replacementSourceEvidence(s);if(replacementBinding!=null)o.add("causal_replacement_binding",replacementBinding);
   if(s instanceof forge.game.trigger.WrappedAbility wrapper){o.addProperty("wrapper",true);o.add("wrapped_ability",ability(wrapper.getWrappedAbility()));}
+  if(s.getHostCard().getName().equals("Cultivate")&&s.getSubAbility()!=null)o.add("sub_ability",ability(s.getSubAbility()));
   if(s.getHostCard().isCommander()&&s.getActivatingPlayer()!=null)o.addProperty("prior_commander_casts",s.getActivatingPlayer().getCommanderCast(s.getHostCard()));return o;
  }
  private static JsonElement value(Object v,int depth) {

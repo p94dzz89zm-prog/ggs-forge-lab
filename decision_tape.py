@@ -34,6 +34,10 @@ PRIORITY_PHASES = {'UPKEEP', 'DRAW', 'MAIN1', 'COMBAT_BEGIN', 'COMBAT_DECLARE_AT
 
 
 RAMPANT_PARAMETERS = dict(Origin='Library',ChangeTypeDesc='basic land',Destination='Battlefield',ChangeType='Land.Basic',SpellDescription='Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.',ChangeNum='1',SP='ChangeZone',Tapped='True',StackDescription='Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.')
+CULTIVATE_PARAMETERS=dict(Origin='Library',Destination='Library',Shuffle='False',RememberChanged='True',ChangeTypeDesc='basic land',ChangeType='Land.Basic',SpellDescription='Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.',ChangeNum='2',SubAbility='DBChangeZone1',SP='ChangeZone',Reveal='True',StackDescription='SpellDescription')
+
+def cultivate(ability):
+    return ability.get('api')=='ChangeZone' and ability.get('source',{}).get('name')=='Cultivate' and ability.get('parameters')==CULTIVATE_PARAMETERS
 
 
 SWAN_PARAMETERS = dict(SpellDescription='Counter target enchantment, instant or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.',TargetType='Spell',ValidTgts='Enchantment,Instant,Sorcery',SubAbility='DBToken',TgtPrompt='Select target enchantment, instant or sorcery spell',SP='Counter')
@@ -177,19 +181,19 @@ def encode(entry, returned, index, call_line, return_line):
                     row.update(kind='decision',decision_type='swan_song_spell',source_card_id=source['card_id'],source_name=source['name'],selected_api='Counter',mana_cost=source['mana_cost'],original_ability_id=ability['ability_id'],ability_parameters=ability['parameters'],
                                target_spell_card_id=target['card_id'],target_spell_name=target['name'],target_provenance=target,context={k:entry[k] for k in ('turn','phase','priority_player_id','turn_player_id')})
                     return row
-                if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability) or (swan(ability) and counter_target(entry,ability)))
+                if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability) or cultivate(ability) or (swan(ability) and counter_target(entry,ability)))
                     and ability.get('spell') is True and ability.get('activated') is False and ability.get('trigger') is False
                     and ability.get('x') is None and ability.get('targets') == [] and ability.get('paying_mana') == []
                     and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
                     and (source.get('zone') == 'Hand' or (source.get('zone') == 'Command' and source.get('commander') is True and type(ability.get('prior_commander_casts')) is int and ability['prior_commander_casts'] >= 0)) and source.get('owner_id') == row['actor_id']
                     and entry.get('priority_player_id') == row['actor_id'] == entry.get('turn_player_id')
                     and entry.get('phase') in ('MAIN1', 'MAIN2') and 'X' not in source.get('mana_cost', 'X')):
-                    row.update(kind='decision', decision_type='rampant_growth_spell' if rampant(ability) else 'command_permanent_spell' if source['zone'] == 'Command' else 'plain_hand_permanent_spell',
+                    row.update(kind='decision', decision_type='cultivate_spell' if cultivate(ability) else 'rampant_growth_spell' if rampant(ability) else 'command_permanent_spell' if source['zone'] == 'Command' else 'plain_hand_permanent_spell',
                                source_card_id=source['card_id'], source_name=source['name'],
                                selected_api=ability['api'], mana_cost=source['mana_cost'],
                                original_ability_id=ability['ability_id'],
                                context={key: entry[key] for key in ('turn', 'phase', 'priority_player_id', 'turn_player_id')})
-                    if rampant(ability):
+                    if rampant(ability) or cultivate(ability):
                         row['ability_parameters']=ability['parameters']
                     if source['zone'] == 'Command':
                         row.update(prior_commander_casts=ability['prior_commander_casts'], commander_tax=2*ability['prior_commander_casts'])
@@ -237,7 +241,7 @@ def encode(entry, returned, index, call_line, return_line):
             ids = [step['card_id'] for step in activations]
             capacity = Counter({step['card_id']: {'1': 1, '2': 2}.get(step.get('parameters', {}).get('Amount', '1'), 0) for step in activations})
             spending = Counter(m['source_card_id'] for m in spent)
-            if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability) or (swan(ability) and counter_target(entry,ability)))
+            if (((ability.get('api') in ('PermanentCreature', 'PermanentNoncreature') and ability.get('parameters') == {}) or rampant(ability) or cultivate(ability) or (swan(ability) and counter_target(entry,ability)))
                 and ability.get('spell') is True and ability.get('x') is None and ability.get('targets') == []
                 and ability.get('paying_mana') == [] and ability.get('alternative_costs') == [] and ability.get('optional_costs') == []
                 and (ability['source'].get('commander') is False or (ability['source'].get('commander') is True and type(ability.get('prior_commander_casts')) is int and ability['prior_commander_casts'] >= 0)) and ability['source'].get('zone') == 'Stack'
@@ -252,7 +256,7 @@ def encode(entry, returned, index, call_line, return_line):
                            random_scope='ComputerUtilMana selector only; actual effect scopes excluded',
                            payment_basis='Recorded tap-payment decisions and individual attempted mana-spending arguments; execute actual engine actions')
                 row.pop('reason', None)
-                if rampant(ability) or swan(ability):
+                if rampant(ability) or cultivate(ability) or swan(ability):
                     row['ability_parameters']=ability['parameters']
                 if swan(ability):
                     target=counter_target(entry,ability);row.update(target_spell_card_id=target['card_id'],target_spell_name=target['name'],target_provenance=target)
@@ -436,7 +440,7 @@ def extract(source, expected_sha256, output):
                             payer, payment, ability, effect = row['arguments']; source = ability['source']; params = ability['parameters']
                             entry.setdefault('replay_payment_operations', []).append(dict(op='activate_basic',
                                 card_id=source['card_id'], card_name=source['name'], parameters=params,
-                                valid=(source['name'] in ('Plains', 'Island', 'Swamp', 'Mountain', 'Forest', 'Wastes', 'Sol Ring', 'Command Tower', 'Brushland')
+                                valid=(source['name'] in ('Plains', 'Island', 'Swamp', 'Mountain', 'Forest', 'Wastes', 'Sol Ring', 'Command Tower', 'Brushland', 'Cinder Glade')
                                        and ability['api'] == 'Mana' and (params.get('Produced') in ('W', 'U', 'B', 'R', 'G', 'C') or (source['name'] == 'Command Tower' and params.get('Produced') == 'Combo ColorIdentity') or (source['name'] == 'Brushland' and params.get('Produced') == 'Combo G W'))
                                        and params.get('Amount', '1') in ('1', '2')
                                        and effect is False and ability['pay_costs'] == '{T}' and source['controller_id'] == payer['player_id'] == entry['receiver']['player_id']
