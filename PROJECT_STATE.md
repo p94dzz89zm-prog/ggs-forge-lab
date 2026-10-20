@@ -5,6 +5,27 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Misty activation and mandatory costs reconstructed
+
+Conditional contracts1789/1985;456 consecutive original choices,953 engine
+RNG requests and218 canonical lines agree. Driver selects the exact live
+Misty Rainforest activated ability and checks legal source, timing, restrictions,
+full tap/life/self-sacrifice cost and recorded definition. Native payment is
+mandatory and uniquely determined; the zero-mana callback checks actual tap,
+life decrement and self-sacrifice before acknowledgment. It is not a free
+activation. Separate read-only original/replay audit checks actual paid-cost
+arguments, successful returns, unchanged adjusted total,1life event and movement
+of that same source to graveyard, per CR118.3/601.2h/602.2b.
+
+Native activation/tapped-source/changed-definition controls pass. Two initial
+fixture failures selected the land special action instead of ChangeZone;
+corrected fixture targets the actual activation. Both failures are retained,
+not counted as passes. Next456 is nonempty Forest/Island search from a sacrificed
+source and then shock-land replacement payment458.196 unsupported roots plus
+full independent state/legality/terminal audit remain.0 complete game replays,
+0 fully rules-approved games or training/comparisons. Historical evidence and
+stable policies unchanged; historical truncation remains unproven.
+
 ## Cultivate basic-land choices and reveal provenance reconstructed
 
 Stage44 follow-up: conditional contracts1787/1985,450 consecutive original

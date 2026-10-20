@@ -40,6 +40,8 @@ public final class DecisionReplay {
  private static final Map<ReplacementEffect,ReplacementBinding> selectedReplacements=new IdentityHashMap<>();
  private static final Map<SpellAbility,JsonObject> replacementSourceEvidence=new IdentityHashMap<>();
  private static final Map<SpellAbility,List<Integer>> cultivateSelections=new IdentityHashMap<>();
+ private record MistyActivation(Card source,int life){}
+ private static final Map<SpellAbility,MistyActivation> mistyActivations=new IdentityHashMap<>();
  public static JsonObject replacementSourceEvidence(SpellAbility ability){JsonObject row=replacementSourceEvidence.get(ability);return row==null?null:row.deepCopy();}
  private static String produced(SpellAbility ability,JsonObject step){return step.has("color_choice")?step.getAsJsonObject("color_choice").get("selected_color").getAsString():ability.getParam("Produced");}
  private DecisionReplay(){}
@@ -97,6 +99,10 @@ public final class DecisionReplay {
   SpellAbility first=root.getSubAbility(),second=first==null?null:first.getSubAbility(),cleanup=second==null?null:second.getSubAbility();
   if(!params(first,"DB","ChangeZone","Origin","Library","Destination","Battlefield","ChangeType","Land.IsRemembered","ChangeNum","1","Mandatory","True","NoLooking","True","SelectPrompt","Select a card to put onto the battlefield","Tapped","True","Shuffle","False","SubAbility","DBChangeZone2","StackDescription","None")||!params(second,"DB","ChangeZone","Origin","Library","Destination","Hand","ChangeType","Land.IsRemembered","Mandatory","True","NoLooking","True","SelectPrompt","Select a card to put into your hand","StackDescription","None","SubAbility","DBCleanup")||!params(cleanup,"DB","Cleanup","ClearRemembered","True")||cleanup.getSubAbility()!=null)return false;
   for(SpellAbility ability:List.of(root,first,second,cleanup))if(ability.getHostCard()!=root.getHostCard()||ability.usesTargeting()||ability.getXManaCostPaid()!=null)return false;return true;
+ }
+ private static boolean misty(SpellAbility ability){
+  Cost cost=ability.getPayCosts();if(!ability.getHostCard().getName().equals("Misty Rainforest")||!ability.isActivatedAbility()||ability.isSpell()||ability.getSubAbility()!=null||ability.usesTargeting()||ability.getXManaCostPaid()!=null||!params(ability,"Origin","Library","AB","ChangeZone","Destination","Battlefield","ChangeType","Forest,Island","SpellDescription","Search your library for a Forest or Island card, put it onto the battlefield, then shuffle.","Cost","T PayLife<1> Sac<1/CARDNAME>")||cost==null||cost.getCostParts().size()!=3)return false;
+  CostPayLife life=cost.getCostPartByType(CostPayLife.class);CostSacrifice sac=cost.getCostPartByType(CostSacrifice.class);return cost.getCostPartByType(CostTap.class)!=null&&life!=null&&life.getAmount().equals("1")&&sac!=null&&sac.getAmount().equals("1")&&sac.payCostFromSource();
  }
  private static boolean supportedSpellParameters(SpellAbility ability,JsonObject row){
   if(ability.getHostCard().getName().equals("Cultivate")){JsonObject actual=new JsonObject();ability.getMapParams().forEach(actual::addProperty);return row.has("ability_parameters")&&actual.equals(row.get("ability_parameters"))&&cultivateChain(ability);}
@@ -244,6 +250,12 @@ public final class DecisionReplay {
     EngineEvidence.leave(token,null);consumed++;return null;
    }
    if(payment){
+    if(row.get("decision_type").getAsString().equals("misty_zero_component")){
+     if(args.length!=5||!(args[1] instanceof SpellAbility ability)||!(args[0] instanceof CostPartMana part)||args[2]!=null||args[3]!=null||!Boolean.FALSE.equals(args[4])||!misty(ability)||!part.getManaCostFor(ability).isZero()||part.getAmountOfX()!=0)throw new IllegalStateException("Unsupported Misty zero component");
+     bindAbility(row,ability);Player player=controller.getPlayer();MistyActivation selected=mistyActivations.get(ability);Card paid=player.getGame().getCardState(ability.getHostCard());
+     if(selected==null||ability.getActivatingPlayer()!=player||player.getLife()!=selected.life-1||!selected.source.isTapped()||!paid.isInZone(ZoneType.Graveyard)||paid.getOwner()!=player||paid.getId()!=selected.source.getId()||!ability.getPayingMana().isEmpty())throw new IllegalStateException("Misty native tap/life/sacrifice payment differs");
+     ManaCostBeingPaid adjusted=new ManaCostBeingPaid(part.getManaCostFor(ability));CostAdjustment.adjust(adjusted,ability,player,null,false,false);if(!adjusted.isPaid())throw new IllegalStateException("Misty adjusted component not zero");mistyActivations.remove(ability);return complete(hook,receiver,args,true);
+    }
     if(Set.of("basic_land_mana","fixed_tap_mana","selected_tap_mana").contains(row.get("decision_type").getAsString())){
      SpellAbility ability=(SpellAbility)args[1];Player player=controller.getPlayer();var game=player.getGame();CostPartMana part=(CostPartMana)args[0];bindAbility(row,ability);
      if(!part.toString().equals(row.get("component").getAsString()))throw new IllegalStateException("Mana component diverged: actual "+part+" expected "+row.get("component"));
@@ -312,6 +324,13 @@ public final class DecisionReplay {
     boolean keep=row.get("keep").getAsBoolean();if(!keep&&(!player.canMulligan()||player.getCardsIn(ZoneType.Hand).isEmpty()))throw new IllegalStateException("Illegal mulligan of empty/ineligible hand");return complete(hook,receiver,args,keep);
    }
    if(priority){
+    if(args.length==0&&row.get("decision_type").getAsString().equals("misty_activation")){
+     turnContext(row,controller);Player player=controller.getPlayer();Card card=null;for(Card actual:player.getCardsIn(ZoneType.Battlefield))if(actual.getId()==integer(row.get("source_card_id")))card=actual;
+     if(card==null||card.getOwner()!=player||card.getController()!=player||card.isTapped()||card.isPhasedOut()||card.isCreature())throw new IllegalStateException("Unavailable Misty activation source");
+     SpellAbility selected=null;for(SpellAbility actual:card.getSpellAbilities())if(misty(actual)){if(selected!=null)throw new IllegalStateException("Ambiguous Misty activation");selected=actual;}
+     if(selected==null)throw new IllegalStateException("Unsupported Misty definition");JsonObject definition=new JsonObject();selected.getMapParams().forEach(definition::addProperty);if(!definition.equals(row.get("ability_parameters")))throw new IllegalStateException("Unsupported Misty recorded definition");selected.setActivatingPlayer(player);if(!selected.canPlay()||!selected.getPayCosts().canPay(selected,player,false))throw new IllegalStateException("Illegal Misty activation costs/restrictions");
+     String original=card.getId()+":"+integer(row.get("original_ability_id"));String previous=selectedAbilityBindings.putIfAbsent(original,source(selected));if(previous!=null&&!previous.equals(source(selected)))throw new IllegalStateException("Ambiguous Misty source binding");mistyActivations.put(selected,new MistyActivation(card,player.getLife()));return complete(hook,receiver,args,Collections.singletonList(selected));
+    }
     if(args.length==0&&row.get("decision_type").getAsString().equals("swan_song_spell")){
      turnContext(row,controller);Player player=controller.getPlayer();var game=player.getGame();Card card=null;for(Card candidate:player.getCardsIn(ZoneType.Hand))if(candidate.getId()==integer(row.get("source_card_id")))card=candidate;
      if(card==null||card.getOwner()!=player||!card.getName().equals("Swan Song")||!card.getType().isInstant()||!card.getManaCost().toString().equals("{U}")||card.isFaceDown())throw new IllegalStateException("Illegal Swan Song hand source");

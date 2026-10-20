@@ -37,6 +37,12 @@ RAMPANT_PARAMETERS = dict(Origin='Library',ChangeTypeDesc='basic land',Destinati
 CULTIVATE_PARAMETERS=dict(Origin='Library',Destination='Library',Shuffle='False',RememberChanged='True',ChangeTypeDesc='basic land',ChangeType='Land.Basic',SpellDescription='Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.',ChangeNum='2',SubAbility='DBChangeZone1',SP='ChangeZone',Reveal='True',StackDescription='SpellDescription')
 CULTIVATE_BATTLEFIELD=dict(DB='ChangeZone',Origin='Library',Destination='Battlefield',ChangeType='Land.IsRemembered',ChangeNum='1',Mandatory='True',NoLooking='True',SelectPrompt='Select a card to put onto the battlefield',Tapped='True',Shuffle='False',SubAbility='DBChangeZone2',StackDescription='None')
 CULTIVATE_HAND=dict(DB='ChangeZone',Origin='Library',Destination='Hand',ChangeType='Land.IsRemembered',Mandatory='True',NoLooking='True',SelectPrompt='Select a card to put into your hand',StackDescription='None',SubAbility='DBCleanup')
+MISTY_PARAMETERS=dict(Origin='Library',AB='ChangeZone',Destination='Battlefield',ChangeType='Forest,Island',SpellDescription='Search your library for a Forest or Island card, put it onto the battlefield, then shuffle.',Cost='T PayLife<1> Sac<1/CARDNAME>')
+
+def misty(ability):
+    return (ability.get('api')=='ChangeZone' and ability.get('source',{}).get('name')=='Misty Rainforest' and ability.get('parameters')==MISTY_PARAMETERS
+            and ability.get('activated') is True and ability.get('spell') is False and ability.get('trigger') is False and ability.get('x') is None and ability.get('targets')==[]
+            and ability.get('paying_mana')==[] and ability.get('alternative_costs')==[] and ability.get('optional_costs')==[])
 
 def cultivate(ability):
     return ability.get('api')=='ChangeZone' and ability.get('source',{}).get('name')=='Cultivate' and ability.get('parameters')==CULTIVATE_PARAMETERS
@@ -197,6 +203,9 @@ def encode(entry, returned, index, call_line, return_line):
             selected = returned['result']
             if isinstance(selected, list) and len(selected) == 1:
                 ability = selected[0]; source = ability.get('source', {})
+                if (misty(ability) and source.get('zone')=='Battlefield' and source.get('owner_id')==source.get('controller_id')==row['actor_id'] and source.get('tapped') is False and source.get('phased_out') is False and entry.get('priority_player_id')==row['actor_id']):
+                    row.update(kind='decision',decision_type='misty_activation',source_card_id=source['card_id'],original_ability_id=ability['ability_id'],ability_parameters=ability['parameters'],context={k:entry[k] for k in ('turn','phase','priority_player_id','turn_player_id')},cost_basis='Mandatory tap, one life and self-sacrifice; native costs must execute and be independently audited')
+                    return row
                 target=counter_target(entry,ability) if swan(ability) else None
                 if (target and ability.get('spell') is True and ability.get('activated') is False and ability.get('trigger') is False and ability.get('x') is None
                     and ability.get('targets')==[] and ability.get('paying_mana')==[] and ability.get('alternative_costs')==[] and ability.get('optional_costs')==[]
@@ -254,6 +263,8 @@ def encode(entry, returned, index, call_line, return_line):
         return row
     if hook.endswith(PAYMENT):
         row['reason'] = 'payment_requires_actual_resource_choices'
+        if len(args)==5 and args==returned.get('arguments_after') and args[0]=='{0}' and args[2:]==[None,None,False] and returned['result'] is True and misty(args[1]) and args[1]['source'].get('zone')=='Graveyard' and entry.get('replay_payment_unknown_random_requests',0)==0:
+            ability=args[1];row.update(kind='decision',decision_type='misty_zero_component',source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),ability_api=ability['api'],ability_parameters=ability['parameters']);row.pop('reason',None);return row
         operations = entry.get('replay_payment_operations', [])
         if len(args) == 5 and args[2:] == [None, None, False] and returned['result'] is True and operations:
             ability = args[1]; after = returned['arguments_after'][1]

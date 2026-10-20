@@ -20,7 +20,7 @@ def extract(source, source_sha256, decisions, output):
     if terminal['decisions'] != len(rows) or [r['index'] for r in rows] != list(range(len(rows))):
         raise ValueError('Decision count/order mismatch')
     pure = {'starting_player', 'mulligan_keep', 'priority_pass', 'play_land', 'plain_hand_permanent_spell', 'rampant_growth_spell', 'swan_song_spell',
-            'replacement_choice', 'counter_choice', 'color_choice', 'zero_effect_mana', 'command_permanent_spell', 'single_player_effect', 'confirm_action', 'empty_partner_search', 'cultivate_spell'}
+            'replacement_choice', 'counter_choice', 'color_choice', 'zero_effect_mana', 'command_permanent_spell', 'single_player_effect', 'confirm_action', 'empty_partner_search', 'cultivate_spell','misty_activation','misty_zero_component'}
     prefix = []
     for row in rows:
         reviewed_selector_only = (row.get('decision_type') == 'single_phoenix_attack' and row.get('random_scope') == 'Reviewed attack-selector only; no effect calls; live attack costs rejected') or (row.get('decision_type') in ('basic_land_mana', 'fixed_tap_mana', 'selected_tap_mana') and row.get('random_scope') == 'ComputerUtilMana selector only; actual effect scopes excluded') or (row.get('decision_type') == 'partner_trigger_stack' and row.get('random_scope') == 'Partner target selector before actual zero-cost stack payment; actual effect scopes excluded')
