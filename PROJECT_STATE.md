@@ -5,6 +5,32 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## AI token previews no longer consume live card IDs
+
+The isolated prototype build uses unique increasing IDs in a separate positive
+range (1,000,000,000 through Integer.MAX_VALUE). Only TokenAi.spawnToken enters
+this factory scope. Real token creation uses the native allocator; live and
+hidden allocators fail before reaching the private range. Exhaustion fails
+without ID reuse, and finally cleanup restores the normal factory after errors.
+Frozen engines/models and original archives are unchanged.
+
+Actual four-player controls reproduce six live IDs consumed on the old engine
+and zero on the corrected build. Preview name, blue color,2/2 stats, flying,
+ownership/control and unique ordering match the real native Drake token.
+Missing-script, exhaustion and live/hidden boundary controls pass; the final
+build combines these checks before successfully creating a normal real token.
+Failed negative-ID experimentation is preserved: Forge's factory omits some
+characteristics for negative IDs. Launch/diagnostic mistakes are also retained.
+
+The new build still executes348 original decisions,779 engine RNG requests and
+172 canonical gameplay lines. Conditional coverage remains1773/1985. Original
+Bird412 versus replay406 remains an explicit historical identity gap; the fix
+prevents future preview allocation pollution but cannot rewrite old identity
+history. No complete-state replay certificate or rules approval is granted.
+Next: reviewed causal identity binding for historical created objects, then
+Sam trigger348 and remaining212 unsupported decisions. No new natural games,
+training or eligible pilot comparisons.
+
 ## Causal allocation instrumentation and explicit identity audit
 
 Default-off diagnostic overlay observes Game.nextCardId and post-sync counters
