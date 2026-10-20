@@ -73,6 +73,10 @@
       "sha256": "1afa4de8744c7c7c47e5f99e697bc22472179265c34a56e870cd3282c498ecdc",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "EXECUTION_HISTORY_VALIDATION.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "f96fe7af4040d636b8a34a543d24e1f526f5c4dbc020f9864802e4b0b3513845"
+    },
     "FULL_GAME_VALIDATION.md": {
       "original_blob": "41147522b833bdde8ecc446937d36f30e069ffef",
       "original_sha256": "0b86f3342fd1ba516b45bcecc482c2fa06d4ca4fa326182d60f6dc5d5b3e39c0",
@@ -111,7 +115,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "ad8bc8a5035968c1f9ca056e94e111d43143cee638d018dbcab0d7a1cccc291b"
+      "sha256": "3a54b7e41621e4b66277a1f130899e14780dc8fe2356cbaea781d9041a57fb3d"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -963,7 +967,7 @@
     },
     "forge-fork/RulesValidationPilotRegression.java": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "7ab8ec12b90f405327f5e411aed02168b7bd5d703135a2d9d321e62a2ce01041"
+      "sha256": "cf8095bf89dce25497e79382e0b93339282afb8aeae5871d829e78107d3272e0"
     },
     "forge-fork/SelectedManaReplayRegression.java": {
       "original_blob": "7dc53490e1a80dc447555301c31a9757fc19e561",
@@ -1269,6 +1273,10 @@
       "sha256": "8b6be50910899e5e11e2fb9c6cb83d1ffb1b171eaeffc8d6522880822608b23e",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/build_execution_evidence.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "5ac88faf1de6a356367baf6b337d0fd9cf4b4e532b1645427873cc185ccd38eb"
+    },
     "forge-fork/build_house_rules.py": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "85645a463a79c4e57c7bf70237aea270421e7b5c80300a117b7e9ef9e0afa327"
@@ -1552,7 +1560,7 @@
     "forge-fork/pilot-src/forge/ai/bridge/EngineEvidence.java": {
       "original_blob": "18b6db6d2a949ae8dc1d6f1f4b46996b23438e0d",
       "original_sha256": "2a0ae219ca1fb07f037dfef9cd31facc7258dd7202a9b850c31173afc5a08ce5",
-      "sha256": "c9eb72506c5cbda90c24fa90b6600fd94a0a75d79f1c214c6cd72115881b42ef",
+      "sha256": "fbd4a5a7988ca4d52cdf6f13de146d360d58766bf17c00a721d2fd0e98c65381",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "forge-fork/pilot-src/forge/ai/bridge/EvidenceRandom.java": {
@@ -1659,7 +1667,7 @@
     },
     "forge-fork/pilot-src/forge/ai/validation/RulesValidationController.java": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "3d82b674ec33aceef5cb4b04d9f970b9b6f8716cb4d24c72ee662c044b361744"
+      "sha256": "e1440a722c4b705cadb8a7a51a1415ae8a5c378a3dc5019e6284ce87e11a0cf3"
     },
     "forge-fork/pilot-src/forge/game/mulligan/CommanderHouseRules.java": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -1758,6 +1766,10 @@
       "original_sha256": "65f1032dee732ff8b6ffd9c18fd84452764c093f6fad34c0bc0587c0dfede918",
       "sha256": "65f1032dee732ff8b6ffd9c18fd84452764c093f6fad34c0bc0587c0dfede918",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "game_history_audit.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "a5093bab3d4dcc3cb8992d2d97e43cdfea7f6773036351c77b0fe1f269af36f2"
     },
     "inspect_card.py": {
       "original_blob": "d966bb8dc46b31e86e5eb681a12d8e8c5dc748fc",
@@ -2050,6 +2062,10 @@
       "original_sha256": "577a735359466c513ec6c857e6b5bcf3ed4c2e75a904de71c3d15f8cd966748b",
       "sha256": "577a735359466c513ec6c857e6b5bcf3ed4c2e75a904de71c3d15f8cd966748b",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_game_history_audit.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "8a54bfffff4a41d42f2b3964d8c94cabd0ff2a36775a77c4199d334df1d41c81"
     },
     "test_hidden_search_replay.py": {
       "original_blob": "1c0a88fbde6345ff2c0e4319a88e27e7d6013567",

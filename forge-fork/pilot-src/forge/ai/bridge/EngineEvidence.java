@@ -123,6 +123,16 @@ public final class EngineEvidence {
    row.add("receiver",value(receiver,0));row.add("arguments",value(args,0));
    Player payer=receiver instanceof PlayerController c?c.getPlayer():poolOwner(receiver);
    for(Object a:args)if(a instanceof SpellAbility sa&&sa.getActivatingPlayer()!=null)payer=sa.getActivatingPlayer();
+   if(receiver instanceof PlayerController pc && hook.contains(".playChosenSpellAbility(")){
+    row.add("execution_state_before",initialState());row.add("execution_mana_before",value(pc.getPlayer().getManaPool(),0));
+   }
+   if(payer!=null && payer.getController() instanceof forge.ai.PlayerControllerAi
+      && (hook.contains(".playChosenSpellAbility(") || hook.startsWith("forge/ai/ComputerUtilMana.payManaCost("))){
+    JsonObject memory=new JsonObject();
+    for(forge.ai.AiCardMemory.MemorySet set:forge.ai.AiCardMemory.MemorySet.values())
+     memory.add(set.name(),value(forge.ai.AiCardMemory.getMemorySet(payer,set),0));
+    row.add("actor_policy_memory",memory);
+   }
    if(payer!=null){row.addProperty("actor_id",payer.getId());row.add("mana_context",manaContext(payer));}
    if(hook.startsWith("forge/game/GameAction.reveal(")) {
     JsonArray entitled=new JsonArray();for(Player p:live.getPlayers())entitled.add(p.getId());row.add("entitled_player_ids",entitled);row.addProperty("visibility_operation","reveal_all");
@@ -152,6 +162,9 @@ public final class EngineEvidence {
    Call c=calls.remove(id);if(c==null)throw new IllegalStateException("Unpaired referee call");
    JsonObject row=new JsonObject();row.addProperty("kind","engine_return");row.addProperty("call_id",id);row.addProperty("hook",c.hook);row.add("result",value(result,0));row.add("arguments_after",value(c.args,0));
    if(c.receiver instanceof CostPayment p)row.add("ability_after",value(p.getAbility(),0));
+   if(c.receiver instanceof PlayerController pc && c.hook.contains(".playChosenSpellAbility(")){
+    row.add("execution_state_after",initialState());row.add("execution_mana_after",value(pc.getPlayer().getManaPool(),0));
+   }
    if(c.hook.startsWith("forge/game/Game.onPlayerLost"))row.add("elimination_state_after",initialState());
    Player poolPlayer=poolOwner(c.receiver);if(poolPlayer!=null)row.add("mana_pool_after",value(poolPlayer.getManaPool(),0));
    write(row);

@@ -68,3 +68,11 @@ reshuffle mulligans, and no commander-damage loss. Native four-seat service,
 fourth-redraw refusal, default-off and ordinary-life-loss controls pass;311
 Python tests pass, including exact JVM/configuration binding. Earlier games
 remain standard-profile diagnostics. See COMMANDER_HOUSE_PROFILE.md.
+
+Execution evidence now captures selected-action outcomes, private before/after
+states and actor mana-policy memory. Null action crash reproduced/fixed; two
+native409-row tapes match, with2 successful executions and3 unchanged refusals.
+316 Python tests pass. Whole-stream stack/life/terminal consistency checks pass
+scoped predicates on the prior native game; the stock baseline is rejected for
+an unmatched duplicate removal notification. No game approved or training.
+See EXECUTION_HISTORY_VALIDATION.md. Fresh house-profile gameplay is next.

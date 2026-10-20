@@ -99,7 +99,17 @@ public final class RulesValidationController extends PlayerControllerBridge {
         } finally {EngineEvidence.leave(call,result);}
     }
     @Override public boolean playChosenSpellAbility(SpellAbility a) {
-        if(a!=selected || a.getActivatingPlayer()!=player || getGame().getPhaseHandler().getPriorityPlayer()!=player
+        long call=EngineEvidence.enter("forge/ai/validation/RulesValidationController.playChosenSpellAbility(Lforge/game/spellability/SpellAbility;)Z",this,new Object[]{a});
+        boolean result;
+        try {
+            result=executeChosen(a);
+        } catch(RuntimeException|Error e){
+            EngineEvidence.leave(call,Map.of("execution_exception",e.getClass().getName()));throw e;
+        }
+        EngineEvidence.leave(call,result);return result;
+    }
+    private boolean executeChosen(SpellAbility a) {
+        if(a==null || a!=selected || a.getActivatingPlayer()!=player || getGame().getPhaseHandler().getPriorityPlayer()!=player
                 || !a.canPlay() || !targetsValid(a))return false;
         selected=null;
         if(a.isLandAbility()){a.resolve();return true;}

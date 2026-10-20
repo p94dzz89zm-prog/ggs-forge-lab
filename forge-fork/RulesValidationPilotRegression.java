@@ -36,6 +36,7 @@ public class RulesValidationPilotRegression extends AITest {
         Card hidden=t.addCardToZone("Colossification",opponent,ZoneType.Hand);
         game.getAction().checkStaticAbilities();game.copyLastState();
         DurableEvidence.begin("native-validation-fixture");EngineEvidence.begin(game);
+        require(!p.getController().playChosenSpellAbility(null),"Null action was not refused");
         var chosen=p.getController().chooseSpellAbilityToPlay();
         require(chosen!=null && chosen.size()==1 && chosen.get(0).getHostCard()==ring,"Pilot failed payable spell selection");
         require(!island.isTapped() && ring.isInZone(ZoneType.Hand),"Selection spent resources");
