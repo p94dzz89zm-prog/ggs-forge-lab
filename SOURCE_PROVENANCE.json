@@ -39,6 +39,10 @@
       "sha256": "802e678142bfa26a220baef4611d6df3ec2976677f59a2a76fa11eca0237d736",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "CHECKPOINT_RECOVERY_STATUS.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "99410041162998263deaafe5ad4346d330f9121327b4d35866c064b860501045"
+    },
     "COMMANDER_HOUSE_PROFILE.md": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "72ff2e9e0cb1db6e54071b10b2a846e05255e37a682eec18c8065526dea27bc8"
@@ -123,7 +127,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "311f826bfeaa678c6f7e6d0367f01149cedc8519af8da5abb89e8b8730f312a7"
+      "sha256": "7c50c8cf538c2c257caed6a314edadc75bee1f1b8d22b44073ba69a8077675cb"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",

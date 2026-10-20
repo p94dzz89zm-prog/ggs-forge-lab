@@ -1,5 +1,13 @@
 # DragonMind source-only recovery
 
+Current execution hold: counter audit source4c4105f and its saved archive verify,
+but the private status-document batch remains blocked at official helper tool
+discovery with HTTP403. One unchanged guarded retry also failed before upload
+preparation; both remote document versions/bytes remained unchanged afterward.
+Counter reservation remains allocated; equipment follow-up was not durably
+allocated or executed. See CHECKPOINT_RECOVERY_STATUS.md before new compute.
+No new game, whole-game approval or training occurred during recovery.
+
 Recovery branch: `recovery/source-only-20261020` in
 `p94dzz89zm-prog/ggs-forge-lab`. Integration branch remains unchanged.
 
