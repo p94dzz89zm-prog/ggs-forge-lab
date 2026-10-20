@@ -5,6 +5,32 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Cultivate basic-land choices and reveal provenance reconstructed
+
+Conditional support1785/1985;431 consecutive original choices,868 validated
+engine RNG requests and206 canonical transcript lines agree. The two recorded
+Cultivate basic-land choices execute against actual legal Library cards.
+Choice inventory order is not zone order: original AI shuffles that offered
+collection in place. The driver validates exact inventory membership while
+retaining/checking the real ordered Library separately; it does not reproduce
+AI inventory reordering or copy a saved zone outcome. Searcher/source,
+exact checked script, no duplicate choices, actual full library entitlement
+and original selected card identities remain fail-closed.
+
+Three actual private-choice/invalid-card/wrong-recipient controls pass. New
+encoding and independent visibility-audit negative controls pass. Separate
+read-only original/replay audit confirms the ordered88-card Library was
+delivered three times only to player1, then the selected Plains188/189 were
+publicly revealed to all four players by native ChangeZoneEffect. This is
+scoped CR701.20a/e and701.23a-b review, not full hidden-information approval.
+
+Next431 chooses which remembered Plains enters tapped;432 puts the other in
+hand, followed by native final shuffle. These moves/subability instance
+bindings are not yet supported.200 unsupported roots plus global independent
+state/rules/terminal review remain.0 complete decision replays or fully
+approved games, no new natural games/training/comparisons. Original archives
+and frozen policies unchanged. Dashboard stage42 publication succeeded at429.
+
 ## Cultivate casting and payment reconstructed; search still blocked
 
 Conditional contracts1783/1985;429 consecutive original choices complete,

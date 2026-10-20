@@ -26,6 +26,7 @@ def extract(source, source_sha256, decisions, output):
         reviewed_selector_only = (row.get('decision_type') == 'single_phoenix_attack' and row.get('random_scope') == 'Reviewed attack-selector only; no effect calls; live attack costs rejected') or (row.get('decision_type') in ('basic_land_mana', 'fixed_tap_mana', 'selected_tap_mana') and row.get('random_scope') == 'ComputerUtilMana selector only; actual effect scopes excluded') or (row.get('decision_type') == 'partner_trigger_stack' and row.get('random_scope') == 'Partner target selector before actual zero-cost stack payment; actual effect scopes excluded')
         reviewed_selector_only |= row.get('decision_type')=='sam_food_trigger_stack' and row.get('random_scope')=='Reviewed Sam Food preparation only; actual effects and payment RNG excluded'
         reviewed_selector_only |= row.get('decision_type')=='single_frodo_attack' and row.get('random_scope')=='Reviewed attack-selector only; no effect calls; live attack costs rejected'
+        reviewed_selector_only |= row.get('decision_type')=='cultivate_library_choice' and row.get('random_scope')=='Reviewed choice-inventory selector only; actual private look preserved; no effect calls'
         if row['kind'] != 'decision' or (row.get('decision_type') not in pure and not reviewed_selector_only):
             break
         prefix.append(row)

@@ -96,6 +96,17 @@ def encode(entry, returned, index, call_line, return_line):
         return row
     if hook.endswith(ZONE_EMPTY):
         row['reason']='hidden_search_domain_reveal_or_choice_unsupported'
+        after=returned.get('arguments_after',[])
+        if len(args)==8 and len(after)==8 and args[:3]==after[:3] and args[4:]==after[4:] and args[0:2]==['Library',['Library']] and cultivate(args[2]) and args[6] is True and entry.get('replay_search_effect_calls',0)==0:
+            offered=args[3];chosen=returned['result'];reveal=args[4];owner=row['actor_id'];match=re.fullmatch(r'Select a card from your library \(([12]) / 2\)',args[5])
+            if (match and args[7].get('player_id')==owner and args[7].get('lost') is False and offered
+                and all(card['zone']=='Library' and card['owner_id']==owner and card['name'] in ('Plains','Island','Swamp','Mountain','Forest','Wastes') for card in offered)
+                and sorted(card['card_id'] for card in offered)==sorted(card['card_id'] for card in after[3])):
+                ids=sorted(card['card_id'] for card in offered);selected=None if chosen is None else chosen.get('card_id');number=int(match[1])
+                valid_reveal=(number==2 and reveal is None) or (number==1 and isinstance(reveal,dict) and reveal['owner']['view_id']==owner and reveal['zones']==['Library'] and all(card['zone']=='Library' and card['owner']['view_id']==owner for card in reveal['cards']))
+                if len(ids)==len(set(ids)) and (selected is None or selected in ids) and valid_reveal:
+                    ability=args[2];row.update(kind='decision',decision_type='cultivate_library_choice',source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),ability_api=ability['api'],ability_parameters=ability['parameters'],available_card_ids=ids,selected_card_id=selected,search_number=number,title=args[5],reveal_card_ids=None if reveal is None else [card['view_id'] for card in reveal['cards']],reveal_owner_id=owner,reveal_message=None if reveal is None else reveal['message'],random_scope='Reviewed choice-inventory selector only; actual private look preserved; no effect calls',domain_order_basis='Unordered legal choice inventory; never library zone order')
+                    row.pop('reason',None);return row
         if len(args)==8 and args==returned.get('arguments_after') and returned['result'] is None and args[0:2]==['Hand',['Library']] and args[3]==[] and args[6] is True and entry.get('replay_hidden_random_requests',0)==0:
             ability=args[2]; reveal=args[4]; chooser=args[7]
             name=ability['source']['name']
@@ -421,6 +432,8 @@ def extract(source, expected_sha256, output):
                     for entry, _ in roots.values():
                         if entry['hook'].endswith(ATTACK) and not (row['hook'].endswith(ATTACK) or row['hook'].startswith('forge/game/cost/CostAdjustment.adjust(')):
                             entry['replay_attack_unknown_calls']=entry.get('replay_attack_unknown_calls',0)+1
+                        if entry['hook'].endswith(ZONE_EMPTY) and (row['hook'].startswith('forge/game/ability/effects/') or row['hook'].startswith('forge/game/GameAction.moveTo') or '.shuffle(' in row['hook'] or row['hook'].startswith('forge/game/mana/ManaPool.') or '.payAsDecided(' in row['hook']):
+                            entry['replay_search_effect_calls']=entry.get('replay_search_effect_calls',0)+1
                         if entry['hook'].endswith(TRIGGER_STACK):
                             # AI threat forecasting inspects unrelated mana costs.
                             # Only the offered trigger's own adjustment starts the
