@@ -39,6 +39,10 @@
       "sha256": "802e678142bfa26a220baef4611d6df3ec2976677f59a2a76fa11eca0237d736",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "COMMANDER_HOUSE_PROFILE.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "1c5016f8e0bbce01098cddff544f3fcebc5786ff9a1551182fc8d956401b462f"
+    },
     "DAY_CYCLES.md": {
       "original_blob": "ac29d43158f065968f1e988d41182a554d401ab3",
       "original_sha256": "476020497585d07965c42d31490011a89ea56f9a7af4338b8aa405b4f30dc9e3",
@@ -107,7 +111,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "4eb13007e8e9257f4e0298a59fb92d2e4e7167bf5abab5bf5b7c8666b00c1ae3"
+      "sha256": "ad8bc8a5035968c1f9ca056e94e111d43143cee638d018dbcab0d7a1cccc291b"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -715,6 +719,14 @@
       "sha256": "2e2c0f5c3b3c432d3c261d8a7a1694562838ca827c611b496f149c153ca5671d",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/HouseRulesInstrumenter.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "0479ee919a108e7f0f727b4af46ebeb1e3cf847600ea9174c8f68c4fe518dc43"
+    },
+    "forge-fork/HouseRulesRegression.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "840f62971436e27510901e6248d249728141818117f440e00a8d295c82e9e7e2"
+    },
     "forge-fork/InitialLandReplayRegression.java": {
       "original_blob": "e8b60be00b0453bfe0260e09d877a261876abfd0",
       "original_sha256": "67bf17b429564d3641911c1f26fd5cb6389d241c095dd09a61ed0192bae3c459",
@@ -1257,6 +1269,10 @@
       "sha256": "8b6be50910899e5e11e2fb9c6cb83d1ffb1b171eaeffc8d6522880822608b23e",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/build_house_rules.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "85645a463a79c4e57c7bf70237aea270421e7b5c80300a117b7e9ef9e0afa327"
+    },
     "forge-fork/build_kaito_threat.py": {
       "original_blob": "158629bfc71c552ca3ac38519878541e08d0786a",
       "original_sha256": "d5effe5629f7210094d2d3fd5cea516c62ef870127d3e0770f8ebad5168bc041",
@@ -1645,6 +1661,14 @@
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "3d82b674ec33aceef5cb4b04d9f970b9b6f8716cb4d24c72ee662c044b361744"
     },
+    "forge-fork/pilot-src/forge/game/mulligan/CommanderHouseRules.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "cd743de9d85150e1a3a7cefe5153f74987bcdf513a7d4286030857f47a03b264"
+    },
+    "forge-fork/pilot-src/forge/game/mulligan/HouseMulligan.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "fa8feb79d843c9c8d6ea7aeeda51829d45992ffaf9f118969933d3dc4f82f818"
+    },
     "forge-fork/pilot_duel_smoke.py": {
       "original_blob": "b86ae7e829deb4080cb328960d6c3037a5f53ede",
       "original_sha256": "40069a1823ca493fcf1e8dbf3edf4bab344b48d700bd49cad42a038e37f3a7a1",
@@ -1792,7 +1816,7 @@
     "natural_game_inputs.py": {
       "original_blob": "ee827f40c5cdc926c06ca4d8a9783d234b99e03b",
       "original_sha256": "d75fdf1a2c7bd601e90b045c293484051cae54838e823a7718cdd1463da33288",
-      "sha256": "d75fdf1a2c7bd601e90b045c293484051cae54838e823a7718cdd1463da33288",
+      "sha256": "31052aaa3a400a354af4bde8022d25db9412f4654f3d9475876e5754215984ac",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "package_snapshot.py": {
@@ -2112,7 +2136,7 @@
     "test_natural_game_inputs.py": {
       "original_blob": "a8c3d82231a9f9dc21399bd1b793b8d1f04f4841",
       "original_sha256": "2d922541e254a20301ab8de82c8a2fe3940fa8782c0861859bcc3c1119618bdd",
-      "sha256": "2d922541e254a20301ab8de82c8a2fe3940fa8782c0861859bcc3c1119618bdd",
+      "sha256": "24195d9d06b60737a2f1048974190e7a6ad30f036983d359ff994e0dffa6aa5d",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "test_pair_checkpoint_resume.py": {

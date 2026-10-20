@@ -25,6 +25,24 @@ class NaturalInputsTests(unittest.TestCase):
         self.assertFalse(result['deck_legality_approved'])
         self.assertFalse(result['training_allowed'])
 
+    def test_house_profile_requires_active_unambiguous_jvm_flag(self):
+        self.spec['config']['rules_profile']='ggs-house-v1'
+        flag='-Ddragonmind.houseProfile=ggs-house-v1'
+        self.spec['command'].insert(1,flag)
+        self.assertFalse(fingerprint(self.spec)['game_rules_approved'])
+        for command in (['java','-jar','engine'],['java','-jar','engine',flag],
+                        ['java',flag,flag,'-jar','engine'],
+                        ['java',flag,'-Ddragonmind.houseProfile=other','-jar','engine']):
+            with self.subTest(command=command),self.assertRaises(ValueError):
+                fingerprint({**self.spec,'command':command})
+
+    def test_house_profile_rejects_mismatched_declared_rules(self):
+        self.spec['config']['rules_profile']='ggs-house-v1'
+        self.spec['command'].insert(1,'-Ddragonmind.houseProfile=ggs-house-v1')
+        for key,value in [('starting_life',20),('commander_damage',True),('free_seven_mulligans',1),('rules_profile','unknown')]:
+            spec=copy.deepcopy(self.spec);spec['config'][key]=value
+            with self.subTest(key=key),self.assertRaises(ValueError):fingerprint(spec)
+
     def test_changed_deck_policy_or_resources_rejected(self):
         for name in ('deck0', 'policy_source', 'res/card'):
             with self.subTest(name=name):

@@ -62,3 +62,9 @@ now pass native zero/one/two Squad-payment tests and source-removal control:
 controller tape remains unchanged;309 Python tests pass. Simple equipment
 controls succeed or refuse reserved sources before execution, so the original
 late equip-payment failure remains unresolved. See ACTIVATION_KEYWORD_VALIDATION.md.
+
+Explicit default-off ggs-house-v1 now enforces40 life, up to3 free seven-card
+reshuffle mulligans, and no commander-damage loss. Native four-seat service,
+fourth-redraw refusal, default-off and ordinary-life-loss controls pass;311
+Python tests pass, including exact JVM/configuration binding. Earlier games
+remain standard-profile diagnostics. See COMMANDER_HOUSE_PROFILE.md.

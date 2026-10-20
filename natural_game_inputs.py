@@ -45,6 +45,15 @@ def fingerprint(spec):
             or type(config['outer_timeout_seconds']) is not int
             or not config['engine_timeout_seconds'] < config['outer_timeout_seconds'] <= 900):
         raise ValueError('Invalid four-player game configuration')
+    profile = config.get('rules_profile')
+    flags = [s for s in command if s.startswith('-Ddragonmind.houseProfile')]
+    if profile is not None or flags:
+        flag = '-Ddragonmind.houseProfile=ggs-house-v1'
+        if (profile != 'ggs-house-v1' or flags != [flag]
+                or '-jar' not in command or command.index(flag) >= command.index('-jar')
+                or config['starting_life'] != 40 or config['commander_damage'] is not False
+                or config['free_seven_mulligans'] != 3):
+            raise ValueError('House profile must bind one active JVM flag to the exact declared rules')
     policies = spec['policies']
     if not isinstance(policies, list) or len(policies) != 4 or not all(
             isinstance(p, dict) and p.get('architecture') in ('rules_validation', 'native_baseline')
