@@ -15,12 +15,16 @@ import java.util.*;
 /** Actual Partner choice/stack, underlying identity, target evidence and invalid choice. */
 public class PartnerTriggerReplayRegression extends AITest {
  public static void main(String[] args)throws Exception {
-  String mode=args[0];boolean invalid=mode.equals("invalid"),trace=mode.equals("trace");Path root=Path.of(args[1]);Files.createDirectories(root);System.setProperty("forge.audit.directory",root.resolve("audit").toString());
+  String mode=args[0];boolean invalid=mode.equals("invalid"),trace=mode.startsWith("trace");Path root=Path.of(args[1]);Files.createDirectories(root);System.setProperty("forge.audit.directory",root.resolve("audit").toString());
   PartnerTriggerReplayRegression test=new PartnerTriggerReplayRegression();test.initializeModel();test.initAndCreateGame();
-  List<RegisteredPlayer> seats=new ArrayList<>();for(int i=0;i<4;i++)seats.add(new RegisteredPlayer(new Deck()).setPlayer(new LobbyPlayerAi("seat"+i,null)));
+  List<RegisteredPlayer> seats=new ArrayList<>();for(int i=0;i<4;i++){LobbyPlayerAi lobby=new LobbyPlayerAi("seat"+i,null);lobby.setAiProfile(i==0?"Cautious":"Default");seats.add(new RegisteredPlayer(new Deck()).setPlayer(lobby));}
   GameRules rules=new GameRules(GameType.Commander);Game game=new Game(seats,rules,new Match(rules,seats,"Partner target"));Player p=game.getPlayers().get(0);for(Player seat:game.getPlayers())test.fillLibrary(seat,10);
   game.setAge(GameStage.Play);game.getPhaseHandler().devModeSet(PhaseType.MAIN1,p,false);game.getPhaseHandler().setPriority(p);
-  Card card=test.addCardToZone("Frodo, Adventurous Hobbit",p,ZoneType.Battlefield);p.addCommander(card);game.getAction().checkStaticAbilities();
+  boolean sam=mode.startsWith("trace-sam");
+  Card card=test.addCardToZone(sam?"Sam, Loyal Attendant":"Frodo, Adventurous Hobbit",p,ZoneType.Battlefield);p.addCommander(card);
+  if(sam)for(String name:List.of("Command Tower","Brushland","Swamp")){Card land=test.addCardToZone(name,p,ZoneType.Battlefield);land.setTapped(true);}
+  if(mode.equals("trace-sam-board")){Card frodo=test.addCardToZone("Frodo, Adventurous Hobbit",p,ZoneType.Battlefield);p.addCommander(frodo);test.addCardToZone("Phoenix Chick",game.getPlayers().get(2),ZoneType.Battlefield);}
+  game.getAction().checkStaticAbilities();
   Trigger trigger=card.getTriggers().stream().filter(t->t.getOverridingAbility()!=null&&String.valueOf(t.getOverridingAbility().getApi()).equals("ChangeZone")).findFirst().orElseThrow();
   var inner=trigger.getOverridingAbility().copy();inner.setActivatingPlayer(p);WrappedAbility wrapper=new WrappedAbility(trigger,inner,p);wrapper.setActivatingPlayer(p);
   if(!trace){

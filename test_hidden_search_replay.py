@@ -11,6 +11,15 @@ class HiddenSearchEncodingTest(unittest.TestCase):
         entry=dict(hook='forge/ai/bridge/PlayerControllerBridge'+ZONE_EMPTY,call_id=1,receiver=dict(player_id=0),arguments=args)
         returned=dict(result=None,arguments_after=copy.deepcopy(args))
         self.assertEqual(encode(entry,returned,0,1,2)['reveal_card_ids'],[10])
+        ability['source']['name']='Sam, Loyal Attendant'
+        params['ChangeType']='Card.namedFrodo; Adventurous Hobbit'
+        returned['arguments_after']=copy.deepcopy(args)
+        self.assertEqual(encode(entry,returned,0,1,2)['reveal_card_ids'],[10])
+        params['ChangeType']='Card.namedSam; Loyal Attendant'
+        returned['arguments_after']=copy.deepcopy(args)
+        self.assertEqual(encode(entry,returned,0,1,2)['kind'],'unsupported_decision')
+        params['ChangeType']='Card.namedFrodo; Adventurous Hobbit'
+        returned['arguments_after']=copy.deepcopy(args)
         entry['replay_hidden_random_requests']=1
         self.assertEqual(encode(entry,returned,0,1,2)['kind'],'unsupported_decision')
         entry.pop('replay_hidden_random_requests');reveal['owner']['view_id']=1;returned['arguments_after']=copy.deepcopy(args)

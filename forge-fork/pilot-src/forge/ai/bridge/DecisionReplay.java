@@ -23,6 +23,7 @@ public final class DecisionReplay {
  private static BufferedReader input;
  private static long consumed;
  private static boolean failed;
+ private static boolean completionVerified;
  private static MessageDigest readDigest;
  private static String boundHash;
  private static BufferedReader randomInput;
@@ -105,7 +106,7 @@ public final class DecisionReplay {
  private static Object complete(String hook,Object receiver,Object[] args,Object result){long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,result);consumed++;return result;}
  private static void bindAbility(JsonObject row,SpellAbility ability){JsonElement expected=row.get("source_ability");if(expected==null)throw new IllegalStateException("Missing effect source identity");String id=expected.isJsonNull()?null:expected.getAsString();if(!Objects.equals(selectedAbilityBindings.getOrDefault(id,id),source(ability))){JsonObject params=new JsonObject();if(ability!=null)ability.getMapParams().forEach(params::addProperty);if(ability==null||!boundTriggerInnerAbilities.contains(ability)||id==null||!id.startsWith(ability.getHostCard().getId()+":")||!row.has("ability_parameters")||!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals(row.get("ability_api").getAsString()))throw new IllegalStateException("Effect source ability diverged");String prior=selectedAbilityBindings.putIfAbsent(id,source(ability));if(prior!=null&&!prior.equals(source(ability)))throw new IllegalStateException("Ambiguous underlying trigger identity");}}
  public static synchronized Object invoke(String hook,Object receiver,Object[] args) {
-  if(failed)throw new IllegalStateException("Decision replay already failed");
+  if(failed||completionVerified)throw new IllegalStateException("Decision replay already failed or completed");
   if(activeTriggerPayment!=null&&hook.endsWith(".payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z")){
    try{if(args[1]!=activeTriggerPayment||args[2]!=null||args[3]!=null||!Boolean.FALSE.equals(args[4])||!(receiver instanceof PlayerController pc)||pc.getPlayer()!=activeTriggerPayment.getActivatingPlayer()||!(args[0] instanceof CostPartMana part)||part.getAmountOfX()!=0||!part.getManaCostFor(activeTriggerPayment).isZero())throw new IllegalStateException("Nested trigger payment differs");ManaCostBeingPaid zero=new ManaCostBeingPaid(part.getManaCostFor(activeTriggerPayment));CostAdjustment.adjust(zero,activeTriggerPayment,pc.getPlayer(),null,false,false);if(!zero.isPaid())throw new IllegalStateException("Trigger adjusted payment is not zero");long token=EngineEvidence.enter(hook,receiver,args);EngineEvidence.leave(token,true);triggerPayments++;return true;}catch(RuntimeException error){failed=true;throw error;}
   }
@@ -145,7 +146,8 @@ public final class DecisionReplay {
     Player player=controller.getPlayer();
     if(!row.get("decision_type").getAsString().equals("empty_partner_search")||args.length!=8||args[0]!=ZoneType.Hand||!Objects.equals(args[1],List.of(ZoneType.Library))||!(args[3] instanceof CardCollection offered)||!offered.isEmpty()||!(args[4] instanceof DelayedReveal reveal)||!Boolean.TRUE.equals(args[6])||args[7]!=player||player.hasLost()||!Objects.equals(args[5],row.get("title").getAsString())||!row.get("selected_card_id").isJsonNull())throw new IllegalStateException("Unsupported empty Partner search context");
     SpellAbility ability=(SpellAbility)args[2];bindAbility(row,ability);JsonObject params=new JsonObject();ability.getMapParams().forEach(params::addProperty);
-    if(!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals("ChangeZone")||!ability.getHostCard().getName().equals("Frodo, Adventurous Hobbit")||!ability.getTargets().contains(player)||ability.getTargets().size()!=1)throw new IllegalStateException("Partner search source or target diverged");
+    String searchName=ability.getHostCard().getName(),partner=searchName.equals("Frodo, Adventurous Hobbit")?"Card.namedSam; Loyal Attendant":"Card.namedFrodo; Adventurous Hobbit";
+    if(!params.equals(row.get("ability_parameters"))||!String.valueOf(ability.getApi()).equals("ChangeZone")||!Set.of("Frodo, Adventurous Hobbit","Sam, Loyal Attendant").contains(searchName)||!ability.getMapParams().equals(Map.of("DB","ChangeZone","Origin","Library","Destination","Hand","Chooser","Targeted","Optional","True","ChangeType",partner,"ValidTgts","Player","Hidden","True"))||!ability.getTargets().contains(player)||ability.getTargets().size()!=1)throw new IllegalStateException("Partner search source or target diverged");
     if(reveal.getOwner()!=player.getView()||integer(row.get("reveal_owner_id"))!=player.getId()||!reveal.getZone().equals(Set.of(ZoneType.Library))||!Objects.equals(reveal.getMessagePrefix(),row.get("reveal_message").getAsString()))throw new IllegalStateException("Search reveal owner/zone/message diverged");
     JsonArray ids=new JsonArray();for(CardView card:reveal.getCards()){if(card.getOwner()!=player.getView()||card.getZone()!=ZoneType.Library)throw new IllegalStateException("Search reveal card ownership/zone diverged");ids.add(card.getId());}
     JsonArray live=new JsonArray();for(Card card:player.getCardsIn(ZoneType.Library))live.add(card.getId());if(!ids.equals(live)||!ids.equals(row.get("reveal_card_ids")))throw new IllegalStateException("Search reveal library order/domain diverged");
@@ -337,6 +339,7 @@ public final class DecisionReplay {
  }
  public static synchronized void finish()throws Exception {
   if(failed)throw new IllegalStateException("Cannot complete failed decision replay");
+  if(completionVerified)return;
   if(input==null)throw new IllegalStateException("No recorded decisions consumed");
   try {
    String line=input.readLine();if(line==null)throw new IllegalStateException("Missing decision completion marker");
@@ -344,6 +347,7 @@ public final class DecisionReplay {
    if(!row.get("kind").getAsString().equals("decision_tape_complete")||integer(row.get("decisions"))!=consumed||input.readLine()!=null)throw new IllegalStateException("Unconsumed/incomplete decision tape");
    if(!HexFormat.of().formatHex(readDigest.digest()).equals(boundHash))throw new IllegalStateException("Decision input changed after hash verification");
    if(randomInput!=null){String last=randomInput.readLine();JsonObject terminal=last==null?null:JsonParser.parseString(last).getAsJsonObject();if(terminal==null||!"engine_random_complete".equals(terminal.get("kind").getAsString())||integer(terminal.get("requests"))!=randomConsumed||randomInput.readLine()!=null||!HexFormat.of().formatHex(randomDigest.digest()).equals(randomHash))throw new IllegalStateException("Incomplete or altered engine RNG input");randomInput.close();randomInput=null;}
+   completionVerified=true;
   }catch(Exception e){failed=true;throw e;}finally{input.close();input=null;}
  }
 }

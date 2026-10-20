@@ -5,6 +5,38 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Sam Partner trigger and private search reconstructed
+
+Conditional coverage1775/1985;361 consecutive completed original controller
+choices,866 validated engine RNG requests and175 equal canonical gameplay
+lines. Initial common fields still match. Source contracts and executed prefix
+are separate metrics; full state, terminal outcome and independent legality
+are not certified. Approved games0, no new natural games/training/comparisons.
+
+Root348 was conservatively blocked because forecasting a tapped mana ability
+was mistaken for actual trigger payment. Four-player native traces reproduce
+combat-threat RNG during ChangeZoneAi's target selection. The boundary now
+requires the offered trigger's own zero-cost adjustment; actual effects and
+post-boundary RNG still reject. Root348 applies the recorded public target to
+the live legal trigger, performs actual zero payment and puts it on the stack.
+Root356 now supports Sam's symmetric empty Partner search with exact named
+partner parameters and complete private library delivery. Native shuffle uses
+87 actual engine RNG requests, not a copied library permutation.
+
+Four relevant engine controls pass (two native traces, repeated completion
+guard via actual Partner stack, Sam private search); targeted extractor tests
+pass. Separate read-only audit confirms all three deliveries of original and
+replayed Frodo89-card and Sam88-card libraries went only to player0, with
+unchanged ordered domains. Rules authority: official September25,2026 CR
+701.20e,701.23a-b and702.124j. This is scoped visibility review, not approval of
+all hidden-information mechanics. Explicit Bird412/live406 causal binding also
+passes the separate correspondence checker; full-state reconstruction false.
+
+Next361: Sam, Loyal Attendant beginning-of-combat Token trigger, no target.
+Remaining210 unsupported roots plus global independent rules/terminal audit.
+Finish guarding exact real Food creation and created-object correspondence,
+then continue sequentially. Frozen policy/models and sealed originals unchanged.
+
 ## Historical created-card correspondence is explicit and fail-closed
 
 Default-off ReplayCardIdentities consumes a bounded hash-bound private metadata

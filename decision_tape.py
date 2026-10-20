@@ -61,6 +61,17 @@ def trait_identity(value):
             'parameters': value['parameters']}
 
 
+def trigger_cost_boundary(entry, row):
+    """Recognize actual offered-trigger adjustment, not forecast mana probes."""
+    offered=entry.get('arguments',[[]])[0]
+    args=row.get('arguments',[])
+    if len(offered)!=1 or len(args)!=3 or args[2] is not False:
+        return False
+    original=offered[0];ability=args[1]
+    return (isinstance(ability,dict) and ability.get('ability_id')==original.get('ability_id')
+            and ability.get('source',{}).get('card_id')==original.get('source',{}).get('card_id')
+            and args[0]==original.get('pay_costs')=='{0}')
+
 def encode(entry, returned, index, call_line, return_line):
     hook, args = entry['hook'], entry['arguments']
     row = {'kind': 'unsupported_decision', 'index': index, 'hook': hook,
@@ -83,8 +94,10 @@ def encode(entry, returned, index, call_line, return_line):
         row['reason']='hidden_search_domain_reveal_or_choice_unsupported'
         if len(args)==8 and args==returned.get('arguments_after') and returned['result'] is None and args[0:2]==['Hand',['Library']] and args[3]==[] and args[6] is True and entry.get('replay_hidden_random_requests',0)==0:
             ability=args[2]; reveal=args[4]; chooser=args[7]
-            parameters=dict(DB='ChangeZone',Origin='Library',Destination='Hand',Chooser='Targeted',Optional='True',ChangeType='Card.namedSam; Loyal Attendant',ValidTgts='Player',Hidden='True')
-            if (ability['source']['name']=='Frodo, Adventurous Hobbit' and ability['api']=='ChangeZone' and ability['parameters']==parameters and isinstance(reveal,dict) and reveal['zones']==['Library']
+            name=ability['source']['name']
+            partner='Card.namedSam; Loyal Attendant' if name=='Frodo, Adventurous Hobbit' else 'Card.namedFrodo; Adventurous Hobbit'
+            parameters=dict(DB='ChangeZone',Origin='Library',Destination='Hand',Chooser='Targeted',Optional='True',ChangeType=partner,ValidTgts='Player',Hidden='True')
+            if (name in ('Frodo, Adventurous Hobbit','Sam, Loyal Attendant') and ability['api']=='ChangeZone' and ability['parameters']==parameters and isinstance(reveal,dict) and reveal['zones']==['Library']
                 and reveal['owner']['view_id']==chooser['player_id']==row['actor_id'] and chooser['lost'] is False
                 and all(c['zone']=='Library' and c['owner']['view_id']==row['actor_id'] for c in reveal['cards'])):
                 ids=[c['view_id'] for c in reveal['cards']]
@@ -119,7 +132,7 @@ def encode(entry, returned, index, call_line, return_line):
         row['reason'] = 'trigger_preparation_or_targets_unsupported'
         offered = args[0] if len(args) == 1 else []
         announcements = entry.get('replay_trigger_announcements', [])
-        if len(offered) == 1 and len(announcements) == 1 and entry.get('replay_trigger_order') == offered and entry.get('replay_trigger_unknown_rng', 0) == 0:
+        if len(offered) == 1 and len(announcements) == 1 and entry.get('replay_trigger_order') == offered and entry.get('replay_trigger_unknown_rng', 0) == 0 and entry.get('replay_trigger_effect_calls', 0) == 0:
             ability = offered[0]; source = ability['source']; event = announcements[0]; stack = event['si']
             targets = stack.get('target_players', [])
             if (source['name'] in ('Frodo, Adventurous Hobbit', 'Sam, Loyal Attendant') and ability['api'] == 'ChangeZone'
@@ -391,8 +404,14 @@ def extract(source, expected_sha256, output):
                         if entry['hook'].endswith(ATTACK) and not (row['hook'].endswith(ATTACK) or row['hook'].startswith('forge/game/cost/CostAdjustment.adjust(')):
                             entry['replay_attack_unknown_calls']=entry.get('replay_attack_unknown_calls',0)+1
                         if entry['hook'].endswith(TRIGGER_STACK):
-                            if row['hook'].startswith('forge/game/cost/CostAdjustment.adjust('):
+                            # AI threat forecasting inspects unrelated mana costs.
+                            # Only the offered trigger's own adjustment starts the
+                            # actual zero-cost stack-payment boundary. In particular,
+                            # a tapped Command Tower probe is not a payment/effect.
+                            if row['hook'].startswith('forge/game/cost/CostAdjustment.adjust(') and trigger_cost_boundary(entry,row):
                                 entry['replay_trigger_effects_started'] = True
+                            if row['hook'].startswith('forge/game/ability/effects/'):
+                                entry['replay_trigger_effect_calls'] = entry.get('replay_trigger_effect_calls',0)+1
                             if row['hook'].startswith('forge/game/Game.fireEvent('):
                                 event = row['arguments'][0]
                                 if isinstance(event, dict) and event.get('record_type') == 'GameEventSpellAbilityCast':
