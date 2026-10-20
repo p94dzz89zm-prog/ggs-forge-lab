@@ -26,7 +26,12 @@ legality. Native candidate prompts currently need later cost/target validation.
 The saved natural diagnostic reached64 turns and timed out at180 engine seconds.
 Observed partial states progressed with maximum exact repetition2. No CPU/IO
 profile was recorded; strategic inefficiency versus execution cost remains open.
-New complete natural games0; independently approved complete games0; training0.
+One fresh profiled natural game completed on turn47 in107.6s wall/99.4s engine.
+All9 writer receipts and complete streams verify;186 mana cost/pool transitions
+pass, but2 KeywordWithCost values are unencoded. Full-game approvals0; training0.
+JFR observes recorder frames in40.26% of PhaseHandler-anchored samples; duplicate
+JSON parsing/serialization is a measured optimization target, not a proven
+speedup. See PROFILED_NATURAL_VALIDATION.md. User house profile remains uncertified.
 
 Next: native Pilot A adapter/regressions, then a separately allocated profiled
 game with frozen inputs and enforced configuration. Full-game review must cover

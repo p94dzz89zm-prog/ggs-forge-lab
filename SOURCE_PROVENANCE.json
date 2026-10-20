@@ -93,9 +93,13 @@
       "sha256": "a8ceba58f4b19a4e7f3726375104f4240d6ab445fea363f133bec465329d53c8",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "PROFILED_NATURAL_VALIDATION.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "c5730a0d907fda3e0005134bea5ae7af7dd9bc3269f9e4da042be7c53cbaa94b"
+    },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "bbda4bd6c9a55e4579617d585a344af5e49240ad75611f9c7056a3756bdf4f91"
+      "sha256": "6c1b822d62a8253b8ecd395a6eabe1e6fd2a44f8c2119dbe59587f21812baef8"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -128,6 +132,10 @@
       "original_sha256": "5c1ee4ad173541507974a262c091b612c0dcdab0e96608de35ba1dbc66c0884c",
       "sha256": "5c1ee4ad173541507974a262c091b612c0dcdab0e96608de35ba1dbc66c0884c",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "analyze_jfr_profile.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "281011e5ef0e145af13b1ecc87ef6679e54aadbb309fa4011d54bfaf5130920e"
     },
     "apex_roles.py": {
       "original_blob": "11a9aea2e49b20625d0e21e3095e6fb92b1f55b4",
@@ -614,6 +622,10 @@
       "original_sha256": "9b7b9bfd0bf55ac5d98f89d3501747ee1ac2eadeced7be5f9c803dbf7c224f0e",
       "sha256": "9b7b9bfd0bf55ac5d98f89d3501747ee1ac2eadeced7be5f9c803dbf7c224f0e",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/DeckConformanceProbe.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "cd1fd1aefa21730adf508831f7f78bd922daad36afd5073aa1e13ed6a3eba5cc"
     },
     "forge-fork/DurableEvidenceRegression.java": {
       "original_blob": "8b5e7e7a867a822165d4309caa4afd65d5f87236",
@@ -1783,6 +1795,10 @@
       "sha256": "18608ffe13585923a34a9af450f5185c0b3be947125b9ee77cb46f8f2e3e97d4",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "profile_natural_game.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "cdac86adcb192803838f2c7883e694b7f982d38f19f85458c6d8c18f43cc8201"
+    },
     "readiness_trace_audit.py": {
       "original_blob": "8926588d89170f8a3c08607688f7e683b884750f",
       "original_sha256": "ae70dde8ca8ae62d7a12524567d3a8dc2b069a140137a31cdd83e8b158e22fba",
@@ -1993,6 +2009,10 @@
       "sha256": "2b52e2bd64121c6e5c5ce39ad96566e181ad9a9de7973dd84238891259711212",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "test_jfr_profile.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "cd824ef6a0f32fbb9fcedef2aacf98c5b9dfb2068cd0aa047a8b44ed93a51ddd"
+    },
     "test_learning_checkpoint.py": {
       "original_blob": "beba1b1071e5d8dd7fe33d3aa2a9a3e340f76315",
       "original_sha256": "bfcc464b5a895eade1870a36020d99edcd2c69ad3dea38c438622d6133bca385",
@@ -2112,6 +2132,10 @@
       "original_sha256": "5f00e823d952f55c83aa47198fd00d149308c8c5ce1d55ccc70023ceb009a73f",
       "sha256": "5f00e823d952f55c83aa47198fd00d149308c8c5ce1d55ccc70023ceb009a73f",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_profile_natural_game.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "c029e465fae951dc688f4a4f69542e21725ddb284fcac168e4634ad4340cf000"
     },
     "test_rampant_replay.py": {
       "original_blob": "0445c5804a9af2638cb1f2a0db539ea233de503a",
