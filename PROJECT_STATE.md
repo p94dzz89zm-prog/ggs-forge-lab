@@ -75,4 +75,23 @@ native409-row tapes match, with2 successful executions and3 unchanged refusals.
 316 Python tests pass. Whole-stream stack/life/terminal consistency checks pass
 scoped predicates on the prior native game; the stock baseline is rejected for
 an unmatched duplicate removal notification. No game approved or training.
-See EXECUTION_HISTORY_VALIDATION.md. Fresh house-profile gameplay is next.
+See EXECUTION_HISTORY_VALIDATION.md.
+
+A fresh house-profile natural game completed on turn55 in80.603s wall/67.893s
+engine. All6 receipts and frozen inputs verify;214 actions succeeded,0 failed,
+419 successful and4 unchanged rejected unit-mana transitions pass with0 scoped
+gaps,0 unencoded values. Full histories are privately saved and restored.
+Three recovery diagnostics are complete;0 complete games are independently
+approved and0 outcomes admitted for training. See HOUSE_NATURAL_VALIDATION.md.
+
+Duplicate stack-removal events now have a generic root-cause repair: absent
+instances no longer emit removal notifications. Native real aftermath,
+Counterspell response, live/frozen removal and unchanged409-row tape controls
+pass;316 Python tests pass. See STACK_REMOVAL_VALIDATION.md. This patch has not
+yet run a fresh natural game. The original equip failure remains unresolved.
+
+Next: independently derive counter/removal causality, casting/payment
+restrictions, priority, combat, triggers, SBAs and terminal conditions for the
+completed house game. Keep PR2 draft and Pilot B experimental. Stage47/48
+ownership remains unchanged; never replace full-game approval with fixture or
+event-consistency success.

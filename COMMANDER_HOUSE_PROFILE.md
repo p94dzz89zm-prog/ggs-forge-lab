@@ -25,11 +25,13 @@ Frozen natural-game preflight binds the declared profile to exactly one active
 JVM flag, before `-jar`, and the exact40/false/3 configuration. Missing, duplicate,
 misplaced, unknown or contradictory flags/configuration are rejected. This
 configuration check does not certify deck legality, card behavior or a game.
-311 root Python tests pass. No new natural game has yet run under this profile;
-the earlier standard-profile diagnostics are not relabeled as house games.
+The profile's initial 311 root Python tests passed; the current suite has 316.
+A fresh natural game has since completed under this profile on turn55; see
+HOUSE_NATURAL_VALIDATION.md for results and unresolved independent audit work.
+The earlier standard-profile diagnostics are not relabeled as house games.
 
-Next: a fresh independently allocated Pilot A game with this executable/profile,
-complete frozen input manifest and full private history. Full-game approval
+Next: audit the completed Pilot A game and its full frozen private history.
+Full-game approval
 still requires substantive independent casting, costs, priority, stack, combat,
 trigger, SBA, commander, layers/replacement and terminal review, with no unresolved
 issues. Pilot B remains experimental and all outcome training stays blocked.

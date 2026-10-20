@@ -41,7 +41,7 @@
     },
     "COMMANDER_HOUSE_PROFILE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "1c5016f8e0bbce01098cddff544f3fcebc5786ff9a1551182fc8d956401b462f"
+      "sha256": "72ff2e9e0cb1db6e54071b10b2a846e05255e37a682eec18c8065526dea27bc8"
     },
     "DAY_CYCLES.md": {
       "original_blob": "ac29d43158f065968f1e988d41182a554d401ab3",
@@ -83,6 +83,10 @@
       "sha256": "0b86f3342fd1ba516b45bcecc482c2fa06d4ca4fa326182d60f6dc5d5b3e39c0",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "HOUSE_NATURAL_VALIDATION.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "2f5c592b7dee7e79adbf3590c61ee0b12f0bfd2835b64ee252518ef163501a23"
+    },
     "LICENSE": {
       "original_blob": "791b7c468ecdd09e0ffc8c83baba4c72ff00cda0",
       "original_sha256": "15f5f93a6ae1c8750e9c6fff3bf355f9a8375288491c205e72d8b09f62259c05",
@@ -115,7 +119,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "3a54b7e41621e4b66277a1f130899e14780dc8fe2356cbaea781d9041a57fb3d"
+      "sha256": "0c12e606a72d097e2cc7c7a19667932d27c57f3d40d37a21af56e4e1ac7bf92e"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -130,6 +134,10 @@
     "SOURCE_RECOVERY.md": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "5bd8ffbc54330b2970a90b01105b49e7014d6bef6c647939233b17efa869f040"
+    },
+    "STACK_REMOVAL_VALIDATION.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "3931a862bf65457c6df3dd224ab919926551aabc8dcbdcaa56872712030023b1"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -997,6 +1005,14 @@
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "9946c22489bb92629373fa4548bcf9afefa2facf22c6930c7aa6a03fb6c1c681"
     },
+    "forge-fork/StackRemovalInstrumenter.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "4e3d1574c7bd4f58c892d09bbf442cd53944de74e9c1c1fbe49dfdbfbc77a0fb"
+    },
+    "forge-fork/StackRemovalRegression.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "b889db55317f588f020a5a79db3b2857f2b0085a74dc62ea0d992dded1f82cbc"
+    },
     "forge-fork/StateReadinessRegression.java": {
       "original_blob": "7cb1f9feb39560b0fe8e35f961ced81314d45eb1",
       "original_sha256": "28bf3c6fedbd127e7c3cf95c6f0f69ff43606c572f827fe81844a6477bd8ef07",
@@ -1344,6 +1360,10 @@
       "original_sha256": "68da2e902825f4ac148a8f468961336e30cef9237efabe1ede26be0e053ac94c",
       "sha256": "68da2e902825f4ac148a8f468961336e30cef9237efabe1ede26be0e053ac94c",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_stack_removal.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "97307fc5a88c8527b132d7b8693616d487e40e12df95f8405462244a672e279b"
     },
     "forge-fork/build_streaming_finalizer.py": {
       "original_blob": "4dc0aa794b389412d6859c7f8f28c39dfb19bc6c",
