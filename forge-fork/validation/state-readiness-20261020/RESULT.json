@@ -1,0 +1,39 @@
+{
+  "format": 1,
+  "scope": "constructed native four-player SBA/trigger/stack boundary; no full-game approval",
+  "engine_sha256": "b1521760e6448630079102e9917ecd74293300e34ab577140ccc0de67b8e8762",
+  "fixture_helper_sha256": "627896571a72011a000891d05cb7a6b17b62b206ee103c94150b104c5084671d",
+  "source_sha256": "5720de49e70b99bab89aa1ce48a52c1695ec7a2673f02a67c791ad614b1f7b62",
+  "attempts": [
+    {
+      "attempt": 1,
+      "returncode": 1,
+      "pass_marker": false,
+      "outcome": "failed fixture; missing last-state history",
+      "source_sha256": "cf7c6a237acb5a6a866ec409d9bada1ed3954d3f9b89694db7d387a750284735"
+    },
+    {
+      "attempt": 2,
+      "returncode": 0,
+      "pass_marker": true,
+      "outcome": "passed after explicit pre-action history snapshot"
+    }
+  ],
+  "files": {
+    "compile.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "attempt2.log": "7c572e5a06c529872c08c531c504d71f0d15a865e77f57e71cc138f7a896f338",
+    "compile2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "attempt1.log": "54aedcf8a9cf8d9452d9877b4e4d0d03d2561ff9209c67fadc7e05f1c48f7b5d",
+    "StateReadinessRegression-attempt1.java.txt": "cf7c6a237acb5a6a866ec409d9bada1ed3954d3f9b89694db7d387a750284735"
+  },
+  "resource_definition_sha256": {
+    "res/cardsfolder/g/grizzly_bears.txt": "31964bb8465c2e815f106b34838e8b1a8d5c567c420ad6f88ed915427fafb651",
+    "res/cardsfolder/d/darksteel_myr.txt": "17dc60f44767782cdb7be4e13625784d646582c85c974a6c682b2a580897f5f4",
+    "res/cardsfolder/d/doomed_dissenter.txt": "c81ccfdd1b911525386c87f5666cfc3e5dca1e1bbb8e05c86112256bacc64c0e",
+    "res/tokenscripts/b_2_2_zombie.txt": "aaa0e3e4ec54d68c9a76f448d9ffaa10af129de04892836d51a87e34e0a03daa"
+  },
+  "natural_games": 0,
+  "rules_approved_games": 0,
+  "training_updates": 0,
+  "stage48_modified": false
+}

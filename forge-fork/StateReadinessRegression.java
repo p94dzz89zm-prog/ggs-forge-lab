@@ -33,6 +33,7 @@ public class StateReadinessRegression extends AITest {
         game.getAction().checkStaticAbilities();
         game.getTriggerHandler().resetActiveTriggers();
         bear.setDamage(2); myr.setDamage(1); dissenter.setDamage(1);
+        game.copyLastState(); // Match the native action boundary's LTB history.
         require(game.getStack().isEmpty(), "Fixture must begin with an empty stack");
         require(bear.getNetToughness() == 2 && myr.getNetToughness() == 1 && zero.getNetToughness() == 0,
                 "Fixture characteristics differ");
@@ -46,7 +47,7 @@ public class StateReadinessRegression extends AITest {
         require(myr.isInZone(ZoneType.Battlefield) && myr.getDamage() == 1, "Indestructible lethal-damage control failed");
         require(zero.isInZone(ZoneType.Graveyard), "Zero toughness incorrectly treated as destruction");
         require(dissenter.isInZone(ZoneType.Graveyard), "Death-trigger source survived lethal damage");
-        require(game.getStack().size() == 1, "Death trigger not staged before priority boundary");
+        require(game.getStack().size() == 1, "Death trigger not staged before priority boundary; stack=" + game.getStack().size());
         require(p.getCardsIn(ZoneType.Battlefield).stream().noneMatch(Card::isToken), "Death trigger resolved prematurely");
         require(Boolean.FALSE.equals(ready.invoke(game.getPhaseHandler())) && game.getStack().size() == 1,
                 "Readiness duplicated or resolved a pending trigger");

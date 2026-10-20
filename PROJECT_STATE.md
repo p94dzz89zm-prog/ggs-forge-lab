@@ -5,6 +5,18 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Native state-readiness regression
+
+Verified Stage47 executable passes a constructed four-player SBA/trigger/stack
+fixture: lethal damage, indestructible control, zero toughness despite
+indestructible, death-trigger staging without premature resolution, native2/2
+token creation/ownership and stable readiness. First attempt failed due to
+missing fixture last-state history; corrected attempt2 passes. Both source
+versions and full logs/hash manifest retained. No engine rules defect repaired,
+new natural game, training or whole-game approval. See STATE_READINESS_VALIDATION.md.
+Natural readiness instrumentation/independent full-state derivation remain
+missing. Stage48 remains untouched;466 is the gameplay recovery boundary.
+
 ## Scoped priority-pass verification
 
 Independent observer checks nonspeculative outer priority passes and actual
