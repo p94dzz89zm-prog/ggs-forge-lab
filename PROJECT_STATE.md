@@ -5,6 +5,30 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Sam Food trigger reconstructed
+
+Conditional coverage1780/1985;371 completed consecutive original controller
+choices,868 validated engine RNG requests and178 equal canonical transcript
+lines. Sam's own beginning-of-combat mandatory Food coordinator applies actual
+zero-cost stack/payment decisions, then native resolution creates a Food.
+It verifies actual source trigger ID, own turn/phase/controller, no targets,
+exact TokenScript, no X/additional mechanics, and rejects mismatches before
+stack mutation. Five original Food trigger contracts are newly supported.
+
+Four-player wrong-phase rejection and actual Food creation/owner/controller/type
+controls pass. Initial positive fixture incorrectly supplied an optional
+decider to a mandatory trigger, causing an unsupported confirmTrigger call;
+that failed attempt is preserved and the corrected native wrapper passes.
+One actual original prefix diagnostic reaches371, with explicit causal
+correspondence for original Bird412/live406 and Food415/live408. Native IDs
+remain visible and different; two scoped correspondences are not full-state
+equivalence or independent game legality. Official CR111.2/111.4/603.3d reviewed.
+
+Next371: player0 attack declaration, beyond single-Phoenix support. Remaining
+205 unsupported roots; full-state, terminal outcome and global independent
+rules review still pending.0 complete decision replays,0 approved games,
+no new natural games/training/comparisons; no measured strategic improvement.
+
 ## Sam Partner trigger and private search reconstructed
 
 Conditional coverage1775/1985;361 consecutive completed original controller

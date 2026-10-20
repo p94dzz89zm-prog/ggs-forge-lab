@@ -135,6 +135,20 @@ def encode(entry, returned, index, call_line, return_line):
         if len(offered) == 1 and len(announcements) == 1 and entry.get('replay_trigger_order') == offered and entry.get('replay_trigger_unknown_rng', 0) == 0 and entry.get('replay_trigger_effect_calls', 0) == 0:
             ability = offered[0]; source = ability['source']; event = announcements[0]; stack = event['si']
             targets = stack.get('target_players', [])
+            if (source['name']=='Sam, Loyal Attendant' and ability['api']=='Token' and ability['trigger'] is True and ability['spell'] is False
+                and ability['x'] is None and ability['pay_costs']=='{0}' and ability['parameters']=={}
+                and ability['targets']==[] and ability['paying_mana']==[] and ability['alternative_costs']==[] and ability['optional_costs']==[]
+                and event['sa']['ability_id']==ability['ability_id'] and stack['source']['view_id']==source['card_id']
+                and stack['activating_player']['view_id']==source['controller_id']==row['actor_id'] and source['zone']=='Battlefield'
+                and not stack['target_cards'] and not targets and 'create a Food token.' in event['sa']['description']
+                and returned['arguments_after']==args and returned['result'] is None and entry.get('replay_trigger_zero_payments')==1
+                and entry['phase']=='COMBAT_BEGIN' and entry['turn_player_id']==row['actor_id']):
+                row.update(kind='decision',decision_type='sam_food_trigger_stack',source_card_id=source['card_id'],source_name=source['name'],
+                           original_ability_id=ability['ability_id'],selected_api='Token',
+                           random_scope='Reviewed Sam Food preparation only; actual effects and payment RNG excluded',
+                           context={k:entry[k] for k in ('turn','phase','priority_player_id','turn_player_id')})
+                row.pop('reason',None)
+                return row
             if (source['name'] in ('Frodo, Adventurous Hobbit', 'Sam, Loyal Attendant') and ability['api'] == 'ChangeZone'
                 and ability['trigger'] is True and ability['spell'] is False and ability['x'] is None and ability['pay_costs'] == '{0}'
                 and ability['targets'] == [] and ability['paying_mana'] == [] and ability['alternative_costs'] == [] and ability['optional_costs'] == []
