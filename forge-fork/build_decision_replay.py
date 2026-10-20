@@ -32,7 +32,7 @@ def main():
         classes.mkdir(); inputs.mkdir(); overlay.mkdir()
         source = ROOT / 'pilot-src/forge/ai/bridge/DecisionReplay.java'
         subprocess.run(['java', '-m', 'jdk.compiler/com.sun.tools.javac.Main', *EXPORTS,
-                        '-cp', str(args.base), '-d', str(classes), str(source), str(ROOT / 'pilot-src/forge/ai/bridge/EvidenceRandom.java'), str(ROOT / 'pilot-src/forge/ai/bridge/EngineEvidence.java'),
+                        '-cp', str(args.base), '-d', str(classes), str(source), str(ROOT / 'pilot-src/forge/ai/bridge/ReplayCardIdentities.java'), str(ROOT / 'pilot-src/forge/ai/bridge/EvidenceRandom.java'), str(ROOT / 'pilot-src/forge/ai/bridge/EngineEvidence.java'),
                         str(ROOT / 'EvidenceInstrumenter.java'), str(ROOT / 'DecisionReplayInstrumenter.java')], check=True)
         controllers = ['forge/ai/PlayerControllerAi.class', 'forge/ai/bridge/PlayerControllerBridge.class',
                        'forge/game/player/PlayerController.class']
@@ -45,6 +45,7 @@ def main():
         changes = {name: (overlay / name).read_bytes() for name in controllers}
         changes['forge/ai/bridge/DecisionReplay.class'] = (classes / 'forge/ai/bridge/DecisionReplay.class').read_bytes()
         changes['forge/ai/bridge/EvidenceRandom.class'] = (classes / 'forge/ai/bridge/EvidenceRandom.class').read_bytes()
+        changes['forge/ai/bridge/ReplayCardIdentities.class'] = (classes / 'forge/ai/bridge/ReplayCardIdentities.class').read_bytes()
         for path in classes.glob('forge/ai/bridge/EngineEvidence*.class'):
             changes['forge/ai/bridge/'+path.name] = path.read_bytes()
         staged = root / 'engine.jar'
@@ -52,6 +53,7 @@ def main():
             for entry in old.infolist():
                 new.writestr(entry, changes.get(entry.filename, old.read(entry.filename)))
             new.writestr('forge/ai/bridge/DecisionReplay.class', changes['forge/ai/bridge/DecisionReplay.class'])
+            new.writestr('forge/ai/bridge/ReplayCardIdentities.class', changes['forge/ai/bridge/ReplayCardIdentities.class'])
         publish(staged, args.output)
         hooks = (overlay / 'decision-hooks.txt').read_text()
         args.output.with_suffix('.hooks.txt').write_text(hooks)

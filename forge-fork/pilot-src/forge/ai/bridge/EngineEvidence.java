@@ -78,6 +78,7 @@ public final class EngineEvidence {
   row.addProperty("turn",live.getPhaseHandler().getTurn());
   if(live.getPhaseHandler().getPriorityPlayer()!=null)row.addProperty("priority_player_id",live.getPhaseHandler().getPriorityPlayer().getId());
   if(live.getPhaseHandler().getPlayerTurn()!=null)row.addProperty("turn_player_id",live.getPhaseHandler().getPlayerTurn().getId());row.addProperty("phase",String.valueOf(live.getPhaseHandler().getPhase()));
+  ReplayCardIdentities.observe(row);
   if(reference!=null) {
    try {
     String line=reference.readLine();JsonObject expected=line==null?null:JsonParser.parseString(line).getAsJsonObject();
@@ -164,6 +165,7 @@ public final class EngineEvidence {
  }
  public static synchronized void finish() {
   if(!calls.isEmpty())throw new IllegalStateException("Incomplete referee calls: "+calls.size());
+  if(DecisionReplay.enabled())try{DecisionReplay.finish();ReplayCardIdentities.finish();}catch(Exception e){throw new IllegalStateException("Decision reconstruction incomplete; no terminal seal",e);}
   JsonObject row=new JsonObject();row.addProperty("kind","engine_tape_complete");row.addProperty("calls",next);row.addProperty("rules_approved",false);row.add("final_state",initialState());write(row);if(reference!=null)try {if(reference.readLine()!=null)throw new IllegalStateException("Unconsumed replay events");reference.close();}catch(java.io.IOException e){throw new IllegalStateException(e);}live=null;
  }
  private static JsonArray ids(Iterable<?> values){JsonArray a=new JsonArray();for(Object v:values)if(v instanceof Player p)a.add(p.getId());return a;}

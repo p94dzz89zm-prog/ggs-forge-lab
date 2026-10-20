@@ -5,6 +5,32 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Historical created-card correspondence is explicit and fail-closed
+
+Default-off ReplayCardIdentities consumes a bounded hash-bound private metadata
+tape compiled from the immutable original initial state and causal token births.
+It checks source/effect parameters/turn/ordinals and recorded characteristics
+before installing a bijection. Only typed card-ID fields in copied decision
+inputs are translated. Player IDs and original inputs remain unchanged; native
+events retain live IDs with explicit correspondence evidence. Before-birth,
+duplicate, collision, cause, ownership and PT errors reject. Original outcomes
+are never used to create or move cards. Completion now requires decision/RNG
+terminal checks and all identity births before a referee completion seal.
+
+Production-binder controls pass, including unconsumed-birth rejection. One
+actual bounded original replay executes348 choices and779 RNG requests; a
+separate read-only checker validates Bird412/live406 correspondence. Native
+IDs still differ; neither full-state reconstruction nor whole-game legality
+is certified. The final build's bounded metadata read and completion guard
+were checked with the affected binder control; the original prefix ran the
+preceding overlay. Both exact executables and unique launch failure are retained.
+
+Conditional coverage remains1773/1985, approved games0, training0. Next348 is
+Sam Partner: order, public target, zero payment and arguments match, but seven
+post-adjustment RNG requests were conservatively classified unknown. Their
+recorded ancestors are the trigger coordinator, not effect/payment hooks;
+review native selector bytecode and causal control before expanding support.
+
 ## AI token previews no longer consume live card IDs
 
 The isolated prototype build uses unique increasing IDs in a separate positive
@@ -772,24 +798,3 @@ commander tax/damage/zone choices, politics, blocking/prevention and responses
 need more evidence. Historical unknown attempts and damaged logs stay quarantined.
 GGS remains the centerpiece; resilience is deck-level insurance. Physical
 Mistblade displacement and land inventory remain unresolved. The ranked
-APEX_RESEARCH_BACKLOG.md treats Whip as a hypothesis, not a proven upgrade.
-
-## Persistence and automation
-
-Use <=15-minute independently resumable stages. Commit public source/tests and
-verify readback; save private evidence and restore saved bytes before closing
-a stage. Stop expensive work on save failure. Never overwrite a successful
-checkpoint or publish private hands, raw logs or models to public GitHub.
-
-GitHub push/PR/manual code jobs have10-minute limits, read-only permissions and
-90-day artifacts; they do not run private training. Check actual execution.
-An enabled task is not continuous compute. Update the guarded ledger and concise
-private state with exact next steps and preserve significant evidence privately.
-
-Dashboard: https://dragonmind-performance.symbols.chatgpt.site .
-Cycle22 and Cycle23 publications succeeded with saved receipts. The dashboard
-shows the quarantined candidate and zero admitted full-game comparisons.
-Verified code CI: run39108781493 (157 Python tests and launcher contracts).
-The private recovery task was updated to the integrity hold; next-run time
-remains unreported, so no continuous/private training claim. Browser visual QA is unavailable; static/data and
-refresh/failure/retry contracts pass.

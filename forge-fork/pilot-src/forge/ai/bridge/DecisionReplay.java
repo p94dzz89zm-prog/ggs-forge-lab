@@ -130,7 +130,7 @@ public final class DecisionReplay {
    if(!number&&!cards&&!priority&&!replacement&&!counter&&!colors&&!start&&!mulligan&&!payment&&!triggerStack&&!singlePlayer&&!confirmation&&!emptySearch&&!attack)throw new IllegalStateException("Unsupported recorded decision: "+hook);
    if(!(receiver instanceof PlayerController controller))throw new IllegalStateException("Missing controller");
    open();String line=input.readLine();if(line==null)throw new IllegalStateException("Decision tape exhausted");
-   JsonObject row=JsonParser.parseString(line).getAsJsonObject();
+   JsonObject row=ReplayCardIdentities.decision(JsonParser.parseString(line).getAsJsonObject());
    if("unsupported_decision".equals(row.get("kind").getAsString()))throw new IllegalStateException("Unsupported recorded decision row: "+row.get("reason"));
    if(!row.get("kind").getAsString().equals("decision")||integer(row.get("index"))!=consumed||!row.get("hook").getAsString().equals(hook)||integer(row.get("actor_id"))!=controller.getPlayer().getId())throw new IllegalStateException("Decision order/actor/hook diverged");
    if(attack){
