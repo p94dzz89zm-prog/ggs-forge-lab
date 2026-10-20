@@ -95,3 +95,11 @@ restrictions, priority, combat, triggers, SBAs and terminal conditions for the
 completed house game. Keep PR2 draft and Pilot B experimental. Stage47/48
 ownership remains unchanged; never replace full-game approval with fixture or
 event-consistency success.
+
+Counter-removal follow-up now derives one structured causal link in the preserved
+house game across276864 records and259 resolution snapshots. The removed target
+was below the active counterspell, its direct ability/card identities matched,
+and it departed to its owner's graveyard.14 new adversarial audit regressions
+and330 root tests pass. Engine CounterEffect labels still require independent
+Oracle/target/restriction/prevention review;0 complete-game approvals/training.
+See COUNTER_CAUSALITY_VALIDATION.md. No new game or pilot policy change.

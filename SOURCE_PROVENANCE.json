@@ -43,6 +43,10 @@
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "72ff2e9e0cb1db6e54071b10b2a846e05255e37a682eec18c8065526dea27bc8"
     },
+    "COUNTER_CAUSALITY_VALIDATION.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "9aae8e8aaa30cffde8642ab068b89b3d298afd68d354679c983af82c4692094a"
+    },
     "DAY_CYCLES.md": {
       "original_blob": "ac29d43158f065968f1e988d41182a554d401ab3",
       "original_sha256": "476020497585d07965c42d31490011a89ea56f9a7af4338b8aa405b4f30dc9e3",
@@ -119,7 +123,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "0c12e606a72d097e2cc7c7a19667932d27c57f3d40d37a21af56e4e1ac7bf92e"
+      "sha256": "311f826bfeaa678c6f7e6d0367f01149cedc8519af8da5abb89e8b8730f312a7"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -224,6 +228,10 @@
       "original_sha256": "077dee02864d667344e6cfdf592dded40431cecbff2a9b3aa4d75ece818b8a03",
       "sha256": "077dee02864d667344e6cfdf592dded40431cecbff2a9b3aa4d75ece818b8a03",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "counter_causality_audit.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "0f4aba598c4abe32fdd36f4b6e98ca4610e4f8d8f82b93f5bec9d81e6f01e08e"
     },
     "created_identity_tape.py": {
       "original_blob": "e4b44059891069ac373b3bfc07a632c7fc0069a5",
@@ -2004,6 +2012,10 @@
       "original_sha256": "5045056cbcfec3bb1275b107deef0ab9b522a54b21119fc85197dc88b2b910ba",
       "sha256": "5045056cbcfec3bb1275b107deef0ab9b522a54b21119fc85197dc88b2b910ba",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_counter_causality_audit.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "527c66e724033e8c45b4e3009c219f897ab31c3612c921bff6df9f39b7ddf696"
     },
     "test_cultivate_cast_replay.py": {
       "original_blob": "5ac616b645fc8b3feae8e67da5ee9c868e0ce090",
