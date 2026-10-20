@@ -91,7 +91,7 @@ public final class EngineEvidence {
     referencePosition++;
    }catch(java.io.IOException e){throw new IllegalStateException("Replay read failed",e);}
   }
-  try {DurableEvidence.append(Path.of(dir,"referee-events.jsonl"),row.toString());}catch(Exception e){throw new IllegalStateException("Referee evidence failed",e);}
+  try {DurableEvidence.append(Path.of(dir,"referee-events.jsonl"),row);}catch(Exception e){throw new IllegalStateException("Referee evidence failed",e);}
  }
  // Only this UI notification is derived from a Set<Card>. Its membership
  // matters; its iteration order is not a game choice or zone order.

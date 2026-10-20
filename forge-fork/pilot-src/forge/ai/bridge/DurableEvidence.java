@@ -38,12 +38,38 @@ public final class DurableEvidence {
             Path key=path.toAbsolutePath();Stream s=streams.get(key);
             if(s==null){s=new Stream(key);streams.put(key,s);}
             JsonObject row=JsonParser.parseString(line).getAsJsonObject();
-            row.addProperty("evidence_game_id",gameId);row.addProperty("stream_sequence",s.rows+1);
-            byte[] data=(row+"\n").getBytes(StandardCharsets.UTF_8);
-            ByteBuffer b=ByteBuffer.wrap(data);while(b.hasRemaining())s.channel.write(b);
-            s.hash.update(data);s.rows++;s.bytes+=data.length;
-            if(s.rows%128==0){s.channel.force(true);JsonObject progress=new JsonObject();progress.addProperty("game_id",gameId);progress.addProperty("records_written",s.rows);progress.addProperty("bytes_written",s.bytes);progress.addProperty("write_status","in_progress");atomic(s.partial.resolveSibling(s.partial.getFileName()+".progress.json"),progress.toString());}
+            appendRow(s,row);
         } catch(Exception e){throw new IOException("Evidence append failed",e);}
+    }
+    /** Synchronous structured path: no serialize/parse round trip or caller mutation. */
+    public static synchronized void append(Path path,JsonObject row)throws IOException {
+        if(gameId==null){BridgeChannel.append(path,row.toString());return;}
+        if(sealed)throw new IOException("Write after evidence finalization");
+        try {
+            Path key=path.toAbsolutePath();Stream s=streams.get(key);
+            if(s==null){s=new Stream(key);streams.put(key,s);}
+            appendRow(s,row);
+        }catch(Exception e){throw new IOException("Evidence append failed",e);}
+    }
+    private static void finite(JsonElement value)throws IOException {
+        if(value.isJsonObject())for(var e:value.getAsJsonObject().entrySet())finite(e.getValue());
+        else if(value.isJsonArray())for(var e:value.getAsJsonArray())finite(e);
+        else if(value.isJsonPrimitive()&&value.getAsJsonPrimitive().isNumber()){
+            Number n=value.getAsNumber();
+            if((n instanceof Double||n instanceof Float)&&!Double.isFinite(n.doubleValue()))
+                throw new IOException("Nonfinite structured evidence number");
+        }
+    }
+    private static void appendRow(Stream s,JsonObject original)throws Exception {
+        finite(original);
+        // Only top-level metadata changes. Nested values are read synchronously,
+        // never retained or modified; caller must not mutate until append returns.
+        JsonObject row=new JsonObject();for(var e:original.entrySet())row.add(e.getKey(),e.getValue());
+        row.addProperty("evidence_game_id",gameId);row.addProperty("stream_sequence",s.rows+1);
+        byte[] data=(row+"\n").getBytes(StandardCharsets.UTF_8);
+        ByteBuffer b=ByteBuffer.wrap(data);while(b.hasRemaining())s.channel.write(b);
+        s.hash.update(data);s.rows++;s.bytes+=data.length;
+        if(s.rows%128==0){s.channel.force(true);JsonObject progress=new JsonObject();progress.addProperty("game_id",gameId);progress.addProperty("records_written",s.rows);progress.addProperty("bytes_written",s.bytes);progress.addProperty("write_status","in_progress");atomic(s.partial.resolveSibling(s.partial.getFileName()+".progress.json"),progress.toString());}
     }
     public static String hash(byte[] data)throws Exception{return HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(data));}
     public static String hashFile(Path path)throws Exception {

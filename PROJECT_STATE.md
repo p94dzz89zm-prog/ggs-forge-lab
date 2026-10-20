@@ -33,6 +33,12 @@ JFR observes recorder frames in40.26% of PhaseHandler-anchored samples; duplicat
 JSON parsing/serialization is a measured optimization target, not a proven
 speedup. See PROFILED_NATURAL_VALIDATION.md. User house profile remains uncertified.
 
+Recorder repair: structured append removes duplicate JSON conversion while
+preserving native399-row tape bytes, receipts and caller data.304 Python tests,
+writer compatibility/nonfinite controls, interrupted/post-seal controls and96MiB
+finalization under64MiB heap pass. Recorder microbenchmark observed lower times
+on one corpus; no whole-game speedup claim. See STRUCTURED_WRITER_VALIDATION.md.
+
 Next: native Pilot A adapter/regressions, then a separately allocated profiled
 game with frozen inputs and enforced configuration. Full-game review must cover
 casting, costs, targets, priority, stack, triggers, combat, zones, SBAs, commander

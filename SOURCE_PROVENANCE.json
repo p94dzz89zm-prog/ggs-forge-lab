@@ -99,7 +99,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "6c1b822d62a8253b8ecd395a6eabe1e6fd2a44f8c2119dbe59587f21812baef8"
+      "sha256": "8e83dfa9c744c781aa70d339ed1ac19ea5f31e650d8c4939f23350d4fabe682c"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -114,6 +114,10 @@
     "SOURCE_RECOVERY.md": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "5bd8ffbc54330b2970a90b01105b49e7014d6bef6c647939233b17efa869f040"
+    },
+    "STRUCTURED_WRITER_VALIDATION.md": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "3df7aa7771cdc23b21fd6aa74222820c9969471b56c69d2fa891c0bd198d53ac"
     },
     "TRAINING_PROTOCOL.md": {
       "original_blob": "e93fb1d1af475307cd0deb3f9a99f08238787c64",
@@ -979,6 +983,14 @@
       "sha256": "5ab6649621865f5be197eafd9aaffe0e77518db8fcd86ec5c32702976537051d",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/StructuredWriterBenchmark.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "1313bd7ddbf3dc3652238179b85eede70f4265a807153f76ea6eda9c5bb074c3"
+    },
+    "forge-fork/StructuredWriterRegression.java": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "b6c63d759a5993c8e40fe1db6cc72771e000552b4222a1aab753aeb043d3a7fe"
+    },
     "forge-fork/StudentCopyRegression.java": {
       "original_blob": "0e16d277eae2a1d78e76a6c4b55e65acf89be64e",
       "original_sha256": "a64edf2ff6b0e60dfb6d0ef69403b812f30421d1d6495ea256d9246d636ab9ed",
@@ -1295,6 +1307,10 @@
       "sha256": "b1c1af535065a1e08bfe91e2aff806e437211ec9653e4a6bb86b86c43fc6bb55",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/build_structured_writer.py": {
+      "origin": "source-only recovery source or safe operational documentation",
+      "sha256": "9398cb1c4fd9064322a48f5e9dbe9b0bc507b0a2592f22ff833751bbe3e8a5fc"
+    },
     "forge-fork/build_student_copy.py": {
       "original_blob": "8f92877e5a9d8a36eab3a5d2c959d208c8b900d0",
       "original_sha256": "fc0cf27f094944e2e2b431f673a85b0e4b8f5d64ac43e20b9d97695d5193ca63",
@@ -1494,13 +1510,13 @@
     "forge-fork/pilot-src/forge/ai/bridge/DurableEvidence.java": {
       "original_blob": "61bb82f7ef367578f2403339264d326072b6b78c",
       "original_sha256": "2aee5133df01c680101206a18a32ff8b80151ef7cc9f290230475ab7c5830633",
-      "sha256": "2aee5133df01c680101206a18a32ff8b80151ef7cc9f290230475ab7c5830633",
+      "sha256": "0dbc81c3f5b82e90eff6c23dfcf55c40bd3caa5ad740693159ee33aedf58bf0d",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "forge-fork/pilot-src/forge/ai/bridge/EngineEvidence.java": {
       "original_blob": "18b6db6d2a949ae8dc1d6f1f4b46996b23438e0d",
       "original_sha256": "2a0ae219ca1fb07f037dfef9cd31facc7258dd7202a9b850c31173afc5a08ce5",
-      "sha256": "2a0ae219ca1fb07f037dfef9cd31facc7258dd7202a9b850c31173afc5a08ce5",
+      "sha256": "cae5601f98f846599ea5d61ed161c9114908956c1508dd2845c073e1a3603beb",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "forge-fork/pilot-src/forge/ai/bridge/EvidenceRandom.java": {
