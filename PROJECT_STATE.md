@@ -5,6 +5,21 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Independent referee foundations maintenance
+
+Strict evidence identity/count types prevent boolean/decimal aliasing of call
+causality and completion. Successful actual mana-unit payments independently
+check exact pool removal, including duplicate-unit multiplicity; legacy missing
+snapshots report explicit gaps. All259 Python tests pass. Read-only inspection
+of the sealed Signet fixture verifies2 cost and2 pool transitions. No gameplay,
+training or whole-game approval. See REFEREE_FOUNDATIONS_VALIDATION.md.
+
+Stage48 ownership remains unresolved: ledger194 has no stage-specific owner,
+heartbeat or release; no local collector was observed. Its513-choice report is
+still provisional and its prefix referee stream is partial/in-progress. Do not
+take over, overwrite, seal artificially, or rerun an unknown attempt. The prior
+Stage47 archive outer hash/ZIP CRC remain verified;466 is the recovery boundary.
+
 ## Plain permanent selected-ability binding repaired
 
 Independent audit maintenance: negative or malformed mana-conversion bitmasks

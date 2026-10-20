@@ -1,7 +1,37 @@
 """Independent mana-unit pool/color/cost-transition checks, not full cost approval."""
 from collections import Counter
+import json
 
 COLORS = {'W':1,'U':2,'B':4,'R':8,'G':16,'C':32}
+
+
+def check_pool_transition(before, after, unit):
+    """A successful actual unit payment removes exactly that unit (CR118.3a).
+
+    Equal-looking units are a multiset, not a set. This checks recorded resource
+    conservation, not whether a mana source or spending restriction was legal.
+    Missing snapshots remain an explicit coverage gap for older evidence.
+    """
+    if before is None or after is None:
+        return 'Missing mana pool transition snapshot'
+    if not isinstance(before, list) or not isinstance(after, list):
+        raise ValueError('Malformed mana pool transition snapshot')
+
+    def key(value):
+        if not isinstance(value, dict) or value.get('color') not in COLORS:
+            raise ValueError('Malformed mana unit snapshot')
+        if type(value.get('source_card_id')) is not int or type(value.get('snow')) is not bool:
+            raise ValueError('Ambiguous mana unit identity or snow status')
+        return json.dumps(value, sort_keys=True, allow_nan=False)
+
+    old, new = Counter(map(key, before)), Counter(map(key, after))
+    spent = key(unit)
+    if old[spent] < 1:
+        raise ValueError('Spent mana unit absent from pool transition snapshot')
+    old[spent] -= 1
+    if +old != new:
+        raise ValueError('Successful payment did not remove exactly one recorded mana unit')
+    return None
 
 
 def check(before, after, unit, context):
