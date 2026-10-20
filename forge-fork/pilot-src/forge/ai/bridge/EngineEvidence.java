@@ -207,6 +207,7 @@ public final class EngineEvidence {
  }
  private static JsonObject describeAbility(SpellAbility s) {
   JsonObject o=new JsonObject();o.addProperty("ability_id",s.getId());o.add("source",card(s.getHostCard()));if(s.getActivatingPlayer()!=null)o.addProperty("activating_player_id",s.getActivatingPlayer().getId());o.addProperty("api",String.valueOf(s.getApi()));o.add("parameters",value(s.getMapParams(),1));
+  if(s.getHostCard().getName().equals("Misty Rainforest")&&s.getOriginalAbility()!=null){SpellAbility original=s.getOriginalAbility();o.addProperty("native_original_ability_id",original.getId());o.addProperty("native_original_source_card_id",original.getHostCard().getId());o.addProperty("native_original_distinct_instance",original!=s);}
   String description=s.getDescription();Integer chosen=s.getXManaCostPaid();
   o.addProperty("engine_description",description);
   o.addProperty("description",chosen==null?description:description.replaceAll("\\(X=[0-9]+\\)","(X="+chosen+")"));

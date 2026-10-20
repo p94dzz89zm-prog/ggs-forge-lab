@@ -5,6 +5,26 @@ At session start read AGENTS.md, this file, RESUME_DRAGONMIND.md and the current
 authoritative private ledger/project state. Reconcile leases, seeds, saved
 checkpoints and unknown outcomes before compute. Chat is not authoritative.
 
+## Misty sacrificed-source search and actual copy provenance reconstructed
+
+Conditional support1790/1985;460 consecutive original choices,1040 engine RNG
+requests and220 canonical lines agree. Native MagicStack.add explicitly copies
+activated abilities and sets their original-ability reference. Search driver
+requires that exact native reference to a previously paid activation, not matching
+text. It checks actual Forest/Island subtypes and complete eligible Library
+membership, retains actual zone order, performs only the recorded selection and
+actual searcher-only delivery, and leaves moves/replacements/shuffle to Forge.
+Recorder independently captures native original/source IDs and distinctness.
+
+Three four-player paid native search/invalid-card/impostor-lineage controls pass.
+Affected encoding and independent visibility-audit controls pass. Original/replay
+private look agrees:89 cards,3 deliveries only to player2; Watery Grave274 chosen
+from four actual eligible lands.0 complete replay/rules approval or training.
+Next460 is Arcane Signet239 payment, original2050/live1475: exact spell was
+selected but plain-permanent selection failed to retain its causal ability
+binding.195 unsupported roots remain separate from this recognized-family
+instance failure. Full independent state/legality/terminal audit still required.
+
 ## Misty activation and mandatory costs reconstructed
 
 Conditional contracts1789/1985;456 consecutive original choices,953 engine

@@ -105,6 +105,11 @@ def encode(entry, returned, index, call_line, return_line):
     if hook.endswith(ZONE_EMPTY):
         row['reason']='hidden_search_domain_reveal_or_choice_unsupported'
         after=returned.get('arguments_after',[])
+        if len(args)==8 and len(after)==8 and args[:3]==after[:3] and args[4:]==after[4:] and args[:2]==['Battlefield',['Library']] and args[6] is True and misty(args[2]) and args[2]['source'].get('zone')=='Graveyard' and entry.get('replay_search_effect_calls',0)==0:
+            owner=row['actor_id'];offered=args[3];reveal=args[4];selected=returned['result'];ids=sorted(card['card_id'] for card in offered)
+            if (offered and len(ids)==len(set(ids)) and ids==sorted(card['card_id'] for card in after[3]) and all(card['zone']=='Library' and card['owner_id']==owner for card in offered)
+                and (selected is None or selected.get('card_id') in ids) and args[7].get('player_id')==owner and args[7].get('lost') is False and isinstance(reveal,dict) and reveal['zones']==['Library'] and reveal['owner']['view_id']==owner and all(card['owner']['view_id']==owner and card['zone']=='Library' for card in reveal['cards'])):
+                ability=args[2];row.update(kind='decision',decision_type='misty_library_choice',source_ability=str(ability['source']['card_id'])+':'+str(ability['ability_id']),ability_api=ability['api'],ability_parameters=ability['parameters'],available_card_ids=ids,selected_card_id=None if selected is None else selected['card_id'],title=args[5],reveal_card_ids=[card['view_id'] for card in reveal['cards']],reveal_owner_id=owner,reveal_message=reveal['message'],random_scope='Reviewed choice-inventory selector only; actual private look preserved; no effect calls');row.pop('reason',None);return row
         if len(args)==8 and len(after)==8 and args[:3]==after[:3] and args[4:]==after[4:] and args[1]==['Library'] and args[4] is None and args[6] is False and entry.get('replay_search_effect_calls',0)==0:
             ability=args[2];offered=args[3];chosen=returned['result'];owner=row['actor_id'];params=ability.get('parameters');destination=args[0]
             expected=CULTIVATE_BATTLEFIELD if destination=='Battlefield' else CULTIVATE_HAND if destination=='Hand' else None
