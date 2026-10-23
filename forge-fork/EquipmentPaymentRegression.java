@@ -13,6 +13,7 @@ public class EquipmentPaymentRegression extends AITest {
     static void require(boolean value,String text){if(!value)throw new AssertionError(text);}
     public static void main(String[] args) throws Exception {
         boolean reserve=Boolean.parseBoolean(args[0]);
+        boolean late=args[0].equals("late-reservation");
         EquipmentPaymentRegression t=new EquipmentPaymentRegression();t.initializeModel();
         forge.util.MyRandom.setRandom(new Random(37));t.initAndCreateGame();
         List<RegisteredPlayer> seats=new ArrayList<>();
@@ -35,9 +36,17 @@ public class EquipmentPaymentRegression extends AITest {
         }
         require(choice!=null && choice.size()==1 && choice.get(0).getHostCard()==equipment,"No equipment candidate");
         require(!a.isTapped() && !b.isTapped() && p.getManaPool().isEmpty(),"Preflight mutated resources");
+        if(late)for(Card land:List.of(a,b))AiCardMemory.rememberCard(p,land,AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_NEXT_SPELL);
         boolean played=p.getController().playChosenSpellAbility(choice.get(0));
         System.out.println("PROBE played="+played+" tapped="+a.isTapped()+","+b.isTapped()+" stack="+game.getStack().size()+" pool="+p.getManaPool());
-        if(!reserve){
+        if(late){
+            require(!played && !a.isTapped() && !b.isTapped() && p.getManaPool().isEmpty() && game.getStack().isEmpty(),"Stale payment plan mutated state");
+            require(!choice.get(0).isSkip(),"Stale payment plan entered payment and poisoned the ability with skip");
+            AiCardMemory.clearMemorySet(p,AiCardMemory.MemorySet.HELD_MANA_SOURCES_FOR_NEXT_SPELL);
+            var retry=p.getController().chooseSpellAbilityToPlay();
+            require(retry!=null && retry.get(0).getHostCard()==equipment && p.getController().playChosenSpellAbility(retry.get(0)),"Refused selection could not be selected and paid after reservation release");
+            game.getStack().resolveStack();require(equipment.getEquipping()==creature,"Retry failed attachment");
+        } else if(!reserve){
             require(played && a.isTapped() && b.isTapped() && p.getManaPool().isEmpty() && game.getStack().size()==1,"Legal equip failed real generic payment");
             game.getStack().resolveStack();require(equipment.getEquipping()==creature,"Equip failed attachment");
         } else {

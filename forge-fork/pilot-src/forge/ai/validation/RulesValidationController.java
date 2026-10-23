@@ -91,7 +91,10 @@ public final class RulesValidationController extends PlayerControllerBridge {
                 boolean targets=true;
                 for(SpellAbility part=a;part!=null;part=part.getSubAbility())
                     if(part.usesTargeting() && !super.chooseTargetsFor(part)){targets=false;break;}
-                if(!targets || !targetsValid(a) || !a.canPlay()){rejected++;continue;}
+                // Target helpers can change strategic mana reservations. Validate
+                // the final candidate, not only the pre-target payment plan.
+                if(!targets || !targetsValid(a) || !a.canPlay()
+                        || (!a.isLandAbility() && !ComputerUtilCost.canPayCost(a,player,false))){rejected++;continue;}
                 selected=a;phaseActions++;kinds.merge(kind(a),1,Integer::sum);visits.merge(token(a),1,Integer::sum);
                 result=Collections.singletonList(a);audit(result,candidates.size(),rejected,"engine-preflighted selection");return result;
             }
@@ -113,6 +116,10 @@ public final class RulesValidationController extends PlayerControllerBridge {
                 || !a.canPlay() || !targetsValid(a))return false;
         selected=null;
         if(a.isLandAbility()){a.resolve();return true;}
+        // A selection is not a payment capability: resources/policy reservations
+        // may change before execution. Refuse before native payment mutates skip
+        // state; never clear reservations or manufacture a legal payment.
+        if(!ComputerUtilCost.canPayCost(a,player,false))return false;
         return ComputerUtil.handlePlayingSpellAbility(player,a,null);
     }
 }

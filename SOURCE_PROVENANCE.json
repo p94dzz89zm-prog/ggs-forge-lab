@@ -41,7 +41,7 @@
     },
     "CHECKPOINT_RECOVERY_STATUS.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "99410041162998263deaafe5ad4346d330f9121327b4d35866c064b860501045"
+      "sha256": "6904fa6abe99b8aa3e5bd5e96c92a282a49d2b35b09c6754dd58fc28250e7e30"
     },
     "COMMANDER_HOUSE_PROFILE.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -68,6 +68,10 @@
       "original_sha256": "f19180ff5a92eb038738f8e3e222085422b08fff9f543f0b14ab84119b3f2150",
       "sha256": "f19180ff5a92eb038738f8e3e222085422b08fff9f543f0b14ab84119b3f2150",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "EQUIPMENT_PAYMENT_GUARD.md": {
+      "origin": "verified source-only equipment follow-up",
+      "sha256": "e9913c61e278ceacd980b49a3aace458cc3d87a21ae36dd253a13bcf314ae6ed"
     },
     "EVIDENCE_ADMISSION.md": {
       "original_blob": "8f30d46338e2a7cdf87ede85058415aea651f33f",
@@ -127,7 +131,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "7c50c8cf538c2c257caed6a314edadc75bee1f1b8d22b44073ba69a8077675cb"
+      "sha256": "5899aea5ecf45486e1c5b6b3c88be76d7b95ac66a2fa5251f3494db9f3dbda08"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -685,9 +689,13 @@
       "sha256": "436d847126c30d99cdbcbc850c3bf2947a30670c1e115f6736b5fba69b4f82d8",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/EquipmentManaRegression.java": {
+      "origin": "verified source-only equipment follow-up",
+      "sha256": "69dc60b09558c89e1dcd5abaa16b8be947f487f98dc554fe93c09a63f92844a1"
+    },
     "forge-fork/EquipmentPaymentRegression.java": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "e176cd11841b097f08db8e20921a199a7c12493caa2c1c33199e2d1101490cf6"
+      "sha256": "d12821aa6bda6b661275c94b63ea189511026b916c3278856a587a9d5333f56e"
     },
     "forge-fork/EvidenceInstrumenter.java": {
       "original_blob": "1e2038f6783ca3d0338cb2980f76603d7e76b7e3",
@@ -1355,6 +1363,10 @@
       "sha256": "5dd7c642495f16b05a594192e9ba057048ed6e0dcc818a983a4dd422cb95babe",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/build_payment_guard.py": {
+      "origin": "verified source-only equipment follow-up",
+      "sha256": "88f6d4d494def01ac5301f03dd481a032895a3a9700d45a4885a2beb90ce0d81"
+    },
     "forge-fork/build_pilot_recovery.py": {
       "original_blob": "b0feba2bceb370c481d59b438b1da2af7c989345",
       "original_sha256": "bd0cf1faff2ab77b714038ac37d9e118a7e19385dcff59478119b6188a79a74f",
@@ -1699,7 +1711,7 @@
     },
     "forge-fork/pilot-src/forge/ai/validation/RulesValidationController.java": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "e1440a722c4b705cadb8a7a51a1415ae8a5c378a3dc5019e6284ce87e11a0cf3"
+      "sha256": "5f6675175d21718feaa53928a16fe2f2f3784c9cbec9c2ff1649e6e41d551aed"
     },
     "forge-fork/pilot-src/forge/game/mulligan/CommanderHouseRules.java": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -2208,6 +2220,10 @@
       "original_sha256": "98665060b97b7e79b6d06c11b1f42de7651d4e3ad56b68a38c4152b34e456b64",
       "sha256": "98665060b97b7e79b6d06c11b1f42de7651d4e3ad56b68a38c4152b34e456b64",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_payment_guard_build.py": {
+      "origin": "verified source-only equipment follow-up",
+      "sha256": "320eed4da98adf49969d0c0eed4d150017e8bfa54246ebb836cc509dcf7a0e3a"
     },
     "test_performance_registry.py": {
       "original_blob": "107e1407946c9d93d8fbaad40a6b14ddfaf9c02b",

@@ -1,6 +1,17 @@
 # DragonMind source-only recovery
 
-Current execution hold: counter audit source4c4105f and its saved archive verify,
+Current continuation (October23 UTC): the original guarded checkpoint batch
+saved successfully; both documents restored byte-identical, Stage47/48 unchanged.
+The former hold is historical, not current. A bounded independent equipment
+follow-up reproduced and repaired stale-payment selection causing skip mutation.
+333 root tests and six patched native controls pass; a seventh hash-bound replay
+matches215 event records byte-for-byte. Four distinct-fixture successful mana
+unit transitions and two rejected attempts pass scoped independent checks;
+two actual-tape mutations are rejected. See EQUIPMENT_PAYMENT_GUARD.md for
+scope, retained failures, exact reproduction and remaining original-event gap.
+Natural completed games remain3, independently approved games0, training0.
+
+Historical execution hold: counter audit source4c4105f and its saved archive verify,
 but the private status-document batch remains blocked at official helper tool
 discovery with HTTP403. One unchanged guarded retry also failed before upload
 preparation; both remote document versions/bytes remained unchanged afterward.

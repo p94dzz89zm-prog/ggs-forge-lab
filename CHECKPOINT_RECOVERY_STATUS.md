@@ -1,5 +1,20 @@
 # Checkpoint status synchronization hold
 
+## Resolved October23,2026 UTC
+
+The original guarded batch succeeded through the current official helper.
+Both document versions advanced and downloaded bytes matched the original
+intended SHA256 values exactly. A new read confirmed ledger215/project45;
+Stage47/48 dictionaries were compared unchanged. The counter audit is recorded
+as verified/published/saved/restored. A fresh bounded equipment continuation was
+then allocated durably in ledger216; the stale October20 budget was not reused.
+See EQUIPMENT_PAYMENT_GUARD.md for subsequent verified engineering and limits.
+The original cause of HTTP403 is unknown. No permissions, endpoints, credentials
+or safeguards were altered; the failed write was never switched to a direct
+action. No claim is made that OpenAI Support fixed the service.
+
+## Original failure evidence (preserved)
+
 Recovery inspection on October20,2026 confirms the audit source at published
 commit4c4105fae8be3ee296c9497f05d456011d0c06b6. Its complete fetched source tree
 matches local content. The saved counter-causality archive's outer hash, all16
