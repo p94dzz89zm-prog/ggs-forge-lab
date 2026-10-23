@@ -139,7 +139,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "7f442328912ffde8fd145c40c1140e0dd756b06de6e9841a7a564ef5809775d9"
+      "sha256": "fa86580ada46a9d5b8d5294c804ceaa18ac5877d3cbe659e436164898fe2757c"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -166,6 +166,10 @@
     "STAGE52_CERTIFICATION.md": {
       "sha256": "9621e286acec435af0361f4c01248fdd9ab10df8287e7b265af0b5b6f71237e1",
       "source_commit": "Stage52 independent certification inventory and fixed-cost reduction derivation; original authored source"
+    },
+    "STAGE53_IDENTITY_BINDING.md": {
+      "sha256": "cd3db928e2c59eece5dd15682476380fde1ccec4525a2d8614ce5c61e178d6a0",
+      "source_commit": "Stage53 explicit reviewed split-card identity index; original authored source"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -241,8 +245,12 @@
       "sha256": "e70659cb73dc7ca14a77fb01b7499f84d04c68188efb88704151ff4183e48a13",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "card_identity_index.py": {
+      "sha256": "4780be7b73203c36b786fd3c1e8e83f1d46611e1cb0c1bf9a3a57e1f3ac3eabb",
+      "source_commit": "Stage53 explicit reviewed split-card identity index; original authored source"
+    },
     "certification_inventory.py": {
-      "sha256": "f513aeafad89073c945bff47d0cf06272700ddc82e989d8fffc9cdfcb5460fdb",
+      "sha256": "2c5cba79db0841238b2e4eb6f8b42fae696c5d04030642aba60a1de24d7f6ec6",
       "source_commit": "Stage52 independent certification inventory and fixed-cost reduction derivation; original authored source"
     },
     "commander_cast_audit.py": {
@@ -1999,6 +2007,10 @@
       "sha256": "b2c9e0e5e78f35ef3302cd73902a32f99e14ab6209522e26b821d9e81aaff5f8",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "reviewed_split_identities.json": {
+      "sha256": "82d00f8d8fd6f96ed3bdcd67b4a272dcc64ef76a3d2c186420503b5b2ef596c9",
+      "source_commit": "Stage53 explicit reviewed split-card identity index; original authored source"
+    },
     "run_games.py": {
       "original_blob": "62fe3d0240e759b3ac727a0b59c522cbe26b1bb1",
       "original_sha256": "ce0ae5bb6238b69f98b5c46011a5f41488fe8c39f4cfc5f536202bc5bc57a034",
@@ -2059,8 +2071,12 @@
       "sha256": "07b88fda8526bcc7f986bc4745408e88492c59121e3fbc45e3d3c4c08b87c1e2",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "test_card_identity_index.py": {
+      "sha256": "7be4de1a4c96cc05413495ea6051a599c3a127335265bf3db71cd32cc0d0a513",
+      "source_commit": "Stage53 explicit reviewed split-card identity index; original authored source"
+    },
     "test_certification_inventory.py": {
-      "sha256": "766cf9ffc1040175e522ca1e92b524b6425f9a66f02079592b1a18f222ce9ce1",
+      "sha256": "ad9b598549fe32d2e8a45c81b8d7d4c0fba4740a0ddcd41ddf9492526e48eca6",
       "source_commit": "Stage52 independent certification inventory and fixed-cost reduction derivation; original authored source"
     },
     "test_commander_cast_audit.py": {

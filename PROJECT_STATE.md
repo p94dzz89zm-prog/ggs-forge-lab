@@ -1,5 +1,14 @@
 # DragonMind source-only recovery
 
+Stage53: explicit primary-reference split-card bindings close the six short/full
+name differences across the three historical games. All12initial seats now match
+their frozen physical deck identity multisets; unknown names are never guessed,
+ambiguous aliases refuse, and counts preserve duplicates.387Python tests pass.
+Full Oracle/format legality remains the earliest turn0 certification prerequisite;
+opening draws at house-game call30 are the next recorded gameplay obligation.
+No engine/pilot behavior change,newgame,complete approval ortraining. Original
+replay466/1790conditional and Stage47/48 unchanged. See STAGE53_IDENTITY_BINDING.md.
+
 Stage52: three historical full streams inspected against writer receipts;
 private certification ledger identifies turn0 Oracle/deck identity proof as the
 earliest unresolved prerequisite.100physical cards and40life per seat verify,

@@ -31,7 +31,7 @@ def parse_deck(text):
     if sum(result['Commander'].values()) not in [1,2]:raise ValueError('Invalid commander count')
     return result
 
-def initial_decks(initial,deck_texts):
+def initial_decks(initial,deck_texts,identity_index=None):
     players=initial.get('initial_state',{}).get('players',[])
     if len(players)!=4 or len(deck_texts)!=4:raise ValueError('Four initial seats and frozen decks required')
     ids=[p.get('id') for p in players]
@@ -53,18 +53,25 @@ def initial_decks(initial,deck_texts):
                 observed['Commander' if c['commander'] else 'Main'][c.get('name')]+=1
         if effect_count!=1 or sum(observed['Main'].values())+sum(observed['Commander'].values())!=100:raise ValueError('Incorrect physical deck cardinality or command effect')
         if any(p.get(z) for z in ['Battlefield','Graveyard','Exile','Stack']):raise ValueError('Unexpected occupied starting zone')
+        bindings=[]
+        if identity_index is not None:
+            for z in observed:
+                observed[z],a=identity_index.normalize(observed[z]);deck[z],b=identity_index.normalize(deck[z]);bindings.extend(dict(zone=z,side=side,**x) for side,rows in [('captured',a),('deck',b)] for x in rows)
         differences={z:dict(captured_only=dict(observed[z]-deck[z]),deck_only=dict(deck[z]-observed[z])) for z in observed if observed[z]!=deck[z]}
-        reports.append(dict(player_id=p['id'],physical_cards=100,commanders=sum(deck['Commander'].values()),initial_life=40,identity_multiset_matches=not differences,unresolved_name_bindings=differences,oracle_format_legality_approved=False))
+        reports.append(dict(player_id=p['id'],physical_cards=100,commanders=sum(deck['Commander'].values()),initial_life=40,identity_multiset_matches=not differences,unresolved_name_bindings=differences,reviewed_name_bindings=bindings,identity_manifest_sha256=identity_index.sha256 if identity_index else None,oracle_format_legality_approved=False))
     return reports
 
-def inventory(inspection,deck_texts):
+def inventory(inspection,deck_texts,identity_index=None):
     if inspection.get('receipt_verified') is not True or inspection.get('open_calls')!=0 or inspection.get('structural_gaps') or not inspection.get('complete'):
         raise ValueError('Incomplete or unanchored history')
     initial=inspection.get('initial')
     if not isinstance(initial,dict):raise ValueError('Missing initial capture')
-    setup=initial_decks(initial,deck_texts);seed=inspection['seed']
+    setup=initial_decks(initial,deck_texts,identity_index);seed=inspection['seed']
     anchor=dict(turn=initial.get('turn'),phase=initial.get('phase'),player_id=None,call_id=initial.get('call_id'),stream_sequence=initial.get('stream_sequence'),event='GameEventGameStarted')
     block=dict(id=str(seed)+':oracle-deck-legality',root_cause_family='independent_oracle_legality_evidence',classification='audit_limitation',severity='critical',status='unresolved',blocks_certification=True,anchor=anchor,state_reference='initial.initial_state.players and frozen inputs/*.dck',rules=['CR903.3-5','CR103'],evidence='100 physical cards per seat; unresolved exact-name bindings are retained explicitly. Engine-only deck conformance does not independently prove Oracle identities, color identity, singleton exceptions, commander eligibility/partner or effective format legality.',smallest_reproduction='Run initial_decks against the frozen GameStarted state and four deck files; then require a frozen authoritative identity/format dataset before claiming full legality.',required_fix='Resolve recorded/deck-name differences using authoritative full-card identities, not name splitting; freeze effective legality data and independently validate every deck restriction and commander pairing.',downstream_actions_affected=inspection['event_counts'].get('GameEventSpellAbilityCast',0),downstream_count_basis='Recorded stack announcements exposed to an unapproved setup; not separate root defects')
+    if all(p['identity_multiset_matches'] for p in setup):
+        block['evidence']='Captured initial card identity multisets match frozen deck entries under the explicitly supplied reviewed identity manifest. Full Oracle characteristics, color identity, singleton exceptions, commander eligibility/partner and effective format legality remain unapproved.'
+        block['required_fix']='Freeze authoritative full-card characteristics and effective legality data; independently validate color identity, singleton exceptions, commander eligibility and pairing across every frozen deck.'
     blockers=[block];cfg=inspection['config']
     if cfg.get('commander_damage') is not False or type(cfg.get('free_seven_mulligans')) is not int or cfg['free_seven_mulligans']<3:
         blockers.append(dict(id=str(seed)+':house-profile',root_cause_family='historical_profile_mismatch',classification='configuration_mismatch',severity='critical',status='unresolved',blocks_certification=True,anchor=anchor,evidence=dict(commander_damage=cfg.get('commander_damage'),free_seven_mulligans=cfg.get('free_seven_mulligans')),required_fix='Retain historical game under its actual profile; it cannot be relabeled as a house-rule game. Use separately authorized frozen house-profile gameplay.',smallest_reproduction='Compare frozen config with 40life/no commander damage/at least3 full-seven reshuffles.'))

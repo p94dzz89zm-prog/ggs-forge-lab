@@ -1,0 +1,17 @@
+{
+  "format": 1,
+  "checked_date": "2026-10-23",
+  "scope": "Two explicit full-card name bindings only; not a full Oracle database or format legality certificate",
+  "cards": [
+    {
+      "canonical_name": "Dusk // Dawn",
+      "names": ["Dusk // Dawn", "Dusk", "Dawn"],
+      "primary_sources": ["https://magic.wizards.com/en/news/making-magic/storm-scale-kaladesh-and-amonkhet-2019-03-25", "https://magic.wizards.com/en/news/making-magic/the-history-of-two-in-ones-part-2"]
+    },
+    {
+      "canonical_name": "Double Jump // Flying Kick",
+      "names": ["Double Jump // Flying Kick", "Double Jump", "Flying Kick"],
+      "primary_sources": ["https://magic.wizards.com/en/news/feature/teenage-mutant-ninja-turtles-release-notes"]
+    }
+  ]
+}

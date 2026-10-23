@@ -1,5 +1,8 @@
 import copy
 import unittest
+import json
+from pathlib import Path
+from card_identity_index import IdentityIndex
 from certification_inventory import initial_decks,inventory
 
 class CertificationInventoryTests(unittest.TestCase):
@@ -15,6 +18,12 @@ class CertificationInventoryTests(unittest.TestCase):
     def test_name_aliases_are_explicit_not_guessed(self):
         self.initial['initial_state']['players'][0]['Library'][0]['name']='Plains // Unverified'
         r=initial_decks(self.initial,[self.text]*4)[0];self.assertFalse(r['identity_multiset_matches']);self.assertEqual(r['unresolved_name_bindings']['Main']['deck_only'],{'Plains':1})
+    def test_reviewed_binding_closes_identity_gap_only(self):
+        self.initial['initial_state']['players'][0]['Library'][0]['name']='Dusk // Dawn'
+        texts=[self.text.replace('99 Plains','98 Plains\n1 Dusk'),self.text,self.text,self.text]
+        idx=IdentityIndex(json.loads(Path(__file__).with_name('reviewed_split_identities.json').read_text()))
+        r=inventory(self.inspection,texts,idx)
+        self.assertTrue(all(x['identity_multiset_matches'] for x in r['initial_structure']));self.assertFalse(r['complete_game_approved']);self.assertEqual(r['root_blockers'][0]['status'],'unresolved');self.assertNotIn('Resolve recorded/deck-name',r['root_blockers'][0]['required_fix'])
     def test_duplicate_physical_card_or_bad_owner_refuses(self):
         for mode in ['id','owner']:
             before=copy.deepcopy(self.initial);p=self.initial['initial_state']['players'][0]
