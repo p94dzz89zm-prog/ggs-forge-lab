@@ -1,5 +1,15 @@
 # DragonMind source-only recovery
 
+Stage50 extends independent house-game payment verification:768 committed plans
+(168 spending mana,600zero) have complete recorded unit-progress chains;419paid
+units and4unchanged refusals are attributed, and214successful selected actions
+match recorded priority ownership. Four actual-history corruptions are rejected.
+355Python tests pass. Six printed/locked spell costs remain modifier-review
+obligations; source legality, restrictions, non-mana costs and full priority
+derivation remain unapproved. Full-game approvals0, training0, new games0;
+original replay466/1790conditional remains reserved. See
+HOUSE_PAYMENT_TRANSACTIONS.md for scope and next independent derivations.
+
 Stage49: original turn34 FootChopper failure reproduced in a hash-bound historical
 reexecution; all163045 event records independently match under the established
 UI-notification ordering normalization. New side-channel evidence identifies

@@ -99,6 +99,10 @@
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "2f5c592b7dee7e79adbf3590c61ee0b12f0bfd2835b64ee252518ef163501a23"
     },
+    "HOUSE_PAYMENT_TRANSACTIONS.md": {
+      "origin": "Stage50 independent payment transaction audit source",
+      "sha256": "878eca79d0c5efd981ac1210444f5cd0db9a45a11e4e98dec2a73098a8c27a6d"
+    },
     "LICENSE": {
       "original_blob": "791b7c468ecdd09e0ffc8c83baba4c72ff00cda0",
       "original_sha256": "15f5f93a6ae1c8750e9c6fff3bf355f9a8375288491c205e72d8b09f62259c05",
@@ -131,7 +135,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "26309d63373fa8e2cc6f11f68e17c253ef83596574c5f2b99abfdb18ec0dcc6a"
+      "sha256": "6867a7074d0f3cb4ebe050f645eb65f6b81c9d29c5e5f965d2466a43783a6e1e"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -1901,6 +1905,10 @@
       "sha256": "3312aa41425aa2c861b905348f5883b64d52b8fec34fcd4797c9f323a0cf7cbf",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "payment_transaction_audit.py": {
+      "origin": "Stage50 independent payment transaction audit source",
+      "sha256": "c2fda65026d6ade720c1b65c37532ab64b81cc4787b8cf7f22f8f797d8d2f015"
+    },
     "performance_registry.py": {
       "original_blob": "484f6aaa2b2f1eff1c757e757d5b7ab70ce5e460",
       "original_sha256": "92b6a6103950e7810f251eb30521916f205c4b0646beede5a27e779a00db0570",
@@ -2248,6 +2256,10 @@
     "test_payment_guard_build.py": {
       "origin": "verified source-only equipment follow-up",
       "sha256": "320eed4da98adf49969d0c0eed4d150017e8bfa54246ebb836cc509dcf7a0e3a"
+    },
+    "test_payment_transaction_audit.py": {
+      "origin": "Stage50 independent payment transaction audit source",
+      "sha256": "f5e034c1ad46e6af7d5bfeaa54dba6d5d1a9d369d84b33ef3b16f56e3bc3caed"
     },
     "test_performance_registry.py": {
       "original_blob": "107e1407946c9d93d8fbaad40a6b14ddfaf9c02b",
