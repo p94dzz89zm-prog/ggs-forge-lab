@@ -131,7 +131,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "5899aea5ecf45486e1c5b6b3c88be76d7b95ac66a2fa5251f3494db9f3dbda08"
+      "sha256": "26309d63373fa8e2cc6f11f68e17c253ef83596574c5f2b99abfdb18ec0dcc6a"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -150,6 +150,10 @@
     "STACK_REMOVAL_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "3931a862bf65457c6df3dd224ab919926551aabc8dcbdcaa56872712030023b1"
+    },
+    "STAGE49_RULES_PROGRESS.md": {
+      "origin": "Stage49 verified diagnostic source and independent regressions",
+      "sha256": "2b524a05a5a98f22511d401051102a2da3fadb2fec2f2717d5f6020ec3f73f7d"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -463,6 +467,10 @@
       "sha256": "53d35ee6c8c5728366b5ed861070e997b1e698cf2fd8de456c786a612337f7e6",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "equipment_attempt_audit.py": {
+      "origin": "Stage49 verified diagnostic source and independent regressions",
+      "sha256": "1471a676f502f41ca6d09671c478e4faec1506c5f2c051f94a4a80a7412a91bd"
+    },
     "evaluation_batch.py": {
       "original_blob": "f072a1bde1b36df9c3772b004ba7d534c9f6176b",
       "original_sha256": "5cfcc3414dec05c223a0f1144e2aff54b969b6d1b1b3843d505af5cb9278b166",
@@ -695,7 +703,7 @@
     },
     "forge-fork/EquipmentPaymentRegression.java": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "d12821aa6bda6b661275c94b63ea189511026b916c3278856a587a9d5333f56e"
+      "sha256": "07cf2f01eb27bfde1504b41778f8328e7a1f3fc0134ac8666e5196c0da7c9512"
     },
     "forge-fork/EvidenceInstrumenter.java": {
       "original_blob": "1e2038f6783ca3d0338cb2980f76603d7e76b7e3",
@@ -992,6 +1000,14 @@
       "original_sha256": "12fc2206ec48597780a32db9225e3f87fbb68723f760d485a6372413ef98254e",
       "sha256": "12fc2206ec48597780a32db9225e3f87fbb68723f760d485a6372413ef98254e",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/ReservationProbe.java": {
+      "origin": "Stage49 verified diagnostic source and independent regressions",
+      "sha256": "8b692483d85a7180e2599ae759831852718b2e0695cc6214b83e9fa81fc0229d"
+    },
+    "forge-fork/ReservationProbeInstrumenter.java": {
+      "origin": "Stage49 verified diagnostic source and independent regressions",
+      "sha256": "7690eadb3b153f6b0c040e35dfde4bc1ddcd0974f29202c6de83aafa54a34107"
     },
     "forge-fork/RulesValidationPilotRegression.java": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -1384,6 +1400,10 @@
       "original_sha256": "68da2e902825f4ac148a8f468961336e30cef9237efabe1ede26be0e053ac94c",
       "sha256": "68da2e902825f4ac148a8f468961336e30cef9237efabe1ede26be0e053ac94c",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/build_reservation_probe.py": {
+      "origin": "Stage49 verified diagnostic source and independent regressions",
+      "sha256": "910fc32acd75df2251c96cb69eb0aabe1877fd909a7d7222718d439a2427729b"
     },
     "forge-fork/build_stack_removal.py": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -2080,6 +2100,10 @@
       "original_sha256": "091d97c3778327649da6616958bc9e63abbaba6acfc84c5d9c2798da4cd7f1b2",
       "sha256": "091d97c3778327649da6616958bc9e63abbaba6acfc84c5d9c2798da4cd7f1b2",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_equipment_attempt_audit.py": {
+      "origin": "Stage49 verified diagnostic source and independent regressions",
+      "sha256": "1ed59f4b86d9c6eb37162c28ed3f3234af66a7b42f75baac4818f7a5a72721b2"
     },
     "test_evaluation_batch.py": {
       "original_blob": "be1caa1af4b351c6368d9919c2665d75ba7c2434",

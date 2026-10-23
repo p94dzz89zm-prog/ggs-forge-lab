@@ -1,5 +1,17 @@
 # DragonMind source-only recovery
 
+Stage49: original turn34 FootChopper failure reproduced in a hash-bound historical
+reexecution; all163045 event records independently match under the established
+UI-notification ordering normalization. New side-channel evidence identifies
+MAIN2 mana reservations changing before actual failed payment. The prior guard
+passes a regression using that actual reservation type; old controller fails.
+341 Python tests pass. Full historical-game consistency checks still leave
+substantive rules gaps; complete approvals remain0. PR2 currently mergeable=true,
+with conflict-free ancestry confirmed; it remains draft and unmerged. Original
+replay remains466/1790 conditional supported, Stage47/48 untouched. See
+STAGE49_RULES_PROGRESS.md for evidence, failed initial fixture assumptions and
+exact certification limits.
+
 Current continuation (October23 UTC): the original guarded checkpoint batch
 saved successfully; both documents restored byte-identical, Stage47/48 unchanged.
 The former hold is historical, not current. A bounded independent equipment
