@@ -1,5 +1,14 @@
 # DragonMind source-only recovery
 
+Stage56: native mulligan-round defect independently reproduced on the pinned
+recovery runtime. One-method overlay defers all keep/redraw effects until the
+round's declarations finish. Original failure control and patched standard/house
+controls verify the declaration barrier and card conservation. Other service
+methods and unrelated JAR entries preserved.407Python tests pass. Latest native
+overlay-chain integration remains pending; historical game2026202029 remains
+discrepant. No new games, event approvals, full-game certifications or training.
+Replay466/1790conditional and Stage47/48 unchanged. See STAGE56_MULLIGAN_ROUNDS.md.
+
 Stage55: original opening prefixes independently checked for card conservation,
 seven-card hands, declared turn order and first draw steps. Top-card derivations
 32/29/32; actual wrong-draw mutation rejected. Historical native PilotA game has

@@ -139,7 +139,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "a1d88cb2253af8a583730b8c5ea666b0c47967439c83b21cc646631835ed18d3"
+      "sha256": "d34acdf3194ff9004f149af92a6ebf855a63086a388f3c66dd69a52a7796067c"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -178,6 +178,10 @@
     "STAGE55_OPENING_AUDIT.md": {
       "sha256": "33d44e5b04ee2a2688fc0435826eb37e516c310c4668cce29fcee75102b24c20",
       "source_commit": "Stage55 independent opening-state and mulligan-order audit; original authored source"
+    },
+    "STAGE56_MULLIGAN_ROUNDS.md": {
+      "sha256": "eb02e400a7df0910dfb9810e383fca3f40ba695914248671375a30aa5e45e327",
+      "source_commit": "Stage56 independent native mulligan-round repair"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -915,6 +919,14 @@
       "sha256": "e14a5f9afc4d91e4b875fb897111a2647709e3edfc1d76c6cf1a6b9ad5ae8905",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/MulliganRoundInstrumenter.java": {
+      "sha256": "dc4b3286f7ba5f4b41bc4fab8ba403a048c08518613e5d37a49b6ca8ff6118ca",
+      "source_commit": "Stage56 independent native mulligan-round repair"
+    },
+    "forge-fork/MulliganRoundRegression.java": {
+      "sha256": "cef45260f5fd3dc693f7be425270bb0a9aa8ba8db7fdf6aa6c3f400443c6a5a7",
+      "source_commit": "Stage56 independent native mulligan-round repair"
+    },
     "forge-fork/MultiplayerCounterEvidence.java": {
       "original_blob": "9b328fde0f7407a2b54e15e3193b6205b8aac142",
       "original_sha256": "e81b7960eea6aaebe420bac6fcc2dd3e03788eb3bb011753a99b0b2af84233df",
@@ -1413,6 +1425,10 @@
       "sha256": "2f0554cc4cbc96d75640a1dabfc1ef7324f3d2206ed5ffd3bcd3b0ad16eddd3b",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/build_mulligan_round.py": {
+      "sha256": "3744c5d0e3e36da90ef067d313149678cfd0ea659e7db5e95384c5884209927a",
+      "source_commit": "Stage56 independent native mulligan-round repair"
+    },
     "forge-fork/build_multiplayer_counter.py": {
       "original_blob": "448dc7d04bb773ced087f22c9acff3a0cf5825a2",
       "original_sha256": "5dd7c642495f16b05a594192e9ba057048ed6e0dcc818a983a4dd422cb95babe",
@@ -1781,6 +1797,10 @@
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "fa8feb79d843c9c8d6ea7aeeda51829d45992ffaf9f118969933d3dc4f82f818"
     },
+    "forge-fork/pilot-src/forge/game/mulligan/MulliganRoundProtocol.java": {
+      "sha256": "1f29c4abcc1087353ef4fb4b0e1b13a9199ee1e3a5f6c0dba71ed01fe47fdad1",
+      "source_commit": "Stage56 independent native mulligan-round repair"
+    },
     "forge-fork/pilot_duel_smoke.py": {
       "original_blob": "b86ae7e829deb4080cb328960d6c3037a5f53ede",
       "original_sha256": "40069a1823ca493fcf1e8dbf3edf4bab344b48d700bd49cad42a038e37f3a7a1",
@@ -1840,6 +1860,10 @@
       "original_sha256": "8c1701df4d20076bdec7d57b6f6fe09b7b880f085ca2d2cda2fe3aaeaf392428",
       "sha256": "8c1701df4d20076bdec7d57b6f6fe09b7b880f085ca2d2cda2fe3aaeaf392428",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/run_mulligan_round.py": {
+      "sha256": "f2ed3817d09cb3c3df7bf618f80b8ffb321b165b03a6805ca22fccbc75f41dd6",
+      "source_commit": "Stage56 independent native mulligan-round repair"
     },
     "forge-fork/run_pilot_recovery.py": {
       "original_blob": "87d6daf54417c2d45705d3c866df3e723df81f68",
