@@ -1,5 +1,15 @@
 # DragonMind source-only recovery
 
+Stage52: three historical full streams inspected against writer receipts;
+private certification ledger identifies turn0 Oracle/deck identity proof as the
+earliest unresolved prerequisite.100physical cards and40life per seat verify,
+but two short/full card-name bindings per game remain explicit gaps. Only the
+third history used the house profile. Three self-reduction contributions explain
+Act R,Excalibur6 andVanquish WW; complete Oracle/modifier/source legality remains
+unapproved.380Python tests pass; no new engine defect confirmed. Full-game
+approvals0,training0,newgames0; replay466/1790conditional unchanged and reserved.
+See STAGE52_CERTIFICATION.md for the fail-closed inventory and audit boundaries.
+
 Stage51 derives commander-tax contributions independently from cast events and
 recorded origins, ignoring cached cast counters. Ten commander casts (nine from
 Command,one from Hand) match base-plus-tax arithmetic; three recasts contribute
