@@ -139,7 +139,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "97c81131fd6a1655402f8b77cb913daf84ed80ab189833d76917a6bcb67bf659"
+      "sha256": "88083205ffee7919b689db626df9ea0cd1efd4d01fcd1bbb5c41879391bb04ac"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -186,6 +186,10 @@
     "STAGE57_FULL_SERVICE.md": {
       "sha256": "395a1283e683f10a6ddd4524b81a066fa747ecb89aa36f0069848e1780134a4e",
       "source_commit": "Stage57 independently derived full-service mulligan correction"
+    },
+    "STAGE58_PROSPECTIVE_CAPTURE.md": {
+      "sha256": "6d4db3efee63f7bb7630266c1a10e9400468a031ef4533bcbb484bd7934fba80",
+      "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -995,6 +999,14 @@
       "sha256": "bcbd3c7acd1bb7b5f0c1585ab65bcc2a0f5239e08fdd311630f8bd10ca050afe",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/ProspectiveOpeningInstrumenter.java": {
+      "sha256": "87d904498cdb5627e85f8438ec2210dc4cac667d197a57c8023fb82d1680e079",
+      "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
+    },
+    "forge-fork/ProspectiveOpeningRegression.java": {
+      "sha256": "6db86ad8981ef30e1bc06b58954fbb6a7d473ab0187a15a5d2a97ca417b6b4d7",
+      "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
+    },
     "forge-fork/ProtectionManaHeldoutRegression.java": {
       "original_blob": "43d184fe6c890bf8608ad95e425f16c0c6029b50",
       "original_sha256": "5e325c4f4d0946a00b490cdc9881f9322eac0d11ba858c3ae77c443637d8c1d3",
@@ -1453,6 +1465,10 @@
       "sha256": "bd0cf1faff2ab77b714038ac37d9e118a7e19385dcff59478119b6188a79a74f",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/build_prospective_opening.py": {
+      "sha256": "8294b57dadb1cddbae33d21f761d553c4bcc0aacf86a93232f1c3bb530cb3ffc",
+      "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
+    },
     "forge-fork/build_readiness_trace.py": {
       "original_blob": "3c35af5773c246a5247e8a12ddb81daba9a50b20",
       "original_sha256": "3dbc8b92ccdf6963f1a509ed1c00de8bc7e0bf658919f02de2f8b7e8faae71d5",
@@ -1702,6 +1718,10 @@
       "original_sha256": "ab59a3f0235ce27fe84223bf7f0e470dc503943ab958c1bd217daba986523213",
       "sha256": "ab59a3f0235ce27fe84223bf7f0e470dc503943ab958c1bd217daba986523213",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "forge-fork/pilot-src/forge/ai/bridge/ProspectiveOpeningEvidence.java": {
+      "sha256": "1af7d6228508581618fe5ee539a99b7f925d91a259cee99e58f03aada5ce65ff",
+      "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
     },
     "forge-fork/pilot-src/forge/ai/bridge/ReadinessTrace.java": {
       "original_blob": "6e626aaa7df1e5270f031ef94313450f01b5d088",
@@ -2022,6 +2042,14 @@
     "profile_natural_game.py": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "cdac86adcb192803838f2c7883e694b7f982d38f19f85458c6d8c18f43cc8201"
+    },
+    "prospective_certification.py": {
+      "sha256": "01deb2f6c7194167068130412db0c902b0e590d562c94d1635d5cab0fae079a3",
+      "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
+    },
+    "prospective_opening_audit.py": {
+      "sha256": "5367ef1ea144290789c2c70a19833ada25da1b6becbf4c935f804ff51ef176dd",
+      "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
     },
     "readiness_trace_audit.py": {
       "original_blob": "8926588d89170f8a3c08607688f7e683b884750f",
@@ -2408,6 +2436,10 @@
     "test_profile_natural_game.py": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "c029e465fae951dc688f4a4f69542e21725ddb284fcac168e4634ad4340cf000"
+    },
+    "test_prospective_certification.py": {
+      "sha256": "3056ceee19ca33dde50e101a187be82b3bd54b602a8e6b97d127b2ef808ff837",
+      "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
     },
     "test_rampant_replay.py": {
       "original_blob": "0445c5804a9af2638cb1f2a0db539ea233de503a",

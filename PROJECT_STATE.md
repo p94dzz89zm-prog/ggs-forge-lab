@@ -1,5 +1,16 @@
 # DragonMind source-only recovery
 
+Stage58: prospective native observer captures actual shuffle inputs/permutations,
+RNG bits, starting-player selection and mulligan transcript. Two constructed
+capture fixtures complete, each independently matching393RNG requests,4shuffles
+and4opening hands;8actual-transcript mutations reject. Three native fixture JVMs
+include one preserved finalization failure.415Python tests pass. Fixture decks
+are illegal duplicates, not natural games. Full certification launch remains
+gated on canonical deck/reference binding, opening oracle and complete legal
+alternatives/action causality coverage.0new natural games,0approved game actions,
+0complete certifications/training. Replay466/1790conditional and Stage47/48
+unchanged. See STAGE58_PROSPECTIVE_CAPTURE.md.
+
 Stage57: latest unreserved native chain c43ce68 restored from eight verified
 archives; integrated mulligan overlay2acaeed passes actual service standard,
 zero-card boundary and house controls. Six native JVMs include expected old
