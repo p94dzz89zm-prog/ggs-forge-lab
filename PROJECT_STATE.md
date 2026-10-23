@@ -1,5 +1,16 @@
 # DragonMind source-only recovery
 
+Stage57: latest unreserved native chain c43ce68 restored from eight verified
+archives; integrated mulligan overlay2acaeed passes actual service standard,
+zero-card boundary and house controls. Six native JVMs include expected old
+ordering and zero-card failures. Two narrow fixes: defer round effects until all
+declarations, and prohibit standard London mulligans after a zero-card hand.
+CR103.5 London bottoming timing retained; exact three-free-seven house profile
+selected by the actual factory.407Python tests pass. No natural game, historical
+approval or training; replay466/1790conditional and Stage47/48 untouched.
+Next: prospective opening evidence and independent certification protocol.
+See STAGE57_FULL_SERVICE.md; saved checkpoint and CI status in guarded ledger.
+
 Stage56: native mulligan-round defect independently reproduced on the pinned
 recovery runtime. One-method overlay defers all keep/redraw effects until the
 round's declarations finish. Original failure control and patched standard/house
