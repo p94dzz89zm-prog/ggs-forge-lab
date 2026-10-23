@@ -139,7 +139,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "faf3682b493316e5af42824c8139f0b76939dfb3b2f194ea0a9b74423f15b523"
+      "sha256": "a1d88cb2253af8a583730b8c5ea666b0c47967439c83b21cc646631835ed18d3"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -174,6 +174,10 @@
     "STAGE54_DECK_AUDIT.md": {
       "sha256": "e47dbc3ff93df066b517bb45d6bd2e84e8f75985c4d0cee8930b96a2aaa4c033",
       "source_commit": "Stage54 independent external Oracle Commander construction audit; original authored source"
+    },
+    "STAGE55_OPENING_AUDIT.md": {
+      "sha256": "33d44e5b04ee2a2688fc0435826eb37e516c310c4668cce29fcee75102b24c20",
+      "source_commit": "Stage55 independent opening-state and mulligan-order audit; original authored source"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -1931,6 +1935,10 @@
       "sha256": "31052aaa3a400a354af4bde8022d25db9412f4654f3d9475876e5754215984ac",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "opening_state_audit.py": {
+      "sha256": "79ce1ee35196ce2ce42bba8aedf45dc32ce6458b70ba18f8bc101e28f16f7804",
+      "source_commit": "Stage55 independent opening-state and mulligan-order audit; original authored source"
+    },
     "package_snapshot.py": {
       "original_blob": "ef381e84cb2ff0705f89c7600207176261721537",
       "original_sha256": "3312aa41425aa2c861b905348f5883b64d52b8fec34fcd4797c9f323a0cf7cbf",
@@ -2290,6 +2298,10 @@
       "original_sha256": "2d922541e254a20301ab8de82c8a2fe3940fa8782c0861859bcc3c1119618bdd",
       "sha256": "24195d9d06b60737a2f1048974190e7a6ad30f036983d359ff994e0dffa6aa5d",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_opening_state_audit.py": {
+      "sha256": "e03938b0aabe2fc3ccae3b3bbb459edf84b6e177d2db176782b81ee886967986",
+      "source_commit": "Stage55 independent opening-state and mulligan-order audit; original authored source"
     },
     "test_pair_checkpoint_resume.py": {
       "original_blob": "fdef8bf4788b556fdcc644b686d883fd4dd58e78",

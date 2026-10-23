@@ -1,5 +1,14 @@
 # DragonMind source-only recovery
 
+Stage55: original opening prefixes independently checked for card conservation,
+seven-card hands, declared turn order and first draw steps. Top-card derivations
+32/29/32; actual wrong-draw mutation rejected. Historical native PilotA game has
+one confirmed mulligan-round sequencing defect at turn0/call171/player3 before
+other first-round declarations. Native repair pending exact-engine validation.
+407Python tests pass. Shuffle/selection/historical setup proof remains incomplete;
+approved historical events0,openings0,completegames0,training0. Replay466/1790
+conditional and Stage47/48 unchanged. See STAGE55_OPENING_AUDIT.md.
+
 Stage54: all12frozen decks pass independent construction checks relative to the
 October23external Oracle mirror and primary Commander ban list;329identities
 resolve. Source hashes, canonical IDs and unmodified deck hashes retained.
