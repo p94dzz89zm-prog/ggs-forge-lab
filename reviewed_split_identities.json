@@ -1,8 +1,13 @@
 {
   "format": 1,
   "checked_date": "2026-10-23",
-  "scope": "Two explicit full-card name bindings only; not a full Oracle database or format legality certificate",
+  "scope": "Two split-card bindings and one explicit modifier-letter-colon binding; not a full Oracle database or format legality certificate",
   "cards": [
+    {
+      "canonical_name": "Ratonhnhaké꞉ton",
+      "names": ["Ratonhnhaké꞉ton", "Ratonhnhaké:ton"],
+      "primary_sources": ["https://magic.wizards.com/en/news/feature/assassins-creed-release-notes"]
+    },
     {
       "canonical_name": "Dusk // Dawn",
       "names": ["Dusk // Dawn", "Dusk", "Dawn"],

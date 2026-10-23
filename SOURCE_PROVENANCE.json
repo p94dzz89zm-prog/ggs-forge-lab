@@ -139,7 +139,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "fa86580ada46a9d5b8d5294c804ceaa18ac5877d3cbe659e436164898fe2757c"
+      "sha256": "faf3682b493316e5af42824c8139f0b76939dfb3b2f194ea0a9b74423f15b523"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -170,6 +170,10 @@
     "STAGE53_IDENTITY_BINDING.md": {
       "sha256": "cd3db928e2c59eece5dd15682476380fde1ccec4525a2d8614ce5c61e178d6a0",
       "source_commit": "Stage53 explicit reviewed split-card identity index; original authored source"
+    },
+    "STAGE54_DECK_AUDIT.md": {
+      "sha256": "e47dbc3ff93df066b517bb45d6bd2e84e8f75985c4d0cee8930b96a2aaa4c033",
+      "source_commit": "Stage54 independent external Oracle Commander construction audit; original authored source"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -302,6 +306,10 @@
       "original_sha256": "feb6154ed1d57eae341c218447971b13c669f4884b3b97a872332331b3c0dc47",
       "sha256": "feb6154ed1d57eae341c218447971b13c669f4884b3b97a872332331b3c0dc47",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "deck_legality_audit.py": {
+      "sha256": "43f6bdcf8f3791fe3bdba7fdae43d8c27418d89c48061dbc417429c5a0f525d7",
+      "source_commit": "Stage54 independent external Oracle Commander construction audit; original authored source"
     },
     "diagnostics/CombatWorkProfiler.java": {
       "original_blob": "b17f20a2ddf50a0c6c0c3307edc96661189a0cab",
@@ -2008,7 +2016,7 @@
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
     "reviewed_split_identities.json": {
-      "sha256": "82d00f8d8fd6f96ed3bdcd67b4a272dcc64ef76a3d2c186420503b5b2ef596c9",
+      "sha256": "4c4e783e1869d6c10eed467885c1978c5021a7f9cc6c2dcdbd7cb47136a6c29c",
       "source_commit": "Stage53 explicit reviewed split-card identity index; original authored source"
     },
     "run_games.py": {
@@ -2140,6 +2148,10 @@
       "original_sha256": "aaab6460f0158466cbe90bb03b1f0cf33605e662d48eaf298e3343fce3cacea7",
       "sha256": "aaab6460f0158466cbe90bb03b1f0cf33605e662d48eaf298e3343fce3cacea7",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_deck_legality_audit.py": {
+      "sha256": "18f692d6f5ed63508a11b55ec33c57722a9da22acd4aa20ae229d7a97f1404c6",
+      "source_commit": "Stage54 independent external Oracle Commander construction audit; original authored source"
     },
     "test_dragonmind.py": {
       "original_blob": "7a560eda5b65492bd8ff92e558996e065a079627",

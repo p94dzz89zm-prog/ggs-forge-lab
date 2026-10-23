@@ -1,5 +1,14 @@
 # DragonMind source-only recovery
 
+Stage54: all12frozen decks pass independent construction checks relative to the
+October23external Oracle mirror and primary Commander ban list;329identities
+resolve. Source hashes, canonical IDs and unmodified deck hashes retained.
+Historical as-of Oracle/banlist certification remains unapproved. Audit repairs
+prevent art-card/alternate-face shadowing and future-reprint release confusion;
+explicit Ratonhnhaké:ton punctuation binding added.398Python tests pass. No new
+game, independently approved historical event, complete-game approval ortraining.
+Stage47/48 and replay466/1790conditional unchanged. See STAGE54_DECK_AUDIT.md.
+
 Stage53: explicit primary-reference split-card bindings close the six short/full
 name differences across the three historical games. All12initial seats now match
 their frozen physical deck identity multisets; unknown names are never guessed,
