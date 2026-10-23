@@ -1,5 +1,14 @@
 # DragonMind source-only recovery
 
+Stage51 derives commander-tax contributions independently from cast events and
+recorded origins, ignoring cached cast counters. Ten commander casts (nine from
+Command,one from Hand) match base-plus-tax arithmetic; three recasts contribute
+two generic mana each. Origin mismatches are rejected; unexplained locked-cost
+differences remain review gaps. 367Python tests pass. Three other Stage50 cost
+modifiers still need independent derivation. This is scoped verification, not
+casting or complete-game approval. Replay466/1790conditional, complete approved
+games0 and training0 remain unchanged. See HOUSE_COMMANDER_COSTS.md.
+
 Stage50 extends independent house-game payment verification:768 committed plans
 (168 spending mana,600zero) have complete recorded unit-progress chains;419paid
 units and4unchanged refusals are attributed, and214successful selected actions

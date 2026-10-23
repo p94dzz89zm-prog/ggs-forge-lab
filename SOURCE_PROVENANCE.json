@@ -95,6 +95,10 @@
       "sha256": "0b86f3342fd1ba516b45bcecc482c2fa06d4ca4fa326182d60f6dc5d5b3e39c0",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "HOUSE_COMMANDER_COSTS.md": {
+      "sha256": "d4472ee26cd59a2c1ef739fca6ee8620098a4154cdb3a5799b74673ba03f903e",
+      "source_commit": "Stage51 independent command-origin tax audit; original authored source"
+    },
     "HOUSE_NATURAL_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "2f5c592b7dee7e79adbf3590c61ee0b12f0bfd2835b64ee252518ef163501a23"
@@ -135,7 +139,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "6867a7074d0f3cb4ebe050f645eb65f6b81c9d29c5e5f965d2466a43783a6e1e"
+      "sha256": "d755ef73f228fe6f3d281a7234affb4a48d1b657dd15b623a144e4abfbc59acd"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -232,6 +236,10 @@
       "original_sha256": "e70659cb73dc7ca14a77fb01b7499f84d04c68188efb88704151ff4183e48a13",
       "sha256": "e70659cb73dc7ca14a77fb01b7499f84d04c68188efb88704151ff4183e48a13",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "commander_cast_audit.py": {
+      "sha256": "23147b95dc8c2a8ecc84c209cfd7f0f8814badfb4ef785afb66df0439013544c",
+      "source_commit": "Stage51 independent command-origin tax audit; original authored source"
     },
     "commander_game_review.py": {
       "original_blob": "f486b51d0bf848f0fd0d39bdd4b080db48123590",
@@ -2038,6 +2046,10 @@
       "original_sha256": "07b88fda8526bcc7f986bc4745408e88492c59121e3fbc45e3d3c4c08b87c1e2",
       "sha256": "07b88fda8526bcc7f986bc4745408e88492c59121e3fbc45e3d3c4c08b87c1e2",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_commander_cast_audit.py": {
+      "sha256": "4b6e43e6f66b314f0058c14e6e9e6ecca0c789a4f151ba790050c915758d16f3",
+      "source_commit": "Stage51 independent command-origin tax audit; original authored source"
     },
     "test_commander_game_review.py": {
       "original_blob": "605a8fc3903f47793802dfcb59531c259ffc319d",
