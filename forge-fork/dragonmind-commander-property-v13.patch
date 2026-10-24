@@ -1,0 +1,66 @@
+diff --git a/forge-game/src/main/java/forge/game/card/CardProperty.java b/forge-game/src/main/java/forge/game/card/CardProperty.java
+index 2d88aba..f20389c 100644
+--- a/forge-game/src/main/java/forge/game/card/CardProperty.java
++++ b/forge-game/src/main/java/forge/game/card/CardProperty.java
+@@ -55,6 +55,11 @@ public class CardProperty {
+             }
+         }
+ 
++        // Exact common property dispatch; eligibility still observes phasing above.
++        if (property.equals("IsCommander")) {
++            return card.isCommander();
++        }
++
+         if (property.equals("noName")) {
+             if (!card.hasNoName()) {
+                 return false;
+@@ -1966,10 +1971,6 @@ public class CardProperty {
+             if (!card.isInZone(realZone)) {
+                 return false;
+             }
+-        } else if (property.equals("IsCommander")) {
+-            if (!card.isCommander()) {
+-                return false;
+-            }
+         } else if (property.startsWith("NotedFor")) {
+             final String key = property.substring("NotedFor".length());
+             for (String note : sourceController.getNotesForName(key)) {
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+index a8d3c89..00bc108 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -652,4 +652,34 @@ public class DragonMindPerformanceTest extends AITest {
+         Assert.assertEquals(new ArrayList<>(StaticAbilityContinuous.getAffectedCards(ability,forge.game.card.CardCollection.EMPTY)),List.of(own));
+     }
+ 
++    @Test public void commanderPropertyDispatchKeepsPhasingAndNegationLive() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCard("Grizzly Bears",player);
++        Assert.assertFalse(host.hasProperty("IsCommander",player,host,null));
++        Assert.assertTrue(host.hasProperty("!IsCommander",player,host,null));
++        host.setCommander(true);Assert.assertTrue(host.hasProperty("IsCommander",player,host,null));
++        Assert.assertFalse(host.hasProperty("!IsCommander",player,host,null));
++        host.setPhasedOut(player);Assert.assertFalse(host.hasProperty("IsCommander",player,host,null));
++        Assert.assertTrue(host.hasProperty("phasedOutIsCommander",player,host,null));
++        Assert.assertTrue(host.hasProperty("!IsCommander",player,host,null));
++        host.setCommander(false);Assert.assertFalse(host.hasProperty("phasedOutIsCommander",player,host,null));
++        host.setCommander(true);host.setPhasedOut(null);
++        Assert.assertTrue(host.hasProperty("IsCommander",player,host,null));
++        Assert.assertFalse(host.hasProperty("phasedOutIsCommander",player,host,null));
++    }
++    @Test public void commanderPropertyDispatchUsesLiveCardAndPreservesPreparedSpellExclusion() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        Card host=addCard("Grizzly Bears",player);var old=forge.game.card.CardCopyService.getLKICopy(host);
++        game.addChangeZoneLKIInfo(old);host.setCommander(true);host.setController(other,game.getNextTimestamp());
++        Assert.assertTrue(host.isValid("Card.IsCommander",player,host,null));
++        Assert.assertFalse(old.isCommander());game.clearChangeZoneLKIInfo();
++        Assert.assertTrue(host.isValid("Card.IsCommander",player,host,null));
++        host.addAlternateState(CardStateName.PreparedSpell,false);host.setState(CardStateName.PreparedSpell,false);
++        player.getZone(ZoneType.Battlefield).remove(host);player.getZone(ZoneType.Exile).add(host);host.setZone(player.getZone(ZoneType.Exile));
++        Assert.assertFalse(host.isValid("Card.IsCommander",player,host,null));
++        Assert.assertTrue(host.isValid("!Card.IsCommander",player,host,null));
++        player.getZone(ZoneType.Exile).remove(host);player.getZone(ZoneType.Command).add(host);host.setZone(player.getZone(ZoneType.Command));
++        Assert.assertTrue(host.isValid("Card.IsCommander",player,host,null));
++    }
++
+ }

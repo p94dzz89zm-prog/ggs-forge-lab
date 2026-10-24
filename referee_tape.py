@@ -25,6 +25,7 @@ def _inspect(stream, *, require_initial, require_terminal=True):
     records = 0
     mana_verified, mana_unsupported = 0, collections.Counter()
     pool_verified, pool_unsupported = 0, collections.Counter()
+    rejected_verified, rejected_unsupported = 0, collections.Counter()
     initial, terminal, visibility, paid, failed, random = [], [], [], 0, 0, 0
     unknown = collections.Counter()
     priority = PriorityPassAudit()
@@ -93,6 +94,15 @@ def _inspect(stream, *, require_initial, require_terminal=True):
                                                     row.get('mana_pool_after'), args[2])
                         if issue:pool_unsupported[issue]+=1
                         else:pool_verified+=1
+                    else:
+                        from mana_unit_audit import check_rejected_transition
+                        after_args = row.get('arguments_after')
+                        after_cost = after_args[1] if isinstance(after_args, list) and len(after_args) > 1 else None
+                        issue = check_rejected_transition(
+                            args[1], after_cost,
+                            entry.get('mana_context', {}).get('pool'), row.get('mana_pool_after'))
+                        if issue:rejected_unsupported[issue]+=1
+                        else:rejected_verified+=1
                     paid += row['result'] is True
                     failed += row['result'] is False
         elif kind == 'random_bits':
@@ -138,6 +148,8 @@ def _inspect(stream, *, require_initial, require_terminal=True):
             'initial_states': len(initial), 'registered_players': len(player_ids),
             'visibility_events': len(visibility), 'actual_mana_units_paid': paid,
             'failed_mana_unit_attempts': failed, 'random_requests': random,
+            'rejected_mana_transition_checks': rejected_verified,
+            'rejected_mana_transition_gaps': dict(rejected_unsupported),
             'unencoded_types': dict(unknown), 'mana_unit_transition_checks':mana_verified, 'mana_unit_transition_gaps':dict(mana_unsupported), 'rules_approved': False,
             'mana_pool_transition_checks':pool_verified, 'mana_pool_transition_gaps':dict(pool_unsupported),
             'replay_status': 'Not established by tape inspection', 'training_admission': False}

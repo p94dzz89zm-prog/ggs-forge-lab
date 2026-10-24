@@ -1,0 +1,33 @@
+import forge.ai.*;
+import forge.ai.bridge.*;
+import forge.deck.Deck;
+import forge.game.*;
+import forge.game.card.*;
+import forge.game.player.*;
+import forge.game.phase.*;
+import forge.game.zone.*;
+import com.google.gson.*;
+import java.nio.file.*;
+import java.security.*;
+import java.util.*;
+
+/** Cast/payment only. Deliberately does not claim Cultivate search resolution. */
+public class CultivateCastReplayRegression extends AITest {
+ static JsonObject unit(Card card,String color){JsonObject row=new JsonObject();row.addProperty("source_card_id",card.getId());row.addProperty("color",color);row.addProperty("snow",false);row.addProperty("restricted",false);return row;}
+ static void activate(JsonArray operations,Card card,forge.game.spellability.SpellAbility ability){JsonObject row=new JsonObject();row.addProperty("op","activate_basic");row.addProperty("card_id",card.getId());row.addProperty("card_name",card.getName());JsonObject params=new JsonObject();ability.getMapParams().forEach(params::addProperty);row.add("parameters",params);operations.add(row);}
+ static void spend(JsonArray operations,Card card,String color){JsonObject row=new JsonObject();row.addProperty("op","spend");row.add("mana",unit(card,color));operations.add(row);}
+ public static void main(String[] args)throws Exception {
+  String mode=args[0];Path root=Path.of(args[1]);Files.createDirectories(root);System.setProperty("forge.audit.directory",root.resolve("audit").toString());CultivateCastReplayRegression test=new CultivateCastReplayRegression();test.initializeModel();test.initAndCreateGame();List<RegisteredPlayer> seats=new ArrayList<>();for(int i=0;i<4;i++)seats.add(new RegisteredPlayer(new Deck()).setPlayer(new LobbyPlayerAi("seat"+i,null)));GameRules rules=new GameRules(GameType.Commander);Game game=new Game(seats,rules,new Match(rules,seats,"Cultivate cast"));Player p=game.getPlayers().get(0);for(Player seat:game.getPlayers())test.fillLibrary(seat,10);game.setAge(GameStage.Play);game.getPhaseHandler().devModeSet(PhaseType.MAIN1,p,false);game.getPhaseHandler().setPriority(p);
+  Card card=test.addCardToZone("Cultivate",p,ZoneType.Hand),glade=test.addCardToZone("Cinder Glade",p,ZoneType.Battlefield),ring=test.addCardToZone("Sol Ring",p,ZoneType.Battlefield);var spell=card.getFirstSpellAbility();spell.setActivatingPlayer(p);var green=glade.getManaAbilities().stream().filter(sa->"G".equals(sa.getParam("Produced"))).findFirst().orElseThrow();var colorless=ring.getManaAbilities().get(0);if(mode.equals("tapped"))glade.setTapped(true);if(mode.equals("chain"))spell.getSubAbility().getMapParams().put("Tapped","False");
+  JsonObject row=new JsonObject();row.addProperty("kind","decision");row.addProperty("index",0);row.addProperty("actor_id",p.getId());row.addProperty("hook","forge/ai/bridge/PlayerControllerBridge.chooseSpellAbilityToPlay()Ljava/util/List;");row.addProperty("decision_type","cultivate_spell");row.addProperty("source_card_id",card.getId());row.addProperty("source_name",card.getName());row.addProperty("selected_api","ChangeZone");row.addProperty("mana_cost",card.getManaCost().toString());row.addProperty("original_ability_id",spell.getId()+500);JsonObject params=new JsonObject();spell.getMapParams().forEach(params::addProperty);row.add("ability_parameters",params);JsonObject context=new JsonObject();context.addProperty("turn",game.getPhaseHandler().getTurn());context.addProperty("phase","MAIN1");context.addProperty("priority_player_id",p.getId());context.addProperty("turn_player_id",p.getId());row.add("context",context);
+  JsonObject payment=new JsonObject();payment.addProperty("kind","decision");payment.addProperty("index",1);payment.addProperty("actor_id",p.getId());payment.addProperty("hook","forge/game/player/PlayerController.payManaCost(Lforge/game/cost/CostPartMana;Lforge/game/spellability/SpellAbility;Ljava/lang/String;Lforge/game/mana/ManaConversionMatrix;Z)Z");payment.addProperty("decision_type","fixed_tap_mana");payment.addProperty("component","{2}{G}");payment.addProperty("source_ability",card.getId()+":"+(spell.getId()+500));payment.addProperty("ability_api","ChangeZone");payment.add("ability_parameters",params.deepCopy());JsonArray operations=new JsonArray();activate(operations,glade,green);spend(operations,glade,"G");activate(operations,ring,colorless);spend(operations,ring,"C");spend(operations,ring,"C");payment.add("operations",operations);
+  Path tape=root.resolve("decisions.jsonl");Files.writeString(tape,row+"\n"+payment+"\n{\"kind\":\"decision_tape_complete\",\"decisions\":2}\n",StandardOpenOption.CREATE_NEW);System.setProperty("forge.decision.replayTape",tape.toString());System.setProperty("forge.decision.replaySha256",HexFormat.of().formatHex(MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(tape))));System.setProperty("forge.decision.replayDiagnostics",root.resolve("diagnostics").toString());DurableEvidence.begin("cultivate-cast-fixture");EngineEvidence.begin(game);
+  try{
+   var chosen=p.getController().chooseSpellAbilityToPlay();if(mode.equals("chain"))throw new AssertionError("Modified subability chain accepted");if(chosen.size()!=1||chosen.get(0)!=spell||!card.isInZone(ZoneType.Hand)||glade.isTapped()!=mode.equals("tapped")||ring.isTapped())throw new AssertionError("Selection changed outcomes");
+   if(!ComputerUtil.handlePlayingSpellAbility(p,spell,null))throw new AssertionError("Actual casting failed");if(!mode.equals("valid"))throw new AssertionError("Unavailable mana accepted");
+   if(!card.isInZone(ZoneType.Stack)||game.getStack().size()!=1||!glade.isTapped()||!ring.isTapped()||!p.getManaPool().isEmpty()||game.getStack().peekAbility().getPayingMana().size()!=3)throw new AssertionError("Actual2G resources not paid");
+   DecisionReplay.finish();EngineEvidence.finish();JsonObject result=new JsonObject();result.addProperty("seed",109);result.addProperty("status","completed");DurableEvidence.finish(root.resolve("results"),109,"cast-only fixture\nDragonMind Result: "+result+"\n",result);System.out.println("PASS real Cultivate cast with Cinder Glade G and Sol Ring2C; full native chain recorded; no resolution or game approval claimed");
+  }catch(IllegalStateException error){String fragment=mode.equals("chain")?"Unsupported permanent spell":"Unavailable basic mana";if(mode.equals("valid")||!error.getMessage().contains(fragment))throw error;if(ring.isTapped()||!p.getManaPool().isEmpty()||mode.equals("chain")&&!card.isInZone(ZoneType.Hand))throw new AssertionError("Rejected cast mutated resources");System.out.println("PASS "+mode+" rejected before resource expenditure");}
+  System.exit(0);
+ }
+}

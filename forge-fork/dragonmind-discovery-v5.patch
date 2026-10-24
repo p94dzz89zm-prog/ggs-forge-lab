@@ -1,0 +1,127 @@
+diff --git a/forge-core/src/main/java/forge/util/collect/FCollection.java b/forge-core/src/main/java/forge/util/collect/FCollection.java
+index 82985db..1443c99 100644
+--- a/forge-core/src/main/java/forge/util/collect/FCollection.java
++++ b/forge-core/src/main/java/forge/util/collect/FCollection.java
+@@ -350,6 +350,16 @@ public class FCollection<T> implements List<T>, /*Set<T>,*/ FCollectionView<T>,
+         boolean changed = false;
+         if (i == null)
+             return false;
++        // A source FCollection is already unique. For an empty destination there
++        // is nothing to deduplicate; keep its order and independent membership.
++        if (list.isEmpty() && i instanceof FCollection) {
++            FCollection<? extends T> source = (FCollection<? extends T>) i;
++            if (source.list.isEmpty()) return false;
++            list.addAll(source.list);
++            if (set != null) set.addAll(source.list);
++            else if (list.size() > HASH_THRESHOLD) hashed();
++            return true;
++        }
+         // Trait rebuilds pour a lot of empty collections into these; skip allocating an iterator
+         // just to discover there is nothing to add.
+         if (i instanceof Collection && ((Collection<?>) i).isEmpty())
+diff --git a/forge-game/src/main/java/forge/game/card/Card.java b/forge-game/src/main/java/forge/game/card/Card.java
+index 42f1734..c18dd47 100644
+--- a/forge-game/src/main/java/forge/game/card/Card.java
++++ b/forge-game/src/main/java/forge/game/card/Card.java
+@@ -973,6 +973,7 @@ public class Card extends GameEntity implements Comparable<Card>, IHasSVars, ITr
+     }
+     public final String getName(CardState state) {
+         String name = state.getName();
++        if (changedCardNames.isEmpty()) return name;
+         for (CardChangedName change : this.changedCardNames.values()) {
+             if (change.isOverwrite()) {
+                 name = change.newName();
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityAlternativeCost.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityAlternativeCost.java
+index add35b7..341ed92 100644
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityAlternativeCost.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityAlternativeCost.java
+@@ -19,8 +19,7 @@ public class StaticAbilityAlternativeCost {
+     public static List<SpellAbility> alternativeCosts(final SpellAbility sa, final Card source, final Player pl) {
+         List<SpellAbility> result = Lists.newArrayList();
+         // add source first in case it's LKI (alternate host)
+-        CardCollection list = new CardCollection(source);
+-        list.addAll(source.getGame().getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
++        CardCollection list = collectSources(source);
+         for (final Card ca : list) {
+             for (final StaticAbility stAb : ca.getStaticAbilities()) {
+                 if (!stAb.checkMode(StaticAbilityMode.AlternativeCost)) {
+@@ -101,6 +100,20 @@ public class StaticAbilityAlternativeCost {
+         return result;
+     }
+ 
++    private static CardCollection collectSources(final Card source) {
++        // Build one ordered snapshot directly; avoid constructing and copying an
++        // intermediate aggregate. Source-first identity dedup also preserves LKI.
++        CardCollection list = new CardCollection(source);
++        for (ZoneType zone : ZoneType.STATIC_ABILITIES_SOURCE_ZONES) {
++            if (zone == ZoneType.Stack) {
++                list.addAll(source.getGame().getStackZone().getCards());
++            } else {
++                for (Player player : source.getGame().getPlayers()) list.addAll(player.getCardsIn(zone));
++            }
++        }
++        return list;
++    }
++
+     private static boolean apply(final StaticAbility stAb, final SpellAbility sa, final Card source, final Player pl) {
+         if (!stAb.matchesValidParam("ValidSA", sa)) {
+             return false;
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+index e47dd56..27ce24c 100644
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -20,6 +20,54 @@ import org.testng.Assert;
+ import org.testng.annotations.Test;
+ 
+ public class DragonMindPerformanceTest extends AITest {
++    @Test public void emptyCollectionBulkCopyPreservesOrderAndIndependentMembership() {
++        for (int size : List.of(0, 1, 8, 32, 128)) {
++            FCollection<Integer> source = new FCollection<>(), destination = new FCollection<>();
++            for (int i=0;i<size;i++) source.add(i);
++            Assert.assertEquals(destination.addAll(source),size>0);
++            Assert.assertEquals(new ArrayList<>(destination),new ArrayList<>(source));
++            Assert.assertFalse(destination.addAll(destination));
++            source.add(1000); Assert.assertFalse(destination.contains(1000));
++            if(size>0) {
++                Assert.assertFalse(destination.add(0)); destination.remove(Integer.valueOf(0));
++                Assert.assertFalse(destination.contains(0)); Assert.assertTrue(source.contains(0));
++            }
++            destination.clear();
++            Assert.assertTrue(destination.addAll(source));
++            Assert.assertEquals(new ArrayList<>(destination),new ArrayList<>(source));
++            destination.add(size); Assert.assertEquals(Collections.frequency(new ArrayList<>(destination),size),1);
++        }
++    }
++
++    @Test public void directAlternativeSourcesMatchOriginalSourceFirstSnapshot() throws Exception {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card source=addCardToZone("Grizzly Bears",player,ZoneType.Hand),costHost=addCard("Fist of Suns",player);
++        var sa=source.getFirstSpellAbility();sa.setActivatingPlayer(player);
++        var expected=new forge.game.card.CardCollection(source);
++        expected.addAll(game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
++        var method=forge.game.staticability.StaticAbilityAlternativeCost.class.getDeclaredMethod("collectSources",Card.class);
++        method.setAccessible(true);
++        var direct=(forge.game.card.CardCollection)method.invoke(null,source);
++        Assert.assertEquals(new ArrayList<>(direct),new ArrayList<>(expected));
++        var costs=forge.game.staticability.StaticAbilityAlternativeCost.alternativeCosts(sa,source,player);
++        Assert.assertFalse(costs.isEmpty());Assert.assertEquals(costs.get(0).getPayCosts().getTotalMana().getCMC(),5);
++        game.getAction().moveToGraveyard(costHost,null);
++        Assert.assertTrue(forge.game.staticability.StaticAbilityAlternativeCost.alternativeCosts(sa,source,player).isEmpty());
++        Card original=source;game.getAction().moveToGraveyard(source,null);
++        // The original/LKI-style host remains first even after a zone change.
++        var after=new forge.game.card.CardCollection(original);after.addAll(game.getCardsIn(ZoneType.STATIC_ABILITIES_SOURCE_ZONES));
++        Assert.assertSame(after.get(0),original);
++        Assert.assertEquals(new ArrayList<>((forge.game.card.CardCollection)method.invoke(null,original)),new ArrayList<>(after));
++    }
++
++    @Test public void emptyNameFastPathStillReadsMutableNameEffects() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        Assert.assertEquals(host.getName(),"Grizzly Bears");
++        host.addChangedName("First",false,1L,1L);Assert.assertEquals(host.getName(),"First");
++        host.addChangedName("Second",false,2L,1L);Assert.assertEquals(host.getName(),"Second");
++        host.removeChangedName(2L,1L);Assert.assertEquals(host.getName(),"First");
++        host.clearChangedName();host.setName("Renamed");Assert.assertEquals(host.getName(),"Renamed");
++    }
+     @Test public void combatInspectionRechecksEffectsAndInvalidatesNestedMutations() {
+         var game=initAndCreateGame();var player=game.getPlayers().get(0);
+         Card source=addCard("Grizzly Bears",player),target=addCard("Grizzly Bears",player);

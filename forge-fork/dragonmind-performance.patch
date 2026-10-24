@@ -1,0 +1,361 @@
+diff --git a/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java b/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
+index 73bbdf28..2397972c 100644
+--- a/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
++++ b/forge-game/src/main/java/forge/game/keyword/KeywordCollection.java
+@@ -21,6 +21,16 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+     private final Multimap<Keyword, KeywordInterface> map = MultimapBuilder.hashKeys()
+             .linkedHashSetValues().build();
+ 
++    // Cache membership, not the mutable traits inside each keyword. Live public
++    // collection views disable caching because their later mutations are invisible.
++    private KeywordInterface[] iterationCache;
++    private boolean liveViewExposed;
++    private void membershipChanged() { iterationCache = null; }
++    private KeywordInterface[] members() {
++        if (iterationCache == null) iterationCache = map.values().toArray(new KeywordInterface[0]);
++        return iterationCache;
++    }
++
+     public KeywordCollection() {
+         super();
+     }
+@@ -57,6 +67,7 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         Collection<KeywordInterface> list = map.get(keyword);
+         if (list.isEmpty() || !inst.redundant(list)) {
+             list.add(inst);
++            membershipChanged();
+             return true;
+         }
+         return false;
+@@ -86,6 +97,7 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+             KeywordInterface k = it.next();
+             if (k.getOriginal().startsWith(keyword)) {
+                 it.remove();
++                membershipChanged();
+                 result = true;
+             }
+         }
+@@ -94,11 +106,15 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+     }
+ 
+     public boolean remove(KeywordInterface keyword) {
+-        return map.remove(keyword.getKeyword(), keyword);
++        boolean changed = map.remove(keyword.getKeyword(), keyword);
++        if (changed) membershipChanged();
++        return changed;
+     }
+ 
+     public boolean removeAll(Keyword kenum) {
+-        return !map.removeAll(kenum).isEmpty();
++        boolean changed = !map.removeAll(kenum).isEmpty();
++        if (changed) membershipChanged();
++        return changed;
+     }
+ 
+     public boolean removeAll(Iterable<String> keywords) {
+@@ -115,6 +131,7 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         boolean result = false;
+         for (KeywordInterface k : keywords) {
+             if (map.remove(k.getKeyword(), k)) {
++                membershipChanged();
+                 result = true;
+             }
+         }
+@@ -123,6 +140,7 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+ 
+     public void clear() {
+         map.clear();
++        membershipChanged();
+     }
+ 
+     public boolean contains(String keyword) {
+@@ -145,23 +163,27 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+     }
+ 
+     public Collection<KeywordInterface> getValues() {
++        liveViewExposed = true;
++        membershipChanged();
+         return map.values();
+     }
+ 
+     public Collection<KeywordInterface> getValues(final Keyword keyword) {
++        liveViewExposed = true;
++        membershipChanged();
+         return map.get(keyword);
+     }
+ 
+     public List<String> asStringList() {
+         List<String> result = Lists.newArrayList();
+-        for (KeywordInterface kw : getValues()) {
++        for (KeywordInterface kw : map.values()) {
+             result.add(kw.getOriginal());
+         }
+         return result;
+     }
+ 
+     public KeywordCollectionView getView() {
+-        return new KeywordCollectionView(getValues().stream().map(KeywordInterface::getView).collect(Collectors.toList()));
++        return new KeywordCollectionView(map.values().stream().map(KeywordInterface::getView).collect(Collectors.toList()));
+     }
+ 
+     public void setHostCard(final Card host) {
+@@ -186,8 +208,10 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         if (map.isEmpty()) {
+             return list;
+         }
+-        for (KeywordInterface k : getValues()) {
+-            k.applySpellAbility(list);
++        if (liveViewExposed) {
++            for (KeywordInterface k : map.values()) k.applySpellAbility(list);
++        } else {
++            for (KeywordInterface k : members()) k.applySpellAbility(list);
+         }
+         return list;
+     }
+@@ -196,8 +220,10 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         if (map.isEmpty()) {
+             return list;
+         }
+-        for (KeywordInterface k : getValues()) {
+-            k.applyTrigger(list);
++        if (liveViewExposed) {
++            for (KeywordInterface k : map.values()) k.applyTrigger(list);
++        } else {
++            for (KeywordInterface k : members()) k.applyTrigger(list);
+         }
+         return list;
+     }
+@@ -206,8 +232,10 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         if (map.isEmpty()) {
+             return list;
+         }
+-        for (KeywordInterface k : getValues()) {
+-            k.applyReplacementEffect(list);
++        if (liveViewExposed) {
++            for (KeywordInterface k : map.values()) k.applyReplacementEffect(list);
++        } else {
++            for (KeywordInterface k : members()) k.applyReplacementEffect(list);
+         }
+         return list;
+     }
+@@ -218,15 +246,17 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+         if (map.isEmpty()) {
+             return list;
+         }
+-        for (KeywordInterface k : getValues()) {
+-            k.applyStaticAbility(list);
++        if (liveViewExposed) {
++            for (KeywordInterface k : map.values()) k.applyStaticAbility(list);
++        } else {
++            for (KeywordInterface k : members()) k.applyStaticAbility(list);
+         }
+         return list;
+     }
+     @Override
+     public KeywordCollection copy(Card host, boolean lki) {
+         KeywordCollection result = new KeywordCollection();
+-        for (KeywordInterface ki : getValues()) {
++        for (KeywordInterface ki : map.values()) {
+             result.insert(ki.copy(host, lki));
+         }
+         return result;
+@@ -240,6 +270,11 @@ public class KeywordCollection implements ICardTraitChanges, Iterable<KeywordInt
+ 
+     @Override
+     public Iterator<KeywordInterface> iterator() {
+-        return this.map.values().iterator();
++        final Iterator<KeywordInterface> delegate = map.values().iterator();
++        return new Iterator<KeywordInterface>() {
++            public boolean hasNext() { return delegate.hasNext(); }
++            public KeywordInterface next() { return delegate.next(); }
++            public void remove() { delegate.remove(); membershipChanged(); }
++        };
+     }
+ }
+diff --git a/forge-game/src/main/java/forge/game/mulligan/AbstractMulligan.java b/forge-game/src/main/java/forge/game/mulligan/AbstractMulligan.java
+index 4f50baee..7ec5f227 100644
+--- a/forge-game/src/main/java/forge/game/mulligan/AbstractMulligan.java
++++ b/forge-game/src/main/java/forge/game/mulligan/AbstractMulligan.java
+@@ -36,7 +36,7 @@ public abstract class AbstractMulligan {
+         for (final Card c : toMulligan) {
+             player.getGame().getAction().moveToLibrary(c, null);
+         }
+-        try {
++        if (!player.getGame().isNoGUIUser()) try {
+             Thread.sleep(100);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+@@ -64,4 +64,4 @@ public abstract class AbstractMulligan {
+     public void afterMulligan() {
+         player.getGame().fireEvent(new GameEventAddLog(GameLogEntryType.MULLIGAN, Localizer.getInstance().getMessage("lblPlayerKeepNCardsHand", player.getName(), String.valueOf(player.getZone(ZoneType.Hand).size()))));
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java
+index dae24312..a2f1a3be 100644
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java
+@@ -1015,6 +1015,21 @@ public final class StaticAbilityContinuous {
+ 
+         final String[] strngs = params.get("Affected").split(",");
+ 
++        // Player.isValid rejects every other inclusive type. Most continuous
++        // abilities affect cards only: do not scan every static source to work
++        // out turn direction when no player could possibly match.
++        boolean canAffectPlayers = false;
++        for (String restriction : strngs) {
++            int dot = restriction.indexOf('.');
++            String inclusive = dot < 0 ? restriction : restriction.substring(0, dot);
++            if (inclusive.equals("Player") || inclusive.equals("Opponent")
++                    || inclusive.equals("You") || inclusive.equals("Any")) {
++                canAffectPlayers = true;
++                break;
++            }
++        }
++        if (!canAffectPlayers) return players;
++
+         for (Player p : controller.getGame().getPlayersInTurnOrder()) {
+             if (p.isValid(strngs, controller, hostCard, stAb)) {
+                 players.add(p);
+diff --git a/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java b/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java
+index bea65799..92635f4b 100644
+--- a/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java
++++ b/forge-gui-desktop/src/main/java/forge/view/SimulateMatch.java
+@@ -172,6 +172,17 @@ public class SimulateMatch {
+ 
+         System.out.println(sb);
+ 
++        if (params.containsKey("seeds")) {
++            if (matchSize != 0 || params.containsKey("t")) {
++                throw new IllegalArgumentException("DragonMind seed batches require independent games");
++            }
++            for (String value : params.get("seeds")) {
++                long gameSeed = Long.parseLong(value);
++                MyRandom.setRandom(new Random(gameSeed));
++                if (!simulateSingleMatch(new Match(rules, pp, "DragonMind"), 0, outputGamelog, gameSeed)) return;
++            }
++            return;
++        }
+         Match mc = new Match(rules, pp, "Test");
+ 
+         if (matchSize != 0) {
+@@ -208,8 +219,13 @@ public class SimulateMatch {
+     }
+ 
+     public static void simulateSingleMatch(final Match mc, int iGame, boolean outputGamelog) {
++        simulateSingleMatch(mc, iGame, outputGamelog, null);
++    }
++
++    private static boolean simulateSingleMatch(final Match mc, int iGame, boolean outputGamelog, Long seed) {
+         final StopWatch sw = new StopWatch();
+         sw.start();
++        String failure = null;
+ 
+         final Game g1 = mc.createGame();
+         g1.setNoGUIUser();
+@@ -220,14 +236,18 @@ public class SimulateMatch {
+                 sw.stop();
+             }, mc.getRules().getSimTimeout(), TimeUnit.SECONDS);
+         } catch (TimeoutException e) {
++            failure = "timeout";
+             System.out.println("Stopping slow match as draw");
+         } catch (Exception | StackOverflowError e) {
++            failure = "engine_error";
+             e.printStackTrace();
+         } finally {
+             if (sw.isStarted()) {
+                 sw.stop();
+             }
+-            g1.setGameOver(GameEndReason.Draw);
++            // A forced GameOver can fabricate winners for an interrupted game.
++            // Failed batches terminate here; only completed games get outcomes.
++            if (failure == null && !g1.isGameOver()) g1.setGameOver(GameEndReason.Draw);
+         }
+ 
+         List<GameLogEntry> log;
+@@ -241,12 +261,25 @@ public class SimulateMatch {
+             System.out.println(l);
+         }
+ 
++        if (seed != null) {
++            com.google.gson.JsonObject result = new com.google.gson.JsonObject();
++            result.addProperty("seed", seed);
++            result.addProperty("engine_ms", sw.getTime());
++            result.addProperty("last_logged_turn", g1.getPhaseHandler().getTurn());
++            result.addProperty("status", failure != null ? failure : g1.getOutcome().isDraw() ? "completed_draw" : "completed");
++            if (failure == null && !g1.getOutcome().isDraw()) result.addProperty("winner", g1.getOutcome().getWinningLobbyPlayer().getName());
++            else result.add("winner", com.google.gson.JsonNull.INSTANCE);
++            System.out.println("DragonMind Result: " + result);
++        }
++        if (failure != null) return false;
++
+         // If both players life totals to 0 in a single turn, the game should end in a draw
+         if (g1.getOutcome().isDraw()) {
+             System.out.printf("\nGame Result: Game %d ended in a Draw! Took %d ms.%n", 1 + iGame, sw.getTime());
+         } else {
+             System.out.printf("\nGame Result: Game %d ended in %d ms. %s has won!\n%n", 1 + iGame, sw.getTime(), g1.getOutcome().getWinningLobbyPlayer().getName());
+         }
++        return true;
+     }
+ 
+     private static void simulateTournament(Map<String, List<String>> params, GameRules rules, boolean outputGamelog) {
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+new file mode 100644
+--- /dev/null
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -0,0 +1,54 @@
++package forge.ai;
++
++import forge.game.card.Card;
++import forge.game.keyword.KeywordCollection;
++import forge.game.keyword.KeywordInterface;
++import forge.game.staticability.StaticAbility;
++import forge.game.staticability.StaticAbilityContinuous;
++import java.util.*;
++import org.testng.Assert;
++import org.testng.annotations.Test;
++
++public class DragonMindPerformanceTest extends AITest {
++    private StaticAbility trait(Card host, String affected) {
++        return StaticAbility.create("Mode$ Continuous | Affected$ "+affected+" | AddPower$ 1",host,host.getCurrentState(),true);
++    }
++    private List<StaticAbility> applied(KeywordCollection collection) {
++        return collection.applyStaticAbility(new ArrayList<>());
++    }
++    @Test public void membershipAndMutableTraitsStayCurrent() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        KeywordCollection keywords=new KeywordCollection();KeywordInterface flying=keywords.add("Flying");
++        Assert.assertTrue(applied(keywords).isEmpty());
++        StaticAbility first=trait(host,"Creature");flying.addStaticAbility(first);
++        Assert.assertEquals(applied(keywords),List.of(first));
++        KeywordInterface haste=keywords.add("Haste");StaticAbility second=trait(host,"Creature.YouCtrl");haste.addStaticAbility(second);
++        Assert.assertEquals(new HashSet<>(applied(keywords)),Set.of(first,second));
++        keywords.removeInstances(List.of(flying));Assert.assertEquals(applied(keywords),List.of(second));
++        keywords.clear();Assert.assertTrue(applied(keywords).isEmpty());
++    }
++    @Test public void retainedLiveViewMutationsRemainVisible() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        KeywordCollection keywords=new KeywordCollection();KeywordInterface flying=keywords.add("Flying");
++        flying.addStaticAbility(trait(host,"Creature"));var live=keywords.getValues();
++        Assert.assertEquals(applied(keywords).size(),1);live.remove(flying);
++        Assert.assertTrue(applied(keywords).isEmpty());
++        keywords.insert(flying);Assert.assertEquals(applied(keywords).size(),1);
++        live.clear();Assert.assertTrue(applied(keywords).isEmpty());
++    }
++    @Test public void iteratorRemovalInvalidatesMembership() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        KeywordCollection keywords=new KeywordCollection();keywords.add("Flying").addStaticAbility(trait(host,"Creature"));
++        Assert.assertEquals(applied(keywords).size(),1);var iterator=keywords.iterator();iterator.next();iterator.remove();
++        Assert.assertTrue(applied(keywords).isEmpty());
++    }
++    @Test public void playerEffectsStillSelectValidPlayers() throws Exception {
++        var game=initAndCreateGame();var controller=game.getPlayers().get(0);Card host=addCard("Grizzly Bears",controller);
++        var method=StaticAbilityContinuous.class.getDeclaredMethod("getAffectedPlayers",StaticAbility.class);method.setAccessible(true);
++        for(String restriction:List.of("Player","You","Opponent","Any","Creature","Card.Player","Creature,Player")) {
++            var expected=new ArrayList<>();
++            for(var player:game.getPlayersInTurnOrder())if(player.isValid(restriction.split(","),controller,host,null))expected.add(player);
++            Assert.assertEquals(method.invoke(null,trait(host,restriction)),expected,restriction);
++        }
++    }
++}

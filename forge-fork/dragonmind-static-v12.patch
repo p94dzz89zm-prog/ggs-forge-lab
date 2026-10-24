@@ -1,0 +1,104 @@
+diff --git a/forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java b/forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java
+--- a/forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java
++++ b/forge-game/src/main/java/forge/game/staticability/StaticAbilityContinuous.java
+@@ -1078,21 +1078,32 @@
+             }
+         }
+ 
++        final CardCollectionView zoneCards;
+         if (stAb.hasParam("AffectedDefined")) {
+-            affectedCards.addAll(definedCards);
++            zoneCards = definedCards;
+         } else if (stAb.hasParam("AffectedZone")) {
+-            affectedCards.addAll(game.getCardsIn(ZoneType.listValueOf(stAb.getParam("AffectedZone"))));
++            zoneCards = game.getCardsIn(ZoneType.listValueOf(stAb.getParam("AffectedZone")));
+         } else {
+-            affectedCards.addAll(game.getCardsIn(ZoneType.Battlefield));
++            zoneCards = game.getCardsIn(ZoneType.Battlefield);
++        }
++        // With no selected hypothetical cards, filter the zone collection directly.
++        // Otherwise union first: an invalid LKI still takes precedence over a valid
++        // same-id live card. Always return independently owned result membership.
++        final CardCollectionView candidates;
++        if (affectedCards.isEmpty()) {
++            candidates = zoneCards;
++        } else {
++            affectedCards.addAll(zoneCards);
++            candidates = affectedCards;
+         }
+         if (stAb.hasParam("Affected")) {
+             // Handle Shaman's Trance
+             CardCollection affectedCardsOriginal = null;
+             if (controller.hasKeyword("Shaman's Trance") && stAb.hasParam("MayPlay")) {
+-                affectedCardsOriginal = new CardCollection(affectedCards);
+-            }
+-
+-            affectedCards = CardLists.getValidCards(affectedCards, stAb.getParam("Affected"), controller, hostCard, stAb);
++                affectedCardsOriginal = new CardCollection(candidates);
++            }
++
++            affectedCards = CardLists.getValidCards(candidates, stAb.getParam("Affected"), controller, hostCard, stAb);
+ 
+             // Add back all cards that are in other player's graveyard, and meet the restrictions without YouOwn/YouCtrl (treat it as in your graveyard)
+             if (affectedCardsOriginal != null) {
+@@ -1106,6 +1117,8 @@
+                     }
+                 }
+             }
++        } else if (candidates != affectedCards) {
++            affectedCards = new CardCollection(candidates);
+         }
+ 
+         affectedCards.removeAll(stAb.getIgnoreEffectCards());
+diff --git a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+--- a/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
++++ b/forge-gui-desktop/src/test/java/forge/ai/DragonMindPerformanceTest.java
+@@ -608,4 +608,48 @@
+         }
+     }
+ 
++    @Test public void affectedCardsResultsOwnMembershipAndRespectIgnoredCards() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);
++        Card host=addCardToZone("Grizzly Bears",player,ZoneType.Hand);
++        player.getZone(ZoneType.Hand).remove(host);game.getStackZone().add(host);
++        for(String affected:List.of("", " | Affected$ Creature")) {
++            var ability=new StaticAbility("Mode$ Continuous | AffectedZone$ Stack | AddPower$ 1"+affected,host,host.getCurrentState());
++            var result=StaticAbilityContinuous.getAffectedCards(ability,forge.game.card.CardCollection.EMPTY);
++            Assert.assertTrue(result.contains(host));
++            ((forge.game.card.CardCollection)result).clear();
++            Assert.assertTrue(game.getCardsIn(ZoneType.Stack).contains(host));
++            ability.setIgnoreEffectCards(new forge.game.card.CardCollection(host));
++            Assert.assertTrue(StaticAbilityContinuous.getAffectedCards(ability,forge.game.card.CardCollection.EMPTY).isEmpty());
++            Assert.assertTrue(game.getCardsIn(ZoneType.Stack).contains(host));
++        }
++    }
++    @Test public void affectedCardsRejectInvalidHypotheticalBeforeSameIdLiveCard() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        var virtual=forge.game.card.CardCopyService.getLKICopy(host);
++        var type=new forge.card.CardType(false);type.add("Artifact");virtual.getCurrentState().setType(type);
++        var ability=new StaticAbility("Mode$ Continuous | Affected$ Creature | AddPower$ 1",host,host.getCurrentState());
++        Assert.assertTrue(StaticAbilityContinuous.getAffectedCards(ability,new forge.game.card.CardCollection(virtual)).isEmpty());
++        Assert.assertTrue(StaticAbilityContinuous.getAffectedCards(ability,forge.game.card.CardCollection.EMPTY).contains(host));
++    }
++    @Test public void affectedDefinedKeepsVirtualPriorityAndOwnedResult() {
++        var game=initAndCreateGame();Card host=addCard("Grizzly Bears",game.getPlayers().get(0));
++        var virtual=forge.game.card.CardCopyService.getLKICopy(host);
++        var ability=new StaticAbility("Mode$ Continuous | AffectedDefined$ Self | AddPower$ 1",host,host.getCurrentState());
++        var result=StaticAbilityContinuous.getAffectedCards(ability,new forge.game.card.CardCollection(virtual));
++        Assert.assertEquals(result.size(),1);Assert.assertSame(result.get(0),virtual);
++        ((forge.game.card.CardCollection)result).clear();
++        Assert.assertSame(StaticAbilityContinuous.getAffectedCards(ability,forge.game.card.CardCollection.EMPTY).get(0),host);
++    }
++    @Test public void affectedCardsPreserveShamansTranceOpponentGraveyardAccess() {
++        var game=initAndCreateGame();var player=game.getPlayers().get(0);var other=game.getPlayers().get(1);
++        Card host=addCard("Grizzly Bears",player),own=addCardToZone("Grizzly Bears",player,ZoneType.Graveyard);
++        Card opposing=addCardToZone("Grizzly Bears",other,ZoneType.Graveyard);
++        player.addChangedKeywords(List.of("Shaman's Trance"),null,game.getNextTimestamp(),0);
++        var ability=new StaticAbility("Mode$ Continuous | AffectedZone$ Graveyard | Affected$ Creature.YouOwn | MayPlay$ True",host,host.getCurrentState());
++        var result=StaticAbilityContinuous.getAffectedCards(ability,forge.game.card.CardCollection.EMPTY);
++        Assert.assertEquals(new ArrayList<>(result),List.of(own,opposing));
++        player.addChangedKeywords(null,List.of("Shaman's Trance"),game.getNextTimestamp(),1);
++        Assert.assertEquals(new ArrayList<>(StaticAbilityContinuous.getAffectedCards(ability,forge.game.card.CardCollection.EMPTY)),List.of(own));
++    }
++
+ }
