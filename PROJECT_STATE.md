@@ -1,5 +1,15 @@
 # DragonMind source-only recovery
 
+Stage59: four unchanged prospective decks bind to original bytes, full canonical
+Oracle records, primary rules/ban sources and exact house configuration.329
+selected records match the38,976-record frozen public catalog; construction
+checks recompute independently.418Python tests pass. Diagnostic launch is now
+separate from complete certification; missing universal rule coverage does not
+prevent collecting a bounded natural game. No new game in this milestone.
+Level1relative to frozen snapshot; Level2opening still pending. Stage47/48,
+replay466/1790conditional and all historical evidence unchanged.
+See STAGE59_CANONICAL_BINDING.md.
+
 Stage58: prospective native observer captures actual shuffle inputs/permutations,
 RNG bits, starting-player selection and mulligan transcript. Two constructed
 capture fixtures complete, each independently matching393RNG requests,4shuffles

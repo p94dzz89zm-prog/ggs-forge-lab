@@ -139,7 +139,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "88083205ffee7919b689db626df9ea0cd1efd4d01fcd1bbb5c41879391bb04ac"
+      "sha256": "73dcb76ba1558a85208e9e199673377006507ad5e14dc9ca9695fb90a12e025c"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -190,6 +190,10 @@
     "STAGE58_PROSPECTIVE_CAPTURE.md": {
       "sha256": "6d4db3efee63f7bb7630266c1a10e9400468a031ef4533bcbb484bd7934fba80",
       "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
+    },
+    "STAGE59_CANONICAL_BINDING.md": {
+      "sha256": "08398104e765403af448ec5ed487c3c13d284897eeca8d89d126166a71f967af",
+      "source_commit": "Stage59 immutable canonical deck and rules binding"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -2043,8 +2047,12 @@
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "cdac86adcb192803838f2c7883e694b7f982d38f19f85458c6d8c18f43cc8201"
     },
+    "prospective_binding.py": {
+      "sha256": "d82e1c8f43aeef449d0345ab1215ca92285283cd63eafe6a5c33ef96bd3109ab",
+      "source_commit": "Stage59 immutable canonical deck and rules binding"
+    },
     "prospective_certification.py": {
-      "sha256": "01deb2f6c7194167068130412db0c902b0e590d562c94d1635d5cab0fae079a3",
+      "sha256": "3a8e3d878b539c3d98bb793159c583c90580d6f71ec637273cfd581fa8b39622",
       "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
     },
     "prospective_opening_audit.py": {
@@ -2436,6 +2444,10 @@
     "test_profile_natural_game.py": {
       "origin": "source-only recovery source or safe operational documentation",
       "sha256": "c029e465fae951dc688f4a4f69542e21725ddb284fcac168e4634ad4340cf000"
+    },
+    "test_prospective_binding.py": {
+      "sha256": "5d77f9cbd02e06521b5d4a08b087f258c70132e576ec800098fa9fc9f236d99f",
+      "source_commit": "Stage59 immutable canonical deck and rules binding"
     },
     "test_prospective_certification.py": {
       "sha256": "3056ceee19ca33dde50e101a187be82b3bd54b602a8e6b97d127b2ef808ff837",

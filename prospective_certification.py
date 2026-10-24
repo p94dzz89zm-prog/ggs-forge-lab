@@ -29,3 +29,15 @@ def gate(configuration):
                           'Complete engine-generated legal alternatives not yet captured',
                           'General independent action/effect/SBA/terminal derivation not implemented'],
                 training_eligible=False)
+
+
+def diagnostic_gate(configuration,binding_report,engine_sha256,expected_engine_sha256):
+    """Permit evidence collection without pretending full rules coverage exists."""
+    errors=gate(configuration)['configuration_errors']
+    if binding_report.get('construction_checks_passed') is not True or binding_report.get('decks_verified')!=4:
+        errors.append('Four independently revalidated bound decks required')
+    if binding_report.get('configuration')!=configuration:errors.append('Binding/configuration mismatch')
+    if not expected_engine_sha256 or engine_sha256!=expected_engine_sha256:errors.append('Exact verified capture runtime required')
+    return dict(can_launch_natural_diagnostic=not errors,errors=errors,opening_certified=False,
+                complete_game_certified=False,training_eligible=False,
+                audit_policy='Certify only from recorded opening; stop contiguous approval at first unsupported causal transition. Preserve complete diagnostic even when certification stops.')
