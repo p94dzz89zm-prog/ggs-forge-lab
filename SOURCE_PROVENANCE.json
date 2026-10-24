@@ -139,7 +139,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "b6f4f0726843066cdb13462fc6c089824f1937b2be1506722341b54bdbebd041"
+      "sha256": "826fa33bff10926322d0e806e314b1971b72265240ce34a50e5345078543dd1d"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -198,6 +198,10 @@
     "STAGE60_NATURAL_GAME.md": {
       "sha256": "a07933cbafdff38d14c3dd47a9a39090719c038e2054046ad91adf0bc557f42c",
       "source_commit": "Stage60 natural prospective diagnostic evidence report"
+    },
+    "STAGE60_SAVE_HOLD.md": {
+      "sha256": "91dda722719fa487932f45af8aef910304dad7208d7288121e635d225903b7ff",
+      "source_commit": "Stage60 recovery status after unknown checkpoint-write outcome"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",

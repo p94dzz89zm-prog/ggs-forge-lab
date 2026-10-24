@@ -1,5 +1,13 @@
 # DragonMind source-only recovery
 
+Stage60 persistence hold: the completed natural diagnostic is sealed locally,
+but its private checkpoint/certification update returned a read timeout without
+per-item receipts. Remote outcome unknown; no automatic retry or direct-write
+fallback. Last verified durable checkpoint is Stage59. Further expensive work
+paused under AGENTS.md pending reconciliation and saved-archive hash/restore
+verification. No opening/prefix certification was granted. Preserve all source,
+raw evidence and reservations. See STAGE60_SAVE_HOLD.md.
+
 Stage60: one prospective natural four-player house diagnostic completed on turn39
 with fresh outcome-independent seed1636655748. Exact four-deck/rules binding,
 runtime8aed303, policies, resource hashes and argv frozen before launch; all
