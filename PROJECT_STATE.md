@@ -1,5 +1,15 @@
 # DragonMind source-only recovery
 
+Stage60: one prospective natural four-player house diagnostic completed on turn39
+with fresh outcome-independent seed1636655748. Exact four-deck/rules binding,
+runtime8aed303, policies, resource hashes and argv frozen before launch; all
+inputs unchanged afterward. Engine30.711s/outer36.630s. Full referee, all-seat,
+decision and setup captures preserved. Five actual shuffles, one house mulligan,
+first upkeep priority observed; independent opening certification next.418Python
+tests/native preflight pass; capture-source hostedCI passed. No independent game
+approvals/training or full deterministic rerun. Replay466/1790conditional and
+Stage47/48 untouched. See STAGE60_NATURAL_GAME.md.
+
 Stage59: four unchanged prospective decks bind to original bytes, full canonical
 Oracle records, primary rules/ban sources and exact house configuration.329
 selected records match the38,976-record frozen public catalog; construction

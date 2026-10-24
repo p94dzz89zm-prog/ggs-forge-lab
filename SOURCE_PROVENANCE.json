@@ -139,7 +139,7 @@
     },
     "PROJECT_STATE.md": {
       "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "73dcb76ba1558a85208e9e199673377006507ad5e14dc9ca9695fb90a12e025c"
+      "sha256": "b6f4f0726843066cdb13462fc6c089824f1937b2be1506722341b54bdbebd041"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -194,6 +194,10 @@
     "STAGE59_CANONICAL_BINDING.md": {
       "sha256": "08398104e765403af448ec5ed487c3c13d284897eeca8d89d126166a71f967af",
       "source_commit": "Stage59 immutable canonical deck and rules binding"
+    },
+    "STAGE60_NATURAL_GAME.md": {
+      "sha256": "a07933cbafdff38d14c3dd47a9a39090719c038e2054046ad91adf0bc557f42c",
+      "source_commit": "Stage60 natural prospective diagnostic evidence report"
     },
     "STRUCTURED_WRITER_VALIDATION.md": {
       "origin": "source-only recovery source or safe operational documentation",
