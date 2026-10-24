@@ -1003,6 +1003,10 @@
       "sha256": "bcbd3c7acd1bb7b5f0c1585ab65bcc2a0f5239e08fdd311630f8bd10ca050afe",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/ProspectiveDecisionInstrumenter.java": {
+      "sha256": "51528137d7aceb5c35c1f3016f9e89e9859279acbb918f4219fc413431a59f5f",
+      "source_commit": "Stage60 observational opening priority and decision-offer capture"
+    },
     "forge-fork/ProspectiveOpeningInstrumenter.java": {
       "sha256": "87d904498cdb5627e85f8438ec2210dc4cac667d197a57c8023fb82d1680e079",
       "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
@@ -1469,6 +1473,10 @@
       "sha256": "bd0cf1faff2ab77b714038ac37d9e118a7e19385dcff59478119b6188a79a74f",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/build_prospective_decisions.py": {
+      "sha256": "714f516e7bc447a8db60b1ca63828fe347916123f416d05b1820ef39bc982336",
+      "source_commit": "Stage60 observational opening priority and decision-offer capture"
+    },
     "forge-fork/build_prospective_opening.py": {
       "sha256": "8294b57dadb1cddbae33d21f761d553c4bcc0aacf86a93232f1c3bb530cb3ffc",
       "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
@@ -1723,8 +1731,12 @@
       "sha256": "ab59a3f0235ce27fe84223bf7f0e470dc503943ab958c1bd217daba986523213",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "forge-fork/pilot-src/forge/ai/bridge/ProspectiveDecisionEvidence.java": {
+      "sha256": "c34bd986bcddbeeff108120105e3a122569a773e88fc7e68757c49550f2f5779",
+      "source_commit": "Stage60 observational opening priority and decision-offer capture"
+    },
     "forge-fork/pilot-src/forge/ai/bridge/ProspectiveOpeningEvidence.java": {
-      "sha256": "1af7d6228508581618fe5ee539a99b7f925d91a259cee99e58f03aada5ce65ff",
+      "sha256": "e322c28aaa20614dc19ed6dfc1af123877db5c6e606fae9f81453ffa10fed88f",
       "source_commit": "Stage58 prospective observer and independent mathematical setup audit"
     },
     "forge-fork/pilot-src/forge/ai/bridge/ReadinessTrace.java": {

@@ -13,6 +13,7 @@ public final class ProspectiveOpeningEvidence {
     private record Call(String hook, Game game, Object receiver) {}
     private static final Map<Long, Call> calls = new LinkedHashMap<>();
     private static long next;
+    private static boolean closed;
     private ProspectiveOpeningEvidence() {}
     private static Object field(Object obj, String name) {
         try { var f=obj.getClass().getDeclaredField(name); f.setAccessible(true); return f.get(obj); }
@@ -50,13 +51,15 @@ public final class ProspectiveOpeningEvidence {
             for(ZoneType zone:ZoneType.values()){
                 JsonArray cards=new JsonArray();for(Card c:p.getCardsIn(zone,false)){
                     JsonObject card=new JsonObject();card.addProperty("id",c.getId());card.addProperty("name",c.getName());
-                    card.addProperty("owner",c.getOwner().getId());card.addProperty("commander",c.isCommander());cards.add(card);
+                    card.addProperty("owner",c.getOwner().getId());card.addProperty("commander",c.isCommander());
+                    card.addProperty("immutable",c.isImmutable());card.addProperty("token",c.isToken());
+                    card.addProperty("actual_zone",c.getZone()==null?null:c.getZone().getZoneType().name());cards.add(card);
                 }seat.add(zone.name(),cards);
             }players.add(seat);
         }out.add("players",players);return out;
     }
     public static synchronized long enter(String hook,Object receiver,Object[] args){
-        if(System.getProperty("dragonmind.prospectiveOpening")==null)return 0;
+        if(System.getProperty("dragonmind.prospectiveOpening")==null||closed)return 0;
         Game game=game(receiver);long id=++next;calls.put(id,new Call(hook,game,receiver));
         JsonObject row=new JsonObject();row.addProperty("kind","opening_call");row.addProperty("call_id",id);row.addProperty("hook",hook);
         row.add("state",state(game));
@@ -72,12 +75,19 @@ public final class ProspectiveOpeningEvidence {
         row.addProperty("hook",call.hook);row.add("result",value(result));row.add("state",state(call.game));write(row);
     }
     public static synchronized void generated(Player player,Iterable<Card> cards){
-        if(System.getProperty("dragonmind.prospectiveOpening")==null)return;
+        if(System.getProperty("dragonmind.prospectiveOpening")==null||closed)return;
         JsonObject row=new JsonObject();row.addProperty("kind","shuffle_generated");row.addProperty("player_id",player.getId());
         row.add("order",value(cards));write(row);
     }
     public static synchronized void random(int bits,int result){
-        if(System.getProperty("dragonmind.prospectiveOpening")==null)return;
+        if(System.getProperty("dragonmind.prospectiveOpening")==null||closed)return;
         JsonObject row=new JsonObject();row.addProperty("kind","opening_random_bits");row.addProperty("bits",bits);row.addProperty("value",result);write(row);
+    }
+    public static synchronized void priorityEvent(Game game,Object event){
+        if(System.getProperty("dragonmind.prospectiveOpening")==null||closed||!(event instanceof forge.game.event.GameEventPlayerPriority))return;
+        JsonObject row=new JsonObject();row.addProperty("kind","opening_priority");row.add("state",state(game));
+        var phase=game.getPhaseHandler();row.addProperty("turn",phase.getTurn());row.addProperty("phase",String.valueOf(phase.getPhase()));
+        row.add("active_player",value(phase.getPlayerTurn()));row.add("priority_player",value(phase.getPriorityPlayer()));
+        row.addProperty("stack_empty",game.getStack().isEmpty());row.addProperty("open_capture_calls",calls.size());write(row);closed=true;
     }
 }
