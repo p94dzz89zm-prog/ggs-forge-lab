@@ -1,3 +1,7 @@
+# Independent pilot milestone 1
+
+Four separate policy processes executed 22 verified native opening declarations across two distinct four-deck deals. Each deal regenerated four byte-identical per-seat decision journals on repeat. A single manually configured comparison pilot used all three free redraws while its peers' journals matched their originals. Seeded orders, final seven-card hands, both legal declaration alternatives and acting-hand feature summaries were checked. The natural-game reliability track and prior evidence retain their separate authority. No game outcome, training admission, learned strength, promotion or new whole-game certification resulted. See INDEPENDENT_PILOTS.md. Next verify one non-opening legal-action window and its alternative resolutions before broadening the policy.
+
 # DragonMind source-only recovery
 
 Stage60 persistence hold: the completed natural diagnostic is sealed locally,

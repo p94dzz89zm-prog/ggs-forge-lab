@@ -107,6 +107,10 @@
       "origin": "Stage50 independent payment transaction audit source",
       "sha256": "878eca79d0c5efd981ac1210444f5cd0db9a45a11e4e98dec2a73098a8c27a6d"
     },
+    "INDEPENDENT_PILOTS.md": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "f64bf841596a9634435881e353578a80a75b95f0858b4ad4ef3fccacc0566fc6"
+    },
     "LICENSE": {
       "original_blob": "791b7c468ecdd09e0ffc8c83baba4c72ff00cda0",
       "original_sha256": "15f5f93a6ae1c8750e9c6fff3bf355f9a8375288491c205e72d8b09f62259c05",
@@ -138,8 +142,8 @@
       "sha256": "c5730a0d907fda3e0005134bea5ae7af7dd9bc3269f9e4da042be7c53cbaa94b"
     },
     "PROJECT_STATE.md": {
-      "origin": "source-only recovery source or safe operational documentation",
-      "sha256": "826fa33bff10926322d0e806e314b1971b72265240ce34a50e5345078543dd1d"
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "19698b7242a52fb04907141192b6c4fddefbf900164323a8838cd91edb90b68d"
     },
     "README.md": {
       "origin": "source-only recovery source or safe operational documentation",
@@ -2045,6 +2049,62 @@
       "sha256": "790003788315507579f8016b5fcd6cfec0f0d32d54210509a8ef7deef8464695",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "pilot_m1/IndependentOpening.java": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "eae226513d76f7ab7882c9e5886aff7257450cd302b783b4346be078b15b4a38"
+    },
+    "pilot_m1/Install.java": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "211b36d8d8a05bc681c369a213cf24f118d3c8385f567123a840abac4543be8c"
+    },
+    "pilot_m1/__init__.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "2072301839923f3953f515e73882dc8ea9a909222bae26716b19f7c7fe0a4791"
+    },
+    "pilot_m1/benchmark.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "1b91624beffb7d8187bd6d2cde2de0d7a159c4a21663d95a54bb7492e979a3d7"
+    },
+    "pilot_m1/build.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "3e231525a1d651075156e99f48ad5b2e2ec076650260f3672b6e1bc99f1aac16"
+    },
+    "pilot_m1/fixture.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "529f2df61f60984510dd9cb85cfd5063c1e7a7721188403e8ec35f186c1acd7b"
+    },
+    "pilot_m1/lesson.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "b21e25c1b57f2f55aa3d6c591b49e0be3b4f8a2f95d0db9fe1d1ccf5d2a94440"
+    },
+    "pilot_m1/native.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "e217bac68462c532a26df860f71fad81c691d84aa696e3bb20001683ab68418c"
+    },
+    "pilot_m1/opening_audit.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "69e0ebadf9bfa3a0ab2e39591582762f79fadc0af580419ecfb24552e55835be"
+    },
+    "pilot_m1/policy.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "368368e78f732155f5329a9e6b291c9276b9bdd1c959e19a53454d61ba5b0c12"
+    },
+    "pilot_m1/recheck.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "16bfe389c9da6d9b9d25d4843b14bd15a6b213b3719a9428ad710bc8b9b973d9"
+    },
+    "pilot_m1/references.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "3f32efce335bd887f28f48016782f965bdfd4ad49416f0fccb805f80e78c87a5"
+    },
+    "pilot_m1/worker_main.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "2e2538be183d029319de16e47088eabb3cc1d5bcf6abb4334c133c6d3f69484c"
+    },
+    "pilot_m1/workers.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "3f6f0cf5c10bd9a7591bb60136a13ae6e90ce86467be94146b3a13058f08e862"
+    },
     "policy_search.py": {
       "original_blob": "eba68e4f706d9fc829169f2c371fe3116a13eacf",
       "original_sha256": "f925fedc28840ff04a66d5e0300949c8579f4fb924922b304f304e95032b7a5a",
@@ -2313,6 +2373,10 @@
       "sha256": "d0da89b24173c4bdf517aab813a0246c99ce95287302673ae4be0ff8e4e3a4a8",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
     },
+    "test_independent_opening_pilots.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "85856c28157d4d296bf9684541e7042054528cfa8287153a3ac2e898d1c41809"
+    },
     "test_initial_land_replay.py": {
       "original_blob": "31773f173d66c891795a3307b101afc0d7a319fb",
       "original_sha256": "1e725d6b05491fd6af209cf32f7b18f2a2a0a92f834dd330290782028b052f21",
@@ -2436,6 +2500,10 @@
       "original_sha256": "ce56f86638e41dae1cc40395a7f4da5e8b66f75c86600deced7005b4dfdde5a4",
       "sha256": "ce56f86638e41dae1cc40395a7f4da5e8b66f75c86600deced7005b4dfdde5a4",
       "source_commit": "bdfcc89702c8d9a73dcbe9e917735f616e3d6532"
+    },
+    "test_pilot_opening_evidence.py": {
+      "origin": "Independent opening pilot milestone source, tests or documentation",
+      "sha256": "b8b0cf7263a2cfbc7179815ebfd4397faa25ed5dca23adc38bf642bcaaf2d2c5"
     },
     "test_plain_spell_replay.py": {
       "original_blob": "e4788813f479e7d01864d152c7bdfb4378c910dd",
